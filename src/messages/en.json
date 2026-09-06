@@ -36,7 +36,8 @@
     "featurePayBody": "Stated salaries are shown as posted. When a posting hides the number, an estimated band from curated country benchmarks fills the gap, always labeled as an estimate.",
     "featureApplyTitle": "Real apply links",
     "featureApplyBody": "Every role links to the employer's own posting. No middlemen, no re-hosted forms, no expired aggregator pages.",
-    "sourcesNote": "Sourced from official and public job APIs. Details on the About page."
+    "sourcesNote": "Sourced from official and public job APIs. Details on the About page.",
+    "updated": "updated"
   },
   "Jobs": {
     "title": "Leadership roles",
@@ -80,7 +81,6 @@
     "salaryStated": "stated",
     "salaryEstimated": "estimated",
     "viewRole": "View role",
-    "updated": "Updated",
     "pagination": "Pagination"
   },
   "Roles": {

@@ -120,4 +120,10 @@ describe("formatSalaryBand", () => {
       formatSalaryBand({ min: 5000000, max: 15000000, currency: "INR", period: "annual", source: "estimated" }, "hi")
     ).toBe("₹50,00,000 to ₹1,50,00,000");
   });
+
+  it("renders a collapsed band as a single value", () => {
+    expect(
+      formatSalaryBand({ min: 30312, max: 30312, currency: "EUR", period: "annual", source: "estimated" }, "en")
+    ).toBe("€30,312");
+  });
 });

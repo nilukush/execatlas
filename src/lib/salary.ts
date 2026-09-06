@@ -104,6 +104,9 @@ export function formatSalaryBand(band: SalaryBand, locale = "en"): string {
       return `${new Intl.NumberFormat(intlLocale, { maximumFractionDigits: 0 }).format(n)} ${band.currency}`;
     }
   };
+  // a collapsed band (median-only benchmark, or a single stated figure)
+  // reads better as one value than as an "X to X" range
+  if (band.min === band.max) return clean(band.min);
   return `${clean(band.min)} to ${clean(band.max)}`;
 }
 

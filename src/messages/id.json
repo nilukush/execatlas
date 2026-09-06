@@ -36,7 +36,8 @@
     "featurePayBody": "Gaji yang tercantum ditampilkan apa adanya. Jika lowongan menyembunyikan angkanya, kisaran perkiraan dari data tolok ukur tiap negara mengisi celahnya, selalu berlabel perkiraan.",
     "featureApplyTitle": "Tautan lamaran asli",
     "featureApplyBody": "Setiap peran tertaut ke lowongan milik perusahaan sendiri. Tanpa perantara, tanpa halaman kadaluarsa.",
-    "sourcesNote": "Bersumber dari API lowongan resmi dan publik. Rincian di halaman Tentang."
+    "sourcesNote": "Bersumber dari API lowongan resmi dan publik. Rincian di halaman Tentang.",
+    "updated": "diperbarui"
   },
   "Jobs": {
     "title": "Posisi kepemimpinan",
@@ -80,7 +81,6 @@
     "salaryStated": "tercantum",
     "salaryEstimated": "perkiraan",
     "viewRole": "Lihat peran",
-    "updated": "Diperbarui",
     "pagination": "Paginasi"
   },
   "Roles": {
