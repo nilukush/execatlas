@@ -82,7 +82,7 @@ export default async function LocaleLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <NextIntlClientProvider>
           <a href="#content" className="skip-link">
             {tNav("skipToContent")}
