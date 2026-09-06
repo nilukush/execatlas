@@ -80,7 +80,8 @@
     "salaryStated": "مذكور",
     "salaryEstimated": "مقدّر",
     "viewRole": "عرض الوظيفة",
-    "updated": "محدّث"
+    "updated": "محدّث",
+    "pagination": "تنقّل الصفحات"
   },
   "Roles": {
     "cto": "مدير تقنية / تنفيذي",

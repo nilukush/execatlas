@@ -102,6 +102,14 @@ describe("classifyTitle", () => {
     // out of scope: pure product leadership (owner matrix pairs product with engineering/technology only)
     ["VP of Product", null],
     ["Head of Product", null],
+    // out of scope: non-software "development" and "tech" compounds
+    ["Director of Business Development", null],
+    ["VP of Business Development", null],
+    ["Director of Talent Acquisition, Deep Tech", null],
+    ["Head of Learning and Development", null],
+    ["Director of Sales Development", null],
+    // product development stays in scope (engineering adjacent)
+    ["Director of Product Development", { seniority: "director", domain: "engineering-product" }],
   ];
 
   it.each(cases)('classifies "%s"', (title, expected) => {

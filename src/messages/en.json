@@ -80,7 +80,8 @@
     "salaryStated": "stated",
     "salaryEstimated": "estimated",
     "viewRole": "View role",
-    "updated": "Updated"
+    "updated": "Updated",
+    "pagination": "Pagination"
   },
   "Roles": {
     "cto": "CTO / Chief",

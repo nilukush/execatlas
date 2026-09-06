@@ -112,4 +112,26 @@ describe("normalizeJob", () => {
     expect(job?.workMode).toBe("hybrid");
     expect(job?.officeDays).toBe(3);
   });
+
+  it("drops a job whose apply URL is not a plain web URL", () => {
+    expect(normalizeJob(makeRaw({ applyUrl: "javascript:alert(1)" }), NOW)).toBeNull();
+  });
+
+  it("drops the logo when it is not a plain web URL", () => {
+    const job = normalizeJob(makeRaw({ companyLogoUrl: "javascript:alert(1)" }), NOW);
+    expect(job?.companyLogoUrl).toBeUndefined();
+  });
+
+  it("ignores a structured salary hint with a malformed currency code", () => {
+    const job = normalizeJob(
+      makeRaw({
+        source: "jobicy",
+        salaryHint: { min: 240000, max: 280000, currency: "USD/year", period: "annual" },
+      }),
+      NOW
+    );
+    // falls back to the local estimate rather than a band that cannot be formatted
+    expect(job?.salary?.currency).toBe("AED");
+    expect(job?.salary?.source).toBe("estimated");
+  });
 });

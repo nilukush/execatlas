@@ -24,8 +24,13 @@ interface IndexFile {
   jobs: IndexEntry[];
 }
 
+// build-time dataset is immutable during a run; parse it once
+let jobsCache: JobsFile | null = null;
+
 export function getJobs(): JobsFile {
-  return readJson<JobsFile>("jobs.json") ?? { generatedAt: "", jobs: [] };
+  if (jobsCache) return jobsCache;
+  jobsCache = readJson<JobsFile>("jobs.json") ?? { generatedAt: "", jobs: [] };
+  return jobsCache;
 }
 
 export function getJobById(id: string): Job | null {

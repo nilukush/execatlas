@@ -123,12 +123,21 @@ function normalizeTitle(title: string): string {
 }
 
 /**
+ * Non-software compounds that must not read as engineering scope: a
+ * "Director of Business Development" is not a technology leadership role.
+ */
+const NON_TECH_TITLE_RE =
+  /\bbusiness development\b|\b(?:sales|client|market|community|partnership|fundraising|instructor|teacher|professional|organizational|leadership)\s+development\b|\blearning (?:and|&) development\b|\bl&d\b|\btalent acquisition\b|\brecruit(?:ing|ment)\b/i;
+
+/**
  * Classifies a real-world job title into the ExecAtlas scope.
  * Returns null when the title is not a senior engineering/product/technology
  * leadership role (pure product, pure business, or individual contributor).
  */
 export function classifyTitle(title: string): TitleClassification | null {
   const t = normalizeTitle(title);
+
+  if (NON_TECH_TITLE_RE.test(t)) return null;
 
   const seniority = detectSeniority(t);
   if (!seniority) return null;

@@ -80,7 +80,8 @@
     "salaryStated": "बताया गया",
     "salaryEstimated": "अनुमानित",
     "viewRole": "भूमिका देखें",
-    "updated": "अपडेट"
+    "updated": "अपडेट",
+    "pagination": "पेजिनेशन"
   },
   "Roles": {
     "cto": "CTO / चीफ",

@@ -197,13 +197,13 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {slice.map((job) => (
-            <JobCard key={job.id} job={job} labels={cardLabels} />
+            <JobCard key={job.id} job={job} labels={cardLabels} locale={locale} headingLevel="h2" />
           ))}
         </div>
       )}
 
       {pageCount > 1 && (
-        <nav className="mt-8 flex items-center justify-center gap-4" aria-label={t("sortBy")}>
+        <nav className="mt-8 flex items-center justify-center gap-4" aria-label={t("pagination")}>
           <button
             type="button"
             className="btn-ghost"

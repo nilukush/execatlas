@@ -21,10 +21,6 @@ const lastHitPerHost = new Map<string, number>();
 
 const cacheDir = () => path.join(process.cwd(), "data", "cache");
 
-export function clearRequestThrottle() {
-  lastHitPerHost.clear();
-}
-
 async function politeFetch(url: string, fetchImpl: typeof fetch): Promise<unknown> {
   const host = new URL(url).host;
   const last = lastHitPerHost.get(host) ?? 0;
@@ -51,24 +47,20 @@ async function politeFetch(url: string, fetchImpl: typeof fetch): Promise<unknow
 
 export async function cachedFetchJson(
   url: string,
-  options: { ttlMs?: number; fetchImpl?: typeof fetch; noCache?: boolean } = {}
+  options: { ttlMs?: number; fetchImpl?: typeof fetch } = {}
 ): Promise<unknown> {
-  const { ttlMs = 6 * 60 * 60 * 1000, fetchImpl = fetch, noCache = false } = options;
+  const { ttlMs = 6 * 60 * 60 * 1000, fetchImpl = fetch } = options;
 
-  if (!noCache) {
-    const file = cacheFile(url);
-    if (fs.existsSync(file)) {
-      const cached = JSON.parse(fs.readFileSync(file, "utf8")) as { savedAt: number; data: unknown };
-      if (Date.now() - cached.savedAt < ttlMs) return cached.data;
-    }
+  const file = cacheFile(url);
+  if (fs.existsSync(file)) {
+    const cached = JSON.parse(fs.readFileSync(file, "utf8")) as { savedAt: number; data: unknown };
+    if (Date.now() - cached.savedAt < ttlMs) return cached.data;
   }
 
   const data = await politeFetch(url, fetchImpl);
 
-  if (!noCache) {
-    fs.mkdirSync(cacheDir(), { recursive: true });
-    fs.writeFileSync(cacheFile(url), JSON.stringify({ savedAt: Date.now(), data }));
-  }
+  fs.mkdirSync(cacheDir(), { recursive: true });
+  fs.writeFileSync(cacheFile(url), JSON.stringify({ savedAt: Date.now(), data }));
   return data;
 }
 

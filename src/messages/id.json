@@ -80,7 +80,8 @@
     "salaryStated": "tercantum",
     "salaryEstimated": "perkiraan",
     "viewRole": "Lihat peran",
-    "updated": "Diperbarui"
+    "updated": "Diperbarui",
+    "pagination": "Paginasi"
   },
   "Roles": {
     "cto": "CTO / Chief",

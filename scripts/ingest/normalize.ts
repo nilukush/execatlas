@@ -26,14 +26,28 @@ function stableId(company: string, title: string, source: string, externalId: st
   return `${slugify(company)}-${slugify(title)}-${hash}`;
 }
 
+function isWebUrl(value: string | undefined): boolean {
+  return typeof value === "string" && /^https?:\/\//i.test(value);
+}
+
+function isValidCurrency(code: string | undefined): code is string {
+  return typeof code === "string" && /^[A-Z]{3}$/.test(code);
+}
+
 /**
  * Turns a connector's raw job into a canonical, enriched Job record.
  * Returns null when the job falls outside the product scope: leadership
- * titles only, and locations within the six supported regions (or remote).
+ * titles only, locations within the six supported regions (or remote),
+ * and a plain web apply URL.
  */
 export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | null {
   const classification = classifyTitle(raw.title);
   if (!classification) return null;
+  if (!isWebUrl(raw.applyUrl)) return null;
+  if (!isWebUrl(raw.sourceUrl)) raw = { ...raw, sourceUrl: raw.applyUrl };
+  if (!isWebUrl(raw.companyLogoUrl)) raw = { ...raw, companyLogoUrl: undefined };
+  const salaryHint =
+    raw.salaryHint && isValidCurrency(raw.salaryHint.currency) ? raw.salaryHint : null;
 
   const location = resolveLocation(raw.locationRaw);
   if (!location || (!location.country && !location.region && !location.remote)) return null;
@@ -44,8 +58,8 @@ export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | nu
   const roleType = detectRoleType(parsed.text, raw.employmentHint);
 
   let salary: SalaryBand | null = null;
-  if (raw.salaryHint) {
-    salary = { ...raw.salaryHint, source: "stated" };
+  if (salaryHint) {
+    salary = { ...salaryHint, source: "stated" };
   } else {
     const stated = parseStatedSalary(parsed.text);
     if (stated) {

@@ -37,11 +37,15 @@ function mergeJobs(a: Job, b: Job): Job {
   const primary = richness(a) !== richness(b) ? (richness(a) > richness(b) ? a : b) : sourceRank(a) <= sourceRank(b) ? a : b;
   const secondary = primary === a ? b : a;
   const sources = SOURCE_IDS.filter((id) => primary.sources.includes(id) || secondary.sources.includes(id));
+  // pin the merged record's id and firstSeen to whichever source saw it first,
+  // so a richness flip between runs does not re-key the job
+  const elder = a.firstSeen <= b.firstSeen ? a : b;
   return {
     ...primary,
+    id: elder.id,
+    firstSeen: elder.firstSeen,
     sources,
     postedAt: primary.postedAt < secondary.postedAt ? primary.postedAt : secondary.postedAt,
-    firstSeen: primary.firstSeen < secondary.firstSeen ? primary.firstSeen : secondary.firstSeen,
     visa: primary.visa !== "unknown" ? primary.visa : secondary.visa,
     salary: primary.salary ?? secondary.salary,
     requirements: primary.requirements.length >= secondary.requirements.length ? primary.requirements : secondary.requirements,

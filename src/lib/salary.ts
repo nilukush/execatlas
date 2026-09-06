@@ -88,14 +88,22 @@ const LOCALE_MAP: Record<string, string> = {
 /** Locale-aware range formatting, for example "AED 660,000 to AED 1,080,000". */
 export function formatSalaryBand(band: SalaryBand, locale = "en"): string {
   const intlLocale = LOCALE_MAP[locale] ?? "en";
-  const fmt = new Intl.NumberFormat(intlLocale, {
-    style: "currency",
-    currency: band.currency,
-    maximumFractionDigits: 0,
-  });
   // ICU uses narrow no-break spaces inside currency strings; normalize for
-  // consistent rendering and testability
-  const clean = (n: number) => fmt.format(n).replace(/[\u00A0\u202F]/g, " ");
+  // consistent rendering and testability. A malformed currency code from a
+  // feed must never take down a page, so fall back to plain numbers.
+  const clean = (n: number) => {
+    try {
+      return new Intl.NumberFormat(intlLocale, {
+        style: "currency",
+        currency: band.currency,
+        maximumFractionDigits: 0,
+      })
+        .format(n)
+        .replace(/[\u00A0\u202F]/g, " ");
+    } catch {
+      return `${new Intl.NumberFormat(intlLocale, { maximumFractionDigits: 0 }).format(n)} ${band.currency}`;
+    }
+  };
   return `${clean(band.min)} to ${clean(band.max)}`;
 }
 

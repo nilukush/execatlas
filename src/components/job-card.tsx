@@ -17,19 +17,30 @@ export interface JobCardLabels {
   sourceLabels: Record<string, string>;
 }
 
-export function JobCard({ job, labels }: { job: IndexEntry; labels: JobCardLabels }) {
+export function JobCard({
+  job,
+  labels,
+  locale = "en",
+  headingLevel = "h3",
+}: {
+  job: IndexEntry;
+  labels: JobCardLabels;
+  locale?: string;
+  headingLevel?: "h2" | "h3";
+}) {
   const place = job.countryName ?? (job.remote ? labels.remoteWorldwide : (job.region ?? ""));
+  const Heading = headingLevel;
 
   return (
     <article className="card-ui relative flex flex-col gap-3 p-5">
       <div className="flex items-start gap-3">
         <CompanyLogo name={job.company} logoUrl={job.companyLogoUrl} size={44} />
         <div className="min-w-0 flex-1">
-          <h3 className="font-serif text-lg font-bold leading-snug">
+          <Heading className="font-serif text-lg font-bold leading-snug">
             <Link href={`/jobs/${job.id}`} className="text-ink hover:text-brand-solid-hover">
               {job.title}
             </Link>
-          </h3>
+          </Heading>
           <p className="mt-0.5 truncate text-sm text-muted">
             {job.company}
             {place ? ` · ${place}` : ""}
@@ -67,7 +78,7 @@ export function JobCard({ job, labels }: { job: IndexEntry; labels: JobCardLabel
                 period: job.salaryPeriod ?? "annual",
                 source: job.salarySource ?? "estimated",
               },
-              "en"
+              locale
             )}{" "}
             {job.salaryPeriod === "monthly" ? labels.perMonth : labels.perYear}
             <span className="font-normal text-muted">
