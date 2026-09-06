@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-09-06T11:31:50.820Z",
+  "total": 245,
+  "bySource": {
+    "arbeitnow": 5,
+    "workable": 140,
+    "greenhouse": 100
+  },
+  "byRegion": {
+    "remote": 1,
+    "europe": 75,
+    "north-america": 123,
+    "india": 18,
+    "southeast-asia": 19,
+    "north-africa": 3,
+    "middle-east": 6
+  },
+  "byVisa": {
+    "unknown": 232,
+    "yes": 12,
+    "no": 1
+  },
+  "countries": 36
+}

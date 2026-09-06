@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  ExecAtlas design tokens.
+  Light theme: warm paper, ink text, cobalt brand, amber highlights.
+  Dark theme: deep blue-black with lifted cards.
+  All colors are plain CSS variables so runtime theming needs no reflow.
+*/
+:root {
+  --paper: #faf9f6;
+  --card: #ffffff;
+  --card-2: #f4f2ec;
+  --ink: #191d26;
+  --muted: #5c6572;
+  --line: #e6e2d9;
+
+  --brand-50: #f0f3fd;
+  --brand-100: #e2e9fb;
+  --brand-500: #3d5ae3;
+  --brand-solid: #2b44c8;
+  --brand-solid-hover: #21379c;
+  --brand-ink: #1d2f84;
+
+  --amber-100: #fdf0dd;
+  --amber-700: #92400e;
+  --green-100: #e2f3e7;
+  --green-700: #15803d;
+  --red-100: #fdebe9;
+  --red-700: #b42318;
+
+  --ring: #2b44c8;
+  --shadow-card: 0 1px 2px rgb(22 26 34 / 0.05), 0 10px 28px -14px rgb(22 26 34 / 0.14);
+  color-scheme: light;
+}
+
+.dark {
+  --paper: #0b0e15;
+  --card: #131826;
+  --card-2: #0f1420;
+  --ink: #e8eaf1;
+  --muted: #9aa3b5;
+  --line: #242c3f;
+
+  --brand-50: #141b31;
+  --brand-100: #1a2444;
+  --brand-500: #6f86ec;
+  --brand-solid: #3d5ae3;
+  --brand-solid-hover: #5570e9;
+  --brand-ink: #c3cdf9;
+
+  --amber-100: #34270e;
+  --amber-700: #eab308;
+  --green-100: #0f2a1a;
+  --green-700: #6fcf97;
+  --red-100: #341512;
+  --red-700: #f08a80;
+
+  --ring: #8799f1;
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.45), 0 10px 28px -14px rgb(0 0 0 / 0.55);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-card-2: var(--card-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-500: var(--brand-500);
+  --color-brand-solid: var(--brand-solid);
+  --color-brand-solid-hover: var(--brand-solid-hover);
+  --color-brand-ink: var(--brand-ink);
+  --color-visa-bg: var(--green-100);
+  --color-visa-fg: var(--green-700);
+  --color-novisa-bg: var(--red-100);
+  --color-novisa-fg: var(--red-700);
+  --color-hybrid-bg: var(--amber-100);
+  --color-hybrid-fg: var(--amber-700);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: var(--font-meridian), Georgia, "Times New Roman", serif;
+
+  --shadow-card-ui: var(--shadow-card);
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+
+  ::selection {
+    background: var(--brand-100);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+  }
+
+  .card-ui {
+    @apply rounded-xl border border-line bg-card;
+    box-shadow: var(--shadow-card);
+  }
+
+  .btn-primary {
+    @apply btn text-white;
+    background: var(--brand-solid);
+  }
+  .btn-primary:hover {
+    background: var(--brand-solid-hover);
+  }
+
+  .btn-ghost {
+    @apply btn border border-line bg-card text-ink hover:bg-card-2;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full border border-line bg-card px-2.5 py-1 text-xs font-medium text-muted;
+  }
+
+  .input-ui {
+    @apply w-full rounded-lg border border-line bg-card px-3 py-2 text-sm text-ink placeholder:text-muted/70;
+  }
+
+  .skip-link {
+    @apply absolute left-4 top-4 z-[60] -translate-y-28 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-transform focus:translate-y-0;
+    background: var(--brand-solid);
+  }
+}
+
+@utility btn {
+  @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-60;
+}

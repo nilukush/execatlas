@@ -1,0 +1,53 @@
+# See https://help.github.com/articles/ignoring-files/ for more about this file.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (example stays tracked)
+.env
+.env.local
+.env.*local
+.env.dev
+.env.staging
+.env.production
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# internal docs: owner requested these stay out of git
+/CLAUDE.md
+/AGENTS.md
+/MEMORY.md
+/docs/
+/research/
+
+# ingest cache (generated dataset JSON under data/generated stays tracked)
+/data/cache/
+/data/*.db
+data/*.db-journal
