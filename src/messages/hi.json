@@ -81,7 +81,13 @@
     "salaryStated": "बताया गया",
     "salaryEstimated": "अनुमानित",
     "viewRole": "भूमिका देखें",
-    "pagination": "पेजिनेशन"
+    "pagination": "पेजिनेशन",
+    "askLabel": "सवाल पूछें",
+    "askPlaceholder": "जैसे: क्या दुबई में वीज़ा स्पॉन्सरशिप के साथ VP Engineering रोल है?",
+    "askSubmit": "पूछें",
+    "askYes": "हाँ। {count, plural, one {# रोल मेल खाता है} other {# रोल मेल खाते हैं}}",
+    "askNo": "अभी नहीं। इस सवाल से कोई रोल मेल नहीं खाता।",
+    "askUnderstood": "इस तरह समझा गया:"
   },
   "Roles": {
     "cto": "CTO / चीफ",

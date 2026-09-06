@@ -6,6 +6,7 @@ import type { IndexEntry } from "@/lib/types";
 import { COUNTRIES, REGIONS } from "@/lib/locations";
 import { SOURCE_LABELS } from "@/lib/types";
 import { applyFilters, DEFAULT_FILTERS, paginate, type JobFilters } from "@/lib/search";
+import { answerQuestion, type AskAnswer } from "@/lib/ask";
 import { formatDate } from "@/lib/seo";
 import { JobCard, type JobCardLabels } from "./job-card";
 
@@ -18,6 +19,8 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
   const tRoles = useTranslations("Roles");
   const [filters, setFilters] = useState<JobFilters>(DEFAULT_FILTERS);
   const [page, setPage] = useState(1);
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState<AskAnswer | null>(null);
 
   const filtered = useMemo(() => applyFilters(entries, filters), [entries, filters]);
   const { slice, pageCount } = useMemo(() => paginate(filtered, page), [filtered, page]);
@@ -33,6 +36,36 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
   function update(patch: Partial<JobFilters>) {
     setFilters((prev) => ({ ...prev, ...patch }));
     setPage(1);
+  }
+
+  function ask(e: React.FormEvent) {
+    e.preventDefault();
+    const q = question.trim();
+    if (!q) return;
+    const a = answerQuestion(q, entries);
+    setAnswer(a);
+    update({
+      query: a.intent.query,
+      seniority: a.intent.seniority,
+      region: a.intent.region,
+      country: a.intent.country,
+      visa: a.intent.visa,
+      workMode: a.intent.workMode,
+    });
+  }
+
+  const answerChips: string[] = [];
+  if (answer) {
+    const { intent } = answer;
+    if (intent.query) answerChips.push(intent.query);
+    if (intent.seniority !== "all") answerChips.push(tRoles(intent.seniority));
+    if (intent.country !== "all") {
+      answerChips.push(COUNTRIES.find((c) => c.iso2 === intent.country)?.name ?? intent.country);
+    } else if (intent.region !== "all") {
+      answerChips.push(REGIONS.find((r) => r.id === intent.region)?.label ?? intent.region);
+    }
+    if (intent.visa === "yes") answerChips.push(t("visaYes"));
+    if (intent.workMode !== "all") answerChips.push(t(intent.workMode));
   }
 
   const isFiltered =
@@ -61,6 +94,40 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
 
   return (
     <div>
+      <form onSubmit={ask} className="card-ui mb-4 flex flex-col gap-2 p-4 sm:flex-row sm:items-center">
+        <label className="flex-1">
+          <span className="sr-only">{t("askLabel")}</span>
+          <input
+            type="text"
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            placeholder={t("askPlaceholder")}
+            className="input-ui"
+          />
+        </label>
+        <button type="submit" className="btn btn-primary">
+          {t("askSubmit")}
+        </button>
+      </form>
+
+      {answer && (
+        <div className="card-ui mb-6 p-4" role="status">
+          <p className="font-serif text-lg font-bold">
+            {answer.yes ? t("askYes", { count: answer.count }) : t("askNo")}
+          </p>
+          {answerChips.length > 0 && (
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <span className="text-xs text-muted">{t("askUnderstood")}</span>
+              {answerChips.map((chip) => (
+                <span key={chip} className="chip">
+                  {chip}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
       <div className="card-ui mb-6 grid gap-3 p-4 sm:grid-cols-2 lg:grid-cols-4">
         <label className="sm:col-span-2 lg:col-span-1">
           <span className="sr-only">{t("searchPlaceholder")}</span>
@@ -183,7 +250,15 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
           {t("count", { count: filtered.length })}
         </p>
         {isFiltered && (
-          <button type="button" onClick={() => setFilters(DEFAULT_FILTERS)} className="btn-ghost !py-1 text-xs">
+          <button
+            type="button"
+            onClick={() => {
+              setFilters(DEFAULT_FILTERS);
+              setAnswer(null);
+              setQuestion("");
+            }}
+            className="btn-ghost !py-1 text-xs"
+          >
             {t("clear")}
           </button>
         )}

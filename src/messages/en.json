@@ -81,7 +81,13 @@
     "salaryStated": "stated",
     "salaryEstimated": "estimated",
     "viewRole": "View role",
-    "pagination": "Pagination"
+    "pagination": "Pagination",
+    "askLabel": "Ask a question",
+    "askPlaceholder": "e.g. Is there a VP Engineering role in Dubai with visa sponsorship?",
+    "askSubmit": "Ask",
+    "askYes": "Yes. {count, plural, one {# role matches} other {# roles match}}",
+    "askNo": "Not right now. No roles match that question.",
+    "askUnderstood": "Understood as:"
   },
   "Roles": {
     "cto": "CTO / Chief",

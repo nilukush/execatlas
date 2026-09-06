@@ -81,7 +81,13 @@
     "salaryStated": "tercantum",
     "salaryEstimated": "perkiraan",
     "viewRole": "Lihat peran",
-    "pagination": "Paginasi"
+    "pagination": "Paginasi",
+    "askLabel": "Ajukan pertanyaan",
+    "askPlaceholder": "mis. Apakah ada peran VP Engineering di Dubai dengan sponsor visa?",
+    "askSubmit": "Tanya",
+    "askYes": "Ya. {count, plural, other {# peran cocok}}",
+    "askNo": "Belum ada. Tidak ada peran yang cocok dengan pertanyaan itu.",
+    "askUnderstood": "Dipahami sebagai:"
   },
   "Roles": {
     "cto": "CTO / Chief",

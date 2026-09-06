@@ -195,6 +195,30 @@ export function resolveLocation(raw: string): ResolvedLocation | null {
 
   // Country match: longest matching alias wins; short aliases (under 4 chars)
   // must match a whole token to avoid false positives.
+  const best = findCountryInText(normalized);
+
+  if (best) {
+    return { country: best, region: best.region, remote, raw };
+  }
+
+  const region = findRegionInText(normalized);
+  if (region) {
+    return { country: null, region, remote, raw };
+  }
+
+  if (remote) {
+    return { country: null, region: null, remote: true, raw };
+  }
+
+  return null;
+}
+
+function escapeRe(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/** Longest country alias found as a whole phrase in normalized free text. */
+export function findCountryInText(normalized: string): Country | null {
   const tokens = new Set(normalized.split(" "));
   let best: { country: Country; length: number } | null = null;
   for (const country of COUNTRIES) {
@@ -212,24 +236,15 @@ export function resolveLocation(raw: string): ResolvedLocation | null {
       }
     }
   }
-
-  if (best) {
-    return { country: best.country, region: best.country.region, remote, raw };
-  }
-
-  for (const { alias, region } of REGION_ALIASES) {
-    if (new RegExp(`\\b${escapeRe(normalize(alias))}\\b`).test(normalized)) {
-      return { country: null, region, remote, raw };
-    }
-  }
-
-  if (remote) {
-    return { country: null, region: null, remote: true, raw };
-  }
-
-  return null;
+  return best?.country ?? null;
 }
 
-function escapeRe(s: string): string {
-  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+/** Region whose alias appears in normalized free text, null when none. */
+export function findRegionInText(normalized: string): LandRegion | null {
+  for (const { alias, region } of REGION_ALIASES) {
+    if (new RegExp(`\\b${escapeRe(normalize(alias))}\\b`).test(normalized)) {
+      return region;
+    }
+  }
+  return null;
 }

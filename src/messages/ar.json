@@ -81,7 +81,13 @@
     "salaryStated": "مذكور",
     "salaryEstimated": "مقدّر",
     "viewRole": "عرض الوظيفة",
-    "pagination": "تنقّل الصفحات"
+    "pagination": "تنقّل الصفحات",
+    "askLabel": "اسأل سؤالاً",
+    "askPlaceholder": "مثال: هل هناك دور VP Engineering في دبي مع رعاية تأشيرة؟",
+    "askSubmit": "اسأل",
+    "askYes": "نعم. {count, plural, one {# دور مطابق} other {# أدوار مطابقة}}",
+    "askNo": "ليس الآن. لا توجد أدوار مطابقة لهذا السؤال.",
+    "askUnderstood": "فُهم على أنه:"
   },
   "Roles": {
     "cto": "مدير تقنية / تنفيذي",
