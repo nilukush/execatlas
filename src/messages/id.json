@@ -87,7 +87,8 @@
     "askSubmit": "Tanya",
     "askYes": "Ya. {count, plural, other {# peran cocok}}",
     "askNo": "Belum ada. Tidak ada peran yang cocok dengan pertanyaan itu.",
-    "askUnderstood": "Dipahami sebagai:"
+    "askUnderstood": "Dipahami sebagai:",
+    "backToBrowser": "Cari dan filter semua peran"
   },
   "Roles": {
     "cto": "CTO / Chief",

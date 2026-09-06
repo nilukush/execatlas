@@ -96,6 +96,11 @@ export function applyFilters(entries: IndexEntry[], filters: JobFilters): IndexE
 
 export const PAGE_SIZE = 24;
 
+/** Default catalog order for the static list pages: no filters, newest first. */
+export function defaultOrder(entries: IndexEntry[]): IndexEntry[] {
+  return applyFilters(entries, DEFAULT_FILTERS);
+}
+
 export function paginate(list: IndexEntry[], page: number): { slice: IndexEntry[]; pageCount: number } {
   const pageCount = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
   const safePage = Math.min(Math.max(1, page), pageCount);

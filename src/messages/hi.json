@@ -87,7 +87,8 @@
     "askSubmit": "पूछें",
     "askYes": "हाँ। {count, plural, one {# रोल मेल खाता है} other {# रोल मेल खाते हैं}}",
     "askNo": "अभी नहीं। इस सवाल से कोई रोल मेल नहीं खाता।",
-    "askUnderstood": "इस तरह समझा गया:"
+    "askUnderstood": "इस तरह समझा गया:",
+    "backToBrowser": "सभी भूमिकाएँ खोजें और फ़िल्टर करें"
   },
   "Roles": {
     "cto": "CTO / चीफ",

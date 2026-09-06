@@ -87,7 +87,8 @@
     "askSubmit": "Ask",
     "askYes": "Yes. {count, plural, one {# role matches} other {# roles match}}",
     "askNo": "Not right now. No roles match that question.",
-    "askUnderstood": "Understood as:"
+    "askUnderstood": "Understood as:",
+    "backToBrowser": "Search and filter all roles"
   },
   "Roles": {
     "cto": "CTO / Chief",

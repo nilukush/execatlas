@@ -87,7 +87,8 @@
     "askSubmit": "اسأل",
     "askYes": "نعم. {count, plural, one {# دور مطابق} other {# أدوار مطابقة}}",
     "askNo": "ليس الآن. لا توجد أدوار مطابقة لهذا السؤال.",
-    "askUnderstood": "فُهم على أنه:"
+    "askUnderstood": "فُهم على أنه:",
+    "backToBrowser": "ابحث وصفِّ كل الأدوار"
   },
   "Roles": {
     "cto": "مدير تقنية / تنفيذي",
