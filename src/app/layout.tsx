@@ -35,9 +35,9 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script dangerouslySetInnerHTML={{ __html: swRegisterScript }} />
       </head>
       <body suppressHydrationWarning>{children}</body>
-      <script dangerouslySetInnerHTML={{ __html: swRegisterScript }} />
     </html>
   );
 }
