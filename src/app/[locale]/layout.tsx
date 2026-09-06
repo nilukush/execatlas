@@ -2,26 +2,10 @@ import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Inter, Source_Serif_4 } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { SITE_URL, buildAlternates } from "@/lib/seo";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import "../globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const meridian = Source_Serif_4({
-  subsets: ["latin"],
-  variable: "--font-meridian",
-  display: "swap",
-});
-
-const themeInitScript = `(function(){try{var t=localStorage.getItem("ea-theme");var d=t?t==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;var el=document.documentElement;if(d){el.classList.add("dark")}}catch(e){}})()`;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -72,31 +56,19 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
   const tNav = await getTranslations({ locale, namespace: "Nav" });
 
+  // Applies locale attributes to <html> before first paint; the root layout
+  // renders lang="en" by default and suppresses the hydration drift.
+  const localeAttrsScript = `document.documentElement.lang=${JSON.stringify(locale)};document.documentElement.dir=${locale === "ar" ? '"rtl"' : '"ltr"'}`;
+
   return (
-    <html
-      lang={locale}
-      dir={locale === "ar" ? "rtl" : "ltr"}
-      className={`${inter.variable} ${meridian.variable}`}
-      suppressHydrationWarning
-    >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-      </head>
-      <body suppressHydrationWarning>
-        <NextIntlClientProvider>
-          <a href="#content" className="skip-link">
-            {tNav("skipToContent")}
-          </a>
-          <SiteHeader />
-          <main id="content">{children}</main>
-          <SiteFooter />
-        </NextIntlClientProvider>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: 'if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})}',
-          }}
-        />
-      </body>
-    </html>
+    <NextIntlClientProvider>
+      <script dangerouslySetInnerHTML={{ __html: localeAttrsScript }} />
+      <a href="#content" className="skip-link">
+        {tNav("skipToContent")}
+      </a>
+      <SiteHeader />
+      <main id="content">{children}</main>
+      <SiteFooter />
+    </NextIntlClientProvider>
   );
 }
