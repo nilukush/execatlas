@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import type { IndexEntry } from "@/lib/types";
 import { COUNTRIES, REGIONS } from "@/lib/locations";
-import { SOURCE_LABELS } from "@/lib/types";
+import { SOURCE_LABELS, type SourceId } from "@/lib/types";
 import { applyFilters, DEFAULT_FILTERS, paginate, type JobFilters } from "@/lib/search";
 import { answerQuestion, intentFilters, type AskAnswer, type AskSuggestion, type QuestionIntent } from "@/lib/ask";
 import {
@@ -66,6 +66,20 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
   function update(patch: Partial<JobFilters>) {
     setFilters((prev) => ({ ...prev, ...patch }));
     setPage(1);
+    // manual filter changes invalidate the answer panel; ask() and the
+    // suggestion/saved appliers set a fresh answer right after their update()
+    setAnswer(null);
+  }
+
+  function intentFromFilters(f: JobFilters): QuestionIntent {
+    return {
+      query: f.query,
+      seniority: f.seniority as QuestionIntent["seniority"],
+      region: f.region as QuestionIntent["region"],
+      country: f.country,
+      visa: f.visa === "yes" ? "yes" : "all",
+      workMode: f.workMode,
+    };
   }
 
   function ask(e: React.FormEvent) {
@@ -73,7 +87,6 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
     const q = question.trim();
     if (!q) return;
     const a = answerQuestion(q, entries);
-    setAnswer(a);
     update({
       query: a.intent.query,
       seniority: a.intent.seniority,
@@ -82,6 +95,7 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
       visa: a.intent.visa,
       workMode: a.intent.workMode,
     });
+    setAnswer(a);
   }
 
   function applySuggestion() {
@@ -142,38 +156,32 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
     return counts;
   }, [saved, entries]);
 
-  function filtersAsIntent(): QuestionIntent {
-    return {
-      query: filters.query,
-      seniority: filters.seniority as QuestionIntent["seniority"],
-      region: filters.region as QuestionIntent["region"],
-      country: filters.country,
-      visa: filters.visa === "yes" ? "yes" : "all",
-      workMode: filters.workMode,
-    };
-  }
-
   function saveCurrent() {
-    const intent = answer?.intent ?? filtersAsIntent();
     const id =
       typeof crypto !== "undefined" && "randomUUID" in crypto
         ? crypto.randomUUID()
         : `s${Date.now()}`;
-    const created = markSeen(createSavedSearch(question.trim(), intent, id), entries);
+    // save exactly what is on screen: the full filter state, question text as label
+    const created = markSeen(createSavedSearch(question.trim(), { ...filters }, id), entries);
     setSaved((prev) => [created, ...prev.filter((s) => s.id !== id)].slice(0, MAX_SAVED));
   }
 
   function applySaved(s: SavedSearch) {
-    update({
-      query: s.intent.query,
-      seniority: s.intent.seniority,
-      region: s.intent.region,
-      country: s.intent.country,
-      visa: s.intent.visa,
-      workMode: s.intent.workMode,
-    });
+    setFilters({ ...s.filters });
+    setPage(1);
     setQuestion(s.question);
-    setAnswer(s.question ? answerQuestion(s.question, entries) : null);
+    if (s.question) {
+      const matches = applyFilters(entries, s.filters);
+      setAnswer({
+        yes: matches.length > 0,
+        count: matches.length,
+        total: entries.length,
+        top: matches.slice(0, 3),
+        intent: intentFromFilters(s.filters),
+      });
+    } else {
+      setAnswer(null);
+    }
     setSaved((prev) => prev.map((x) => (x.id === s.id ? markSeen(x, entries) : x)));
   }
 
@@ -228,7 +236,12 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
           <span className="text-xs text-muted">{t("savedSearches")}</span>
           {saved.map((s) => {
             const fresh = newCounts[s.id] ?? 0;
-            const label = s.question || chipsFor(s.intent).join(" · ") || t("filters");
+            const chips = chipsFor(intentFromFilters(s.filters));
+            if (s.filters.roleType !== "all") chips.push(s.filters.roleType.replace("-", " "));
+            if (s.filters.source !== "all") {
+              chips.push(SOURCE_LABELS[s.filters.source as SourceId] ?? s.filters.source);
+            }
+            const label = s.question || chips.join(" · ") || t("filters");
             return (
               <span key={s.id} className="chip">
                 <button

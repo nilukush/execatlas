@@ -1,50 +1,41 @@
 /**
- * Saved searches live entirely on the user's device: a filter intent plus the
- * ids of the roles it matched when last viewed. "New" counts compare the ids
- * against the current dataset, so a refreshed dataset shows fresh roles
- * without any server, account or push infrastructure.
+ * Saved searches live entirely on the user's device: the full filter state
+ * plus the ids of the roles it matched when last viewed. "New" counts compare
+ * the ids against the current dataset, so a refreshed dataset shows fresh
+ * roles without any server, account or push infrastructure.
  */
 
-import type { QuestionIntent } from "./ask";
-import { intentFilters } from "./ask";
-import { applyFilters } from "./search";
+import { applyFilters, type JobFilters } from "./search";
 import type { IndexEntry } from "./types";
 import type { RegionId } from "./locations";
 
 export interface SavedSearch {
   id: string;
   question: string;
-  intent: QuestionIntent;
+  filters: JobFilters;
   createdAt: string;
   seenIds: string[];
 }
 
-export function createSavedSearch(
-  question: string,
-  intent: QuestionIntent,
-  id: string
-): SavedSearch {
-  return { id, question, intent, createdAt: new Date().toISOString(), seenIds: [] };
+export function createSavedSearch(question: string, filters: JobFilters, id: string): SavedSearch {
+  return { id, question, filters, createdAt: new Date().toISOString(), seenIds: [] };
 }
 
 /** Current matches of a saved search that the user has not seen yet. */
 export function newMatches(saved: SavedSearch, entries: IndexEntry[]): IndexEntry[] {
   const seen = new Set(saved.seenIds);
-  return applyFilters(entries, intentFilters(saved.intent)).filter((e) => !seen.has(e.id));
+  return applyFilters(entries, saved.filters).filter((e) => !seen.has(e.id));
 }
 
 /** Records the current match ids as seen, clearing the new badge. */
 export function markSeen(saved: SavedSearch, entries: IndexEntry[]): SavedSearch {
   return {
     ...saved,
-    seenIds: applyFilters(entries, intentFilters(saved.intent)).map((e) => e.id),
+    seenIds: applyFilters(entries, saved.filters).map((e) => e.id),
   };
 }
 
-const SENIORITY_VALUES = new Set(["all", "cto", "vp", "avp", "director", "head"]);
-const VISA_VALUES = new Set(["all", "yes"]);
-const WORKMODE_VALUES = new Set(["all", "remote", "hybrid", "onsite"]);
-const REGION_VALUES = new Set<RegionId | "all">([
+const REGION_VALUES = new Set<string>([
   "all",
   "india",
   "middle-east",
@@ -54,20 +45,42 @@ const REGION_VALUES = new Set<RegionId | "all">([
   "north-america",
   "remote",
 ]);
+const SENIORITY_VALUES = new Set(["all", "cto", "vp", "avp", "director", "head"]);
+const VISA_VALUES = new Set(["all", "yes", "no", "unknown"]);
+const WORKMODE_VALUES = new Set(["all", "remote", "hybrid", "onsite"]);
+const ROLETYPE_VALUES = new Set([
+  "all",
+  "permanent",
+  "contract",
+  "freelance",
+  "temporary",
+  "part-time",
+  "full-time",
+  "interim",
+]);
+const SOURCE_VALUES = new Set(["all", "greenhouse", "workable", "arbeitnow", "jobicy"]);
+const SORT_VALUES = new Set(["newest", "salary"]);
 
 function isObject(v: unknown): v is Record<string, unknown> {
   return typeof v === "object" && v !== null && !Array.isArray(v);
 }
 
-function validIntent(v: unknown): v is QuestionIntent {
+function str(v: unknown): unknown {
+  return typeof v === "string" ? v : undefined;
+}
+
+function validFilters(v: unknown): v is JobFilters {
   if (!isObject(v)) return false;
   return (
     typeof v.query === "string" &&
+    REGION_VALUES.has(v.region as string) &&
+    (v.country === "all" || /^[A-Z]{2}$/.test(v.country as string)) &&
     SENIORITY_VALUES.has(v.seniority as string) &&
-    REGION_VALUES.has(v.region as RegionId) &&
-    typeof v.country === "string" &&
     VISA_VALUES.has(v.visa as string) &&
-    WORKMODE_VALUES.has(v.workMode as string)
+    WORKMODE_VALUES.has(v.workMode as string) &&
+    ROLETYPE_VALUES.has(v.roleType as string) &&
+    SOURCE_VALUES.has(v.source as string) &&
+    SORT_VALUES.has(v.sort as string)
   );
 }
 
@@ -80,7 +93,7 @@ function validSaved(v: unknown): v is SavedSearch {
     typeof v.id === "string" &&
     v.id !== "" &&
     typeof v.question === "string" &&
-    validIntent(v.intent) &&
+    validFilters(v.filters) &&
     seenOk &&
     (v.createdAt === undefined || typeof v.createdAt === "string")
   );
