@@ -8,6 +8,9 @@ Senior engineering leadership jobs, worldwide. ExecAtlas aggregates Director, AV
 - Commute type (remote, hybrid with office days, on-site) and role type (permanent, contract, freelance, temporary, part-time, interim)
 - Salary: the stated range when the posting includes one, otherwise an estimated P25 to P75 band in the local currency of the job's country, built on the ExpatRate benchmark dataset (https://expatrate.pages.dev)
 - Filters (region, country, seniority, visa, work mode, role type, source), search, sorting and pagination
+- Ask a question in plain language ("is there a VP Engineering role in Dubai with visa sponsorship?") and get a yes or no with counts, the filters it understood, and when nothing matches, the closest relaxation that does
+- Saved searches on your device with a count of new roles since you last looked; no account needed
+- Crawlable static list pages under /jobs/page/2 and beyond, plus JSON-LD JobPosting sitemap coverage
 - Four languages: English (default), Hindi, Arabic (full RTL), Bahasa Indonesia
 - Installable PWA, static rendering for fast loads and clean SEO, JSON-LD JobPosting markup on every role
 
@@ -35,7 +38,7 @@ The site reads `data/generated/*.json` at build time, so it renders even offline
 
 | Source | Access | Status |
 | --- | --- | --- |
-| Greenhouse | Official public Job Board API (no auth) | Active. 99 verified company boards |
+| Greenhouse | Official public Job Board API (no auth) | Active. 119 verified company boards |
 | Workable | Public search endpoint used by their own frontend | Active, rate limited and cached |
 | Arbeitnow | Free public job board API | Active |
 | Jobicy | Public API v2 | Active |
@@ -57,7 +60,8 @@ src/
   components/          header, footer, job card, jobs browser (client island)
   lib/                 domain logic: roles matrix, locations, enrichment,
                        salary parsing and estimation, job description parser,
-                       search, data access
+                       search, ask-a-question answering, saved searches,
+                       data access
   data/salary/         vendored ExpatRate benchmark subset (CC BY 4.0)
   messages/            translation catalogs
 scripts/
@@ -68,12 +72,13 @@ data/generated/        committed build-time dataset (jobs, index, stats, queries
 
 ## Refreshing data
 
-Run `pnpm ingest` and commit the updated `data/generated/` files, or wire a scheduled GitHub Action that runs ingest and triggers the deploy. Rebuilds pick up the fresh dataset automatically.
+Run `pnpm ingest` and commit the updated `data/generated/` files. Two GitHub Actions workflows ship in `.github/workflows/`: CI (tests, typecheck, build) on every push and pull request, and a scheduled daily ingest that commits the refreshed dataset automatically. Both activate once the repository is pushed to GitHub. Rebuilds pick up the fresh dataset automatically.
 
 ## Roadmap
 
-- Wave 2: embedding based semantic search over the listings, saved searches and alerts, more Greenhouse boards, crawlable paginated list pages
-- Wave 3: connectors for any source that opens an official access path, an assistant that answers questions over the dataset
+- Periodically repeat the Greenhouse board discovery sweep (several newly added boards have large non-leadership pools that will yield leadership roles over time)
+- Push alerts for saved searches, only if a hosting or backend story ever appears
+- Connectors for any source that opens an official access path
 
 ## License
 
