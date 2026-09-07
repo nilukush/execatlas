@@ -6,7 +6,7 @@ import type { IndexEntry } from "@/lib/types";
 import { COUNTRIES, REGIONS } from "@/lib/locations";
 import { SOURCE_LABELS } from "@/lib/types";
 import { applyFilters, DEFAULT_FILTERS, paginate, type JobFilters } from "@/lib/search";
-import { answerQuestion, type AskAnswer } from "@/lib/ask";
+import { answerQuestion, intentFilters, type AskAnswer, type AskSuggestion } from "@/lib/ask";
 import { formatDate } from "@/lib/seo";
 import { JobCard, type JobCardLabels } from "./job-card";
 
@@ -52,6 +52,42 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
       visa: a.intent.visa,
       workMode: a.intent.workMode,
     });
+  }
+
+  function applySuggestion() {
+    const s = answer?.suggestion;
+    if (!s) return;
+    update({
+      query: s.intent.query,
+      seniority: s.intent.seniority,
+      region: s.intent.region,
+      country: s.intent.country,
+      visa: s.intent.visa,
+      workMode: s.intent.workMode,
+    });
+    const matches = applyFilters(entries, intentFilters(s.intent));
+    setAnswer({
+      yes: true,
+      count: matches.length,
+      total: entries.length,
+      top: matches.slice(0, 3),
+      intent: s.intent,
+    });
+  }
+
+  function filterLabel(dropped: AskSuggestion["dropped"]): string {
+    switch (dropped) {
+      case "visa":
+        return t("visa");
+      case "location":
+        return answer && answer.intent.country !== "all" ? t("country") : t("region");
+      case "seniority":
+        return t("seniority");
+      case "workMode":
+        return t("workMode");
+      case "query":
+        return t("askFilterQuery");
+    }
   }
 
   const answerChips: string[] = [];
@@ -115,6 +151,21 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
           <p className="font-serif text-lg font-bold">
             {answer.yes ? t("askYes", { count: answer.count }) : t("askNo")}
           </p>
+          {!answer.yes && answer.suggestion && (
+            <p className="mt-2 text-sm text-muted">
+              {t("askSuggestion", {
+                filter: filterLabel(answer.suggestion.dropped),
+                count: answer.suggestion.count,
+              })}{" "}
+              <button
+                type="button"
+                onClick={applySuggestion}
+                className="font-semibold text-brand-500 hover:underline"
+              >
+                {t("askApply")}
+              </button>
+            </p>
+          )}
           {answerChips.length > 0 && (
             <div className="mt-3 flex flex-wrap items-center gap-2">
               <span className="text-xs text-muted">{t("askUnderstood")}</span>

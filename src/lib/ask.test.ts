@@ -40,6 +40,14 @@ describe("parseQuestion", () => {
       question: "Any jobs?",
       want: { query: "", seniority: "all", region: "all", country: "all", visa: "all", workMode: "all" },
     },
+    {
+      question: "Is there a VP Engineering job at Stripe in Amsterdam?",
+      want: { query: "engineering stripe", seniority: "vp", region: "europe", country: "NL", visa: "all", workMode: "all" },
+    },
+    {
+      question: "Does GoDaddy have a director of engineering role?",
+      want: { query: "engineering godaddy", seniority: "director", region: "all", country: "all", visa: "all", workMode: "all" },
+    },
   ])("$question", ({ question, want }) => {
     expect(parseQuestion(question)).toEqual(want);
   });
@@ -73,6 +81,36 @@ function makeEntry(partial: Partial<IndexEntry>): IndexEntry {
     source: partial.source ?? "greenhouse",
   };
 }
+
+describe("answerQuestion suggestions", () => {
+  const aeVp = makeEntry({ id: "ae", title: "VP of Engineering", countryIso2: "AE", visa: "unknown" });
+  const nlVp = makeEntry({ id: "nl", title: "VP of Engineering", countryIso2: "NL", countryName: "Netherlands", region: "europe", visa: "yes" });
+  const deVp = makeEntry({ id: "de", title: "VP of Engineering", countryIso2: "DE", countryName: "Germany", region: "europe", visa: "yes" });
+
+  it("suggests dropping visa when that unblocks matches", () => {
+    const a = answerQuestion("VP Engineering in Dubai with visa sponsorship", [aeVp]);
+    expect(a.yes).toBe(false);
+    expect(a.suggestion?.dropped).toBe("visa");
+    expect(a.suggestion?.count).toBe(1);
+    expect(a.suggestion?.intent.visa).toBe("all");
+  });
+
+  it("suggests the relaxation that yields the most roles", () => {
+    const a = answerQuestion("VP Engineering in Dubai with visa sponsorship", [aeVp, nlVp, deVp]);
+    expect(a.suggestion?.dropped).toBe("location");
+    expect(a.suggestion?.count).toBe(2);
+  });
+
+  it("does not suggest when the answer is yes", () => {
+    const a = answerQuestion("VP Engineering in Amsterdam", [nlVp]);
+    expect(a.suggestion).toBeUndefined();
+  });
+
+  it("does not suggest when nothing helps", () => {
+    const a = answerQuestion("VP Engineering in Dubai with visa sponsorship", []);
+    expect(a.suggestion).toBeUndefined();
+  });
+});
 
 describe("answerQuestion", () => {
   const match = makeEntry({ id: "match", title: "VP of Engineering", company: "Desert Corp", countryIso2: "AE", visa: "yes" });

@@ -88,6 +88,9 @@
     "askYes": "نعم. {count, plural, one {# دور مطابق} other {# أدوار مطابقة}}",
     "askNo": "ليس الآن. لا توجد أدوار مطابقة لهذا السؤال.",
     "askUnderstood": "فُهم على أنه:",
+    "askSuggestion": "قريب: بدون فلتر {filter}، {count, plural, one {# دور مطابق} other {# أدوار مطابقة}}.",
+    "askFilterQuery": "كلمة الدور المفتاحية",
+    "askApply": "أظهر هذه الأدوار",
     "backToBrowser": "ابحث وصفِّ كل الأدوار"
   },
   "Roles": {

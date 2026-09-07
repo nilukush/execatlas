@@ -149,7 +149,7 @@ export function countryByIso2(iso2: string): Country | undefined {
   return COUNTRY_BY_ISO2.get(iso2);
 }
 
-const REGION_ALIASES: Array<{ alias: string; region: LandRegion }> = [
+export const REGION_ALIASES: Array<{ alias: string; region: LandRegion }> = [
   { alias: "middle east", region: "middle-east" },
   { alias: "middle-east", region: "middle-east" },
   { alias: "gcc", region: "middle-east" },

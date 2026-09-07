@@ -88,6 +88,9 @@
     "askYes": "Ya. {count, plural, other {# peran cocok}}",
     "askNo": "Belum ada. Tidak ada peran yang cocok dengan pertanyaan itu.",
     "askUnderstood": "Dipahami sebagai:",
+    "askSuggestion": "Hampir: tanpa filter {filter}, {count, plural, other {# peran cocok}}.",
+    "askFilterQuery": "kata kunci peran",
+    "askApply": "Tampilkan peran itu",
     "backToBrowser": "Cari dan filter semua peran"
   },
   "Roles": {

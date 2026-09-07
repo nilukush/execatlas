@@ -88,6 +88,9 @@
     "askYes": "Yes. {count, plural, one {# role matches} other {# roles match}}",
     "askNo": "Not right now. No roles match that question.",
     "askUnderstood": "Understood as:",
+    "askSuggestion": "Close: without the {filter} filter, {count, plural, one {# role matches} other {# roles match}}.",
+    "askFilterQuery": "role keyword",
+    "askApply": "Show those roles",
     "backToBrowser": "Search and filter all roles"
   },
   "Roles": {
