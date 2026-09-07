@@ -4,10 +4,9 @@
 name: Ingest jobs
 
 on:
-  schedule:
-    # Daily at 03:17 UTC, off the hour to ease scheduler load.
-    - cron: "17 3 * * *"
   workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * *"
 
 permissions:
   contents: write
