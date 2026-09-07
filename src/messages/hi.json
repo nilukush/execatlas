@@ -91,6 +91,10 @@
     "askSuggestion": "करीब है: {filter} फ़िल्टर हटाने पर {count, plural, one {# रोल मेल खाता है} other {# रोल मेल खाते हैं}}।",
     "askFilterQuery": "भूमिका कीवर्ड",
     "askApply": "वे रोल दिखाएँ",
+    "saveSearch": "यह खोज सहेजें",
+    "savedSearches": "सहेजी गई खोजें",
+    "savedNew": "{count} नई",
+    "removeSaved": "सहेजी गई खोज हटाएँ",
     "backToBrowser": "सभी भूमिकाएँ खोजें और फ़िल्टर करें"
   },
   "Roles": {

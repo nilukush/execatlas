@@ -1,17 +1,27 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import type { IndexEntry } from "@/lib/types";
 import { COUNTRIES, REGIONS } from "@/lib/locations";
 import { SOURCE_LABELS } from "@/lib/types";
 import { applyFilters, DEFAULT_FILTERS, paginate, type JobFilters } from "@/lib/search";
-import { answerQuestion, intentFilters, type AskAnswer, type AskSuggestion } from "@/lib/ask";
+import { answerQuestion, intentFilters, type AskAnswer, type AskSuggestion, type QuestionIntent } from "@/lib/ask";
+import {
+  createSavedSearch,
+  markSeen,
+  newMatches,
+  parseSavedSearches,
+  serializeSavedSearches,
+  type SavedSearch,
+} from "@/lib/saved-searches";
 import { formatDate } from "@/lib/seo";
 import { JobCard, type JobCardLabels } from "./job-card";
 
 const SENIORITIES = ["cto", "vp", "avp", "director", "head"] as const;
 const ROLE_TYPES = ["permanent", "contract", "freelance", "temporary", "part-time", "full-time", "interim"] as const;
+const STORAGE_KEY = "ea-saved-searches";
+const MAX_SAVED = 8;
 
 export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale: string }) {
   const t = useTranslations("Jobs");
@@ -21,6 +31,26 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
   const [page, setPage] = useState(1);
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState<AskAnswer | null>(null);
+  const [saved, setSaved] = useState<SavedSearch[]>([]);
+  const [storageReady, setStorageReady] = useState(false);
+
+  useEffect(() => {
+    try {
+      setSaved(parseSavedSearches(window.localStorage.getItem(STORAGE_KEY)));
+    } catch {
+      // private mode or blocked storage: saved searches stay disabled
+    }
+    setStorageReady(true);
+  }, []);
+
+  useEffect(() => {
+    if (!storageReady) return;
+    try {
+      window.localStorage.setItem(STORAGE_KEY, serializeSavedSearches(saved));
+    } catch {
+      // ignore write failures; the in-memory list still works for this visit
+    }
+  }, [saved, storageReady]);
 
   const filtered = useMemo(() => applyFilters(entries, filters), [entries, filters]);
   const { slice, pageCount } = useMemo(() => paginate(filtered, page), [filtered, page]);
@@ -90,18 +120,65 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
     }
   }
 
-  const answerChips: string[] = [];
-  if (answer) {
-    const { intent } = answer;
-    if (intent.query) answerChips.push(intent.query);
-    if (intent.seniority !== "all") answerChips.push(tRoles(intent.seniority));
-    if (intent.country !== "all") {
-      answerChips.push(COUNTRIES.find((c) => c.iso2 === intent.country)?.name ?? intent.country);
-    } else if (intent.region !== "all") {
-      answerChips.push(REGIONS.find((r) => r.id === intent.region)?.label ?? intent.region);
+  function chipsFor(i: QuestionIntent): string[] {
+    const chips: string[] = [];
+    if (i.query) chips.push(i.query);
+    if (i.seniority !== "all") chips.push(tRoles(i.seniority));
+    if (i.country !== "all") {
+      chips.push(COUNTRIES.find((c) => c.iso2 === i.country)?.name ?? i.country);
+    } else if (i.region !== "all") {
+      chips.push(REGIONS.find((r) => r.id === i.region)?.label ?? i.region);
     }
-    if (intent.visa === "yes") answerChips.push(t("visaYes"));
-    if (intent.workMode !== "all") answerChips.push(t(intent.workMode));
+    if (i.visa === "yes") chips.push(t("visaYes"));
+    if (i.workMode !== "all") chips.push(t(i.workMode));
+    return chips;
+  }
+
+  const answerChips = answer ? chipsFor(answer.intent) : [];
+
+  const newCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const s of saved) counts[s.id] = newMatches(s, entries).length;
+    return counts;
+  }, [saved, entries]);
+
+  function filtersAsIntent(): QuestionIntent {
+    return {
+      query: filters.query,
+      seniority: filters.seniority as QuestionIntent["seniority"],
+      region: filters.region as QuestionIntent["region"],
+      country: filters.country,
+      visa: filters.visa === "yes" ? "yes" : "all",
+      workMode: filters.workMode,
+    };
+  }
+
+  function saveCurrent() {
+    const intent = answer?.intent ?? filtersAsIntent();
+    const id =
+      typeof crypto !== "undefined" && "randomUUID" in crypto
+        ? crypto.randomUUID()
+        : `s${Date.now()}`;
+    const created = markSeen(createSavedSearch(question.trim(), intent, id), entries);
+    setSaved((prev) => [created, ...prev.filter((s) => s.id !== id)].slice(0, MAX_SAVED));
+  }
+
+  function applySaved(s: SavedSearch) {
+    update({
+      query: s.intent.query,
+      seniority: s.intent.seniority,
+      region: s.intent.region,
+      country: s.intent.country,
+      visa: s.intent.visa,
+      workMode: s.intent.workMode,
+    });
+    setQuestion(s.question);
+    setAnswer(s.question ? answerQuestion(s.question, entries) : null);
+    setSaved((prev) => prev.map((x) => (x.id === s.id ? markSeen(x, entries) : x)));
+  }
+
+  function removeSaved(id: string) {
+    setSaved((prev) => prev.filter((x) => x.id !== id));
   }
 
   const isFiltered =
@@ -145,6 +222,36 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
           {t("askSubmit")}
         </button>
       </form>
+
+      {saved.length > 0 && (
+        <div className="mb-4 flex flex-wrap items-center gap-2">
+          <span className="text-xs text-muted">{t("savedSearches")}</span>
+          {saved.map((s) => {
+            const fresh = newCounts[s.id] ?? 0;
+            const label = s.question || chipsFor(s.intent).join(" · ") || t("filters");
+            return (
+              <span key={s.id} className="chip">
+                <button
+                  type="button"
+                  onClick={() => applySaved(s)}
+                  className="font-semibold hover:underline"
+                >
+                  {label}
+                  {fresh > 0 ? ` · ${t("savedNew", { count: fresh })}` : ""}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => removeSaved(s.id)}
+                  aria-label={t("removeSaved")}
+                  className="text-muted hover:text-ink"
+                >
+                  ×
+                </button>
+              </span>
+            );
+          })}
+        </div>
+      )}
 
       {answer && (
         <div className="card-ui mb-6 p-4" role="status">
@@ -301,17 +408,26 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
           {t("count", { count: filtered.length })}
         </p>
         {isFiltered && (
-          <button
-            type="button"
-            onClick={() => {
-              setFilters(DEFAULT_FILTERS);
-              setAnswer(null);
-              setQuestion("");
-            }}
-            className="btn-ghost !py-1 text-xs"
-          >
-            {t("clear")}
-          </button>
+          <span className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={saveCurrent}
+              className="btn-ghost !py-1 text-xs"
+            >
+              {t("saveSearch")}
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setFilters(DEFAULT_FILTERS);
+                setAnswer(null);
+                setQuestion("");
+              }}
+              className="btn-ghost !py-1 text-xs"
+            >
+              {t("clear")}
+            </button>
+          </span>
         )}
       </div>
 

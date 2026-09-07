@@ -91,6 +91,10 @@
     "askSuggestion": "Hampir: tanpa filter {filter}, {count, plural, other {# peran cocok}}.",
     "askFilterQuery": "kata kunci peran",
     "askApply": "Tampilkan peran itu",
+    "saveSearch": "Simpan pencarian ini",
+    "savedSearches": "Pencarian tersimpan",
+    "savedNew": "{count} baru",
+    "removeSaved": "Hapus pencarian tersimpan",
     "backToBrowser": "Cari dan filter semua peran"
   },
   "Roles": {

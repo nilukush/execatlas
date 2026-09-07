@@ -91,6 +91,10 @@
     "askSuggestion": "قريب: بدون فلتر {filter}، {count, plural, one {# دور مطابق} other {# أدوار مطابقة}}.",
     "askFilterQuery": "كلمة الدور المفتاحية",
     "askApply": "أظهر هذه الأدوار",
+    "saveSearch": "احفظ هذا البحث",
+    "savedSearches": "عمليات بحث محفوظة",
+    "savedNew": "{count} جديدة",
+    "removeSaved": "أزل البحث المحفوظ",
     "backToBrowser": "ابحث وصفِّ كل الأدوار"
   },
   "Roles": {

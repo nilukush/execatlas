@@ -28,7 +28,7 @@ export interface QuestionIntent {
   workMode: "all" | "remote" | "hybrid" | "onsite";
 }
 
-const DEFAULT_INTENT: QuestionIntent = {
+export const DEFAULT_INTENT: QuestionIntent = {
   query: "",
   seniority: "all",
   region: "all",

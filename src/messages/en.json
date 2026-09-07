@@ -91,6 +91,10 @@
     "askSuggestion": "Close: without the {filter} filter, {count, plural, one {# role matches} other {# roles match}}.",
     "askFilterQuery": "role keyword",
     "askApply": "Show those roles",
+    "saveSearch": "Save this search",
+    "savedSearches": "Saved searches",
+    "savedNew": "{count} new",
+    "removeSaved": "Remove saved search",
     "backToBrowser": "Search and filter all roles"
   },
   "Roles": {
