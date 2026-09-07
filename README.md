@@ -1,6 +1,6 @@
 # ExecAtlas
 
-Senior engineering leadership jobs, worldwide. ExecAtlas aggregates Director, AVP, VP, Head of and CTO level roles from official and public job APIs across India, the Middle East, Southeast Asia, North Africa, Europe and North America, then enriches every posting with the things international candidates actually need:
+Senior engineering leadership jobs, worldwide. Live at https://execatlas.vercel.app (Vercel free tier, rebuilt automatically whenever the dataset refreshes). ExecAtlas aggregates Director, AVP, VP, Head of and CTO level roles from official and public job APIs across India, the Middle East, Southeast Asia, North Africa, Europe and North America, then enriches every posting with the things international candidates actually need:
 
 - Visa sponsorship signal, read from each posting (sponsors / does not sponsor / unspecified)
 - The real apply link, pointing at the employer's own posting

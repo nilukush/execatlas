@@ -1,8 +1,10 @@
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_DOMAIN || process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_DOMAIN ?? process.env.VERCEL_URL}`
-    : "http://localhost:4317");
+  (process.env.VERCEL_ENV === "production"
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_DOMAIN ?? "execatlas.vercel.app"}`
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:4317");
 
 export const LOCALE_HREFLANG: Record<string, string> = {
   en: "en",
