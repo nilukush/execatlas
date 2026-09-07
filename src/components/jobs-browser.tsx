@@ -201,6 +201,7 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
 
   const cardLabels: JobCardLabels = {
     remoteWorldwide: t("remoteWorldwide"),
+    workModeLabels: { remote: t("remote"), hybrid: t("hybrid"), onsite: t("onsite") },
     hybridDays: (days) => tJob("hybridDays", { days }),
     salaryStated: t("salaryStated"),
     salaryEstimated: t("salaryEstimated"),

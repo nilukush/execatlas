@@ -5,6 +5,7 @@ import { formatSalaryBand } from "@/lib/salary";
 
 export interface JobCardLabels {
   remoteWorldwide: string;
+  workModeLabels: { remote: string; hybrid: string; onsite: string };
   hybridDays: (days: number) => string;
   salaryStated: string;
   salaryEstimated: string;
@@ -64,7 +65,9 @@ export function JobCard({
           <span
             className={`chip ${job.workMode === "hybrid" ? "!border-transparent !bg-hybrid-bg !text-hybrid-fg" : ""}`}
           >
-            {job.workMode === "hybrid" && job.officeDays ? labels.hybridDays(job.officeDays) : job.workMode}
+            {job.workMode === "hybrid" && job.officeDays
+              ? labels.hybridDays(job.officeDays)
+              : (labels.workModeLabels[job.workMode as keyof JobCardLabels["workModeLabels"]] ?? job.workMode)}
           </span>
         )}
         {job.roleType && <span className="chip capitalize">{job.roleType.replace("-", " ")}</span>}

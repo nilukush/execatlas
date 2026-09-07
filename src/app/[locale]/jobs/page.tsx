@@ -35,7 +35,6 @@ export default async function JobsPage({
   return (
     <section className="container-page py-10">
       <h1 className="font-serif text-3xl font-bold">{t("title")}</h1>
-      <p className="mt-2 text-sm text-muted">{t("count", { count: entries.length })}</p>
       <div className="mt-6">
         <JobsBrowser entries={entries} locale={locale} />
       </div>

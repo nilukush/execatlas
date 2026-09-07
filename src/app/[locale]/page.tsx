@@ -23,6 +23,11 @@ export default async function HomePage({
 
   const labels: JobCardLabels = {
     remoteWorldwide: tJobs("remoteWorldwide"),
+    workModeLabels: {
+      remote: tJobs("remote"),
+      hybrid: tJobs("hybrid"),
+      onsite: tJobs("onsite"),
+    },
     hybridDays: (days) => tJob("hybridDays", { days }),
     salaryStated: tJobs("salaryStated"),
     salaryEstimated: tJobs("salaryEstimated"),

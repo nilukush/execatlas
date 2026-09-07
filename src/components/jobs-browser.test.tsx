@@ -38,7 +38,7 @@ function renderBrowser(entries: IndexEntry[]) {
 }
 
 const entries = [
-  make({ id: "nl", company: "Dutch Corp", countryIso2: "NL", countryName: "Netherlands", region: "europe", visa: "yes" }),
+  make({ id: "nl", company: "Dutch Corp", countryIso2: "NL", countryName: "Netherlands", region: "europe", visa: "yes", workMode: "hybrid" }),
   make({ id: "ae", company: "Desert Corp", countryIso2: "AE", visa: "unknown" }),
   make({ id: "director", company: "Acme", seniority: "director", title: "Director of Engineering" }),
   make({
@@ -53,6 +53,15 @@ const entries = [
 
 describe("JobsBrowser ask and saved searches", () => {
   afterEach(cleanup);
+
+  it("renders translated work mode badges on the cards", () => {
+    renderBrowser(entries);
+    const chipTexts = (text: string) =>
+      screen.getAllByText(text).filter((el) => el.closest(".chip"));
+    expect(chipTexts("Hybrid")).toHaveLength(1);
+    expect(chipTexts("On-site").length).toBeGreaterThanOrEqual(1);
+    expect(screen.queryByText("hybrid")).not.toBeInTheDocument();
+  });
 
   it("keeps the answer panel consistent through suggestion, save and re-apply", () => {
     renderBrowser(entries);
