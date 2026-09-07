@@ -108,8 +108,19 @@ describe("classifyTitle", () => {
     ["Director of Talent Acquisition, Deep Tech", null],
     ["Head of Learning and Development", null],
     ["Director of Sales Development", null],
+    ["Director, Corporate Development", null],
+    ["VP of Strategy and Corporate Development", null],
+    ["Director / Senior Director - Talent Development, Quality and Change", null],
+    ["Head of Organization Development", null],
+    ["Partner Account Director - Platinum Partner Development", null],
+    ["Senior Director, Hardware & Vehicle Development", null],
+    // out of scope: creative and sales leadership reading as tech via stray words
+    ["Art Director (Tech-savvy)", null],
+    ["Creative Director", null],
+    ["Director, Strategic Accounts - Logistics & Tech, m/f/d", null],
     // product development stays in scope (engineering adjacent)
     ["Director of Product Development", { seniority: "director", domain: "engineering-product" }],
+    ["Head of App Development", { seniority: "head", domain: "engineering" }],
   ];
 
   it.each(cases)('classifies "%s"', (title, expected) => {

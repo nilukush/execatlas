@@ -125,9 +125,10 @@ function normalizeTitle(title: string): string {
 /**
  * Non-software compounds that must not read as engineering scope: a
  * "Director of Business Development" is not a technology leadership role.
+ * "Development" and "tech" appear in HR, M&A, design and sales titles too.
  */
 const NON_TECH_TITLE_RE =
-  /\bbusiness development\b|\b(?:sales|client|market|community|partnership|fundraising|instructor|teacher|professional|organizational|leadership)\s+development\b|\blearning (?:and|&) development\b|\bl&d\b|\btalent acquisition\b|\brecruit(?:ing|ment)\b/i;
+  /\bbusiness development\b|\bcorporate development\b|\btalent development\b|\b(?:sales|client|market|community|partner(?:ship)?|fundraising|instructor|teacher|professional|organization(?:al)?|leadership)\s+development\b|\blearning (?:and|&) development\b|\bl&d\b|\bhardware development\b|\bvehicle development\b|\btalent acquisition\b|\brecruit(?:ing|ment)\b|\b(?:art|creative) director\b|\bstrategic accounts\b|\baccount director\b/i;
 
 /**
  * Classifies a real-world job title into the ExecAtlas scope.
