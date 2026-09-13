@@ -14,10 +14,22 @@ import { arbeitnowConnector } from "./connectors/arbeitnow";
 import { jobicyConnector } from "./connectors/jobicy";
 import { normalizeJob } from "./normalize";
 import { dedupeJobs } from "./dedupe";
+import { datasetProblems, shouldRunSanityGate } from "./sanity";
+import { writeJsonAtomic } from "./write";
 import { buildQueryMatrix } from "../../src/lib/roles";
 import type { DatasetStats, IndexEntry, Job, SourceId } from "../../src/lib/types";
 
 const GENERATED_DIR = path.join(process.cwd(), "data", "generated");
+
+function loadPrevStats(): DatasetStats | null {
+  const file = path.join(GENERATED_DIR, "stats.json");
+  if (!fs.existsSync(file)) return null;
+  try {
+    return JSON.parse(fs.readFileSync(file, "utf8")) as DatasetStats;
+  } catch {
+    return null;
+  }
+}
 
 async function loadExisting(): Promise<Map<string, Job>> {
   const file = path.join(GENERATED_DIR, "jobs.json");
@@ -115,21 +127,29 @@ async function main() {
   const deduped = dedupeJobs(allJobs);
   deduped.sort((a, b) => (a.postedAt === b.postedAt ? a.id.localeCompare(b.id) : a.postedAt < b.postedAt ? 1 : -1));
 
+  if (shouldRunSanityGate({ smoke, only: Boolean(only), force: args.includes("--force") })) {
+    const problems = datasetProblems(deduped, loadPrevStats());
+    if (problems.length > 0) {
+      for (const problem of problems) console.error(`[sanity] ${problem.rule}: ${problem.detail}`);
+      throw new Error("Dataset sanity check failed; refusing to write. Re-run with --force to override.");
+    }
+  }
+
   fs.mkdirSync(GENERATED_DIR, { recursive: true });
-  fs.writeFileSync(
+  writeJsonAtomic(
     path.join(GENERATED_DIR, "jobs.json"),
-    JSON.stringify({ generatedAt: now, jobs: deduped }, null, 2)
+    { generatedAt: now, jobs: deduped }
   );
-  fs.writeFileSync(
+  writeJsonAtomic(
     path.join(GENERATED_DIR, "index.json"),
-    JSON.stringify({ generatedAt: now, jobs: deduped.map(toIndexEntry) }, null, 2)
+    { generatedAt: now, jobs: deduped.map(toIndexEntry) }
   );
   const stats = computeStats(deduped, now);
-  fs.writeFileSync(path.join(GENERATED_DIR, "stats.json"), JSON.stringify(stats, null, 2));
-  fs.writeFileSync(
-    path.join(GENERATED_DIR, "queries.json"),
-    JSON.stringify({ generatedAt: now, queries: buildQueryMatrix().map((q) => q.phrase) }, null, 2)
-  );
+  writeJsonAtomic(path.join(GENERATED_DIR, "stats.json"), stats);
+  writeJsonAtomic(path.join(GENERATED_DIR, "queries.json"), {
+    generatedAt: now,
+    queries: buildQueryMatrix().map((q) => q.phrase),
+  });
 
   console.log(`Done: ${deduped.length} jobs (${dropped} out of scope), ${stats.countries} countries`);
   console.log("By source:", stats.bySource);
