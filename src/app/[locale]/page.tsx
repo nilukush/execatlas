@@ -107,7 +107,7 @@ export default async function HomePage({
           <div className="mb-6 flex items-end justify-between gap-4">
             <h2 className="font-serif text-2xl font-bold">{t("latest")}</h2>
             <Link href="/jobs" className="text-sm font-semibold text-brand-500 hover:underline">
-              {t("viewAll")} →
+              {t("viewAll")} <span aria-hidden="true">{locale === "ar" ? "←" : "→"}</span>
             </Link>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">

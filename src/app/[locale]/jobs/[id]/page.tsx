@@ -112,7 +112,7 @@ export default async function JobDetailPage({
       />
 
       <Link href="/jobs" className="text-sm font-semibold text-brand-500 hover:underline">
-        ← {t("back")}
+        <span aria-hidden="true">{locale === "ar" ? "→" : "←"}</span> {t("back")}
       </Link>
 
       <header className="mt-4 flex flex-wrap items-start justify-between gap-4">
