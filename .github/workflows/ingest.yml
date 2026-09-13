@@ -27,10 +27,14 @@ jobs:
       - run: corepack enable
       - run: pnpm install --frozen-lockfile
       - run: pnpm ingest
+      - run: npx tsc --noEmit
+      - run: pnpm test
+      - run: pnpm build
       - name: Commit refreshed dataset
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --autostash origin main
           git add data/generated
           if git diff --staged --quiet; then
             echo "No dataset changes; nothing to commit."
