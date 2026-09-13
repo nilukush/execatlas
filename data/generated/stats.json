@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-09-13T10:09:21.102Z",
-  "total": 254,
+  "generatedAt": "2026-09-13T10:30:55.497Z",
+  "total": 249,
   "bySource": {
     "workable": 143,
     "jobicy": 1,
     "arbeitnow": 3,
-    "greenhouse": 107
+    "greenhouse": 102
   },
   "byRegion": {
     "southeast-asia": 21,
-    "north-america": 118,
-    "europe": 82,
+    "north-america": 115,
+    "europe": 81,
     "remote": 2,
     "north-africa": 5,
-    "india": 20,
+    "india": 19,
     "middle-east": 6
   },
   "byVisa": {
-    "unknown": 240,
+    "unknown": 235,
     "yes": 13,
     "no": 1
   },

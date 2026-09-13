@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T10:09:21.102Z",
+  "generatedAt": "2026-09-13T10:30:55.497Z",
   "jobs": [
     {
       "id": "collective-wisdom-company-limited-head-of-engineering-4996af",
@@ -65,7 +65,7 @@
       },
       "postedAt": "2026-09-12T17:28:27.148Z",
       "firstSeen": "2026-09-13T08:22:16.617Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "givedirectly-chief-technology-officer-1f9b77",
@@ -256,7 +256,7 @@
       },
       "postedAt": "2026-09-12T16:50:10+00:00",
       "firstSeen": "2026-09-13T08:22:16.617Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "futuresight-technical-co-founder-cto-ai-for-automoti-a8deaf",
@@ -403,7 +403,7 @@
       },
       "postedAt": "2026-09-12T11:17:43.789Z",
       "firstSeen": "2026-09-13T08:22:16.617Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "liveeo-gmbh-director-sales-engineering-f-m-x-00bdc8",
@@ -662,7 +662,7 @@
       },
       "postedAt": "2026-09-12T11:09:54.000Z",
       "firstSeen": "2026-09-13T08:22:16.617Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "blackduck-regional-field-cto-b43130",
@@ -780,7 +780,7 @@
       },
       "postedAt": "2026-09-11T22:55:14.000Z",
       "firstSeen": "2026-09-12T07:58:05.327Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "futuresight-technical-co-founder-cto-ai-for-automoti-fdef22",
@@ -927,7 +927,7 @@
       },
       "postedAt": "2026-09-11T21:35:19.936Z",
       "firstSeen": "2026-09-12T07:58:05.327Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "mistral-ai-field-cto-dach-41a13c",
@@ -1098,7 +1098,7 @@
       },
       "postedAt": "2026-09-11T17:40:04.000Z",
       "firstSeen": "2026-09-12T07:58:05.327Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "itrs-director-of-platform-engineering-ae6f3a",
@@ -1175,7 +1175,7 @@
       },
       "postedAt": "2026-09-11T14:11:42.664Z",
       "firstSeen": "2026-09-12T07:58:05.327Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "axios-senior-director-engineering-40fd80",
@@ -1298,7 +1298,7 @@
       },
       "postedAt": "2026-09-11T10:11:28-04:00",
       "firstSeen": "2026-09-12T07:58:05.327Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "releaf-head-of-app-development-c78d1b",
@@ -1429,7 +1429,7 @@
       },
       "postedAt": "2026-09-11T04:06:51.515Z",
       "firstSeen": "2026-09-11T08:06:49.750Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "vml-executive-director-data-engineering-679547",
@@ -1573,7 +1573,7 @@
       },
       "postedAt": "2026-09-10T20:23:18-04:00",
       "firstSeen": "2026-09-11T08:06:49.750Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "the-hr-game-head-of-technology-197e1d",
@@ -1685,7 +1685,7 @@
       },
       "postedAt": "2026-09-10T13:04:03.652Z",
       "firstSeen": "2026-09-11T08:06:49.750Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "openworks-engineering-head-of-information-technology-5af854",
@@ -2005,7 +2005,7 @@
       },
       "postedAt": "2026-09-10T10:59:51.392Z",
       "firstSeen": "2026-09-11T08:06:49.750Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "freedom24-chief-technology-officer-cto-62ec42",
@@ -2093,126 +2093,7 @@
       },
       "postedAt": "2026-09-10T08:08:32.827Z",
       "firstSeen": "2026-09-10T08:11:49.301Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
-    },
-    {
-      "id": "minio-field-chief-technology-officer-field-cto-fe58a4",
-      "title": "Field Chief Technology Officer (Field CTO)",
-      "company": "MinIO",
-      "applyUrl": "https://job-boards.greenhouse.io/minio/jobs/5408920008",
-      "sourceUrl": "https://job-boards.greenhouse.io/minio/jobs/5408920008",
-      "source": "greenhouse",
-      "sources": [
-        "greenhouse"
-      ],
-      "text": "MinIO is the data and memory foundation for enterprise AI. Built for the speed, scale, and economics that AI and analytics demand, AIStor and MemKV unify every layer of the data stack, from agentic and inference context memory to tables and objects across core, edge, and cloud. Trusted by 77% of the Fortune 100, MinIO is redefining how AI factories, intelligent applications, and autonomous agents secure, persist, and unlock the full value of their data.\nWe are seeking a highly technical, visionary, and customer-centric Field CTO to act as our premier technical ambassador. In this role, you will bridge the gap between MinIO’s engineering innovation and the strategic business needs of our largest, most complex enterprise customers.\nAs a Field CTO, you will engage in peer-to-peer conversations with enterprise C-suites (CIOs, CTOs, CDOs) and lead architectural discussions with principal engineers. A deep, hands-on understanding of modern AI architectures (LLMs, RAG, deep learning pipelines) and modern analytics data systems (Iceberg, Delta Lake, Trino, Spark) is mandatory. You will not only evangelize MinIO’s capabilities but also act as a trusted advisor, helping organizations architect their data infrastructure to support next-generation workloads.\nWhat You Will Do\nExecutive Advisory & Evangelism: Act as a trusted technical advisor to C-level executives at Fortune 500 companies. Articulate the strategic value of high-performance object storage in the context of AI readiness and data democratization.\nArchitectural Leadership: Design and validate complex, large-scale architectures for enterprise customers. Guide them in integrating MinIO seamlessly into their AI/ML pipelines and modern data lakehouse ecosystems.\nIndustry Thought Leadership: Represent MinIO at major industry conferences, webinars, and meetups. Write technical whitepapers, reference architectures, and blog posts focusing on the intersection of object storage, generative AI, and modern analytics.\nPre-Sales & Post-Sales Strategic Support: Partner closely with enterprise sales and customer success teams on high-stakes deals. Unblock technical objections and provide strategic guidance during Proof of Concepts (PoCs) and large-scale deployments.\nProduct Strategy Feedback Loop: Serve as the \"voice of the customer\" to MinIO’s product and engineering teams. Distill market trends, customer pain points, and emerging AI/Analytics patterns into actionable product requirements.\nYour Skills and Experience\n10+ years of experience in technical leadership roles (e.g., Enterprise Architect, Chief Architect, VP of Engineering, or previous Field CTO).\nDemonstrated experience in a customer-facing or evangelist capacity, successfully presenting to both highly technical audiences and C-level business executives.\nAI & Machine Learning Architectures:\nDeep architectural understanding of Generative AI and Large Language Models (LLMs), including Retrieval-Augmented Generation (RAG) workflows and vector databases (e.g., Milvus, Qdrant, Pinecone).\nStrong knowledge of AI/ML data pipelines and frameworks (PyTorch, TensorFlow, Ray, Hugging Face).\nUnderstanding of hardware bottlenecks in AI, specifically the challenge of feeding data to GPUs (GPU data starvation) and how high-throughput storage solves this.\nModern Analytics & Data Systems:\nExpertise in Open Table Formats (Apache Iceberg, Apache Hudi, Delta Lake) and their integration with object storage.\nProficiency with modern query engines and compute frameworks (Trino, Presto, Apache Spark, Flink, StarRocks).\nSolid grasp of the evolution from traditional data warehouses to modern Data Lakehouse architectures.\nInfrastructure & Cloud-Native Tech:\nStrong command of Kubernetes, containerization, and cloud-native orchestration.\nDeep understanding of the AWS S3 API, RESTful APIs, and distributed systems design.\nEqual Opportunity Policy (EEO)\nMinIO is proud to be an equal opportunity workplace and an affirmative action employer. We review applications for employment without regard to their race, color, religion, sex, sexual orientation, gender identity, national origin, ancestry, citizenship, age, veteran status, genetic information, physical or mental disability, medical condition, marital status, or any other basis prohibited by law.",
-      "blocks": [
-        {
-          "type": "para",
-          "text": "MinIO is the data and memory foundation for enterprise AI. Built for the speed, scale, and economics that AI and analytics demand, AIStor and MemKV unify every layer of the data stack, from agentic and inference context memory to tables and objects across core, edge, and cloud. Trusted by 77% of the Fortune 100, MinIO is redefining how AI factories, intelligent applications, and autonomous agents secure, persist, and unlock the full value of their data."
-        },
-        {
-          "type": "para",
-          "text": "We are seeking a highly technical, visionary, and customer-centric Field CTO to act as our premier technical ambassador. In this role, you will bridge the gap between MinIO’s engineering innovation and the strategic business needs of our largest, most complex enterprise customers."
-        },
-        {
-          "type": "para",
-          "text": "As a Field CTO, you will engage in peer-to-peer conversations with enterprise C-suites (CIOs, CTOs, CDOs) and lead architectural discussions with principal engineers. A deep, hands-on understanding of modern AI architectures (LLMs, RAG, deep learning pipelines) and modern analytics data systems (Iceberg, Delta Lake, Trino, Spark) is mandatory. You will not only evangelize MinIO’s capabilities but also act as a trusted advisor, helping organizations architect their data infrastructure to support next-generation workloads."
-        },
-        {
-          "type": "heading",
-          "text": "What You Will Do"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Executive Advisory & Evangelism: Act as a trusted technical advisor to C-level executives at Fortune 500 companies. Articulate the strategic value of high-performance object storage in the context of AI readiness and data democratization.",
-            "Architectural Leadership: Design and validate complex, large-scale architectures for enterprise customers. Guide them in integrating MinIO seamlessly into their AI/ML pipelines and modern data lakehouse ecosystems.",
-            "Industry Thought Leadership: Represent MinIO at major industry conferences, webinars, and meetups. Write technical whitepapers, reference architectures, and blog posts focusing on the intersection of object storage, generative AI, and modern analytics.",
-            "Pre-Sales & Post-Sales Strategic Support: Partner closely with enterprise sales and customer success teams on high-stakes deals. Unblock technical objections and provide strategic guidance during Proof of Concepts (PoCs) and large-scale deployments.",
-            "Product Strategy Feedback Loop: Serve as the \"voice of the customer\" to MinIO’s product and engineering teams. Distill market trends, customer pain points, and emerging AI/Analytics patterns into actionable product requirements."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Your Skills and Experience"
-        },
-        {
-          "type": "list",
-          "items": [
-            "10+ years of experience in technical leadership roles (e.g., Enterprise Architect, Chief Architect, VP of Engineering, or previous Field CTO).",
-            "Demonstrated experience in a customer-facing or evangelist capacity, successfully presenting to both highly technical audiences and C-level business executives."
-          ]
-        },
-        {
-          "type": "para",
-          "text": "AI & Machine Learning Architectures:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Deep architectural understanding of Generative AI and Large Language Models (LLMs), including Retrieval-Augmented Generation (RAG) workflows and vector databases (e.g., Milvus, Qdrant, Pinecone).",
-            "Strong knowledge of AI/ML data pipelines and frameworks (PyTorch, TensorFlow, Ray, Hugging Face).",
-            "Understanding of hardware bottlenecks in AI, specifically the challenge of feeding data to GPUs (GPU data starvation) and how high-throughput storage solves this."
-          ]
-        },
-        {
-          "type": "para",
-          "text": "Modern Analytics & Data Systems:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Expertise in Open Table Formats (Apache Iceberg, Apache Hudi, Delta Lake) and their integration with object storage.",
-            "Proficiency with modern query engines and compute frameworks (Trino, Presto, Apache Spark, Flink, StarRocks).",
-            "Solid grasp of the evolution from traditional data warehouses to modern Data Lakehouse architectures."
-          ]
-        },
-        {
-          "type": "para",
-          "text": "Infrastructure & Cloud-Native Tech:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Strong command of Kubernetes, containerization, and cloud-native orchestration.",
-            "Deep understanding of the AWS S3 API, RESTful APIs, and distributed systems design."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Equal Opportunity Policy (EEO)"
-        },
-        {
-          "type": "para",
-          "text": "MinIO is proud to be an equal opportunity workplace and an affirmative action employer. We review applications for employment without regard to their race, color, religion, sex, sexual orientation, gender identity, national origin, ancestry, citizenship, age, veteran status, genetic information, physical or mental disability, medical condition, marital status, or any other basis prohibited by law."
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "GB",
-        "countryName": "United Kingdom",
-        "region": "europe",
-        "remote": true,
-        "raw": "Remote - UK"
-      },
-      "seniority": "cto",
-      "domain": "technology",
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": null,
-      "salary": {
-        "min": 69515,
-        "max": 119408,
-        "currency": "GBP",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "High",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2026-09-09T16:33:51-04:00",
-      "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "kurt-geiger-vp-of-technology-delivery-transformation-15c4f2",
@@ -2299,7 +2180,7 @@
       },
       "postedAt": "2026-09-09T14:52:44.398Z",
       "firstSeen": "2026-09-10T08:11:49.301Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "abou-ghaly-motors-cto-chief-technology-officer-612c40",
@@ -2447,7 +2328,7 @@
       },
       "postedAt": "2026-09-09T13:47:57.401Z",
       "firstSeen": "2026-09-10T08:11:49.301Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "weekday-ai-chief-technology-officer-23e38a",
@@ -2509,7 +2390,7 @@
       },
       "postedAt": "2026-09-09T09:39:25.055Z",
       "firstSeen": "2026-09-10T08:11:49.301Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "roblox-head-of-developer-relations-sea-and-oce-2ba23d",
@@ -2616,7 +2497,7 @@
       },
       "postedAt": "2026-09-09T05:54:53-04:00",
       "firstSeen": "2026-09-10T08:11:49.301Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "alloy-partners-chief-technology-officer-co-founder-digi-03343f",
@@ -2697,7 +2578,7 @@
       },
       "postedAt": "2026-09-08T20:17:26.148Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "hyprwork-head-of-growth-engineering-delivery-mana-aed8e6",
@@ -2765,7 +2646,7 @@
       },
       "postedAt": "2026-09-08T19:29:49.733Z",
       "firstSeen": "2026-09-09T08:12:18.028Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "hyprwork-head-of-growth-engineering-delivery-mana-56e017",
@@ -2833,7 +2714,7 @@
       },
       "postedAt": "2026-09-08T19:29:49.563Z",
       "firstSeen": "2026-09-09T08:12:18.028Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "hyprwork-head-of-growth-engineering-delivery-mana-79ef9a",
@@ -2901,7 +2782,7 @@
       },
       "postedAt": "2026-09-08T19:29:49.491Z",
       "firstSeen": "2026-09-09T08:12:18.028Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "hyprwork-head-of-growth-engineering-delivery-mana-6479f6",
@@ -2969,7 +2850,7 @@
       },
       "postedAt": "2026-09-08T19:29:49.213Z",
       "firstSeen": "2026-09-09T08:12:18.028Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "hyprwork-head-of-growth-engineering-delivery-mana-b85ab4",
@@ -3037,7 +2918,7 @@
       },
       "postedAt": "2026-09-08T19:29:48.570Z",
       "firstSeen": "2026-09-09T08:12:18.028Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "cp-axtra-director-software-engineering-technology-3f729d",
@@ -3097,7 +2978,7 @@
       },
       "postedAt": "2026-09-08T03:39:49.396Z",
       "firstSeen": "2026-09-08T08:08:59.401Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "t-tech-head-of-tax-technology-product-manager-9d9fc4",
@@ -3177,7 +3058,7 @@
       },
       "postedAt": "2026-09-07T18:17:50.106Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "truveta-director-of-engineering-platform-service-cb0ff1",
@@ -3377,7 +3258,7 @@
       },
       "postedAt": "2026-09-07T13:18:20-04:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "tatum-head-of-engineering-operations-e5833f",
@@ -3501,7 +3382,7 @@
       },
       "postedAt": "2026-09-07T08:48:52.915Z",
       "firstSeen": "2026-09-08T08:08:59.401Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "fuse-energy-vp-of-engineering-e68a31",
@@ -3570,7 +3451,7 @@
       },
       "postedAt": "2026-09-06T18:05:53.241Z",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "fuse-energy-vp-of-engineering-437ac1",
@@ -3639,7 +3520,7 @@
       },
       "postedAt": "2026-09-06T18:05:52.805Z",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "gomining-engineering-director-platform-7b4489",
@@ -3803,7 +3684,7 @@
       },
       "postedAt": "2026-09-05T14:31:36.974Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "gomining-engineering-director-platform-974512",
@@ -3967,7 +3848,7 @@
       },
       "postedAt": "2026-09-05T14:31:36.885Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "gomining-engineering-director-platform-30e373",
@@ -4131,7 +4012,7 @@
       },
       "postedAt": "2026-09-05T14:31:36.560Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "gomining-engineering-director-platform-8006af",
@@ -4295,7 +4176,7 @@
       },
       "postedAt": "2026-09-05T14:31:36.534Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "gomining-engineering-director-platform-15c585",
@@ -4459,7 +4340,7 @@
       },
       "postedAt": "2026-09-05T14:31:36.377Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "valsoft-corporation-directeur-rice-des-produits-et-de-l-inge-0af60b",
@@ -4796,7 +4677,7 @@
       },
       "postedAt": "2026-09-04T19:56:22.119Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "zipliens-director-of-engineering-hybrid-42f1a3",
@@ -4848,7 +4729,7 @@
       },
       "postedAt": "2026-09-04T14:21:01.653Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "atum-ventures-co-founder-cto-ai-catalyst-discovery-ven-5c20cf",
@@ -4931,7 +4812,7 @@
       },
       "postedAt": "2026-09-04T06:43:10.162Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "infleqtion-director-of-engineering-operations-c7cfb7",
@@ -5183,7 +5064,7 @@
       },
       "postedAt": "2026-09-03T20:40:28.078Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "asana-director-of-engineering-ai-agents-6999da",
@@ -5320,7 +5201,7 @@
       },
       "postedAt": "2026-09-03T16:28:11-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "coursedog-senior-director-of-engineering-core-prod-52536d",
@@ -5419,7 +5300,7 @@
       },
       "postedAt": "2026-09-03T14:11:41.913Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "inventi-chief-technology-officer-ec34a0",
@@ -5530,7 +5411,7 @@
       },
       "postedAt": "2026-09-03T11:59:49.362Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "igloo-head-of-engineering-744002",
@@ -5622,7 +5503,7 @@
       },
       "postedAt": "2026-09-03T07:08:15.852Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "burson-b2b-tech-associate-director-burson-b53c98",
@@ -5746,7 +5627,7 @@
       },
       "postedAt": "2026-09-03T07:03:14-04:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "asana-director-of-security-engineering-a17baa",
@@ -5890,7 +5771,7 @@
       },
       "postedAt": "2026-09-02T12:50:58-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "futuresight-technical-co-founder-cto-ai-collections--b7f0ab",
@@ -6032,7 +5913,7 @@
       },
       "postedAt": "2026-09-01T20:22:39.733Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "futuresight-technical-co-founder-cto-ai-collections--df06b4",
@@ -6174,7 +6055,7 @@
       },
       "postedAt": "2026-09-01T20:15:14.428Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "velsera-vp-software-engineering-b440d6",
@@ -6265,7 +6146,7 @@
       },
       "postedAt": "2026-09-01T19:26:07.312Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "ripple-director-of-engineering-infrastructure-0aa86d",
@@ -6446,7 +6327,7 @@
       },
       "postedAt": "2026-09-01T16:30:48-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "peloton-director-ai-and-security-engineering-043cf2",
@@ -6543,7 +6424,7 @@
       },
       "postedAt": "2026-09-01T15:23:55-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "traqcheck-chief-technology-officer-cto-cf6c5d",
@@ -6610,7 +6491,7 @@
       },
       "postedAt": "2026-09-01T15:21:01.440Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "futuresight-technical-co-founder-cto-ai-legal-front--2c71fa",
@@ -6732,7 +6613,7 @@
       },
       "postedAt": "2026-09-01T13:41:20.062Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "futuresight-technical-co-founder-cto-ai-legal-front--8ef3ee",
@@ -6854,7 +6735,7 @@
       },
       "postedAt": "2026-09-01T13:41:14.280Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "futuresight-technical-co-founder-cto-d551eb",
@@ -6994,7 +6875,7 @@
       },
       "postedAt": "2026-09-01T13:26:28.543Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "futuresight-technical-co-founder-cto-db3485",
@@ -7134,7 +7015,7 @@
       },
       "postedAt": "2026-09-01T13:23:01.195Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "merchantspring-head-of-engineering-0cde38",
@@ -7220,7 +7101,7 @@
       },
       "postedAt": "2026-09-01T10:43:44.102Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "riverside-insights-director-of-engineering-reach-04ab51",
@@ -7310,7 +7191,7 @@
       },
       "postedAt": "2026-09-01T00:27:46.992Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "pinterest-sr-director-engineering-twotwenty-innova-814439",
@@ -7480,7 +7361,7 @@
       },
       "postedAt": "2026-08-31T15:02:04-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "unilabs-head-of-data-engineering-data-products-1a2dbb",
@@ -7861,7 +7742,7 @@
       },
       "postedAt": "2026-08-31T10:35:27.033Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "anthropic-director-finance-systems-revenue-systems-c9e85a",
@@ -8171,7 +8052,7 @@
       },
       "postedAt": "2026-08-29T02:34:37-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "hyprwork-head-of-web-production-dtc-growth-techno-11133f",
@@ -8239,7 +8120,7 @@
       },
       "postedAt": "2026-08-28T17:55:32.530Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "hyprwork-head-of-web-production-dtc-growth-techno-28c85b",
@@ -8307,7 +8188,7 @@
       },
       "postedAt": "2026-08-28T17:55:32.268Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "hyprwork-head-of-web-production-dtc-growth-techno-a29a6f",
@@ -8375,7 +8256,7 @@
       },
       "postedAt": "2026-08-28T17:55:31.967Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "hyprwork-head-of-web-production-dtc-growth-techno-40c7a9",
@@ -8443,7 +8324,7 @@
       },
       "postedAt": "2026-08-28T17:55:31.668Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "hyprwork-head-of-web-production-dtc-growth-techno-0aa482",
@@ -8511,7 +8392,7 @@
       },
       "postedAt": "2026-08-28T17:55:31.133Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "prophix-vp-global-solution-engineering-a502bd",
@@ -8611,7 +8492,7 @@
       },
       "postedAt": "2026-08-28T13:14:23.903Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "ag-barr-head-of-engineering-b9e285",
@@ -8807,7 +8688,7 @@
       },
       "postedAt": "2026-08-28T08:42:29.754Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "okx-head-of-u-s-derivatives-trading-technolo-fd873e",
@@ -9072,7 +8953,7 @@
       },
       "postedAt": "2026-08-27T23:45:23-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "trail-of-bits-engineering-director-application-securit-f9ff5e",
@@ -9181,7 +9062,7 @@
       },
       "postedAt": "2026-08-27T16:35:56.315Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "pinterest-sr-director-security-engineering-7e4d4e",
@@ -9357,147 +9238,7 @@
       },
       "postedAt": "2026-08-26T18:55:39-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
-    },
-    {
-      "id": "hellofresh-director-global-wms-software-engineering-c48868",
-      "title": "Director, Global WMS Software Engineering and Product Design",
-      "company": "HelloFresh",
-      "applyUrl": "https://careers.hellofresh.com/global/en/job/8125694?gh_jid=8125694",
-      "sourceUrl": "https://careers.hellofresh.com/global/en/job/8125694?gh_jid=8125694",
-      "source": "greenhouse",
-      "sources": [
-        "greenhouse"
-      ],
-      "text": "Join our R&D Tech Hub in Warsaw\nWe’re building a new R&D Tech Hub in Poland and are looking for people who want to make a real impact from day one. You’ll be part of a globally connected team, helping to shape the culture and ways of working at our new location. This is a hands-on role in a supportive environment, where collaboration, learning, and adaptability are key.\nWe value practical problem-solving, diverse perspectives, and people who take ownership. If you're ready to contribute to meaningful projects and help lay the foundation for a growing team, we’d like to hear from you.\nAbout the role: What's in the Box\nHelloFresh is searching for an action-oriented servant leader for our warehouse management system (WMS) Software Engineering and Product functions. This leader owns the full software delivery lifecycle for HelloFresh's global warehouse fulfillment and inventory control domain — from architecture and product design through engineering execution, quality assurance, and operational reliability. You will drive a culture of product & engineering excellence, leveraging modern agentic tooling and AI-assisted workflows to increase team velocity, reduce defect escape rates, and accelerate deployment confidence.\nYou will collaborate closely with stakeholders across technology, operations, automation/production technology, procurement, and finance to deliver innovative solutions on our strategic WMS platform — Infios's Warehouse Advantage (Körber/Highjump) — while balancing competing priorities and technical resource demand.\nThe Director of WMS Engineering and Product will work with key technology and product leaders across HelloFresh to enable the inventory management and control domain strategy, evaluate technology-related priorities, and translate stakeholder needs into actionable roadmaps. The ideal candidate combines impeccable management and communication skills with a practitioner's instinct for modern software delivery — knowing how to build high-performing teams, establish engineering health metrics, and integrate AI-assisted tooling that meaningfully accelerates quality and velocity.\nWhat you’ll do: The Recipe\nWMS Solution Ownership: Provide technical direction, development oversight, and performance accountability for HelloFresh's deployment of Infios's Warehouse Advantage (Körber/Highjump) WMS platform across all global locations\nIntegration Architecture & Reliability: Drive WMS application layer Integration architecture to upstream tooling and host systems via CI/CD pipelines [Debezium/Kafka to Snowflake/Databricks]\nPlatform Architecture: Partner/ support as needed the Hosting Architecture team in the optimal sizing and performance of WMS Architecture in AWS\nAgentic Engineering & Developer Productivity: Champion and drive adoption of agentic engineering practices across the team: automated code review tooling (e.g., AI-assisted PR analysis, static analysis agents, LLM-powered code quality gates), AI-augmented test generation and execution, and intelligent deployment pipelines. Measure and report the impact of these practices on delivery velocity and defect escape rate\nCI/CD & Deployment Automation: Own the maturity roadmap for CI/CD pipelines. Establish automated deployment workflows with robust rollback strategies, feature flagging, environment-specific gate checks, and infrastructure-as-code practices — enabling high-confidence, low-friction releases across all WMS environments\nQuality Engineering & Test Automation: Partner with WMS Services and Support leadership to build a world-class QA function. Drive adoption of automated regression suites, AI-assisted edge case generation, and contract testing for integrations. Push teams beyond happy-path coverage toward comprehensive scenario validation, including automated performance and load testing for peak fulfillment periods\nEngineering Metrics & Continuous Improvement: Establish DORA metrics (deployment frequency, lead time for change, change failure rate, and mean time to restore) as the foundation of engineering health reporting for the WMS organization. Set baselines, publish improvement targets, and use metric trends to identify bottlenecks, prioritize tooling and process investments, and communicate engineering performance to senior leadership\nTechnical Roadmap & Architecture Governance: Partner with peers and senior leadership on architectural decision-making for WMS platform evolution, integration patterns, and technology transitions. Champion the use of structured design reviews to maintain coherent, scalable technical direction. Lead evaluations to refactor or replace legacy systems, including risk mitigation and transition planning\nVendor & Capacity Management: Work with department leadership to source and partner with 3rd-party vendors to augment internal engineering capacity and expertise. Maintain vendor performance accountability and ensure structured knowledge transfer to build durable internal capability\nPeople Leadership & Talent Development: Coach, develop, and retain high-performing engineers, product managers, and team leads. Partner with HR and Talent Acquisition to build organizational depth — playing an active role in recruiting, onboarding, and career development\nInternational Standardization/ Release Consolidation. Partner with departmental leadership, peer domains, and executive leadership to own the long term roadmap for product consolidation to a single application release version administered globally\nCross-functional Leadership. Serve on both the Fulfillment Technology and overall Automation & Technology leadership teams, reinforcing HelloFresh DNA values, establishing KPIs, and prioritizing strategic initiatives at a departmental level\nWhat you’ll bring: The Ingredients\nTechnical/Engineering Experience\n10+ years of warehouse management system (WMS) software engineering and implementation experience with a tier-one WMS in an RF-based distribution, manufacturing, or e-commerce fulfillment environment\n3+ years of direct hands-on experience with Infios's Warehouse Advantage (Körber/Highjump) WMS platform with SQL Server\n3+ years managing application integrations via microservices and associated toolsets, including REST APIs, event-driven architectures, and ETL pipelines\nDemonstrated experience implementing or scaling CI/CD pipelines, including automated testing gates, deployment automation, and infrastructure-as-code (IaC) practices across multi-environment WMS or fulfillment technology stacks\nHands-on familiarity with agentic and AI-assisted engineering tools — including automated code review platforms, AI-assisted test generation, and LLM-powered developer productivity tools (e.g., GitHub Copilot, CodeRabbit, SonarQube AI, or equivalent) — with a track record of driving meaningful team-wide adoption and measurable impact\nExperience defining and tracking engineering delivery and quality metrics (DORA metrics or equivalent) and using data to drive process improvement and leadership reporting\nExperience leading evaluations to refactor or replace legacy systems, including developing and executing technology transition plans with appropriate risk mitigation strategies\nProduct Experience\nExperience leading a design and product process that scales a digital technology operations ecosystem across volume growth, multiple brands, and new digital properties\nStrategic thinker with the ability to build and execute innovative digital product strategy while executing tactically against multiple competing priorities simultaneously\nProven ability to translate business requirements into technical specifications, roadmaps, and delivery plans — and to communicate progress and tradeoffs clearly to both technical and non-technical stakeholders\nDemonstrated ability to build leadership support for proactive technology investments, making the business case for engineering quality, automation, and platform modernization\nAbove all, we are looking for people who will make HelloFresh Group better. We believe there are many different ways of developing skills and we love diverse experiences! So even if you don’t “tick all the boxes” but think you’d thrive in this role, we would really like to learn more about you.\nWhat we offer: The Toppings\nHealth - You’re covered from your first day with private health insurance.\nFlexible Working - We work in-office 3 days a week to align on goals, with flexible hours to support work-life balance and personal needs\nTime Off - You receive 26 days of paid vacation each year, providing you time to rest and recharge.\nLearning and Development - An annual Learning & Development budget and a Mentoring Program to support your ongoing professional growth.\nEmployee Referral Program - Our team members can take part in our internal employee referral program and receive a bonus for recommending successful candidates to open roles.\nDaily Comforts - Free coffee, drinks, and fresh fruit are available to keep you refreshed throughout the day.",
-      "blocks": [
-        {
-          "type": "heading",
-          "text": "Join our R&D Tech Hub in Warsaw"
-        },
-        {
-          "type": "para",
-          "text": "We’re building a new R&D Tech Hub in Poland and are looking for people who want to make a real impact from day one. You’ll be part of a globally connected team, helping to shape the culture and ways of working at our new location. This is a hands-on role in a supportive environment, where collaboration, learning, and adaptability are key."
-        },
-        {
-          "type": "para",
-          "text": "We value practical problem-solving, diverse perspectives, and people who take ownership. If you're ready to contribute to meaningful projects and help lay the foundation for a growing team, we’d like to hear from you."
-        },
-        {
-          "type": "heading",
-          "text": "About the role: What's in the Box"
-        },
-        {
-          "type": "para",
-          "text": "HelloFresh is searching for an action-oriented servant leader for our warehouse management system (WMS) Software Engineering and Product functions. This leader owns the full software delivery lifecycle for HelloFresh's global warehouse fulfillment and inventory control domain — from architecture and product design through engineering execution, quality assurance, and operational reliability. You will drive a culture of product & engineering excellence, leveraging modern agentic tooling and AI-assisted workflows to increase team velocity, reduce defect escape rates, and accelerate deployment confidence."
-        },
-        {
-          "type": "para",
-          "text": "You will collaborate closely with stakeholders across technology, operations, automation/production technology, procurement, and finance to deliver innovative solutions on our strategic WMS platform — Infios's Warehouse Advantage (Körber/Highjump) — while balancing competing priorities and technical resource demand."
-        },
-        {
-          "type": "para",
-          "text": "The Director of WMS Engineering and Product will work with key technology and product leaders across HelloFresh to enable the inventory management and control domain strategy, evaluate technology-related priorities, and translate stakeholder needs into actionable roadmaps. The ideal candidate combines impeccable management and communication skills with a practitioner's instinct for modern software delivery — knowing how to build high-performing teams, establish engineering health metrics, and integrate AI-assisted tooling that meaningfully accelerates quality and velocity."
-        },
-        {
-          "type": "heading",
-          "text": "What you’ll do: The Recipe"
-        },
-        {
-          "type": "list",
-          "items": [
-            "WMS Solution Ownership: Provide technical direction, development oversight, and performance accountability for HelloFresh's deployment of Infios's Warehouse Advantage (Körber/Highjump) WMS platform across all global locations",
-            "Integration Architecture & Reliability: Drive WMS application layer Integration architecture to upstream tooling and host systems via CI/CD pipelines [Debezium/Kafka to Snowflake/Databricks]",
-            "Platform Architecture: Partner/ support as needed the Hosting Architecture team in the optimal sizing and performance of WMS Architecture in AWS",
-            "Agentic Engineering & Developer Productivity: Champion and drive adoption of agentic engineering practices across the team: automated code review tooling (e.g., AI-assisted PR analysis, static analysis agents, LLM-powered code quality gates), AI-augmented test generation and execution, and intelligent deployment pipelines. Measure and report the impact of these practices on delivery velocity and defect escape rate",
-            "CI/CD & Deployment Automation: Own the maturity roadmap for CI/CD pipelines. Establish automated deployment workflows with robust rollback strategies, feature flagging, environment-specific gate checks, and infrastructure-as-code practices — enabling high-confidence, low-friction releases across all WMS environments",
-            "Quality Engineering & Test Automation: Partner with WMS Services and Support leadership to build a world-class QA function. Drive adoption of automated regression suites, AI-assisted edge case generation, and contract testing for integrations. Push teams beyond happy-path coverage toward comprehensive scenario validation, including automated performance and load testing for peak fulfillment periods",
-            "Engineering Metrics & Continuous Improvement: Establish DORA metrics (deployment frequency, lead time for change, change failure rate, and mean time to restore) as the foundation of engineering health reporting for the WMS organization. Set baselines, publish improvement targets, and use metric trends to identify bottlenecks, prioritize tooling and process investments, and communicate engineering performance to senior leadership",
-            "Technical Roadmap & Architecture Governance: Partner with peers and senior leadership on architectural decision-making for WMS platform evolution, integration patterns, and technology transitions. Champion the use of structured design reviews to maintain coherent, scalable technical direction. Lead evaluations to refactor or replace legacy systems, including risk mitigation and transition planning",
-            "Vendor & Capacity Management: Work with department leadership to source and partner with 3rd-party vendors to augment internal engineering capacity and expertise. Maintain vendor performance accountability and ensure structured knowledge transfer to build durable internal capability",
-            "People Leadership & Talent Development: Coach, develop, and retain high-performing engineers, product managers, and team leads. Partner with HR and Talent Acquisition to build organizational depth — playing an active role in recruiting, onboarding, and career development",
-            "International Standardization/ Release Consolidation. Partner with departmental leadership, peer domains, and executive leadership to own the long term roadmap for product consolidation to a single application release version administered globally",
-            "Cross-functional Leadership. Serve on both the Fulfillment Technology and overall Automation & Technology leadership teams, reinforcing HelloFresh DNA values, establishing KPIs, and prioritizing strategic initiatives at a departmental level"
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "What you’ll bring: The Ingredients"
-        },
-        {
-          "type": "para",
-          "text": "Technical/Engineering Experience"
-        },
-        {
-          "type": "list",
-          "items": [
-            "10+ years of warehouse management system (WMS) software engineering and implementation experience with a tier-one WMS in an RF-based distribution, manufacturing, or e-commerce fulfillment environment",
-            "3+ years of direct hands-on experience with Infios's Warehouse Advantage (Körber/Highjump) WMS platform with SQL Server",
-            "3+ years managing application integrations via microservices and associated toolsets, including REST APIs, event-driven architectures, and ETL pipelines",
-            "Demonstrated experience implementing or scaling CI/CD pipelines, including automated testing gates, deployment automation, and infrastructure-as-code (IaC) practices across multi-environment WMS or fulfillment technology stacks",
-            "Hands-on familiarity with agentic and AI-assisted engineering tools — including automated code review platforms, AI-assisted test generation, and LLM-powered developer productivity tools (e.g., GitHub Copilot, CodeRabbit, SonarQube AI, or equivalent) — with a track record of driving meaningful team-wide adoption and measurable impact",
-            "Experience defining and tracking engineering delivery and quality metrics (DORA metrics or equivalent) and using data to drive process improvement and leadership reporting",
-            "Experience leading evaluations to refactor or replace legacy systems, including developing and executing technology transition plans with appropriate risk mitigation strategies"
-          ]
-        },
-        {
-          "type": "para",
-          "text": "Product Experience"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Experience leading a design and product process that scales a digital technology operations ecosystem across volume growth, multiple brands, and new digital properties",
-            "Strategic thinker with the ability to build and execute innovative digital product strategy while executing tactically against multiple competing priorities simultaneously",
-            "Proven ability to translate business requirements into technical specifications, roadmaps, and delivery plans — and to communicate progress and tradeoffs clearly to both technical and non-technical stakeholders",
-            "Demonstrated ability to build leadership support for proactive technology investments, making the business case for engineering quality, automation, and platform modernization"
-          ]
-        },
-        {
-          "type": "para",
-          "text": "Above all, we are looking for people who will make HelloFresh Group better. We believe there are many different ways of developing skills and we love diverse experiences! So even if you don’t “tick all the boxes” but think you’d thrive in this role, we would really like to learn more about you."
-        },
-        {
-          "type": "heading",
-          "text": "What we offer: The Toppings"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Health - You’re covered from your first day with private health insurance.",
-            "Flexible Working - We work in-office 3 days a week to align on goals, with flexible hours to support work-life balance and personal needs",
-            "Time Off - You receive 26 days of paid vacation each year, providing you time to rest and recharge.",
-            "Learning and Development - An annual Learning & Development budget and a Mentoring Program to support your ongoing professional growth.",
-            "Employee Referral Program - Our team members can take part in our internal employee referral program and receive a bonus for recommending successful candidates to open roles.",
-            "Daily Comforts - Free coffee, drinks, and fresh fruit are available to keep you refreshed throughout the day."
-          ]
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "PL",
-        "countryName": "Poland",
-        "region": "europe",
-        "remote": false,
-        "raw": "Warszawa, Masovian Voivodeship, Poland"
-      },
-      "seniority": "director",
-      "domain": "engineering-product",
-      "visa": "unknown",
-      "workMode": "onsite",
-      "roleType": "contract",
-      "salary": {
-        "min": 240000,
-        "max": 438000,
-        "currency": "PLN",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "Medium",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2026-08-26T12:07:49-04:00",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "mp-solutions-ltd-director-of-engineering-ai-94ff93",
@@ -9576,7 +9317,7 @@
       },
       "postedAt": "2026-08-25T10:10:08.694Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "okta-director-site-reliability-engineering-c118ed",
@@ -9717,7 +9458,7 @@
       },
       "postedAt": "2026-08-25T05:03:24-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "accuscan-sciences-senior-director-technology-research-a84d39",
@@ -9817,7 +9558,7 @@
       },
       "postedAt": "2026-08-25T00:11:10.822Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "solaris-head-of-product-engineering-18328b",
@@ -10000,7 +9741,7 @@
       },
       "postedAt": "2026-08-24T19:33:02-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "cam-tran-director-of-engineering-c8361e",
@@ -10100,7 +9841,7 @@
       },
       "postedAt": "2026-08-24T16:22:47.771Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "raisin-director-engineering-investment-pension--cedcdb",
@@ -10342,7 +10083,7 @@
       },
       "postedAt": "2026-08-24T10:25:09-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "opswat-director-of-software-engineering-my-opsw-d6e04e",
@@ -10615,139 +10356,7 @@
       },
       "postedAt": "2026-08-24T00:43:35-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
-    },
-    {
-      "id": "figma-director-people-partners-product-design--20acb0",
-      "title": "Director, People Partners - Product, Design & Engineering",
-      "company": "Figma",
-      "applyUrl": "https://boards.greenhouse.io/figma/jobs/6150563004?gh_jid=6150563004",
-      "sourceUrl": "https://boards.greenhouse.io/figma/jobs/6150563004?gh_jid=6150563004",
-      "source": "greenhouse",
-      "sources": [
-        "greenhouse"
-      ],
-      "text": "Figma is growing our team of passionate creatives and builders on a mission to make design accessible to all. Figma’s platform helps teams bring ideas to life—whether you're brainstorming, creating a prototype, translating designs into code, or iterating with AI. From idea to product, Figma empowers teams to streamline workflows, move faster, and work together in real time from anywhere in the world. If you're excited to shape the future of design and collaboration, join us!\nAs Director, People Partners for Product, Design & Engineering (PDE), you'll be partnering with the leaders that are responsible for the teams building Figma and leading a team of highly skilled People Partners. You'll operate as a trusted advisor - coaching, challenging, and guiding the organization through rapid growth, reorganization, and change. As a member of the People team, you’ll partner closely with all of our People functions to build a best in class people function. If you’re energized by ambiguity, adept at building deep relationships, and excited to shape what great People Partnering looks like at Figma, we’d love to hear from you!\nThis is a full time role held from our San Francisco hub.\nWhat you'll do at Figma:\nServe as the strategic People Partner to Figma’s CTO and Chief Design Officer, building the credibility and trust to influence how they lead, organize, and grow their teams\nLead and develop a talented team of People Partners across the Product, Design and Engineering organizations\nLead and execute our People Programs such as org design, resource management, performance, and change management through periods of rapid scaling, reorganization, and shifting priorities\nDrive the core people cycles for your orgs across performance, calibration, talent reviews, succession planning while raising the bar on quality and consistency\nPartner across the People function and our cross functional partners to help execute the People strategy across the PDE organization\nUse data and insights to inform your point of view, measure impact, and tell a compelling story to the leaders you support\nHelp shape and scale the People Partner function itself - developing partners, strengthening the operating model, and modeling what great looks like\nWe'd love to hear from you if you have:\nSignificant experience as a People Partner leader in high-growth environments, including managing a team and partnering directly with executive leaders\nA track record of supporting Product, Design, and/or Engineering organizations, with genuine fluency in how technical and design teams operate\nStrong business and technical acumen - the ability to build deep product and technical knowledge and understand how the business operates\nDemonstrated ability to challenge and advise senior leaders, influencing decisions and outcomes.\nYou stay grounded and resilient, even when things move quickly\nAt Figma, one of our values is Grow as you go. We believe in hiring smart, curious people who are excited to learn and develop their skills. If you’re excited about this role but your past experience doesn’t align perfectly with the points outlined in the job description, we encourage you to apply anyways. You may be just the right candidate for this or other roles.\nPay Transparency Disclosure\nJob level and actual compensation will be decided based on factors including, but not limited to, individual qualifications objectively assessed during the interview process (including skills and prior relevant experience, potential impact, and scope of role), market demands, and specific work location.\nFigma offers equity to employees, as well as a competitive package of additional benefits, including health, dental, and vision coverage; retirement benefits with company contributions; parental leave and reproductive or family planning support; mental health and wellness benefits; and paid time off. Figma provides paid sick leave, holidays, and other leave benefits in compliance with applicable federal, state, and local laws, including the requirements of the Washington Minimum Wage Act and related regulations. Exempt employees are eligible for employer‑provided paid flexible PTO in addition to flexible paid sick leave. PTO is subject to manager approval. Additional benefits may include company recharge days, cell phone and home internet reimbursements, and a number of lifestyle spending accounts. Figma also offers sales incentive compensation for most sales roles and an annual bonus plan for eligible non-sales roles. All compensation and benefits are subject to applicable plan terms and may be modified by Figma at any time, consistent with applicable law.\nAnnual Base Salary Range:\n$235,000—$317,000 USD\nAt Figma we celebrate and support our differences. We know employing a team rich in diverse thoughts, experiences, and opinions allows our employees, our product and our community to flourish. Figma is an equal opportunity workplace - we are dedicated to equal employment opportunities regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity/expression, veteran status, or any other characteristic protected by law. We also consider qualified applicants regardless of criminal histories, consistent with legal requirements.\nWe will work to ensure individuals with disabilities are provided reasonable accommodation to apply for a role, participate in the interview process, perform essential job functions, and receive other benefits and privileges of employment. If you require accommodation, please reach out to accommodations-ext@figma.com. These modifications enable an individual with a disability to have an equal opportunity not only to get a job, but successfully perform their job tasks to the same extent as people without disabilities.\nExamples of accommodations include but are not limited to:\nHolding interviews in an accessible location\nEnabling closed captioning on video conferencing\nEnsuring all written communication be compatible with screen readers\nChanging the mode or format of interviews\nTo ensure the integrity of our hiring process and facilitate a more personal connection, we require all candidates keep their cameras on during video interviews. Additionally, if hired you will be required to attend in person onboarding.\nBy applying for this job, the candidate acknowledges and agrees that any personal data contained in their application or supporting materials will be processed in accordance with Figma's Candidate Privacy Notice.",
-      "blocks": [
-        {
-          "type": "para",
-          "text": "Figma is growing our team of passionate creatives and builders on a mission to make design accessible to all. Figma’s platform helps teams bring ideas to life—whether you're brainstorming, creating a prototype, translating designs into code, or iterating with AI. From idea to product, Figma empowers teams to streamline workflows, move faster, and work together in real time from anywhere in the world. If you're excited to shape the future of design and collaboration, join us!"
-        },
-        {
-          "type": "para",
-          "text": "As Director, People Partners for Product, Design & Engineering (PDE), you'll be partnering with the leaders that are responsible for the teams building Figma and leading a team of highly skilled People Partners. You'll operate as a trusted advisor - coaching, challenging, and guiding the organization through rapid growth, reorganization, and change. As a member of the People team, you’ll partner closely with all of our People functions to build a best in class people function. If you’re energized by ambiguity, adept at building deep relationships, and excited to shape what great People Partnering looks like at Figma, we’d love to hear from you!"
-        },
-        {
-          "type": "para",
-          "text": "This is a full time role held from our San Francisco hub."
-        },
-        {
-          "type": "heading",
-          "text": "What you'll do at Figma:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Serve as the strategic People Partner to Figma’s CTO and Chief Design Officer, building the credibility and trust to influence how they lead, organize, and grow their teams",
-            "Lead and develop a talented team of People Partners across the Product, Design and Engineering organizations",
-            "Lead and execute our People Programs such as org design, resource management, performance, and change management through periods of rapid scaling, reorganization, and shifting priorities",
-            "Drive the core people cycles for your orgs across performance, calibration, talent reviews, succession planning while raising the bar on quality and consistency",
-            "Partner across the People function and our cross functional partners to help execute the People strategy across the PDE organization",
-            "Use data and insights to inform your point of view, measure impact, and tell a compelling story to the leaders you support",
-            "Help shape and scale the People Partner function itself - developing partners, strengthening the operating model, and modeling what great looks like"
-          ]
-        },
-        {
-          "type": "para",
-          "text": "We'd love to hear from you if you have:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Significant experience as a People Partner leader in high-growth environments, including managing a team and partnering directly with executive leaders",
-            "A track record of supporting Product, Design, and/or Engineering organizations, with genuine fluency in how technical and design teams operate",
-            "Strong business and technical acumen - the ability to build deep product and technical knowledge and understand how the business operates",
-            "Demonstrated ability to challenge and advise senior leaders, influencing decisions and outcomes.",
-            "You stay grounded and resilient, even when things move quickly"
-          ]
-        },
-        {
-          "type": "para",
-          "text": "At Figma, one of our values is Grow as you go. We believe in hiring smart, curious people who are excited to learn and develop their skills. If you’re excited about this role but your past experience doesn’t align perfectly with the points outlined in the job description, we encourage you to apply anyways. You may be just the right candidate for this or other roles."
-        },
-        {
-          "type": "para",
-          "text": "Pay Transparency Disclosure"
-        },
-        {
-          "type": "para",
-          "text": "Job level and actual compensation will be decided based on factors including, but not limited to, individual qualifications objectively assessed during the interview process (including skills and prior relevant experience, potential impact, and scope of role), market demands, and specific work location."
-        },
-        {
-          "type": "para",
-          "text": "Figma offers equity to employees, as well as a competitive package of additional benefits, including health, dental, and vision coverage; retirement benefits with company contributions; parental leave and reproductive or family planning support; mental health and wellness benefits; and paid time off. Figma provides paid sick leave, holidays, and other leave benefits in compliance with applicable federal, state, and local laws, including the requirements of the Washington Minimum Wage Act and related regulations. Exempt employees are eligible for employer‑provided paid flexible PTO in addition to flexible paid sick leave. PTO is subject to manager approval. Additional benefits may include company recharge days, cell phone and home internet reimbursements, and a number of lifestyle spending accounts. Figma also offers sales incentive compensation for most sales roles and an annual bonus plan for eligible non-sales roles. All compensation and benefits are subject to applicable plan terms and may be modified by Figma at any time, consistent with applicable law."
-        },
-        {
-          "type": "para",
-          "text": "Annual Base Salary Range:"
-        },
-        {
-          "type": "para",
-          "text": "$235,000—$317,000 USD"
-        },
-        {
-          "type": "para",
-          "text": "At Figma we celebrate and support our differences. We know employing a team rich in diverse thoughts, experiences, and opinions allows our employees, our product and our community to flourish. Figma is an equal opportunity workplace - we are dedicated to equal employment opportunities regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity/expression, veteran status, or any other characteristic protected by law. We also consider qualified applicants regardless of criminal histories, consistent with legal requirements."
-        },
-        {
-          "type": "para",
-          "text": "We will work to ensure individuals with disabilities are provided reasonable accommodation to apply for a role, participate in the interview process, perform essential job functions, and receive other benefits and privileges of employment. If you require accommodation, please reach out to accommodations-ext@figma.com. These modifications enable an individual with a disability to have an equal opportunity not only to get a job, but successfully perform their job tasks to the same extent as people without disabilities."
-        },
-        {
-          "type": "para",
-          "text": "Examples of accommodations include but are not limited to:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Holding interviews in an accessible location",
-            "Enabling closed captioning on video conferencing",
-            "Ensuring all written communication be compatible with screen readers",
-            "Changing the mode or format of interviews"
-          ]
-        },
-        {
-          "type": "para",
-          "text": "To ensure the integrity of our hiring process and facilitate a more personal connection, we require all candidates keep their cameras on during video interviews. Additionally, if hired you will be required to attend in person onboarding."
-        },
-        {
-          "type": "para",
-          "text": "By applying for this job, the candidate acknowledges and agrees that any personal data contained in their application or supporting materials will be processed in accordance with Figma's Candidate Privacy Notice."
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "US",
-        "countryName": "United States",
-        "region": "north-america",
-        "remote": false,
-        "raw": "San Francisco, CA"
-      },
-      "seniority": "director",
-      "domain": "engineering-product",
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salary": {
-        "min": 235000,
-        "max": 317000,
-        "currency": "USD",
-        "period": "annual",
-        "source": "stated"
-      },
-      "postedAt": "2026-08-21T18:09:25-04:00",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "postman-head-of-engineering-infrastructure-sre-818b0e",
@@ -10960,388 +10569,19 @@
       },
       "postedAt": "2026-08-21T15:56:33-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
-      "id": "hellofresh-director-wms-product-design-development--f68b05",
-      "title": "Director, WMS Product Design/Development [OPERATIONS TECHNOLOGY]",
-      "company": "HelloFresh",
-      "applyUrl": "https://careers.hellofresh.com/global/en/job/8147111?gh_jid=8147111",
-      "sourceUrl": "https://careers.hellofresh.com/global/en/job/8147111?gh_jid=8147111",
-      "source": "greenhouse",
-      "sources": [
-        "greenhouse"
-      ],
-      "text": "About the role\nHelloFresh is searching for an action-oriented servant leader for our warehouse management system (WMS) Product Design and Software Engineering functions. This leader owns the full software delivery lifecycle for HelloFresh's global warehouse fulfillment and inventory control domain — from architecture and product design through engineering execution, quality assurance, and operational reliability. You will drive a culture of product & engineering excellence, leveraging modern agentic tooling and AI-assisted workflows to increase team velocity, reduce defect escape rates, and accelerate deployment confidence.\nYou will collaborate closely with stakeholders across operations, automation/production technology, procurement, and finance to deliver innovative solutions on our strategic WMS platform — Infios's Warehouse Advantage (Körber/Highjump) — while balancing competing priorities and technical resource demand.\nThis location-flexible position can be physically based in any of our North America corporate offices or fulfillment centers with a hybrid working model, but must be flexible with work hour scheduling as teams and solutions are dispersed globally.\nThe Director of WMS Product Design and Software Engineering will work with key technology and product leaders across HelloFresh to enable the inventory management and control domain strategy, evaluate technology-related priorities, and translate stakeholder needs into actionable roadmaps. The ideal candidate combines impeccable management and communication skills with a practitioner's instinct for modern software delivery — knowing how to build high-performing teams, establish engineering health metrics, and integrate AI-assisted tooling that meaningfully accelerates quality and velocity.\nWhat you'll own\nWMS Solution Ownership: Provide technical direction, development oversight, and performance accountability for HelloFresh's deployment of Infios's Warehouse Advantage (Körber/Highjump) WMS platform across all global locations\nIntegration Architecture & Reliability: Own WMS layer Integrations to host systems and CDC pipelines (Debezium/kafka) to Snowflake/Databricks\nPlatform Architecture: Partner/ support as needed the Hosting Architecture team in the optimal sizing and performance of WMS Architecture in AWS\nAgentic Engineering & Developer Productivity: Champion and drive adoption of agentic engineering practices across the team: automated code review tooling (e.g., AI-assisted PR analysis, static analysis agents, LLM-powered code quality gates), AI-augmented test generation and execution, and intelligent deployment pipelines. Measure and report the impact of these practices on delivery velocity and defect escape rate\nCI/CD & Deployment Automation: Own the maturity roadmap for CI/CD pipelines. Establish automated deployment workflows with robust rollback strategies, feature flagging, environment-specific gate checks, and infrastructure-as-code practices — enabling high-confidence, low-friction releases across all WMS environments\nQuality Engineering & Test Automation: Partner with WMS Services and Support leadership to build a world-class QA function. Drive adoption of automated regression suites, AI-assisted edge case generation, and contract testing for integrations. Push teams beyond happy-path coverage toward comprehensive scenario validation, including automated performance and load testing for peak fulfillment periods\nEngineering Metrics & Continuous Improvement: Establish DORA metrics (deployment frequency, lead time for change, change failure rate, and mean time to restore) as the foundation of engineering health reporting for the WMS organization. Set baselines, publish improvement targets, and use metric trends to identify bottlenecks, prioritize tooling and process investments, and communicate engineering performance to senior leadership\nTechnical Roadmap & Architecture Governance: Partner with peers and senior leadership on architectural decision-making for WMS platform evolution, integration patterns, and technology transitions. Champion the use of structured design reviews to maintain coherent, scalable technical direction. Lead evaluations to refactor or replace legacy systems, including risk mitigation and transition planning\nVendor & Capacity Management: Work with department leadership to source and partner with 3rd-party vendors to augment internal engineering capacity and expertise. Maintain vendor performance accountability and ensure structured knowledge transfer to build durable internal capability\nPeople Leadership & Talent Development: Coach, develop, and retain high-performing engineers, product managers, and team leads. Partner with HR and Talent Acquisition to build organizational depth — playing an active role in recruiting, onboarding, and career development\nInternational Standardization/ Release Consolidation. Partner with departmental leadership, peer domains, and executive leadership to own the long term roadmap for product consolidation to a single application release version administered globally\nCross-functional Leadership. Serve on both the Fulfillment Technology and overall Automation & Technology leadership teams, reinforcing HelloFresh DNA values, establishing KPIs, and prioritizing strategic initiatives at a departmental level\nWhat you bring\nTechnical/Engineering Experience\n10+ years of warehouse management system (WMS) software engineering and implementation experience with a tier-one WMS in an RF-based distribution, manufacturing, or e-commerce fulfillment environment\n3+ years of direct hands-on experience with Infios's Warehouse Advantage (Körber/Highjump) WMS platform with SQL Server\n3+ years managing application integrations via microservices and associated toolsets, including REST APIs, event-driven architectures, and ETL pipelines\nDemonstrated experience implementing or scaling CI/CD pipelines, including automated testing gates, deployment automation, and infrastructure-as-code (IaC) practices across multi-environment WMS or fulfillment technology stacks\nHands-on familiarity with agentic and AI-assisted engineering tools — including automated code review platforms, AI-assisted test generation, and LLM-powered developer productivity tools (e.g., GitHub Copilot, CodeRabbit, SonarQube AI, or equivalent) — with a track record of driving meaningful team-wide adoption and measurable impact\nExperience defining and tracking engineering delivery and quality metrics (DORA metrics or equivalent) and using data to drive process improvement and leadership reporting\nExperience leading evaluations to refactor or replace legacy systems, including developing and executing technology transition plans with appropriate risk mitigation strategies\nProduct Experience\nExperience leading a design and product process that scales a digital technology operations ecosystem across volume growth, multiple brands, and new digital properties\nStrategic thinker with the ability to build and execute innovative digital product strategy while executing tactically against multiple competing priorities simultaneously\nProven ability to translate business requirements into technical specifications, roadmaps, and delivery plans — and to communicate progress and tradeoffs clearly to both technical and non-technical stakeholders\nDemonstrated ability to build leadership support for proactive technology investments, making the business case for engineering quality, automation, and platform modernization\nAdditionally With This Role, You will have....\nThe opportunity to shape global operations at a leading food technology company with significant reach and impact.\nA high-ownership, low-bureaucracy environment where your work is visible and your decisions matter.\nFlexible working arrangements to support your work-life balance.\nContinuous development through HelloFresh Academies and access to internal mobility across 18 countries.\nAn egoless, collaborative culture focused on learning, growth, and building something exceptional together.\nAnd you’ll get…\nCompetitive salary, 401k with company match that vests immediately upon participation\nGenerous PTO, including sabbatical, and parental leave of up to 16 weeks\nComprehensive health and wellness benefits with options at $0 monthly, effective first day of employment\nTuition reimbursement for continuing education (upon 2 years of service)\nUp to 85% discount on subscriptions to HelloFresh meal plans (HelloFresh, Green Chef, Everyplate, and Factor_)\nAccess to Employee Resource Groups that are open to all employees, including those pertaining to BIPOC, women, veterans, parents, and LGBTQ+\nInclusive, collaborative, and dynamic work environment within a fast-paced, mission-driven company that is disrupting the traditional food supply chain\nThis job description is intended to provide a general overview of the responsibilities. However, the Company reserves the right to adjust, modify, or reassign work tasks and responsibilities as needed to meet changing business needs, operational requirements, or other factors.\nNew York Pay Range\n$194,250—$235,000 USD\nTexas Pay Range\n$169,050—$204,500 USD\nNewark, NJ Pay Range\n$194,250—$235,000 USD\nArizona Pay Range\n$169,050—$204,500 USD\nIllinois Pay Range\n$181,650—$219,500 USD",
-      "blocks": [
-        {
-          "type": "heading",
-          "text": "About the role"
-        },
-        {
-          "type": "para",
-          "text": "HelloFresh is searching for an action-oriented servant leader for our warehouse management system (WMS) Product Design and Software Engineering functions. This leader owns the full software delivery lifecycle for HelloFresh's global warehouse fulfillment and inventory control domain — from architecture and product design through engineering execution, quality assurance, and operational reliability. You will drive a culture of product & engineering excellence, leveraging modern agentic tooling and AI-assisted workflows to increase team velocity, reduce defect escape rates, and accelerate deployment confidence."
-        },
-        {
-          "type": "para",
-          "text": "You will collaborate closely with stakeholders across operations, automation/production technology, procurement, and finance to deliver innovative solutions on our strategic WMS platform — Infios's Warehouse Advantage (Körber/Highjump) — while balancing competing priorities and technical resource demand."
-        },
-        {
-          "type": "para",
-          "text": "This location-flexible position can be physically based in any of our North America corporate offices or fulfillment centers with a hybrid working model, but must be flexible with work hour scheduling as teams and solutions are dispersed globally."
-        },
-        {
-          "type": "para",
-          "text": "The Director of WMS Product Design and Software Engineering will work with key technology and product leaders across HelloFresh to enable the inventory management and control domain strategy, evaluate technology-related priorities, and translate stakeholder needs into actionable roadmaps. The ideal candidate combines impeccable management and communication skills with a practitioner's instinct for modern software delivery — knowing how to build high-performing teams, establish engineering health metrics, and integrate AI-assisted tooling that meaningfully accelerates quality and velocity."
-        },
-        {
-          "type": "heading",
-          "text": "What you'll own"
-        },
-        {
-          "type": "list",
-          "items": [
-            "WMS Solution Ownership: Provide technical direction, development oversight, and performance accountability for HelloFresh's deployment of Infios's Warehouse Advantage (Körber/Highjump) WMS platform across all global locations",
-            "Integration Architecture & Reliability: Own WMS layer Integrations to host systems and CDC pipelines (Debezium/kafka) to Snowflake/Databricks",
-            "Platform Architecture: Partner/ support as needed the Hosting Architecture team in the optimal sizing and performance of WMS Architecture in AWS",
-            "Agentic Engineering & Developer Productivity: Champion and drive adoption of agentic engineering practices across the team: automated code review tooling (e.g., AI-assisted PR analysis, static analysis agents, LLM-powered code quality gates), AI-augmented test generation and execution, and intelligent deployment pipelines. Measure and report the impact of these practices on delivery velocity and defect escape rate",
-            "CI/CD & Deployment Automation: Own the maturity roadmap for CI/CD pipelines. Establish automated deployment workflows with robust rollback strategies, feature flagging, environment-specific gate checks, and infrastructure-as-code practices — enabling high-confidence, low-friction releases across all WMS environments",
-            "Quality Engineering & Test Automation: Partner with WMS Services and Support leadership to build a world-class QA function. Drive adoption of automated regression suites, AI-assisted edge case generation, and contract testing for integrations. Push teams beyond happy-path coverage toward comprehensive scenario validation, including automated performance and load testing for peak fulfillment periods",
-            "Engineering Metrics & Continuous Improvement: Establish DORA metrics (deployment frequency, lead time for change, change failure rate, and mean time to restore) as the foundation of engineering health reporting for the WMS organization. Set baselines, publish improvement targets, and use metric trends to identify bottlenecks, prioritize tooling and process investments, and communicate engineering performance to senior leadership",
-            "Technical Roadmap & Architecture Governance: Partner with peers and senior leadership on architectural decision-making for WMS platform evolution, integration patterns, and technology transitions. Champion the use of structured design reviews to maintain coherent, scalable technical direction. Lead evaluations to refactor or replace legacy systems, including risk mitigation and transition planning",
-            "Vendor & Capacity Management: Work with department leadership to source and partner with 3rd-party vendors to augment internal engineering capacity and expertise. Maintain vendor performance accountability and ensure structured knowledge transfer to build durable internal capability",
-            "People Leadership & Talent Development: Coach, develop, and retain high-performing engineers, product managers, and team leads. Partner with HR and Talent Acquisition to build organizational depth — playing an active role in recruiting, onboarding, and career development",
-            "International Standardization/ Release Consolidation. Partner with departmental leadership, peer domains, and executive leadership to own the long term roadmap for product consolidation to a single application release version administered globally",
-            "Cross-functional Leadership. Serve on both the Fulfillment Technology and overall Automation & Technology leadership teams, reinforcing HelloFresh DNA values, establishing KPIs, and prioritizing strategic initiatives at a departmental level"
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "What you bring"
-        },
-        {
-          "type": "para",
-          "text": "Technical/Engineering Experience"
-        },
-        {
-          "type": "list",
-          "items": [
-            "10+ years of warehouse management system (WMS) software engineering and implementation experience with a tier-one WMS in an RF-based distribution, manufacturing, or e-commerce fulfillment environment",
-            "3+ years of direct hands-on experience with Infios's Warehouse Advantage (Körber/Highjump) WMS platform with SQL Server",
-            "3+ years managing application integrations via microservices and associated toolsets, including REST APIs, event-driven architectures, and ETL pipelines",
-            "Demonstrated experience implementing or scaling CI/CD pipelines, including automated testing gates, deployment automation, and infrastructure-as-code (IaC) practices across multi-environment WMS or fulfillment technology stacks",
-            "Hands-on familiarity with agentic and AI-assisted engineering tools — including automated code review platforms, AI-assisted test generation, and LLM-powered developer productivity tools (e.g., GitHub Copilot, CodeRabbit, SonarQube AI, or equivalent) — with a track record of driving meaningful team-wide adoption and measurable impact",
-            "Experience defining and tracking engineering delivery and quality metrics (DORA metrics or equivalent) and using data to drive process improvement and leadership reporting",
-            "Experience leading evaluations to refactor or replace legacy systems, including developing and executing technology transition plans with appropriate risk mitigation strategies"
-          ]
-        },
-        {
-          "type": "para",
-          "text": "Product Experience"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Experience leading a design and product process that scales a digital technology operations ecosystem across volume growth, multiple brands, and new digital properties",
-            "Strategic thinker with the ability to build and execute innovative digital product strategy while executing tactically against multiple competing priorities simultaneously",
-            "Proven ability to translate business requirements into technical specifications, roadmaps, and delivery plans — and to communicate progress and tradeoffs clearly to both technical and non-technical stakeholders",
-            "Demonstrated ability to build leadership support for proactive technology investments, making the business case for engineering quality, automation, and platform modernization"
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Additionally With This Role, You will have...."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The opportunity to shape global operations at a leading food technology company with significant reach and impact.",
-            "A high-ownership, low-bureaucracy environment where your work is visible and your decisions matter.",
-            "Flexible working arrangements to support your work-life balance.",
-            "Continuous development through HelloFresh Academies and access to internal mobility across 18 countries.",
-            "An egoless, collaborative culture focused on learning, growth, and building something exceptional together."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "And you’ll get…"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Competitive salary, 401k with company match that vests immediately upon participation",
-            "Generous PTO, including sabbatical, and parental leave of up to 16 weeks",
-            "Comprehensive health and wellness benefits with options at $0 monthly, effective first day of employment",
-            "Tuition reimbursement for continuing education (upon 2 years of service)",
-            "Up to 85% discount on subscriptions to HelloFresh meal plans (HelloFresh, Green Chef, Everyplate, and Factor_)",
-            "Access to Employee Resource Groups that are open to all employees, including those pertaining to BIPOC, women, veterans, parents, and LGBTQ+",
-            "Inclusive, collaborative, and dynamic work environment within a fast-paced, mission-driven company that is disrupting the traditional food supply chain"
-          ]
-        },
-        {
-          "type": "para",
-          "text": "This job description is intended to provide a general overview of the responsibilities. However, the Company reserves the right to adjust, modify, or reassign work tasks and responsibilities as needed to meet changing business needs, operational requirements, or other factors."
-        },
-        {
-          "type": "para",
-          "text": "New York Pay Range"
-        },
-        {
-          "type": "para",
-          "text": "$194,250—$235,000 USD"
-        },
-        {
-          "type": "para",
-          "text": "Texas Pay Range"
-        },
-        {
-          "type": "para",
-          "text": "$169,050—$204,500 USD"
-        },
-        {
-          "type": "para",
-          "text": "Newark, NJ Pay Range"
-        },
-        {
-          "type": "para",
-          "text": "$194,250—$235,000 USD"
-        },
-        {
-          "type": "para",
-          "text": "Arizona Pay Range"
-        },
-        {
-          "type": "para",
-          "text": "$169,050—$204,500 USD"
-        },
-        {
-          "type": "para",
-          "text": "Illinois Pay Range"
-        },
-        {
-          "type": "para",
-          "text": "$181,650—$219,500 USD"
-        }
-      ],
-      "requirements": [
-        "Technical/Engineering Experience",
-        "10+ years of warehouse management system (WMS) software engineering and implementation experience with a tier-one WMS in an RF-based distribution, manufacturing, or e-commerce fulfillment environment",
-        "3+ years of direct hands-on experience with Infios's Warehouse Advantage (Körber/Highjump) WMS platform with SQL Server",
-        "3+ years managing application integrations via microservices and associated toolsets, including REST APIs, event-driven architectures, and ETL pipelines",
-        "Demonstrated experience implementing or scaling CI/CD pipelines, including automated testing gates, deployment automation, and infrastructure-as-code (IaC) practices across multi-environment WMS or fulfillment technology stacks",
-        "Hands-on familiarity with agentic and AI-assisted engineering tools — including automated code review platforms, AI-assisted test generation, and LLM-powered developer productivity tools (e.g., GitHub Copilot, CodeRabbit, SonarQube AI, or equivalent) — with a track record of driving meaningful team-wide adoption and measurable impact",
-        "Experience defining and tracking engineering delivery and quality metrics (DORA metrics or equivalent) and using data to drive process improvement and leadership reporting",
-        "Experience leading evaluations to refactor or replace legacy systems, including developing and executing technology transition plans with appropriate risk mitigation strategies",
-        "Product Experience",
-        "Experience leading a design and product process that scales a digital technology operations ecosystem across volume growth, multiple brands, and new digital properties",
-        "Strategic thinker with the ability to build and execute innovative digital product strategy while executing tactically against multiple competing priorities simultaneously",
-        "Proven ability to translate business requirements into technical specifications, roadmaps, and delivery plans — and to communicate progress and tradeoffs clearly to both technical and non-technical stakeholders",
-        "Demonstrated ability to build leadership support for proactive technology investments, making the business case for engineering quality, automation, and platform modernization"
-      ],
-      "location": {
-        "countryIso2": "US",
-        "countryName": "United States",
-        "region": "north-america",
-        "remote": false,
-        "raw": "Aurora, IL, United States; Goodyear, AZ, United States; Irving, TX, United States; New York, NY, United States; Newark, NJ, United States; Phoenix, AZ, United States"
-      },
-      "seniority": "director",
-      "domain": "engineering-product",
-      "visa": "unknown",
-      "workMode": "hybrid",
-      "roleType": "contract",
-      "salary": {
-        "min": 194250,
-        "max": 235000,
-        "currency": "USD",
-        "period": "annual",
-        "source": "stated"
-      },
-      "postedAt": "2026-08-21T09:42:25-04:00",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
-    },
-    {
-      "id": "hellofresh-director-wms-product-design-and-engineer-6d6149",
-      "title": "Director, WMS Product Design and Engineering",
-      "company": "HelloFresh",
-      "applyUrl": "https://careers.hellofresh.com/global/en/job/8125690?gh_jid=8125690",
-      "sourceUrl": "https://careers.hellofresh.com/global/en/job/8125690?gh_jid=8125690",
-      "source": "greenhouse",
-      "sources": [
-        "greenhouse"
-      ],
-      "text": "About the role\nHelloFresh is searching for an action-oriented servant leader for our warehouse management system (WMS) Product Design and Software Engineering functions. This leader owns the full software delivery lifecycle for HelloFresh's global warehouse fulfillment and inventory control domain — from architecture and product design through engineering execution, quality assurance, and operational reliability. You will drive a culture of product & engineering excellence, leveraging modern agentic tooling and AI-assisted workflows to increase team velocity, reduce defect escape rates, and accelerate deployment confidence.\nYou will collaborate closely with stakeholders across operations, automation/production technology, procurement, and finance to deliver innovative solutions on our strategic WMS platform — Infios's Warehouse Advantage (Körber/Highjump) — while balancing competing priorities and technical resource demand.\nThis location-flexible position can be physically based in any of our North America corporate offices or fulfillment centers with a hybrid working model, but must be flexible with work hour scheduling as teams and solutions are dispersed globally.\nThe Director of WMS Product Design and Software Engineering will work with key technology and product leaders across HelloFresh to enable the inventory management and control domain strategy, evaluate technology-related priorities, and translate stakeholder needs into actionable roadmaps. The ideal candidate combines impeccable management and communication skills with a practitioner's instinct for modern software delivery — knowing how to build high-performing teams, establish engineering health metrics, and integrate AI-assisted tooling that meaningfully accelerates quality and velocity.\nWhat you'll own\nWMS Solution Ownership: Provide technical direction, development oversight, and performance accountability for HelloFresh's deployment of Infios's Warehouse Advantage (Körber/Highjump) WMS platform across all global locations\nIntegration Architecture & Reliability: Own WMS layer Integrations to host systems and CDC pipelines (Debezium/kafka) to Snowflake/Databricks\nPlatform Architecture: Partner/ support as needed the Hosting Architecture team in the optimal sizing and performance of WMS Architecture in AWS\nAgentic Engineering & Developer Productivity: Champion and drive adoption of agentic engineering practices across the team: automated code review tooling (e.g., AI-assisted PR analysis, static analysis agents, LLM-powered code quality gates), AI-augmented test generation and execution, and intelligent deployment pipelines. Measure and report the impact of these practices on delivery velocity and defect escape rate\nCI/CD & Deployment Automation: Own the maturity roadmap for CI/CD pipelines. Establish automated deployment workflows with robust rollback strategies, feature flagging, environment-specific gate checks, and infrastructure-as-code practices — enabling high-confidence, low-friction releases across all WMS environments\nQuality Engineering & Test Automation: Partner with WMS Services and Support leadership to build a world-class QA function. Drive adoption of automated regression suites, AI-assisted edge case generation, and contract testing for integrations. Push teams beyond happy-path coverage toward comprehensive scenario validation, including automated performance and load testing for peak fulfillment periods\nEngineering Metrics & Continuous Improvement: Establish DORA metrics (deployment frequency, lead time for change, change failure rate, and mean time to restore) as the foundation of engineering health reporting for the WMS organization. Set baselines, publish improvement targets, and use metric trends to identify bottlenecks, prioritize tooling and process investments, and communicate engineering performance to senior leadership\nTechnical Roadmap & Architecture Governance: Partner with peers and senior leadership on architectural decision-making for WMS platform evolution, integration patterns, and technology transitions. Champion the use of structured design reviews to maintain coherent, scalable technical direction. Lead evaluations to refactor or replace legacy systems, including risk mitigation and transition planning\nVendor & Capacity Management: Work with department leadership to source and partner with 3rd-party vendors to augment internal engineering capacity and expertise. Maintain vendor performance accountability and ensure structured knowledge transfer to build durable internal capability\nPeople Leadership & Talent Development: Coach, develop, and retain high-performing engineers, product managers, and team leads. Partner with HR and Talent Acquisition to build organizational depth — playing an active role in recruiting, onboarding, and career development\nInternational Standardization/ Release Consolidation. Partner with departmental leadership, peer domains, and executive leadership to own the long term roadmap for product consolidation to a single application release version administered globally\nCross-functional Leadership. Serve on both the Fulfillment Technology and overall Automation & Technology leadership teams, reinforcing HelloFresh DNA values, establishing KPIs, and prioritizing strategic initiatives at a departmental level\nWhat you bring\nTechnical/Engineering Experience\n10+ years of warehouse management system (WMS) software engineering and implementation experience with a tier-one WMS in an RF-based distribution, manufacturing, or e-commerce fulfillment environment\n3+ years of direct hands-on experience with Infios's Warehouse Advantage (Körber/Highjump) WMS platform with SQL Server\n3+ years managing application integrations via microservices and associated toolsets, including REST APIs, event-driven architectures, and ETL pipelines\nDemonstrated experience implementing or scaling CI/CD pipelines, including automated testing gates, deployment automation, and infrastructure-as-code (IaC) practices across multi-environment WMS or fulfillment technology stacks\nHands-on familiarity with agentic and AI-assisted engineering tools — including automated code review platforms, AI-assisted test generation, and LLM-powered developer productivity tools (e.g., GitHub Copilot, CodeRabbit, SonarQube AI, or equivalent) — with a track record of driving meaningful team-wide adoption and measurable impact\nExperience defining and tracking engineering delivery and quality metrics (DORA metrics or equivalent) and using data to drive process improvement and leadership reporting\nExperience leading evaluations to refactor or replace legacy systems, including developing and executing technology transition plans with appropriate risk mitigation strategies\nProduct Experience\nExperience leading a design and product process that scales a digital technology operations ecosystem across volume growth, multiple brands, and new digital properties\nStrategic thinker with the ability to build and execute innovative digital product strategy while executing tactically against multiple competing priorities simultaneously\nProven ability to translate business requirements into technical specifications, roadmaps, and delivery plans — and to communicate progress and tradeoffs clearly to both technical and non-technical stakeholders\nDemonstrated ability to build leadership support for proactive technology investments, making the business case for engineering quality, automation, and platform modernization\nWhat we offer\nShape the future of food: Play a key role in transforming how millions of people eat as we grow into a global food solutions company.\nDrive transformational change: Your decisions will have a direct and immediate impact, helping to shape strategy, scale teams, and redefine leadership in a rapidly evolving business.\nBuild a global brand: Create deeper, more sustainable connections with our customers, putting them at the heart of every decision.\nCompensation & Financial Wellbeing: Enjoy amazing discounts: 75% off weekly HelloFresh/Chefs Plate meal kits plus 50% off weekly Factor meal boxes.\nHealth & Wellbeing: Benefit from health and dental coverage from day one, a Health Spending Account, unlimited Headspace access, and 25% off GoodLife fitness memberships.\nFlexibility & Work-Life: Receive generous vacation and PTO offerings. Benefit from a parental leave top-up program designed to support expectant parents.\nCareer & Development: Grow with dedicated L&D initiatives and career support, aligning with our \"Learning Never Stops\" value.\nFlexible Hybrid Approach\nAt HelloFresh, we know that flexible work arrangements are essential in enabling you to do your best work, while balancing your personal and life needs. Offering remote work flexibility, along with the opportunity to interact and collaborate in the office are all a part of creating a great employee experience.\nTo meet these needs, we are pleased to provide Flexible Hybrid work. Flexible Hybrid is a people-first approach that is based on choice, trust, personalization, and empowers teams to choose when and how often they work from the office and work from home, in addition to team days and company days. This means a minimum of 2 days in office per week, with most teams in office between 2-3 days a week.\n#LI-HYBRID\nHelloFresh Canada uses AI-integrated technology to help us process and evaluate applications more efficiently. This includes tools that screen and assess candidate qualifications based on the requirements for this role. While these tools assist our workflow, all final selection decisions are made by our hiring team.\nToronto, ON Pay Range\n$174,300—$184,300 CAD",
-      "blocks": [
-        {
-          "type": "heading",
-          "text": "About the role"
-        },
-        {
-          "type": "para",
-          "text": "HelloFresh is searching for an action-oriented servant leader for our warehouse management system (WMS) Product Design and Software Engineering functions. This leader owns the full software delivery lifecycle for HelloFresh's global warehouse fulfillment and inventory control domain — from architecture and product design through engineering execution, quality assurance, and operational reliability. You will drive a culture of product & engineering excellence, leveraging modern agentic tooling and AI-assisted workflows to increase team velocity, reduce defect escape rates, and accelerate deployment confidence."
-        },
-        {
-          "type": "para",
-          "text": "You will collaborate closely with stakeholders across operations, automation/production technology, procurement, and finance to deliver innovative solutions on our strategic WMS platform — Infios's Warehouse Advantage (Körber/Highjump) — while balancing competing priorities and technical resource demand."
-        },
-        {
-          "type": "para",
-          "text": "This location-flexible position can be physically based in any of our North America corporate offices or fulfillment centers with a hybrid working model, but must be flexible with work hour scheduling as teams and solutions are dispersed globally."
-        },
-        {
-          "type": "para",
-          "text": "The Director of WMS Product Design and Software Engineering will work with key technology and product leaders across HelloFresh to enable the inventory management and control domain strategy, evaluate technology-related priorities, and translate stakeholder needs into actionable roadmaps. The ideal candidate combines impeccable management and communication skills with a practitioner's instinct for modern software delivery — knowing how to build high-performing teams, establish engineering health metrics, and integrate AI-assisted tooling that meaningfully accelerates quality and velocity."
-        },
-        {
-          "type": "heading",
-          "text": "What you'll own"
-        },
-        {
-          "type": "list",
-          "items": [
-            "WMS Solution Ownership: Provide technical direction, development oversight, and performance accountability for HelloFresh's deployment of Infios's Warehouse Advantage (Körber/Highjump) WMS platform across all global locations",
-            "Integration Architecture & Reliability: Own WMS layer Integrations to host systems and CDC pipelines (Debezium/kafka) to Snowflake/Databricks",
-            "Platform Architecture: Partner/ support as needed the Hosting Architecture team in the optimal sizing and performance of WMS Architecture in AWS",
-            "Agentic Engineering & Developer Productivity: Champion and drive adoption of agentic engineering practices across the team: automated code review tooling (e.g., AI-assisted PR analysis, static analysis agents, LLM-powered code quality gates), AI-augmented test generation and execution, and intelligent deployment pipelines. Measure and report the impact of these practices on delivery velocity and defect escape rate",
-            "CI/CD & Deployment Automation: Own the maturity roadmap for CI/CD pipelines. Establish automated deployment workflows with robust rollback strategies, feature flagging, environment-specific gate checks, and infrastructure-as-code practices — enabling high-confidence, low-friction releases across all WMS environments",
-            "Quality Engineering & Test Automation: Partner with WMS Services and Support leadership to build a world-class QA function. Drive adoption of automated regression suites, AI-assisted edge case generation, and contract testing for integrations. Push teams beyond happy-path coverage toward comprehensive scenario validation, including automated performance and load testing for peak fulfillment periods",
-            "Engineering Metrics & Continuous Improvement: Establish DORA metrics (deployment frequency, lead time for change, change failure rate, and mean time to restore) as the foundation of engineering health reporting for the WMS organization. Set baselines, publish improvement targets, and use metric trends to identify bottlenecks, prioritize tooling and process investments, and communicate engineering performance to senior leadership",
-            "Technical Roadmap & Architecture Governance: Partner with peers and senior leadership on architectural decision-making for WMS platform evolution, integration patterns, and technology transitions. Champion the use of structured design reviews to maintain coherent, scalable technical direction. Lead evaluations to refactor or replace legacy systems, including risk mitigation and transition planning",
-            "Vendor & Capacity Management: Work with department leadership to source and partner with 3rd-party vendors to augment internal engineering capacity and expertise. Maintain vendor performance accountability and ensure structured knowledge transfer to build durable internal capability",
-            "People Leadership & Talent Development: Coach, develop, and retain high-performing engineers, product managers, and team leads. Partner with HR and Talent Acquisition to build organizational depth — playing an active role in recruiting, onboarding, and career development",
-            "International Standardization/ Release Consolidation. Partner with departmental leadership, peer domains, and executive leadership to own the long term roadmap for product consolidation to a single application release version administered globally",
-            "Cross-functional Leadership. Serve on both the Fulfillment Technology and overall Automation & Technology leadership teams, reinforcing HelloFresh DNA values, establishing KPIs, and prioritizing strategic initiatives at a departmental level"
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "What you bring"
-        },
-        {
-          "type": "para",
-          "text": "Technical/Engineering Experience"
-        },
-        {
-          "type": "list",
-          "items": [
-            "10+ years of warehouse management system (WMS) software engineering and implementation experience with a tier-one WMS in an RF-based distribution, manufacturing, or e-commerce fulfillment environment",
-            "3+ years of direct hands-on experience with Infios's Warehouse Advantage (Körber/Highjump) WMS platform with SQL Server",
-            "3+ years managing application integrations via microservices and associated toolsets, including REST APIs, event-driven architectures, and ETL pipelines",
-            "Demonstrated experience implementing or scaling CI/CD pipelines, including automated testing gates, deployment automation, and infrastructure-as-code (IaC) practices across multi-environment WMS or fulfillment technology stacks",
-            "Hands-on familiarity with agentic and AI-assisted engineering tools — including automated code review platforms, AI-assisted test generation, and LLM-powered developer productivity tools (e.g., GitHub Copilot, CodeRabbit, SonarQube AI, or equivalent) — with a track record of driving meaningful team-wide adoption and measurable impact",
-            "Experience defining and tracking engineering delivery and quality metrics (DORA metrics or equivalent) and using data to drive process improvement and leadership reporting",
-            "Experience leading evaluations to refactor or replace legacy systems, including developing and executing technology transition plans with appropriate risk mitigation strategies"
-          ]
-        },
-        {
-          "type": "para",
-          "text": "Product Experience"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Experience leading a design and product process that scales a digital technology operations ecosystem across volume growth, multiple brands, and new digital properties",
-            "Strategic thinker with the ability to build and execute innovative digital product strategy while executing tactically against multiple competing priorities simultaneously",
-            "Proven ability to translate business requirements into technical specifications, roadmaps, and delivery plans — and to communicate progress and tradeoffs clearly to both technical and non-technical stakeholders",
-            "Demonstrated ability to build leadership support for proactive technology investments, making the business case for engineering quality, automation, and platform modernization"
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "What we offer"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Shape the future of food: Play a key role in transforming how millions of people eat as we grow into a global food solutions company.",
-            "Drive transformational change: Your decisions will have a direct and immediate impact, helping to shape strategy, scale teams, and redefine leadership in a rapidly evolving business.",
-            "Build a global brand: Create deeper, more sustainable connections with our customers, putting them at the heart of every decision.",
-            "Compensation & Financial Wellbeing: Enjoy amazing discounts: 75% off weekly HelloFresh/Chefs Plate meal kits plus 50% off weekly Factor meal boxes.",
-            "Health & Wellbeing: Benefit from health and dental coverage from day one, a Health Spending Account, unlimited Headspace access, and 25% off GoodLife fitness memberships.",
-            "Flexibility & Work-Life: Receive generous vacation and PTO offerings. Benefit from a parental leave top-up program designed to support expectant parents.",
-            "Career & Development: Grow with dedicated L&D initiatives and career support, aligning with our \"Learning Never Stops\" value."
-          ]
-        },
-        {
-          "type": "para",
-          "text": "Flexible Hybrid Approach"
-        },
-        {
-          "type": "para",
-          "text": "At HelloFresh, we know that flexible work arrangements are essential in enabling you to do your best work, while balancing your personal and life needs. Offering remote work flexibility, along with the opportunity to interact and collaborate in the office are all a part of creating a great employee experience."
-        },
-        {
-          "type": "para",
-          "text": "To meet these needs, we are pleased to provide Flexible Hybrid work. Flexible Hybrid is a people-first approach that is based on choice, trust, personalization, and empowers teams to choose when and how often they work from the office and work from home, in addition to team days and company days. This means a minimum of 2 days in office per week, with most teams in office between 2-3 days a week."
-        },
-        {
-          "type": "para",
-          "text": "#LI-HYBRID"
-        },
-        {
-          "type": "para",
-          "text": "HelloFresh Canada uses AI-integrated technology to help us process and evaluate applications more efficiently. This includes tools that screen and assess candidate qualifications based on the requirements for this role. While these tools assist our workflow, all final selection decisions are made by our hiring team."
-        },
-        {
-          "type": "para",
-          "text": "Toronto, ON Pay Range"
-        },
-        {
-          "type": "para",
-          "text": "$174,300—$184,300 CAD"
-        }
-      ],
-      "requirements": [
-        "Technical/Engineering Experience",
-        "10+ years of warehouse management system (WMS) software engineering and implementation experience with a tier-one WMS in an RF-based distribution, manufacturing, or e-commerce fulfillment environment",
-        "3+ years of direct hands-on experience with Infios's Warehouse Advantage (Körber/Highjump) WMS platform with SQL Server",
-        "3+ years managing application integrations via microservices and associated toolsets, including REST APIs, event-driven architectures, and ETL pipelines",
-        "Demonstrated experience implementing or scaling CI/CD pipelines, including automated testing gates, deployment automation, and infrastructure-as-code (IaC) practices across multi-environment WMS or fulfillment technology stacks",
-        "Hands-on familiarity with agentic and AI-assisted engineering tools — including automated code review platforms, AI-assisted test generation, and LLM-powered developer productivity tools (e.g., GitHub Copilot, CodeRabbit, SonarQube AI, or equivalent) — with a track record of driving meaningful team-wide adoption and measurable impact",
-        "Experience defining and tracking engineering delivery and quality metrics (DORA metrics or equivalent) and using data to drive process improvement and leadership reporting",
-        "Experience leading evaluations to refactor or replace legacy systems, including developing and executing technology transition plans with appropriate risk mitigation strategies",
-        "Product Experience",
-        "Experience leading a design and product process that scales a digital technology operations ecosystem across volume growth, multiple brands, and new digital properties",
-        "Strategic thinker with the ability to build and execute innovative digital product strategy while executing tactically against multiple competing priorities simultaneously",
-        "Proven ability to translate business requirements into technical specifications, roadmaps, and delivery plans — and to communicate progress and tradeoffs clearly to both technical and non-technical stakeholders",
-        "Demonstrated ability to build leadership support for proactive technology investments, making the business case for engineering quality, automation, and platform modernization"
-      ],
-      "location": {
-        "countryIso2": "CA",
-        "countryName": "Canada",
-        "region": "north-america",
-        "remote": false,
-        "raw": "Toronto, Ontario, Canada"
-      },
-      "seniority": "director",
-      "domain": "engineering-product",
-      "visa": "unknown",
-      "workMode": "hybrid",
-      "officeDays": 3,
-      "roleType": "contract",
-      "salary": {
-        "min": 174300,
-        "max": 184300,
-        "currency": "USD",
-        "period": "annual",
-        "source": "stated"
-      },
-      "postedAt": "2026-08-21T08:37:21-04:00",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
-    },
-    {
-      "id": "minio-field-chief-technology-officer-field-cto-671224",
+      "id": "minio-field-chief-technology-officer-field-cto-fe58a4",
       "title": "Field Chief Technology Officer (Field CTO)",
       "company": "MinIO",
-      "applyUrl": "https://job-boards.greenhouse.io/minio/jobs/5380066008",
-      "sourceUrl": "https://job-boards.greenhouse.io/minio/jobs/5380066008",
+      "applyUrl": "https://job-boards.greenhouse.io/minio/jobs/5408920008",
+      "sourceUrl": "https://job-boards.greenhouse.io/minio/jobs/5408920008",
       "source": "greenhouse",
       "sources": [
         "greenhouse"
       ],
-      "text": "MinIO is the data and memory foundation for enterprise AI. Built for the speed, scale, and economics that AI and analytics demand, AIStor and MemKV unify every layer of the data stack, from agentic and inference context memory to tables and objects across core, edge, and cloud. Trusted by 77% of the Fortune 100, MinIO is redefining how AI factories, intelligent applications, and autonomous agents secure, persist, and unlock the full value of their data.\nWe are seeking a highly technical, visionary, and customer-centric Field CTO to act as our premier technical ambassador. In this role, you will bridge the gap between MinIO’s engineering innovation and the strategic business needs of our largest, most complex enterprise customers.\nAs a Field CTO, you will engage in peer-to-peer conversations with enterprise C-suites (CIOs, CTOs, CDOs) and lead architectural discussions with principal engineers. A deep, hands-on understanding of modern AI architectures (LLMs, RAG, deep learning pipelines) and modern analytics data systems (Iceberg, Delta Lake, Trino, Spark) is mandatory. You will not only evangelize MinIO’s capabilities but also act as a trusted advisor, helping organizations architect their data infrastructure to support next-generation workloads.\nWhat You Will Do\nExecutive Advisory & Evangelism: Act as a trusted technical advisor to C-level executives at Fortune 500 companies. Articulate the strategic value of high-performance object storage in the context of AI readiness and data democratization.\nArchitectural Leadership: Design and validate complex, large-scale architectures for enterprise customers. Guide them in integrating MinIO seamlessly into their AI/ML pipelines and modern data lakehouse ecosystems.\nIndustry Thought Leadership: Represent MinIO at major industry conferences, webinars, and meetups. Write technical whitepapers, reference architectures, and blog posts focusing on the intersection of object storage, generative AI, and modern analytics.\nPre-Sales & Post-Sales Strategic Support: Partner closely with enterprise sales and customer success teams on high-stakes deals. Unblock technical objections and provide strategic guidance during Proof of Concepts (PoCs) and large-scale deployments.\nProduct Strategy Feedback Loop: Serve as the \"voice of the customer\" to MinIO’s product and engineering teams. Distill market trends, customer pain points, and emerging AI/Analytics patterns into actionable product requirements.\nRequired Qualifications\n10+ years of experience in technical leadership roles (e.g., Enterprise Architect, Chief Architect, VP of Engineering, or previous Field CTO).\nDemonstrated experience in a customer-facing or evangelist capacity, successfully presenting to both highly technical audiences and C-level business executives.\nAI & Machine Learning Architectures:\nDeep architectural understanding of Generative AI and Large Language Models (LLMs), including Retrieval-Augmented Generation (RAG) workflows and vector databases (e.g., Milvus, Qdrant, Pinecone).\nStrong knowledge of AI/ML data pipelines and frameworks (PyTorch, TensorFlow, Ray, Hugging Face).\nUnderstanding of hardware bottlenecks in AI, specifically the challenge of feeding data to GPUs (GPU data starvation) and how high-throughput storage solves this.\nModern Analytics & Data Systems:\nExpertise in Open Table Formats (Apache Iceberg, Apache Hudi, Delta Lake) and their integration with object storage.\nProficiency with modern query engines and compute frameworks (Trino, Presto, Apache Spark, Flink, StarRocks).\nSolid grasp of the evolution from traditional data warehouses to modern Data Lakehouse architectures.\nInfrastructure & Cloud-Native Tech:\nStrong command of Kubernetes, containerization, and cloud-native orchestration.\nDeep understanding of the AWS S3 API, RESTful APIs, and distributed systems design.\nEqual Opportunity Policy (EEO)\nMinIO is proud to be an equal opportunity workplace and an affirmative action employer. We review applications for employment without regard to their race, color, religion, sex, sexual orientation, gender identity, national origin, ancestry, citizenship, age, veteran status, genetic information, physical or mental disability, medical condition, marital status, or any other basis prohibited by law.",
+      "text": "MinIO is the data and memory foundation for enterprise AI. Built for the speed, scale, and economics that AI and analytics demand, AIStor and MemKV unify every layer of the data stack, from agentic and inference context memory to tables and objects across core, edge, and cloud. Trusted by 77% of the Fortune 100, MinIO is redefining how AI factories, intelligent applications, and autonomous agents secure, persist, and unlock the full value of their data.\nWe are seeking a highly technical, visionary, and customer-centric Field CTO to act as our premier technical ambassador. In this role, you will bridge the gap between MinIO’s engineering innovation and the strategic business needs of our largest, most complex enterprise customers.\nAs a Field CTO, you will engage in peer-to-peer conversations with enterprise C-suites (CIOs, CTOs, CDOs) and lead architectural discussions with principal engineers. A deep, hands-on understanding of modern AI architectures (LLMs, RAG, deep learning pipelines) and modern analytics data systems (Iceberg, Delta Lake, Trino, Spark) is mandatory. You will not only evangelize MinIO’s capabilities but also act as a trusted advisor, helping organizations architect their data infrastructure to support next-generation workloads.\nWhat You Will Do\nExecutive Advisory & Evangelism: Act as a trusted technical advisor to C-level executives at Fortune 500 companies. Articulate the strategic value of high-performance object storage in the context of AI readiness and data democratization.\nArchitectural Leadership: Design and validate complex, large-scale architectures for enterprise customers. Guide them in integrating MinIO seamlessly into their AI/ML pipelines and modern data lakehouse ecosystems.\nIndustry Thought Leadership: Represent MinIO at major industry conferences, webinars, and meetups. Write technical whitepapers, reference architectures, and blog posts focusing on the intersection of object storage, generative AI, and modern analytics.\nPre-Sales & Post-Sales Strategic Support: Partner closely with enterprise sales and customer success teams on high-stakes deals. Unblock technical objections and provide strategic guidance during Proof of Concepts (PoCs) and large-scale deployments.\nProduct Strategy Feedback Loop: Serve as the \"voice of the customer\" to MinIO’s product and engineering teams. Distill market trends, customer pain points, and emerging AI/Analytics patterns into actionable product requirements.\nYour Skills and Experience\n10+ years of experience in technical leadership roles (e.g., Enterprise Architect, Chief Architect, VP of Engineering, or previous Field CTO).\nDemonstrated experience in a customer-facing or evangelist capacity, successfully presenting to both highly technical audiences and C-level business executives.\nAI & Machine Learning Architectures:\nDeep architectural understanding of Generative AI and Large Language Models (LLMs), including Retrieval-Augmented Generation (RAG) workflows and vector databases (e.g., Milvus, Qdrant, Pinecone).\nStrong knowledge of AI/ML data pipelines and frameworks (PyTorch, TensorFlow, Ray, Hugging Face).\nUnderstanding of hardware bottlenecks in AI, specifically the challenge of feeding data to GPUs (GPU data starvation) and how high-throughput storage solves this.\nModern Analytics & Data Systems:\nExpertise in Open Table Formats (Apache Iceberg, Apache Hudi, Delta Lake) and their integration with object storage.\nProficiency with modern query engines and compute frameworks (Trino, Presto, Apache Spark, Flink, StarRocks).\nSolid grasp of the evolution from traditional data warehouses to modern Data Lakehouse architectures.\nInfrastructure & Cloud-Native Tech:\nStrong command of Kubernetes, containerization, and cloud-native orchestration.\nDeep understanding of the AWS S3 API, RESTful APIs, and distributed systems design.\nEqual Opportunity Policy (EEO)\nMinIO is proud to be an equal opportunity workplace and an affirmative action employer. We review applications for employment without regard to their race, color, religion, sex, sexual orientation, gender identity, national origin, ancestry, citizenship, age, veteran status, genetic information, physical or mental disability, medical condition, marital status, or any other basis prohibited by law.",
       "blocks": [
         {
           "type": "para",
@@ -11356,7 +10596,7 @@
           "text": "As a Field CTO, you will engage in peer-to-peer conversations with enterprise C-suites (CIOs, CTOs, CDOs) and lead architectural discussions with principal engineers. A deep, hands-on understanding of modern AI architectures (LLMs, RAG, deep learning pipelines) and modern analytics data systems (Iceberg, Delta Lake, Trino, Spark) is mandatory. You will not only evangelize MinIO’s capabilities but also act as a trusted advisor, helping organizations architect their data infrastructure to support next-generation workloads."
         },
         {
-          "type": "para",
+          "type": "heading",
           "text": "What You Will Do"
         },
         {
@@ -11371,7 +10611,7 @@
         },
         {
           "type": "heading",
-          "text": "Required Qualifications"
+          "text": "Your Skills and Experience"
         },
         {
           "type": "list",
@@ -11426,11 +10666,11 @@
       ],
       "requirements": [],
       "location": {
-        "countryIso2": "IN",
-        "countryName": "India",
-        "region": "india",
+        "countryIso2": "GB",
+        "countryName": "United Kingdom",
+        "region": "europe",
         "remote": true,
-        "raw": "Remote - Bengaluru, India "
+        "raw": "Remote - UK"
       },
       "seniority": "cto",
       "domain": "technology",
@@ -11438,17 +10678,17 @@
       "workMode": "remote",
       "roleType": null,
       "salary": {
-        "min": 5000000,
-        "max": 15000000,
-        "currency": "INR",
+        "min": 69515,
+        "max": 119408,
+        "currency": "GBP",
         "period": "annual",
         "source": "estimated",
-        "quality": "Medium",
+        "quality": "High",
         "familyUsed": "it-executive"
       },
       "postedAt": "2026-08-20T14:10:33-04:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "databricks-sr-technology-partner-director-ai-code-g-7cbb53",
@@ -11622,7 +10862,7 @@
       },
       "postedAt": "2026-08-20T11:39:23-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "ghx-director-software-engineering-6b51f6",
@@ -11743,7 +10983,7 @@
       },
       "postedAt": "2026-08-19T15:58:13-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "oklahoma-chiller-director-of-information-technology-428e64",
@@ -11951,7 +11191,7 @@
       },
       "postedAt": "2026-08-19T13:24:26.108Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "netguru-fractional-cto-freelance-4bc547",
@@ -12035,7 +11275,7 @@
       },
       "postedAt": "2026-08-19T08:33:34.360Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "roblox-senior-director-of-engineering-generativ-050ed1",
@@ -12164,7 +11404,7 @@
       },
       "postedAt": "2026-08-18T16:23:10-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "elastic-director-it-software-engineering-c4af4b",
@@ -12454,7 +11694,7 @@
       },
       "postedAt": "2026-08-18T12:25:26-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "hellofresh-director-of-engineering-operations-plann-d8c976",
@@ -12581,7 +11821,7 @@
       },
       "postedAt": "2026-08-18T08:09:41-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "screencastify-vp-of-engineering-eb5774",
@@ -12663,7 +11903,7 @@
       },
       "postedAt": "2026-08-17T17:50:45.841Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "kaufman-rossin-vp-platform-engineering-362797",
@@ -12820,7 +12060,7 @@
       },
       "postedAt": "2026-08-14T14:19:17.404Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "turbine-vp-of-engineering-1efec5",
@@ -12919,7 +12159,7 @@
       },
       "postedAt": "2026-08-14T10:23:26.723Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "dragos-director-engineering-df96c0",
@@ -13036,7 +12276,7 @@
       },
       "postedAt": "2026-08-14T09:15:04-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "gitlab-director-of-engineering-organizations-ce-4fd348",
@@ -13220,7 +12460,7 @@
       },
       "postedAt": "2026-08-13T14:57:47-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "klaviyo-director-site-reliability-engineering-72d34b",
@@ -13372,7 +12612,7 @@
       },
       "postedAt": "2026-08-13T08:06:44-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "pinterest-director-marketing-technology-innovation-c12df0",
@@ -13579,7 +12819,7 @@
       },
       "postedAt": "2026-08-12T14:19:22-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "linah-group-head-of-technology-5213b1",
@@ -13688,7 +12928,7 @@
       },
       "postedAt": "2026-08-12T13:13:05.721Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "mercury-head-of-data-engineering-platform-8d98a1",
@@ -13809,7 +13049,7 @@
       },
       "postedAt": "2026-08-11T10:53:49-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "hellofresh-senior-director-of-machine-learning-engi-78b0f5",
@@ -13934,7 +13174,7 @@
       },
       "postedAt": "2026-08-11T06:44:53-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "databricks-director-field-engineering-cpg-retail-38f156",
@@ -14189,7 +13429,7 @@
       },
       "postedAt": "2026-08-10T22:18:48-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "chime-financial-inc-director-engineering-d6d127",
@@ -14346,7 +13586,7 @@
       },
       "postedAt": "2026-08-10T15:34:35-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "scale-ai-sr-director-applied-ai-forward-deployed--15b9b2",
@@ -14498,7 +13738,7 @@
       },
       "postedAt": "2026-08-10T15:23:30-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "1kosmos-vp-of-engineering-df6872",
@@ -14586,7 +13826,7 @@
       },
       "postedAt": "2026-08-10T15:19:01.830Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "seeq-vp-of-engineering-applications-250202",
@@ -14642,7 +13882,7 @@
       },
       "postedAt": "2026-08-08T01:30:42.370Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "godaddy-director-of-engineering-identity-platfor-74d663",
@@ -14849,7 +14089,7 @@
       },
       "postedAt": "2026-08-06T11:14:14-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "innovaccer-analytics-4448-associate-director-implementation-e-639737",
@@ -14962,7 +14202,7 @@
       },
       "postedAt": "2026-08-06T10:23:21.684Z",
       "firstSeen": "2026-09-08T08:08:59.401Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "ayana-hospitality-assistant-director-of-engineering-ayana--b4316c",
@@ -15026,7 +14266,7 @@
       },
       "postedAt": "2026-08-05T06:15:47.073Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "asana-director-of-engineering-ai-platform-e1dd9a",
@@ -15164,7 +14404,7 @@
       },
       "postedAt": "2026-08-04T13:51:35-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "mercury-head-of-revenue-technology-architecture-fcd59b",
@@ -15287,7 +14527,7 @@
       },
       "postedAt": "2026-08-03T14:25:48-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "hellofresh-head-of-strategic-product-development-al-b0a420",
@@ -15444,7 +14684,7 @@
       },
       "postedAt": "2026-08-03T08:23:27-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "verneek-head-of-technology-179e2f",
@@ -15513,7 +14753,7 @@
       },
       "postedAt": "2026-07-31T23:36:36.276Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "coinbase-forward-deployed-engineer-compliance-off-079f69",
@@ -15618,7 +14858,7 @@
       },
       "postedAt": "2026-07-31T16:56:36-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "pinterest-director-of-engineering-core-ads-serving-c345dc",
@@ -15763,7 +15003,7 @@
       },
       "postedAt": "2026-07-31T15:48:57-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "ottimate-director-of-ai-engineering-956c80",
@@ -15870,7 +15110,7 @@
       },
       "postedAt": "2026-07-31T14:54:11.325Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "kudos-services-head-of-engineering-aed1fd",
@@ -16001,7 +15241,7 @@
       },
       "postedAt": "2026-07-31T08:04:17.512Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "careers-at-tide-head-of-engineering-developer-experience-76638d",
@@ -16215,7 +15455,7 @@
       },
       "postedAt": "2026-07-31T05:03:51-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "datavisor-director-of-engineering-4fee22",
@@ -16298,7 +15538,7 @@
       },
       "postedAt": "2026-07-30T21:39:25.248Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "cara-care-head-of-product-technology-m-f-x-0801bc",
@@ -16383,7 +15623,7 @@
       },
       "postedAt": "2026-07-29T12:50:58.333Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "scale-ai-director-of-engineering-physical-ai-c8259e",
@@ -16519,7 +15759,7 @@
       },
       "postedAt": "2026-07-27T20:23:37-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "usercentrics-chief-of-staff-to-ctpo-m-f-d-7ce3e4",
@@ -16648,7 +15888,7 @@
       },
       "postedAt": "2026-07-27T12:18:37.275Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "usercentrics-chief-of-staff-to-ctpo-m-f-d-f3652c",
@@ -16777,7 +16017,7 @@
       },
       "postedAt": "2026-07-27T12:18:37.028Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "terrapay-information-technology-infrastructure-he-1188c6",
@@ -16829,7 +16069,7 @@
       },
       "postedAt": "2026-07-27T09:13:12.508Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "robusta-chief-technology-officer-cto-octopus-by--afa958",
@@ -16947,7 +16187,7 @@
       },
       "postedAt": "2026-07-26T06:56:40.857Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "fulfillment-iq-director-of-sales-technology-delivery-746f7c",
@@ -17365,7 +16605,7 @@
       },
       "postedAt": "2026-07-25T18:28:50.819Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "coinbase-forward-deployed-engineer-finance-office-669365",
@@ -17467,7 +16707,7 @@
       },
       "postedAt": "2026-07-22T11:44:57-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "atum-ventures-founder-cto-data-centre-cooling-venture-019fca",
@@ -17561,7 +16801,7 @@
       },
       "postedAt": "2026-07-22T03:07:37.854Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "qiddiya-investment-company-director-digital-engineering-174bd9",
@@ -17661,7 +16901,7 @@
       "salary": null,
       "postedAt": "2026-07-19T12:15:59.031Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "pimco-vp-legal-counsel-data-privacy-digital-am-220bab",
@@ -17897,7 +17137,7 @@
       },
       "postedAt": "2026-07-17T08:36:44.026Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "pimco-vp-product-manager-credit-technology-c66246",
@@ -18155,7 +17395,7 @@
       },
       "postedAt": "2026-07-17T08:28:45.188Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "fireblocks-technology-alliances-director-687616",
@@ -18255,7 +17495,7 @@
       },
       "postedAt": "2026-07-16T15:20:07-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "talentgrator-vp-of-engineering-f85fb4",
@@ -18354,7 +17594,7 @@
       },
       "postedAt": "2026-07-15T10:36:46.740Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "coinbase-forward-deployed-engineer-legal-office-o-7ff1fe",
@@ -18464,7 +17704,7 @@
       },
       "postedAt": "2026-07-13T19:51:05-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "gitlab-director-engineering-platform-operations-d046f7",
@@ -18608,7 +17848,7 @@
       },
       "postedAt": "2026-07-13T12:57:20-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "databricks-director-field-engineering-financial-ser-047f9c",
@@ -18739,7 +17979,7 @@
       },
       "postedAt": "2026-07-13T09:17:27-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "okta-director-engineering-okta-integration-ne-9b534f",
@@ -18908,7 +18148,7 @@
       },
       "postedAt": "2026-07-10T13:31:50-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "hellofresh-associate-director-maintenance-and-relia-dfcc7d",
@@ -19092,7 +18332,7 @@
       },
       "postedAt": "2026-07-10T08:45:31-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "easyship-head-of-data-data-engineering-machine-le-82647a",
@@ -19222,7 +18462,7 @@
       },
       "postedAt": "2026-07-09T11:47:35-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "alixpartners-tech-modernisation-enterprise-architectu-518c66",
@@ -19344,7 +18584,7 @@
       },
       "postedAt": "2026-07-08T12:06:06-04:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "v2-digital-director-ai-engineering-7ec83a",
@@ -19495,7 +18735,7 @@
       },
       "postedAt": "2026-07-08T05:43:32.690Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "io-global-chief-technology-officer-b3fed1",
@@ -19612,7 +18852,7 @@
       },
       "postedAt": "2026-07-07T00:22:20.012Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "roblox-director-engineering-engineering-acceler-cccf0f",
@@ -19719,7 +18959,7 @@
       },
       "postedAt": "2026-07-06T19:22:00-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "gitlab-director-of-engineering-security-factory-626955",
@@ -19862,7 +19102,7 @@
       },
       "postedAt": "2026-07-01T17:36:51-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "opswat-director-of-engineering-metadefender-ema-a4588d",
@@ -20025,7 +19265,7 @@
       "salary": null,
       "postedAt": "2026-06-29T14:41:01-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "opswat-director-of-engineering-metadefender-man-b7cab6",
@@ -20197,7 +19437,7 @@
       },
       "postedAt": "2026-06-29T14:38:53-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "hellofresh-global-director-people-technology-all-ge-65df4d",
@@ -20302,7 +19542,7 @@
       },
       "postedAt": "2026-06-29T12:48:39-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "okx-engineering-director-mobile-infrastructu-b35203",
@@ -20467,7 +19707,7 @@
       },
       "postedAt": "2026-06-29T10:35:47-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "skysun-director-software-engineering-4524f7",
@@ -20526,7 +19766,7 @@
       },
       "postedAt": "2026-06-26T13:00:50.109Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "reddit-senior-director-product-technology-finan-e0f97f",
@@ -20675,7 +19915,7 @@
       },
       "postedAt": "2026-06-24T17:06:13-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "monzo-engineering-director-eu-de78c8",
@@ -20908,7 +20148,7 @@
       },
       "postedAt": "2026-06-24T12:01:40-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "okx-engineering-director-mobile-web3-c8543d",
@@ -21072,7 +20312,7 @@
       },
       "postedAt": "2026-06-22T02:44:35-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "qiddiya-investment-company-associate-director-digital-infrastructur-d1fbcb",
@@ -21148,7 +20388,7 @@
       "salary": null,
       "postedAt": "2026-06-21T08:58:18.714Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "okx-engineering-director-mobile-ios-android-28267f",
@@ -21305,7 +20545,7 @@
       },
       "postedAt": "2026-06-19T06:42:33-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "huntress-director-engineering-platform-3fffc5",
@@ -21467,7 +20707,7 @@
       },
       "postedAt": "2026-06-18T13:56:29-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "asana-head-of-engineering-operations-487de9",
@@ -21598,7 +20838,7 @@
       },
       "postedAt": "2026-06-17T18:47:22-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "hortiscience-innovation-center-reapplic8-co-founder-cto-3a9403",
@@ -21715,7 +20955,7 @@
       },
       "postedAt": "2026-06-17T13:58:28.218Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "burson-head-of-technology-practice-3dedd0",
@@ -21876,7 +21116,7 @@
       },
       "postedAt": "2026-06-16T13:27:58-04:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "serko-ltd-director-of-engineering-a85fea",
@@ -21944,7 +21184,7 @@
       },
       "postedAt": "2026-06-16T07:06:46.199Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "skysun-vp-of-engineering-46dd1c",
@@ -22115,7 +21355,7 @@
       },
       "postedAt": "2026-06-16T05:22:41.893Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "ai-acquisition-head-of-marketing-technology-automation--62c6a8",
@@ -22200,7 +21440,7 @@
       },
       "postedAt": "2026-06-15T19:30:24.977Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "ai-acquisition-head-of-marketing-technology-automation--93f650",
@@ -22277,7 +21517,7 @@
       "salary": null,
       "postedAt": "2026-06-15T19:30:24.945Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "ai-acquisition-head-of-marketing-technology-automation--96188a",
@@ -22354,7 +21594,7 @@
       "salary": null,
       "postedAt": "2026-06-15T19:30:24.785Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "ai-acquisition-head-of-marketing-technology-automation--1ac4f1",
@@ -22439,7 +21679,7 @@
       },
       "postedAt": "2026-06-15T19:30:24.292Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "ai-acquisition-head-of-marketing-technology-automation--2cd596",
@@ -22516,7 +21756,7 @@
       "salary": null,
       "postedAt": "2026-06-15T19:30:24.041Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "ai-acquisition-head-of-marketing-technology-automation--d7fd28",
@@ -22601,7 +21841,7 @@
       },
       "postedAt": "2026-06-15T19:30:23.864Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "duolingo-senior-director-of-engineering-new-subje-686c8d",
@@ -22743,7 +21983,7 @@
       },
       "postedAt": "2026-06-09T14:34:50-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "asm-director-supplier-development-955499",
@@ -22860,7 +22100,7 @@
       },
       "postedAt": "2026-06-08T18:43:46-04:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "the-hr-game-head-of-engineering-9ca2c8",
@@ -22972,7 +22212,7 @@
       },
       "postedAt": "2026-06-07T12:26:20.449Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "usa-clinics-group-assistant-director-of-information-techno-2cc7bf",
@@ -23089,7 +22329,7 @@
       },
       "postedAt": "2026-06-04T17:05:41.137Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "usercentrics-chief-of-staff-to-ctpo-m-f-d-cf3ee3",
@@ -23218,7 +22458,7 @@
       },
       "postedAt": "2026-06-01T11:49:20.882Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "valsoft-corporation-directeur-des-ventes-technologie-dentair-01807f",
@@ -23522,7 +22762,7 @@
       },
       "postedAt": "2026-05-29T19:04:07.524Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "discord-director-of-engineering-safety-c735e6",
@@ -23643,7 +22883,7 @@
       },
       "postedAt": "2026-05-29T17:48:45-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "elastic-sr-director-field-technology-and-ai-f79aa6",
@@ -23865,7 +23105,7 @@
       },
       "postedAt": "2026-05-27T12:50:51-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "just-one-recruitment-executive-search-ag-head-of-digital-growth-marketing-technol-25f0c2",
@@ -23934,7 +23174,7 @@
       },
       "postedAt": "2026-05-26T08:45:00.812Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "asm-senior-director-of-manufacturing-enginee-31c396",
@@ -24076,7 +23316,7 @@
       },
       "postedAt": "2026-05-21T05:56:53-04:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "simple-machines-director-technology-data-platforms-29cb38",
@@ -24192,7 +23432,7 @@
       },
       "postedAt": "2026-05-20T15:50:51.975Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "amartha-vp-of-engineering-315002",
@@ -24269,7 +23509,7 @@
       },
       "postedAt": "2026-05-20T03:07:41.179Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "flosum-salesforce-field-cto-3ea79e",
@@ -24339,7 +23579,7 @@
       },
       "postedAt": "2026-05-13T16:12:59.105Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "okta-vice-president-engineering-authenticatio-3ba2aa",
@@ -24482,7 +23722,7 @@
       },
       "postedAt": "2026-05-11T14:22:24-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "ripple-senior-director-security-engineering-1385b5",
@@ -24646,7 +23886,7 @@
       },
       "postedAt": "2026-05-11T13:10:22-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "zeta-global-director-of-engineering-6ba392",
@@ -24771,7 +24011,7 @@
       },
       "postedAt": "2026-05-11T09:52:10-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "alixpartners-vice-president-telecommunication-media-a-2abe53",
@@ -24894,7 +24134,7 @@
       },
       "postedAt": "2026-05-11T03:28:30-04:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "qiddiya-investment-company-executive-director-development-del-1-439e39",
@@ -24952,7 +24192,7 @@
       "salary": null,
       "postedAt": "2026-05-10T12:17:59.115Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "enexor-director-of-engineering-382095",
@@ -25048,7 +24288,7 @@
       },
       "postedAt": "2026-05-06T16:40:04.967Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "scale-ai-director-forward-deployed-engineering-819081",
@@ -25169,7 +24409,7 @@
       },
       "postedAt": "2026-05-06T12:33:42-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "valsoft-corporation-managing-director-flagship-vertical-mark-42fd0c",
@@ -25313,7 +24553,7 @@
       },
       "postedAt": "2026-05-05T16:29:00.579Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "minio-field-chief-technology-officer-field-cto-879fac",
@@ -25446,7 +24686,7 @@
       },
       "postedAt": "2026-05-05T12:55:39-04:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "doordash-usa-director-of-engineering-logistics-ec086a",
@@ -25617,7 +24857,7 @@
       },
       "postedAt": "2026-05-04T20:29:05-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "verkada-solutions-engineering-director-associate-ebb2f5",
@@ -25792,7 +25032,7 @@
       },
       "postedAt": "2026-05-01T17:08:47-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "flosum-director-of-software-engineering-canada-3f1462",
@@ -25865,7 +25105,7 @@
       },
       "postedAt": "2026-04-30T18:28:38.397Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "flosum-director-of-software-engineering-ukraine-f067e3",
@@ -25930,7 +25170,7 @@
       "salary": null,
       "postedAt": "2026-04-30T16:04:57.168Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "flosum-director-of-software-engineering-serbia-e0d056",
@@ -26003,7 +25243,7 @@
       },
       "postedAt": "2026-04-30T16:04:07.394Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "flosum-director-of-software-engineering-romania-a41db2",
@@ -26076,7 +25316,7 @@
       },
       "postedAt": "2026-04-30T16:03:30.982Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "flosum-director-of-software-engineering-portuga-e9b4f1",
@@ -26149,7 +25389,7 @@
       },
       "postedAt": "2026-04-30T16:02:38.863Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "flosum-director-of-software-engineering-poland-326958",
@@ -26222,7 +25462,7 @@
       },
       "postedAt": "2026-04-30T16:01:35.438Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "flosum-director-of-software-engineering-netherl-5e9eb9",
@@ -26295,7 +25535,7 @@
       },
       "postedAt": "2026-04-30T15:59:48.976Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "flosum-director-of-software-engineering-belarus-77b4e7",
@@ -26360,7 +25600,7 @@
       "salary": null,
       "postedAt": "2026-04-30T15:58:58.576Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "flosum-director-of-software-engineering-belgium-cbc415",
@@ -26433,7 +25673,7 @@
       },
       "postedAt": "2026-04-30T15:57:38.261Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "flosum-director-of-software-engineering-uk-a58a11",
@@ -26506,7 +25746,7 @@
       },
       "postedAt": "2026-04-30T15:55:25.117Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "flosum-director-of-software-engineering-us-4aea19",
@@ -26579,7 +25819,7 @@
       },
       "postedAt": "2026-04-30T15:53:13.723Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "flatgigs-cto-co-founder-hardware-climate-technolo-7d4f9d",
@@ -26683,7 +25923,7 @@
       },
       "postedAt": "2026-04-20T11:35:55.431Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "huzzle-cto-head-of-engineering-efcd94",
@@ -26815,7 +26055,7 @@
       },
       "postedAt": "2026-04-17T15:13:55.674Z",
       "firstSeen": "2026-09-09T08:12:18.028Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "brex-people-business-partner-director-enginee-ed4563",
@@ -26965,7 +26205,7 @@
       },
       "postedAt": "2026-04-17T12:55:34-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "qiddiya-investment-company-director-city-technology-governance-pmo-7b72ad",
@@ -27022,7 +26262,7 @@
       "salary": null,
       "postedAt": "2026-04-13T12:44:24.193Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "alixpartners-technology-modernization-director-perfor-72b6ce",
@@ -27154,7 +26394,7 @@
       },
       "postedAt": "2026-04-10T06:58:28-04:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "huzzle-vp-of-automation-engineering-4f8274",
@@ -27261,7 +26501,7 @@
       },
       "postedAt": "2026-04-07T22:05:46.012Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "fuku-director-electrical-engineering-mission--dc10ab",
@@ -27456,7 +26696,7 @@
       },
       "postedAt": "2026-04-07T13:30:48.972Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "tiger-analytics-inc-sr-manager-associate-director-technology-8cbf9e",
@@ -27521,7 +26761,7 @@
       },
       "postedAt": "2026-04-06T17:58:47.159Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "tiger-analytics-inc-sr-manager-associate-director-technology-7d76f7",
@@ -27586,7 +26826,7 @@
       },
       "postedAt": "2026-04-06T17:16:22.270Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "samsara-director-field-sales-engineering-00eff4",
@@ -27780,7 +27020,7 @@
       },
       "postedAt": "2026-04-06T16:40:54-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "huzzle-head-of-gtm-engineering-ai-systems-fecef2",
@@ -27921,7 +27161,7 @@
       },
       "postedAt": "2026-04-06T14:54:59.575Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "okx-engineering-director-frontend-business-l-39cc37",
@@ -28066,7 +27306,7 @@
       },
       "postedAt": "2026-04-02T05:30:09-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "okx-engineering-director-frontend-7372bd",
@@ -28219,7 +27459,7 @@
       },
       "postedAt": "2026-04-02T05:30:08-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "celonis-head-of-value-engineering-nordics-83ee93",
@@ -28402,7 +27642,7 @@
       },
       "postedAt": "2026-03-30T10:26:35-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "celonis-head-of-value-engineering-nordics-938555",
@@ -28585,7 +27825,7 @@
       },
       "postedAt": "2026-03-30T10:26:05-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "huzzle-director-of-automation-engineering-3f77b9",
@@ -28688,7 +27928,7 @@
       },
       "postedAt": "2026-03-26T21:48:02.383Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "first-circle-vp-of-engineering-5ba459",
@@ -28851,7 +28091,7 @@
       },
       "postedAt": "2026-03-25T16:56:36.765Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "first-circle-vp-of-engineering-8958b0",
@@ -29014,7 +28254,7 @@
       },
       "postedAt": "2026-03-25T16:56:35.904Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "klaviyo-head-of-engineering-finance-systems-87baf5",
@@ -29290,7 +28530,7 @@
       },
       "postedAt": "2026-03-25T16:49:36-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "asm-senior-member-of-technical-staff-directo-91a496",
@@ -29473,7 +28713,7 @@
       },
       "postedAt": "2026-03-24T20:10:29-04:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "inautalent-chief-technology-officer-cto-deep-tech-r-b9bd48",
@@ -29583,7 +28823,7 @@
       },
       "postedAt": "2026-03-24T17:00:40.548Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "inautalent-chief-technology-officer-cto-r-d-deep-te-7429b8",
@@ -29690,7 +28930,7 @@
       },
       "postedAt": "2026-03-24T15:53:23.564Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "verkada-director-of-firmware-engineering-cameras-a04287",
@@ -29861,7 +29101,7 @@
       },
       "postedAt": "2026-03-20T15:21:22-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "roblox-director-of-engineering-studio-systems-e77e86",
@@ -30007,7 +29247,7 @@
       },
       "postedAt": "2026-03-17T16:05:40-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "fireblocks-director-of-engineering-dynamic-platform-2e4ecd",
@@ -30132,7 +29372,7 @@
       },
       "postedAt": "2026-03-11T15:43:29-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "huzzle-head-of-automation-engineering-3b6e93",
@@ -30236,7 +29476,7 @@
       },
       "postedAt": "2026-03-09T12:13:49.276Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "ajaib-head-of-engineering-engineering-manager--a5e68e",
@@ -30299,7 +29539,7 @@
       },
       "postedAt": "2026-03-06T04:38:54.721Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "webook-com-head-of-engineering-d8b0ad",
@@ -30400,7 +29640,7 @@
       "salary": null,
       "postedAt": "2026-02-26T13:01:33.284Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "zenara-health-head-of-engineering-ai-native-healthcare-093fbf",
@@ -30656,7 +29896,7 @@
       },
       "postedAt": "2026-02-25T21:32:38.871Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "databricks-director-field-engineering-5303f6",
@@ -30796,7 +30036,7 @@
       },
       "postedAt": "2026-02-24T15:32:37-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "asm-senior-director-process-engineering-cb9269",
@@ -30926,7 +30166,7 @@
       },
       "postedAt": "2026-02-23T17:09:49-05:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "doctolib-engineering-director-health-companion-ap-d4644e",
@@ -31115,7 +30355,7 @@
       },
       "postedAt": "2026-02-18T03:21:01-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "ripple-vice-president-of-engineering-fiat-infra-7f9e8f",
@@ -31354,7 +30594,7 @@
       },
       "postedAt": "2026-02-17T18:08:07-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "strategic-legal-practices-vp-of-data-engineering-68d6be",
@@ -31514,7 +30754,7 @@
       },
       "postedAt": "2026-02-16T22:36:01.715Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "mat3ra-head-of-engineering-8e3f21",
@@ -31598,7 +30838,7 @@
       },
       "postedAt": "2026-02-11T00:44:13.377Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "affirm-director-information-technology-security-cc9749",
@@ -31807,7 +31047,7 @@
       },
       "postedAt": "2026-02-02T13:09:19-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "databricks-field-cto-america-industries-e01773",
@@ -31938,7 +31178,7 @@
       },
       "postedAt": "2026-01-27T19:08:31-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "employee-owned-holdings-inc-director-of-engineering-0c4830",
@@ -32006,7 +31246,7 @@
       },
       "postedAt": "2026-01-19T16:53:59.869Z",
       "firstSeen": "2026-09-13T08:22:16.617Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "intuition-machines-inc-director-of-engineering-6df298",
@@ -32110,7 +31350,7 @@
       },
       "postedAt": "2026-01-08T15:25:12.375Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "databricks-director-of-engineering-data-infrastruct-b46137",
@@ -32231,7 +31471,7 @@
       },
       "postedAt": "2025-11-13T17:13:22-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "celonis-director-value-engineering-financial-ser-9b17b7",
@@ -32434,7 +31674,7 @@
       },
       "postedAt": "2025-11-05T10:27:35-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "postman-head-of-ai-platform-engineering-86c8cb",
@@ -32571,7 +31811,7 @@
       },
       "postedAt": "2025-10-08T13:02:12-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "asm-director-software-engineering-308a15",
@@ -32740,7 +31980,7 @@
       },
       "postedAt": "2025-09-22T16:50:48-04:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "intuition-machines-inc-director-of-engineering-76a6d8",
@@ -32844,7 +32084,7 @@
       },
       "postedAt": "2025-09-22T09:48:15.808Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "databricks-director-of-engineering-5f3e27",
@@ -32964,7 +32204,7 @@
       },
       "postedAt": "2025-08-14T11:06:35-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "satsuma-vp-of-engineering-5c71a2",
@@ -33024,7 +32264,7 @@
       },
       "postedAt": "2025-07-31T08:33:09.013Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "two95-international-inc-vice-president-local-engineering-head-lo-1ed760",
@@ -33068,7 +32308,7 @@
       },
       "postedAt": "2025-05-23T15:37:45.000Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "okx-engineering-director-dba-5c2bac",
@@ -33309,7 +32549,7 @@
       },
       "postedAt": "2025-05-08T08:48:51-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "avomind-head-of-infrastructure-technology-18a040",
@@ -33425,7 +32665,7 @@
       },
       "postedAt": "2025-04-15T08:44:14.000Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "intuition-machines-inc-director-of-engineering-236829",
@@ -33529,7 +32769,7 @@
       },
       "postedAt": "2025-02-05T16:53:36.000Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "mongodb-principal-technologist-field-cto-38757e",
@@ -33653,7 +32893,7 @@
       },
       "postedAt": "2024-11-26T14:45:19-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "databricks-head-of-corporate-engineering-c4d748",
@@ -33801,7 +33041,7 @@
       },
       "postedAt": "2024-07-17T15:32:11-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
       "id": "talent-trader-group-head-of-project-management-lead-engineer-911b42",
@@ -33859,7 +33099,7 @@
       },
       "postedAt": "2024-04-05T06:07:13.000Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:09:21.102Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z"
     }
   ]
 }
