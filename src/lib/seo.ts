@@ -16,12 +16,22 @@ export const LOCALE_HREFLANG: Record<string, string> = {
 /** Canonical and hreflang alternates for a locale-prefixed path like "/jobs". */
 export function buildAlternates(locale: string, path: string) {
   const clean = path === "/" ? "" : path;
+  const languages: Record<string, string> = {};
+  for (const code of Object.keys(LOCALE_HREFLANG)) {
+    languages[code] = `${SITE_URL}/${code}${clean}`;
+  }
+  // x-default covers locales outside the four we ship; it points at the default
+  languages["x-default"] = `${SITE_URL}/en${clean}`;
   return {
     canonical: `${SITE_URL}/${locale}${clean}`,
-    languages: Object.fromEntries(
-      Object.entries(LOCALE_HREFLANG).map(([code]) => [code, `${SITE_URL}/${code}${clean}`])
-    ),
+    languages,
   };
+}
+
+/** Shareable one-line summary of a role for meta descriptions and previews. */
+export function jobOgDescription(title: string, company: string, place: string | null, tail: string): string {
+  const where = place ? ` in ${place}` : "";
+  return `${title} at ${company}${where}. ${tail}`;
 }
 
 export const DATE_LOCALE: Record<string, string> = {
@@ -34,9 +44,13 @@ export const DATE_LOCALE: Record<string, string> = {
 export function formatDate(iso: string, locale: string): string {
   const date = new Date(iso);
   if (Number.isNaN(date.getTime())) return iso;
+  // timeZone pinned so the static build (UTC) and every visitor's browser
+  // render the same day; unpinned Intl formatting shifts dates across
+  // timezones and breaks hydration on the jobs list.
   return new Intl.DateTimeFormat(DATE_LOCALE[locale] ?? "en-GB", {
     day: "numeric",
     month: "short",
     year: "numeric",
+    timeZone: "UTC",
   }).format(date);
 }
