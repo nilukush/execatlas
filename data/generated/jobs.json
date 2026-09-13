@@ -1,6 +1,669 @@
 {
-  "generatedAt": "2026-09-12T07:58:05.327Z",
+  "generatedAt": "2026-09-13T08:22:16.617Z",
   "jobs": [
+    {
+      "id": "collective-wisdom-company-limited-head-of-engineering-4996af",
+      "title": "Head of Engineering",
+      "company": "COLLECTIVE WISDOM COMPANY LIMITED",
+      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/743230/logo",
+      "applyUrl": "https://jobs.workable.com/view/txzENrq5nusTRBxcSxH8AS/hybrid-head-of-engineering-in-bangkok-at-collective-wisdom-company-limited",
+      "sourceUrl": "https://jobs.workable.com/view/txzENrq5nusTRBxcSxH8AS/hybrid-head-of-engineering-in-bangkok-at-collective-wisdom-company-limited",
+      "source": "workable",
+      "sources": [
+        "workable"
+      ],
+      "text": "We are seeking a highly technical, hands-on, and battle-tested Head of Engineering to lead our core engineering teams as we scale our real-time verification and decision engines across Southeast Asia. In this role, you will bridge high-level system architecture with deep operational rigor.\nYou are not an abstract manager—you are an active technical leader who regularly participates in system design reviews, inspects critical PRs, fine-tunes performance bottlenecks, and drives incident management alongside your team. You will set the high mark for execution speed, engineering craftsmanship, system resilience, and clear communication across cross-functional product and business units.\nKey Responsibilities\nLead system design, high-availability architecture, and API scalability across microservices, eKYC/eKYB pipelines, and database infrastructure.\nDebug high-severity production incidents, conduct root-cause analysis, and improve database efficiency, lock contention, and system latency.\nLead live system migrations and zero-downtime maintenance strategies, including dual-write backfills and atomic cutovers.\nEstablish engineering guardrails around secure coding, security, and AI-assisted code generation.\nLead, mentor, and build a high-performing engineering culture focused on ownership, speed, and precision.\nEstablish standard operating procedures for incident response, security compliance, continuous deployment, and logging.\nCommunicate complex technical concepts, risks, and trade-offs clearly to business stakeholders.\nEnsure compliance with regional privacy and security requirements, including PDPA and GDPR.\nOversee identity management, automated testing, edge-case analysis, and third-party data integrations.",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "We are seeking a highly technical, hands-on, and battle-tested Head of Engineering to lead our core engineering teams as we scale our real-time verification and decision engines across Southeast Asia. In this role, you will bridge high-level system architecture with deep operational rigor."
+        },
+        {
+          "type": "para",
+          "text": "You are not an abstract manager—you are an active technical leader who regularly participates in system design reviews, inspects critical PRs, fine-tunes performance bottlenecks, and drives incident management alongside your team. You will set the high mark for execution speed, engineering craftsmanship, system resilience, and clear communication across cross-functional product and business units."
+        },
+        {
+          "type": "para",
+          "text": "Key Responsibilities"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Lead system design, high-availability architecture, and API scalability across microservices, eKYC/eKYB pipelines, and database infrastructure.",
+            "Debug high-severity production incidents, conduct root-cause analysis, and improve database efficiency, lock contention, and system latency.",
+            "Lead live system migrations and zero-downtime maintenance strategies, including dual-write backfills and atomic cutovers.",
+            "Establish engineering guardrails around secure coding, security, and AI-assisted code generation.",
+            "Lead, mentor, and build a high-performing engineering culture focused on ownership, speed, and precision.",
+            "Establish standard operating procedures for incident response, security compliance, continuous deployment, and logging.",
+            "Communicate complex technical concepts, risks, and trade-offs clearly to business stakeholders.",
+            "Ensure compliance with regional privacy and security requirements, including PDPA and GDPR.",
+            "Oversee identity management, automated testing, edge-case analysis, and third-party data integrations."
+          ]
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "TH",
+        "countryName": "Thailand",
+        "region": "southeast-asia",
+        "remote": false,
+        "raw": "Bangkok, Thailand"
+      },
+      "seniority": "head",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "unspecified",
+      "roleType": "full-time",
+      "salary": {
+        "min": 1800000,
+        "max": 3600000,
+        "currency": "THB",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "Medium",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-09-12T17:28:27.148Z",
+      "firstSeen": "2026-09-13T08:22:16.617Z",
+      "updatedAt": "2026-09-13T08:22:16.617Z"
+    },
+    {
+      "id": "givedirectly-chief-technology-officer-1f9b77",
+      "title": "Chief Technology Officer",
+      "company": "GiveDirectly",
+      "applyUrl": "https://jobicy.com/jobs/153122-chief-technology-officer-2",
+      "sourceUrl": "https://jobicy.com/jobs/153122-chief-technology-officer-2",
+      "source": "jobicy",
+      "sources": [
+        "jobicy"
+      ],
+      "text": "GiveDirectly has delivered more than $1B in cash directly to 2+ million people living in poverty across 15 countries since 2011. We believe cash transfers are one of the most scalable, cost-effective, and dignified forms of aid, with the research to back it up. Our work has been covered by The Economist, NPR, TED, and The Washington Post. We are one of Time100’s Most Influential Companies of 2026.\nOur culture is candid, analytical, and non-hierarchical. We support high ownership and real professional growth. Curious about what it's really like to work here? Read our values and hear from the people who do. If they resonate, this could be a great fit!\nPriority application deadline: Applications will be reviewed on a rolling basis. Early applications are heavily encouraged.\nWe’re growing at incredible speed, and expect to hit $1B in revenue in 2026 with significant growth forecast for 2027. We’re hiring a Chief Technology Officer to lead the building and rebuilding of the technology, systems and ways of working that will enable a sustained $5B+ p/a operation.\nYou will build software that safely and securely moves billions of dollars to millions of vulnerable people in some of the poorest and highest need parts of the world. This will require applying excellent engineering, team building and organizational judgment to complex, high-stakes operations: identity and fraud management, machine learning on large but imperfect datasets (cell phone data, satellite imagery, government registries), mobile money integrations, low-connectivity environments, rapidly evolving requirements all in diverse regulatory environments and country contexts. You’ll need to keep our legacy technology stack stable and performant, while in parallel building new systems from the ground up for our next level of scale.\nYou will lead engineering, data, security and enterprise technology – with a small, mighty and rapidly growing engineering team of ~15, and the expectation that this can at least double to ~30 in the next 12 months if you want it to. You’ll report to a CEO with deep experience running technology companies, and partner with our VP Product.\nThis role is remote, with working hours between US Eastern Time and East African Time, and some preference for candidates in our office hubs of New York, London, or Nairobi.\nWhat we’re looking for:\nAn exceptional hirer, manager and organizer of technical talent. Proven record identifying, hiring, developing and retaining excellent engineers and engineering leaders, and creating team processes that consistently deliver software with quality and velocity.\nDeep technical judgment, applied close to the work. You can evaluate major designs, pressure-test architecture and build-vs-buy decisions, and recognize when a team is heading the wrong way, without becoming the primary implementer. Low-ego: you’ll investigate a problem yourself when that’s what the situation requires.\nBusiness judgment and decisiveness under ambiguity. You’re not just a technical leader, you’re also a business executive. You understand the business, are a strong cross-functional partner, and have a history of good judgment when navigating tradeoffs of long vs. short term, speed, reliability, security, flexibility, cost, technical quality, and user impact.\nAI first. You have a point of view on where AI meaningfully changes engineering productivity and organizational capability, and you’ve moved a team from experimentation to real, measured use. You can set the tools, culture, goals, and guardrails that leverage the opportunities and mitigate the risks of an AI first engineering culture.\nEmbody and set an example for GD values. We take our values incredibly seriously, and expect our leaders to embody, nurture, and promote them in the way they work and the teams they build.\nAdvantages, not requirements. Experience in an operationally complex or regulated domain (fintech, payments, humanitarian response, global development); systems involving financial controls, fraud risk, identity, or sensitive recipient data; operating across multiple countries, particularly lower-income or infrastructure-constrained ones; leading both modern product engineering and enterprise technology.\nWhat you’ll do\nDefine our technology vision and target stack. Own the technical strategy for technology-first delivery at $5B+/year: architecture, platforms, build-vs-buy, and what we retire. Work with executive, product, finance, risk, and data leaders to turn program and product strategy into a sequenced, credible portfolio of technical investments.\nBalance a demanding portfolio. You'll manage six workstreams that all matter and won't all move at once: (1) building our new cash delivery stack (remote-first verification, fraud prevention, massive volume) (2) stabilizing our legacy stack until switchover, then managing the migration; (3) donor-facing fundraising products; (4) our global emergency cash system (and eventual white-labelling of that product); (5) enterprise technology; (6) internal tooling, platform, and cybersecurity. Deciding sequencing and staffing across these (and saying \"not yet\" credibly) is the job.\nBuild and grow an exceptional technology organization. Recruit outstanding engineering and technology talent, design the org GiveDirectly needs at its next stage of scale (engineering, product, data, security, infrastructure, enterprise systems), and create the accountability, decision rights, and career paths to sustain high talent density. Grow the engineering team from 15 to ~30 with a lean but durable management structure.\nOwn the technical direction and quality bar. Guide consequential decisions on integrations, data, security, reliability, and technical debt. Ensure our systems can safely support a major increase in transaction volume, geographic reach, and organizational dependence on technology. Set a pragmatic quality bar appropriate to high-stakes financial delivery while preserving speed.\nLead across organizational boundaries. Serve as a member of GiveDirectly’s executive team, reporting to the CEO and bringing technology into major strategic and operating decisions. Help non-technical leaders understand technical constraints and costs, build credibility with country and functional leaders by understanding their realities, and force clarity when priorities, ownership, or tradeoffs are ambiguous.\nTravel. Approximately 4–6 trips per year, including visits to GiveDirectly countries of operation.\nCompensation\nAt GiveDirectly, we strive to pay our employees generously and equitably. We use an accredited third party salary aggregator to calculate what we believe to be competitive pay based on role, location, and cost of living. We also have a no negotiation policy so pay is consistent across comparable roles.\nTotal Compensation (US) of $366,000 – $518,000 comprised of:\nBase Salary: $300,000 – $375,000\nBonus: $45,000-$112,000 (bonus is % based and decided based on org-wide performance, we will share full methodology during the hiring process)\nAnnual Benefits Stipend: ~$21,000\nTotal Compensation (UK) of £225,000 – £317,000 comprised of:\nBase Salary: £193,400 – £241,700\nBonus: £29,000 – £72,500 (bonus is % based and decided based on org-wide performance, we will share full methodology during the hiring process)\nAnnual Benefits Stipend: £2,760\nTotal Compensation (Kenya) of $333,000 – $467,000 comprised of:\nBase Salary: $282,500 – $353,100\nBonus: $42,000 – $106,000 (bonus is % based and decided based on org-wide performance, we will share full methodology during the hiring process)\nAnnual Benefits Stipend: $8,453\nIf you are not based in one of the countries listed above, we will share an estimated salary benchmark for the country you are based in during the hiring process.\nWorking at GiveDirectly\nGiveDirectly is an Equal Opportunity Employer. All qualified applicants are considered for employment without regard to the person’s race, color, religion, national origin, sex, sexual orientation, age, marital status, veteran status, disability, or any other characteristic protected by applicable law.\nFlagging for US applicants: We invite you to \"Know Your Rights\" as an applicant.\nCommitment to Safeguarding\nAs a global organization working with communities to eliminate extreme poverty, GiveDirectly takes the safeguarding of its recipients, staff, and partners seriously. To that end, GiveDirectly is a member of the Misconduct Disclosure Scheme, and will systematically check with previous employers about any abuse or misconduct related matters involving potential new hires. We may also employ other robust pre-hire screens, including in-depth reference checks, criminal background checks, and sanctions screens.\nThese efforts help us continue to build and maintain trust with the communities we work with, and prevent abuse to our recipients and staff.\n**GD is committed to observing all local, national and international laws that protect people and basic human rights of all. GD is committed to a policy of “zero tolerance when it comes to preventing, reporting, or responding to any form of abuse or exploitation.” and expects anyone who works for GD to uphold the protection and safeguarding of our recipients as a priority.**\nReasonable Accommodations\nWe are committed to fostering an inclusive and accessible work environment. If you require any accommodations during the application or interview process, or to perform the essential functions of the role, please email us at careers@givedirectly.org with the email subject “Accommodation Needed”. We will work with you to ensure reasonable accommodations are made to support your needs.\nWant to put your best foot forward on your GiveDirectly application? Take a look at our Candidate Application Prep Guide!\nReferrals\nKnow the right person for this role? Please consider referring them. We offer a reward of $3,000 for a Senior Manager or above role, and $500 for a Manager role, paid if we end up hiring your referral. Thank you for sending great people our way!",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "GiveDirectly has delivered more than $1B in cash directly to 2+ million people living in poverty across 15 countries since 2011. We believe cash transfers are one of the most scalable, cost-effective, and dignified forms of aid, with the research to back it up. Our work has been covered by The Economist, NPR, TED, and The Washington Post. We are one of Time100’s Most Influential Companies of 2026."
+        },
+        {
+          "type": "para",
+          "text": "Our culture is candid, analytical, and non-hierarchical. We support high ownership and real professional growth. Curious about what it's really like to work here? Read our values and hear from the people who do. If they resonate, this could be a great fit!"
+        },
+        {
+          "type": "para",
+          "text": "Priority application deadline: Applications will be reviewed on a rolling basis. Early applications are heavily encouraged."
+        },
+        {
+          "type": "para",
+          "text": "We’re growing at incredible speed, and expect to hit $1B in revenue in 2026 with significant growth forecast for 2027. We’re hiring a Chief Technology Officer to lead the building and rebuilding of the technology, systems and ways of working that will enable a sustained $5B+ p/a operation."
+        },
+        {
+          "type": "para",
+          "text": "You will build software that safely and securely moves billions of dollars to millions of vulnerable people in some of the poorest and highest need parts of the world. This will require applying excellent engineering, team building and organizational judgment to complex, high-stakes operations: identity and fraud management, machine learning on large but imperfect datasets (cell phone data, satellite imagery, government registries), mobile money integrations, low-connectivity environments, rapidly evolving requirements all in diverse regulatory environments and country contexts. You’ll need to keep our legacy technology stack stable and performant, while in parallel building new systems from the ground up for our next level of scale."
+        },
+        {
+          "type": "para",
+          "text": "You will lead engineering, data, security and enterprise technology – with a small, mighty and rapidly growing engineering team of ~15, and the expectation that this can at least double to ~30 in the next 12 months if you want it to. You’ll report to a CEO with deep experience running technology companies, and partner with our VP Product."
+        },
+        {
+          "type": "para",
+          "text": "This role is remote, with working hours between US Eastern Time and East African Time, and some preference for candidates in our office hubs of New York, London, or Nairobi."
+        },
+        {
+          "type": "para",
+          "text": "What we’re looking for:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "An exceptional hirer, manager and organizer of technical talent. Proven record identifying, hiring, developing and retaining excellent engineers and engineering leaders, and creating team processes that consistently deliver software with quality and velocity.",
+            "Deep technical judgment, applied close to the work. You can evaluate major designs, pressure-test architecture and build-vs-buy decisions, and recognize when a team is heading the wrong way, without becoming the primary implementer. Low-ego: you’ll investigate a problem yourself when that’s what the situation requires.",
+            "Business judgment and decisiveness under ambiguity. You’re not just a technical leader, you’re also a business executive. You understand the business, are a strong cross-functional partner, and have a history of good judgment when navigating tradeoffs of long vs. short term, speed, reliability, security, flexibility, cost, technical quality, and user impact.",
+            "AI first. You have a point of view on where AI meaningfully changes engineering productivity and organizational capability, and you’ve moved a team from experimentation to real, measured use. You can set the tools, culture, goals, and guardrails that leverage the opportunities and mitigate the risks of an AI first engineering culture.",
+            "Embody and set an example for GD values. We take our values incredibly seriously, and expect our leaders to embody, nurture, and promote them in the way they work and the teams they build.",
+            "Advantages, not requirements. Experience in an operationally complex or regulated domain (fintech, payments, humanitarian response, global development); systems involving financial controls, fraud risk, identity, or sensitive recipient data; operating across multiple countries, particularly lower-income or infrastructure-constrained ones; leading both modern product engineering and enterprise technology."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "What you’ll do"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Define our technology vision and target stack. Own the technical strategy for technology-first delivery at $5B+/year: architecture, platforms, build-vs-buy, and what we retire. Work with executive, product, finance, risk, and data leaders to turn program and product strategy into a sequenced, credible portfolio of technical investments.",
+            "Balance a demanding portfolio. You'll manage six workstreams that all matter and won't all move at once: (1) building our new cash delivery stack (remote-first verification, fraud prevention, massive volume) (2) stabilizing our legacy stack until switchover, then managing the migration; (3) donor-facing fundraising products; (4) our global emergency cash system (and eventual white-labelling of that product); (5) enterprise technology; (6) internal tooling, platform, and cybersecurity. Deciding sequencing and staffing across these (and saying \"not yet\" credibly) is the job.",
+            "Build and grow an exceptional technology organization. Recruit outstanding engineering and technology talent, design the org GiveDirectly needs at its next stage of scale (engineering, product, data, security, infrastructure, enterprise systems), and create the accountability, decision rights, and career paths to sustain high talent density. Grow the engineering team from 15 to ~30 with a lean but durable management structure.",
+            "Own the technical direction and quality bar. Guide consequential decisions on integrations, data, security, reliability, and technical debt. Ensure our systems can safely support a major increase in transaction volume, geographic reach, and organizational dependence on technology. Set a pragmatic quality bar appropriate to high-stakes financial delivery while preserving speed.",
+            "Lead across organizational boundaries. Serve as a member of GiveDirectly’s executive team, reporting to the CEO and bringing technology into major strategic and operating decisions. Help non-technical leaders understand technical constraints and costs, build credibility with country and functional leaders by understanding their realities, and force clarity when priorities, ownership, or tradeoffs are ambiguous.",
+            "Travel. Approximately 4–6 trips per year, including visits to GiveDirectly countries of operation."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Compensation"
+        },
+        {
+          "type": "para",
+          "text": "At GiveDirectly, we strive to pay our employees generously and equitably. We use an accredited third party salary aggregator to calculate what we believe to be competitive pay based on role, location, and cost of living. We also have a no negotiation policy so pay is consistent across comparable roles."
+        },
+        {
+          "type": "para",
+          "text": "Total Compensation (US) of $366,000 – $518,000 comprised of:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Base Salary: $300,000 – $375,000",
+            "Bonus: $45,000-$112,000 (bonus is % based and decided based on org-wide performance, we will share full methodology during the hiring process)",
+            "Annual Benefits Stipend: ~$21,000"
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Total Compensation (UK) of £225,000 – £317,000 comprised of:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Base Salary: £193,400 – £241,700",
+            "Bonus: £29,000 – £72,500 (bonus is % based and decided based on org-wide performance, we will share full methodology during the hiring process)",
+            "Annual Benefits Stipend: £2,760"
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Total Compensation (Kenya) of $333,000 – $467,000 comprised of:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Base Salary: $282,500 – $353,100",
+            "Bonus: $42,000 – $106,000 (bonus is % based and decided based on org-wide performance, we will share full methodology during the hiring process)",
+            "Annual Benefits Stipend: $8,453"
+          ]
+        },
+        {
+          "type": "para",
+          "text": "If you are not based in one of the countries listed above, we will share an estimated salary benchmark for the country you are based in during the hiring process."
+        },
+        {
+          "type": "para",
+          "text": "Working at GiveDirectly"
+        },
+        {
+          "type": "para",
+          "text": "GiveDirectly is an Equal Opportunity Employer. All qualified applicants are considered for employment without regard to the person’s race, color, religion, national origin, sex, sexual orientation, age, marital status, veteran status, disability, or any other characteristic protected by applicable law."
+        },
+        {
+          "type": "para",
+          "text": "Flagging for US applicants: We invite you to \"Know Your Rights\" as an applicant."
+        },
+        {
+          "type": "para",
+          "text": "Commitment to Safeguarding"
+        },
+        {
+          "type": "para",
+          "text": "As a global organization working with communities to eliminate extreme poverty, GiveDirectly takes the safeguarding of its recipients, staff, and partners seriously. To that end, GiveDirectly is a member of the Misconduct Disclosure Scheme, and will systematically check with previous employers about any abuse or misconduct related matters involving potential new hires. We may also employ other robust pre-hire screens, including in-depth reference checks, criminal background checks, and sanctions screens."
+        },
+        {
+          "type": "para",
+          "text": "These efforts help us continue to build and maintain trust with the communities we work with, and prevent abuse to our recipients and staff."
+        },
+        {
+          "type": "para",
+          "text": "**GD is committed to observing all local, national and international laws that protect people and basic human rights of all. GD is committed to a policy of “zero tolerance when it comes to preventing, reporting, or responding to any form of abuse or exploitation.” and expects anyone who works for GD to uphold the protection and safeguarding of our recipients as a priority.**"
+        },
+        {
+          "type": "para",
+          "text": "Reasonable Accommodations"
+        },
+        {
+          "type": "para",
+          "text": "We are committed to fostering an inclusive and accessible work environment. If you require any accommodations during the application or interview process, or to perform the essential functions of the role, please email us at careers@givedirectly.org with the email subject “Accommodation Needed”. We will work with you to ensure reasonable accommodations are made to support your needs."
+        },
+        {
+          "type": "para",
+          "text": "Want to put your best foot forward on your GiveDirectly application? Take a look at our Candidate Application Prep Guide!"
+        },
+        {
+          "type": "heading",
+          "text": "Referrals"
+        },
+        {
+          "type": "para",
+          "text": "Know the right person for this role? Please consider referring them. We offer a reward of $3,000 for a Senior Manager or above role, and $500 for a Manager role, paid if we end up hiring your referral. Thank you for sending great people our way!"
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "US",
+        "countryName": "United States",
+        "region": "north-america",
+        "remote": false,
+        "raw": "UK,  USA"
+      },
+      "seniority": "cto",
+      "domain": "technology",
+      "visa": "unknown",
+      "workMode": "remote",
+      "roleType": "full-time",
+      "salary": {
+        "min": 300000,
+        "max": 375000,
+        "currency": "USD",
+        "period": "annual",
+        "source": "stated"
+      },
+      "postedAt": "2026-09-12T16:50:10+00:00",
+      "firstSeen": "2026-09-13T08:22:16.617Z",
+      "updatedAt": "2026-09-13T08:22:16.617Z"
+    },
+    {
+      "id": "futuresight-technical-co-founder-cto-ai-for-automoti-a8deaf",
+      "title": "Technical Co-founder (CTO) - AI for Automotive Retail",
+      "company": "FutureSight",
+      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/330341/logo",
+      "applyUrl": "https://jobs.workable.com/view/4HTKvoomc1aparaQR2yrGT/remote-technical-co-founder-(cto)---ai-for-automotive-retail-in-canada-at-futuresight",
+      "sourceUrl": "https://jobs.workable.com/view/4HTKvoomc1aparaQR2yrGT/remote-technical-co-founder-(cto)---ai-for-automotive-retail-in-canada-at-futuresight",
+      "source": "workable",
+      "sources": [
+        "workable"
+      ],
+      "text": "The Opportunity\nEvery used-car dealer's profit is made or lost the moment they buy the car — not when they sell it. That decision runs on gut feel, spreadsheets, and whoever has a spare hour, inside a $500B+ industry that hasn't meaningfully modernized how it buys. We think that's an AI-native category waiting to be built, and we're going first.\nThe problem and solution are validated with a domain co-founder who lives this daily and has already hand\nThe Venture\nAtrium is an always-on AI workforce, not a dashboard — agents that watch, learn, and earn the right to act on their own, deployed inside dealer groups' existing workflows. The same decision logic has to show up everywhere the work already happens — web, desktop, our own browser, mobile — so the workforce follows the person, not the other way around. One brain, every surface.\nThis isn't a weekend's worth of CRUD. Think dozens of specialist agents organized into a handful of coordinated workflows, sharing one memory, each one earning the right to act on its own track record — across four surfaces at once. If that sounds like a fun problem rather than a scary one, keep reading.\nA real technical moat if built right, and a wide-open field — no dominant AI-native player has claimed this category yet. Specifics on the product, the model, and where we stand commercially are best shared in conversation; we're early and staying deliberately quiet in the market.\nThe Partnership\nCEO and domain co-founder are in place; the problem is validated. We're looking for a technical co-founder to own product and engineering from the first commit — full authority, founder equity, a real seat at the table on every major call.\nThis is a co-founder role, not a CTO hire. In return for that level of commitment, you receive founder-level equity, founder-level authority with co-decision rights on product, technology, hiring, fundraising, and strategy, and a genuine partnership with the CEO on every material decision.\nWhat you'll own\nAs Co-Founder & CTO, you will take over the production code and continue building the product (the first lines of production code), set the technical direction, and lead execution end-to-end.\nOwn the core architecture decision that shapes everything else — how the agents actually see and act in a dealer's world, and how one system stays coherent across a web app, a desktop app, our own browser, and mobile, without four separate products drifting apart\nDesign the autonomy model: how an agent earns the right to act alone, and how that trust is never assumed\nBuild the integration layer into a data ecosystem that won't always cooperate\nBuild partnerships with ecosystem data providers and third-party systems to land unconventional integrations no standard API gets you\nOwn unit economics as an architecture problem, not an afterthought — this many agents, across this many surfaces, has to add up\nOwn the design and layering of the system for the dev team, and keep the build matched to what the business and sales side actually need\nBe the technical voice with dealers, design partners, and investors\nHire and lead the founding engineering team\nCo-Founder Profile\nMust Have:\nHas shipped agentic or LLM systems into production where being wrong actually costs something\nHas shipped desktop and mobile apps connected to a larger web platform — comfortable with one product living across multiple facets and surfaces, not just a single app\nHas shipped LLM-based products, but also worked with SLMs and SLM fine-tuning\nHas dealt with the real nuances of web scraping — anti-bot defences, rate limits, brittle DOMs, the gap between \"works in a demo\" and \"works at scale against a site that doesn't want you there\"\nHas built complex, modelled data graph layers for intelligence — not just a data pipeline, but a structure that reasoning can actually run on\nComfortable owning infra, data, and product alone — then hiring past yourself\nTreats guardrails and reversibility as core product, not overhead\nGood to have: edge computing and power-constrained systems, high-frequency distributed computing infrastructure\nGreat to Have:\nExperience building against locked-down or adversarial third-party data\nVertical/operational domain grit (Automotive)\nPragmatic and creative — a solution finder who gets to \"working\" fast and iterates from there\nCo-operative, strategic, and hands-on in equal measure\nHow to Apply\nPlease submit your resume, LinkedIn profile, and a brief note on why this venture aligns with your goals as a founder. We will move quickly for the right candidate.\nFutureSight is committed to diversity, equity, and inclusion. We welcome applicants of all backgrounds and experiences.",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "The Opportunity"
+        },
+        {
+          "type": "para",
+          "text": "Every used-car dealer's profit is made or lost the moment they buy the car — not when they sell it. That decision runs on gut feel, spreadsheets, and whoever has a spare hour, inside a $500B+ industry that hasn't meaningfully modernized how it buys. We think that's an AI-native category waiting to be built, and we're going first."
+        },
+        {
+          "type": "para",
+          "text": "The problem and solution are validated with a domain co-founder who lives this daily and has already hand"
+        },
+        {
+          "type": "heading",
+          "text": "The Venture"
+        },
+        {
+          "type": "para",
+          "text": "Atrium is an always-on AI workforce, not a dashboard — agents that watch, learn, and earn the right to act on their own, deployed inside dealer groups' existing workflows. The same decision logic has to show up everywhere the work already happens — web, desktop, our own browser, mobile — so the workforce follows the person, not the other way around. One brain, every surface."
+        },
+        {
+          "type": "para",
+          "text": "This isn't a weekend's worth of CRUD. Think dozens of specialist agents organized into a handful of coordinated workflows, sharing one memory, each one earning the right to act on its own track record — across four surfaces at once. If that sounds like a fun problem rather than a scary one, keep reading."
+        },
+        {
+          "type": "para",
+          "text": "A real technical moat if built right, and a wide-open field — no dominant AI-native player has claimed this category yet. Specifics on the product, the model, and where we stand commercially are best shared in conversation; we're early and staying deliberately quiet in the market."
+        },
+        {
+          "type": "heading",
+          "text": "The Partnership"
+        },
+        {
+          "type": "para",
+          "text": "CEO and domain co-founder are in place; the problem is validated. We're looking for a technical co-founder to own product and engineering from the first commit — full authority, founder equity, a real seat at the table on every major call."
+        },
+        {
+          "type": "para",
+          "text": "This is a co-founder role, not a CTO hire. In return for that level of commitment, you receive founder-level equity, founder-level authority with co-decision rights on product, technology, hiring, fundraising, and strategy, and a genuine partnership with the CEO on every material decision."
+        },
+        {
+          "type": "heading",
+          "text": "What you'll own"
+        },
+        {
+          "type": "para",
+          "text": "As Co-Founder & CTO, you will take over the production code and continue building the product (the first lines of production code), set the technical direction, and lead execution end-to-end."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Own the core architecture decision that shapes everything else — how the agents actually see and act in a dealer's world, and how one system stays coherent across a web app, a desktop app, our own browser, and mobile, without four separate products drifting apart",
+            "Design the autonomy model: how an agent earns the right to act alone, and how that trust is never assumed",
+            "Build the integration layer into a data ecosystem that won't always cooperate",
+            "Build partnerships with ecosystem data providers and third-party systems to land unconventional integrations no standard API gets you",
+            "Own unit economics as an architecture problem, not an afterthought — this many agents, across this many surfaces, has to add up",
+            "Own the design and layering of the system for the dev team, and keep the build matched to what the business and sales side actually need",
+            "Be the technical voice with dealers, design partners, and investors",
+            "Hire and lead the founding engineering team"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Co-Founder Profile"
+        },
+        {
+          "type": "para",
+          "text": "Must Have:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Has shipped agentic or LLM systems into production where being wrong actually costs something",
+            "Has shipped desktop and mobile apps connected to a larger web platform — comfortable with one product living across multiple facets and surfaces, not just a single app",
+            "Has shipped LLM-based products, but also worked with SLMs and SLM fine-tuning",
+            "Has dealt with the real nuances of web scraping — anti-bot defences, rate limits, brittle DOMs, the gap between \"works in a demo\" and \"works at scale against a site that doesn't want you there\"",
+            "Has built complex, modelled data graph layers for intelligence — not just a data pipeline, but a structure that reasoning can actually run on",
+            "Comfortable owning infra, data, and product alone — then hiring past yourself",
+            "Treats guardrails and reversibility as core product, not overhead",
+            "Good to have: edge computing and power-constrained systems, high-frequency distributed computing infrastructure"
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Great to Have:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Experience building against locked-down or adversarial third-party data",
+            "Vertical/operational domain grit (Automotive)",
+            "Pragmatic and creative — a solution finder who gets to \"working\" fast and iterates from there",
+            "Co-operative, strategic, and hands-on in equal measure"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "How to Apply"
+        },
+        {
+          "type": "para",
+          "text": "Please submit your resume, LinkedIn profile, and a brief note on why this venture aligns with your goals as a founder. We will move quickly for the right candidate."
+        },
+        {
+          "type": "para",
+          "text": "FutureSight is committed to diversity, equity, and inclusion. We welcome applicants of all backgrounds and experiences."
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "CA",
+        "countryName": "Canada",
+        "region": "north-america",
+        "remote": false,
+        "raw": "Canada"
+      },
+      "seniority": "cto",
+      "domain": "technology",
+      "visa": "unknown",
+      "workMode": "remote",
+      "roleType": null,
+      "salary": {
+        "min": 141500,
+        "max": 275000,
+        "currency": "CAD",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "High",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-09-12T11:17:43.789Z",
+      "firstSeen": "2026-09-13T08:22:16.617Z",
+      "updatedAt": "2026-09-13T08:22:16.617Z"
+    },
+    {
+      "id": "liveeo-gmbh-director-sales-engineering-f-m-x-00bdc8",
+      "title": "Director Sales Engineering (f/m/x)",
+      "company": "LiveEO GmbH",
+      "applyUrl": "https://www.arbeitnow.com/jobs/companies/liveeo-gmbh/director-sales-engineering-liveeo-gmbh-berlin-office-hybrid-263791",
+      "sourceUrl": "https://www.arbeitnow.com/jobs/companies/liveeo-gmbh/director-sales-engineering-liveeo-gmbh-berlin-office-hybrid-263791",
+      "source": "arbeitnow",
+      "sources": [
+        "arbeitnow"
+      ],
+      "text": "Build the Market Leader in Satellite Analytics with us at LiveEO\nLiveEO transforms Earth Observation data and AI into actionable intelligence for critical infrastructure and supply-chain operators around the world. Our platforms Treeline, SurfaceScout, and TradeAware, help utilities, energy companies, rail operators, and global supply chains monitor vegetation risk, third-party interference, ground changes, and deforestation exposure across millions of kilometers of assets and supply chains, from space.\nWe're hiring our first Sales Engineering team lead to build and lead a truly global Sales Engineering organization, unifying our regional SE teams across North America, EMEA, and APAC into one consistent, high-performing technical sales function. This is a player-leader role for someone who has run distributed technical teams before, speaks fluently in geospatial and remote-sensing technology, has sold software-enabled services rather than pure-play SaaS, and has embedded MEDDPICC and value-selling discipline into a sales engine at scale.\nAs Director Sales Engineering (f/m/x), you will own the strategy, people, and technical rigor behind LiveEO's global pre-sales motion. You'll lead a team of regional Sales Engineers, act as the company's most senior technical voice with enterprise customers, and be the standard-bearer for how LiveEO qualifies, quantifies, and wins deals. You'll partner closely with the VP Pre-Sales & Professional Services, VP Sales, CRO, and Product leadership to make sure every region sells with the same technical credibility, the same value discipline, and the same customer-first mindset.\nYour challenge\n1. Global Team Leadership\nBuild, lead, and scale an international Sales Engineering team across North America, EMEA, and APAC; own hiring, onboarding, coaching, and career development for regional SEs and SE managers.\nSet global SE strategy, headcount plan, and capacity model aligned to pipeline coverage and quota targets.\nEstablish consistent standards, certification, and career pathing so SEs anywhere in the world operate at the same bar.\nFoster a culture of technical excellence, customer obsession, and collaborative deal support across regions and time zones.\n2. Geospatial & Technical Depth\nServe as the most senior technical authority in the sales organization on Earth Observation, remote sensing, GIS, and satellite analytics, and translate that expertise into customer-facing value.\nOwn the technical narrative for complex RFPs/RFIs, enterprise architecture discussions, and system integrations (GIS, EAM, ERP, SCADA/OMS/DMS).\nPartner with Product and Engineering to represent field and customer technical requirements back into the roadmap.\nPersonally engage on the company's largest, most technically complex, or highest-visibility opportunities, including large enterprise accounts.\n3. MEDDPICC & Value Selling\nEmbed and continuously improve MEDDPICC qualification discipline across the global SE team, in lockstep with Sales leadership.\nOwn the SE contribution to the Value Framework, Deal Sheets, ROI modeling, and Champion Building processes; make quantified business cases the default, not the exception.\nCoach SEs and AEs on champions, economic buyer engagement, decision-criteria influence, and competitive positioning.\nTrack and report qualification quality and value-selling maturity as a leading indicator of pipeline health.\n4. Customer Advocacy\nAct as the voice of the customer inside LiveEO — ensuring product, delivery, and pricing decisions reflect real technical and operational realities in the field.\nBuild senior technical relationships with strategic accounts and act as an executive technical sponsor on flagship and expansion deals.\nChampion customer success stories and reference-ability back into sales and marketing.\n5. Cross-Functional & Executive Leadership\nPartner with the VP Pre-Sales & Professional Services, VP Sales, CRO, RevOps, Product, and Customer Success on GTM strategy, forecasting, and territory/resourcing planning for the global SE function.\nPartner with the Directors of product to provide field feedback to help drive the product roadmap forward.\nRepresent Sales Engineering in executive and board-level reporting on pipeline quality, win rates, and technical risk.\nOwn SE playbooks, demo environments, and enablement content in partnership with RevOps and Product Marketing.\nYour profile\n8+ years in Sales Engineering, Solutions Engineering, or technical pre-sales, including 4+ years leading distributed/global teams across multiple regions and time zones.\nEnterprise experience, a demonstrated track record selling to and supporting complex enterprise accounts with multiple stakeholders and long, technical sales cycles.\nStrong working knowledge of geospatial and remote sensing technologies, satellite/Earth Observation imagery, GIS, spatial analytics with the ability to speak credibly to technical buyers.\nExperience with software-enabled services business models.\nDemonstrated track record embedding MEDDPICC (or a comparable qualification framework) and quantitative value-selling/ROI methodology across a sales organization.\nProven customer advocacy, building trusted relationships with senior technical and business stakeholders at enterprise accounts.\nStrong executive communication skills; comfortable operating with CRO/VP-level leadership and in board-level reporting.\nExperience recruiting, coaching, and developing Sales Engineers and/or SE managers.\nExperience scaling a pre-sales organization inside a high-growth (Series B/C) startup.\nWillingness to travel globally (~30–40%).\nBased in or near a LiveEO hub (Germany, UK, or US).\nExperience selling SaaS/AI/analytics solutions into utilities, energy, oil & gas/midstream, rail, or supply chain/EUDR-compliance markets is a plus.\nFamiliarity with enterprise system integrations (EAM, ERP, SCADA/OMS/DMS, mobile workforce management) is a plus.\nFamiliar with product driven and tech enables services engineering organizations is a plus.\nYour Benefits\nThe opportunity to create a product that can improve business processes and lives across the globe.\nFlexible working hours and hybrid work model - we trust our employees to get their work done while maintaining a healthy work-life balance.\nWe empower employees to drive their own career development, take initiative and have the freedom to be creative and bold.\nNot an overtime culture - we take care that overtime is done only as a necessity and always offset with time off and rest.\nA collaborative and learning environment - frequent internal workshops, knowledge sharing sessions, journal clubs and hackathons.\nOffice located in the centre of Berlin Kreuzberg with free fruit, nuts and drinks.\nA diverse and vibrant international environment of 30+ different nationalities.\nPotential to participate in the employee stock option program.\nUrban Sports membership and BVG subsidy, corporate pension program.\nFind Jobs in Germany on Arbeitnow",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "Build the Market Leader in Satellite Analytics with us at LiveEO"
+        },
+        {
+          "type": "para",
+          "text": "LiveEO transforms Earth Observation data and AI into actionable intelligence for critical infrastructure and supply-chain operators around the world. Our platforms Treeline, SurfaceScout, and TradeAware, help utilities, energy companies, rail operators, and global supply chains monitor vegetation risk, third-party interference, ground changes, and deforestation exposure across millions of kilometers of assets and supply chains, from space."
+        },
+        {
+          "type": "para",
+          "text": "We're hiring our first Sales Engineering team lead to build and lead a truly global Sales Engineering organization, unifying our regional SE teams across North America, EMEA, and APAC into one consistent, high-performing technical sales function. This is a player-leader role for someone who has run distributed technical teams before, speaks fluently in geospatial and remote-sensing technology, has sold software-enabled services rather than pure-play SaaS, and has embedded MEDDPICC and value-selling discipline into a sales engine at scale."
+        },
+        {
+          "type": "para",
+          "text": "As Director Sales Engineering (f/m/x), you will own the strategy, people, and technical rigor behind LiveEO's global pre-sales motion. You'll lead a team of regional Sales Engineers, act as the company's most senior technical voice with enterprise customers, and be the standard-bearer for how LiveEO qualifies, quantifies, and wins deals. You'll partner closely with the VP Pre-Sales & Professional Services, VP Sales, CRO, and Product leadership to make sure every region sells with the same technical credibility, the same value discipline, and the same customer-first mindset."
+        },
+        {
+          "type": "para",
+          "text": "Your challenge"
+        },
+        {
+          "type": "para",
+          "text": "1. Global Team Leadership"
+        },
+        {
+          "type": "para",
+          "text": "Build, lead, and scale an international Sales Engineering team across North America, EMEA, and APAC; own hiring, onboarding, coaching, and career development for regional SEs and SE managers."
+        },
+        {
+          "type": "para",
+          "text": "Set global SE strategy, headcount plan, and capacity model aligned to pipeline coverage and quota targets."
+        },
+        {
+          "type": "para",
+          "text": "Establish consistent standards, certification, and career pathing so SEs anywhere in the world operate at the same bar."
+        },
+        {
+          "type": "para",
+          "text": "Foster a culture of technical excellence, customer obsession, and collaborative deal support across regions and time zones."
+        },
+        {
+          "type": "para",
+          "text": "2. Geospatial & Technical Depth"
+        },
+        {
+          "type": "para",
+          "text": "Serve as the most senior technical authority in the sales organization on Earth Observation, remote sensing, GIS, and satellite analytics, and translate that expertise into customer-facing value."
+        },
+        {
+          "type": "para",
+          "text": "Own the technical narrative for complex RFPs/RFIs, enterprise architecture discussions, and system integrations (GIS, EAM, ERP, SCADA/OMS/DMS)."
+        },
+        {
+          "type": "para",
+          "text": "Partner with Product and Engineering to represent field and customer technical requirements back into the roadmap."
+        },
+        {
+          "type": "para",
+          "text": "Personally engage on the company's largest, most technically complex, or highest-visibility opportunities, including large enterprise accounts."
+        },
+        {
+          "type": "para",
+          "text": "3. MEDDPICC & Value Selling"
+        },
+        {
+          "type": "para",
+          "text": "Embed and continuously improve MEDDPICC qualification discipline across the global SE team, in lockstep with Sales leadership."
+        },
+        {
+          "type": "para",
+          "text": "Own the SE contribution to the Value Framework, Deal Sheets, ROI modeling, and Champion Building processes; make quantified business cases the default, not the exception."
+        },
+        {
+          "type": "para",
+          "text": "Coach SEs and AEs on champions, economic buyer engagement, decision-criteria influence, and competitive positioning."
+        },
+        {
+          "type": "para",
+          "text": "Track and report qualification quality and value-selling maturity as a leading indicator of pipeline health."
+        },
+        {
+          "type": "para",
+          "text": "4. Customer Advocacy"
+        },
+        {
+          "type": "para",
+          "text": "Act as the voice of the customer inside LiveEO — ensuring product, delivery, and pricing decisions reflect real technical and operational realities in the field."
+        },
+        {
+          "type": "para",
+          "text": "Build senior technical relationships with strategic accounts and act as an executive technical sponsor on flagship and expansion deals."
+        },
+        {
+          "type": "para",
+          "text": "Champion customer success stories and reference-ability back into sales and marketing."
+        },
+        {
+          "type": "para",
+          "text": "5. Cross-Functional & Executive Leadership"
+        },
+        {
+          "type": "para",
+          "text": "Partner with the VP Pre-Sales & Professional Services, VP Sales, CRO, RevOps, Product, and Customer Success on GTM strategy, forecasting, and territory/resourcing planning for the global SE function."
+        },
+        {
+          "type": "para",
+          "text": "Partner with the Directors of product to provide field feedback to help drive the product roadmap forward."
+        },
+        {
+          "type": "para",
+          "text": "Represent Sales Engineering in executive and board-level reporting on pipeline quality, win rates, and technical risk."
+        },
+        {
+          "type": "para",
+          "text": "Own SE playbooks, demo environments, and enablement content in partnership with RevOps and Product Marketing."
+        },
+        {
+          "type": "para",
+          "text": "Your profile"
+        },
+        {
+          "type": "para",
+          "text": "8+ years in Sales Engineering, Solutions Engineering, or technical pre-sales, including 4+ years leading distributed/global teams across multiple regions and time zones."
+        },
+        {
+          "type": "para",
+          "text": "Enterprise experience, a demonstrated track record selling to and supporting complex enterprise accounts with multiple stakeholders and long, technical sales cycles."
+        },
+        {
+          "type": "para",
+          "text": "Strong working knowledge of geospatial and remote sensing technologies, satellite/Earth Observation imagery, GIS, spatial analytics with the ability to speak credibly to technical buyers."
+        },
+        {
+          "type": "para",
+          "text": "Experience with software-enabled services business models."
+        },
+        {
+          "type": "para",
+          "text": "Demonstrated track record embedding MEDDPICC (or a comparable qualification framework) and quantitative value-selling/ROI methodology across a sales organization."
+        },
+        {
+          "type": "para",
+          "text": "Proven customer advocacy, building trusted relationships with senior technical and business stakeholders at enterprise accounts."
+        },
+        {
+          "type": "para",
+          "text": "Strong executive communication skills; comfortable operating with CRO/VP-level leadership and in board-level reporting."
+        },
+        {
+          "type": "para",
+          "text": "Experience recruiting, coaching, and developing Sales Engineers and/or SE managers."
+        },
+        {
+          "type": "para",
+          "text": "Experience scaling a pre-sales organization inside a high-growth (Series B/C) startup."
+        },
+        {
+          "type": "para",
+          "text": "Willingness to travel globally (~30–40%)."
+        },
+        {
+          "type": "para",
+          "text": "Based in or near a LiveEO hub (Germany, UK, or US)."
+        },
+        {
+          "type": "para",
+          "text": "Experience selling SaaS/AI/analytics solutions into utilities, energy, oil & gas/midstream, rail, or supply chain/EUDR-compliance markets is a plus."
+        },
+        {
+          "type": "para",
+          "text": "Familiarity with enterprise system integrations (EAM, ERP, SCADA/OMS/DMS, mobile workforce management) is a plus."
+        },
+        {
+          "type": "para",
+          "text": "Familiar with product driven and tech enables services engineering organizations is a plus."
+        },
+        {
+          "type": "para",
+          "text": "Your Benefits"
+        },
+        {
+          "type": "para",
+          "text": "The opportunity to create a product that can improve business processes and lives across the globe."
+        },
+        {
+          "type": "para",
+          "text": "Flexible working hours and hybrid work model - we trust our employees to get their work done while maintaining a healthy work-life balance."
+        },
+        {
+          "type": "para",
+          "text": "We empower employees to drive their own career development, take initiative and have the freedom to be creative and bold."
+        },
+        {
+          "type": "para",
+          "text": "Not an overtime culture - we take care that overtime is done only as a necessity and always offset with time off and rest."
+        },
+        {
+          "type": "para",
+          "text": "A collaborative and learning environment - frequent internal workshops, knowledge sharing sessions, journal clubs and hackathons."
+        },
+        {
+          "type": "para",
+          "text": "Office located in the centre of Berlin Kreuzberg with free fruit, nuts and drinks."
+        },
+        {
+          "type": "para",
+          "text": "A diverse and vibrant international environment of 30+ different nationalities."
+        },
+        {
+          "type": "para",
+          "text": "Potential to participate in the employee stock option program."
+        },
+        {
+          "type": "para",
+          "text": "Urban Sports membership and BVG subsidy, corporate pension program."
+        },
+        {
+          "type": "para",
+          "text": "Find Jobs in Germany on Arbeitnow"
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "DE",
+        "countryName": "Germany",
+        "region": "europe",
+        "remote": false,
+        "raw": "LiveEO GmbH Berlin Office (Hybrid)"
+      },
+      "seniority": "director",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "hybrid",
+      "roleType": "permanent",
+      "salary": {
+        "min": 63500,
+        "max": 84700,
+        "currency": "EUR",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "Medium",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-09-12T11:09:54.000Z",
+      "firstSeen": "2026-09-13T08:22:16.617Z",
+      "updatedAt": "2026-09-13T08:22:16.617Z"
+    },
     {
       "id": "blackduck-regional-field-cto-b43130",
       "title": "Regional Field CTO",
@@ -46,15 +709,15 @@
       },
       "postedAt": "2026-09-11T22:55:14.000Z",
       "firstSeen": "2026-09-12T07:58:05.327Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "futuresight-technical-co-founder-cto-ai-for-automoti-fdef22",
       "title": "Technical Co-founder (CTO) - AI for Automotive Retail",
       "company": "FutureSight",
       "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/330341/logo",
-      "applyUrl": "https://jobs.workable.com/view/b1R2k2Qd8SKQsdJmHncRpz/remote-technical-co-founder-(cto)---ai-for-automotive-retail-in-united-states-at-futuresight",
-      "sourceUrl": "https://jobs.workable.com/view/b1R2k2Qd8SKQsdJmHncRpz/remote-technical-co-founder-(cto)---ai-for-automotive-retail-in-united-states-at-futuresight",
+      "applyUrl": "https://jobs.workable.com/view/uSC7TUkzpcGm3UzEc3LNMe/remote-technical-co-founder-(cto)---ai-for-automotive-retail-in-seattle-at-futuresight",
+      "sourceUrl": "https://jobs.workable.com/view/uSC7TUkzpcGm3UzEc3LNMe/remote-technical-co-founder-(cto)---ai-for-automotive-retail-in-seattle-at-futuresight",
       "source": "workable",
       "sources": [
         "workable"
@@ -175,7 +838,7 @@
         "countryName": "United States",
         "region": "north-america",
         "remote": false,
-        "raw": "United States"
+        "raw": "Seattle, United States"
       },
       "seniority": "cto",
       "domain": "technology",
@@ -193,71 +856,7 @@
       },
       "postedAt": "2026-09-11T21:35:19.936Z",
       "firstSeen": "2026-09-12T07:58:05.327Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
-    },
-    {
-      "id": "sigma-defense-1761-director-of-engineering-4ec9aa",
-      "title": "1761 - Director of Engineering",
-      "company": "Sigma Defense",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/31138/logo",
-      "applyUrl": "https://jobs.workable.com/view/6qCfXq2wh7RB96VjEf1Rgg/hybrid-1761---director-of-engineering-in-san-diego-at-sigma-defense",
-      "sourceUrl": "https://jobs.workable.com/view/6qCfXq2wh7RB96VjEf1Rgg/hybrid-1761---director-of-engineering-in-san-diego-at-sigma-defense",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "Sigma Defense is seeking a Director of Engineering to serve as the senior technical authority and lead of technical sales for our IMS Business Unit. This is not a role that manages engineers from a distance. It sits at the intersection of technical execution and business growth, and the person in it is expected to be credible in a design review, in front of a customer, and in a proposal color team in the same week.\nThe Director is responsible not only for solving high-value engineering problems, but for building the organizational capability to solve those problems repeatedly without dependence on any single individual.\nYou will operate across a portfolio of software-intensive defense programs, providing the technical oversight that keeps delivery on track, leading the engineering contribution to new business pursuits, and raising the capability of engineers across the business unit. These three areas reinforce one another. Credibility earned on programs opens doors with customers. Customer engagement wins new work. A stronger engineering bench makes delivery more reliable and more competitive.\nEngineers on our programs align formally to their Program Managers, who own contract budgets, headcount, and day-to-day tasking. That structure is intentional, and it frees this role from the administrative overhead of functional management so it can focus on the highest-value work: elevating technical quality across programs, winning new business, and building an engineering culture where individuals are equipped to compete and grow.\nAlthough funded and prioritized within IMS, this position is positioned to extend technical leadership and strategic influence across organizational boundaries, contributing to cross-business initiatives and reinforcing a unified engineering identity across the company.\nEqual Opportunity Employer/Veterans/Disabled: Sigma Defense Systems is an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, or protected veteran status and will not be discriminated against on the basis of disability.",
-      "blocks": [
-        {
-          "type": "para",
-          "text": "Sigma Defense is seeking a Director of Engineering to serve as the senior technical authority and lead of technical sales for our IMS Business Unit. This is not a role that manages engineers from a distance. It sits at the intersection of technical execution and business growth, and the person in it is expected to be credible in a design review, in front of a customer, and in a proposal color team in the same week."
-        },
-        {
-          "type": "para",
-          "text": "The Director is responsible not only for solving high-value engineering problems, but for building the organizational capability to solve those problems repeatedly without dependence on any single individual."
-        },
-        {
-          "type": "para",
-          "text": "You will operate across a portfolio of software-intensive defense programs, providing the technical oversight that keeps delivery on track, leading the engineering contribution to new business pursuits, and raising the capability of engineers across the business unit. These three areas reinforce one another. Credibility earned on programs opens doors with customers. Customer engagement wins new work. A stronger engineering bench makes delivery more reliable and more competitive."
-        },
-        {
-          "type": "para",
-          "text": "Engineers on our programs align formally to their Program Managers, who own contract budgets, headcount, and day-to-day tasking. That structure is intentional, and it frees this role from the administrative overhead of functional management so it can focus on the highest-value work: elevating technical quality across programs, winning new business, and building an engineering culture where individuals are equipped to compete and grow."
-        },
-        {
-          "type": "para",
-          "text": "Although funded and prioritized within IMS, this position is positioned to extend technical leadership and strategic influence across organizational boundaries, contributing to cross-business initiatives and reinforcing a unified engineering identity across the company."
-        },
-        {
-          "type": "para",
-          "text": "Equal Opportunity Employer/Veterans/Disabled: Sigma Defense Systems is an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, or protected veteran status and will not be discriminated against on the basis of disability."
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "US",
-        "countryName": "United States",
-        "region": "north-america",
-        "remote": false,
-        "raw": "San Diego, United States"
-      },
-      "seniority": "director",
-      "domain": "engineering",
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": "full-time",
-      "salary": {
-        "min": 138060,
-        "max": 220730,
-        "currency": "USD",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "High",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2026-09-11T20:01:49.470Z",
-      "firstSeen": "2026-09-12T07:58:05.327Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "mistral-ai-field-cto-dach-41a13c",
@@ -428,7 +1027,7 @@
       },
       "postedAt": "2026-09-11T17:40:04.000Z",
       "firstSeen": "2026-09-12T07:58:05.327Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "itrs-director-of-platform-engineering-ae6f3a",
@@ -505,232 +1104,7 @@
       },
       "postedAt": "2026-09-11T14:11:42.664Z",
       "firstSeen": "2026-09-12T07:58:05.327Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
-    },
-    {
-      "id": "sigma-computing-field-cto-6fb4b6",
-      "title": "Field CTO",
-      "company": "Sigma Computing",
-      "applyUrl": "https://jobicy.com/jobs/153045-field-cto",
-      "sourceUrl": "https://jobicy.com/jobs/153045-field-cto",
-      "source": "jobicy",
-      "sources": [
-        "jobicy"
-      ],
-      "text": "The Field CTO is the most senior technical voice in the field. Here's the version we're hiring for.\nThe Field CTO sits a level above the Solution Architect. Where the SA leads the technical strategy on complex deals, the Field CTO owns the technical narrative across the territory, shapes how the market understands Sigma's architecture, and carries the credibility to win the room when the CTO, CDO, and CISO are all in it. This person does everything a senior SA does, then operates a tier higher: as a peer to enterprise executives, a force multiplier across the entire Solution Engineering team, and a direct line back into Product and Engineering.\nThree things sit at the center of this role. The Field CTO does all three at the highest level, with the architectural depth and executive presence to back it up.\n1. Use AI every day, and set the standard for how the team uses it.\nThe Field CTO treats AI tooling as default infrastructure and raises the bar for everyone else. You run Claude, ChatGPT, Cursor, or equivalents to compress account prep, architecture design, prototype builds, RFP responses, and discovery synthesis from weeks into days. You bring a clear point of view on what to run, why, and where it breaks. You don't just use these tools well. You teach the SE and SA teams how to use them better, and you build the workflows the rest of the field adopts.\n2. Sell AI into the account at the executive level.\nBuyers want to talk about agents, MCP, A2A, context engineering, and which model powers what. You're fluent, and you can take that conversation to the most senior technical buyer in the building. You know Sigma's AI surface cold: Sigma Assistant in build, analyze, and plan modes, AI functions, input tables with LLM enrichment, MCP integration, Sigma agents, and warehouse agents. You architect these into a customer's stack, defend the tradeoffs to a head of data and a CISO in the same call, and frame the long-term AI strategy for a CTO who's deciding where to place a multi-year bet. You speak credibly about Claude, OpenAI, Gemini, and the broader stack the customer already runs.\n3. Sell against AI, and own the position the whole team runs.\nEvery enterprise deal has AI competition in it. Sometimes it's Databricks Genie. Sometimes it's Snowflake Cortex Analyst. Sometimes it's a systems integrator pitching a bespoke agent built over a weekend. You know where each one breaks at scale, where Sigma's warehouse-native architecture wins on governance, freshness, and cost, and how to draw that line for a skeptical CDO without hand-waving. You defend that position in an architecture review, on a security questionnaire, and across a six-month evaluation. Then you turn what you learn into the competitive teardowns and battlecards the entire field uses.\nAbout Sigma\nSigma is the AI runtime environment for the modern enterprise. Teams build apps, agents, and analytics directly in Sigma, with governance and security inherited from the cloud data warehouse. No extracts, no separate AI pipelines, no shadow stack to maintain.\nAbout the role\nThe Field CTO is the senior-most technical leader in the field organization. You partner with Solution Architects, Solution Engineers, and Enterprise Regional Sales Managers on the largest and most strategic enterprise opportunities, the ones that hinge on architecture, AI strategy, governance, or executive trust. Your job is to win the technical decision at the top of the account and to make the whole team better at winning it.\nYou'll work across Sales, Product, Engineering, and Support, and you'll carry real influence in all of them. Prospects and customers will come to you as a peer to their own technical leadership. Internally, you'll shape product direction, mentor the SA and SE teams, and represent Sigma's architecture and AI runtime story to the market.\nWhat you'll do\nOwn the technical narrative across the territory's most strategic accounts, partnered with the SAs and SEs working those deals.\nLead executive-level architecture and AI strategy conversations with CTOs, CDOs, CISOs, and their senior technical teams.\nRun deep technical discovery and architecture workshops, and step in to unblock the opportunities no one else can move.\nDesign and build production-grade prototypes and custom apps that prove out high-value use cases, including Sigma plugins, fully code-backed data apps, and AI-driven workflows using Sigma Assistant, Sigma agents, warehouse agents, and MCP integrations. You build in HTML, JavaScript, and Python, both natively in Sigma and as warehouse stored procedures.\nLead the hardest security architecture conversations: PrivateLink, OAuth, SAML, SCIM, and the governance model behind them.\nPresent Sigma's architecture and AI runtime story externally: analyst briefings, executive roundtables, conference stages, and CTO-to-CTO conversations.\nOwn the technical position on the hardest RFPs, RFIs, AI risk reviews, and security questionnaires.\nAdvise on integration, migration, governance, and AI patterns across Snowflake, Databricks, BigQuery, and Redshift.\nSet Sigma's competitive position against Databricks AI/BI and Genie, Snowflake Cortex Analyst, Tableau, Power BI, Looker, and AI-native entrants. Defend it with architecture, not slogans, and turn it into reusable assets for the team.\nBuild the SA and SE playbook and the programs the field runs on: architecture patterns, AI-workflow playbooks, competitive teardowns, reference implementations, demo-build prompts, and a repeatable technical-win process.\nPackage domain expertise into reusable industry assets across verticals like financial services, insurance, and gaming, so a single deal's learnings compound across the territory.\nShape the product from the front line. Carry field intel directly to Product and Engineering leadership, write up customer patterns, secure early feature access, and influence the roadmap across the AI surface.\nMentor SAs and SEs. Raise the technical bar of the team and accelerate the next hire's ramp.\nRun several strategic enterprise engagements at once across the territory.\nEarn and maintain product, sales, and technology certifications.\nHit quarterly and annual targets set by your manager.\nWhat we're looking for\nTechnical depth. 12+ years in business intelligence, analytics engineering, or data platform roles, with at least 5 in a customer-facing technical leadership role (SA, Field CTO, principal SE, or senior consulting). Deep expertise in at least one cloud data warehouse: Snowflake, Databricks, BigQuery, or Redshift, and working fluency across the rest. Strong SQL and a deep command of modern data architecture: warehousing, modeling, governance, security.\nData engineering fluency. Hands-on experience with ETL and transformation tooling like dbt, Fivetran, Matillion, or comparable, and the judgment to architect across them.\nBuilder's depth. You write working code, not just diagrams. Comfortable in HTML, JavaScript, and Python, building custom apps, plugins, and AI workflows end to end, both inside the product and against the warehouse.\nSecurity architecture. Deep command of enterprise security and identity patterns: PrivateLink, OAuth, SAML, SCIM, and the governance decisions that ride on them. You lead these conversations with a CISO, not defer them.\nAI fluency at the leading edge. Daily user of modern AI tools and a credible voice on agents, MCP, A2A, context engineering, retrieval, evals, and the major model providers. You position Sigma's AI stack against warehouse agents like Genie and Cortex Analyst, and against AI-native BI entrants, without hand-waving, and you set the team's point of view.\nEnterprise selling. Track record of leading and closing the most complex enterprise sales cycles or large BI implementations. You know how to partner with AEs, SAs, and SEs, and how to win the technical decision at the executive level.\nExecutive presence. You hold a CTO and a data engineer in the same room without switching gears awkwardly. You lead the architecture review, the boardroom briefing, and the conference keynote, and you're the person customers call when the decision is theirs to make.\nPace and energy. You operate well in a high-velocity environment. Self-starter. No hand-holding.\nTeam fit. You want a team that sharpens each other, and you make everyone around you better. You bring field intel back. You build the playbooks and own the next hire's ramp. Ego stays out of the room.\nEducation. Bachelor's degree in a technical field, or equivalent experience.\nTravel. Willingness to travel up to 35%.\nAbout us:\nSigma is the AI Apps and agentic analytics platform built on the cloud data warehouse. Business and technical teams use Sigma to explore live data, build intelligent applications, and automate critical workflows all without moving data or breaking governance. Sigma supports a spreadsheet interface, SQL, Python, and native AI in a single governed workspace, giving every team the speed to act and IT the control to scale. Sigma is trusted by more than 2,000 customers, including AMD, Duolingo, Colgate-Palmolive, and JPMorgan Chase.\nSigma announced its $80M in Series E financing in May 2026. The round was led by Princeville Capital, with new strategic investors Databricks Ventures, ServiceNow Ventures, and Workday Ventures participating alongside returning investors Altimeter Capital, Avenir Growth Capital, D1 Capital Partners, K5 Global, NewView Capital, Spark Capital, Sutter Hill Ventures, and XN. This milestone follows Sigma reaching $200M in annual recurring revenue in April 2026, with more than 100% year-over-year growth and 1.1 million new active users added in the latest fiscal year.\nCome join us!\nBenefits For Our Full-Time Employees:\nEquity\nGenerous health benefits\nFlexible time off policy. Take the time off you need!\nPaid bonding time for all new parents\nTraditional and Roth 401k\nCommuter and FSA benefits\nLunch Program\nDog friendly office\nSigma is an equal opportunity employer. We are committed to building a smart and strong team regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender, gender identity or expression, veteran, or any other protected status. We look forward to learning how your experience can enable all of us to grow.\nNote: We have an in-office work environment in all our offices in SF, NYC, London and Sydney. All roles have a 25% travel expectation unless explicitly stated otherwise.\nOur Privacy Practices\nWhen you submit a job application on this site, Sigma processes your personal data for the purposes of evaluating your candidacy for employment at Sigma and as otherwise needed throughout the recruitment and hiring process. Please review Sigma’s Candidate Privacy Notice for more details. Please note that your personal data may be transferred to a country other than the one in which it was provided (including to the USA, the UK, and Canada, Australia).\nSigma’s use of AI\nThis hiring process utilizes artificial intelligence tools to assist in candidate screening and assessment. Our AI tools are designed to complement, not replace, human decision-making.",
-      "blocks": [
-        {
-          "type": "heading",
-          "text": "The Field CTO is the most senior technical voice in the field. Here's the version we're hiring for."
-        },
-        {
-          "type": "para",
-          "text": "The Field CTO sits a level above the Solution Architect. Where the SA leads the technical strategy on complex deals, the Field CTO owns the technical narrative across the territory, shapes how the market understands Sigma's architecture, and carries the credibility to win the room when the CTO, CDO, and CISO are all in it. This person does everything a senior SA does, then operates a tier higher: as a peer to enterprise executives, a force multiplier across the entire Solution Engineering team, and a direct line back into Product and Engineering."
-        },
-        {
-          "type": "para",
-          "text": "Three things sit at the center of this role. The Field CTO does all three at the highest level, with the architectural depth and executive presence to back it up."
-        },
-        {
-          "type": "heading",
-          "text": "1. Use AI every day, and set the standard for how the team uses it."
-        },
-        {
-          "type": "para",
-          "text": "The Field CTO treats AI tooling as default infrastructure and raises the bar for everyone else. You run Claude, ChatGPT, Cursor, or equivalents to compress account prep, architecture design, prototype builds, RFP responses, and discovery synthesis from weeks into days. You bring a clear point of view on what to run, why, and where it breaks. You don't just use these tools well. You teach the SE and SA teams how to use them better, and you build the workflows the rest of the field adopts."
-        },
-        {
-          "type": "heading",
-          "text": "2. Sell AI into the account at the executive level."
-        },
-        {
-          "type": "para",
-          "text": "Buyers want to talk about agents, MCP, A2A, context engineering, and which model powers what. You're fluent, and you can take that conversation to the most senior technical buyer in the building. You know Sigma's AI surface cold: Sigma Assistant in build, analyze, and plan modes, AI functions, input tables with LLM enrichment, MCP integration, Sigma agents, and warehouse agents. You architect these into a customer's stack, defend the tradeoffs to a head of data and a CISO in the same call, and frame the long-term AI strategy for a CTO who's deciding where to place a multi-year bet. You speak credibly about Claude, OpenAI, Gemini, and the broader stack the customer already runs."
-        },
-        {
-          "type": "heading",
-          "text": "3. Sell against AI, and own the position the whole team runs."
-        },
-        {
-          "type": "para",
-          "text": "Every enterprise deal has AI competition in it. Sometimes it's Databricks Genie. Sometimes it's Snowflake Cortex Analyst. Sometimes it's a systems integrator pitching a bespoke agent built over a weekend. You know where each one breaks at scale, where Sigma's warehouse-native architecture wins on governance, freshness, and cost, and how to draw that line for a skeptical CDO without hand-waving. You defend that position in an architecture review, on a security questionnaire, and across a six-month evaluation. Then you turn what you learn into the competitive teardowns and battlecards the entire field uses."
-        },
-        {
-          "type": "heading",
-          "text": "About Sigma"
-        },
-        {
-          "type": "para",
-          "text": "Sigma is the AI runtime environment for the modern enterprise. Teams build apps, agents, and analytics directly in Sigma, with governance and security inherited from the cloud data warehouse. No extracts, no separate AI pipelines, no shadow stack to maintain."
-        },
-        {
-          "type": "heading",
-          "text": "About the role"
-        },
-        {
-          "type": "para",
-          "text": "The Field CTO is the senior-most technical leader in the field organization. You partner with Solution Architects, Solution Engineers, and Enterprise Regional Sales Managers on the largest and most strategic enterprise opportunities, the ones that hinge on architecture, AI strategy, governance, or executive trust. Your job is to win the technical decision at the top of the account and to make the whole team better at winning it."
-        },
-        {
-          "type": "para",
-          "text": "You'll work across Sales, Product, Engineering, and Support, and you'll carry real influence in all of them. Prospects and customers will come to you as a peer to their own technical leadership. Internally, you'll shape product direction, mentor the SA and SE teams, and represent Sigma's architecture and AI runtime story to the market."
-        },
-        {
-          "type": "heading",
-          "text": "What you'll do"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Own the technical narrative across the territory's most strategic accounts, partnered with the SAs and SEs working those deals.",
-            "Lead executive-level architecture and AI strategy conversations with CTOs, CDOs, CISOs, and their senior technical teams.",
-            "Run deep technical discovery and architecture workshops, and step in to unblock the opportunities no one else can move.",
-            "Design and build production-grade prototypes and custom apps that prove out high-value use cases, including Sigma plugins, fully code-backed data apps, and AI-driven workflows using Sigma Assistant, Sigma agents, warehouse agents, and MCP integrations. You build in HTML, JavaScript, and Python, both natively in Sigma and as warehouse stored procedures.",
-            "Lead the hardest security architecture conversations: PrivateLink, OAuth, SAML, SCIM, and the governance model behind them.",
-            "Present Sigma's architecture and AI runtime story externally: analyst briefings, executive roundtables, conference stages, and CTO-to-CTO conversations.",
-            "Own the technical position on the hardest RFPs, RFIs, AI risk reviews, and security questionnaires.",
-            "Advise on integration, migration, governance, and AI patterns across Snowflake, Databricks, BigQuery, and Redshift.",
-            "Set Sigma's competitive position against Databricks AI/BI and Genie, Snowflake Cortex Analyst, Tableau, Power BI, Looker, and AI-native entrants. Defend it with architecture, not slogans, and turn it into reusable assets for the team.",
-            "Build the SA and SE playbook and the programs the field runs on: architecture patterns, AI-workflow playbooks, competitive teardowns, reference implementations, demo-build prompts, and a repeatable technical-win process.",
-            "Package domain expertise into reusable industry assets across verticals like financial services, insurance, and gaming, so a single deal's learnings compound across the territory.",
-            "Shape the product from the front line. Carry field intel directly to Product and Engineering leadership, write up customer patterns, secure early feature access, and influence the roadmap across the AI surface.",
-            "Mentor SAs and SEs. Raise the technical bar of the team and accelerate the next hire's ramp.",
-            "Run several strategic enterprise engagements at once across the territory.",
-            "Earn and maintain product, sales, and technology certifications.",
-            "Hit quarterly and annual targets set by your manager."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "What we're looking for"
-        },
-        {
-          "type": "para",
-          "text": "Technical depth. 12+ years in business intelligence, analytics engineering, or data platform roles, with at least 5 in a customer-facing technical leadership role (SA, Field CTO, principal SE, or senior consulting). Deep expertise in at least one cloud data warehouse: Snowflake, Databricks, BigQuery, or Redshift, and working fluency across the rest. Strong SQL and a deep command of modern data architecture: warehousing, modeling, governance, security."
-        },
-        {
-          "type": "para",
-          "text": "Data engineering fluency. Hands-on experience with ETL and transformation tooling like dbt, Fivetran, Matillion, or comparable, and the judgment to architect across them."
-        },
-        {
-          "type": "para",
-          "text": "Builder's depth. You write working code, not just diagrams. Comfortable in HTML, JavaScript, and Python, building custom apps, plugins, and AI workflows end to end, both inside the product and against the warehouse."
-        },
-        {
-          "type": "para",
-          "text": "Security architecture. Deep command of enterprise security and identity patterns: PrivateLink, OAuth, SAML, SCIM, and the governance decisions that ride on them. You lead these conversations with a CISO, not defer them."
-        },
-        {
-          "type": "para",
-          "text": "AI fluency at the leading edge. Daily user of modern AI tools and a credible voice on agents, MCP, A2A, context engineering, retrieval, evals, and the major model providers. You position Sigma's AI stack against warehouse agents like Genie and Cortex Analyst, and against AI-native BI entrants, without hand-waving, and you set the team's point of view."
-        },
-        {
-          "type": "para",
-          "text": "Enterprise selling. Track record of leading and closing the most complex enterprise sales cycles or large BI implementations. You know how to partner with AEs, SAs, and SEs, and how to win the technical decision at the executive level."
-        },
-        {
-          "type": "para",
-          "text": "Executive presence. You hold a CTO and a data engineer in the same room without switching gears awkwardly. You lead the architecture review, the boardroom briefing, and the conference keynote, and you're the person customers call when the decision is theirs to make."
-        },
-        {
-          "type": "para",
-          "text": "Pace and energy. You operate well in a high-velocity environment. Self-starter. No hand-holding."
-        },
-        {
-          "type": "para",
-          "text": "Team fit. You want a team that sharpens each other, and you make everyone around you better. You bring field intel back. You build the playbooks and own the next hire's ramp. Ego stays out of the room."
-        },
-        {
-          "type": "para",
-          "text": "Education. Bachelor's degree in a technical field, or equivalent experience."
-        },
-        {
-          "type": "para",
-          "text": "Travel. Willingness to travel up to 35%."
-        },
-        {
-          "type": "para",
-          "text": "About us:"
-        },
-        {
-          "type": "para",
-          "text": "Sigma is the AI Apps and agentic analytics platform built on the cloud data warehouse. Business and technical teams use Sigma to explore live data, build intelligent applications, and automate critical workflows all without moving data or breaking governance. Sigma supports a spreadsheet interface, SQL, Python, and native AI in a single governed workspace, giving every team the speed to act and IT the control to scale. Sigma is trusted by more than 2,000 customers, including AMD, Duolingo, Colgate-Palmolive, and JPMorgan Chase."
-        },
-        {
-          "type": "para",
-          "text": "Sigma announced its $80M in Series E financing in May 2026. The round was led by Princeville Capital, with new strategic investors Databricks Ventures, ServiceNow Ventures, and Workday Ventures participating alongside returning investors Altimeter Capital, Avenir Growth Capital, D1 Capital Partners, K5 Global, NewView Capital, Spark Capital, Sutter Hill Ventures, and XN. This milestone follows Sigma reaching $200M in annual recurring revenue in April 2026, with more than 100% year-over-year growth and 1.1 million new active users added in the latest fiscal year."
-        },
-        {
-          "type": "para",
-          "text": "Come join us!"
-        },
-        {
-          "type": "heading",
-          "text": "Benefits For Our Full-Time Employees:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Equity",
-            "Generous health benefits",
-            "Flexible time off policy. Take the time off you need!",
-            "Paid bonding time for all new parents",
-            "Traditional and Roth 401k",
-            "Commuter and FSA benefits",
-            "Lunch Program",
-            "Dog friendly office"
-          ]
-        },
-        {
-          "type": "para",
-          "text": "Sigma is an equal opportunity employer. We are committed to building a smart and strong team regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender, gender identity or expression, veteran, or any other protected status. We look forward to learning how your experience can enable all of us to grow."
-        },
-        {
-          "type": "para",
-          "text": "Note: We have an in-office work environment in all our offices in SF, NYC, London and Sydney. All roles have a 25% travel expectation unless explicitly stated otherwise."
-        },
-        {
-          "type": "para",
-          "text": "Our Privacy Practices"
-        },
-        {
-          "type": "para",
-          "text": "When you submit a job application on this site, Sigma processes your personal data for the purposes of evaluating your candidacy for employment at Sigma and as otherwise needed throughout the recruitment and hiring process. Please review Sigma’s Candidate Privacy Notice for more details. Please note that your personal data may be transferred to a country other than the one in which it was provided (including to the USA, the UK, and Canada, Australia)."
-        },
-        {
-          "type": "para",
-          "text": "Sigma’s use of AI"
-        },
-        {
-          "type": "para",
-          "text": "This hiring process utilizes artificial intelligence tools to assist in candidate screening and assessment. Our AI tools are designed to complement, not replace, human decision-making."
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "US",
-        "countryName": "United States",
-        "region": "north-america",
-        "remote": false,
-        "raw": "USA"
-      },
-      "seniority": "cto",
-      "domain": "technology",
-      "visa": "unknown",
-      "workMode": "onsite",
-      "roleType": "full-time",
-      "salary": {
-        "min": 138060,
-        "max": 220730,
-        "currency": "USD",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "High",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2026-09-11T13:15:28+00:00",
-      "firstSeen": "2026-09-12T07:58:05.327Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "axios-senior-director-engineering-40fd80",
@@ -769,7 +1143,7 @@
       },
       "postedAt": "2026-09-11T10:11:28-04:00",
       "firstSeen": "2026-09-12T07:58:05.327Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "releaf-head-of-app-development-c78d1b",
@@ -900,7 +1274,7 @@
       },
       "postedAt": "2026-09-11T04:06:51.515Z",
       "firstSeen": "2026-09-11T08:06:49.750Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "vml-executive-director-data-engineering-679547",
@@ -943,7 +1317,7 @@
       },
       "postedAt": "2026-09-10T20:23:18-04:00",
       "firstSeen": "2026-09-11T08:06:49.750Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "the-hr-game-head-of-technology-197e1d",
@@ -1055,7 +1429,7 @@
       },
       "postedAt": "2026-09-10T13:04:03.652Z",
       "firstSeen": "2026-09-11T08:06:49.750Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "openworks-engineering-head-of-information-technology-5af854",
@@ -1375,7 +1749,7 @@
       },
       "postedAt": "2026-09-10T10:59:51.392Z",
       "firstSeen": "2026-09-11T08:06:49.750Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "freedom24-chief-technology-officer-cto-62ec42",
@@ -1463,7 +1837,7 @@
       },
       "postedAt": "2026-09-10T08:08:32.827Z",
       "firstSeen": "2026-09-10T08:11:49.301Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "kurt-geiger-vp-of-technology-delivery-transformation-15c4f2",
@@ -1550,7 +1924,7 @@
       },
       "postedAt": "2026-09-09T14:52:44.398Z",
       "firstSeen": "2026-09-10T08:11:49.301Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "abou-ghaly-motors-cto-chief-technology-officer-612c40",
@@ -1698,7 +2072,7 @@
       },
       "postedAt": "2026-09-09T13:47:57.401Z",
       "firstSeen": "2026-09-10T08:11:49.301Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "weekday-ai-chief-technology-officer-23e38a",
@@ -1760,7 +2134,7 @@
       },
       "postedAt": "2026-09-09T09:39:25.055Z",
       "firstSeen": "2026-09-10T08:11:49.301Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "roblox-head-of-developer-relations-sea-and-oce-2ba23d",
@@ -1803,7 +2177,7 @@
       },
       "postedAt": "2026-09-09T05:54:53-04:00",
       "firstSeen": "2026-09-10T08:11:49.301Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "alloy-partners-chief-technology-officer-co-founder-digi-03343f",
@@ -1884,7 +2258,7 @@
       },
       "postedAt": "2026-09-08T20:17:26.148Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hyprwork-head-of-growth-engineering-delivery-mana-aed8e6",
@@ -1952,7 +2326,7 @@
       },
       "postedAt": "2026-09-08T19:29:49.733Z",
       "firstSeen": "2026-09-09T08:12:18.028Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hyprwork-head-of-growth-engineering-delivery-mana-56e017",
@@ -2020,7 +2394,7 @@
       },
       "postedAt": "2026-09-08T19:29:49.563Z",
       "firstSeen": "2026-09-09T08:12:18.028Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hyprwork-head-of-growth-engineering-delivery-mana-79ef9a",
@@ -2088,7 +2462,7 @@
       },
       "postedAt": "2026-09-08T19:29:49.491Z",
       "firstSeen": "2026-09-09T08:12:18.028Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hyprwork-head-of-growth-engineering-delivery-mana-6479f6",
@@ -2156,7 +2530,7 @@
       },
       "postedAt": "2026-09-08T19:29:49.213Z",
       "firstSeen": "2026-09-09T08:12:18.028Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hyprwork-head-of-growth-engineering-delivery-mana-b85ab4",
@@ -2224,7 +2598,7 @@
       },
       "postedAt": "2026-09-08T19:29:48.570Z",
       "firstSeen": "2026-09-09T08:12:18.028Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "cp-axtra-director-software-engineering-technology-3f729d",
@@ -2284,7 +2658,7 @@
       },
       "postedAt": "2026-09-08T03:39:49.396Z",
       "firstSeen": "2026-09-08T08:08:59.401Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "t-tech-head-of-tax-technology-product-manager-9d9fc4",
@@ -2364,7 +2738,7 @@
       },
       "postedAt": "2026-09-07T18:17:50.106Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "tatum-head-of-engineering-operations-e5833f",
@@ -2488,7 +2862,7 @@
       },
       "postedAt": "2026-09-07T08:48:52.915Z",
       "firstSeen": "2026-09-08T08:08:59.401Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "fuse-energy-vp-of-engineering-e68a31",
@@ -2557,7 +2931,7 @@
       },
       "postedAt": "2026-09-06T18:05:53.241Z",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "fuse-energy-vp-of-engineering-437ac1",
@@ -2626,7 +3000,7 @@
       },
       "postedAt": "2026-09-06T18:05:52.805Z",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "gomining-engineering-director-platform-7b4489",
@@ -2790,7 +3164,7 @@
       },
       "postedAt": "2026-09-05T14:31:36.974Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "gomining-engineering-director-platform-974512",
@@ -2954,7 +3328,7 @@
       },
       "postedAt": "2026-09-05T14:31:36.885Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "gomining-engineering-director-platform-30e373",
@@ -3118,7 +3492,7 @@
       },
       "postedAt": "2026-09-05T14:31:36.560Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "gomining-engineering-director-platform-8006af",
@@ -3282,7 +3656,7 @@
       },
       "postedAt": "2026-09-05T14:31:36.534Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "gomining-engineering-director-platform-15c585",
@@ -3446,7 +3820,7 @@
       },
       "postedAt": "2026-09-05T14:31:36.377Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "valsoft-corporation-directeur-rice-des-produits-et-de-l-inge-0af60b",
@@ -3783,7 +4157,7 @@
       },
       "postedAt": "2026-09-04T19:56:22.119Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "zipliens-director-of-engineering-hybrid-42f1a3",
@@ -3835,7 +4209,7 @@
       },
       "postedAt": "2026-09-04T14:21:01.653Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "atum-ventures-co-founder-cto-ai-catalyst-discovery-ven-5c20cf",
@@ -3918,7 +4292,7 @@
       },
       "postedAt": "2026-09-04T06:43:10.162Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "infleqtion-director-of-engineering-operations-c7cfb7",
@@ -4170,7 +4544,7 @@
       },
       "postedAt": "2026-09-03T20:40:28.078Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "asana-director-of-engineering-ai-agents-6999da",
@@ -4211,7 +4585,7 @@
       },
       "postedAt": "2026-09-03T16:28:11-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "coursedog-senior-director-of-engineering-core-prod-52536d",
@@ -4310,7 +4684,7 @@
       },
       "postedAt": "2026-09-03T14:11:41.913Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "inventi-chief-technology-officer-ec34a0",
@@ -4421,7 +4795,7 @@
       },
       "postedAt": "2026-09-03T11:59:49.362Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "igloo-head-of-engineering-744002",
@@ -4513,7 +4887,7 @@
       },
       "postedAt": "2026-09-03T07:08:15.852Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "asana-director-of-security-engineering-a17baa",
@@ -4554,7 +4928,7 @@
       },
       "postedAt": "2026-09-02T12:50:58-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "futuresight-technical-co-founder-cto-ai-collections--b7f0ab",
@@ -4696,7 +5070,7 @@
       },
       "postedAt": "2026-09-01T20:22:39.733Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "futuresight-technical-co-founder-cto-ai-collections--df06b4",
@@ -4838,7 +5212,7 @@
       },
       "postedAt": "2026-09-01T20:15:14.428Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "velsera-vp-software-engineering-b440d6",
@@ -4929,7 +5303,7 @@
       },
       "postedAt": "2026-09-01T19:26:07.312Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "ripple-director-of-engineering-infrastructure-0aa86d",
@@ -4972,7 +5346,7 @@
       },
       "postedAt": "2026-09-01T16:30:48-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "peloton-director-ai-and-security-engineering-043cf2",
@@ -5013,7 +5387,7 @@
       },
       "postedAt": "2026-09-01T15:23:55-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "traqcheck-chief-technology-officer-cto-cf6c5d",
@@ -5080,7 +5454,7 @@
       },
       "postedAt": "2026-09-01T15:21:01.440Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "futuresight-technical-co-founder-cto-ai-legal-front--2c71fa",
@@ -5200,7 +5574,7 @@
       },
       "postedAt": "2026-09-01T13:41:20.062Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "futuresight-technical-co-founder-cto-ai-legal-front--8ef3ee",
@@ -5318,9 +5692,9 @@
         "period": "monthly",
         "source": "stated"
       },
-      "postedAt": "2026-09-01T13:37:54.843Z",
+      "postedAt": "2026-09-01T13:41:14.280Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "futuresight-technical-co-founder-cto-d551eb",
@@ -5460,15 +5834,15 @@
       },
       "postedAt": "2026-09-01T13:26:28.543Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "futuresight-technical-co-founder-cto-db3485",
       "title": "Technical Co-founder (CTO)",
       "company": "FutureSight",
       "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/330341/logo",
-      "applyUrl": "https://jobs.workable.com/view/bDjxttERg64eAjQ2fc3ydk/remote-technical-co-founder-(cto)-in-seattle-at-futuresight",
-      "sourceUrl": "https://jobs.workable.com/view/bDjxttERg64eAjQ2fc3ydk/remote-technical-co-founder-(cto)-in-seattle-at-futuresight",
+      "applyUrl": "https://jobs.workable.com/view/j3H98DwTA4hhyVvAEj43vX/remote-technical-co-founder-(cto)-in-san-francisco-at-futuresight",
+      "sourceUrl": "https://jobs.workable.com/view/j3H98DwTA4hhyVvAEj43vX/remote-technical-co-founder-(cto)-in-san-francisco-at-futuresight",
       "source": "workable",
       "sources": [
         "workable"
@@ -5582,7 +5956,7 @@
         "countryName": "United States",
         "region": "north-america",
         "remote": false,
-        "raw": "Seattle, United States"
+        "raw": "San Francisco, United States"
       },
       "seniority": "cto",
       "domain": "technology",
@@ -5600,7 +5974,7 @@
       },
       "postedAt": "2026-09-01T13:23:01.195Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "merchantspring-head-of-engineering-0cde38",
@@ -5686,7 +6060,7 @@
       },
       "postedAt": "2026-09-01T10:43:44.102Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "riverside-insights-director-of-engineering-reach-04ab51",
@@ -5776,7 +6150,7 @@
       },
       "postedAt": "2026-09-01T00:27:46.992Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "pinterest-sr-director-engineering-twotwenty-innova-814439",
@@ -5819,7 +6193,7 @@
       },
       "postedAt": "2026-08-31T15:02:04-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "unilabs-head-of-data-engineering-data-products-1a2dbb",
@@ -6200,7 +6574,7 @@
       },
       "postedAt": "2026-08-31T10:35:27.033Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "anthropic-director-finance-systems-revenue-systems-c9e85a",
@@ -6243,7 +6617,7 @@
       },
       "postedAt": "2026-08-29T02:34:37-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hyprwork-head-of-web-production-dtc-growth-techno-11133f",
@@ -6311,7 +6685,7 @@
       },
       "postedAt": "2026-08-28T17:55:32.530Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hyprwork-head-of-web-production-dtc-growth-techno-28c85b",
@@ -6379,7 +6753,7 @@
       },
       "postedAt": "2026-08-28T17:55:32.268Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hyprwork-head-of-web-production-dtc-growth-techno-a29a6f",
@@ -6447,7 +6821,7 @@
       },
       "postedAt": "2026-08-28T17:55:31.967Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hyprwork-head-of-web-production-dtc-growth-techno-40c7a9",
@@ -6515,7 +6889,7 @@
       },
       "postedAt": "2026-08-28T17:55:31.668Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hyprwork-head-of-web-production-dtc-growth-techno-0aa482",
@@ -6583,7 +6957,7 @@
       },
       "postedAt": "2026-08-28T17:55:31.133Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "prophix-vp-global-solution-engineering-a502bd",
@@ -6683,7 +7057,7 @@
       },
       "postedAt": "2026-08-28T13:14:23.903Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "ag-barr-head-of-engineering-b9e285",
@@ -6879,7 +7253,7 @@
       },
       "postedAt": "2026-08-28T08:42:29.754Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "okx-head-of-u-s-derivatives-trading-technolo-fd873e",
@@ -6920,7 +7294,7 @@
       },
       "postedAt": "2026-08-27T23:45:23-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "trail-of-bits-engineering-director-application-securit-f9ff5e",
@@ -7029,7 +7403,7 @@
       },
       "postedAt": "2026-08-27T16:35:56.315Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "pinterest-sr-director-security-engineering-7e4d4e",
@@ -7072,7 +7446,7 @@
       },
       "postedAt": "2026-08-26T18:55:39-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hellofresh-director-global-wms-software-engineering-c48868",
@@ -7115,7 +7489,7 @@
       },
       "postedAt": "2026-08-26T12:07:49-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "mp-solutions-ltd-director-of-engineering-ai-94ff93",
@@ -7194,7 +7568,7 @@
       },
       "postedAt": "2026-08-25T10:10:08.694Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "okta-director-site-reliability-engineering-c118ed",
@@ -7237,7 +7611,7 @@
       },
       "postedAt": "2026-08-25T05:03:24-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "accuscan-sciences-senior-director-technology-research-a84d39",
@@ -7337,7 +7711,7 @@
       },
       "postedAt": "2026-08-25T00:11:10.822Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "solaris-head-of-product-engineering-18328b",
@@ -7378,7 +7752,7 @@
       },
       "postedAt": "2026-08-24T19:33:02-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "cam-tran-director-of-engineering-c8361e",
@@ -7478,7 +7852,7 @@
       },
       "postedAt": "2026-08-24T16:22:47.771Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "raisin-director-engineering-investment-pension--cedcdb",
@@ -7519,7 +7893,7 @@
       },
       "postedAt": "2026-08-24T10:25:09-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "opswat-director-of-software-engineering-my-opsw-d6e04e",
@@ -7562,7 +7936,7 @@
       },
       "postedAt": "2026-08-24T00:43:35-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "figma-director-people-partners-product-design--20acb0",
@@ -7605,7 +7979,7 @@
       },
       "postedAt": "2026-08-21T18:09:25-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "postman-head-of-engineering-infrastructure-sre-818b0e",
@@ -7647,7 +8021,7 @@
       },
       "postedAt": "2026-08-21T15:56:33-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hellofresh-director-wms-product-design-development--f68b05",
@@ -7688,7 +8062,7 @@
       },
       "postedAt": "2026-08-21T09:42:25-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hellofresh-director-wms-product-design-and-engineer-6d6149",
@@ -7732,7 +8106,7 @@
       },
       "postedAt": "2026-08-21T08:37:21-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "databricks-sr-technology-partner-director-ai-code-g-7cbb53",
@@ -7775,7 +8149,7 @@
       },
       "postedAt": "2026-08-20T11:39:23-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "ghx-director-software-engineering-6b51f6",
@@ -7816,7 +8190,7 @@
       },
       "postedAt": "2026-08-19T15:58:13-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "oklahoma-chiller-director-of-information-technology-428e64",
@@ -8024,7 +8398,7 @@
       },
       "postedAt": "2026-08-19T13:24:26.108Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "netguru-fractional-cto-freelance-4bc547",
@@ -8108,7 +8482,7 @@
       },
       "postedAt": "2026-08-19T08:33:34.360Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "roblox-senior-director-of-engineering-generativ-050ed1",
@@ -8151,7 +8525,7 @@
       },
       "postedAt": "2026-08-18T16:23:10-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "elastic-director-it-software-engineering-c4af4b",
@@ -8194,7 +8568,7 @@
       },
       "postedAt": "2026-08-18T12:25:26-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hellofresh-director-of-engineering-operations-plann-d8c976",
@@ -8238,7 +8612,7 @@
       },
       "postedAt": "2026-08-18T08:09:41-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "screencastify-vp-of-engineering-eb5774",
@@ -8320,7 +8694,7 @@
       },
       "postedAt": "2026-08-17T17:50:45.841Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "kaufman-rossin-vp-platform-engineering-362797",
@@ -8477,7 +8851,7 @@
       },
       "postedAt": "2026-08-14T14:19:17.404Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "turbine-vp-of-engineering-1efec5",
@@ -8576,7 +8950,7 @@
       },
       "postedAt": "2026-08-14T10:23:26.723Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "dragos-director-engineering-df96c0",
@@ -8619,7 +8993,7 @@
       },
       "postedAt": "2026-08-14T09:15:04-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "gitlab-director-of-engineering-organizations-ce-4fd348",
@@ -8662,7 +9036,7 @@
       },
       "postedAt": "2026-08-13T14:57:47-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "klaviyo-director-site-reliability-engineering-72d34b",
@@ -8705,7 +9079,7 @@
       },
       "postedAt": "2026-08-13T08:06:44-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "pinterest-director-marketing-technology-innovation-c12df0",
@@ -8748,7 +9122,7 @@
       },
       "postedAt": "2026-08-12T14:19:22-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "linah-group-head-of-technology-5213b1",
@@ -8857,7 +9231,7 @@
       },
       "postedAt": "2026-08-12T13:13:05.721Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "mercury-head-of-data-engineering-platform-8d98a1",
@@ -8900,7 +9274,7 @@
       },
       "postedAt": "2026-08-11T10:53:49-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hellofresh-senior-director-of-machine-learning-engi-78b0f5",
@@ -8943,7 +9317,7 @@
       },
       "postedAt": "2026-08-11T06:44:53-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "databricks-director-field-engineering-cpg-retail-38f156",
@@ -8986,7 +9360,7 @@
       },
       "postedAt": "2026-08-10T22:18:48-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "chime-financial-inc-director-engineering-d6d127",
@@ -9029,7 +9403,7 @@
       },
       "postedAt": "2026-08-10T15:34:35-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "scale-ai-sr-director-applied-ai-forward-deployed--15b9b2",
@@ -9072,7 +9446,7 @@
       },
       "postedAt": "2026-08-10T15:23:30-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "1kosmos-vp-of-engineering-df6872",
@@ -9160,7 +9534,7 @@
       },
       "postedAt": "2026-08-10T15:19:01.830Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "seeq-vp-of-engineering-applications-250202",
@@ -9216,7 +9590,7 @@
       },
       "postedAt": "2026-08-08T01:30:42.370Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "godaddy-director-of-engineering-identity-platfor-74d663",
@@ -9259,7 +9633,7 @@
       },
       "postedAt": "2026-08-06T11:14:14-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "innovaccer-analytics-4448-associate-director-implementation-e-639737",
@@ -9372,7 +9746,7 @@
       },
       "postedAt": "2026-08-06T10:23:21.684Z",
       "firstSeen": "2026-09-08T08:08:59.401Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "ayana-hospitality-assistant-director-of-engineering-ayana--b4316c",
@@ -9436,7 +9810,7 @@
       },
       "postedAt": "2026-08-05T06:15:47.073Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "asana-director-of-engineering-ai-platform-e1dd9a",
@@ -9477,7 +9851,7 @@
       },
       "postedAt": "2026-08-04T13:51:35-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "mercury-head-of-revenue-technology-architecture-fcd59b",
@@ -9520,7 +9894,7 @@
       },
       "postedAt": "2026-08-03T14:25:48-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hellofresh-head-of-strategic-product-development-al-b0a420",
@@ -9563,7 +9937,7 @@
       },
       "postedAt": "2026-08-03T08:23:27-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "verneek-head-of-technology-179e2f",
@@ -9632,7 +10006,7 @@
       },
       "postedAt": "2026-07-31T23:36:36.276Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "coinbase-forward-deployed-engineer-compliance-off-079f69",
@@ -9675,7 +10049,7 @@
       },
       "postedAt": "2026-07-31T16:56:36-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "pinterest-director-of-engineering-core-ads-serving-c345dc",
@@ -9718,7 +10092,7 @@
       },
       "postedAt": "2026-07-31T15:48:57-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "ottimate-director-of-ai-engineering-956c80",
@@ -9825,7 +10199,7 @@
       },
       "postedAt": "2026-07-31T14:54:11.325Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "kudos-services-head-of-engineering-aed1fd",
@@ -9956,7 +10330,7 @@
       },
       "postedAt": "2026-07-31T08:04:17.512Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "careers-at-tide-head-of-engineering-developer-experience-76638d",
@@ -9999,7 +10373,7 @@
       },
       "postedAt": "2026-07-31T05:03:51-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "datavisor-director-of-engineering-4fee22",
@@ -10082,7 +10456,7 @@
       },
       "postedAt": "2026-07-30T21:39:25.248Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "cara-care-head-of-product-technology-m-f-x-0801bc",
@@ -10167,7 +10541,7 @@
       },
       "postedAt": "2026-07-29T12:50:58.333Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "scale-ai-director-of-engineering-physical-ai-c8259e",
@@ -10210,7 +10584,7 @@
       },
       "postedAt": "2026-07-27T20:23:37-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "usercentrics-chief-of-staff-to-ctpo-m-f-d-7ce3e4",
@@ -10339,7 +10713,7 @@
       },
       "postedAt": "2026-07-27T12:18:37.275Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "usercentrics-chief-of-staff-to-ctpo-m-f-d-f3652c",
@@ -10468,7 +10842,7 @@
       },
       "postedAt": "2026-07-27T12:18:37.028Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "terrapay-information-technology-infrastructure-he-1188c6",
@@ -10520,7 +10894,7 @@
       },
       "postedAt": "2026-07-27T09:13:12.508Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "robusta-chief-technology-officer-cto-octopus-by--afa958",
@@ -10638,7 +11012,7 @@
       },
       "postedAt": "2026-07-26T06:56:40.857Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "fulfillment-iq-director-of-sales-technology-delivery-746f7c",
@@ -11056,7 +11430,7 @@
       },
       "postedAt": "2026-07-25T18:28:50.819Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "coinbase-forward-deployed-engineer-finance-office-669365",
@@ -11099,7 +11473,7 @@
       },
       "postedAt": "2026-07-22T11:44:57-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "atum-ventures-founder-cto-data-centre-cooling-venture-019fca",
@@ -11193,7 +11567,7 @@
       },
       "postedAt": "2026-07-22T03:07:37.854Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "qiddiya-investment-company-director-digital-engineering-174bd9",
@@ -11293,7 +11667,7 @@
       "salary": null,
       "postedAt": "2026-07-19T12:15:59.031Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "pimco-vp-legal-counsel-data-privacy-digital-am-220bab",
@@ -11529,7 +11903,7 @@
       },
       "postedAt": "2026-07-17T08:36:44.026Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "pimco-vp-product-manager-credit-technology-c66246",
@@ -11787,7 +12161,7 @@
       },
       "postedAt": "2026-07-17T08:28:45.188Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "fireblocks-technology-alliances-director-687616",
@@ -11830,7 +12204,7 @@
       },
       "postedAt": "2026-07-16T15:20:07-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "talentgrator-vp-of-engineering-f85fb4",
@@ -11929,7 +12303,7 @@
       },
       "postedAt": "2026-07-15T10:36:46.740Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "coinbase-forward-deployed-engineer-legal-office-o-7ff1fe",
@@ -11972,7 +12346,7 @@
       },
       "postedAt": "2026-07-13T19:51:05-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "gitlab-director-engineering-platform-operations-d046f7",
@@ -12015,7 +12389,7 @@
       },
       "postedAt": "2026-07-13T12:57:20-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "databricks-director-field-engineering-financial-ser-047f9c",
@@ -12058,7 +12432,7 @@
       },
       "postedAt": "2026-07-13T09:17:27-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "okta-director-engineering-okta-integration-ne-9b534f",
@@ -12101,7 +12475,7 @@
       },
       "postedAt": "2026-07-10T13:31:50-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hellofresh-associate-director-maintenance-and-relia-dfcc7d",
@@ -12142,7 +12516,7 @@
       },
       "postedAt": "2026-07-10T08:45:31-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "easyship-head-of-data-data-engineering-machine-le-82647a",
@@ -12185,7 +12559,7 @@
       },
       "postedAt": "2026-07-09T11:47:35-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "v2-digital-director-ai-engineering-7ec83a",
@@ -12336,7 +12710,7 @@
       },
       "postedAt": "2026-07-08T05:43:32.690Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "io-global-chief-technology-officer-b3fed1",
@@ -12453,7 +12827,7 @@
       },
       "postedAt": "2026-07-07T00:22:20.012Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "roblox-director-engineering-engineering-acceler-cccf0f",
@@ -12496,7 +12870,7 @@
       },
       "postedAt": "2026-07-06T19:22:00-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "gitlab-director-of-engineering-security-factory-626955",
@@ -12539,7 +12913,7 @@
       },
       "postedAt": "2026-07-01T17:36:51-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "opswat-director-of-engineering-metadefender-ema-a4588d",
@@ -12572,7 +12946,7 @@
       "salary": null,
       "postedAt": "2026-06-29T14:41:01-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "opswat-director-of-engineering-metadefender-man-b7cab6",
@@ -12615,7 +12989,7 @@
       },
       "postedAt": "2026-06-29T14:38:53-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hellofresh-global-director-people-technology-all-ge-65df4d",
@@ -12658,7 +13032,7 @@
       },
       "postedAt": "2026-06-29T12:48:39-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "okx-engineering-director-mobile-infrastructu-b35203",
@@ -12701,7 +13075,7 @@
       },
       "postedAt": "2026-06-29T10:35:47-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "skysun-director-software-engineering-4524f7",
@@ -12760,7 +13134,7 @@
       },
       "postedAt": "2026-06-26T13:00:50.109Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "reddit-senior-director-product-technology-finan-e0f97f",
@@ -12803,7 +13177,7 @@
       },
       "postedAt": "2026-06-24T17:06:13-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "monzo-engineering-director-eu-de78c8",
@@ -12844,7 +13218,7 @@
       },
       "postedAt": "2026-06-24T12:01:40-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "okx-engineering-director-mobile-web3-c8543d",
@@ -12887,7 +13261,7 @@
       },
       "postedAt": "2026-06-22T02:44:35-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "qiddiya-investment-company-associate-director-digital-infrastructur-d1fbcb",
@@ -12963,7 +13337,7 @@
       "salary": null,
       "postedAt": "2026-06-21T08:58:18.714Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "okx-engineering-director-mobile-ios-android-28267f",
@@ -13006,7 +13380,7 @@
       },
       "postedAt": "2026-06-19T06:42:33-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "huntress-director-engineering-platform-3fffc5",
@@ -13047,7 +13421,7 @@
       },
       "postedAt": "2026-06-18T13:56:29-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "asana-head-of-engineering-operations-487de9",
@@ -13088,7 +13462,7 @@
       },
       "postedAt": "2026-06-17T18:47:22-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "hortiscience-innovation-center-reapplic8-co-founder-cto-3a9403",
@@ -13205,7 +13579,7 @@
       },
       "postedAt": "2026-06-17T13:58:28.218Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "serko-ltd-director-of-engineering-a85fea",
@@ -13273,7 +13647,7 @@
       },
       "postedAt": "2026-06-16T07:06:46.199Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "skysun-vp-of-engineering-46dd1c",
@@ -13444,7 +13818,7 @@
       },
       "postedAt": "2026-06-16T05:22:41.893Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "ai-acquisition-head-of-marketing-technology-automation--62c6a8",
@@ -13529,7 +13903,7 @@
       },
       "postedAt": "2026-06-15T19:30:24.977Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "ai-acquisition-head-of-marketing-technology-automation--93f650",
@@ -13606,7 +13980,7 @@
       "salary": null,
       "postedAt": "2026-06-15T19:30:24.945Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "ai-acquisition-head-of-marketing-technology-automation--96188a",
@@ -13683,7 +14057,7 @@
       "salary": null,
       "postedAt": "2026-06-15T19:30:24.785Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "ai-acquisition-head-of-marketing-technology-automation--1ac4f1",
@@ -13768,7 +14142,7 @@
       },
       "postedAt": "2026-06-15T19:30:24.292Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "ai-acquisition-head-of-marketing-technology-automation--2cd596",
@@ -13845,7 +14219,7 @@
       "salary": null,
       "postedAt": "2026-06-15T19:30:24.041Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "ai-acquisition-head-of-marketing-technology-automation--d7fd28",
@@ -13930,7 +14304,7 @@
       },
       "postedAt": "2026-06-15T19:30:23.864Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "duolingo-senior-director-of-engineering-new-subje-686c8d",
@@ -13973,7 +14347,7 @@
       },
       "postedAt": "2026-06-09T14:34:50-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "the-hr-game-head-of-engineering-9ca2c8",
@@ -14085,7 +14459,7 @@
       },
       "postedAt": "2026-06-07T12:26:20.449Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "usa-clinics-group-assistant-director-of-information-techno-2cc7bf",
@@ -14202,7 +14576,7 @@
       },
       "postedAt": "2026-06-04T17:05:41.137Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "usercentrics-chief-of-staff-to-ctpo-m-f-d-cf3ee3",
@@ -14331,7 +14705,7 @@
       },
       "postedAt": "2026-06-01T11:49:20.882Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "valsoft-corporation-directeur-des-ventes-technologie-dentair-01807f",
@@ -14635,7 +15009,7 @@
       },
       "postedAt": "2026-05-29T19:04:07.524Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "discord-director-of-engineering-safety-c735e6",
@@ -14676,7 +15050,7 @@
       },
       "postedAt": "2026-05-29T17:48:45-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "elastic-sr-director-field-technology-and-ai-f79aa6",
@@ -14719,7 +15093,7 @@
       },
       "postedAt": "2026-05-27T12:50:51-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "just-one-recruitment-executive-search-ag-head-of-digital-growth-marketing-technol-25f0c2",
@@ -14788,7 +15162,7 @@
       },
       "postedAt": "2026-05-26T08:45:00.812Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "simple-machines-director-technology-data-platforms-29cb38",
@@ -14904,7 +15278,7 @@
       },
       "postedAt": "2026-05-20T15:50:51.975Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "amartha-vp-of-engineering-315002",
@@ -14981,7 +15355,7 @@
       },
       "postedAt": "2026-05-20T03:07:41.179Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "flosum-salesforce-field-cto-3ea79e",
@@ -15051,7 +15425,7 @@
       },
       "postedAt": "2026-05-13T16:12:59.105Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "okta-vice-president-engineering-authenticatio-3ba2aa",
@@ -15094,7 +15468,7 @@
       },
       "postedAt": "2026-05-11T14:22:24-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "ripple-senior-director-security-engineering-1385b5",
@@ -15137,7 +15511,7 @@
       },
       "postedAt": "2026-05-11T13:10:22-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "zeta-global-director-of-engineering-6ba392",
@@ -15180,7 +15554,7 @@
       },
       "postedAt": "2026-05-11T09:52:10-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "qiddiya-investment-company-executive-director-development-del-1-439e39",
@@ -15238,7 +15612,7 @@
       "salary": null,
       "postedAt": "2026-05-10T12:17:59.115Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "enexor-director-of-engineering-382095",
@@ -15334,7 +15708,7 @@
       },
       "postedAt": "2026-05-06T16:40:04.967Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "scale-ai-director-forward-deployed-engineering-819081",
@@ -15377,7 +15751,7 @@
       },
       "postedAt": "2026-05-06T12:33:42-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "valsoft-corporation-managing-director-flagship-vertical-mark-42fd0c",
@@ -15521,7 +15895,7 @@
       },
       "postedAt": "2026-05-05T16:29:00.579Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "doordash-usa-director-of-engineering-logistics-ec086a",
@@ -15564,7 +15938,7 @@
       },
       "postedAt": "2026-05-04T20:29:05-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "verkada-solutions-engineering-director-associate-ebb2f5",
@@ -15607,7 +15981,7 @@
       },
       "postedAt": "2026-05-01T17:08:47-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "flosum-director-of-software-engineering-canada-3f1462",
@@ -15680,7 +16054,7 @@
       },
       "postedAt": "2026-04-30T18:28:38.397Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "flosum-director-of-software-engineering-ukraine-f067e3",
@@ -15745,7 +16119,7 @@
       "salary": null,
       "postedAt": "2026-04-30T16:04:57.168Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "flosum-director-of-software-engineering-serbia-e0d056",
@@ -15818,7 +16192,7 @@
       },
       "postedAt": "2026-04-30T16:04:07.394Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "flosum-director-of-software-engineering-romania-a41db2",
@@ -15891,7 +16265,7 @@
       },
       "postedAt": "2026-04-30T16:03:30.982Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "flosum-director-of-software-engineering-portuga-e9b4f1",
@@ -15964,7 +16338,7 @@
       },
       "postedAt": "2026-04-30T16:02:38.863Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "flosum-director-of-software-engineering-poland-326958",
@@ -16037,7 +16411,7 @@
       },
       "postedAt": "2026-04-30T16:01:35.438Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "flosum-director-of-software-engineering-netherl-5e9eb9",
@@ -16110,7 +16484,7 @@
       },
       "postedAt": "2026-04-30T15:59:48.976Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "flosum-director-of-software-engineering-belarus-77b4e7",
@@ -16175,7 +16549,7 @@
       "salary": null,
       "postedAt": "2026-04-30T15:58:58.576Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "flosum-director-of-software-engineering-belgium-cbc415",
@@ -16248,7 +16622,7 @@
       },
       "postedAt": "2026-04-30T15:57:38.261Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "flosum-director-of-software-engineering-uk-a58a11",
@@ -16321,7 +16695,7 @@
       },
       "postedAt": "2026-04-30T15:55:25.117Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "flosum-director-of-software-engineering-us-4aea19",
@@ -16394,7 +16768,7 @@
       },
       "postedAt": "2026-04-30T15:53:13.723Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "flatgigs-cto-co-founder-hardware-climate-technolo-7d4f9d",
@@ -16498,7 +16872,7 @@
       },
       "postedAt": "2026-04-20T11:35:55.431Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "huzzle-cto-head-of-engineering-efcd94",
@@ -16630,7 +17004,7 @@
       },
       "postedAt": "2026-04-17T15:13:55.674Z",
       "firstSeen": "2026-09-09T08:12:18.028Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "brex-people-business-partner-director-enginee-ed4563",
@@ -16671,7 +17045,7 @@
       },
       "postedAt": "2026-04-17T12:55:34-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "qiddiya-investment-company-director-city-technology-governance-pmo-7b72ad",
@@ -16728,7 +17102,7 @@
       "salary": null,
       "postedAt": "2026-04-13T12:44:24.193Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "huzzle-vp-of-automation-engineering-4f8274",
@@ -16835,7 +17209,7 @@
       },
       "postedAt": "2026-04-07T22:05:46.012Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "fuku-director-electrical-engineering-mission--dc10ab",
@@ -17030,7 +17404,7 @@
       },
       "postedAt": "2026-04-07T13:30:48.972Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "tiger-analytics-inc-sr-manager-associate-director-technology-8cbf9e",
@@ -17095,7 +17469,7 @@
       },
       "postedAt": "2026-04-06T17:58:47.159Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "tiger-analytics-inc-sr-manager-associate-director-technology-7d76f7",
@@ -17160,7 +17534,7 @@
       },
       "postedAt": "2026-04-06T17:16:22.270Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "samsara-director-field-sales-engineering-00eff4",
@@ -17203,7 +17577,7 @@
       },
       "postedAt": "2026-04-06T16:40:54-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "huzzle-head-of-gtm-engineering-ai-systems-fecef2",
@@ -17344,7 +17718,7 @@
       },
       "postedAt": "2026-04-06T14:54:59.575Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "okx-engineering-director-frontend-business-l-39cc37",
@@ -17387,7 +17761,7 @@
       },
       "postedAt": "2026-04-02T05:30:09-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "okx-engineering-director-frontend-7372bd",
@@ -17430,7 +17804,7 @@
       },
       "postedAt": "2026-04-02T05:30:08-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "celonis-head-of-value-engineering-nordics-83ee93",
@@ -17473,7 +17847,7 @@
       },
       "postedAt": "2026-03-30T10:26:35-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "celonis-head-of-value-engineering-nordics-938555",
@@ -17516,7 +17890,7 @@
       },
       "postedAt": "2026-03-30T10:26:05-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "huzzle-director-of-automation-engineering-3f77b9",
@@ -17619,7 +17993,7 @@
       },
       "postedAt": "2026-03-26T21:48:02.383Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "first-circle-vp-of-engineering-5ba459",
@@ -17782,7 +18156,7 @@
       },
       "postedAt": "2026-03-25T16:56:36.765Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "first-circle-vp-of-engineering-8958b0",
@@ -17945,7 +18319,7 @@
       },
       "postedAt": "2026-03-25T16:56:35.904Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "klaviyo-head-of-engineering-finance-systems-87baf5",
@@ -17988,7 +18362,7 @@
       },
       "postedAt": "2026-03-25T16:49:36-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "inautalent-chief-technology-officer-cto-deep-tech-r-b9bd48",
@@ -18098,7 +18472,7 @@
       },
       "postedAt": "2026-03-24T17:00:40.548Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "inautalent-chief-technology-officer-cto-r-d-deep-te-7429b8",
@@ -18205,7 +18579,7 @@
       },
       "postedAt": "2026-03-24T15:53:23.564Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "verkada-director-of-firmware-engineering-cameras-a04287",
@@ -18248,7 +18622,7 @@
       },
       "postedAt": "2026-03-20T15:21:22-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "roblox-director-of-engineering-studio-systems-e77e86",
@@ -18291,7 +18665,7 @@
       },
       "postedAt": "2026-03-17T16:05:40-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "fireblocks-director-of-engineering-dynamic-platform-2e4ecd",
@@ -18332,7 +18706,7 @@
       },
       "postedAt": "2026-03-11T15:43:29-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "huzzle-head-of-automation-engineering-3b6e93",
@@ -18436,7 +18810,7 @@
       },
       "postedAt": "2026-03-09T12:13:49.276Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "ajaib-head-of-engineering-engineering-manager--a5e68e",
@@ -18499,7 +18873,7 @@
       },
       "postedAt": "2026-03-06T04:38:54.721Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "webook-com-head-of-engineering-d8b0ad",
@@ -18600,7 +18974,7 @@
       "salary": null,
       "postedAt": "2026-02-26T13:01:33.284Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "zenara-health-head-of-engineering-ai-native-healthcare-093fbf",
@@ -18856,7 +19230,7 @@
       },
       "postedAt": "2026-02-25T21:32:38.871Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "databricks-director-field-engineering-5303f6",
@@ -18899,7 +19273,7 @@
       },
       "postedAt": "2026-02-24T15:32:37-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "doctolib-engineering-director-health-companion-ap-d4644e",
@@ -18942,7 +19316,7 @@
       },
       "postedAt": "2026-02-18T03:21:01-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "ripple-vice-president-of-engineering-fiat-infra-7f9e8f",
@@ -18985,7 +19359,7 @@
       },
       "postedAt": "2026-02-17T18:08:07-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "strategic-legal-practices-vp-of-data-engineering-68d6be",
@@ -19145,7 +19519,7 @@
       },
       "postedAt": "2026-02-16T22:36:01.715Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "mat3ra-head-of-engineering-8e3f21",
@@ -19229,7 +19603,7 @@
       },
       "postedAt": "2026-02-11T00:44:13.377Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "affirm-director-information-technology-security-cc9749",
@@ -19270,7 +19644,7 @@
       },
       "postedAt": "2026-02-02T13:09:19-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "databricks-field-cto-america-industries-e01773",
@@ -19313,7 +19687,75 @@
       },
       "postedAt": "2026-01-27T19:08:31-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
+    },
+    {
+      "id": "employee-owned-holdings-inc-director-of-engineering-0c4830",
+      "title": "Director of Engineering",
+      "company": "Employee Owned Holdings, Inc.",
+      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/379756/logo",
+      "applyUrl": "https://jobs.workable.com/view/iiS31jVyUjdEj6HQeEext4/director-of-engineering-in-harahan-at-employee-owned-holdings%2C-inc.",
+      "sourceUrl": "https://jobs.workable.com/view/iiS31jVyUjdEj6HQeEext4/director-of-engineering-in-harahan-at-employee-owned-holdings%2C-inc.",
+      "source": "workable",
+      "sources": [
+        "workable"
+      ],
+      "text": "Supreme Integrated Technology is looking for candidates who want to take the next step in their career to join our 100% employee-owned company. SIT’s engineering expertise transforms ideas into success for hydraulic and electrically powered moveable structures. SIT specializes in custom systems and projects, making every project unique and offering the opportunity to solve challenging problems for customers. Our projects are typically for marine, oil & gas, defense, civil (movable bridges) and industrial power unit applications. We pride ourselves on a culture of teamwork—because we are a smaller company, you can be involved in every aspect of a project and make an impact from start to finish.\nWe are seeking a highly experienced Director of Engineering to be a leader in SIT’s multidisciplinary engineering organization and drive technical excellence across hydraulic, electric, and electrohydraulic system solutions. This role is responsible for engineering strategy, technical execution, talent development, and cross-functional collaboration to ensure projects are delivered safely, on time, on budget, and to the highest quality standards. The Director of Engineering will work closely with integrated systems, engineering operations, sales, project management, and key customers to translate complex requirements into engineered-to-order solutions that support SIT’s long-term growth strategy.\nKey Responsibilities:\nEngineering Leadership & Strategy: participate in SIT’s engineering leadership team to define and execute SIT’s engineering strategy aligned with business objectives, market opportunities, and emerging technologies in electrification, automation, and fluid power systems.\nTechnical Oversight: Provide senior-level technical guidance and design review for complex hydraulic, electric and structural projects, ensuring compliance with customer requirements, codes, standards, and best practices.\nTeam Development: Build technical depth, promote knowledge sharing, and support succession planning.\nProject Execution & Accountability: Partner with project management and operations to ensure engineering deliverables support efficient fabrication, testing, installation, and commissioning.\nCross-Functional Collaboration: Work closely with sales, system integration and engineering operation teams during pursuit and proposal phases to support solution development, technical risk assessment, and cost accuracy.\nDefense Compliance & Security Standards: Provide engineering leadership for defense-related programs by ensuring projects comply with CMMC 2.0 cybersecurity requirements and applicable MIL-SPEC standards. Partner with internal stakeholders, customers, and suppliers to uphold security, documentation, and technical compliance across the full project lifecycle.\nProcess Improvement & Standards: Establish and maintain engineering processes, design standards, documentation practices, and continuous improvement initiatives to enhance quality, consistency, and scalability.\nCustomer & Stakeholder Engagement: Serve as a technical interface with key customers, OEMs, classification societies, and regulatory bodies for high-visibility or technically complex programs.\nTechnology & Innovation: Stay current on industry trends in electrification, controls, energy storage, and fluid power to guide technology adoption and future system architectures.\nSafety & Quality Leadership: Promote a culture of safety, quality, and accountability within the engineering team and across the project lifecycle.\nOther duties as assigned.",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "Supreme Integrated Technology is looking for candidates who want to take the next step in their career to join our 100% employee-owned company. SIT’s engineering expertise transforms ideas into success for hydraulic and electrically powered moveable structures. SIT specializes in custom systems and projects, making every project unique and offering the opportunity to solve challenging problems for customers. Our projects are typically for marine, oil & gas, defense, civil (movable bridges) and industrial power unit applications. We pride ourselves on a culture of teamwork—because we are a smaller company, you can be involved in every aspect of a project and make an impact from start to finish."
+        },
+        {
+          "type": "para",
+          "text": "We are seeking a highly experienced Director of Engineering to be a leader in SIT’s multidisciplinary engineering organization and drive technical excellence across hydraulic, electric, and electrohydraulic system solutions. This role is responsible for engineering strategy, technical execution, talent development, and cross-functional collaboration to ensure projects are delivered safely, on time, on budget, and to the highest quality standards. The Director of Engineering will work closely with integrated systems, engineering operations, sales, project management, and key customers to translate complex requirements into engineered-to-order solutions that support SIT’s long-term growth strategy."
+        },
+        {
+          "type": "para",
+          "text": "Key Responsibilities:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Engineering Leadership & Strategy: participate in SIT’s engineering leadership team to define and execute SIT’s engineering strategy aligned with business objectives, market opportunities, and emerging technologies in electrification, automation, and fluid power systems.",
+            "Technical Oversight: Provide senior-level technical guidance and design review for complex hydraulic, electric and structural projects, ensuring compliance with customer requirements, codes, standards, and best practices.",
+            "Team Development: Build technical depth, promote knowledge sharing, and support succession planning.",
+            "Project Execution & Accountability: Partner with project management and operations to ensure engineering deliverables support efficient fabrication, testing, installation, and commissioning.",
+            "Cross-Functional Collaboration: Work closely with sales, system integration and engineering operation teams during pursuit and proposal phases to support solution development, technical risk assessment, and cost accuracy.",
+            "Defense Compliance & Security Standards: Provide engineering leadership for defense-related programs by ensuring projects comply with CMMC 2.0 cybersecurity requirements and applicable MIL-SPEC standards. Partner with internal stakeholders, customers, and suppliers to uphold security, documentation, and technical compliance across the full project lifecycle.",
+            "Process Improvement & Standards: Establish and maintain engineering processes, design standards, documentation practices, and continuous improvement initiatives to enhance quality, consistency, and scalability.",
+            "Customer & Stakeholder Engagement: Serve as a technical interface with key customers, OEMs, classification societies, and regulatory bodies for high-visibility or technically complex programs.",
+            "Technology & Innovation: Stay current on industry trends in electrification, controls, energy storage, and fluid power to guide technology adoption and future system architectures.",
+            "Safety & Quality Leadership: Promote a culture of safety, quality, and accountability within the engineering team and across the project lifecycle.",
+            "Other duties as assigned."
+          ]
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "US",
+        "countryName": "United States",
+        "region": "north-america",
+        "remote": false,
+        "raw": "Harahan, United States"
+      },
+      "seniority": "director",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "unspecified",
+      "roleType": "full-time",
+      "salary": {
+        "min": 138060,
+        "max": 220730,
+        "currency": "USD",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "High",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-01-19T16:53:59.869Z",
+      "firstSeen": "2026-09-13T08:22:16.617Z",
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "intuition-machines-inc-director-of-engineering-6df298",
@@ -19417,7 +19859,7 @@
       },
       "postedAt": "2026-01-08T15:25:12.375Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "databricks-director-of-engineering-data-infrastruct-b46137",
@@ -19460,7 +19902,7 @@
       },
       "postedAt": "2025-11-13T17:13:22-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "celonis-director-value-engineering-financial-ser-9b17b7",
@@ -19503,7 +19945,7 @@
       },
       "postedAt": "2025-11-05T10:27:35-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "postman-head-of-ai-platform-engineering-86c8cb",
@@ -19545,7 +19987,7 @@
       },
       "postedAt": "2025-10-08T13:02:12-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "intuition-machines-inc-director-of-engineering-76a6d8",
@@ -19649,7 +20091,7 @@
       },
       "postedAt": "2025-09-22T09:48:15.808Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "databricks-director-of-engineering-5f3e27",
@@ -19692,7 +20134,7 @@
       },
       "postedAt": "2025-08-14T11:06:35-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "satsuma-vp-of-engineering-5c71a2",
@@ -19752,7 +20194,7 @@
       },
       "postedAt": "2025-07-31T08:33:09.013Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "two95-international-inc-vice-president-local-engineering-head-lo-1ed760",
@@ -19796,7 +20238,7 @@
       },
       "postedAt": "2025-05-23T15:37:45.000Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "okx-engineering-director-dba-5c2bac",
@@ -19839,7 +20281,7 @@
       },
       "postedAt": "2025-05-08T08:48:51-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "avomind-head-of-infrastructure-technology-18a040",
@@ -19955,7 +20397,7 @@
       },
       "postedAt": "2025-04-15T08:44:14.000Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "intuition-machines-inc-director-of-engineering-236829",
@@ -20059,7 +20501,7 @@
       },
       "postedAt": "2025-02-05T16:53:36.000Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "mongodb-principal-technologist-field-cto-38757e",
@@ -20102,7 +20544,7 @@
       },
       "postedAt": "2024-11-26T14:45:19-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "databricks-head-of-corporate-engineering-c4d748",
@@ -20145,71 +20587,7 @@
       },
       "postedAt": "2024-07-17T15:32:11-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
-    },
-    {
-      "id": "ayana-hospitality-cluster-director-of-engineering-expatria-6cad2c",
-      "title": "Cluster Director of Engineering - Expatriate | AYANA BALI",
-      "company": "AYANA Hospitality",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/566735/logo",
-      "applyUrl": "https://jobs.workable.com/view/1A5HFpHtApU9d5F3EEgQNf/cluster-director-of-engineering---expatriate-%7C-ayana-bali-in-bali-at-ayana-hospitality",
-      "sourceUrl": "https://jobs.workable.com/view/1A5HFpHtApU9d5F3EEgQNf/cluster-director-of-engineering---expatriate-%7C-ayana-bali-in-bali-at-ayana-hospitality",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "Join our team and be part of the continued success of Bali’s Largest Integrated Resort.\nWe offer exciting career opportunities for individuals with the following details:\nResponsibilities\nProvide leadership and direction to the engineering and maintenance team, ensuring the highest levels of quality and guest satisfaction.\nDevelop and implement strategies to optimize operational efficiency and reduce costs.\nEnsure compliance with all local regulations and safety standards.\nManage the annual budget and capital expenditure plans for the engineering and maintenance department.\nDevelop and implement preventative maintenance programs to ensure the longevity of the resort's infrastructure and equipment.\nManage all vendor contracts and relationships to ensure the highest standards of service.\nEnsure that all guest requests and issues related to engineering and maintenance are resolved quickly and efficiently.",
-      "blocks": [
-        {
-          "type": "para",
-          "text": "Join our team and be part of the continued success of Bali’s Largest Integrated Resort."
-        },
-        {
-          "type": "para",
-          "text": "We offer exciting career opportunities for individuals with the following details:"
-        },
-        {
-          "type": "heading",
-          "text": "Responsibilities"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Provide leadership and direction to the engineering and maintenance team, ensuring the highest levels of quality and guest satisfaction.",
-            "Develop and implement strategies to optimize operational efficiency and reduce costs.",
-            "Ensure compliance with all local regulations and safety standards.",
-            "Manage the annual budget and capital expenditure plans for the engineering and maintenance department.",
-            "Develop and implement preventative maintenance programs to ensure the longevity of the resort's infrastructure and equipment.",
-            "Manage all vendor contracts and relationships to ensure the highest standards of service.",
-            "Ensure that all guest requests and issues related to engineering and maintenance are resolved quickly and efficiently."
-          ]
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "ID",
-        "countryName": "Indonesia",
-        "region": "southeast-asia",
-        "remote": false,
-        "raw": "Bali, Indonesia"
-      },
-      "seniority": "director",
-      "domain": "engineering",
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": "full-time",
-      "salary": {
-        "min": 1690000000,
-        "max": 1690000000,
-        "currency": "IDR",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "Medium",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2024-04-16T11:24:17.000Z",
-      "firstSeen": "2026-09-09T08:12:18.028Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     },
     {
       "id": "talent-trader-group-head-of-project-management-lead-engineer-911b42",
@@ -20267,7 +20645,7 @@
       },
       "postedAt": "2024-04-05T06:07:13.000Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-12T07:58:05.327Z"
+      "updatedAt": "2026-09-13T08:22:16.617Z"
     }
   ]
 }
