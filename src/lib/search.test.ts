@@ -18,6 +18,10 @@ function make(over: Partial<IndexEntry>): IndexEntry {
     roleType: over.roleType ?? "permanent",
     postedAt: over.postedAt ?? "2026-09-01",
     source: over.source ?? "greenhouse",
+    salaryMin: over.salaryMin,
+    salaryMax: over.salaryMax,
+    salaryCurrency: over.salaryCurrency,
+    salaryPeriod: over.salaryPeriod,
   };
 }
 
@@ -44,6 +48,28 @@ describe("defaultOrder", () => {
     expect(defaultOrder(entries).map((e) => e.id)).toEqual(
       applyFilters(entries, DEFAULT_FILTERS).map((e) => e.id)
     );
+  });
+});
+
+describe("salary sort", () => {
+  it("annualizes monthly bands before comparing against annual bands", () => {
+    const monthly = make({
+      id: "monthly",
+      salaryMax: 60_000,
+      salaryCurrency: "AED",
+      salaryPeriod: "monthly",
+      postedAt: "2026-09-01",
+    });
+    const annual = make({
+      id: "annual",
+      salaryMax: 150_000,
+      salaryCurrency: "USD",
+      salaryPeriod: "annual",
+      postedAt: "2026-09-01",
+    });
+    const ordered = applyFilters([annual, monthly], { ...DEFAULT_FILTERS, sort: "salary" });
+    // AED 60,000 per month is roughly USD 196,000 per year, above USD 150,000
+    expect(ordered.map((e) => e.id)).toEqual(["monthly", "annual"]);
   });
 });
 

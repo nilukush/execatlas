@@ -36,8 +36,13 @@ export function toUsd(amount: number | undefined, currency: string | undefined):
   return amount / rate;
 }
 
-function searchScore(entry: IndexEntry, tokens: string[]): number {
-  if (tokens.length === 0) return 1;
+/** Annualized USD value for ranking; monthly bands must compare against annual ones. */
+function annualizedUsd(entry: IndexEntry): number {
+  const usd = toUsd(entry.salaryMax, entry.salaryCurrency);
+  return entry.salaryPeriod === "monthly" ? usd * 12 : usd;
+}
+
+function searchScore(entry: IndexEntry, tokens: string[]): number {  if (tokens.length === 0) return 1;
   const title = entry.title.toLowerCase();
   const company = entry.company.toLowerCase();
   const place = `${entry.countryName ?? ""} ${entry.region ?? ""}`.toLowerCase();
@@ -79,8 +84,8 @@ export function applyFilters(entries: IndexEntry[], filters: JobFilters): IndexE
 
   scored.sort((a, b) => {
     if (filters.sort === "salary") {
-      const usdA = toUsd(a.entry.salaryMax, a.entry.salaryCurrency);
-      const usdB = toUsd(b.entry.salaryMax, b.entry.salaryCurrency);
+      const usdA = annualizedUsd(a.entry);
+      const usdB = annualizedUsd(b.entry);
       if (usdA !== usdB) return usdB - usdA;
     }
     if (a.score !== b.score) return b.score - a.score;
