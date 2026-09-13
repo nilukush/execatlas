@@ -26,6 +26,9 @@ describe("parseStatedSalary", () => {
     ["10+ years of experience required.", null],
     ["benefits with options at $0 monthly, effective first day of employment", null],
     ["Salary $0 - $150,000 per year", null],
+    ["Compensation ₹50 to ₹70 LPA", { min: 5000000, max: 7000000, currency: "INR", period: "annual" }],
+    ["Pay range 60 - 90 LPA", { min: 6000000, max: 9000000, currency: "INR", period: "annual" }],
+    ["managed 20 to 30 L&D programs", null],
   ];
 
   it.each(cases)('"%s"', (text, expected) => {

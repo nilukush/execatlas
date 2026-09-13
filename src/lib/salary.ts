@@ -178,6 +178,21 @@ export interface StatedSalary {
 
 /** Indian lakh quoting, e.g. "₹80 LPA to ₹120 LPA". */
 function parseLakhRange(text: string): StatedSalary | null {
+  // a single trailing suffix covers "₹50 to ₹70 LPA" and "60 - 90 LPA"; the
+  // suffix itself carries the INR currency. Bare "l" stays out of this branch
+  // so "20 to 30 L&D" style text can never read as a lakh range.
+  const rangeM = text.match(
+    /(?:₹|\bINR\b)?\s*([\d]+(?:\.\d+)?)\s*(?:-|–|—|\bto\b)\s*(?:₹|\bINR\b)?\s*([\d]+(?:\.\d+)?)\s*(?:LPA|lakhs?)\b/i
+  );
+  if (rangeM) {
+    return {
+      min: Number(rangeM[1]) * 100_000,
+      max: Number(rangeM[2]) * 100_000,
+      currency: "INR",
+      period: "annual",
+    };
+  }
+
   const re = /(?:₹|\bINR\b)\s*([\d]+(?:\.\d+)?)\s*(?:LPA|lakhs?|l)\b/gi;
   const values: number[] = [];
   let m: RegExpExecArray | null;
@@ -216,7 +231,11 @@ export function parseStatedSalary(text: string): StatedSalary | null {
       Math.max(0, (m.index ?? 0) - 80),
       Math.min(text.length, (m.index ?? 0) + m[0].length + 80)
     );
-    return { min, max, currency, period: detectPeriod(window, currency, max) };
+    const band = { min, max, currency, period: detectPeriod(window, currency, max) };
+    // dropped suffixes (a bare "50 to 70" from "50 to 70 LPA") produce absurd
+    // annual figures; no real band in a supported currency lands under these floors
+    if (band.max < (band.period === "monthly" ? 1_000 : 5_000)) continue;
+    return band;
   }
 
   for (const m of text.matchAll(SINGLE_RE)) {
@@ -237,6 +256,7 @@ export function parseStatedSalary(text: string): StatedSalary | null {
     // a bare single number needs an explicit period marker to be trusted
     const period = MONTHLY_RE.test(window) ? "monthly" : ANNUAL_RE.test(window) ? "annual" : null;
     if (!period) continue;
+    if (amount < (period === "monthly" ? 1_000 : 5_000)) continue;
     return { min: amount, max: amount, currency, period };
   }
 
