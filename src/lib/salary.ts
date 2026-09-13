@@ -210,6 +210,8 @@ export function parseStatedSalary(text: string): StatedSalary | null {
     const min = toNumber(m[1], m[2]);
     const max = toNumber(m[3], m[4]);
     if (!Number.isFinite(min) || !Number.isFinite(max) || max < min) continue;
+    // benefits boilerplate like "options at $0" is not a salary
+    if (min <= 0 || max <= 0) continue;
     const window = text.slice(
       Math.max(0, (m.index ?? 0) - 80),
       Math.min(text.length, (m.index ?? 0) + m[0].length + 80)
@@ -220,8 +222,14 @@ export function parseStatedSalary(text: string): StatedSalary | null {
   for (const m of text.matchAll(SINGLE_RE)) {
     const currency = m[1] ? m[1].toUpperCase() : SYMBOL_CURRENCY[text[(m.index ?? 0)]];
     if (!currency) continue;
+    // a figure that is the upper tail of a rejected range (for example the
+    // $150,000 in "$0 - $150,000") is not an independent stated salary
+    const preceded = text.slice(Math.max(0, (m.index ?? 0) - 24), m.index ?? 0);
+    if (/\d[\d,.]*\s*[kKmM]?\s*(?:-|–|—|\bto\b)\s*$/i.test(preceded)) continue;
     const amount = toNumber(m[2], m[3]);
     if (!Number.isFinite(amount)) continue;
+    // a zero amount is benefits boilerplate, not a stated salary
+    if (amount <= 0) continue;
     const window = text.slice(
       Math.max(0, (m.index ?? 0) - 60),
       Math.min(text.length, (m.index ?? 0) + m[0].length + 60)

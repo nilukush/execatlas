@@ -24,6 +24,8 @@ describe("parseStatedSalary", () => {
     ["Competitive salary", null],
     ["You will manage 5-10 engineers across two locations.", null],
     ["10+ years of experience required.", null],
+    ["benefits with options at $0 monthly, effective first day of employment", null],
+    ["Salary $0 - $150,000 per year", null],
   ];
 
   it.each(cases)('"%s"', (text, expected) => {
