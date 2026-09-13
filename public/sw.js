@@ -1,10 +1,12 @@
 /*
   ExecAtlas service worker: minimal offline support.
-  - cache-first for hashed static assets and the job index
+  - cache-first for hashed static assets
   - network-first for page navigations with a cached fallback
+  The default-locale home is the offline fallback; "/" only meta-refreshes to
+  /en, so falling back to "/" offline would loop.
 */
-const CACHE = "execatlas-v1";
-const CORE = ["/", "/icon.svg"];
+const CACHE = "execatlas-v2";
+const CORE = ["/en", "/icon.svg"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(CORE)));
@@ -32,7 +34,7 @@ self.addEventListener("fetch", (event) => {
           caches.open(CACHE).then((cache) => cache.put(request, copy));
           return response;
         })
-        .catch(() => caches.match(request).then((cached) => cached ?? caches.match("/")))
+        .catch(() => caches.match(request).then((cached) => cached ?? caches.match("/en")))
     );
     return;
   }
