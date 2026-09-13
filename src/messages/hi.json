@@ -104,6 +104,15 @@
     "director": "डायरेक्टर",
     "head": "हेड ऑफ"
   },
+  "RoleType": {
+    "permanent": "स्थायी",
+    "contract": "संविदा",
+    "freelance": "फ्रीलांस",
+    "temporary": "अस्थायी",
+    "part-time": "पार्ट-टाइम",
+    "full-time": "फुल-टाइम",
+    "interim": "अंतरिम"
+  },
   "Job": {
     "apply": "कंपनी साइट पर आवेदन करें",
     "viewOriginal": "मूल पोस्टिंग देखें",

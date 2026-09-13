@@ -26,6 +26,28 @@ function job(overrides: Partial<RawJob>): ReturnType<typeof normalizeJob> {
 }
 
 describe("dedupeJobs", () => {
+  it("merges remote postings of the same role that differ only by country qualifier", () => {
+    const uk = job({ externalId: "gh-uk", locationRaw: "Remote, United Kingdom" });
+    const bare = job({ externalId: "gh-bare", source: "arbeitnow", locationRaw: "Remote" });
+    const merged = dedupeJobs([uk, bare].filter(notNull));
+    expect(merged).toHaveLength(1);
+    expect(merged[0].sources.sort()).toEqual(["arbeitnow", "greenhouse"]);
+  });
+
+  it("keeps the country-qualified location when a bare remote twin is richer", () => {
+    const qualified = job({ externalId: "gh-uk", locationRaw: "Remote, United Kingdom" });
+    const bare = job({
+      externalId: "wk-bare",
+      source: "workable",
+      locationRaw: "Remote",
+      descriptionHtml: "<h3>Requirements</h3><ul><li>12+ years</li><li>Scale experience</li><li>Visa sponsorship available.</li></ul><p>Long detailed description text that makes this record richer than the qualified one so it wins the primary pick.</p>",
+    });
+    const merged = dedupeJobs([qualified, bare].filter(notNull));
+    expect(merged).toHaveLength(1);
+    // specific beats vague: the surviving record must not lose the UK qualifier
+    expect(merged[0].location.countryIso2).toBe("GB");
+  });
+
   it("merges the same role found on two sources", () => {
     const fromGreenhouse = job({
       source: "greenhouse",

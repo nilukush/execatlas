@@ -104,6 +104,15 @@
     "director": "Director",
     "head": "Head of"
   },
+  "RoleType": {
+    "permanent": "Permanen",
+    "contract": "Kontrak",
+    "freelance": "Pekerja Lepas",
+    "temporary": "Sementara",
+    "part-time": "Paruh Waktu",
+    "full-time": "Penuh Waktu",
+    "interim": "Interim"
+  },
   "Job": {
     "apply": "Lamar di situs perusahaan",
     "viewOriginal": "Lihat lowongan asli",

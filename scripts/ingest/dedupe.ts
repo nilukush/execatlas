@@ -14,7 +14,11 @@ function normalizeTitle(title: string): string {
 }
 
 function dedupeKey(job: Job): string {
-  const place = job.location.countryIso2 ?? (job.location.remote ? "remote" : job.location.region) ?? "remote";
+  // country-qualified remote postings of one role ("Remote - US" vs "Remote")
+  // are the same job; remote collapses the place entirely
+  const place = job.location.remote
+    ? "remote"
+    : (job.location.countryIso2 ?? job.location.region ?? "remote");
   return `${normalizeCompany(job.company)}|${normalizeTitle(job.title)}|${place}`;
 }
 
@@ -40,8 +44,18 @@ function mergeJobs(a: Job, b: Job): Job {
   // pin the merged record's id and firstSeen to whichever source saw it first,
   // so a richness flip between runs does not re-key the job
   const elder = a.firstSeen <= b.firstSeen ? a : b;
+  // remote twins merge on one key; the country-qualified location is the more
+  // specific fact and must survive even when the countryless record is richer
+  const location =
+    primary.location.remote &&
+    !primary.location.countryIso2 &&
+    secondary.location.remote &&
+    secondary.location.countryIso2
+      ? secondary.location
+      : primary.location;
   return {
     ...primary,
+    location,
     id: elder.id,
     firstSeen: elder.firstSeen,
     sources,

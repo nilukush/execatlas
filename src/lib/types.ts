@@ -117,6 +117,8 @@ export interface IndexEntry {
   source: SourceId;
 }
 
+export const ROLE_TYPES = ["permanent", "contract", "freelance", "temporary", "part-time", "full-time", "interim"] as const;
+
 export interface DatasetStats {
   generatedAt: string;
   total: number;

@@ -103,7 +103,11 @@ function detectQuery(t: string, country: Country | null, region: LandRegion | nu
     for (const phrase of [country.name.toLowerCase(), ...country.aliases]) {
       rest = stripPhrase(rest, phrase);
     }
-  } else if (region) {
+  }
+  // strip the matched region's words too: a question like "in the gulf in
+  // dubai" matches the country, and a leftover "gulf" token would zero the
+  // keyword search, which requires every token to match
+  if (region) {
     for (const { alias, region: r } of REGION_ALIASES) {
       if (r === region) rest = stripPhrase(rest, alias);
     }

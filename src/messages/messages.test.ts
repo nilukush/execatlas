@@ -33,6 +33,7 @@ describe("message catalogs", () => {
         "Home",
         "Jobs",
         "Roles",
+        "RoleType",
         "Job",
         "About",
         "Footer",

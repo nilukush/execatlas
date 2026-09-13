@@ -6,6 +6,7 @@
  */
 
 import { applyFilters, type JobFilters } from "./search";
+import { ROLE_TYPES } from "./types";
 import type { IndexEntry } from "./types";
 import type { RegionId } from "./locations";
 
@@ -48,16 +49,7 @@ const REGION_VALUES = new Set<string>([
 const SENIORITY_VALUES = new Set(["all", "cto", "vp", "avp", "director", "head"]);
 const VISA_VALUES = new Set(["all", "yes", "no", "unknown"]);
 const WORKMODE_VALUES = new Set(["all", "remote", "hybrid", "onsite"]);
-const ROLETYPE_VALUES = new Set([
-  "all",
-  "permanent",
-  "contract",
-  "freelance",
-  "temporary",
-  "part-time",
-  "full-time",
-  "interim",
-]);
+const ROLETYPE_VALUES = new Set<string>(["all", ...ROLE_TYPES]);
 const SOURCE_VALUES = new Set(["all", "greenhouse", "workable", "arbeitnow", "jobicy"]);
 const SORT_VALUES = new Set(["newest", "salary"]);
 

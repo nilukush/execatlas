@@ -15,6 +15,7 @@ export interface JobCardLabels {
   perYear: string;
   perMonth: string;
   posted: (date: string) => string;
+  roleTypeLabels: Record<string, string>;
   sourceLabels: Record<string, string>;
 }
 
@@ -70,7 +71,11 @@ export function JobCard({
               : (labels.workModeLabels[job.workMode as keyof JobCardLabels["workModeLabels"]] ?? job.workMode)}
           </span>
         )}
-        {job.roleType && <span className="chip capitalize">{job.roleType.replace("-", " ")}</span>}
+        {job.roleType && (
+          <span className="chip capitalize">
+            {labels.roleTypeLabels[job.roleType] ?? job.roleType.replace("-", " ")}
+          </span>
+        )}
         {job.salaryMin !== undefined && job.salaryMax !== undefined && job.salaryCurrency && (
           <span className="chip !text-ink">
             {formatSalaryBand(

@@ -149,6 +149,13 @@ describe("JobsBrowser search and filters surface", () => {
     expect(panel?.className).not.toContain("hidden");
   });
 
+  it("labels role types through the catalogs", () => {
+    renderBrowser(entries);
+    expect(screen.getByRole("option", { name: "Part-time" })).toBeInTheDocument();
+    const chips = screen.getAllByText("Contract").filter((el) => el.closest(".chip"));
+    expect(chips).toHaveLength(1);
+  });
+
   it("clearing filters returns to page 1", () => {
     const many = Array.from({ length: 26 }, (_, i) => make({ id: `m${i}`, visa: "yes" }));
     renderBrowser(many);

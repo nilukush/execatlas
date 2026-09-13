@@ -1,9 +1,8 @@
-import { setRequestLocale } from "next-intl/server";
-import { getTranslations } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getIndexEntries, getStats } from "@/lib/data";
 import { JobCard, type JobCardLabels } from "@/components/job-card";
-import { SOURCE_LABELS } from "@/lib/types";
+import { ROLE_TYPES, SOURCE_LABELS } from "@/lib/types";
 import { formatDate } from "@/lib/seo";
 
 export default async function HomePage({
@@ -16,6 +15,7 @@ export default async function HomePage({
   const t = await getTranslations("Home");
   const tJobs = await getTranslations("Jobs");
   const tJob = await getTranslations("Job");
+  const tRoleType = await getTranslations("RoleType");
 
   const { jobs: entries } = getIndexEntries();
   const stats = getStats();
@@ -36,6 +36,7 @@ export default async function HomePage({
     visaUnknown: tJobs("visaUnknown"),
     perYear: tJobs("perYear"),
     perMonth: tJobs("perMonth"),
+    roleTypeLabels: Object.fromEntries(ROLE_TYPES.map((type) => [type, tRoleType(type)])),
     posted: (date) => tJob("posted", { date: formatDate(date, locale) }),
     sourceLabels: Object.fromEntries(Object.entries(SOURCE_LABELS)),
   };

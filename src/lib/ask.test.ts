@@ -21,6 +21,10 @@ describe("parseQuestion", () => {
       want: { query: "engineering", seniority: "head", region: "india", country: "IN", visa: "all", workMode: "hybrid" },
     },
     {
+      question: "VP engineering in the gulf in dubai",
+      want: { query: "engineering", seniority: "vp", region: "middle-east", country: "AE", visa: "all", workMode: "all" },
+    },
+    {
       question: "VP Engineering & Product roles in the UAE",
       want: { query: "engineering product", seniority: "vp", region: "middle-east", country: "AE", visa: "all", workMode: "all" },
     },

@@ -6,7 +6,7 @@ import { getIndexEntries } from "@/lib/data";
 import { defaultOrder, paginate } from "@/lib/search";
 import { buildAlternates, formatDate } from "@/lib/seo";
 import { JobCard, type JobCardLabels } from "@/components/job-card";
-import { SOURCE_LABELS } from "@/lib/types";
+import { ROLE_TYPES, SOURCE_LABELS } from "@/lib/types";
 
 /** Static, crawlable continuation of the jobs list. Page 1 lives at /jobs. */
 export function generateStaticParams() {
@@ -52,6 +52,7 @@ export default async function JobsListPage({
 
   const t = await getTranslations("Jobs");
   const tJob = await getTranslations("Job");
+  const tRoleType = await getTranslations("RoleType");
 
   const { jobs: entries } = getIndexEntries();
   const ordered = defaultOrder(entries);
@@ -69,6 +70,7 @@ export default async function JobsListPage({
     visaUnknown: t("visaUnknown"),
     perYear: t("perYear"),
     perMonth: t("perMonth"),
+    roleTypeLabels: Object.fromEntries(ROLE_TYPES.map((type) => [type, tRoleType(type)])),
     posted: (date) => tJob("posted", { date: formatDate(date, locale) }),
     sourceLabels: Object.fromEntries(Object.entries(SOURCE_LABELS)),
   };

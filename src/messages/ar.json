@@ -104,6 +104,15 @@
     "director": "مدير",
     "head": "رئيس"
   },
+  "RoleType": {
+    "permanent": "دائم",
+    "contract": "تعاقدي",
+    "freelance": "عمل حر",
+    "temporary": "مؤقت",
+    "part-time": "دوام جزئي",
+    "full-time": "دوام كامل",
+    "interim": "بالوكالة"
+  },
   "Job": {
     "apply": "قدّم عبر موقع الشركة",
     "viewOriginal": "عرض الإعلان الأصلي",

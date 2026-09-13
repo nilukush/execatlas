@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import type { IndexEntry } from "@/lib/types";
 import { COUNTRIES, REGIONS } from "@/lib/locations";
-import { SOURCE_LABELS, type SourceId } from "@/lib/types";
+import { SOURCE_LABELS, type SourceId, ROLE_TYPES } from "@/lib/types";
 import { applyFilters, DEFAULT_FILTERS, paginate, type JobFilters } from "@/lib/search";
 import { answerQuestion, intentFilters, type AskAnswer, type AskSuggestion, type QuestionIntent } from "@/lib/ask";
 import {
@@ -19,7 +19,6 @@ import { formatDate } from "@/lib/seo";
 import { JobCard, type JobCardLabels } from "./job-card";
 
 const SENIORITIES = ["cto", "vp", "avp", "director", "head"] as const;
-const ROLE_TYPES = ["permanent", "contract", "freelance", "temporary", "part-time", "full-time", "interim"] as const;
 const STORAGE_KEY = "ea-saved-searches";
 const MAX_SAVED = 8;
 
@@ -27,6 +26,7 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
   const t = useTranslations("Jobs");
   const tJob = useTranslations("Job");
   const tRoles = useTranslations("Roles");
+  const tRoleType = useTranslations("RoleType");
   const [filters, setFilters] = useState<JobFilters>(DEFAULT_FILTERS);
   const [page, setPage] = useState(1);
   const [question, setQuestion] = useState("");
@@ -218,6 +218,7 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
     perYear: t("perYear"),
     perMonth: t("perMonth"),
     posted: (date) => tJob("posted", { date: formatDate(date, locale) }),
+    roleTypeLabels: Object.fromEntries(ROLE_TYPES.map((type) => [type, tRoleType(type)])),
     sourceLabels: Object.fromEntries(Object.entries(SOURCE_LABELS)),
   };
 
@@ -245,7 +246,7 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
           {saved.map((s) => {
             const fresh = newCounts[s.id] ?? 0;
             const chips = chipsFor(intentFromFilters(s.filters));
-            if (s.filters.roleType !== "all") chips.push(s.filters.roleType.replace("-", " "));
+            if (s.filters.roleType !== "all") chips.push(tRoleType(s.filters.roleType));
             if (s.filters.source !== "all") {
               chips.push(SOURCE_LABELS[s.filters.source as SourceId] ?? s.filters.source);
             }
@@ -403,7 +404,7 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
             <option value="all">{`${t("roleType")}: ${t("typeAny")}`}</option>
             {ROLE_TYPES.map((type) => (
               <option key={type} value={type}>
-                {type.replace("-", " ")}
+                {tRoleType(type)}
               </option>
             ))}
           </select>

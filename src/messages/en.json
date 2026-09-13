@@ -104,6 +104,15 @@
     "director": "Director",
     "head": "Head of"
   },
+  "RoleType": {
+    "permanent": "Permanent",
+    "contract": "Contract",
+    "freelance": "Freelance",
+    "temporary": "Temporary",
+    "part-time": "Part-time",
+    "full-time": "Full-time",
+    "interim": "Interim"
+  },
   "Job": {
     "apply": "Apply on company site",
     "viewOriginal": "View original posting",
