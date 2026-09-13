@@ -1,6 +1,9 @@
-// Verified 2026-09-06 (original 99) and 2026-09-07 (20 more, target-region
-// focus: agoda/wundermanthompson for Asia and Egypt, opswat/zetaglobal/easyship
-// for Vietnam/India/SG, ruyaai/algorium for Dubai, plus active EU boards).
+// Verified 2026-09-06 (original 99), 2026-09-07 (20 more, target-region
+// focus) and 2026-09-13 (15 more from a discovery sweep: teneo/point72/
+// cobblestoneenergy for Dubai and Riyadh, minio for a Riyadh field CTO,
+// asm/motional/intrinsicrobotics/jumptrading for Singapore, truveta and
+// roku for India-linked leadership, avepoint/mindbody/alixpartners/
+// bursonglobalcareers/teneolinkedin for regional coverage).
 // Each token returns HTTP 200 with a jobs array from the public Greenhouse
 // Job Board API. Re-verify when adding or pruning boards.
 export const GREENHOUSE_TOKENS: string[] = [
@@ -9,11 +12,14 @@ export const GREENHOUSE_TOKENS: string[] = [
   'airbnb',
   'airtable',
   'algorium',
+  'alixpartners',
   'alloy',
   'alphasense',
   'amplitude',
   'anthropic',
   'asana',
+  'asm',
+  'avepoint',
   'axios',
   'betterment',
   'binance',
@@ -21,6 +27,7 @@ export const GREENHOUSE_TOKENS: string[] = [
   'bitso',
   'braze',
   'brex',
+  'bursonglobalcareers',
   'buzzfeed',
   'bybit',
   'careem',
@@ -30,6 +37,7 @@ export const GREENHOUSE_TOKENS: string[] = [
   'chime',
   'cleo',
   'cloudflare',
+  'cobblestoneenergy',
   'cockroachlabs',
   'coinbase',
   'contentful',
@@ -65,6 +73,8 @@ export const GREENHOUSE_TOKENS: string[] = [
   'huntress',
   'instacart',
   'intercom',
+  'intrinsicrobotics',
+  'jumptrading',
   'kickstarter',
   'kindsnacks',
   'klaviyo',
@@ -72,8 +82,11 @@ export const GREENHOUSE_TOKENS: string[] = [
   'medium',
   'mercari',
   'mercury',
+  'mindbody',
+  'minio',
   'mongodb',
   'monzo',
+  'motional',
   'mozilla',
   'n26',
   'neo4j',
@@ -89,6 +102,7 @@ export const GREENHOUSE_TOKENS: string[] = [
   'peloton',
   'pendo',
   'pinterest',
+  'point72',
   'poshmark',
   'postman',
   'raisin',
@@ -96,6 +110,7 @@ export const GREENHOUSE_TOKENS: string[] = [
   'ripple',
   'robinhood',
   'roblox',
+  'roku',
   'ruyaai',
   'samsara',
   'scaleai',
@@ -106,9 +121,12 @@ export const GREENHOUSE_TOKENS: string[] = [
   'stripe',
   'sumologic',
   'tamara',
+  'teneo',
+  'teneolinkedin',
   'tide',
   'traderepublic',
   'trivago',
+  'truveta',
   'twilio',
   'twitch',
   'upgrade',
