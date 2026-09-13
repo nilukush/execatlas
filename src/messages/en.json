@@ -43,7 +43,6 @@
   "Jobs": {
     "title": "Leadership roles",
     "count": "{count, plural, one {# role} other {# roles}}",
-    "searchPlaceholder": "Search title, company or location",
     "filters": "Filters",
     "clear": "Clear filters",
     "region": "Region",
@@ -84,7 +83,7 @@
     "viewRole": "View role",
     "pagination": "Pagination",
     "askLabel": "Ask a question",
-    "askPlaceholder": "e.g. Is there a VP Engineering role in Dubai with visa sponsorship?",
+    "askPlaceholder": "Ask a question or search by keyword, company or title",
     "askSubmit": "Ask",
     "askYes": "Yes. {count, plural, one {# role matches} other {# roles match}}",
     "askNo": "Not right now. No roles match that question.",

@@ -33,6 +33,7 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
   const [answer, setAnswer] = useState<AskAnswer | null>(null);
   const [saved, setSaved] = useState<SavedSearch[]>([]);
   const [storageReady, setStorageReady] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   useEffect(() => {
     try {
@@ -199,6 +200,12 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
     filters.roleType !== "all" ||
     filters.source !== "all";
 
+  const activeFilterCount =
+    (filters.query !== "" ? 1 : 0) +
+    [filters.region, filters.country, filters.seniority, filters.visa, filters.workMode, filters.roleType, filters.source].filter(
+      (value) => value !== "all"
+    ).length;
+
   const cardLabels: JobCardLabels = {
     remoteWorldwide: t("remoteWorldwide"),
     workModeLabels: { remote: t("remote"), hybrid: t("hybrid"), onsite: t("onsite") },
@@ -300,18 +307,24 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
         </div>
       )}
 
-      <div className="card-ui mb-6 grid gap-3 p-4 sm:grid-cols-2 lg:grid-cols-4">
-        <label className="sm:col-span-2 lg:col-span-1">
-          <span className="sr-only">{t("searchPlaceholder")}</span>
-          <input
-            type="search"
-            value={filters.query}
-            onChange={(e) => update({ query: e.target.value })}
-            placeholder={t("searchPlaceholder")}
-            className="input-ui"
-          />
-        </label>
+      <div className="mb-3 flex items-center justify-between sm:hidden">
+        <button
+          type="button"
+          onClick={() => setFiltersOpen((open) => !open)}
+          aria-expanded={filtersOpen}
+          aria-controls="filters-panel"
+          className="btn-ghost !py-1.5 text-sm font-semibold"
+        >
+          {t("filters")} ({activeFilterCount})
+        </button>
+      </div>
 
+      <div
+        id="filters-panel"
+        className={`card-ui mb-6 gap-3 p-4 sm:grid sm:grid-cols-2 lg:grid-cols-4 ${
+          filtersOpen ? "grid" : "hidden"
+        }`}
+      >
         <label>
           <span className="sr-only">{t("region")}</span>
           <select
@@ -436,6 +449,7 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
                 setFilters(DEFAULT_FILTERS);
                 setAnswer(null);
                 setQuestion("");
+                setPage(1);
               }}
               className="btn-ghost !py-1 text-xs"
             >

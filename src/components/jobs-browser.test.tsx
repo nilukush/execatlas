@@ -101,9 +101,10 @@ describe("JobsBrowser ask and saved searches", () => {
 
   it("saves and restores the full filter state including role type and source", () => {
     renderBrowser(entries);
-    fireEvent.change(screen.getByPlaceholderText(en.Jobs.searchPlaceholder), {
+    fireEvent.change(screen.getByPlaceholderText(en.Jobs.askPlaceholder), {
       target: { value: "engineering" },
     });
+    fireEvent.submit(askForm());
     fireEvent.change(screen.getByLabelText("Role type"), { target: { value: "contract" } });
     fireEvent.change(screen.getByLabelText("Source"), { target: { value: "workable" } });
 
@@ -111,9 +112,51 @@ describe("JobsBrowser ask and saved searches", () => {
     fireEvent.click(screen.getByRole("button", { name: "Clear filters" }));
     expect(screen.getByText("4 roles")).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole("button", { name: "engineering · contract · Workable" }));
+    // the saved chip carries the question text, so the query survives re-apply
+    fireEvent.click(screen.getByRole("button", { name: "engineering" }));
     expect((screen.getByLabelText("Role type") as HTMLSelectElement).value).toBe("contract");
     expect((screen.getByLabelText("Source") as HTMLSelectElement).value).toBe("workable");
     expect(screen.getByText("1 role")).toBeInTheDocument();
+  });
+});
+
+describe("JobsBrowser search and filters surface", () => {
+  afterEach(cleanup);
+
+  it("accepts plain keywords in the ask box without a second search input", () => {
+    renderBrowser(entries);
+    expect(screen.queryAllByRole("searchbox")).toHaveLength(0);
+    fireEvent.change(screen.getByPlaceholderText(en.Jobs.askPlaceholder), {
+      target: { value: "Dutch" },
+    });
+    fireEvent.submit(askForm());
+    expect(screen.getByText("1 role")).toBeInTheDocument();
+  });
+
+  it("collapses the filter panel behind a toggle that reports active filters", () => {
+    renderBrowser(entries);
+    const toggle = screen.getByRole("button", { name: "Filters (0)" });
+    expect(toggle.getAttribute("aria-expanded")).toBe("false");
+    const panel = document.getElementById("filters-panel");
+    expect(panel?.className).toContain("hidden");
+
+    fireEvent.change(screen.getByLabelText("Region"), { target: { value: "europe" } });
+    expect(screen.getByRole("button", { name: "Filters (1)" })).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Filters (1)" }));
+    expect(toggle.getAttribute("aria-expanded")).toBe("true");
+    expect(panel?.className).toContain("grid");
+    expect(panel?.className).not.toContain("hidden");
+  });
+
+  it("clearing filters returns to page 1", () => {
+    const many = Array.from({ length: 26 }, (_, i) => make({ id: `m${i}`, visa: "yes" }));
+    renderBrowser(many);
+    fireEvent.change(screen.getByLabelText("Visa sponsorship"), { target: { value: "yes" } });
+    fireEvent.click(screen.getByRole("button", { name: "Next page" }));
+    expect(screen.getByText("Page 2 of 2")).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Clear filters" }));
+    expect(screen.getByText("Page 1 of 2")).toBeInTheDocument();
   });
 });

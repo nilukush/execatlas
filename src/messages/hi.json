@@ -43,7 +43,6 @@
   "Jobs": {
     "title": "लीडरशिप भूमिकाएँ",
     "count": "{count, plural, one {# भूमिका} other {# भूमिकाएँ}}",
-    "searchPlaceholder": "पद, कंपनी या स्थान खोजें",
     "filters": "फ़िल्टर",
     "clear": "फ़िल्टर हटाएँ",
     "region": "क्षेत्र",
@@ -84,7 +83,7 @@
     "viewRole": "भूमिका देखें",
     "pagination": "पेजिनेशन",
     "askLabel": "सवाल पूछें",
-    "askPlaceholder": "जैसे: क्या दुबई में वीज़ा स्पॉन्सरशिप के साथ VP Engineering रोल है?",
+    "askPlaceholder": "प्रश्न पूछें या कीवर्ड, कंपनी या पद नाम से खोजें",
     "askSubmit": "पूछें",
     "askYes": "हाँ। {count, plural, one {# रोल मेल खाता है} other {# रोल मेल खाते हैं}}",
     "askNo": "अभी नहीं। इस सवाल से कोई रोल मेल नहीं खाता।",

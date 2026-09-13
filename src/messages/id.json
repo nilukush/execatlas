@@ -43,7 +43,6 @@
   "Jobs": {
     "title": "Posisi kepemimpinan",
     "count": "{count, plural, other {# peran}}",
-    "searchPlaceholder": "Cari jabatan, perusahaan, atau lokasi",
     "filters": "Filter",
     "clear": "Hapus filter",
     "region": "Wilayah",
@@ -84,7 +83,7 @@
     "viewRole": "Lihat peran",
     "pagination": "Paginasi",
     "askLabel": "Ajukan pertanyaan",
-    "askPlaceholder": "mis. Apakah ada peran VP Engineering di Dubai dengan sponsor visa?",
+    "askPlaceholder": "Ajukan pertanyaan atau cari dengan kata kunci, perusahaan, atau jabatan",
     "askSubmit": "Tanya",
     "askYes": "Ya. {count, plural, other {# peran cocok}}",
     "askNo": "Belum ada. Tidak ada peran yang cocok dengan pertanyaan itu.",
