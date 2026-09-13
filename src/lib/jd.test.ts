@@ -60,4 +60,45 @@ describe("parsePostingHtml", () => {
     expect(result.text).toContain("Director of Engineering – Dubai");
     expect(result.text).toContain("Hybrid role.");
   });
+
+  it("structures fully entity-encoded posting HTML the way Greenhouse delivers it", () => {
+    const encoded = [
+      "&lt;h2&gt;About the role&lt;/h2&gt;",
+      "&lt;p&gt;We build payments software.&amp;nbsp;Apply now.&lt;/p&gt;",
+      "&lt;ul&gt;&lt;li&gt;Lead 5 teams&lt;/li&gt;&lt;li&gt;Own the platform&lt;/li&gt;&lt;/ul&gt;",
+    ].join("");
+    const result = parsePostingHtml(encoded);
+    expect(result.blocks).toEqual([
+      { type: "heading", text: "About the role" },
+      { type: "para", text: "We build payments software. Apply now." },
+      { type: "list", items: ["Lead 5 teams", "Own the platform"] },
+    ]);
+    expect(result.text).not.toContain("<");
+  });
+
+  it("strips script content delivered as entities", () => {
+    const encoded = "&lt;p&gt;Safe.&lt;/p&gt;&lt;script&gt;alert('xss')&lt;/script&gt;&lt;p&gt;End.&lt;/p&gt;";
+    const result = parsePostingHtml(encoded);
+    expect(result.text).not.toContain("alert");
+    expect(result.blocks.map((b) => b.type)).toEqual(["para", "para"]);
+  });
+
+  it("extracts requirements from entity-encoded postings", () => {
+    const encoded =
+      "&lt;h3&gt;Requirements&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;12+ years engineering leadership&lt;/li&gt;&lt;li&gt;Visa sponsorship available&lt;/li&gt;&lt;/ul&gt;";
+    expect(parsePostingHtml(encoded).requirements).toEqual([
+      "12+ years engineering leadership",
+      "Visa sponsorship available",
+    ]);
+  });
+
+  it("keeps a literal angle bracket in text out of tag parsing", () => {
+    const result = parsePostingHtml("<p>Salary &lt; 100k and equity &gt; shares</p>");
+    expect(result.blocks[0]).toEqual({ type: "para", text: "Salary < 100k and equity > shares" });
+  });
+
+  it("keeps an out-of-range numeric character reference from throwing", () => {
+    const result = parsePostingHtml("<p>Bad &#x110000; reference</p>");
+    expect(result.blocks[0]).toEqual({ type: "para", text: "Bad &#x110000; reference" });
+  });
 });

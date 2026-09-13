@@ -23,11 +23,11 @@ function decodeEntities(s: string): string {
     const key = body.toLowerCase();
     if (key.startsWith("#x")) {
       const code = Number.parseInt(key.slice(2), 16);
-      return Number.isFinite(code) ? String.fromCodePoint(code) : match;
+      return Number.isFinite(code) && code > 0 && code <= 0x10ffff ? String.fromCodePoint(code) : match;
     }
     if (key.startsWith("#")) {
       const code = Number.parseInt(key.slice(1), 10);
-      return Number.isFinite(code) ? String.fromCodePoint(code) : match;
+      return Number.isFinite(code) && code > 0 && code <= 0x10ffff ? String.fromCodePoint(code) : match;
     }
     return ENTITIES[key] ?? match;
   });
@@ -53,12 +53,17 @@ export interface ParsedPosting {
  * stripped entirely; inline tags contribute their text.
  */
 export function parsePostingHtml(html: string): ParsedPosting {
-  const src = html
+  // Boards deliver content either as literal tags or entity-encoded tags, so
+  // decode once before stripping: entity-encoded markup (and entity-encoded
+  // script payloads) must flow through the same strip-and-split path.
+  const src = decodeEntities(html)
     .replace(/<script[^>]*>[\s\S]*?<\/script\s*>/gi, " ")
     .replace(/<style[^>]*>[\s\S]*?<\/style\s*>/gi, " ")
     .replace(/<!--[\s\S]*?-->/g, " ");
 
-  const parts = src.split(/(<[^>]+>)/g).filter((p) => p.length > 0);
+  // Only angle brackets that start a real tag shape split; a bare "<" in text
+  // (for example "salary < 100k") must stay in the text stream.
+  const parts = src.split(/(<\/?\s*[a-zA-Z][^>]*>)/g).filter((p) => p.length > 0);
 
   const blocks: JdBlock[] = [];
   let buf = "";
