@@ -7,7 +7,8 @@
     "jobsDescription": "صف وظائف القيادة الهندسية العليا حسب المنطقة ورعاية التأشيرة ونمط العمل ونوع العقد.",
     "aboutTitle": "حول ExecAtlas",
     "aboutDescription": "كيف يجمع ExecAtlas الوظائف ويكتشف رعاية التأشيرة ويقدّر الرواتب بالعملة المحلية.",
-    "jobTitle": "{title} في {company}"
+    "jobTitle": "{title} في {company}",
+    "jobOgTail": "اطّلع على الدور الكامل ونطاق الراتب ورابط التقديم على ExecAtlas."
   },
   "Nav": {
     "home": "الرئيسية",

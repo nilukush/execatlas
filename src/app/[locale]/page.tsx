@@ -106,7 +106,7 @@ export default async function HomePage({
         <section className="container-page pb-16">
           <div className="mb-6 flex items-end justify-between gap-4">
             <h2 className="font-serif text-2xl font-bold">{t("latest")}</h2>
-            <Link href="/jobs" className="text-sm font-semibold text-brand-solid hover:underline">
+            <Link href="/jobs" className="text-sm font-semibold text-brand-500 hover:underline">
               {t("viewAll")} →
             </Link>
           </div>

@@ -7,7 +7,8 @@
     "jobsDescription": "Saring posisi kepemimpinan teknik senior berdasarkan wilayah, sponsorship visa, mode kerja, dan jenis peran.",
     "aboutTitle": "Tentang ExecAtlas",
     "aboutDescription": "Bagaimana ExecAtlas mengumpulkan lowongan, mendeteksi sponsorship visa, dan memperkirakan gaji dalam mata uang lokal.",
-    "jobTitle": "{title} di {company}"
+    "jobTitle": "{title} di {company}",
+    "jobOgTail": "Lihat peran lengkap, kisaran gaji, dan tautan lamaran di ExecAtlas."
   },
   "Nav": {
     "home": "Beranda",

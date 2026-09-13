@@ -7,7 +7,7 @@ import { CompanyLogo } from "@/components/company-logo";
 import { SOURCE_LABELS, type JdBlock } from "@/lib/types";
 import { formatSalaryBand, SALARY_ATTRIBUTION } from "@/lib/salary";
 import { countryByIso2, regionLabel } from "@/lib/locations";
-import { buildAlternates, formatDate, SITE_URL } from "@/lib/seo";
+import { buildAlternates, formatDate, jobOgDescription, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getAllJobIds().map((id) => ({ id }));
@@ -22,10 +22,25 @@ export async function generateMetadata({
   const job = getJobById(id);
   if (!job) return {};
   const t = await getTranslations({ locale, namespace: "Meta" });
+  const country = job.location.countryIso2 ? countryByIso2(job.location.countryIso2) : null;
+  const description = jobOgDescription(job.title, job.company, country?.name ?? null, t("jobOgTail"));
+  const url = `${SITE_URL}/${locale}/jobs/${job.id}`;
   return {
     title: t("jobTitle", { title: job.title, company: job.company }),
-    description: job.text.slice(0, 155),
+    description,
     alternates: buildAlternates(locale, `/jobs/${job.id}`),
+    openGraph: {
+      title: `${job.title} · ${job.company}`,
+      description,
+      url,
+      type: "website",
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: job.company }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${job.title} · ${job.company}`,
+      description,
+    },
   };
 }
 
@@ -96,7 +111,7 @@ export default async function JobDetailPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
 
-      <Link href="/jobs" className="text-sm font-semibold text-brand-solid hover:underline">
+      <Link href="/jobs" className="text-sm font-semibold text-brand-500 hover:underline">
         ← {t("back")}
       </Link>
 
@@ -184,7 +199,7 @@ export default async function JobDetailPage({
               href={job.sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-block font-semibold text-brand-solid hover:underline"
+              className="mt-2 inline-block font-semibold text-brand-500 hover:underline"
             >
               {t("viewOriginal")}
             </a>
