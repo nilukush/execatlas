@@ -69,7 +69,7 @@ export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | nu
     }
   }
 
-  return {
+  const job: Job = {
     id: existing?.id ?? stableId(raw.company, raw.title, raw.source, raw.externalId),
     title: raw.title.trim(),
     company: raw.company.trim(),
@@ -101,4 +101,31 @@ export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | nu
     posterName: raw.posterName ?? undefined,
     posterUrl: raw.posterUrl ?? undefined,
   };
+
+  // a job whose content did not change keeps its previous updatedAt so a
+  // quiet ingest can produce a byte-identical dataset and skip the commit
+  if (existing && contentSignature(job) === contentSignature(existing)) {
+    return { ...job, updatedAt: existing.updatedAt };
+  }
+  return job;
+}
+
+/**
+ * Post-dedupe guard for merged records: a raw re-normalized against a
+ * multi-source record cannot match per-raw (its sources array is shorter),
+ * so the comparison runs again here against the stored merged record.
+ */
+export function stableUpdatedAt(job: Job, prevById: Map<string, Job>): Job {
+  const prev = prevById.get(job.id);
+  if (prev && contentSignature(job) === contentSignature(prev)) {
+    return { ...job, updatedAt: prev.updatedAt };
+  }
+  return job;
+}
+
+function contentSignature(job: Job): string {
+  const keys = Object.keys(job)
+    .filter((k) => k !== "updatedAt" && k !== "firstSeen")
+    .sort();
+  return JSON.stringify(job, keys);
 }

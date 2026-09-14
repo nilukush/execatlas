@@ -117,6 +117,20 @@ export interface IndexEntry {
   source: SourceId;
 }
 
+export const DATASET_VERSION = 2;
+
+export interface JobsFile {
+  version: number;
+  generatedAt: string;
+  jobs: Job[];
+}
+
+export interface IndexFile {
+  version: number;
+  generatedAt: string;
+  jobs: IndexEntry[];
+}
+
 export const ROLE_TYPES = ["permanent", "contract", "freelance", "temporary", "part-time", "full-time", "interim"] as const;
 
 export interface DatasetStats {

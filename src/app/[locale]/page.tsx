@@ -59,7 +59,7 @@ export default async function HomePage({
             </Link>
           </div>
 
-          {stats && stats.total > 0 && (
+          {stats.total > 0 && (
             <dl className="mt-10 grid max-w-2xl grid-cols-2 gap-4 sm:grid-cols-4">
               <div className="card-ui p-4">
                 <dt className="text-xs text-muted">{t("statRoles")}</dt>

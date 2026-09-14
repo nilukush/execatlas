@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { normalizeJob } from "./normalize";
-import type { RawJob } from "../../src/lib/types";
+import { dedupeJobs } from "./dedupe";
+import { normalizeJob, stableUpdatedAt } from "./normalize";
+import type { Job, RawJob } from "../../src/lib/types";
 
 const NOW = "2026-09-06T10:00:00.000Z";
 
@@ -44,6 +45,42 @@ describe("normalizeJob", () => {
     expect(job?.postedAt).toBe("2026-09-01T08:00:00.000Z");
     expect(job?.firstSeen).toBe(NOW);
     expect(job?.id).toMatch(/^acme-payments-director-of-engineering-[a-f0-9]{6}$/);
+  });
+
+  it("keeps updatedAt stable when the content did not change", () => {
+    const first = normalizeJob(makeRaw(), "2026-09-06T10:00:00.000Z");
+    expect(first).not.toBeNull();
+    const later = normalizeJob(makeRaw(), "2026-09-13T10:00:00.000Z", first!);
+    expect(later?.updatedAt).toBe(first?.updatedAt);
+    expect(later?.firstSeen).toBe(first?.firstSeen);
+
+    const edited = normalizeJob(
+      makeRaw({ descriptionHtml: "<p>Updated responsibilities, lead six teams.</p><h3>Requirements</h3><ul><li>10+ years</li></ul><p>Visa sponsorship available for exceptional candidates.</p>" }),
+      "2026-09-13T10:00:00.000Z",
+      first!
+    );
+    expect(edited?.updatedAt).toBe("2026-09-13T10:00:00.000Z");
+  });
+
+  it("keeps updatedAt stable for a dedupe-merged record re-normalized from both sources", () => {
+    const first = normalizeJob(makeRaw(), "2026-09-06T10:00:00.000Z")!;
+    const stored = { ...first, sources: ["greenhouse", "arbeitnow"] as Job["sources"] };
+
+    // next night: both source raws re-normalize against the stored merged
+    // record, whose two-source array defeats the per-raw guard
+    const ghAgain = normalizeJob(makeRaw(), "2026-09-13T10:00:00.000Z", stored)!;
+    const arbeitnowAgain = normalizeJob(
+      makeRaw({ source: "arbeitnow", externalId: "ab-1" }),
+      "2026-09-13T10:00:00.000Z",
+      stored
+    )!;
+    const remerged = dedupeJobs([ghAgain, arbeitnowAgain]);
+    expect(remerged).toHaveLength(1);
+    expect(remerged[0].updatedAt).toBe("2026-09-13T10:00:00.000Z");
+
+    // the post-dedupe guard restores the stored merged record's stamp
+    const stabilized = stableUpdatedAt(remerged[0], new Map([[stored.id, stored]]));
+    expect(stabilized.updatedAt).toBe(stored.updatedAt);
   });
 
   it("drops titles outside the leadership scope", () => {

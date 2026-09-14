@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
+import { writeJsonAtomic } from "./write";
 
 /**
  * Polite JSON fetcher for the ingestion pipeline:
@@ -19,7 +20,7 @@ export const USER_AGENT =
 const MIN_INTERVAL_MS = 1100;
 const lastHitPerHost = new Map<string, number>();
 
-const cacheDir = () => path.join(process.cwd(), "data", "cache");
+const cacheDir = () => process.env.EXECATLAS_CACHE_DIR ?? path.join(process.cwd(), "data", "cache");
 
 async function politeFetch(url: string, fetchImpl: typeof fetch): Promise<unknown> {
   const host = new URL(url).host;
@@ -51,20 +52,25 @@ export async function cachedFetchJson(
 ): Promise<unknown> {
   const { ttlMs = 6 * 60 * 60 * 1000, fetchImpl = fetch } = options;
 
-  const file = cacheFile(url);
+  const file = cacheFilePath(url);
   if (fs.existsSync(file)) {
-    const cached = JSON.parse(fs.readFileSync(file, "utf8")) as { savedAt: number; data: unknown };
-    if (Date.now() - cached.savedAt < ttlMs) return cached.data;
+    try {
+      const cached = JSON.parse(fs.readFileSync(file, "utf8")) as { savedAt: number; data: unknown };
+      if (Date.now() - cached.savedAt < ttlMs) return cached.data;
+    } catch {
+      // a half-written cache file must read as a miss, not crash every run
+      fs.rmSync(file, { force: true });
+    }
   }
 
   const data = await politeFetch(url, fetchImpl);
 
   fs.mkdirSync(cacheDir(), { recursive: true });
-  fs.writeFileSync(cacheFile(url), JSON.stringify({ savedAt: Date.now(), data }));
+  writeJsonAtomic(file, { savedAt: Date.now(), data });
   return data;
 }
 
-function cacheFile(url: string): string {
+export function cacheFilePath(url: string): string {
   const hash = crypto.createHash("sha1").update(url).digest("hex");
   return path.join(cacheDir(), `${hash}.json`);
 }

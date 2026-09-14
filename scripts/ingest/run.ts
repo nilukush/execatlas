@@ -12,14 +12,26 @@ import { greenhouseConnector } from "./connectors/greenhouse";
 import { workableConnector } from "./connectors/workable";
 import { arbeitnowConnector } from "./connectors/arbeitnow";
 import { jobicyConnector } from "./connectors/jobicy";
-import { normalizeJob } from "./normalize";
+import { normalizeJob, stableUpdatedAt } from "./normalize";
 import { dedupeJobs } from "./dedupe";
 import { datasetProblems, shouldRunSanityGate } from "./sanity";
 import { writeJsonAtomic } from "./write";
 import { buildQueryMatrix } from "../../src/lib/roles";
-import type { DatasetStats, IndexEntry, Job, SourceId } from "../../src/lib/types";
+import { DATASET_VERSION } from "../../src/lib/types";
+import type { DatasetStats, IndexEntry, Job, JobsFile, SourceId } from "../../src/lib/types";
 
 const GENERATED_DIR = path.join(process.cwd(), "data", "generated");
+
+function loadPrevEnvelope(): JobsFile | null {
+  const file = path.join(GENERATED_DIR, "jobs.json");
+  if (!fs.existsSync(file)) return null;
+  try {
+    const parsed = JSON.parse(fs.readFileSync(file, "utf8")) as JobsFile;
+    return Array.isArray(parsed.jobs) ? parsed : null;
+  } catch {
+    return null;
+  }
+}
 
 function loadPrevStats(): DatasetStats | null {
   const file = path.join(GENERATED_DIR, "stats.json");
@@ -28,17 +40,6 @@ function loadPrevStats(): DatasetStats | null {
     return JSON.parse(fs.readFileSync(file, "utf8")) as DatasetStats;
   } catch {
     return null;
-  }
-}
-
-async function loadExisting(): Promise<Map<string, Job>> {
-  const file = path.join(GENERATED_DIR, "jobs.json");
-  if (!fs.existsSync(file)) return new Map();
-  try {
-    const parsed = JSON.parse(fs.readFileSync(file, "utf8")) as { jobs?: Job[] };
-    return new Map((parsed.jobs ?? []).map((job) => [job.id, job]));
-  } catch {
-    return new Map();
   }
 }
 
@@ -103,7 +104,8 @@ async function main() {
     jobicyConnector(deps, { count: smoke ? 5 : JOBICY_COUNT }),
   ].filter((connector) => !only || connector.id === only);
 
-  const existing = await loadExisting();
+  const prevEnvelope = loadPrevEnvelope();
+  const existing = new Map<string, Job>((prevEnvelope?.jobs ?? []).map((job) => [job.id, job]));
   const allJobs: Job[] = [];
   let dropped = 0;
 
@@ -124,7 +126,7 @@ async function main() {
     console.log(`[${connector.id}] ${rawJobs.length} fetched, ${kept} in scope`);
   }
 
-  const deduped = dedupeJobs(allJobs);
+  const deduped = dedupeJobs(allJobs).map((job) => stableUpdatedAt(job, existing));
   deduped.sort((a, b) => (a.postedAt === b.postedAt ? a.id.localeCompare(b.id) : a.postedAt < b.postedAt ? 1 : -1));
 
   if (shouldRunSanityGate({ smoke, only: Boolean(only), force: args.includes("--force") })) {
@@ -135,23 +137,33 @@ async function main() {
     }
   }
 
+  // a quiet run whose content is byte-identical keeps the previous stamp so
+  // the workflow's no-change check can actually fire and skip the commit
+  const stamp =
+    prevEnvelope && JSON.stringify(deduped) === JSON.stringify(prevEnvelope.jobs)
+      ? prevEnvelope.generatedAt
+      : now;
+
   fs.mkdirSync(GENERATED_DIR, { recursive: true });
-  writeJsonAtomic(
-    path.join(GENERATED_DIR, "jobs.json"),
-    { generatedAt: now, jobs: deduped }
-  );
-  writeJsonAtomic(
-    path.join(GENERATED_DIR, "index.json"),
-    { generatedAt: now, jobs: deduped.map(toIndexEntry) }
-  );
-  const stats = computeStats(deduped, now);
+  writeJsonAtomic(path.join(GENERATED_DIR, "jobs.json"), {
+    version: DATASET_VERSION,
+    generatedAt: stamp,
+    jobs: deduped,
+  });
+  writeJsonAtomic(path.join(GENERATED_DIR, "index.json"), {
+    version: DATASET_VERSION,
+    generatedAt: stamp,
+    jobs: deduped.map(toIndexEntry),
+  });
+  const stats = computeStats(deduped, stamp);
   writeJsonAtomic(path.join(GENERATED_DIR, "stats.json"), stats);
   writeJsonAtomic(path.join(GENERATED_DIR, "queries.json"), {
-    generatedAt: now,
+    generatedAt: stamp,
     queries: buildQueryMatrix().map((q) => q.phrase),
   });
 
   console.log(`Done: ${deduped.length} jobs (${dropped} out of scope), ${stats.countries} countries`);
+  if (stamp !== now) console.log("Dataset unchanged; kept previous generatedAt");
   console.log("By source:", stats.bySource);
   console.log("By region:", stats.byRegion);
   console.log("By visa:", stats.byVisa);
