@@ -5,18 +5,18 @@ Senior engineering leadership jobs, worldwide. Live at https://execatlas.vercel.
 - Visa sponsorship signal, read from each posting (sponsors / does not sponsor / unspecified)
 - The real apply link, pointing at the employer's own posting
 - Requirements extracted from the description and shown first
-- Commute type (remote, hybrid with office days, on-site) and role type (permanent, contract, freelance, temporary, part-time, interim)
+- Commute type (remote, hybrid with office days, on-site) and role type (permanent, contract, freelance, temporary, part-time, full-time, interim)
 - Salary: the stated range when the posting includes one, otherwise an estimated P25 to P75 band in the local currency of the job's country, built on the ExpatRate benchmark dataset (https://expatrate.pages.dev)
-- Filters (region, country, seniority, visa, work mode, role type, source), search, sorting and pagination
-- Ask a question in plain language ("is there a VP Engineering role in Dubai with visa sponsorship?") and get a yes or no with counts, the filters it understood, and when nothing matches, the closest relaxation that does
+- Filters (region, country, seniority, visa, work mode, role type, source), sorting and pagination; on phones the filters fold behind one button with an active count
+- One search box for questions and keywords alike: ask "is there a VP Engineering role in Dubai with visa sponsorship?" and get a yes or no with counts, the filters it understood, and when nothing matches, the closest relaxation that does
 - Saved searches on your device with a count of new roles since you last looked; no account needed
-- Crawlable static list pages under /jobs/page/2 and beyond, plus JSON-LD JobPosting sitemap coverage
+- Crawlable static list pages under /jobs/page/2 and beyond, a sitemap with per-job dates and hreflang including x-default, and JSON-LD JobPosting markup on every role
 - Four languages: English (default), Hindi, Arabic (full RTL), Bahasa Indonesia
-- Installable PWA, static rendering for fast loads and clean SEO, JSON-LD JobPosting markup on every role
+- Installable PWA, static rendering for fast loads and clean SEO, and a proper share card (title, summary and image) when a role link is sent to someone
 
 ## Quickstart
 
-Requirements: Node 20+ and pnpm 10+.
+Requirements: Node 20.11+ (CI and Vercel run 24) and pnpm 10+.
 
 ```bash
 pnpm install
@@ -27,9 +27,11 @@ pnpm dev           # http://localhost:4317
 Other commands:
 
 ```bash
-pnpm test          # vitest unit and component tests
-pnpm build         # static production build into out/
-pnpm ingest:smoke  # quick single-board ingestion dry run
+pnpm test               # vitest unit and component tests
+npx tsc --noEmit        # type gate, must be clean
+pnpm build              # static production build into out/, then artifact checks
+pnpm ingest:smoke       # single-board connectivity check; overwrites the
+                       # committed dataset, so re-run a full ingest afterwards
 ```
 
 The site reads `data/generated/*.json` at build time, so it renders even offline after one successful ingest. The generated dataset is committed, so a fresh clone builds without re-ingesting.
@@ -38,7 +40,7 @@ The site reads `data/generated/*.json` at build time, so it renders even offline
 
 | Source | Access | Status |
 | --- | --- | --- |
-| Greenhouse | Official public Job Board API (no auth) | Active. 119 verified company boards |
+| Greenhouse | Official public Job Board API (no auth) | Active. 134 verified company boards |
 | Workable | Public search endpoint used by their own frontend | Active, rate limited and cached |
 | Arbeitnow | Free public job board API | Active |
 | Jobicy | Public API v2 | Active |
@@ -61,22 +63,26 @@ src/
   lib/                 domain logic: roles matrix, locations, enrichment,
                        salary parsing and estimation, job description parser,
                        search, ask-a-question answering, saved searches,
-                       data access
+                       and versioned fail-closed data access
   data/salary/         vendored ExpatRate benchmark subset (CC BY 4.0)
   messages/            translation catalogs
 scripts/
   ingest/              connectors (greenhouse, workable, arbeitnow, jobicy),
-                       normalizer, dedupe, polite HTTP client, pipeline CLI
+                       normalizer, dedupe, polite cached HTTP client, dataset
+                       sanity gates, atomic writes, pipeline CLI
+  fix-locale-attrs.ts  post-build: bakes lang/dir into every locale page
+  verify-build.ts      post-build: asserts the artifact contract or fails
 data/generated/        committed build-time dataset (jobs, index, stats, queries)
 ```
 
 ## Refreshing data
 
-Run `pnpm ingest` and commit the updated `data/generated/` files. Two GitHub Actions workflows ship in `.github/workflows/`: CI (tests, typecheck, build) on every push and pull request, and a scheduled daily ingest that commits the refreshed dataset automatically. Both activate once the repository is pushed to GitHub. Rebuilds pick up the fresh dataset automatically.
+Run `pnpm ingest` and commit the updated `data/generated/` files. A scheduled GitHub Actions workflow does exactly that every night: it ingests, aborts if the dataset collapses below half its previous size (a blocked source or a changed API shape, with a manual override flag), then runs the type check, the test suite and a full build before the bot commits, so a bad night cannot ship. Nights with no data changes skip the commit entirely. CI runs the same checks on every push and pull request, and every build (local, CI, Vercel) ends by verifying its own output: sitemap counts against the dataset, locale attributes, redirect shell, structured data, the works.
 
 ## Roadmap
 
 - Periodically repeat the Greenhouse board discovery sweep (several newly added boards have large non-leadership pools that will yield leadership roles over time)
+- Scale work as the dataset grows past about 1000 roles: ship a compact index to the browser instead of the full one, and shard the sitemap
 - Push alerts for saved searches, only if a hosting or backend story ever appears
 - Connectors for any source that opens an official access path
 

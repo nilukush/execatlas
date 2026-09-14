@@ -6,17 +6,19 @@ Thanks for helping. This document covers the short version of how to work on thi
 
 ```bash
 pnpm install
-pnpm ingest:smoke   # quick data pull so pages have something to render
 pnpm dev            # http://localhost:4317
 ```
 
+The generated dataset is committed, so pages render straight after clone. `pnpm ingest:smoke` is a single-board connectivity check that overwrites `data/generated/` with a tiny dataset; if you run it, re-run a full `pnpm ingest` before committing anything.
+
 ## Workflow
 
-1. Tests first. Every domain change (roles, locations, enrichment, salary, connectors, dedupe) starts with a failing test in the matching `*.test.ts` file. `pnpm test` must pass before anything is committed.
+1. Tests first. Every domain change (roles, locations, enrichment, salary, ask, connectors, dedupe) starts with a failing test in the matching `*.test.ts` file. `pnpm test` must pass before anything is committed.
 2. Keep types strict. `npx tsc --noEmit` must be clean; there is no ESLint by design, so the type gate matters.
 3. Respect the sources. New connectors only use official or public APIs, one request per second per host, identified User-Agent, cached responses, deep links out. Anything that needs an account, a login wall, or bot protection bypass is rejected.
 4. Writing style: plain sentences, no em dashes, no filler. This applies to code comments, docs, and UI copy in all four locales.
-5. Salary honesty: estimates are always labeled, missing data shows as missing.
+5. All four message catalogs stay key-identical: add or change a UI string in en, hi, ar and id in the same change. `pnpm build` fails if any shipped artifact drifts.
+6. Salary honesty: estimates are always labeled, missing data shows as missing.
 
 ## Adding a connector
 
