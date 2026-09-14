@@ -51,3 +51,6 @@ next-env.d.ts
 /data/cache/
 /data/*.db
 data/*.db-journal
+
+# editor
+/.idea/
