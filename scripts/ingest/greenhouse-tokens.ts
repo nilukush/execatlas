@@ -1,9 +1,10 @@
-// Verified 2026-09-06 (original 99), 2026-09-07 (20 more, target-region
-// focus) and 2026-09-13 (15 more from a discovery sweep: teneo/point72/
-// cobblestoneenergy for Dubai and Riyadh, minio for a Riyadh field CTO,
-// asm/motional/intrinsicrobotics/jumptrading for Singapore, truveta and
-// roku for India-linked leadership, avepoint/mindbody/alixpartners/
-// bursonglobalcareers/teneolinkedin for regional coverage).
+// Verified 2026-09-06 (original 99), 2026-09-07 (20 more), 2026-09-13 (15
+// from the first discovery sweep) and 2026-09-14 (14 more from an expanded
+// sweep with new query angles: xapo61/stackblitz/globalizationpartners for
+// remote-anywhere leadership, awin/ogilvy for Berlin and agency tech,
+// speechify/oneacrefundglobal/kivaorg for Nairobi and Kigali,
+// artefactjobs/artefactlinkedin/nuitee for Casablanca and travel tech,
+// leaflink/cloverhealth/serhant for US and UK leadership pools).
 // Each token returns HTTP 200 with a jobs array from the public Greenhouse
 // Job Board API. Re-verify when adding or pruning boards.
 export const GREENHOUSE_TOKENS: string[] = [
@@ -17,9 +18,12 @@ export const GREENHOUSE_TOKENS: string[] = [
   'alphasense',
   'amplitude',
   'anthropic',
+  'artefactjobs',
+  'artefactlinkedin',
   'asana',
   'asm',
   'avepoint',
+  'awin',
   'axios',
   'betterment',
   'binance',
@@ -37,6 +41,7 @@ export const GREENHOUSE_TOKENS: string[] = [
   'chime',
   'cleo',
   'cloudflare',
+  'cloverhealth',
   'cobblestoneenergy',
   'cockroachlabs',
   'coinbase',
@@ -64,6 +69,7 @@ export const GREENHOUSE_TOKENS: string[] = [
   'getyourguide',
   'gitlab',
   'globalhealthcareexchangeinc',
+  'globalizationpartners',
   'godaddy',
   'grailed',
   'greenhouse',
@@ -77,7 +83,9 @@ export const GREENHOUSE_TOKENS: string[] = [
   'jumptrading',
   'kickstarter',
   'kindsnacks',
+  'kivaorg',
   'klaviyo',
+  'leaflink',
   'lyft',
   'medium',
   'mercari',
@@ -93,8 +101,11 @@ export const GREENHOUSE_TOKENS: string[] = [
   'netlify',
   'netradyne',
   'nubank',
+  'nuitee',
+  'ogilvy',
   'okta',
   'okx',
+  'oneacrefundglobal',
   'onetrust',
   'opswat',
   'pagerduty',
@@ -114,9 +125,12 @@ export const GREENHOUSE_TOKENS: string[] = [
   'ruyaai',
   'samsara',
   'scaleai',
+  'serhant',
   'singlestore',
   'sofi',
   'solarisbank',
+  'speechify',
+  'stackblitz',
   'stockx',
   'stripe',
   'sumologic',
@@ -137,6 +151,7 @@ export const GREENHOUSE_TOKENS: string[] = [
   'wise',
   'wolt',
   'wundermanthompson',
+  'xapo61',
   'xendit',
   'yugabyte',
   'zenoti',
