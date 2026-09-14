@@ -219,7 +219,9 @@ function escapeRe(s: string): string {
 
 /** Longest country alias found as a whole phrase in normalized free text. */
 export function findCountryInText(normalized: string): Country | null {
-  const tokens = new Set(normalized.split(" "));
+  // continent phrases contain the word america and must never read as the US
+  const masked = normalized.replace(/\b(?:north|south|latin|central)[\s\-/]+america\b/g, "continent");
+  const tokens = new Set(masked.split(" "));
   let best: { country: Country; length: number } | null = null;
   for (const country of COUNTRIES) {
     for (const alias of [country.name.toLowerCase(), ...country.aliases]) {
@@ -229,7 +231,7 @@ export function findCountryInText(normalized: string): Country | null {
           best = { country, length: aliasNorm.length };
         }
       } else if (
-        new RegExp(`\\b${escapeRe(aliasNorm)}\\b`).test(normalized) &&
+        new RegExp(`\\b${escapeRe(aliasNorm)}\\b`).test(masked) &&
         (!best || aliasNorm.length > best.length)
       ) {
         best = { country, length: aliasNorm.length };

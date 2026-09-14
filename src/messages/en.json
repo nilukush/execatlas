@@ -69,7 +69,7 @@
     "sortNewest": "Newest first",
     "sortSalary": "Pay band: high to low",
     "noResults": "No roles match these filters",
-    "noResultsBody": "Try widening the region, clearing the search box, or switching the visa filter to Unspecified.",
+    "noResultsBody": "Try widening the region, clearing the ask box, or switching the visa filter to Unspecified.",
     "prev": "Previous page",
     "next": "Next page",
     "page": "Page {page} of {total}",

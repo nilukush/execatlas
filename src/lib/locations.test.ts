@@ -2,9 +2,26 @@ import { describe, expect, it } from "vitest";
 import {
   COUNTRIES,
   REGIONS,
+  findCountryInText,
   resolveLocation,
   regionLabel,
 } from "./locations";
+
+describe("continent phrases never read as the US", () => {
+  it.each([
+    ["remote latin america", null],
+    ["latin-america", null],
+    ["north/america", null],
+    ["south america", null],
+    ["central america", null],
+    ["north america", null],
+    ["america", "US"],
+    ["new york usa", "US"],
+  ])("%s -> %s", (text, iso2) => {
+    const found = findCountryInText(text);
+    expect(found?.iso2 ?? null).toBe(iso2);
+  });
+});
 
 describe("locations dataset integrity", () => {
   it("has unique ISO codes", () => {

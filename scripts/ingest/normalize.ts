@@ -17,7 +17,7 @@ function slugify(input: string): string {
     .slice(0, 40);
 }
 
-function stableId(company: string, title: string, source: string, externalId: string): string {
+export function stableId(company: string, title: string, source: string, externalId: string): string {
   const hash = crypto
     .createHash("sha1")
     .update(`${source}:${externalId}`)

@@ -12,7 +12,7 @@ import { greenhouseConnector } from "./connectors/greenhouse";
 import { workableConnector } from "./connectors/workable";
 import { arbeitnowConnector } from "./connectors/arbeitnow";
 import { jobicyConnector } from "./connectors/jobicy";
-import { normalizeJob, stableUpdatedAt } from "./normalize";
+import { normalizeJob, stableId, stableUpdatedAt } from "./normalize";
 import { dedupeJobs } from "./dedupe";
 import { datasetProblems, shouldRunSanityGate } from "./sanity";
 import { writeJsonAtomic } from "./write";
@@ -113,14 +113,13 @@ async function main() {
     const rawJobs = await connector.run();
     let kept = 0;
     for (const raw of rawJobs) {
-      const job = normalizeJob(raw, now);
+      const priorJob = existing.get(stableId(raw.company, raw.title, raw.source, raw.externalId));
+      const job = normalizeJob(raw, now, priorJob);
       if (!job) {
         dropped += 1;
         continue;
       }
-      const priorJob = existing.get(job.id);
-      const finalJob = priorJob ? normalizeJob(raw, now, priorJob) ?? job : job;
-      allJobs.push(finalJob);
+      allJobs.push(job);
       kept += 1;
     }
     console.log(`[${connector.id}] ${rawJobs.length} fetched, ${kept} in scope`);
