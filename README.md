@@ -40,7 +40,7 @@ The site reads `data/generated/*.json` at build time, so it renders even offline
 
 | Source | Access | Status |
 | --- | --- | --- |
-| Greenhouse | Official public Job Board API (no auth) | Active. 134 verified company boards |
+| Greenhouse | Official public Job Board API (no auth) | Active. 148 verified company boards |
 | Workable | Public search endpoint used by their own frontend | Active, rate limited and cached |
 | Arbeitnow | Free public job board API | Active |
 | Jobicy | Public API v2 | Active |
