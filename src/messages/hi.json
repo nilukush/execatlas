@@ -126,7 +126,7 @@
     "location": "स्थान",
     "expatFriendly": "एक्सपैट फ्रेंडली",
     "expatFriendlyYes": "एक्सपैट फ्रेंडली स्थान",
-    "hybridDays": "सप्ताह में {days} दिन ऑफिस",
+    "hybridDays": "{days, plural, one {सप्ताह में # दिन ऑफिस} other {सप्ताह में # दिन ऑफिस}}",
     "visaYes": "वीज़ा स्पॉन्सरशिप",
     "visaNo": "वीज़ा स्पॉन्सरशिप नहीं",
     "visaUnknown": "वीज़ा अनिर्दिष्ट",

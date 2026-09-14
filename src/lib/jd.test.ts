@@ -97,6 +97,12 @@ describe("parsePostingHtml", () => {
     expect(result.blocks[0]).toEqual({ type: "para", text: "Salary < 100k and equity > shares" });
   });
 
+  it("cuts an unterminated script tag to the end of input", () => {
+    const result = parsePostingHtml("<p>Safe.</p><script>alert('x')");
+    expect(result.text).not.toContain("alert");
+    expect(result.blocks.map((b) => b.type)).toEqual(["para"]);
+  });
+
   it("keeps an out-of-range numeric character reference from throwing", () => {
     const result = parsePostingHtml("<p>Bad &#x110000; reference</p>");
     expect(result.blocks[0]).toEqual({ type: "para", text: "Bad &#x110000; reference" });

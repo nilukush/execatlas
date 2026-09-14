@@ -1,6 +1,7 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getIndexEntries, getStats } from "@/lib/data";
+import { defaultOrder } from "@/lib/search";
 import { JobCard, type JobCardLabels } from "@/components/job-card";
 import { ROLE_TYPES, SOURCE_LABELS } from "@/lib/types";
 import { formatDate } from "@/lib/seo";
@@ -19,7 +20,7 @@ export default async function HomePage({
 
   const { jobs: entries } = getIndexEntries();
   const stats = getStats();
-  const latest = entries.slice(0, 6);
+  const latest = defaultOrder(entries).slice(0, 6);
 
   const labels: JobCardLabels = {
     remoteWorldwide: tJobs("remoteWorldwide"),

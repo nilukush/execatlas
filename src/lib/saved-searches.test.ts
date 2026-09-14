@@ -7,7 +7,7 @@ import {
   serializeSavedSearches,
   type SavedSearch,
 } from "./saved-searches";
-import { DEFAULT_FILTERS } from "./search";
+import { applyFilters, DEFAULT_FILTERS } from "./search";
 import type { IndexEntry } from "./types";
 
 function make(over: Partial<IndexEntry>): IndexEntry {
@@ -30,6 +30,31 @@ function make(over: Partial<IndexEntry>): IndexEntry {
 }
 
 const filters = { ...DEFAULT_FILTERS, seniority: "vp" as const, query: "engineering" };
+
+describe("markSeen seenIds cap", () => {
+  it("keeps only the newest 500 seen ids so storage stays bounded", () => {
+    const entries = Array.from({ length: 600 }, (_, i) => ({
+      id: `j${i}`,
+      title: "VP of Engineering",
+      company: `C${i}`,
+      seniority: "vp",
+      domain: "engineering",
+      countryIso2: "AE",
+      countryName: "United Arab Emirates",
+      region: "middle-east",
+      remote: false,
+      visa: "unknown",
+      workMode: "onsite",
+      roleType: "permanent",
+      postedAt: `2026-09-${String((i % 28) + 1).padStart(2, "0")}`,
+      source: "greenhouse",
+    })) as never[];
+    const saved = markSeen(createSavedSearch("", { ...DEFAULT_FILTERS, sort: "newest" } as never, "s1"), entries);
+    expect(saved.seenIds).toHaveLength(500);
+    // applyFilters sorts newest first, so the kept ids are the first 500 of that order
+    expect(saved.seenIds[0]).toBe(applyFilters(entries as never[], { ...DEFAULT_FILTERS, sort: "newest" } as never)[0].id);
+  });
+});
 
 describe("newMatches", () => {
   it("returns current matches whose ids were not seen yet", () => {

@@ -117,6 +117,8 @@ describe("JobsBrowser ask and saved searches", () => {
     expect((screen.getByLabelText("Role type") as HTMLSelectElement).value).toBe("contract");
     expect((screen.getByLabelText("Source") as HTMLSelectElement).value).toBe("workable");
     expect(screen.getByText("1 role")).toBeInTheDocument();
+    // the answer panel must agree with the grid, including roleType and source
+    expect(screen.getByText("Yes. 1 role matches")).toBeInTheDocument();
   });
 });
 
@@ -154,6 +156,24 @@ describe("JobsBrowser search and filters surface", () => {
     expect(screen.getByRole("option", { name: "Part-time" })).toBeInTheDocument();
     const chips = screen.getAllByText("Contract").filter((el) => el.closest(".chip"));
     expect(chips).toHaveLength(1);
+  });
+
+  it("offers the relax-and-suggest path when a re-applied saved search has zero matches", () => {
+    renderBrowser(entries);
+    const question = "Is it possible to get a VP Engineering job in Japan with visa sponsorship?";
+    fireEvent.change(screen.getByPlaceholderText(en.Jobs.askPlaceholder), {
+      target: { value: question },
+    });
+    fireEvent.submit(askForm());
+    expect(screen.getByText("Not right now. No roles match that question.")).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Save this search" }));
+    fireEvent.click(screen.getByRole("button", { name: "Clear filters" }));
+    fireEvent.click(screen.getByRole("button", { name: question }));
+
+    // the re-applied answer must still offer the relaxed suggestion
+    expect(screen.getByText("Not right now. No roles match that question.")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Show those roles" })).toBeInTheDocument();
   });
 
   it("clearing filters returns to page 1", () => {

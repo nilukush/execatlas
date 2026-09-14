@@ -1,9 +1,9 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { CopyrightYear } from "./copyright-year";
 
 export async function SiteFooter() {
   const t = await getTranslations("Footer");
-  const year = new Date().getFullYear();
 
   return (
     <footer className="mt-16 border-t border-line bg-card-2/60">
@@ -21,7 +21,7 @@ export async function SiteFooter() {
             {t("method")}
           </Link>
           <p>
-            © {year} ExecAtlas. {t("license")}
+            © <CopyrightYear /> ExecAtlas. {t("license")}
           </p>
         </div>
       </div>

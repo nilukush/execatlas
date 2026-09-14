@@ -24,8 +24,10 @@ export interface QuestionIntent {
   seniority: Seniority | "all";
   region: RegionId | "all";
   country: string; // iso2 or "all"
-  visa: "all" | "yes";
+  visa: "all" | "yes" | "no" | "unknown";
   workMode: "all" | "remote" | "hybrid" | "onsite";
+  roleType: string; // "all" | RoleTypeId
+  source: string; // "all" | SourceId
 }
 
 export const DEFAULT_INTENT: QuestionIntent = {
@@ -35,6 +37,8 @@ export const DEFAULT_INTENT: QuestionIntent = {
   country: "all",
   visa: "all",
   workMode: "all",
+  roleType: "all",
+  source: "all",
 };
 
 function normalizeQuestion(raw: string): string {
@@ -174,6 +178,8 @@ export function intentFilters(intent: QuestionIntent): JobFilters {
     country: intent.country,
     visa: intent.visa,
     workMode: intent.workMode,
+    roleType: intent.roleType,
+    source: intent.source,
     sort: "newest",
   };
 }
@@ -219,8 +225,9 @@ export interface AskAnswer {
   suggestion?: AskSuggestion;
 }
 
-export function answerQuestion(question: string, entries: IndexEntry[]): AskAnswer {
-  const intent = parseQuestion(question);
+/** Answer for an explicit intent (a parsed question or a saved filter set),
+ * with relax-and-suggest when nothing matches. */
+export function answerFilters(intent: QuestionIntent, entries: IndexEntry[]): AskAnswer {
   const matches = applyFilters(entries, intentFilters(intent));
 
   let suggestion: AskSuggestion | undefined;
@@ -245,4 +252,8 @@ export function answerQuestion(question: string, entries: IndexEntry[]): AskAnsw
     intent,
     ...(suggestion ? { suggestion } : {}),
   };
+}
+
+export function answerQuestion(question: string, entries: IndexEntry[]): AskAnswer {
+  return answerFilters(parseQuestion(question), entries);
 }

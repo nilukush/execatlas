@@ -44,3 +44,37 @@ describe("message catalogs", () => {
     }
   });
 });
+
+describe("placeholder parity", () => {
+  // extract placeholder names and whether each uses ICU plural/select
+  const placeholders = (value: unknown): Array<string> => {
+    if (typeof value !== "string") return [];
+    // strip plural/select branch bodies first, or a lone word branch like
+    // one {yesterday} would read as a placeholder
+    const stripped = value.replace(
+      /\{\s*\w+\s*,\s*(?:plural|select)\s*,\s*((?:\s*(?:=[0-9]+|\w+)\s*\{[^{}]*\})+)\s*\}/g,
+      " "
+    );
+    const out: Array<string> = [...stripped.matchAll(/\{(\w+)\}/g)].map((m) => m[1]);
+    for (const m of value.matchAll(/\{\s*(\w+)\s*,\s*(?:plural|select)\b/g)) {
+      out.push(`${m[1]}:icu`);
+    }
+    return out.sort();
+  };
+
+  const flatten = (obj: Record<string, unknown>, prefix = ""): Array<[string, unknown]> =>
+    Object.entries(obj).flatMap(([k, v]) =>
+      typeof v === "object" && v !== null ? flatten(v as Record<string, unknown>, `${prefix}${k}.`) : [[`${prefix}${k}`, v]]
+    );
+
+  it("every locale uses the same placeholder names and ICU forms per key", () => {
+    const en = flatten(load("en") as Record<string, unknown>);
+    for (const locale of locales) {
+      if (locale === "en") continue;
+      const other = Object.fromEntries(flatten(load(locale) as Record<string, unknown>));
+      for (const [key, value] of en) {
+        expect(placeholders(other[key]), `${locale} ${key}`).toEqual(placeholders(value));
+      }
+    }
+  });
+});

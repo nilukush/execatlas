@@ -6,7 +6,7 @@ import type { IndexEntry } from "@/lib/types";
 import { COUNTRIES, REGIONS } from "@/lib/locations";
 import { SOURCE_LABELS, type SourceId, ROLE_TYPES } from "@/lib/types";
 import { applyFilters, DEFAULT_FILTERS, paginate, type JobFilters } from "@/lib/search";
-import { answerQuestion, intentFilters, type AskAnswer, type AskSuggestion, type QuestionIntent } from "@/lib/ask";
+import { answerFilters, answerQuestion, intentFilters, type AskAnswer, type AskSuggestion, type QuestionIntent } from "@/lib/ask";
 import {
   createSavedSearch,
   markSeen,
@@ -73,13 +73,16 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
   }
 
   function intentFromFilters(f: JobFilters): QuestionIntent {
+    // lossless so the answer panel counts exactly what the grid shows
     return {
       query: f.query,
       seniority: f.seniority as QuestionIntent["seniority"],
       region: f.region as QuestionIntent["region"],
       country: f.country,
-      visa: f.visa === "yes" ? "yes" : "all",
+      visa: f.visa,
       workMode: f.workMode,
+      roleType: f.roleType,
+      source: f.source,
     };
   }
 
@@ -171,18 +174,9 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
     setFilters({ ...s.filters });
     setPage(1);
     setQuestion(s.question);
-    if (s.question) {
-      const matches = applyFilters(entries, s.filters);
-      setAnswer({
-        yes: matches.length > 0,
-        count: matches.length,
-        total: entries.length,
-        top: matches.slice(0, 3),
-        intent: intentFromFilters(s.filters),
-      });
-    } else {
-      setAnswer(null);
-    }
+    // the answer reflects the saved filters (they can differ from a fresh
+    // parse of the question) and gets relax-and-suggest on zero matches
+    setAnswer(s.question ? answerFilters(intentFromFilters(s.filters), entries) : null);
     setSaved((prev) => prev.map((x) => (x.id === s.id ? markSeen(x, entries) : x)));
   }
 

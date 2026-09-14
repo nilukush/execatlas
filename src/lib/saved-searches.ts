@@ -29,10 +29,16 @@ export function newMatches(saved: SavedSearch, entries: IndexEntry[]): IndexEntr
 }
 
 /** Records the current match ids as seen, clearing the new badge. */
+/** seenIds is bounded: only the newest matches are kept, so a broad saved
+ * search cannot grow localStorage without limit as the dataset grows. */
+export const MAX_SEEN_IDS = 500;
+
 export function markSeen(saved: SavedSearch, entries: IndexEntry[]): SavedSearch {
   return {
     ...saved,
-    seenIds: applyFilters(entries, saved.filters).map((e) => e.id),
+    seenIds: applyFilters(entries, { ...saved.filters, sort: "newest" })
+      .map((e) => e.id)
+      .slice(0, MAX_SEEN_IDS),
   };
 }
 

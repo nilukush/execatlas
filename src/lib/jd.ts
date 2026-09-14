@@ -50,7 +50,9 @@ export interface ParsedPosting {
 /**
  * Parses posting HTML into structured blocks without ever rendering raw HTML,
  * so untrusted markup cannot reach the page. Script and style content is
- * stripped entirely; inline tags contribute their text.
+ * stripped entirely; inline tags contribute their text. A textual mention of
+ * a script tag decodes into a real tag token here, and an unterminated one
+ * truncates the rest of the posting: strip beats preserve at this boundary.
  */
 export function parsePostingHtml(html: string): ParsedPosting {
   // Boards deliver content either as literal tags or entity-encoded tags, so
@@ -59,6 +61,9 @@ export function parsePostingHtml(html: string): ParsedPosting {
   const src = decodeEntities(html)
     .replace(/<script[^>]*>[\s\S]*?<\/script\s*>/gi, " ")
     .replace(/<style[^>]*>[\s\S]*?<\/style\s*>/gi, " ")
+    // an unterminated script/style leaks its body as text, so cut to end of input
+    .replace(/<script\b[\s\S]*$/i, " ")
+    .replace(/<style\b[\s\S]*$/i, " ")
     .replace(/<!--[\s\S]*?-->/g, " ");
 
   // Only angle brackets that start a real tag shape split; a bare "<" in text

@@ -53,7 +53,7 @@ describe("parseQuestion", () => {
       want: { query: "engineering godaddy", seniority: "director", region: "all", country: "all", visa: "all", workMode: "all" },
     },
   ])("$question", ({ question, want }) => {
-    expect(parseQuestion(question)).toEqual(want);
+    expect(parseQuestion(question)).toMatchObject(want);
   });
 
   it("does not read AVP as VP", () => {
