@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-20T09:55:21.010Z",
+  "generatedAt": "2026-09-20T11:13:06.674Z",
   "jobs": [
     {
       "id": "botsync-head-of-engineering-syncos-ea9885",
@@ -1960,80 +1960,6 @@
       "updatedAt": "2026-09-20T08:36:18.338Z"
     },
     {
-      "id": "booksy-director-of-engineering-95cc56",
-      "title": "Director of Engineering",
-      "company": "Booksy",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/169461/logo",
-      "applyUrl": "https://jobs.workable.com/view/bbo3Rs3ZWA3C5hCZm6T3Ut/remote-director-of-engineering-in-poland-at-booksy",
-      "sourceUrl": "https://jobs.workable.com/view/bbo3Rs3ZWA3C5hCZm6T3Ut/remote-director-of-engineering-in-poland-at-booksy",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "From empowering entrepreneurs to build successful businesses, to supporting their clients to arrange 'me time' moments, we're in the business of elevating people - helping them to thrive and feel fantastic. Lifting others up can be hard, heavy work, and we passionately believe that the sense of purpose and personal satisfaction this brings are worth it.\nWhat started in Poland is now an international, cloud-based marketplace that's scaling rapidly. We bring independent business owners together with their customers on a product that connects creative communities and opens up worlds of opportunities.\nFor our providers, our products offer services for getting booked, paid, and building a loyal client base. For their clients, we're where they can find their favourite spots, discover new businesses and book appointments in an instant.\nWorking in a rapidly growing, ever-changing scale-up comes with its own set of opportunities and challenges. If you prefer a stable environment, with clear processes and structures then, we've got to be honest, you won't always find that here. However, if you enjoy inventively solving problems with others, helping create clarity when things get confusing, and prioritising your own path within ambiguity, then the chances are that you'll love the opportunities available to grow your career at Booksy.\nThe people you'll like to work with and things you'll enjoy impacting:\nAs a Director of Engineering reporting to the Chief Technology Officer in our Provider Domain, your purpose will be to own the technical strategy and delivery for the systems hundreds of thousands of independent businesses run on every day. You will:\nOwn end-to-end delivery across 4–5 cross-functional teams, leading through Engineering Managers and Staff+ Engineers in a deliberately flat structure with no layers in between.\nSet the engineering standard for the domain — building the frameworks for architecture decisions, technical proposals and how teams work.\nLead our AI transformation of the engineering lifecycle, and define the measures that prove it worked.\nPartner with Product to turn commercial strategy into engineering strategy, and back it with experimentation and data.\nBuild a team of exceptional density, coaching leaders who can operate autonomously.",
-      "blocks": [
-        {
-          "type": "para",
-          "text": "From empowering entrepreneurs to build successful businesses, to supporting their clients to arrange 'me time' moments, we're in the business of elevating people - helping them to thrive and feel fantastic. Lifting others up can be hard, heavy work, and we passionately believe that the sense of purpose and personal satisfaction this brings are worth it."
-        },
-        {
-          "type": "para",
-          "text": "What started in Poland is now an international, cloud-based marketplace that's scaling rapidly. We bring independent business owners together with their customers on a product that connects creative communities and opens up worlds of opportunities."
-        },
-        {
-          "type": "para",
-          "text": "For our providers, our products offer services for getting booked, paid, and building a loyal client base. For their clients, we're where they can find their favourite spots, discover new businesses and book appointments in an instant."
-        },
-        {
-          "type": "para",
-          "text": "Working in a rapidly growing, ever-changing scale-up comes with its own set of opportunities and challenges. If you prefer a stable environment, with clear processes and structures then, we've got to be honest, you won't always find that here. However, if you enjoy inventively solving problems with others, helping create clarity when things get confusing, and prioritising your own path within ambiguity, then the chances are that you'll love the opportunities available to grow your career at Booksy."
-        },
-        {
-          "type": "heading",
-          "text": "The people you'll like to work with and things you'll enjoy impacting:"
-        },
-        {
-          "type": "para",
-          "text": "As a Director of Engineering reporting to the Chief Technology Officer in our Provider Domain, your purpose will be to own the technical strategy and delivery for the systems hundreds of thousands of independent businesses run on every day. You will:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Own end-to-end delivery across 4–5 cross-functional teams, leading through Engineering Managers and Staff+ Engineers in a deliberately flat structure with no layers in between.",
-            "Set the engineering standard for the domain — building the frameworks for architecture decisions, technical proposals and how teams work.",
-            "Lead our AI transformation of the engineering lifecycle, and define the measures that prove it worked.",
-            "Partner with Product to turn commercial strategy into engineering strategy, and back it with experimentation and data.",
-            "Build a team of exceptional density, coaching leaders who can operate autonomously."
-          ]
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "PL",
-        "countryName": "Poland",
-        "region": "europe",
-        "remote": false,
-        "raw": "Poland"
-      },
-      "seniority": "director",
-      "domain": "engineering",
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salary": {
-        "min": 240000,
-        "max": 438000,
-        "currency": "PLN",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "Medium",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2026-09-17T13:46:27.993Z",
-      "firstSeen": "2026-09-20T08:36:18.338Z",
-      "updatedAt": "2026-09-20T08:36:18.338Z"
-    },
-    {
       "id": "booksy-director-of-engineering-54642c",
       "title": "Director of Engineering",
       "company": "Booksy",
@@ -2105,81 +2031,23 @@
       },
       "postedAt": "2026-09-17T13:46:27.429Z",
       "firstSeen": "2026-09-20T08:36:18.338Z",
-      "updatedAt": "2026-09-20T08:36:18.338Z"
-    },
-    {
-      "id": "booksy-director-of-engineering-7715dd",
-      "title": "Director of Engineering",
-      "company": "Booksy",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/169461/logo",
-      "applyUrl": "https://jobs.workable.com/view/9FGWf5b79tMLg1EdFUTCaq/remote-director-of-engineering-in-united-kingdom-at-booksy",
-      "sourceUrl": "https://jobs.workable.com/view/9FGWf5b79tMLg1EdFUTCaq/remote-director-of-engineering-in-united-kingdom-at-booksy",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "From empowering entrepreneurs to build successful businesses, to supporting their clients to arrange 'me time' moments, we're in the business of elevating people - helping them to thrive and feel fantastic. Lifting others up can be hard, heavy work, and we passionately believe that the sense of purpose and personal satisfaction this brings are worth it.\nWhat started in Poland is now an international, cloud-based marketplace that's scaling rapidly. We bring independent business owners together with their customers on a product that connects creative communities and opens up worlds of opportunities.\nFor our providers, our products offer services for getting booked, paid, and building a loyal client base. For their clients, we're where they can find their favourite spots, discover new businesses and book appointments in an instant.\nWorking in a rapidly growing, ever-changing scale-up comes with its own set of opportunities and challenges. If you prefer a stable environment, with clear processes and structures then, we've got to be honest, you won't always find that here. However, if you enjoy inventively solving problems with others, helping create clarity when things get confusing, and prioritising your own path within ambiguity, then the chances are that you'll love the opportunities available to grow your career at Booksy.\nThe people you'll like to work with and things you'll enjoy impacting:\nAs a Director of Engineering reporting to the Chief Technology Officer in our Provider Domain, your purpose will be to own the technical strategy and delivery for the systems hundreds of thousands of independent businesses run on every day. You will:\nOwn end-to-end delivery across 4–5 cross-functional teams, leading through Engineering Managers and Staff+ Engineers in a deliberately flat structure with no layers in between.\nSet the engineering standard for the domain — building the frameworks for architecture decisions, technical proposals and how teams work.\nLead our AI transformation of the engineering lifecycle, and define the measures that prove it worked.\nPartner with Product to turn commercial strategy into engineering strategy, and back it with experimentation and data.\nBuild a team of exceptional density, coaching leaders who can operate autonomously.",
-      "blocks": [
+      "updatedAt": "2026-09-20T08:36:18.338Z",
+      "variants": [
         {
-          "type": "para",
-          "text": "From empowering entrepreneurs to build successful businesses, to supporting their clients to arrange 'me time' moments, we're in the business of elevating people - helping them to thrive and feel fantastic. Lifting others up can be hard, heavy work, and we passionately believe that the sense of purpose and personal satisfaction this brings are worth it."
+          "countryIso2": "PL",
+          "countryName": "Poland",
+          "region": "europe",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/bbo3Rs3ZWA3C5hCZm6T3Ut/remote-director-of-engineering-in-poland-at-booksy"
         },
         {
-          "type": "para",
-          "text": "What started in Poland is now an international, cloud-based marketplace that's scaling rapidly. We bring independent business owners together with their customers on a product that connects creative communities and opens up worlds of opportunities."
-        },
-        {
-          "type": "para",
-          "text": "For our providers, our products offer services for getting booked, paid, and building a loyal client base. For their clients, we're where they can find their favourite spots, discover new businesses and book appointments in an instant."
-        },
-        {
-          "type": "para",
-          "text": "Working in a rapidly growing, ever-changing scale-up comes with its own set of opportunities and challenges. If you prefer a stable environment, with clear processes and structures then, we've got to be honest, you won't always find that here. However, if you enjoy inventively solving problems with others, helping create clarity when things get confusing, and prioritising your own path within ambiguity, then the chances are that you'll love the opportunities available to grow your career at Booksy."
-        },
-        {
-          "type": "heading",
-          "text": "The people you'll like to work with and things you'll enjoy impacting:"
-        },
-        {
-          "type": "para",
-          "text": "As a Director of Engineering reporting to the Chief Technology Officer in our Provider Domain, your purpose will be to own the technical strategy and delivery for the systems hundreds of thousands of independent businesses run on every day. You will:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Own end-to-end delivery across 4–5 cross-functional teams, leading through Engineering Managers and Staff+ Engineers in a deliberately flat structure with no layers in between.",
-            "Set the engineering standard for the domain — building the frameworks for architecture decisions, technical proposals and how teams work.",
-            "Lead our AI transformation of the engineering lifecycle, and define the measures that prove it worked.",
-            "Partner with Product to turn commercial strategy into engineering strategy, and back it with experimentation and data.",
-            "Build a team of exceptional density, coaching leaders who can operate autonomously."
-          ]
+          "countryIso2": "GB",
+          "countryName": "United Kingdom",
+          "region": "europe",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/9FGWf5b79tMLg1EdFUTCaq/remote-director-of-engineering-in-united-kingdom-at-booksy"
         }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "GB",
-        "countryName": "United Kingdom",
-        "region": "europe",
-        "remote": false,
-        "raw": "United Kingdom"
-      },
-      "seniority": "director",
-      "domain": "engineering",
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salary": {
-        "min": 69515,
-        "max": 119408,
-        "currency": "GBP",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "High",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2026-09-17T13:46:27.199Z",
-      "firstSeen": "2026-09-20T08:36:18.338Z",
-      "updatedAt": "2026-09-20T08:36:18.338Z"
+      ]
     },
     {
       "id": "pmc-commerce-head-of-engineering-delivery-3237a0",
@@ -6918,75 +6786,6 @@
       "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
-      "id": "fuse-energy-vp-of-engineering-e68a31",
-      "title": "VP of Engineering",
-      "company": "Fuse Energy",
-      "applyUrl": "https://jobs.workable.com/view/oveicN1n4cFJk1srcvJoNS/vp-of-engineering-in-san-francisco-at-fuse-energy",
-      "sourceUrl": "https://jobs.workable.com/view/oveicN1n4cFJk1srcvJoNS/vp-of-engineering-in-san-francisco-at-fuse-energy",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "Fuse Energy is an energy startup on a mission to make energy abundant and affordable, fast. We combine first-principles thinking with cutting-edge technology to build a radically better energy system.\nWe've raised over $200M from top-tier investors including Balderton, Lakestar, Accel, Creandum, Lowercarbon, Ribbit, 20VC, Hummingbird and Collaborative Fund, alongside strategic angels including Nico Rosberg and GPs behind Meta, Revolut, Spotify and Uber.\nWe're building a fully integrated energy company: developing our own solar, batteries and other generation projects, building our own hardware, improving and developing grid infrastructure, trading power in real time, using AI across the business, and installing distributed energy in homes. By selling directly to consumers we cut out the middleman, lower costs and pass the savings on to our customers.\nWe're hiring a VP of Engineering to take full ownership of one of our core engineering domains. You'll report to our CTO and own your domain outright, including strategy, architecture, delivery, and the team. This is a hands-on leadership role.\nResponsibilities\nTake full technical and delivery ownership of a core area of the business, which could span AI, trading, retail, or another part of the platform\nArchitect and build the core systems in your domain, from real-time generation and demand modelling through to high-volume consumption pipelines and the customer-facing app\nBuild and lead the engineering team in your domain, including hiring, structure, and standards\nSet technical direction alongside the CTO and the wider leadership team\nShip alongside your team on the hardest problems",
-      "blocks": [
-        {
-          "type": "para",
-          "text": "Fuse Energy is an energy startup on a mission to make energy abundant and affordable, fast. We combine first-principles thinking with cutting-edge technology to build a radically better energy system."
-        },
-        {
-          "type": "para",
-          "text": "We've raised over $200M from top-tier investors including Balderton, Lakestar, Accel, Creandum, Lowercarbon, Ribbit, 20VC, Hummingbird and Collaborative Fund, alongside strategic angels including Nico Rosberg and GPs behind Meta, Revolut, Spotify and Uber."
-        },
-        {
-          "type": "para",
-          "text": "We're building a fully integrated energy company: developing our own solar, batteries and other generation projects, building our own hardware, improving and developing grid infrastructure, trading power in real time, using AI across the business, and installing distributed energy in homes. By selling directly to consumers we cut out the middleman, lower costs and pass the savings on to our customers."
-        },
-        {
-          "type": "para",
-          "text": "We're hiring a VP of Engineering to take full ownership of one of our core engineering domains. You'll report to our CTO and own your domain outright, including strategy, architecture, delivery, and the team. This is a hands-on leadership role."
-        },
-        {
-          "type": "heading",
-          "text": "Responsibilities"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Take full technical and delivery ownership of a core area of the business, which could span AI, trading, retail, or another part of the platform",
-            "Architect and build the core systems in your domain, from real-time generation and demand modelling through to high-volume consumption pipelines and the customer-facing app",
-            "Build and lead the engineering team in your domain, including hiring, structure, and standards",
-            "Set technical direction alongside the CTO and the wider leadership team",
-            "Ship alongside your team on the hardest problems"
-          ]
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "US",
-        "countryName": "United States",
-        "region": "north-america",
-        "remote": false,
-        "raw": "San Francisco, United States"
-      },
-      "seniority": "vp",
-      "domain": "engineering",
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salary": {
-        "min": 138060,
-        "max": 220730,
-        "currency": "USD",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "High",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2026-09-06T18:05:53.241Z",
-      "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
-    },
-    {
       "id": "fuse-energy-vp-of-engineering-437ac1",
       "title": "VP of Engineering",
       "company": "Fuse Energy",
@@ -7053,663 +6852,16 @@
       },
       "postedAt": "2026-09-06T18:05:52.805Z",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
-    },
-    {
-      "id": "gomining-engineering-director-platform-7b4489",
-      "title": "Engineering Director - Platform",
-      "company": "GoMining",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/703329/logo",
-      "applyUrl": "https://jobs.workable.com/view/bCBb9RGXiDv7gwp5ZzEXBV/remote-engineering-director---platform-in-latvia-at-gomining",
-      "sourceUrl": "https://jobs.workable.com/view/bCBb9RGXiDv7gwp5ZzEXBV/remote-engineering-director---platform-in-latvia-at-gomining",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "We are looking for an Engineering Director to own the technology platform behind the GoMining ecosystem.\nThis is a senior leadership role for someone who combines deep engineering expertise with strong product and business thinking.\nYou will own the Platform end-to-end — technology strategy, architecture, engineering organization, roadmap, reliability, delivery, and its impact on the wider business.\nThe Platform powers multiple GoMining products and includes core application infrastructure, authentication and authorization, integrations, shared services, analytics infrastructure, user restrictions, native applications, reliability, and other foundational capabilities.\nThis is not a role where success is measured simply by uptime, delivery, or engineering output.\nWe expect the Engineering Director to understand where technology creates or limits business value, make trade-offs between long-term architecture and immediate commercial priorities, and build a platform that allows the entire company to move faster.\nResponsibilities\nPlatform Strategy & Architecture\nOwn the technology strategy, architecture, and roadmap for the GoMining Platform.\nBuild scalable shared infrastructure used across multiple products and engineering teams.\nDefine which capabilities should be centralized at Platform level and which should remain within individual product teams.\nDrive major architectural and technical decisions.\nIdentify scalability and architectural bottlenecks before they become business-critical.\nBalance long-term platform investments with immediate product and commercial priorities.\nReliability & Engineering Excellence\nOwn platform reliability, availability, latency, scalability, and operational performance.\nDefine and improve SLAs, DORA metrics, engineering performance, and incident-management practices.\nImprove release stability, engineering velocity, and system resilience.\nLead post-incident improvements and eliminate systemic reliability issues.\nMaintain a high engineering bar without unnecessary bureaucracy.\nCore Platform Capabilities\nOwn shared authentication, authorization, registration, and 2FA infrastructure.\nDevelop common account controls, user restrictions, and security mechanisms.\nOwn integrations and shared backend capabilities required across GoMining products.\nDevelop shared analytics and event infrastructure.\nSupport common infrastructure across web and native applications.\nPartner with Product, Design, Security, and engineering teams on cross-company capabilities.\nProduct & Business Impact\nPlatform at GoMining is not an isolated infrastructure function.\nYou will work directly with product leaders, General Managers, and C-level stakeholders to understand where technology can unlock growth and where platform limitations are holding the business back.\nPrioritize engineering initiatives based on technical risk and business impact.\nUnderstand how platform decisions affect revenue, conversion, customer experience, and product velocity.\nIdentify technical changes that can unlock meaningful business results.\nBalance competing priorities across multiple product teams.\nMake clear trade-offs between speed, scalability, reliability, security, and business value.\nMeasure Platform not only through technical metrics, but through how effectively it accelerates the company.\nEngineering Leadership\nLead and develop the Platform engineering organization.\nOwn team structure, hiring, performance, priorities, and execution.\nBuild a culture of strong engineering ownership and accountability.\nStay close enough to architecture and technology to challenge decisions and make informed trade-offs.\nDevelop strong technical leaders within the team.\nRaise the technical and execution bar across the organization.\nAI-First Engineering\nActively use AI tools and agents in your own work.\nIntroduce AI-assisted workflows across engineering, specifications, QA, analytics, and operations.\nIdentify opportunities to automate repetitive engineering work.\nUse AI to increase engineering velocity and quality.\nBuild a team where AI becomes part of the engineering operating model.",
-      "blocks": [
+      "updatedAt": "2026-09-13T10:30:55.497Z",
+      "variants": [
         {
-          "type": "para",
-          "text": "We are looking for an Engineering Director to own the technology platform behind the GoMining ecosystem."
-        },
-        {
-          "type": "para",
-          "text": "This is a senior leadership role for someone who combines deep engineering expertise with strong product and business thinking."
-        },
-        {
-          "type": "para",
-          "text": "You will own the Platform end-to-end — technology strategy, architecture, engineering organization, roadmap, reliability, delivery, and its impact on the wider business."
-        },
-        {
-          "type": "para",
-          "text": "The Platform powers multiple GoMining products and includes core application infrastructure, authentication and authorization, integrations, shared services, analytics infrastructure, user restrictions, native applications, reliability, and other foundational capabilities."
-        },
-        {
-          "type": "para",
-          "text": "This is not a role where success is measured simply by uptime, delivery, or engineering output."
-        },
-        {
-          "type": "para",
-          "text": "We expect the Engineering Director to understand where technology creates or limits business value, make trade-offs between long-term architecture and immediate commercial priorities, and build a platform that allows the entire company to move faster."
-        },
-        {
-          "type": "heading",
-          "text": "Responsibilities"
-        },
-        {
-          "type": "heading",
-          "text": "Platform Strategy & Architecture"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Own the technology strategy, architecture, and roadmap for the GoMining Platform.",
-            "Build scalable shared infrastructure used across multiple products and engineering teams.",
-            "Define which capabilities should be centralized at Platform level and which should remain within individual product teams.",
-            "Drive major architectural and technical decisions.",
-            "Identify scalability and architectural bottlenecks before they become business-critical.",
-            "Balance long-term platform investments with immediate product and commercial priorities."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Reliability & Engineering Excellence"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Own platform reliability, availability, latency, scalability, and operational performance.",
-            "Define and improve SLAs, DORA metrics, engineering performance, and incident-management practices.",
-            "Improve release stability, engineering velocity, and system resilience.",
-            "Lead post-incident improvements and eliminate systemic reliability issues.",
-            "Maintain a high engineering bar without unnecessary bureaucracy."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Core Platform Capabilities"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Own shared authentication, authorization, registration, and 2FA infrastructure.",
-            "Develop common account controls, user restrictions, and security mechanisms.",
-            "Own integrations and shared backend capabilities required across GoMining products.",
-            "Develop shared analytics and event infrastructure.",
-            "Support common infrastructure across web and native applications.",
-            "Partner with Product, Design, Security, and engineering teams on cross-company capabilities."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Product & Business Impact"
-        },
-        {
-          "type": "para",
-          "text": "Platform at GoMining is not an isolated infrastructure function."
-        },
-        {
-          "type": "para",
-          "text": "You will work directly with product leaders, General Managers, and C-level stakeholders to understand where technology can unlock growth and where platform limitations are holding the business back."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Prioritize engineering initiatives based on technical risk and business impact.",
-            "Understand how platform decisions affect revenue, conversion, customer experience, and product velocity.",
-            "Identify technical changes that can unlock meaningful business results.",
-            "Balance competing priorities across multiple product teams.",
-            "Make clear trade-offs between speed, scalability, reliability, security, and business value.",
-            "Measure Platform not only through technical metrics, but through how effectively it accelerates the company."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Engineering Leadership"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Lead and develop the Platform engineering organization.",
-            "Own team structure, hiring, performance, priorities, and execution.",
-            "Build a culture of strong engineering ownership and accountability.",
-            "Stay close enough to architecture and technology to challenge decisions and make informed trade-offs.",
-            "Develop strong technical leaders within the team.",
-            "Raise the technical and execution bar across the organization."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "AI-First Engineering"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Actively use AI tools and agents in your own work.",
-            "Introduce AI-assisted workflows across engineering, specifications, QA, analytics, and operations.",
-            "Identify opportunities to automate repetitive engineering work.",
-            "Use AI to increase engineering velocity and quality.",
-            "Build a team where AI becomes part of the engineering operating model."
-          ]
+          "countryIso2": "US",
+          "countryName": "United States",
+          "region": "north-america",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/oveicN1n4cFJk1srcvJoNS/vp-of-engineering-in-san-francisco-at-fuse-energy"
         }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "LV",
-        "countryName": "Latvia",
-        "region": "europe",
-        "remote": false,
-        "raw": "Latvia"
-      },
-      "seniority": "director",
-      "domain": "engineering",
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salary": {
-        "min": 30312,
-        "max": 30312,
-        "currency": "EUR",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "High",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2026-09-05T14:31:36.974Z",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
-    },
-    {
-      "id": "gomining-engineering-director-platform-974512",
-      "title": "Engineering Director - Platform",
-      "company": "GoMining",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/703329/logo",
-      "applyUrl": "https://jobs.workable.com/view/bXrGKNJgQrY4q4axe9KQaq/remote-engineering-director---platform-in-serbia-at-gomining",
-      "sourceUrl": "https://jobs.workable.com/view/bXrGKNJgQrY4q4axe9KQaq/remote-engineering-director---platform-in-serbia-at-gomining",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "We are looking for an Engineering Director to own the technology platform behind the GoMining ecosystem.\nThis is a senior leadership role for someone who combines deep engineering expertise with strong product and business thinking.\nYou will own the Platform end-to-end — technology strategy, architecture, engineering organization, roadmap, reliability, delivery, and its impact on the wider business.\nThe Platform powers multiple GoMining products and includes core application infrastructure, authentication and authorization, integrations, shared services, analytics infrastructure, user restrictions, native applications, reliability, and other foundational capabilities.\nThis is not a role where success is measured simply by uptime, delivery, or engineering output.\nWe expect the Engineering Director to understand where technology creates or limits business value, make trade-offs between long-term architecture and immediate commercial priorities, and build a platform that allows the entire company to move faster.\nResponsibilities\nPlatform Strategy & Architecture\nOwn the technology strategy, architecture, and roadmap for the GoMining Platform.\nBuild scalable shared infrastructure used across multiple products and engineering teams.\nDefine which capabilities should be centralized at Platform level and which should remain within individual product teams.\nDrive major architectural and technical decisions.\nIdentify scalability and architectural bottlenecks before they become business-critical.\nBalance long-term platform investments with immediate product and commercial priorities.\nReliability & Engineering Excellence\nOwn platform reliability, availability, latency, scalability, and operational performance.\nDefine and improve SLAs, DORA metrics, engineering performance, and incident-management practices.\nImprove release stability, engineering velocity, and system resilience.\nLead post-incident improvements and eliminate systemic reliability issues.\nMaintain a high engineering bar without unnecessary bureaucracy.\nCore Platform Capabilities\nOwn shared authentication, authorization, registration, and 2FA infrastructure.\nDevelop common account controls, user restrictions, and security mechanisms.\nOwn integrations and shared backend capabilities required across GoMining products.\nDevelop shared analytics and event infrastructure.\nSupport common infrastructure across web and native applications.\nPartner with Product, Design, Security, and engineering teams on cross-company capabilities.\nProduct & Business Impact\nPlatform at GoMining is not an isolated infrastructure function.\nYou will work directly with product leaders, General Managers, and C-level stakeholders to understand where technology can unlock growth and where platform limitations are holding the business back.\nPrioritize engineering initiatives based on technical risk and business impact.\nUnderstand how platform decisions affect revenue, conversion, customer experience, and product velocity.\nIdentify technical changes that can unlock meaningful business results.\nBalance competing priorities across multiple product teams.\nMake clear trade-offs between speed, scalability, reliability, security, and business value.\nMeasure Platform not only through technical metrics, but through how effectively it accelerates the company.\nEngineering Leadership\nLead and develop the Platform engineering organization.\nOwn team structure, hiring, performance, priorities, and execution.\nBuild a culture of strong engineering ownership and accountability.\nStay close enough to architecture and technology to challenge decisions and make informed trade-offs.\nDevelop strong technical leaders within the team.\nRaise the technical and execution bar across the organization.\nAI-First Engineering\nActively use AI tools and agents in your own work.\nIntroduce AI-assisted workflows across engineering, specifications, QA, analytics, and operations.\nIdentify opportunities to automate repetitive engineering work.\nUse AI to increase engineering velocity and quality.\nBuild a team where AI becomes part of the engineering operating model.",
-      "blocks": [
-        {
-          "type": "para",
-          "text": "We are looking for an Engineering Director to own the technology platform behind the GoMining ecosystem."
-        },
-        {
-          "type": "para",
-          "text": "This is a senior leadership role for someone who combines deep engineering expertise with strong product and business thinking."
-        },
-        {
-          "type": "para",
-          "text": "You will own the Platform end-to-end — technology strategy, architecture, engineering organization, roadmap, reliability, delivery, and its impact on the wider business."
-        },
-        {
-          "type": "para",
-          "text": "The Platform powers multiple GoMining products and includes core application infrastructure, authentication and authorization, integrations, shared services, analytics infrastructure, user restrictions, native applications, reliability, and other foundational capabilities."
-        },
-        {
-          "type": "para",
-          "text": "This is not a role where success is measured simply by uptime, delivery, or engineering output."
-        },
-        {
-          "type": "para",
-          "text": "We expect the Engineering Director to understand where technology creates or limits business value, make trade-offs between long-term architecture and immediate commercial priorities, and build a platform that allows the entire company to move faster."
-        },
-        {
-          "type": "heading",
-          "text": "Responsibilities"
-        },
-        {
-          "type": "heading",
-          "text": "Platform Strategy & Architecture"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Own the technology strategy, architecture, and roadmap for the GoMining Platform.",
-            "Build scalable shared infrastructure used across multiple products and engineering teams.",
-            "Define which capabilities should be centralized at Platform level and which should remain within individual product teams.",
-            "Drive major architectural and technical decisions.",
-            "Identify scalability and architectural bottlenecks before they become business-critical.",
-            "Balance long-term platform investments with immediate product and commercial priorities."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Reliability & Engineering Excellence"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Own platform reliability, availability, latency, scalability, and operational performance.",
-            "Define and improve SLAs, DORA metrics, engineering performance, and incident-management practices.",
-            "Improve release stability, engineering velocity, and system resilience.",
-            "Lead post-incident improvements and eliminate systemic reliability issues.",
-            "Maintain a high engineering bar without unnecessary bureaucracy."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Core Platform Capabilities"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Own shared authentication, authorization, registration, and 2FA infrastructure.",
-            "Develop common account controls, user restrictions, and security mechanisms.",
-            "Own integrations and shared backend capabilities required across GoMining products.",
-            "Develop shared analytics and event infrastructure.",
-            "Support common infrastructure across web and native applications.",
-            "Partner with Product, Design, Security, and engineering teams on cross-company capabilities."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Product & Business Impact"
-        },
-        {
-          "type": "para",
-          "text": "Platform at GoMining is not an isolated infrastructure function."
-        },
-        {
-          "type": "para",
-          "text": "You will work directly with product leaders, General Managers, and C-level stakeholders to understand where technology can unlock growth and where platform limitations are holding the business back."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Prioritize engineering initiatives based on technical risk and business impact.",
-            "Understand how platform decisions affect revenue, conversion, customer experience, and product velocity.",
-            "Identify technical changes that can unlock meaningful business results.",
-            "Balance competing priorities across multiple product teams.",
-            "Make clear trade-offs between speed, scalability, reliability, security, and business value.",
-            "Measure Platform not only through technical metrics, but through how effectively it accelerates the company."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Engineering Leadership"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Lead and develop the Platform engineering organization.",
-            "Own team structure, hiring, performance, priorities, and execution.",
-            "Build a culture of strong engineering ownership and accountability.",
-            "Stay close enough to architecture and technology to challenge decisions and make informed trade-offs.",
-            "Develop strong technical leaders within the team.",
-            "Raise the technical and execution bar across the organization."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "AI-First Engineering"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Actively use AI tools and agents in your own work.",
-            "Introduce AI-assisted workflows across engineering, specifications, QA, analytics, and operations.",
-            "Identify opportunities to automate repetitive engineering work.",
-            "Use AI to increase engineering velocity and quality.",
-            "Build a team where AI becomes part of the engineering operating model."
-          ]
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "RS",
-        "countryName": "Serbia",
-        "region": "europe",
-        "remote": false,
-        "raw": "Serbia"
-      },
-      "seniority": "director",
-      "domain": "engineering",
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salary": {
-        "min": 2100156,
-        "max": 2100156,
-        "currency": "RSD",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "High",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2026-09-05T14:31:36.885Z",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
-    },
-    {
-      "id": "gomining-engineering-director-platform-30e373",
-      "title": "Engineering Director - Platform",
-      "company": "GoMining",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/703329/logo",
-      "applyUrl": "https://jobs.workable.com/view/uCDo6UAbt87neNYSajL9ZW/remote-engineering-director---platform-in-poland-at-gomining",
-      "sourceUrl": "https://jobs.workable.com/view/uCDo6UAbt87neNYSajL9ZW/remote-engineering-director---platform-in-poland-at-gomining",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "We are looking for an Engineering Director to own the technology platform behind the GoMining ecosystem.\nThis is a senior leadership role for someone who combines deep engineering expertise with strong product and business thinking.\nYou will own the Platform end-to-end — technology strategy, architecture, engineering organization, roadmap, reliability, delivery, and its impact on the wider business.\nThe Platform powers multiple GoMining products and includes core application infrastructure, authentication and authorization, integrations, shared services, analytics infrastructure, user restrictions, native applications, reliability, and other foundational capabilities.\nThis is not a role where success is measured simply by uptime, delivery, or engineering output.\nWe expect the Engineering Director to understand where technology creates or limits business value, make trade-offs between long-term architecture and immediate commercial priorities, and build a platform that allows the entire company to move faster.\nResponsibilities\nPlatform Strategy & Architecture\nOwn the technology strategy, architecture, and roadmap for the GoMining Platform.\nBuild scalable shared infrastructure used across multiple products and engineering teams.\nDefine which capabilities should be centralized at Platform level and which should remain within individual product teams.\nDrive major architectural and technical decisions.\nIdentify scalability and architectural bottlenecks before they become business-critical.\nBalance long-term platform investments with immediate product and commercial priorities.\nReliability & Engineering Excellence\nOwn platform reliability, availability, latency, scalability, and operational performance.\nDefine and improve SLAs, DORA metrics, engineering performance, and incident-management practices.\nImprove release stability, engineering velocity, and system resilience.\nLead post-incident improvements and eliminate systemic reliability issues.\nMaintain a high engineering bar without unnecessary bureaucracy.\nCore Platform Capabilities\nOwn shared authentication, authorization, registration, and 2FA infrastructure.\nDevelop common account controls, user restrictions, and security mechanisms.\nOwn integrations and shared backend capabilities required across GoMining products.\nDevelop shared analytics and event infrastructure.\nSupport common infrastructure across web and native applications.\nPartner with Product, Design, Security, and engineering teams on cross-company capabilities.\nProduct & Business Impact\nPlatform at GoMining is not an isolated infrastructure function.\nYou will work directly with product leaders, General Managers, and C-level stakeholders to understand where technology can unlock growth and where platform limitations are holding the business back.\nPrioritize engineering initiatives based on technical risk and business impact.\nUnderstand how platform decisions affect revenue, conversion, customer experience, and product velocity.\nIdentify technical changes that can unlock meaningful business results.\nBalance competing priorities across multiple product teams.\nMake clear trade-offs between speed, scalability, reliability, security, and business value.\nMeasure Platform not only through technical metrics, but through how effectively it accelerates the company.\nEngineering Leadership\nLead and develop the Platform engineering organization.\nOwn team structure, hiring, performance, priorities, and execution.\nBuild a culture of strong engineering ownership and accountability.\nStay close enough to architecture and technology to challenge decisions and make informed trade-offs.\nDevelop strong technical leaders within the team.\nRaise the technical and execution bar across the organization.\nAI-First Engineering\nActively use AI tools and agents in your own work.\nIntroduce AI-assisted workflows across engineering, specifications, QA, analytics, and operations.\nIdentify opportunities to automate repetitive engineering work.\nUse AI to increase engineering velocity and quality.\nBuild a team where AI becomes part of the engineering operating model.",
-      "blocks": [
-        {
-          "type": "para",
-          "text": "We are looking for an Engineering Director to own the technology platform behind the GoMining ecosystem."
-        },
-        {
-          "type": "para",
-          "text": "This is a senior leadership role for someone who combines deep engineering expertise with strong product and business thinking."
-        },
-        {
-          "type": "para",
-          "text": "You will own the Platform end-to-end — technology strategy, architecture, engineering organization, roadmap, reliability, delivery, and its impact on the wider business."
-        },
-        {
-          "type": "para",
-          "text": "The Platform powers multiple GoMining products and includes core application infrastructure, authentication and authorization, integrations, shared services, analytics infrastructure, user restrictions, native applications, reliability, and other foundational capabilities."
-        },
-        {
-          "type": "para",
-          "text": "This is not a role where success is measured simply by uptime, delivery, or engineering output."
-        },
-        {
-          "type": "para",
-          "text": "We expect the Engineering Director to understand where technology creates or limits business value, make trade-offs between long-term architecture and immediate commercial priorities, and build a platform that allows the entire company to move faster."
-        },
-        {
-          "type": "heading",
-          "text": "Responsibilities"
-        },
-        {
-          "type": "heading",
-          "text": "Platform Strategy & Architecture"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Own the technology strategy, architecture, and roadmap for the GoMining Platform.",
-            "Build scalable shared infrastructure used across multiple products and engineering teams.",
-            "Define which capabilities should be centralized at Platform level and which should remain within individual product teams.",
-            "Drive major architectural and technical decisions.",
-            "Identify scalability and architectural bottlenecks before they become business-critical.",
-            "Balance long-term platform investments with immediate product and commercial priorities."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Reliability & Engineering Excellence"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Own platform reliability, availability, latency, scalability, and operational performance.",
-            "Define and improve SLAs, DORA metrics, engineering performance, and incident-management practices.",
-            "Improve release stability, engineering velocity, and system resilience.",
-            "Lead post-incident improvements and eliminate systemic reliability issues.",
-            "Maintain a high engineering bar without unnecessary bureaucracy."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Core Platform Capabilities"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Own shared authentication, authorization, registration, and 2FA infrastructure.",
-            "Develop common account controls, user restrictions, and security mechanisms.",
-            "Own integrations and shared backend capabilities required across GoMining products.",
-            "Develop shared analytics and event infrastructure.",
-            "Support common infrastructure across web and native applications.",
-            "Partner with Product, Design, Security, and engineering teams on cross-company capabilities."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Product & Business Impact"
-        },
-        {
-          "type": "para",
-          "text": "Platform at GoMining is not an isolated infrastructure function."
-        },
-        {
-          "type": "para",
-          "text": "You will work directly with product leaders, General Managers, and C-level stakeholders to understand where technology can unlock growth and where platform limitations are holding the business back."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Prioritize engineering initiatives based on technical risk and business impact.",
-            "Understand how platform decisions affect revenue, conversion, customer experience, and product velocity.",
-            "Identify technical changes that can unlock meaningful business results.",
-            "Balance competing priorities across multiple product teams.",
-            "Make clear trade-offs between speed, scalability, reliability, security, and business value.",
-            "Measure Platform not only through technical metrics, but through how effectively it accelerates the company."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Engineering Leadership"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Lead and develop the Platform engineering organization.",
-            "Own team structure, hiring, performance, priorities, and execution.",
-            "Build a culture of strong engineering ownership and accountability.",
-            "Stay close enough to architecture and technology to challenge decisions and make informed trade-offs.",
-            "Develop strong technical leaders within the team.",
-            "Raise the technical and execution bar across the organization."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "AI-First Engineering"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Actively use AI tools and agents in your own work.",
-            "Introduce AI-assisted workflows across engineering, specifications, QA, analytics, and operations.",
-            "Identify opportunities to automate repetitive engineering work.",
-            "Use AI to increase engineering velocity and quality.",
-            "Build a team where AI becomes part of the engineering operating model."
-          ]
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "PL",
-        "countryName": "Poland",
-        "region": "europe",
-        "remote": false,
-        "raw": "Poland"
-      },
-      "seniority": "director",
-      "domain": "engineering",
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salary": {
-        "min": 240000,
-        "max": 438000,
-        "currency": "PLN",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "Medium",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2026-09-05T14:31:36.560Z",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
-    },
-    {
-      "id": "gomining-engineering-director-platform-8006af",
-      "title": "Engineering Director - Platform",
-      "company": "GoMining",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/703329/logo",
-      "applyUrl": "https://jobs.workable.com/view/m1zApfKuFLaf3hdfepcsMA/remote-engineering-director---platform-in-georgia-at-gomining",
-      "sourceUrl": "https://jobs.workable.com/view/m1zApfKuFLaf3hdfepcsMA/remote-engineering-director---platform-in-georgia-at-gomining",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "We are looking for an Engineering Director to own the technology platform behind the GoMining ecosystem.\nThis is a senior leadership role for someone who combines deep engineering expertise with strong product and business thinking.\nYou will own the Platform end-to-end — technology strategy, architecture, engineering organization, roadmap, reliability, delivery, and its impact on the wider business.\nThe Platform powers multiple GoMining products and includes core application infrastructure, authentication and authorization, integrations, shared services, analytics infrastructure, user restrictions, native applications, reliability, and other foundational capabilities.\nThis is not a role where success is measured simply by uptime, delivery, or engineering output.\nWe expect the Engineering Director to understand where technology creates or limits business value, make trade-offs between long-term architecture and immediate commercial priorities, and build a platform that allows the entire company to move faster.\nResponsibilities\nPlatform Strategy & Architecture\nOwn the technology strategy, architecture, and roadmap for the GoMining Platform.\nBuild scalable shared infrastructure used across multiple products and engineering teams.\nDefine which capabilities should be centralized at Platform level and which should remain within individual product teams.\nDrive major architectural and technical decisions.\nIdentify scalability and architectural bottlenecks before they become business-critical.\nBalance long-term platform investments with immediate product and commercial priorities.\nReliability & Engineering Excellence\nOwn platform reliability, availability, latency, scalability, and operational performance.\nDefine and improve SLAs, DORA metrics, engineering performance, and incident-management practices.\nImprove release stability, engineering velocity, and system resilience.\nLead post-incident improvements and eliminate systemic reliability issues.\nMaintain a high engineering bar without unnecessary bureaucracy.\nCore Platform Capabilities\nOwn shared authentication, authorization, registration, and 2FA infrastructure.\nDevelop common account controls, user restrictions, and security mechanisms.\nOwn integrations and shared backend capabilities required across GoMining products.\nDevelop shared analytics and event infrastructure.\nSupport common infrastructure across web and native applications.\nPartner with Product, Design, Security, and engineering teams on cross-company capabilities.\nProduct & Business Impact\nPlatform at GoMining is not an isolated infrastructure function.\nYou will work directly with product leaders, General Managers, and C-level stakeholders to understand where technology can unlock growth and where platform limitations are holding the business back.\nPrioritize engineering initiatives based on technical risk and business impact.\nUnderstand how platform decisions affect revenue, conversion, customer experience, and product velocity.\nIdentify technical changes that can unlock meaningful business results.\nBalance competing priorities across multiple product teams.\nMake clear trade-offs between speed, scalability, reliability, security, and business value.\nMeasure Platform not only through technical metrics, but through how effectively it accelerates the company.\nEngineering Leadership\nLead and develop the Platform engineering organization.\nOwn team structure, hiring, performance, priorities, and execution.\nBuild a culture of strong engineering ownership and accountability.\nStay close enough to architecture and technology to challenge decisions and make informed trade-offs.\nDevelop strong technical leaders within the team.\nRaise the technical and execution bar across the organization.\nAI-First Engineering\nActively use AI tools and agents in your own work.\nIntroduce AI-assisted workflows across engineering, specifications, QA, analytics, and operations.\nIdentify opportunities to automate repetitive engineering work.\nUse AI to increase engineering velocity and quality.\nBuild a team where AI becomes part of the engineering operating model.",
-      "blocks": [
-        {
-          "type": "para",
-          "text": "We are looking for an Engineering Director to own the technology platform behind the GoMining ecosystem."
-        },
-        {
-          "type": "para",
-          "text": "This is a senior leadership role for someone who combines deep engineering expertise with strong product and business thinking."
-        },
-        {
-          "type": "para",
-          "text": "You will own the Platform end-to-end — technology strategy, architecture, engineering organization, roadmap, reliability, delivery, and its impact on the wider business."
-        },
-        {
-          "type": "para",
-          "text": "The Platform powers multiple GoMining products and includes core application infrastructure, authentication and authorization, integrations, shared services, analytics infrastructure, user restrictions, native applications, reliability, and other foundational capabilities."
-        },
-        {
-          "type": "para",
-          "text": "This is not a role where success is measured simply by uptime, delivery, or engineering output."
-        },
-        {
-          "type": "para",
-          "text": "We expect the Engineering Director to understand where technology creates or limits business value, make trade-offs between long-term architecture and immediate commercial priorities, and build a platform that allows the entire company to move faster."
-        },
-        {
-          "type": "heading",
-          "text": "Responsibilities"
-        },
-        {
-          "type": "heading",
-          "text": "Platform Strategy & Architecture"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Own the technology strategy, architecture, and roadmap for the GoMining Platform.",
-            "Build scalable shared infrastructure used across multiple products and engineering teams.",
-            "Define which capabilities should be centralized at Platform level and which should remain within individual product teams.",
-            "Drive major architectural and technical decisions.",
-            "Identify scalability and architectural bottlenecks before they become business-critical.",
-            "Balance long-term platform investments with immediate product and commercial priorities."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Reliability & Engineering Excellence"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Own platform reliability, availability, latency, scalability, and operational performance.",
-            "Define and improve SLAs, DORA metrics, engineering performance, and incident-management practices.",
-            "Improve release stability, engineering velocity, and system resilience.",
-            "Lead post-incident improvements and eliminate systemic reliability issues.",
-            "Maintain a high engineering bar without unnecessary bureaucracy."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Core Platform Capabilities"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Own shared authentication, authorization, registration, and 2FA infrastructure.",
-            "Develop common account controls, user restrictions, and security mechanisms.",
-            "Own integrations and shared backend capabilities required across GoMining products.",
-            "Develop shared analytics and event infrastructure.",
-            "Support common infrastructure across web and native applications.",
-            "Partner with Product, Design, Security, and engineering teams on cross-company capabilities."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Product & Business Impact"
-        },
-        {
-          "type": "para",
-          "text": "Platform at GoMining is not an isolated infrastructure function."
-        },
-        {
-          "type": "para",
-          "text": "You will work directly with product leaders, General Managers, and C-level stakeholders to understand where technology can unlock growth and where platform limitations are holding the business back."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Prioritize engineering initiatives based on technical risk and business impact.",
-            "Understand how platform decisions affect revenue, conversion, customer experience, and product velocity.",
-            "Identify technical changes that can unlock meaningful business results.",
-            "Balance competing priorities across multiple product teams.",
-            "Make clear trade-offs between speed, scalability, reliability, security, and business value.",
-            "Measure Platform not only through technical metrics, but through how effectively it accelerates the company."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Engineering Leadership"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Lead and develop the Platform engineering organization.",
-            "Own team structure, hiring, performance, priorities, and execution.",
-            "Build a culture of strong engineering ownership and accountability.",
-            "Stay close enough to architecture and technology to challenge decisions and make informed trade-offs.",
-            "Develop strong technical leaders within the team.",
-            "Raise the technical and execution bar across the organization."
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "AI-First Engineering"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Actively use AI tools and agents in your own work.",
-            "Introduce AI-assisted workflows across engineering, specifications, QA, analytics, and operations.",
-            "Identify opportunities to automate repetitive engineering work.",
-            "Use AI to increase engineering velocity and quality.",
-            "Build a team where AI becomes part of the engineering operating model."
-          ]
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "GE",
-        "countryName": "Georgia",
-        "region": "europe",
-        "remote": false,
-        "raw": "Georgia"
-      },
-      "seniority": "director",
-      "domain": "engineering",
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salary": {
-        "min": 46186.32,
-        "max": 46186.32,
-        "currency": "GEL",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "Medium",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2026-09-05T14:31:36.534Z",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      ]
     },
     {
       "id": "gomining-engineering-director-platform-15c585",
@@ -7873,7 +7025,37 @@
       },
       "postedAt": "2026-09-05T14:31:36.377Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z",
+      "variants": [
+        {
+          "countryIso2": "GE",
+          "countryName": "Georgia",
+          "region": "europe",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/m1zApfKuFLaf3hdfepcsMA/remote-engineering-director---platform-in-georgia-at-gomining"
+        },
+        {
+          "countryIso2": "LV",
+          "countryName": "Latvia",
+          "region": "europe",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/bCBb9RGXiDv7gwp5ZzEXBV/remote-engineering-director---platform-in-latvia-at-gomining"
+        },
+        {
+          "countryIso2": "PL",
+          "countryName": "Poland",
+          "region": "europe",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/uCDo6UAbt87neNYSajL9ZW/remote-engineering-director---platform-in-poland-at-gomining"
+        },
+        {
+          "countryIso2": "RS",
+          "countryName": "Serbia",
+          "region": "europe",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/bXrGKNJgQrY4q4axe9KQaq/remote-engineering-director---platform-in-serbia-at-gomining"
+        }
+      ]
     },
     {
       "id": "valsoft-corporation-directeur-rice-des-produits-et-de-l-inge-0af60b",
@@ -9828,278 +9010,6 @@
       "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
-      "id": "hyprwork-head-of-web-production-dtc-growth-techno-11133f",
-      "title": "Head of Web Production (DTC Growth Technology) Digital Production Director",
-      "company": "Hyprwork",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/731420/logo",
-      "applyUrl": "https://jobs.workable.com/view/kgQo4Lefd9mRTdE9zvKnnq/remote-head-of-web-production-(dtc-growth-technology)-digital-production-director-in-lithuania-at-hyprwork",
-      "sourceUrl": "https://jobs.workable.com/view/kgQo4Lefd9mRTdE9zvKnnq/remote-head-of-web-production-(dtc-growth-technology)-digital-production-director-in-lithuania-at-hyprwork",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "About Us\nHarZa Group is a fast-growing operator of direct-to-consumer brands in health and wellness. Our flagship brand, Rejuvacare, serves more than 400,000 customers with products targeting chronic pain and mobility, including RejuvaKnee, FootRenew, RejuvaFlow and OzemPatch. We ship primarily to the United States and run a membership program that powers recurring revenue. The company has scaled 12x in a single year to nearly 150 people across more than 15 countries. We are remote-first, async-first, and hold a high standard of accountability across everything we do.\nThe Role\nWe are a direct-to-consumer business where technology is a direct function of marketing. Our marketing team can develop a campaign idea and write the copy for it in a single day, but that idea only starts producing revenue once it has become a live, accurate and fully functioning landing page, checkout or funnel. The speed of our production function therefore sets the speed of the entire business.\nWe are hiring a Head of Web Production to build and own the operating system through which marketing requirements become live digital experiences. Your responsibility is not to manage tasks, chase deadlines or add project management meetings. It is to redesign how the work gets done. You will examine every stage of production, remove unnecessary handoffs, improve requirements, manage dependencies, install effective quality controls, and decide where AI, automation, page builders, reusable components or traditional development should be used.\nFor every requirement you should be asking whether this genuinely needs a developer, whether it can be built from an existing component or template, whether an AI-enabled page builder can complete most of it, whether the marketing team can safely complete it without engineering, whether the requirement can be eliminated or standardized, whether the quality check can be automated, and why it is taking as long as it is. Your job is to protect the business objective while continuously challenging the method used to achieve it.\nTo be explicit about scope, this is not a cloud infrastructure or site reliability role. This is web production and development operations for a high-volume direct response marketing business.",
-      "blocks": [
-        {
-          "type": "para",
-          "text": "About Us"
-        },
-        {
-          "type": "para",
-          "text": "HarZa Group is a fast-growing operator of direct-to-consumer brands in health and wellness. Our flagship brand, Rejuvacare, serves more than 400,000 customers with products targeting chronic pain and mobility, including RejuvaKnee, FootRenew, RejuvaFlow and OzemPatch. We ship primarily to the United States and run a membership program that powers recurring revenue. The company has scaled 12x in a single year to nearly 150 people across more than 15 countries. We are remote-first, async-first, and hold a high standard of accountability across everything we do."
-        },
-        {
-          "type": "para",
-          "text": "The Role"
-        },
-        {
-          "type": "para",
-          "text": "We are a direct-to-consumer business where technology is a direct function of marketing. Our marketing team can develop a campaign idea and write the copy for it in a single day, but that idea only starts producing revenue once it has become a live, accurate and fully functioning landing page, checkout or funnel. The speed of our production function therefore sets the speed of the entire business."
-        },
-        {
-          "type": "para",
-          "text": "We are hiring a Head of Web Production to build and own the operating system through which marketing requirements become live digital experiences. Your responsibility is not to manage tasks, chase deadlines or add project management meetings. It is to redesign how the work gets done. You will examine every stage of production, remove unnecessary handoffs, improve requirements, manage dependencies, install effective quality controls, and decide where AI, automation, page builders, reusable components or traditional development should be used."
-        },
-        {
-          "type": "para",
-          "text": "For every requirement you should be asking whether this genuinely needs a developer, whether it can be built from an existing component or template, whether an AI-enabled page builder can complete most of it, whether the marketing team can safely complete it without engineering, whether the requirement can be eliminated or standardized, whether the quality check can be automated, and why it is taking as long as it is. Your job is to protect the business objective while continuously challenging the method used to achieve it."
-        },
-        {
-          "type": "para",
-          "text": "To be explicit about scope, this is not a cloud infrastructure or site reliability role. This is web production and development operations for a high-volume direct response marketing business."
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "LT",
-        "countryName": "Lithuania",
-        "region": "europe",
-        "remote": false,
-        "raw": "Lithuania"
-      },
-      "seniority": "director",
-      "domain": "technology",
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salary": {
-        "min": 21156,
-        "max": 225120,
-        "currency": "EUR",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "Low",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2026-08-28T17:55:32.530Z",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
-    },
-    {
-      "id": "hyprwork-head-of-web-production-dtc-growth-techno-28c85b",
-      "title": "Head of Web Production (DTC Growth Technology) Digital Production Director",
-      "company": "Hyprwork",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/731420/logo",
-      "applyUrl": "https://jobs.workable.com/view/7M5Gmwmb8M1xi1EKDdQqhE/remote-head-of-web-production-(dtc-growth-technology)-digital-production-director-in-spain-at-hyprwork",
-      "sourceUrl": "https://jobs.workable.com/view/7M5Gmwmb8M1xi1EKDdQqhE/remote-head-of-web-production-(dtc-growth-technology)-digital-production-director-in-spain-at-hyprwork",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "About Us\nHarZa Group is a fast-growing operator of direct-to-consumer brands in health and wellness. Our flagship brand, Rejuvacare, serves more than 400,000 customers with products targeting chronic pain and mobility, including RejuvaKnee, FootRenew, RejuvaFlow and OzemPatch. We ship primarily to the United States and run a membership program that powers recurring revenue. The company has scaled 12x in a single year to nearly 150 people across more than 15 countries. We are remote-first, async-first, and hold a high standard of accountability across everything we do.\nThe Role\nWe are a direct-to-consumer business where technology is a direct function of marketing. Our marketing team can develop a campaign idea and write the copy for it in a single day, but that idea only starts producing revenue once it has become a live, accurate and fully functioning landing page, checkout or funnel. The speed of our production function therefore sets the speed of the entire business.\nWe are hiring a Head of Web Production to build and own the operating system through which marketing requirements become live digital experiences. Your responsibility is not to manage tasks, chase deadlines or add project management meetings. It is to redesign how the work gets done. You will examine every stage of production, remove unnecessary handoffs, improve requirements, manage dependencies, install effective quality controls, and decide where AI, automation, page builders, reusable components or traditional development should be used.\nFor every requirement you should be asking whether this genuinely needs a developer, whether it can be built from an existing component or template, whether an AI-enabled page builder can complete most of it, whether the marketing team can safely complete it without engineering, whether the requirement can be eliminated or standardized, whether the quality check can be automated, and why it is taking as long as it is. Your job is to protect the business objective while continuously challenging the method used to achieve it.\nTo be explicit about scope, this is not a cloud infrastructure or site reliability role. This is web production and development operations for a high-volume direct response marketing business.",
-      "blocks": [
-        {
-          "type": "para",
-          "text": "About Us"
-        },
-        {
-          "type": "para",
-          "text": "HarZa Group is a fast-growing operator of direct-to-consumer brands in health and wellness. Our flagship brand, Rejuvacare, serves more than 400,000 customers with products targeting chronic pain and mobility, including RejuvaKnee, FootRenew, RejuvaFlow and OzemPatch. We ship primarily to the United States and run a membership program that powers recurring revenue. The company has scaled 12x in a single year to nearly 150 people across more than 15 countries. We are remote-first, async-first, and hold a high standard of accountability across everything we do."
-        },
-        {
-          "type": "para",
-          "text": "The Role"
-        },
-        {
-          "type": "para",
-          "text": "We are a direct-to-consumer business where technology is a direct function of marketing. Our marketing team can develop a campaign idea and write the copy for it in a single day, but that idea only starts producing revenue once it has become a live, accurate and fully functioning landing page, checkout or funnel. The speed of our production function therefore sets the speed of the entire business."
-        },
-        {
-          "type": "para",
-          "text": "We are hiring a Head of Web Production to build and own the operating system through which marketing requirements become live digital experiences. Your responsibility is not to manage tasks, chase deadlines or add project management meetings. It is to redesign how the work gets done. You will examine every stage of production, remove unnecessary handoffs, improve requirements, manage dependencies, install effective quality controls, and decide where AI, automation, page builders, reusable components or traditional development should be used."
-        },
-        {
-          "type": "para",
-          "text": "For every requirement you should be asking whether this genuinely needs a developer, whether it can be built from an existing component or template, whether an AI-enabled page builder can complete most of it, whether the marketing team can safely complete it without engineering, whether the requirement can be eliminated or standardized, whether the quality check can be automated, and why it is taking as long as it is. Your job is to protect the business objective while continuously challenging the method used to achieve it."
-        },
-        {
-          "type": "para",
-          "text": "To be explicit about scope, this is not a cloud infrastructure or site reliability role. This is web production and development operations for a high-volume direct response marketing business."
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "ES",
-        "countryName": "Spain",
-        "region": "europe",
-        "remote": false,
-        "raw": "Spain"
-      },
-      "seniority": "director",
-      "domain": "technology",
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salary": {
-        "min": 41575,
-        "max": 41575,
-        "currency": "EUR",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "Medium",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2026-08-28T17:55:32.268Z",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
-    },
-    {
-      "id": "hyprwork-head-of-web-production-dtc-growth-techno-a29a6f",
-      "title": "Head of Web Production (DTC Growth Technology) Digital Production Director",
-      "company": "Hyprwork",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/731420/logo",
-      "applyUrl": "https://jobs.workable.com/view/mvW8mdMiPQahNSB1NL4UHA/remote-head-of-web-production-(dtc-growth-technology)-digital-production-director-in-romania-at-hyprwork",
-      "sourceUrl": "https://jobs.workable.com/view/mvW8mdMiPQahNSB1NL4UHA/remote-head-of-web-production-(dtc-growth-technology)-digital-production-director-in-romania-at-hyprwork",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "About Us\nHarZa Group is a fast-growing operator of direct-to-consumer brands in health and wellness. Our flagship brand, Rejuvacare, serves more than 400,000 customers with products targeting chronic pain and mobility, including RejuvaKnee, FootRenew, RejuvaFlow and OzemPatch. We ship primarily to the United States and run a membership program that powers recurring revenue. The company has scaled 12x in a single year to nearly 150 people across more than 15 countries. We are remote-first, async-first, and hold a high standard of accountability across everything we do.\nThe Role\nWe are a direct-to-consumer business where technology is a direct function of marketing. Our marketing team can develop a campaign idea and write the copy for it in a single day, but that idea only starts producing revenue once it has become a live, accurate and fully functioning landing page, checkout or funnel. The speed of our production function therefore sets the speed of the entire business.\nWe are hiring a Head of Web Production to build and own the operating system through which marketing requirements become live digital experiences. Your responsibility is not to manage tasks, chase deadlines or add project management meetings. It is to redesign how the work gets done. You will examine every stage of production, remove unnecessary handoffs, improve requirements, manage dependencies, install effective quality controls, and decide where AI, automation, page builders, reusable components or traditional development should be used.\nFor every requirement you should be asking whether this genuinely needs a developer, whether it can be built from an existing component or template, whether an AI-enabled page builder can complete most of it, whether the marketing team can safely complete it without engineering, whether the requirement can be eliminated or standardized, whether the quality check can be automated, and why it is taking as long as it is. Your job is to protect the business objective while continuously challenging the method used to achieve it.\nTo be explicit about scope, this is not a cloud infrastructure or site reliability role. This is web production and development operations for a high-volume direct response marketing business.",
-      "blocks": [
-        {
-          "type": "para",
-          "text": "About Us"
-        },
-        {
-          "type": "para",
-          "text": "HarZa Group is a fast-growing operator of direct-to-consumer brands in health and wellness. Our flagship brand, Rejuvacare, serves more than 400,000 customers with products targeting chronic pain and mobility, including RejuvaKnee, FootRenew, RejuvaFlow and OzemPatch. We ship primarily to the United States and run a membership program that powers recurring revenue. The company has scaled 12x in a single year to nearly 150 people across more than 15 countries. We are remote-first, async-first, and hold a high standard of accountability across everything we do."
-        },
-        {
-          "type": "para",
-          "text": "The Role"
-        },
-        {
-          "type": "para",
-          "text": "We are a direct-to-consumer business where technology is a direct function of marketing. Our marketing team can develop a campaign idea and write the copy for it in a single day, but that idea only starts producing revenue once it has become a live, accurate and fully functioning landing page, checkout or funnel. The speed of our production function therefore sets the speed of the entire business."
-        },
-        {
-          "type": "para",
-          "text": "We are hiring a Head of Web Production to build and own the operating system through which marketing requirements become live digital experiences. Your responsibility is not to manage tasks, chase deadlines or add project management meetings. It is to redesign how the work gets done. You will examine every stage of production, remove unnecessary handoffs, improve requirements, manage dependencies, install effective quality controls, and decide where AI, automation, page builders, reusable components or traditional development should be used."
-        },
-        {
-          "type": "para",
-          "text": "For every requirement you should be asking whether this genuinely needs a developer, whether it can be built from an existing component or template, whether an AI-enabled page builder can complete most of it, whether the marketing team can safely complete it without engineering, whether the requirement can be eliminated or standardized, whether the quality check can be automated, and why it is taking as long as it is. Your job is to protect the business objective while continuously challenging the method used to achieve it."
-        },
-        {
-          "type": "para",
-          "text": "To be explicit about scope, this is not a cloud infrastructure or site reliability role. This is web production and development operations for a high-volume direct response marketing business."
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "RO",
-        "countryName": "Romania",
-        "region": "europe",
-        "remote": false,
-        "raw": "Romania"
-      },
-      "seniority": "director",
-      "domain": "technology",
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salary": {
-        "min": 111012,
-        "max": 505848,
-        "currency": "RON",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "Low",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2026-08-28T17:55:31.967Z",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
-    },
-    {
-      "id": "hyprwork-head-of-web-production-dtc-growth-techno-40c7a9",
-      "title": "Head of Web Production (DTC Growth Technology) Digital Production Director",
-      "company": "Hyprwork",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/731420/logo",
-      "applyUrl": "https://jobs.workable.com/view/hHbEk6n436N3P87TjrPJpG/remote-head-of-web-production-(dtc-growth-technology)-digital-production-director-in-poland-at-hyprwork",
-      "sourceUrl": "https://jobs.workable.com/view/hHbEk6n436N3P87TjrPJpG/remote-head-of-web-production-(dtc-growth-technology)-digital-production-director-in-poland-at-hyprwork",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "About Us\nHarZa Group is a fast-growing operator of direct-to-consumer brands in health and wellness. Our flagship brand, Rejuvacare, serves more than 400,000 customers with products targeting chronic pain and mobility, including RejuvaKnee, FootRenew, RejuvaFlow and OzemPatch. We ship primarily to the United States and run a membership program that powers recurring revenue. The company has scaled 12x in a single year to nearly 150 people across more than 15 countries. We are remote-first, async-first, and hold a high standard of accountability across everything we do.\nThe Role\nWe are a direct-to-consumer business where technology is a direct function of marketing. Our marketing team can develop a campaign idea and write the copy for it in a single day, but that idea only starts producing revenue once it has become a live, accurate and fully functioning landing page, checkout or funnel. The speed of our production function therefore sets the speed of the entire business.\nWe are hiring a Head of Web Production to build and own the operating system through which marketing requirements become live digital experiences. Your responsibility is not to manage tasks, chase deadlines or add project management meetings. It is to redesign how the work gets done. You will examine every stage of production, remove unnecessary handoffs, improve requirements, manage dependencies, install effective quality controls, and decide where AI, automation, page builders, reusable components or traditional development should be used.\nFor every requirement you should be asking whether this genuinely needs a developer, whether it can be built from an existing component or template, whether an AI-enabled page builder can complete most of it, whether the marketing team can safely complete it without engineering, whether the requirement can be eliminated or standardized, whether the quality check can be automated, and why it is taking as long as it is. Your job is to protect the business objective while continuously challenging the method used to achieve it.\nTo be explicit about scope, this is not a cloud infrastructure or site reliability role. This is web production and development operations for a high-volume direct response marketing business.",
-      "blocks": [
-        {
-          "type": "para",
-          "text": "About Us"
-        },
-        {
-          "type": "para",
-          "text": "HarZa Group is a fast-growing operator of direct-to-consumer brands in health and wellness. Our flagship brand, Rejuvacare, serves more than 400,000 customers with products targeting chronic pain and mobility, including RejuvaKnee, FootRenew, RejuvaFlow and OzemPatch. We ship primarily to the United States and run a membership program that powers recurring revenue. The company has scaled 12x in a single year to nearly 150 people across more than 15 countries. We are remote-first, async-first, and hold a high standard of accountability across everything we do."
-        },
-        {
-          "type": "para",
-          "text": "The Role"
-        },
-        {
-          "type": "para",
-          "text": "We are a direct-to-consumer business where technology is a direct function of marketing. Our marketing team can develop a campaign idea and write the copy for it in a single day, but that idea only starts producing revenue once it has become a live, accurate and fully functioning landing page, checkout or funnel. The speed of our production function therefore sets the speed of the entire business."
-        },
-        {
-          "type": "para",
-          "text": "We are hiring a Head of Web Production to build and own the operating system through which marketing requirements become live digital experiences. Your responsibility is not to manage tasks, chase deadlines or add project management meetings. It is to redesign how the work gets done. You will examine every stage of production, remove unnecessary handoffs, improve requirements, manage dependencies, install effective quality controls, and decide where AI, automation, page builders, reusable components or traditional development should be used."
-        },
-        {
-          "type": "para",
-          "text": "For every requirement you should be asking whether this genuinely needs a developer, whether it can be built from an existing component or template, whether an AI-enabled page builder can complete most of it, whether the marketing team can safely complete it without engineering, whether the requirement can be eliminated or standardized, whether the quality check can be automated, and why it is taking as long as it is. Your job is to protect the business objective while continuously challenging the method used to achieve it."
-        },
-        {
-          "type": "para",
-          "text": "To be explicit about scope, this is not a cloud infrastructure or site reliability role. This is web production and development operations for a high-volume direct response marketing business."
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "PL",
-        "countryName": "Poland",
-        "region": "europe",
-        "remote": false,
-        "raw": "Poland"
-      },
-      "seniority": "director",
-      "domain": "technology",
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salary": {
-        "min": 240000,
-        "max": 438000,
-        "currency": "PLN",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "Medium",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2026-08-28T17:55:31.668Z",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
-    },
-    {
       "id": "hyprwork-head-of-web-production-dtc-growth-techno-0aa482",
       "title": "Head of Web Production (DTC Growth Technology) Digital Production Director",
       "company": "Hyprwork",
@@ -10165,7 +9075,37 @@
       },
       "postedAt": "2026-08-28T17:55:31.133Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z",
+      "variants": [
+        {
+          "countryIso2": "LT",
+          "countryName": "Lithuania",
+          "region": "europe",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/kgQo4Lefd9mRTdE9zvKnnq/remote-head-of-web-production-(dtc-growth-technology)-digital-production-director-in-lithuania-at-hyprwork"
+        },
+        {
+          "countryIso2": "PL",
+          "countryName": "Poland",
+          "region": "europe",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/hHbEk6n436N3P87TjrPJpG/remote-head-of-web-production-(dtc-growth-technology)-digital-production-director-in-poland-at-hyprwork"
+        },
+        {
+          "countryIso2": "RO",
+          "countryName": "Romania",
+          "region": "europe",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/mvW8mdMiPQahNSB1NL4UHA/remote-head-of-web-production-(dtc-growth-technology)-digital-production-director-in-romania-at-hyprwork"
+        },
+        {
+          "countryIso2": "ES",
+          "countryName": "Spain",
+          "region": "europe",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/7M5Gmwmb8M1xi1EKDdQqhE/remote-head-of-web-production-(dtc-growth-technology)-digital-production-director-in-spain-at-hyprwork"
+        }
+      ]
     },
     {
       "id": "prophix-vp-global-solution-engineering-a502bd",
@@ -21946,245 +20886,6 @@
       "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
-      "id": "ai-acquisition-head-of-marketing-technology-automation--62c6a8",
-      "title": "Head of Marketing Technology & Automation (Independent Contractor)",
-      "company": "AI Acquisition",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/647128/logo",
-      "applyUrl": "https://jobs.workable.com/view/me4URBWZJn3yMMrXk3N5Yu/remote-head-of-marketing-technology-%26-automation-(independent-contractor)-in-romania-at-ai-acquisition",
-      "sourceUrl": "https://jobs.workable.com/view/me4URBWZJn3yMMrXk3N5Yu/remote-head-of-marketing-technology-%26-automation-(independent-contractor)-in-romania-at-ai-acquisition",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "About AI Acquisition\nAI Acquisition is the global category leader in AI service provider enablement. Operating globally with the US as its primary market, our unique hybrid of Platform-as-a-Service (PaaS) and AI marketplace has achieved explosive growth by connecting AI agencies with qualified enterprise opportunities at scale. We combine proprietary AI orchestration tools with proven enterprise SaaS infrastructure to deliver immediate value to small and medium businesses worldwide.\nWe’re revolutionizing the way entrepreneurs build businesses by brokering AI tools to business owners eager to succeed. Whether through our AI Agency Incubator, AI Accelerator, or AI Agency Launchpad, we provide the systems, training, and support to help our members achieve rapid success.\nThe Role\nWe are looking for a Head of Marketing Technology & Automation to take absolute ownership of our end-to-end marketing infrastructure. This is not a traditional virtual assistant or ticket-taking role. We are hiring a true Technical Operator—someone who will look at our marketing landscape, independently design the strategy, and execute the architecture completely free of day-to-day oversight.\nYou aren't just completing tasks; you own the systems layer of all marketing funnels—tracking, attribution, reporting, funnel pages, multi-step automations, and global email infrastructure.\nToday, this execution layer requires too much internal oversight. We are hiring a sharp, high-agency leader who can be handed a one-line business objective and trusted to return a fully mapped, tested, and operating technical solution. This is a full-time, remote position ideal for a data-driven technical manager who wants to build robust, AI-accelerated marketing systems at scale.\nResponsibilities\nInfrastructure Ownership & Strategy: Act as the technical architect for all marketing funnels. Autonomously design, implement, and audit data pathways without needing micro-management from leadership.\nTracking, Attribution & Financial Reconciliation: Implement and structurally maintain comprehensive attribution tracking (Meta pixel + Conversions API, GTM server-side tagging, GA4); define and enforce strict UTM frameworks; ruthlessly debug data or numbers discrepancies between ad platforms, our CRM (Close), and payment gateways (Whop/Stripe) end-to-end.\nReporting & Anomaly Detection: Build, own, and maintain marketing campaign dashboards. Guarantee 100% data fidelity, proactively deep-diving into analytics anomalies and fixing root-cause tracking bugs before leadership ever has to ask.\nFunnel Operations: Oversee and optimize high-converting landing pages, VSL pages, opt-in forms, and complex multi-path booking flows across our page builders. Set up clean split-testing parameters ensuring zero leakage in data recording.\nAdvanced Automation & System Architecture: Architect and manage robust n8n webhooks and multi-branch workflows connecting external forms, Close CRM, Slack, Google Sheets, and our email platform—ensuring strict error handling and automated fallback paths are built natively into every execution loop.\nEmail Ops & Deliverability Architecture: Direct the execution of multi-step behavioral email sequences and system triggers within our ESP. Own long-term list hygiene, technical exit conditions, domain isolation, and overall deliverability metrics.\nAI Orchestration: Aggressively leverage AI agents and advanced prompt engineering to accelerate team output; identify key areas in our pipeline where AI steps can scale throughput or operational intelligence.\nFuture Scope: Take full technical ownership of the marketing operations department, with the runway to hire, structure, and directly manage junior technical VAs/contractors as we scale.",
-      "blocks": [
-        {
-          "type": "heading",
-          "text": "About AI Acquisition"
-        },
-        {
-          "type": "para",
-          "text": "AI Acquisition is the global category leader in AI service provider enablement. Operating globally with the US as its primary market, our unique hybrid of Platform-as-a-Service (PaaS) and AI marketplace has achieved explosive growth by connecting AI agencies with qualified enterprise opportunities at scale. We combine proprietary AI orchestration tools with proven enterprise SaaS infrastructure to deliver immediate value to small and medium businesses worldwide."
-        },
-        {
-          "type": "para",
-          "text": "We’re revolutionizing the way entrepreneurs build businesses by brokering AI tools to business owners eager to succeed. Whether through our AI Agency Incubator, AI Accelerator, or AI Agency Launchpad, we provide the systems, training, and support to help our members achieve rapid success."
-        },
-        {
-          "type": "heading",
-          "text": "The Role"
-        },
-        {
-          "type": "para",
-          "text": "We are looking for a Head of Marketing Technology & Automation to take absolute ownership of our end-to-end marketing infrastructure. This is not a traditional virtual assistant or ticket-taking role. We are hiring a true Technical Operator—someone who will look at our marketing landscape, independently design the strategy, and execute the architecture completely free of day-to-day oversight."
-        },
-        {
-          "type": "para",
-          "text": "You aren't just completing tasks; you own the systems layer of all marketing funnels—tracking, attribution, reporting, funnel pages, multi-step automations, and global email infrastructure."
-        },
-        {
-          "type": "para",
-          "text": "Today, this execution layer requires too much internal oversight. We are hiring a sharp, high-agency leader who can be handed a one-line business objective and trusted to return a fully mapped, tested, and operating technical solution. This is a full-time, remote position ideal for a data-driven technical manager who wants to build robust, AI-accelerated marketing systems at scale."
-        },
-        {
-          "type": "heading",
-          "text": "Responsibilities"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Infrastructure Ownership & Strategy: Act as the technical architect for all marketing funnels. Autonomously design, implement, and audit data pathways without needing micro-management from leadership.",
-            "Tracking, Attribution & Financial Reconciliation: Implement and structurally maintain comprehensive attribution tracking (Meta pixel + Conversions API, GTM server-side tagging, GA4); define and enforce strict UTM frameworks; ruthlessly debug data or numbers discrepancies between ad platforms, our CRM (Close), and payment gateways (Whop/Stripe) end-to-end.",
-            "Reporting & Anomaly Detection: Build, own, and maintain marketing campaign dashboards. Guarantee 100% data fidelity, proactively deep-diving into analytics anomalies and fixing root-cause tracking bugs before leadership ever has to ask.",
-            "Funnel Operations: Oversee and optimize high-converting landing pages, VSL pages, opt-in forms, and complex multi-path booking flows across our page builders. Set up clean split-testing parameters ensuring zero leakage in data recording.",
-            "Advanced Automation & System Architecture: Architect and manage robust n8n webhooks and multi-branch workflows connecting external forms, Close CRM, Slack, Google Sheets, and our email platform—ensuring strict error handling and automated fallback paths are built natively into every execution loop.",
-            "Email Ops & Deliverability Architecture: Direct the execution of multi-step behavioral email sequences and system triggers within our ESP. Own long-term list hygiene, technical exit conditions, domain isolation, and overall deliverability metrics.",
-            "AI Orchestration: Aggressively leverage AI agents and advanced prompt engineering to accelerate team output; identify key areas in our pipeline where AI steps can scale throughput or operational intelligence.",
-            "Future Scope: Take full technical ownership of the marketing operations department, with the runway to hire, structure, and directly manage junior technical VAs/contractors as we scale."
-          ]
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "RO",
-        "countryName": "Romania",
-        "region": "europe",
-        "remote": false,
-        "raw": "Romania"
-      },
-      "seniority": "head",
-      "domain": "technology",
-      "visa": "unknown",
-      "workMode": "hybrid",
-      "roleType": "full-time",
-      "salary": {
-        "min": 111012,
-        "max": 505848,
-        "currency": "RON",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "Low",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2026-06-15T19:30:24.977Z",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
-    },
-    {
-      "id": "ai-acquisition-head-of-marketing-technology-automation--93f650",
-      "title": "Head of Marketing Technology & Automation (Independent Contractor)",
-      "company": "AI Acquisition",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/647128/logo",
-      "applyUrl": "https://jobs.workable.com/view/tQK18CFPHjDUDuUXFceoMf/remote-head-of-marketing-technology-%26-automation-(independent-contractor)-in-moldova-at-ai-acquisition",
-      "sourceUrl": "https://jobs.workable.com/view/tQK18CFPHjDUDuUXFceoMf/remote-head-of-marketing-technology-%26-automation-(independent-contractor)-in-moldova-at-ai-acquisition",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "About AI Acquisition\nAI Acquisition is the global category leader in AI service provider enablement. Operating globally with the US as its primary market, our unique hybrid of Platform-as-a-Service (PaaS) and AI marketplace has achieved explosive growth by connecting AI agencies with qualified enterprise opportunities at scale. We combine proprietary AI orchestration tools with proven enterprise SaaS infrastructure to deliver immediate value to small and medium businesses worldwide.\nWe’re revolutionizing the way entrepreneurs build businesses by brokering AI tools to business owners eager to succeed. Whether through our AI Agency Incubator, AI Accelerator, or AI Agency Launchpad, we provide the systems, training, and support to help our members achieve rapid success.\nThe Role\nWe are looking for a Head of Marketing Technology & Automation to take absolute ownership of our end-to-end marketing infrastructure. This is not a traditional virtual assistant or ticket-taking role. We are hiring a true Technical Operator—someone who will look at our marketing landscape, independently design the strategy, and execute the architecture completely free of day-to-day oversight.\nYou aren't just completing tasks; you own the systems layer of all marketing funnels—tracking, attribution, reporting, funnel pages, multi-step automations, and global email infrastructure.\nToday, this execution layer requires too much internal oversight. We are hiring a sharp, high-agency leader who can be handed a one-line business objective and trusted to return a fully mapped, tested, and operating technical solution. This is a full-time, remote position ideal for a data-driven technical manager who wants to build robust, AI-accelerated marketing systems at scale.\nResponsibilities\nInfrastructure Ownership & Strategy: Act as the technical architect for all marketing funnels. Autonomously design, implement, and audit data pathways without needing micro-management from leadership.\nTracking, Attribution & Financial Reconciliation: Implement and structurally maintain comprehensive attribution tracking (Meta pixel + Conversions API, GTM server-side tagging, GA4); define and enforce strict UTM frameworks; ruthlessly debug data or numbers discrepancies between ad platforms, our CRM (Close), and payment gateways (Whop/Stripe) end-to-end.\nReporting & Anomaly Detection: Build, own, and maintain marketing campaign dashboards. Guarantee 100% data fidelity, proactively deep-diving into analytics anomalies and fixing root-cause tracking bugs before leadership ever has to ask.\nFunnel Operations: Oversee and optimize high-converting landing pages, VSL pages, opt-in forms, and complex multi-path booking flows across our page builders. Set up clean split-testing parameters ensuring zero leakage in data recording.\nAdvanced Automation & System Architecture: Architect and manage robust n8n webhooks and multi-branch workflows connecting external forms, Close CRM, Slack, Google Sheets, and our email platform—ensuring strict error handling and automated fallback paths are built natively into every execution loop.\nEmail Ops & Deliverability Architecture: Direct the execution of multi-step behavioral email sequences and system triggers within our ESP. Own long-term list hygiene, technical exit conditions, domain isolation, and overall deliverability metrics.\nAI Orchestration: Aggressively leverage AI agents and advanced prompt engineering to accelerate team output; identify key areas in our pipeline where AI steps can scale throughput or operational intelligence.\nFuture Scope: Take full technical ownership of the marketing operations department, with the runway to hire, structure, and directly manage junior technical VAs/contractors as we scale.",
-      "blocks": [
-        {
-          "type": "heading",
-          "text": "About AI Acquisition"
-        },
-        {
-          "type": "para",
-          "text": "AI Acquisition is the global category leader in AI service provider enablement. Operating globally with the US as its primary market, our unique hybrid of Platform-as-a-Service (PaaS) and AI marketplace has achieved explosive growth by connecting AI agencies with qualified enterprise opportunities at scale. We combine proprietary AI orchestration tools with proven enterprise SaaS infrastructure to deliver immediate value to small and medium businesses worldwide."
-        },
-        {
-          "type": "para",
-          "text": "We’re revolutionizing the way entrepreneurs build businesses by brokering AI tools to business owners eager to succeed. Whether through our AI Agency Incubator, AI Accelerator, or AI Agency Launchpad, we provide the systems, training, and support to help our members achieve rapid success."
-        },
-        {
-          "type": "heading",
-          "text": "The Role"
-        },
-        {
-          "type": "para",
-          "text": "We are looking for a Head of Marketing Technology & Automation to take absolute ownership of our end-to-end marketing infrastructure. This is not a traditional virtual assistant or ticket-taking role. We are hiring a true Technical Operator—someone who will look at our marketing landscape, independently design the strategy, and execute the architecture completely free of day-to-day oversight."
-        },
-        {
-          "type": "para",
-          "text": "You aren't just completing tasks; you own the systems layer of all marketing funnels—tracking, attribution, reporting, funnel pages, multi-step automations, and global email infrastructure."
-        },
-        {
-          "type": "para",
-          "text": "Today, this execution layer requires too much internal oversight. We are hiring a sharp, high-agency leader who can be handed a one-line business objective and trusted to return a fully mapped, tested, and operating technical solution. This is a full-time, remote position ideal for a data-driven technical manager who wants to build robust, AI-accelerated marketing systems at scale."
-        },
-        {
-          "type": "heading",
-          "text": "Responsibilities"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Infrastructure Ownership & Strategy: Act as the technical architect for all marketing funnels. Autonomously design, implement, and audit data pathways without needing micro-management from leadership.",
-            "Tracking, Attribution & Financial Reconciliation: Implement and structurally maintain comprehensive attribution tracking (Meta pixel + Conversions API, GTM server-side tagging, GA4); define and enforce strict UTM frameworks; ruthlessly debug data or numbers discrepancies between ad platforms, our CRM (Close), and payment gateways (Whop/Stripe) end-to-end.",
-            "Reporting & Anomaly Detection: Build, own, and maintain marketing campaign dashboards. Guarantee 100% data fidelity, proactively deep-diving into analytics anomalies and fixing root-cause tracking bugs before leadership ever has to ask.",
-            "Funnel Operations: Oversee and optimize high-converting landing pages, VSL pages, opt-in forms, and complex multi-path booking flows across our page builders. Set up clean split-testing parameters ensuring zero leakage in data recording.",
-            "Advanced Automation & System Architecture: Architect and manage robust n8n webhooks and multi-branch workflows connecting external forms, Close CRM, Slack, Google Sheets, and our email platform—ensuring strict error handling and automated fallback paths are built natively into every execution loop.",
-            "Email Ops & Deliverability Architecture: Direct the execution of multi-step behavioral email sequences and system triggers within our ESP. Own long-term list hygiene, technical exit conditions, domain isolation, and overall deliverability metrics.",
-            "AI Orchestration: Aggressively leverage AI agents and advanced prompt engineering to accelerate team output; identify key areas in our pipeline where AI steps can scale throughput or operational intelligence.",
-            "Future Scope: Take full technical ownership of the marketing operations department, with the runway to hire, structure, and directly manage junior technical VAs/contractors as we scale."
-          ]
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "MD",
-        "countryName": "Moldova",
-        "region": "europe",
-        "remote": false,
-        "raw": "Moldova"
-      },
-      "seniority": "head",
-      "domain": "technology",
-      "visa": "unknown",
-      "workMode": "hybrid",
-      "roleType": "full-time",
-      "salary": null,
-      "postedAt": "2026-06-15T19:30:24.945Z",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
-    },
-    {
-      "id": "ai-acquisition-head-of-marketing-technology-automation--96188a",
-      "title": "Head of Marketing Technology & Automation (Independent Contractor)",
-      "company": "AI Acquisition",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/647128/logo",
-      "applyUrl": "https://jobs.workable.com/view/wvnLszhhBgJA2o8Hahso4G/remote-head-of-marketing-technology-%26-automation-(independent-contractor)-in-ukraine-at-ai-acquisition",
-      "sourceUrl": "https://jobs.workable.com/view/wvnLszhhBgJA2o8Hahso4G/remote-head-of-marketing-technology-%26-automation-(independent-contractor)-in-ukraine-at-ai-acquisition",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "About AI Acquisition\nAI Acquisition is the global category leader in AI service provider enablement. Operating globally with the US as its primary market, our unique hybrid of Platform-as-a-Service (PaaS) and AI marketplace has achieved explosive growth by connecting AI agencies with qualified enterprise opportunities at scale. We combine proprietary AI orchestration tools with proven enterprise SaaS infrastructure to deliver immediate value to small and medium businesses worldwide.\nWe’re revolutionizing the way entrepreneurs build businesses by brokering AI tools to business owners eager to succeed. Whether through our AI Agency Incubator, AI Accelerator, or AI Agency Launchpad, we provide the systems, training, and support to help our members achieve rapid success.\nThe Role\nWe are looking for a Head of Marketing Technology & Automation to take absolute ownership of our end-to-end marketing infrastructure. This is not a traditional virtual assistant or ticket-taking role. We are hiring a true Technical Operator—someone who will look at our marketing landscape, independently design the strategy, and execute the architecture completely free of day-to-day oversight.\nYou aren't just completing tasks; you own the systems layer of all marketing funnels—tracking, attribution, reporting, funnel pages, multi-step automations, and global email infrastructure.\nToday, this execution layer requires too much internal oversight. We are hiring a sharp, high-agency leader who can be handed a one-line business objective and trusted to return a fully mapped, tested, and operating technical solution. This is a full-time, remote position ideal for a data-driven technical manager who wants to build robust, AI-accelerated marketing systems at scale.\nResponsibilities\nInfrastructure Ownership & Strategy: Act as the technical architect for all marketing funnels. Autonomously design, implement, and audit data pathways without needing micro-management from leadership.\nTracking, Attribution & Financial Reconciliation: Implement and structurally maintain comprehensive attribution tracking (Meta pixel + Conversions API, GTM server-side tagging, GA4); define and enforce strict UTM frameworks; ruthlessly debug data or numbers discrepancies between ad platforms, our CRM (Close), and payment gateways (Whop/Stripe) end-to-end.\nReporting & Anomaly Detection: Build, own, and maintain marketing campaign dashboards. Guarantee 100% data fidelity, proactively deep-diving into analytics anomalies and fixing root-cause tracking bugs before leadership ever has to ask.\nFunnel Operations: Oversee and optimize high-converting landing pages, VSL pages, opt-in forms, and complex multi-path booking flows across our page builders. Set up clean split-testing parameters ensuring zero leakage in data recording.\nAdvanced Automation & System Architecture: Architect and manage robust n8n webhooks and multi-branch workflows connecting external forms, Close CRM, Slack, Google Sheets, and our email platform—ensuring strict error handling and automated fallback paths are built natively into every execution loop.\nEmail Ops & Deliverability Architecture: Direct the execution of multi-step behavioral email sequences and system triggers within our ESP. Own long-term list hygiene, technical exit conditions, domain isolation, and overall deliverability metrics.\nAI Orchestration: Aggressively leverage AI agents and advanced prompt engineering to accelerate team output; identify key areas in our pipeline where AI steps can scale throughput or operational intelligence.\nFuture Scope: Take full technical ownership of the marketing operations department, with the runway to hire, structure, and directly manage junior technical VAs/contractors as we scale.",
-      "blocks": [
-        {
-          "type": "heading",
-          "text": "About AI Acquisition"
-        },
-        {
-          "type": "para",
-          "text": "AI Acquisition is the global category leader in AI service provider enablement. Operating globally with the US as its primary market, our unique hybrid of Platform-as-a-Service (PaaS) and AI marketplace has achieved explosive growth by connecting AI agencies with qualified enterprise opportunities at scale. We combine proprietary AI orchestration tools with proven enterprise SaaS infrastructure to deliver immediate value to small and medium businesses worldwide."
-        },
-        {
-          "type": "para",
-          "text": "We’re revolutionizing the way entrepreneurs build businesses by brokering AI tools to business owners eager to succeed. Whether through our AI Agency Incubator, AI Accelerator, or AI Agency Launchpad, we provide the systems, training, and support to help our members achieve rapid success."
-        },
-        {
-          "type": "heading",
-          "text": "The Role"
-        },
-        {
-          "type": "para",
-          "text": "We are looking for a Head of Marketing Technology & Automation to take absolute ownership of our end-to-end marketing infrastructure. This is not a traditional virtual assistant or ticket-taking role. We are hiring a true Technical Operator—someone who will look at our marketing landscape, independently design the strategy, and execute the architecture completely free of day-to-day oversight."
-        },
-        {
-          "type": "para",
-          "text": "You aren't just completing tasks; you own the systems layer of all marketing funnels—tracking, attribution, reporting, funnel pages, multi-step automations, and global email infrastructure."
-        },
-        {
-          "type": "para",
-          "text": "Today, this execution layer requires too much internal oversight. We are hiring a sharp, high-agency leader who can be handed a one-line business objective and trusted to return a fully mapped, tested, and operating technical solution. This is a full-time, remote position ideal for a data-driven technical manager who wants to build robust, AI-accelerated marketing systems at scale."
-        },
-        {
-          "type": "heading",
-          "text": "Responsibilities"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Infrastructure Ownership & Strategy: Act as the technical architect for all marketing funnels. Autonomously design, implement, and audit data pathways without needing micro-management from leadership.",
-            "Tracking, Attribution & Financial Reconciliation: Implement and structurally maintain comprehensive attribution tracking (Meta pixel + Conversions API, GTM server-side tagging, GA4); define and enforce strict UTM frameworks; ruthlessly debug data or numbers discrepancies between ad platforms, our CRM (Close), and payment gateways (Whop/Stripe) end-to-end.",
-            "Reporting & Anomaly Detection: Build, own, and maintain marketing campaign dashboards. Guarantee 100% data fidelity, proactively deep-diving into analytics anomalies and fixing root-cause tracking bugs before leadership ever has to ask.",
-            "Funnel Operations: Oversee and optimize high-converting landing pages, VSL pages, opt-in forms, and complex multi-path booking flows across our page builders. Set up clean split-testing parameters ensuring zero leakage in data recording.",
-            "Advanced Automation & System Architecture: Architect and manage robust n8n webhooks and multi-branch workflows connecting external forms, Close CRM, Slack, Google Sheets, and our email platform—ensuring strict error handling and automated fallback paths are built natively into every execution loop.",
-            "Email Ops & Deliverability Architecture: Direct the execution of multi-step behavioral email sequences and system triggers within our ESP. Own long-term list hygiene, technical exit conditions, domain isolation, and overall deliverability metrics.",
-            "AI Orchestration: Aggressively leverage AI agents and advanced prompt engineering to accelerate team output; identify key areas in our pipeline where AI steps can scale throughput or operational intelligence.",
-            "Future Scope: Take full technical ownership of the marketing operations department, with the runway to hire, structure, and directly manage junior technical VAs/contractors as we scale."
-          ]
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "UA",
-        "countryName": "Ukraine",
-        "region": "europe",
-        "remote": false,
-        "raw": "Ukraine"
-      },
-      "seniority": "head",
-      "domain": "technology",
-      "visa": "unknown",
-      "workMode": "hybrid",
-      "roleType": "full-time",
-      "salary": null,
-      "postedAt": "2026-06-15T19:30:24.785Z",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
-    },
-    {
       "id": "ai-acquisition-head-of-marketing-technology-automation--1ac4f1",
       "title": "Head of Marketing Technology & Automation (Independent Contractor)",
       "company": "AI Acquisition",
@@ -22267,169 +20968,44 @@
       },
       "postedAt": "2026-06-15T19:30:24.292Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
-    },
-    {
-      "id": "ai-acquisition-head-of-marketing-technology-automation--2cd596",
-      "title": "Head of Marketing Technology & Automation (Independent Contractor)",
-      "company": "AI Acquisition",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/647128/logo",
-      "applyUrl": "https://jobs.workable.com/view/eXRgUgyDyKSjyVnhBCHmAR/remote-head-of-marketing-technology-%26-automation-(independent-contractor)-in-belarus-at-ai-acquisition",
-      "sourceUrl": "https://jobs.workable.com/view/eXRgUgyDyKSjyVnhBCHmAR/remote-head-of-marketing-technology-%26-automation-(independent-contractor)-in-belarus-at-ai-acquisition",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "About AI Acquisition\nAI Acquisition is the global category leader in AI service provider enablement. Operating globally with the US as its primary market, our unique hybrid of Platform-as-a-Service (PaaS) and AI marketplace has achieved explosive growth by connecting AI agencies with qualified enterprise opportunities at scale. We combine proprietary AI orchestration tools with proven enterprise SaaS infrastructure to deliver immediate value to small and medium businesses worldwide.\nWe’re revolutionizing the way entrepreneurs build businesses by brokering AI tools to business owners eager to succeed. Whether through our AI Agency Incubator, AI Accelerator, or AI Agency Launchpad, we provide the systems, training, and support to help our members achieve rapid success.\nThe Role\nWe are looking for a Head of Marketing Technology & Automation to take absolute ownership of our end-to-end marketing infrastructure. This is not a traditional virtual assistant or ticket-taking role. We are hiring a true Technical Operator—someone who will look at our marketing landscape, independently design the strategy, and execute the architecture completely free of day-to-day oversight.\nYou aren't just completing tasks; you own the systems layer of all marketing funnels—tracking, attribution, reporting, funnel pages, multi-step automations, and global email infrastructure.\nToday, this execution layer requires too much internal oversight. We are hiring a sharp, high-agency leader who can be handed a one-line business objective and trusted to return a fully mapped, tested, and operating technical solution. This is a full-time, remote position ideal for a data-driven technical manager who wants to build robust, AI-accelerated marketing systems at scale.\nResponsibilities\nInfrastructure Ownership & Strategy: Act as the technical architect for all marketing funnels. Autonomously design, implement, and audit data pathways without needing micro-management from leadership.\nTracking, Attribution & Financial Reconciliation: Implement and structurally maintain comprehensive attribution tracking (Meta pixel + Conversions API, GTM server-side tagging, GA4); define and enforce strict UTM frameworks; ruthlessly debug data or numbers discrepancies between ad platforms, our CRM (Close), and payment gateways (Whop/Stripe) end-to-end.\nReporting & Anomaly Detection: Build, own, and maintain marketing campaign dashboards. Guarantee 100% data fidelity, proactively deep-diving into analytics anomalies and fixing root-cause tracking bugs before leadership ever has to ask.\nFunnel Operations: Oversee and optimize high-converting landing pages, VSL pages, opt-in forms, and complex multi-path booking flows across our page builders. Set up clean split-testing parameters ensuring zero leakage in data recording.\nAdvanced Automation & System Architecture: Architect and manage robust n8n webhooks and multi-branch workflows connecting external forms, Close CRM, Slack, Google Sheets, and our email platform—ensuring strict error handling and automated fallback paths are built natively into every execution loop.\nEmail Ops & Deliverability Architecture: Direct the execution of multi-step behavioral email sequences and system triggers within our ESP. Own long-term list hygiene, technical exit conditions, domain isolation, and overall deliverability metrics.\nAI Orchestration: Aggressively leverage AI agents and advanced prompt engineering to accelerate team output; identify key areas in our pipeline where AI steps can scale throughput or operational intelligence.\nFuture Scope: Take full technical ownership of the marketing operations department, with the runway to hire, structure, and directly manage junior technical VAs/contractors as we scale.",
-      "blocks": [
+      "updatedAt": "2026-09-13T10:30:55.497Z",
+      "variants": [
         {
-          "type": "heading",
-          "text": "About AI Acquisition"
+          "countryIso2": "BY",
+          "countryName": "Belarus",
+          "region": "europe",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/eXRgUgyDyKSjyVnhBCHmAR/remote-head-of-marketing-technology-%26-automation-(independent-contractor)-in-belarus-at-ai-acquisition"
         },
         {
-          "type": "para",
-          "text": "AI Acquisition is the global category leader in AI service provider enablement. Operating globally with the US as its primary market, our unique hybrid of Platform-as-a-Service (PaaS) and AI marketplace has achieved explosive growth by connecting AI agencies with qualified enterprise opportunities at scale. We combine proprietary AI orchestration tools with proven enterprise SaaS infrastructure to deliver immediate value to small and medium businesses worldwide."
+          "countryIso2": "MD",
+          "countryName": "Moldova",
+          "region": "europe",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/tQK18CFPHjDUDuUXFceoMf/remote-head-of-marketing-technology-%26-automation-(independent-contractor)-in-moldova-at-ai-acquisition"
         },
         {
-          "type": "para",
-          "text": "We’re revolutionizing the way entrepreneurs build businesses by brokering AI tools to business owners eager to succeed. Whether through our AI Agency Incubator, AI Accelerator, or AI Agency Launchpad, we provide the systems, training, and support to help our members achieve rapid success."
+          "countryIso2": "PL",
+          "countryName": "Poland",
+          "region": "europe",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/to6z5wVhfw9jMU9aVsw7xa/remote-head-of-marketing-technology-%26-automation-(independent-contractor)-in-poland-at-ai-acquisition"
         },
         {
-          "type": "heading",
-          "text": "The Role"
+          "countryIso2": "RO",
+          "countryName": "Romania",
+          "region": "europe",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/me4URBWZJn3yMMrXk3N5Yu/remote-head-of-marketing-technology-%26-automation-(independent-contractor)-in-romania-at-ai-acquisition"
         },
         {
-          "type": "para",
-          "text": "We are looking for a Head of Marketing Technology & Automation to take absolute ownership of our end-to-end marketing infrastructure. This is not a traditional virtual assistant or ticket-taking role. We are hiring a true Technical Operator—someone who will look at our marketing landscape, independently design the strategy, and execute the architecture completely free of day-to-day oversight."
-        },
-        {
-          "type": "para",
-          "text": "You aren't just completing tasks; you own the systems layer of all marketing funnels—tracking, attribution, reporting, funnel pages, multi-step automations, and global email infrastructure."
-        },
-        {
-          "type": "para",
-          "text": "Today, this execution layer requires too much internal oversight. We are hiring a sharp, high-agency leader who can be handed a one-line business objective and trusted to return a fully mapped, tested, and operating technical solution. This is a full-time, remote position ideal for a data-driven technical manager who wants to build robust, AI-accelerated marketing systems at scale."
-        },
-        {
-          "type": "heading",
-          "text": "Responsibilities"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Infrastructure Ownership & Strategy: Act as the technical architect for all marketing funnels. Autonomously design, implement, and audit data pathways without needing micro-management from leadership.",
-            "Tracking, Attribution & Financial Reconciliation: Implement and structurally maintain comprehensive attribution tracking (Meta pixel + Conversions API, GTM server-side tagging, GA4); define and enforce strict UTM frameworks; ruthlessly debug data or numbers discrepancies between ad platforms, our CRM (Close), and payment gateways (Whop/Stripe) end-to-end.",
-            "Reporting & Anomaly Detection: Build, own, and maintain marketing campaign dashboards. Guarantee 100% data fidelity, proactively deep-diving into analytics anomalies and fixing root-cause tracking bugs before leadership ever has to ask.",
-            "Funnel Operations: Oversee and optimize high-converting landing pages, VSL pages, opt-in forms, and complex multi-path booking flows across our page builders. Set up clean split-testing parameters ensuring zero leakage in data recording.",
-            "Advanced Automation & System Architecture: Architect and manage robust n8n webhooks and multi-branch workflows connecting external forms, Close CRM, Slack, Google Sheets, and our email platform—ensuring strict error handling and automated fallback paths are built natively into every execution loop.",
-            "Email Ops & Deliverability Architecture: Direct the execution of multi-step behavioral email sequences and system triggers within our ESP. Own long-term list hygiene, technical exit conditions, domain isolation, and overall deliverability metrics.",
-            "AI Orchestration: Aggressively leverage AI agents and advanced prompt engineering to accelerate team output; identify key areas in our pipeline where AI steps can scale throughput or operational intelligence.",
-            "Future Scope: Take full technical ownership of the marketing operations department, with the runway to hire, structure, and directly manage junior technical VAs/contractors as we scale."
-          ]
+          "countryIso2": "UA",
+          "countryName": "Ukraine",
+          "region": "europe",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/wvnLszhhBgJA2o8Hahso4G/remote-head-of-marketing-technology-%26-automation-(independent-contractor)-in-ukraine-at-ai-acquisition"
         }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "BY",
-        "countryName": "Belarus",
-        "region": "europe",
-        "remote": false,
-        "raw": "Belarus"
-      },
-      "seniority": "head",
-      "domain": "technology",
-      "visa": "unknown",
-      "workMode": "hybrid",
-      "roleType": "full-time",
-      "salary": null,
-      "postedAt": "2026-06-15T19:30:24.041Z",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
-    },
-    {
-      "id": "ai-acquisition-head-of-marketing-technology-automation--d7fd28",
-      "title": "Head of Marketing Technology & Automation (Independent Contractor)",
-      "company": "AI Acquisition",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/647128/logo",
-      "applyUrl": "https://jobs.workable.com/view/to6z5wVhfw9jMU9aVsw7xa/remote-head-of-marketing-technology-%26-automation-(independent-contractor)-in-poland-at-ai-acquisition",
-      "sourceUrl": "https://jobs.workable.com/view/to6z5wVhfw9jMU9aVsw7xa/remote-head-of-marketing-technology-%26-automation-(independent-contractor)-in-poland-at-ai-acquisition",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "About AI Acquisition\nAI Acquisition is the global category leader in AI service provider enablement. Operating globally with the US as its primary market, our unique hybrid of Platform-as-a-Service (PaaS) and AI marketplace has achieved explosive growth by connecting AI agencies with qualified enterprise opportunities at scale. We combine proprietary AI orchestration tools with proven enterprise SaaS infrastructure to deliver immediate value to small and medium businesses worldwide.\nWe’re revolutionizing the way entrepreneurs build businesses by brokering AI tools to business owners eager to succeed. Whether through our AI Agency Incubator, AI Accelerator, or AI Agency Launchpad, we provide the systems, training, and support to help our members achieve rapid success.\nThe Role\nWe are looking for a Head of Marketing Technology & Automation to take absolute ownership of our end-to-end marketing infrastructure. This is not a traditional virtual assistant or ticket-taking role. We are hiring a true Technical Operator—someone who will look at our marketing landscape, independently design the strategy, and execute the architecture completely free of day-to-day oversight.\nYou aren't just completing tasks; you own the systems layer of all marketing funnels—tracking, attribution, reporting, funnel pages, multi-step automations, and global email infrastructure.\nToday, this execution layer requires too much internal oversight. We are hiring a sharp, high-agency leader who can be handed a one-line business objective and trusted to return a fully mapped, tested, and operating technical solution. This is a full-time, remote position ideal for a data-driven technical manager who wants to build robust, AI-accelerated marketing systems at scale.\nResponsibilities\nInfrastructure Ownership & Strategy: Act as the technical architect for all marketing funnels. Autonomously design, implement, and audit data pathways without needing micro-management from leadership.\nTracking, Attribution & Financial Reconciliation: Implement and structurally maintain comprehensive attribution tracking (Meta pixel + Conversions API, GTM server-side tagging, GA4); define and enforce strict UTM frameworks; ruthlessly debug data or numbers discrepancies between ad platforms, our CRM (Close), and payment gateways (Whop/Stripe) end-to-end.\nReporting & Anomaly Detection: Build, own, and maintain marketing campaign dashboards. Guarantee 100% data fidelity, proactively deep-diving into analytics anomalies and fixing root-cause tracking bugs before leadership ever has to ask.\nFunnel Operations: Oversee and optimize high-converting landing pages, VSL pages, opt-in forms, and complex multi-path booking flows across our page builders. Set up clean split-testing parameters ensuring zero leakage in data recording.\nAdvanced Automation & System Architecture: Architect and manage robust n8n webhooks and multi-branch workflows connecting external forms, Close CRM, Slack, Google Sheets, and our email platform—ensuring strict error handling and automated fallback paths are built natively into every execution loop.\nEmail Ops & Deliverability Architecture: Direct the execution of multi-step behavioral email sequences and system triggers within our ESP. Own long-term list hygiene, technical exit conditions, domain isolation, and overall deliverability metrics.\nAI Orchestration: Aggressively leverage AI agents and advanced prompt engineering to accelerate team output; identify key areas in our pipeline where AI steps can scale throughput or operational intelligence.\nFuture Scope: Take full technical ownership of the marketing operations department, with the runway to hire, structure, and directly manage junior technical VAs/contractors as we scale.",
-      "blocks": [
-        {
-          "type": "heading",
-          "text": "About AI Acquisition"
-        },
-        {
-          "type": "para",
-          "text": "AI Acquisition is the global category leader in AI service provider enablement. Operating globally with the US as its primary market, our unique hybrid of Platform-as-a-Service (PaaS) and AI marketplace has achieved explosive growth by connecting AI agencies with qualified enterprise opportunities at scale. We combine proprietary AI orchestration tools with proven enterprise SaaS infrastructure to deliver immediate value to small and medium businesses worldwide."
-        },
-        {
-          "type": "para",
-          "text": "We’re revolutionizing the way entrepreneurs build businesses by brokering AI tools to business owners eager to succeed. Whether through our AI Agency Incubator, AI Accelerator, or AI Agency Launchpad, we provide the systems, training, and support to help our members achieve rapid success."
-        },
-        {
-          "type": "heading",
-          "text": "The Role"
-        },
-        {
-          "type": "para",
-          "text": "We are looking for a Head of Marketing Technology & Automation to take absolute ownership of our end-to-end marketing infrastructure. This is not a traditional virtual assistant or ticket-taking role. We are hiring a true Technical Operator—someone who will look at our marketing landscape, independently design the strategy, and execute the architecture completely free of day-to-day oversight."
-        },
-        {
-          "type": "para",
-          "text": "You aren't just completing tasks; you own the systems layer of all marketing funnels—tracking, attribution, reporting, funnel pages, multi-step automations, and global email infrastructure."
-        },
-        {
-          "type": "para",
-          "text": "Today, this execution layer requires too much internal oversight. We are hiring a sharp, high-agency leader who can be handed a one-line business objective and trusted to return a fully mapped, tested, and operating technical solution. This is a full-time, remote position ideal for a data-driven technical manager who wants to build robust, AI-accelerated marketing systems at scale."
-        },
-        {
-          "type": "heading",
-          "text": "Responsibilities"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Infrastructure Ownership & Strategy: Act as the technical architect for all marketing funnels. Autonomously design, implement, and audit data pathways without needing micro-management from leadership.",
-            "Tracking, Attribution & Financial Reconciliation: Implement and structurally maintain comprehensive attribution tracking (Meta pixel + Conversions API, GTM server-side tagging, GA4); define and enforce strict UTM frameworks; ruthlessly debug data or numbers discrepancies between ad platforms, our CRM (Close), and payment gateways (Whop/Stripe) end-to-end.",
-            "Reporting & Anomaly Detection: Build, own, and maintain marketing campaign dashboards. Guarantee 100% data fidelity, proactively deep-diving into analytics anomalies and fixing root-cause tracking bugs before leadership ever has to ask.",
-            "Funnel Operations: Oversee and optimize high-converting landing pages, VSL pages, opt-in forms, and complex multi-path booking flows across our page builders. Set up clean split-testing parameters ensuring zero leakage in data recording.",
-            "Advanced Automation & System Architecture: Architect and manage robust n8n webhooks and multi-branch workflows connecting external forms, Close CRM, Slack, Google Sheets, and our email platform—ensuring strict error handling and automated fallback paths are built natively into every execution loop.",
-            "Email Ops & Deliverability Architecture: Direct the execution of multi-step behavioral email sequences and system triggers within our ESP. Own long-term list hygiene, technical exit conditions, domain isolation, and overall deliverability metrics.",
-            "AI Orchestration: Aggressively leverage AI agents and advanced prompt engineering to accelerate team output; identify key areas in our pipeline where AI steps can scale throughput or operational intelligence.",
-            "Future Scope: Take full technical ownership of the marketing operations department, with the runway to hire, structure, and directly manage junior technical VAs/contractors as we scale."
-          ]
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "PL",
-        "countryName": "Poland",
-        "region": "europe",
-        "remote": false,
-        "raw": "Poland"
-      },
-      "seniority": "head",
-      "domain": "technology",
-      "visa": "unknown",
-      "workMode": "hybrid",
-      "roleType": "full-time",
-      "salary": {
-        "min": 240000,
-        "max": 438000,
-        "currency": "PLN",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "Medium",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2026-06-15T19:30:23.864Z",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      ]
     },
     {
       "id": "moniepoint-head-of-engineering-pos-application-plat-88399e",
@@ -26112,71 +24688,6 @@
       "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
-      "id": "tiger-analytics-inc-sr-manager-associate-director-technology-8cbf9e",
-      "title": "Sr Manager/Associate Director - Technology Consulting - (P&C Insurance)",
-      "company": "Tiger Analytics Inc.",
-      "applyUrl": "https://jobs.workable.com/view/wTJqR1qHsJAakrChBoAuee/remote-sr-manager%2Fassociate-director---technology-consulting---(p%26c-insurance)-in-new-jersey-at-tiger-analytics-inc.",
-      "sourceUrl": "https://jobs.workable.com/view/wTJqR1qHsJAakrChBoAuee/remote-sr-manager%2Fassociate-director---technology-consulting---(p%26c-insurance)-in-new-jersey-at-tiger-analytics-inc.",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "Tiger Analytics is pioneering what AI and analytics can do to solve some of the toughest problems faced by organizations globally. We develop bespoke solutions powered by data and technology for several Fortune 100 companies. We have offices in multiple cities across the US, UK, India, and Singapore, and a substantial remote global workforce.\nIf you are passionate about working on business problems that can be solved using structured and unstructured data on a large scale, Tiger Analytics would like to talk to you. Now hiring for multiple opportunities in Technology Consulting and Solution Delivery.\nResponsibilities\nManage large-scale data analytics client engagements in a global delivery model\nWork with clients’ Technology and Program teams to craft the engagement planning and execution roadmap\nWork with business executives to understand business requirements and constraints for the success of the program.\nPresent solutions to technology and business audiences highlighting the robustness of the solution and how it could help generate business value.\nResponsible for presentations to senior management and client executives, communicating results to client stakeholders, and developing plans to help operationalize the solutions.\nIdeating problem solutions leveraging modern trends in data and analytics solutions and related patterns\nHold discussions on high-level architecture, platforms, and tools fitments for data and analytics solutions\nSteer discussions in strategizing and implementing digital and cloud solutions.\nCollaborating with business / IT stakeholders and product managers to ideate software",
-      "blocks": [
-        {
-          "type": "para",
-          "text": "Tiger Analytics is pioneering what AI and analytics can do to solve some of the toughest problems faced by organizations globally. We develop bespoke solutions powered by data and technology for several Fortune 100 companies. We have offices in multiple cities across the US, UK, India, and Singapore, and a substantial remote global workforce."
-        },
-        {
-          "type": "para",
-          "text": "If you are passionate about working on business problems that can be solved using structured and unstructured data on a large scale, Tiger Analytics would like to talk to you. Now hiring for multiple opportunities in Technology Consulting and Solution Delivery."
-        },
-        {
-          "type": "heading",
-          "text": "Responsibilities"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Manage large-scale data analytics client engagements in a global delivery model",
-            "Work with clients’ Technology and Program teams to craft the engagement planning and execution roadmap",
-            "Work with business executives to understand business requirements and constraints for the success of the program.",
-            "Present solutions to technology and business audiences highlighting the robustness of the solution and how it could help generate business value.",
-            "Responsible for presentations to senior management and client executives, communicating results to client stakeholders, and developing plans to help operationalize the solutions.",
-            "Ideating problem solutions leveraging modern trends in data and analytics solutions and related patterns",
-            "Hold discussions on high-level architecture, platforms, and tools fitments for data and analytics solutions",
-            "Steer discussions in strategizing and implementing digital and cloud solutions.",
-            "Collaborating with business / IT stakeholders and product managers to ideate software"
-          ]
-        }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "US",
-        "countryName": "United States",
-        "region": "north-america",
-        "remote": false,
-        "raw": "United States"
-      },
-      "seniority": "director",
-      "domain": "technology",
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salary": {
-        "min": 138060,
-        "max": 220730,
-        "currency": "USD",
-        "period": "annual",
-        "source": "estimated",
-        "quality": "High",
-        "familyUsed": "it-executive"
-      },
-      "postedAt": "2026-04-06T17:58:47.159Z",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
-    },
-    {
       "id": "tiger-analytics-inc-sr-manager-associate-director-technology-7d76f7",
       "title": "Sr Manager/Associate Director - Technology Consulting - (P&C Insurance)",
       "company": "Tiger Analytics Inc.",
@@ -26239,7 +24750,16 @@
       },
       "postedAt": "2026-04-06T17:16:22.270Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-13T10:30:55.497Z",
+      "variants": [
+        {
+          "countryIso2": "US",
+          "countryName": "United States",
+          "region": "north-america",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/wTJqR1qHsJAakrChBoAuee/remote-sr-manager%2Fassociate-director---technology-consulting---(p%26c-insurance)-in-new-jersey-at-tiger-analytics-inc."
+        }
+      ]
     },
     {
       "id": "samsara-director-field-sales-engineering-00eff4",
@@ -27507,170 +26027,16 @@
       },
       "postedAt": "2026-03-25T16:56:36.765Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
-    },
-    {
-      "id": "first-circle-vp-of-engineering-8958b0",
-      "title": "VP of Engineering",
-      "company": "First Circle",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/664988/logo",
-      "applyUrl": "https://jobs.workable.com/view/ttR4DzYvwsskLfAzpQEMGy/hybrid-vp-of-engineering-in-singapore-at-first-circle",
-      "sourceUrl": "https://jobs.workable.com/view/ttR4DzYvwsskLfAzpQEMGy/hybrid-vp-of-engineering-in-singapore-at-first-circle",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ],
-      "text": "About Us\nFirst Circle is a fast-growing, profitable, credit-led SME neobank in the Philippines, backed by shareholders including the World Bank Group (IFC). Thousands of SMEs use our Business Credit Line and Business Bank Accounts to run and grow their businesses. Our product velocity continues to accelerate, with upcoming launches including SME Corporate Cards, Payroll, Invoices, and Solar Financing - redefining the SME neobank category through software, financial products, and exceptional risk models.\nOur culture emphasises building, problem solving, ownership / responsibility, and personal & professional growth. We balance a collegiate atmosphere with free & direct communication which enables us to move very quickly and avoid politics or toxicity. Our team continues to level up quickly, necessary for business to compound more than 100% per year, which we achieve through individual growth and bar-raiser hiring.\nStage:\nProfitable\n150% YoY growth\n$25-50m revenue\nResponsibilities\nAs VP of Engineering, you will be the most senior technical leader in the business, reporting directly to the CEO. You will own engineering output end-to-end: from system design and domain architecture to delivery velocity, team culture, and the platform decisions that define the next chapters of our journey.\nThis is not a role for a detached engineering executive. We are looking for a technically excellent leader who understands that solving the hardest problems means being hands-on, not someone who manages through process and delegation. The ideal candidate raises the bar on every dimension of engineering quality, and builds the engineering organisation which will enable us to become the dominant SME NeoBank across Southeast Asia.\nProduct Velocity & Quality\nEvolve the engineering delivery framework - sprint cadence, definition of done, code review standards, and release processes\nDrive meaningful improvement in lead time, deployment frequency, and change failure rate (DORA metrics)\nBalance feature velocity against technical debt with rigour and transparency\nPartner with Product to co-own the technical roadmap, sequencing build decisions against architectural dependencies\nArchitecture & System Design\nDefine and enforce domain boundaries across a microservices landscape, including cross-service messaging patterns, event contracts, and data consistency models\nOwn data modelling standards and schema governance across services\nLead design reviews for significant architectural decisions: ledger design, transaction state machines, reconciliation, and authorisation flows\nBuild the architecture review process - lightweight enough to not slow teams down, rigorous enough to prevent expensive mistakes\nRegulatory, Security & Non-Functional Requirements\nOwn the technical implementation of MAS TRM Guidelines and/or HKMA SPM on IT\nLead PCI-DSS compliance engineering and scope management\nDrive adoption of the Azure Well-Architected Framework across all workloads\nDefine and maintain SLA/SLO frameworks, on-call rotation design, and post-mortem culture\nOwn cloud cost governance, capacity planning, and tooling budget\nAI in Engineering\nEvolve and implement out the firm's AI-assisted development strategy\nStay close to the emerging agentic engineering landscape and make deliberate adoption decisions\nProvide architectural guidance on model integration, data pipelines, and inference infrastructure\nAPI, Integration & Vendor Strategy\nOwn the API design philosophy for internal and external-facing services\nHold the technical relationship with key infrastructure partners - issuer processors, core banking providers, cloud vendors\nDefine the integration pattern library and partner onboarding standards\nData Platform\nAccountability for data infrastructure: pipelines, warehouse, and models feeding BI and regulatory reporting\nEnsure data lineage, quality, and governance standards are fit for a regulated entity\nTeam Leadership & Hiring\nHire, develop, lead & manage engineering team leaders: own the org design as the team scales from 25+ to 100+\nDrive hiring at all levels - define the bar, run structured processes, attract senior talent\nDevelop engineering culture: ways of working, documentation standards, incident response norms\nDevelop career pathways and performance frameworks oriented around A-players\nRepresent engineering to the board, in investor due diligence, and in regulatory interactions",
-      "blocks": [
+      "updatedAt": "2026-09-13T10:30:55.497Z",
+      "variants": [
         {
-          "type": "heading",
-          "text": "About Us"
-        },
-        {
-          "type": "para",
-          "text": "First Circle is a fast-growing, profitable, credit-led SME neobank in the Philippines, backed by shareholders including the World Bank Group (IFC). Thousands of SMEs use our Business Credit Line and Business Bank Accounts to run and grow their businesses. Our product velocity continues to accelerate, with upcoming launches including SME Corporate Cards, Payroll, Invoices, and Solar Financing - redefining the SME neobank category through software, financial products, and exceptional risk models."
-        },
-        {
-          "type": "para",
-          "text": "Our culture emphasises building, problem solving, ownership / responsibility, and personal & professional growth. We balance a collegiate atmosphere with free & direct communication which enables us to move very quickly and avoid politics or toxicity. Our team continues to level up quickly, necessary for business to compound more than 100% per year, which we achieve through individual growth and bar-raiser hiring."
-        },
-        {
-          "type": "para",
-          "text": "Stage:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Profitable",
-            "150% YoY growth",
-            "$25-50m revenue"
-          ]
-        },
-        {
-          "type": "heading",
-          "text": "Responsibilities"
-        },
-        {
-          "type": "para",
-          "text": "As VP of Engineering, you will be the most senior technical leader in the business, reporting directly to the CEO. You will own engineering output end-to-end: from system design and domain architecture to delivery velocity, team culture, and the platform decisions that define the next chapters of our journey."
-        },
-        {
-          "type": "para",
-          "text": "This is not a role for a detached engineering executive. We are looking for a technically excellent leader who understands that solving the hardest problems means being hands-on, not someone who manages through process and delegation. The ideal candidate raises the bar on every dimension of engineering quality, and builds the engineering organisation which will enable us to become the dominant SME NeoBank across Southeast Asia."
-        },
-        {
-          "type": "para",
-          "text": "Product Velocity & Quality"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Evolve the engineering delivery framework - sprint cadence, definition of done, code review standards, and release processes",
-            "Drive meaningful improvement in lead time, deployment frequency, and change failure rate (DORA metrics)",
-            "Balance feature velocity against technical debt with rigour and transparency",
-            "Partner with Product to co-own the technical roadmap, sequencing build decisions against architectural dependencies"
-          ]
-        },
-        {
-          "type": "para",
-          "text": "Architecture & System Design"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Define and enforce domain boundaries across a microservices landscape, including cross-service messaging patterns, event contracts, and data consistency models",
-            "Own data modelling standards and schema governance across services",
-            "Lead design reviews for significant architectural decisions: ledger design, transaction state machines, reconciliation, and authorisation flows",
-            "Build the architecture review process - lightweight enough to not slow teams down, rigorous enough to prevent expensive mistakes"
-          ]
-        },
-        {
-          "type": "para",
-          "text": "Regulatory, Security & Non-Functional Requirements"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Own the technical implementation of MAS TRM Guidelines and/or HKMA SPM on IT",
-            "Lead PCI-DSS compliance engineering and scope management",
-            "Drive adoption of the Azure Well-Architected Framework across all workloads",
-            "Define and maintain SLA/SLO frameworks, on-call rotation design, and post-mortem culture",
-            "Own cloud cost governance, capacity planning, and tooling budget"
-          ]
-        },
-        {
-          "type": "para",
-          "text": "AI in Engineering"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Evolve and implement out the firm's AI-assisted development strategy",
-            "Stay close to the emerging agentic engineering landscape and make deliberate adoption decisions",
-            "Provide architectural guidance on model integration, data pipelines, and inference infrastructure"
-          ]
-        },
-        {
-          "type": "para",
-          "text": "API, Integration & Vendor Strategy"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Own the API design philosophy for internal and external-facing services",
-            "Hold the technical relationship with key infrastructure partners - issuer processors, core banking providers, cloud vendors",
-            "Define the integration pattern library and partner onboarding standards"
-          ]
-        },
-        {
-          "type": "para",
-          "text": "Data Platform"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Accountability for data infrastructure: pipelines, warehouse, and models feeding BI and regulatory reporting",
-            "Ensure data lineage, quality, and governance standards are fit for a regulated entity"
-          ]
-        },
-        {
-          "type": "para",
-          "text": "Team Leadership & Hiring"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Hire, develop, lead & manage engineering team leaders: own the org design as the team scales from 25+ to 100+",
-            "Drive hiring at all levels - define the bar, run structured processes, attract senior talent",
-            "Develop engineering culture: ways of working, documentation standards, incident response norms",
-            "Develop career pathways and performance frameworks oriented around A-players",
-            "Represent engineering to the board, in investor due diligence, and in regulatory interactions"
-          ]
+          "countryIso2": "SG",
+          "countryName": "Singapore",
+          "region": "southeast-asia",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/ttR4DzYvwsskLfAzpQEMGy/hybrid-vp-of-engineering-in-singapore-at-first-circle"
         }
-      ],
-      "requirements": [],
-      "location": {
-        "countryIso2": "SG",
-        "countryName": "Singapore",
-        "region": "southeast-asia",
-        "remote": false,
-        "raw": "Singapore, Singapore"
-      },
-      "seniority": "vp",
-      "domain": "engineering",
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": null,
-      "salary": {
-        "min": 25,
-        "max": 50000000,
-        "currency": "USD",
-        "period": "annual",
-        "source": "stated"
-      },
-      "postedAt": "2026-03-25T16:56:35.904Z",
-      "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      ]
     },
     {
       "id": "klaviyo-head-of-engineering-finance-systems-87baf5",

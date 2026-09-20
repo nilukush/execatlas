@@ -23,6 +23,15 @@ export type RoleType =
   | "full-time"
   | "interim";
 
+/** One extra hiring location of a role posted per country (Workable pattern). */
+export interface JobVariant {
+  countryIso2?: string;
+  countryName?: string;
+  region: RegionId | null;
+  remote: boolean;
+  applyUrl: string;
+}
+
 export interface SalaryBand {
   min: number;
   max: number;
@@ -86,6 +95,7 @@ export interface Job {
   roleType: RoleType | null;
   experienceMin?: number;
   experienceMax?: number;
+  variants?: JobVariant[];
   salary: SalaryBand | null;
   postedAt: string;
   firstSeen: string;
@@ -112,6 +122,7 @@ export interface IndexEntry {
   roleType: RoleType | null;
   experienceMin?: number;
   experienceMax?: number;
+  variantCountries?: JobVariant[];
   salaryMin?: number;
   salaryMax?: number;
   salaryCurrency?: string;

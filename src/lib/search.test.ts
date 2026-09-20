@@ -16,6 +16,7 @@ function make(over: Partial<IndexEntry>): IndexEntry {
     visa: over.visa ?? "unknown",
     workMode: over.workMode ?? "onsite",
     roleType: over.roleType ?? "permanent",
+    variantCountries: over.variantCountries,
     postedAt: over.postedAt ?? "2026-09-01",
     source: over.source ?? "greenhouse",
     salaryMin: over.salaryMin,
@@ -24,6 +25,49 @@ function make(over: Partial<IndexEntry>): IndexEntry {
     salaryPeriod: over.salaryPeriod,
   };
 }
+
+describe("variant-aware filters", () => {
+  it("matches a country filter against any variant country", () => {
+    const grouped = make({
+      id: "grouped",
+      countryIso2: "LV",
+      countryName: "Latvia",
+      region: "europe",
+      variantCountries: [
+        { countryIso2: "PL", countryName: "Poland", region: "europe", remote: false, applyUrl: "https://x.example/1" },
+        { countryIso2: "RS", countryName: "Serbia", region: "europe", remote: false, applyUrl: "https://x.example/2" },
+      ],
+    });
+    const result = applyFilters([grouped], { ...DEFAULT_FILTERS, country: "PL" });
+    expect(result.map((e) => e.id)).toEqual(["grouped"]);
+  });
+
+  it("matches a region filter against any variant region", () => {
+    const grouped = make({
+      id: "grouped",
+      countryIso2: "CA",
+      countryName: "Canada",
+      region: "north-america",
+      variantCountries: [
+        { countryIso2: "PL", countryName: "Poland", region: "europe", remote: false, applyUrl: "https://x.example/1" },
+      ],
+    });
+    const result = applyFilters([grouped], { ...DEFAULT_FILTERS, region: "europe" });
+    expect(result.map((e) => e.id)).toEqual(["grouped"]);
+  });
+
+  it("matches the remote region filter when a variant is remote", () => {
+    const grouped = make({
+      id: "grouped",
+      remote: false,
+      variantCountries: [
+        { region: null, remote: true, applyUrl: "https://x.example/r", countryName: undefined, countryIso2: undefined },
+      ],
+    });
+    const result = applyFilters([grouped], { ...DEFAULT_FILTERS, region: "remote" });
+    expect(result.map((e) => e.id)).toEqual(["grouped"]);
+  });
+});
 
 describe("defaultOrder", () => {
   it("returns every entry newest first", () => {

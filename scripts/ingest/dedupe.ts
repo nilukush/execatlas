@@ -1,5 +1,8 @@
 import { SOURCE_IDS } from "../../src/lib/types";
-import type { Job } from "../../src/lib/types";
+import type { Job, JobVariant } from "../../src/lib/types";
+
+/** Postings this far apart in time are separate hires, not a country batch. */
+const VARIANT_WINDOW_MS = 24 * 60 * 60 * 1000;
 
 function normalizeCompany(company: string): string {
   return company.toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -80,7 +83,71 @@ export function dedupeJobs(jobs: Job[]): Job[] {
     const existing = byKey.get(key);
     byKey.set(key, existing ? mergeJobs(existing, job) : job);
   }
-  return [...byKey.values()];
+  return groupCountryVariants([...byKey.values()]);
+}
+
+/**
+ * Employers on Workable post the same role once per country as a batch:
+ * near-identical timestamps and byte-identical descriptions, one apply URL
+ * per country. After the place-key merge, same-source entries sharing
+ * company, normalized title, posting window and description collapse into
+ * one role: the richest survives as primary, the others become variants
+ * with their own apply URL so no posting is lost. Genuinely distinct
+ * requisitions (different descriptions) always stay separate.
+ */
+function groupCountryVariants(jobs: Job[]): Job[] {
+  const groups = new Map<string, Job[]>();
+  for (const job of jobs) {
+    const key = `${job.source}|${normalizeCompany(job.company)}|${normalizeTitle(job.title)}`;
+    const list = groups.get(key) ?? [];
+    list.push(job);
+    groups.set(key, list);
+  }
+
+  const out: Job[] = [];
+  for (const list of groups.values()) {
+    const clusters: Job[][] = [];
+    for (const job of [...list].sort((a, b) => (a.postedAt < b.postedAt ? -1 : 1))) {
+      const cluster = clusters.find(
+        (c) =>
+          Math.abs(Date.parse(c[0].postedAt) - Date.parse(job.postedAt)) <= VARIANT_WINDOW_MS &&
+          c[0].text === job.text
+      );
+      if (cluster) cluster.push(job);
+      else clusters.push([job]);
+    }
+    for (const cluster of clusters) {
+      out.push(cluster.length > 1 ? collapseCluster(cluster) : cluster[0]);
+    }
+  }
+  return out;
+}
+
+function collapseCluster(cluster: Job[]): Job {
+  const [primary, ...rest] = [...cluster].sort(
+    (a, b) => richness(b) - richness(a) || sourceRank(a) - sourceRank(b) || a.id.localeCompare(b.id)
+  );
+  const others = rest
+    .filter((job) => job.location.countryIso2 !== primary.location.countryIso2 || job.location.remote)
+    .map<JobVariant>((job) => ({
+      countryIso2: job.location.countryIso2,
+      countryName: job.location.countryName,
+      region: job.location.region,
+      remote: job.location.remote,
+      applyUrl: job.applyUrl,
+    }))
+    .sort((a, b) => (a.countryName ?? "").localeCompare(b.countryName ?? ""));
+  const visa = primary.visa !== "unknown"
+    ? primary.visa
+    : others.length > 0 && rest.some((job) => job.visa !== "unknown")
+      ? (rest.find((job) => job.visa !== "unknown")!.visa)
+      : "unknown";
+  return {
+    ...primary,
+    visa,
+    salary: primary.salary ?? rest.find((job) => job.salary)?.salary ?? null,
+    variants: others.length > 0 ? others : undefined,
+  };
 }
 
 export { dedupeKey };

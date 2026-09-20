@@ -201,6 +201,27 @@ export default async function JobDetailPage({
             {country?.expatFriendly && <p className="mt-2 text-visa-fg">✓ {t("expatFriendlyYes")}</p>}
           </section>
 
+          {job.variants && job.variants.length > 0 && (
+            <section className="card-ui p-5 text-sm">
+              <h2 className="text-sm font-bold uppercase tracking-wide text-muted">{t("alsoHiring")}</h2>
+              <ul className="mt-2 space-y-1.5">
+                {job.variants.map((variant) => (
+                  <li key={variant.applyUrl}>
+                    <a
+                      href={variant.applyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-brand-500 hover:underline"
+                    >
+                      {variant.remote ? tJobs("remoteWorldwide") : (variant.countryName ?? "")}{" "}
+                      <span aria-hidden="true">{locale === "ar" ? "←" : "→"}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
           <section className="card-ui p-5 text-sm">
             <h2 className="text-sm font-bold uppercase tracking-wide text-muted">{t("source")}</h2>
             <p className="mt-2">

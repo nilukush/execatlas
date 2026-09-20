@@ -3,7 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { getIndexEntries, getStats } from "@/lib/data";
 import { defaultOrder } from "@/lib/search";
 import { JobCard, type JobCardLabels } from "@/components/job-card";
-import { ROLE_TYPES, SOURCE_LABELS } from "@/lib/types";
+import { ROLE_TYPES, SOURCE_IDS, SOURCE_LABELS } from "@/lib/types";
 import { formatDate } from "@/lib/seo";
 
 export default async function HomePage({
@@ -38,6 +38,7 @@ export default async function HomePage({
     perYear: tJobs("perYear"),
     perMonth: tJobs("perMonth"),
     experience: (min, max) => (max !== undefined ? tJobs("experienceYears", { min, max }) : tJobs("experienceYearsPlus", { min })),
+    plusPlaces: (n) => tJobs("plusPlaces", { n }),
     roleTypeLabels: Object.fromEntries(ROLE_TYPES.map((type) => [type, tRoleType(type)])),
     posted: (date) => tJob("posted", { date: formatDate(date, locale) }),
     sourceLabels: Object.fromEntries(Object.entries(SOURCE_LABELS)),
@@ -73,9 +74,7 @@ export default async function HomePage({
               </div>
               <div className="card-ui p-4">
                 <dt className="text-xs text-muted">{t("statSources")}</dt>
-                <dd className="mt-1 font-serif text-2xl font-bold">
-                  {Object.keys(stats.bySource).length}
-                </dd>
+                <dd className="mt-1 font-serif text-2xl font-bold">{SOURCE_IDS.length}</dd>
               </div>
               <div className="card-ui p-4">
                 <dt className="text-xs text-muted">{t("updated")}</dt>

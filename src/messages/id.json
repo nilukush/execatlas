@@ -97,7 +97,8 @@
     "removeSaved": "Hapus pencarian tersimpan",
     "backToBrowser": "Cari dan filter semua peran",
     "experienceYears": "{min}-{max} thn",
-    "experienceYearsPlus": "{min}+ thn"
+    "experienceYearsPlus": "{min}+ thn",
+    "plusPlaces": "+{n} lagi"
   },
   "Roles": {
     "cto": "CTO / Chief",
@@ -137,7 +138,8 @@
     "estimateNote": "Perkiraan memakai data tolok ukur ExpatRate: P25 sampai P75 gaji tahunan bruto, dikonversi ke mata uang lokal bila perlu. Anggap sebagai gambaran, bukan penawaran.",
     "poster": "Diposting oleh",
     "daysAgo": "{days, plural, other {# hari lalu}}",
-    "experience": "Pengalaman (tahun)"
+    "experience": "Pengalaman (tahun)",
+    "alsoHiring": "Juga merekrut di"
   },
   "About": {
     "title": "Tentang ExecAtlas",

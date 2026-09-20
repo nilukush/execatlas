@@ -97,7 +97,8 @@
     "removeSaved": "सहेजी गई खोज हटाएँ",
     "backToBrowser": "सभी भूमिकाएँ खोजें और फ़िल्टर करें",
     "experienceYears": "{min}-{max} वर्ष",
-    "experienceYearsPlus": "{min}+ वर्ष"
+    "experienceYearsPlus": "{min}+ वर्ष",
+    "plusPlaces": "+{n} और"
   },
   "Roles": {
     "cto": "CTO / चीफ",
@@ -137,7 +138,8 @@
     "estimateNote": "अनुमान ExpatRate देश बेंचमार्क से हैं: सालाना सकल P25 से P75, जहाँ ज़रूरी हो स्थानीय मुद्रा में। इन्हें ऑफर नहीं, दिशा मानें।",
     "poster": "पोस्ट किया",
     "daysAgo": "{days, plural, one {कल} other {# दिन पहले}}",
-    "experience": "अनुभव के वर्ष"
+    "experience": "अनुभव के वर्ष",
+    "alsoHiring": "इन स्थानों पर भी हायरिंग"
   },
   "About": {
     "title": "ExecAtlas के बारे में",

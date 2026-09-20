@@ -25,6 +25,49 @@ function job(overrides: Partial<RawJob>): ReturnType<typeof normalizeJob> {
   );
 }
 
+describe("groupCountryVariants", () => {
+  it("groups same-source per-country postings of one role into variants", () => {
+    const countries = ["Riga, Latvia", "Belgrade, Serbia", "Warsaw, Poland", "Tbilisi, Georgia", "Limassol, Cyprus"];
+    const raws = countries.map((locationRaw, i) =>
+      job({
+        source: "workable",
+        externalId: `wk-${i}`,
+        title: "Engineering Director - Platform",
+        company: "GoMining",
+        locationRaw,
+        applyUrl: `https://gomining.example/apply/${i}`,
+        sourceUrl: `https://gomining.example/apply/${i}`,
+        postedAt: "2026-09-05T14:31:36.000Z",
+      })
+    );
+    const grouped = dedupeJobs(raws.filter(notNull));
+    expect(grouped).toHaveLength(1);
+    expect(grouped[0].variants).toHaveLength(4);
+    const names = grouped[0].variants!.map((v) => v.countryName).sort();
+    expect(names).toEqual(["Cyprus", "Georgia", "Latvia", "Poland", "Serbia"].filter((n) => n !== grouped[0].location.countryName));
+    for (const v of grouped[0].variants!) {
+      expect(v.applyUrl).toMatch(/^https:\/\/gomining\.example\/apply\/\d+$/);
+    }
+  });
+
+  it("keeps postings of the same role months apart separate", () => {
+    const fresh = job({ source: "workable", externalId: "wk-f", title: "Director of Engineering", company: "Acme", locationRaw: "Warsaw, Poland", postedAt: "2026-09-02T00:00:00.000Z" });
+    const old = job({ source: "workable", externalId: "wk-o", title: "Director of Engineering", company: "Acme", locationRaw: "Madrid, Spain", postedAt: "2026-03-02T00:00:00.000Z" });
+    const grouped = dedupeJobs([fresh, old].filter(notNull));
+    expect(grouped).toHaveLength(2);
+    expect(grouped[0].variants ?? []).toHaveLength(0);
+  });
+
+  it("does not group different titles or companies that share a country batch", () => {
+    const a = job({ source: "workable", externalId: "wk-a", title: "Director of Engineering", company: "Acme", locationRaw: "Warsaw, Poland" });
+    const b = job({ source: "workable", externalId: "wk-b", title: "Head of Platform Engineering", company: "Acme", locationRaw: "Madrid, Spain" });
+    const c = job({ source: "workable", externalId: "wk-c", title: "Director of Engineering", company: "Beta", locationRaw: "Riga, Latvia" });
+    const grouped = dedupeJobs([a, b, c].filter(notNull));
+    expect(grouped).toHaveLength(3);
+  });
+
+});
+
 describe("dedupeJobs", () => {
   it("merges remote postings of the same role that differ only by country qualifier", () => {
     const uk = job({ externalId: "gh-uk", locationRaw: "Remote, United Kingdom" });
@@ -76,10 +119,21 @@ describe("dedupeJobs", () => {
     expect(dedupeJobs([a, b].filter(notNull))).toHaveLength(1);
   });
 
-  it("keeps jobs in different countries apart", () => {
+  it("groups identical per-country postings and keeps distinct requisitions apart", () => {
     const a = job({ externalId: "gh-1", locationRaw: "Dubai, UAE" });
     const b = job({ externalId: "gh-2", locationRaw: "London, UK" });
-    expect(dedupeJobs([a, b].filter(notNull))).toHaveLength(2);
+    // same description and timestamp: one role posted per country
+    const grouped = dedupeJobs([a, b].filter(notNull));
+    expect(grouped).toHaveLength(1);
+    const pair = [grouped[0].location.countryIso2, grouped[0].variants?.[0].countryIso2].sort();
+    expect(pair).toEqual(["AE", "GB"]);
+
+    const differentReq = job({
+      externalId: "gh-3",
+      locationRaw: "London, UK",
+      descriptionHtml: "<p>A genuinely different requisition with its own screening process and requirements text.</p>",
+    });
+    expect(dedupeJobs([a, differentReq].filter(notNull))).toHaveLength(2);
   });
 
   it("upgrades visa signal from unknown when a duplicate source knows more", () => {

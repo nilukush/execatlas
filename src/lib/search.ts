@@ -42,10 +42,13 @@ function annualizedUsd(entry: IndexEntry): number {
   return entry.salaryPeriod === "monthly" ? usd * 12 : usd;
 }
 
-function searchScore(entry: IndexEntry, tokens: string[]): number {  if (tokens.length === 0) return 1;
+function searchScore(entry: IndexEntry, tokens: string[]): number {
+  if (tokens.length === 0) return 1;
   const title = entry.title.toLowerCase();
   const company = entry.company.toLowerCase();
-  const place = `${entry.countryName ?? ""} ${entry.region ?? ""}`.toLowerCase();
+  const place = `${entry.countryName ?? ""} ${entry.region ?? ""} ${(entry.variantCountries ?? [])
+    .map((v) => v.countryName ?? "")
+    .join(" ")}`.toLowerCase();
   let score = 0;
   for (const token of tokens) {
     let hit = 0;
@@ -63,14 +66,19 @@ export function applyFilters(entries: IndexEntry[], filters: JobFilters): IndexE
 
   const scored: Array<{ entry: IndexEntry; score: number }> = [];
   for (const entry of entries) {
+    // a grouped role lives in several countries at once; every location fact
+    // of the group satisfies the place filters, not just the primary's
+    const regions = [entry.region, ...(entry.variantCountries ?? []).map((v) => v.region)];
+    const countries = [entry.countryIso2, ...(entry.variantCountries ?? []).map((v) => v.countryIso2)];
+    const remotes = [entry.remote, ...(entry.variantCountries ?? []).map((v) => v.remote)];
     if (filters.region !== "all") {
       if (filters.region === "remote") {
-        if (!entry.remote) continue;
-      } else if (entry.region !== filters.region) {
+        if (!remotes.some(Boolean)) continue;
+      } else if (!regions.includes(filters.region)) {
         continue;
       }
     }
-    if (filters.country !== "all" && entry.countryIso2 !== filters.country) continue;
+    if (filters.country !== "all" && !countries.includes(filters.country)) continue;
     if (filters.seniority !== "all" && entry.seniority !== filters.seniority) continue;
     if (filters.visa !== "all" && entry.visa !== filters.visa) continue;
     if (filters.workMode !== "all" && entry.workMode !== filters.workMode) continue;

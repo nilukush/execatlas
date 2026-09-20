@@ -61,6 +61,7 @@ function toIndexEntry(job: Job): IndexEntry {
     roleType: job.roleType,
     experienceMin: job.experienceMin,
     experienceMax: job.experienceMax,
+    variantCountries: job.variants,
     salaryMin: job.salary?.min,
     salaryMax: job.salary?.max,
     salaryCurrency: job.salary?.currency,

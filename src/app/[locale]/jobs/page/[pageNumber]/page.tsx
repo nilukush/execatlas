@@ -71,6 +71,7 @@ export default async function JobsListPage({
     perYear: t("perYear"),
     perMonth: t("perMonth"),
     experience: (min, max) => (max !== undefined ? t("experienceYears", { min, max }) : t("experienceYearsPlus", { min })),
+    plusPlaces: (n) => t("plusPlaces", { n }),
     roleTypeLabels: Object.fromEntries(ROLE_TYPES.map((type) => [type, tRoleType(type)])),
     posted: (date) => tJob("posted", { date: formatDate(date, locale) }),
     sourceLabels: Object.fromEntries(Object.entries(SOURCE_LABELS)),

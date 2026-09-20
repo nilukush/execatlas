@@ -15,6 +15,7 @@ export interface JobCardLabels {
   perYear: string;
   perMonth: string;
   experience: (min: number, max?: number) => string;
+  plusPlaces: (n: number) => string;
   posted: (date: string) => string;
   roleTypeLabels: Record<string, string>;
   sourceLabels: Record<string, string>;
@@ -47,6 +48,9 @@ export function JobCard({
           <p className="mt-0.5 truncate text-sm text-muted">
             {job.company}
             {place ? ` · ${place}` : ""}
+            {job.variantCountries && job.variantCountries.length > 0
+              ? ` · ${labels.plusPlaces(job.variantCountries.length)}`
+              : ""}
           </p>
         </div>
       </div>
