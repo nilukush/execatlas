@@ -158,8 +158,8 @@
     "liveRoles": "{count} live roles"
   },
   "Footer": {
-    "tagline": "Senior engineering leadership roles across six regions, with visa signals and local pay context.",
-    "data": "Job data from the official and public APIs of Greenhouse, Workable, Arbeitnow and Jobicy.",
+    "tagline": "Senior leadership roles across engineering, product, design and data, in six regions, with visa signals and local pay context.",
+    "data": "Greenhouse, Lever, Workable, Arbeitnow and Jobicy",
     "salary": "Salary benchmarks by ExpatRate (CC BY 4.0).",
     "method": "Sources and method",
     "license": "Code under MIT."

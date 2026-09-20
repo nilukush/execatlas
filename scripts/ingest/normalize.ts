@@ -27,6 +27,21 @@ export function stableId(company: string, title: string, source: string, externa
   return `${slugify(company)}-${slugify(title)}-${hash}`;
 }
 
+const BASIC_ENTITIES: Array<[RegExp, string]> = [
+  [/&amp;/g, "&"],
+  [/&lt;/g, "<"],
+  [/&gt;/g, ">"],
+  [/&quot;/g, "\""],
+  [/&#39;|&apos;/g, "'"],
+];
+
+/** Workable occasionally double-escapes titles; decode the common entities. */
+function decodeEntities(value: string): string {
+  let out = value;
+  for (const [pattern, replacement] of BASIC_ENTITIES) out = out.replace(pattern, replacement);
+  return out;
+}
+
 function isWebUrl(value: string | undefined): boolean {
   return typeof value === "string" && /^https?:\/\//i.test(value);
 }
@@ -73,9 +88,9 @@ export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | nu
   }
 
   const job: Job = {
-    id: existing?.id ?? stableId(raw.company, raw.title, raw.source, raw.externalId),
-    title: raw.title.trim(),
-    company: raw.company.trim(),
+    id: existing?.id ?? stableId(decodeEntities(raw.company), decodeEntities(raw.title), raw.source, raw.externalId),
+    title: decodeEntities(raw.title).trim(),
+    company: decodeEntities(raw.company).trim(),
     companyLogoUrl: raw.companyLogoUrl,
     applyUrl: raw.applyUrl,
     sourceUrl: raw.sourceUrl,

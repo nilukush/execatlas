@@ -180,3 +180,32 @@ describe("adjacent senior families in scope", () => {
     expect(classifyTitle("Director of Product and Data")).toEqual({ seniority: "director", domain: "data" });
   });
 });
+
+describe("widening leak regressions (reviewer scan 2026-09-20)", () => {
+  it.each([
+    "VP, Legal Counsel - Data Privacy, Digital & Technology",
+    "Head of Brokerage, Product & Commercial Legal Department",
+    "Director, Corporate & Product Communications",
+    "Executive Communications Director, Chief Product & Technology Officer",
+    "Head, Product Control & Accounting",
+    "Associate Director - Healthcare Communications (DATA)",
+    "Corporate Finance - VP - Portfolio Analytics",
+    "Director of Operations - Data Centers",
+    "Project Director - Data Centre Projects in Europe",
+    "Head of Project Management/ Lead (Engineering, Construction) - East",
+    "Director - Design Project Management (Mixed Use - Urban Core)",
+    "Creative Project Manager/ Director (3D Design - Creative Agency)",
+    "Director, Data Analytics Consulting",
+    "Associate Director/Director - Tech Consulting (Pharma/Lifesciences)",
+    "Technical Chief of Staff - Office of the CTO & CSO",
+    "Head of Data Entry",
+  ])("%s stays out of scope", (title) => {
+    expect(classifyTitle(title)).toBeNull();
+  });
+
+  it("keeps genuine CTO titles while dropping office tags", () => {
+    expect(classifyTitle("Forward Deployed Engineer, Compliance [Office of the CTO]")).toBeNull();
+    expect(classifyTitle("CTO, Acme Group")).toEqual({ seniority: "cto", domain: "technology" });
+    expect(classifyTitle("Chief Technology Officer, EMEA")).toEqual({ seniority: "cto", domain: "technology" });
+  });
+});

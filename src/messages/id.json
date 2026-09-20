@@ -158,8 +158,8 @@
     "liveRoles": "{count} peran aktif"
   },
   "Footer": {
-    "tagline": "Posisi kepemimpinan teknik senior di enam wilayah, dengan info visa dan konteks gaji lokal.",
-    "data": "Data lowongan dari API resmi dan publik Greenhouse, Workable, Arbeitnow, dan Jobicy.",
+    "tagline": "Peran kepemimpinan senior di engineering, produk, desain, dan data, di enam wilayah, dengan sinyal visa dan konteks gaji lokal.",
+    "data": "Greenhouse, Lever, Workable, Arbeitnow, dan Jobicy",
     "salary": "Data tolok ukur gaji oleh ExpatRate (CC BY 4.0).",
     "method": "Sumber dan metode",
     "license": "Kode di bawah MIT."

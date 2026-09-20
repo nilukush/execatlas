@@ -146,7 +146,7 @@ function normalizeTitle(title: string): string {
  * "Development" and "tech" appear in HR, M&A, design and sales titles too.
  */
 const NON_TECH_TITLE_RE =
-  /\bbusiness development\b|\bcorporate development\b|\btalent development\b|\b(?:sales|client|market|community|partner(?:ship)?|fundraising|instructor|teacher|professional|organization(?:al)?|leadership)\s+development\b|\blearning (?:and|&) development\b|\bl&d\b|\bhardware development\b|\bvehicle development\b|\bagency development\b|\b(?:fashion|interior|instructional|industrial|set|floral|lighting|sound)\s+design\b|\btalent acquisition\b|\brecruit(?:ing|ment)\b|\b(?:art|creative) director\b|\bstrategic accounts\b|\baccount director\b|\bsales\b|\bmarketing\b|\bgtm\b|\bgo[- ]to[- ]market\b/i;
+  /\bbusiness development\b|\bcorporate development\b|\btalent development\b|\b(?:sales|client|market|community|partner(?:ship)?|fundraising|instructor|teacher|professional|organization(?:al)?|leadership)\s+development\b|\blearning (?:and|&) development\b|\bl&d\b|\bhardware development\b|\bvehicle development\b|\bagency development\b|\b(?:fashion|interior|instructional|industrial|set|floral|lighting|sound)\s+design\b|\bdesign project management\b|\bcreative agency\b|\btalent acquisition\b|\brecruit(?:ing|ment)\b|\b(?:art|creative) director\b|\bstrategic accounts\b|\baccount director\b|\bsales\b|\bmarketing\b|\bgtm\b|\bgo[- ]to[- ]market\b|\blegal\b|\bcounsel\b|\bcommunications\b|\bpublic relations\b|\baccounting\b|\bproduct control\b|\bcorporate finance\b|\bdata cent(?:er|re)s?\b|\bconstruction\b|\bconsulting\b|\bconsultancy\b|\bchief of staff\b|\boffice of the\b|\bdata entry\b/i;
 
 /**
  * Classifies a real-world job title into the ExecAtlas scope.
@@ -168,16 +168,18 @@ export function classifyTitle(title: string): TitleClassification | null {
 }
 
 function detectSeniority(t: string): Seniority | null {
-  // CTO family first: most specific titles
+  // CTO family first, and only in the head of the title: a suffix like
+  // "[Office of the CTO]" describes who the role supports, not its level
+  const head = t.split(/[,[(/]/)[0];
   if (
-    /\bctpo\b/.test(t) ||
-    /\bcpto\b/.test(t) ||
-    /chief product and technology officer/.test(t) ||
-    /chief technology and product officer/.test(t)
+    /\bctpo\b/.test(head) ||
+    /\bcpto\b/.test(head) ||
+    /chief product and technology officer/.test(head) ||
+    /chief technology and product officer/.test(head)
   ) {
     return "cto";
   }
-  if (/\bcto\b/.test(t) || /chief technology officer/.test(t)) return "cto";
+  if (/\bcto\b/.test(head) || /chief technology officer/.test(head)) return "cto";
   if (/\bavp\b/.test(t) || /assistant vice president/.test(t) || /assistant vp\b/.test(t)) {
     return "avp";
   }

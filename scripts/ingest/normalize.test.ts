@@ -46,6 +46,14 @@ describe("visaHint from source metadata", () => {
   });
 });
 
+describe("title and company entity decoding", () => {
+  it("decodes basic HTML entities in raw titles and company names", () => {
+    const job = normalizeJob(makeRaw({ title: "VP of Engineering &amp; Product", company: "Foo &amp; Bar Ltd" }), NOW);
+    expect(job?.title).toBe("VP of Engineering & Product");
+    expect(job?.company).toBe("Foo & Bar Ltd");
+  });
+});
+
 describe("normalizeJob", () => {
   it("normalizes an in-scope job with enrichment and an estimated salary", () => {
     const job = normalizeJob(makeRaw(), NOW);
