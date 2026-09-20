@@ -54,3 +54,4 @@ data/*.db-journal
 
 # editor
 /.idea/
+.zcodeignore
