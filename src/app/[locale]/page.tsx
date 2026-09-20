@@ -65,19 +65,19 @@ export default async function HomePage({
           {stats.total > 0 && (
             <dl className="mt-10 grid max-w-2xl grid-cols-2 gap-4 sm:grid-cols-4">
               <div className="card-ui p-4">
-                <dt className="text-xs text-muted">{t("statRoles")}</dt>
+                <dt className="text-xs uppercase tracking-wide text-muted">{t("statRoles")}</dt>
                 <dd className="mt-1 font-serif text-2xl font-bold">{stats.total}</dd>
               </div>
               <div className="card-ui p-4">
-                <dt className="text-xs text-muted">{t("statCountries")}</dt>
+                <dt className="text-xs uppercase tracking-wide text-muted">{t("statCountries")}</dt>
                 <dd className="mt-1 font-serif text-2xl font-bold">{stats.countries}</dd>
               </div>
               <div className="card-ui p-4">
-                <dt className="text-xs text-muted">{t("statSources")}</dt>
+                <dt className="text-xs uppercase tracking-wide text-muted">{t("statSources")}</dt>
                 <dd className="mt-1 font-serif text-2xl font-bold">{SOURCE_IDS.length}</dd>
               </div>
               <div className="card-ui p-4">
-                <dt className="text-xs text-muted">{t("updated")}</dt>
+                <dt className="text-xs uppercase tracking-wide text-muted">{t("updated")}</dt>
                 <dd className="mt-1 font-serif text-2xl font-bold">
                   {formatDate(stats.generatedAt, locale)}
                 </dd>
