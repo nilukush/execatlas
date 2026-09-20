@@ -37,6 +37,7 @@ export default async function HomePage({
     visaUnknown: tJobs("visaUnknown"),
     perYear: tJobs("perYear"),
     perMonth: tJobs("perMonth"),
+    experience: (min, max) => (max !== undefined ? tJobs("experienceYears", { min, max }) : tJobs("experienceYearsPlus", { min })),
     roleTypeLabels: Object.fromEntries(ROLE_TYPES.map((type) => [type, tRoleType(type)])),
     posted: (date) => tJob("posted", { date: formatDate(date, locale) }),
     sourceLabels: Object.fromEntries(Object.entries(SOURCE_LABELS)),

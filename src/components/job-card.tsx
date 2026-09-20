@@ -14,6 +14,7 @@ export interface JobCardLabels {
   visaUnknown: string;
   perYear: string;
   perMonth: string;
+  experience: (min: number, max?: number) => string;
   posted: (date: string) => string;
   roleTypeLabels: Record<string, string>;
   sourceLabels: Record<string, string>;
@@ -75,6 +76,9 @@ export function JobCard({
           <span className="chip capitalize">
             {labels.roleTypeLabels[job.roleType] ?? job.roleType.replace("-", " ")}
           </span>
+        )}
+        {job.experienceMin !== undefined && (
+          <span className="chip">{labels.experience(job.experienceMin, job.experienceMax)}</span>
         )}
         {job.salaryMin !== undefined && job.salaryMax !== undefined && job.salaryCurrency && (
           <span className="chip !text-ink">

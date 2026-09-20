@@ -19,6 +19,8 @@ function make(over: Partial<IndexEntry>): IndexEntry {
     visa: over.visa ?? "unknown",
     workMode: over.workMode ?? "onsite",
     roleType: over.roleType ?? "permanent",
+    experienceMin: over.experienceMin,
+    experienceMax: over.experienceMax,
     postedAt: over.postedAt ?? "2026-09-01",
     source: over.source ?? "greenhouse",
   };
@@ -61,6 +63,17 @@ describe("JobsBrowser ask and saved searches", () => {
     expect(chipTexts("Hybrid")).toHaveLength(1);
     expect(chipTexts("On-site").length).toBeGreaterThanOrEqual(1);
     expect(screen.queryByText("hybrid")).not.toBeInTheDocument();
+  });
+
+  it("renders years of experience as a chip when the role states it", () => {
+    renderBrowser([
+      make({ id: "range", experienceMin: 8, experienceMax: 12 }),
+      make({ id: "floor", experienceMin: 10 }),
+      make({ id: "none" }),
+    ]);
+    expect(screen.getByText("8-12 yrs")).toBeInTheDocument();
+    expect(screen.getByText("10+ yrs")).toBeInTheDocument();
+    expect(screen.queryByText("yrs")).not.toBeInTheDocument();
   });
 
   it("keeps the answer panel consistent through suggestion, save and re-apply", () => {

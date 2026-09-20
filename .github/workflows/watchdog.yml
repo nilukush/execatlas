@@ -1,0 +1,40 @@
+# Guards against a silently stale dataset: the ingest schedule can be green
+# while quietly skipping commits (no changes), or a workflow can stop running
+# entirely. This check reads the committed stats.json and complains when the
+# freshest dataset is older than 48 hours.
+name: Dataset freshness watchdog
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "27 5 * * *"
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - name: Check the age of the committed dataset
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MAX_AGE_HOURS: 48
+        run: |
+          GENERATED_AT=$(node -e "console.log(require('./data/generated/stats.json').generatedAt)")
+          AGE_HOURS=$(( ( $(date -u +%s) - $(date -u -d "$GENERATED_AT" +%s) ) / 3600 ))
+          echo "Dataset generatedAt=$GENERATED_AT age=${AGE_HOURS}h"
+          if [ "$AGE_HOURS" -gt "$MAX_AGE_HOURS" ]; then
+            TITLE="Ingest pipeline failure tracker"
+            BODY="Watchdog: the committed dataset is ${AGE_HOURS}h old (generatedAt ${GENERATED_AT}), over the ${MAX_AGE_HOURS}h limit. The nightly ingest may be failing or not committing."
+            NUMBER=$(gh issue list --state open --search "in:title \"$TITLE\"" --json number --limit 1 --jq '.[0].number')
+            if [ -n "$NUMBER" ]; then
+              gh issue comment "$NUMBER" --body "$BODY"
+            else
+              gh issue create --title "$TITLE" --body "$BODY"
+            fi
+            exit 1
+          fi

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-20T08:54:25.529Z",
+  "generatedAt": "2026-09-20T09:55:21.010Z",
   "jobs": [
     {
       "id": "botsync-head-of-engineering-syncos-ea9885",
@@ -208,6 +208,7 @@
       "visa": "unknown",
       "workMode": "onsite",
       "roleType": "full-time",
+      "experienceMin": 10,
       "salary": {
         "min": 399420,
         "max": 457970,
@@ -217,7 +218,7 @@
       },
       "postedAt": "2026-09-18T20:39:01-04:00",
       "firstSeen": "2026-09-20T08:36:18.338Z",
-      "updatedAt": "2026-09-20T08:36:18.338Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "okta-director-of-engineering-ai-takeoff-team-fdb310",
@@ -487,6 +488,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": "full-time",
+      "experienceMin": 10,
       "salary": {
         "min": 138060,
         "max": 220730,
@@ -498,7 +500,7 @@
       },
       "postedAt": "2026-09-18T20:08:59.075Z",
       "firstSeen": "2026-09-20T08:36:18.338Z",
-      "updatedAt": "2026-09-20T08:36:18.338Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "databricks-director-field-engineering-emerging-ente-750d05",
@@ -1250,6 +1252,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": "full-time",
+      "experienceMin": 8,
       "salary": {
         "min": 150000,
         "max": 225000,
@@ -1259,7 +1262,7 @@
       },
       "postedAt": "2026-09-18T12:49:08.906Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-20T08:36:18.338Z"
+      "updatedAt": "2026-09-20T09:55:21.010Z"
     },
     {
       "id": "podium-senior-director-of-engineering-ai-agents-6a1024",
@@ -1383,6 +1386,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": null,
+      "experienceMin": 10,
       "salary": {
         "min": 138060,
         "max": 220730,
@@ -1394,7 +1398,7 @@
       },
       "postedAt": "2026-09-18T11:15:05-04:00",
       "firstSeen": "2026-09-20T08:52:52.682Z",
-      "updatedAt": "2026-09-20T08:52:52.682Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "nakhla-head-of-enterprise-solutions-engineering-6f7c00",
@@ -2284,6 +2288,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": "full-time",
+      "experienceMin": 15,
       "salary": {
         "min": 5000000,
         "max": 15000000,
@@ -2295,7 +2300,7 @@
       },
       "postedAt": "2026-09-17T13:36:03.660Z",
       "firstSeen": "2026-09-20T08:36:18.338Z",
-      "updatedAt": "2026-09-20T08:36:18.338Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "euromonitor-head-of-engineering-ai-and-data-science-bfd233",
@@ -2894,6 +2899,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 10,
       "salary": {
         "min": 171120,
         "max": 213900,
@@ -2903,7 +2909,7 @@
       },
       "postedAt": "2026-09-16T18:00:44-04:00",
       "firstSeen": "2026-09-20T08:36:18.338Z",
-      "updatedAt": "2026-09-20T08:36:18.338Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "weekday-ai-head-of-engineering-13afe4",
@@ -2960,6 +2966,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": "full-time",
+      "experienceMin": 8,
       "salary": {
         "min": 5000000,
         "max": 15000000,
@@ -2971,7 +2978,7 @@
       },
       "postedAt": "2026-09-16T13:41:53.605Z",
       "firstSeen": "2026-09-20T08:36:18.338Z",
-      "updatedAt": "2026-09-20T08:36:18.338Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "kudos-services-head-of-engineering-aed1fd",
@@ -3230,6 +3237,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": null,
+      "experienceMin": 7,
       "salary": {
         "min": 372000,
         "max": 540000,
@@ -3241,7 +3249,7 @@
       },
       "postedAt": "2026-09-16T06:29:31-04:00",
       "firstSeen": "2026-09-20T08:36:18.338Z",
-      "updatedAt": "2026-09-20T08:36:18.338Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "innerplant-director-of-hardware-engineering-manufac-440d0d",
@@ -4584,6 +4592,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 5,
       "salary": {
         "min": 240000,
         "max": 438000,
@@ -4595,7 +4604,7 @@
       },
       "postedAt": "2026-09-11T03:03:32-04:00",
       "firstSeen": "2026-09-20T08:52:52.682Z",
-      "updatedAt": "2026-09-20T08:52:52.682Z"
+      "updatedAt": "2026-09-20T09:55:21.010Z"
     },
     {
       "id": "vml-executive-director-data-engineering-679547",
@@ -4730,6 +4739,7 @@
       "visa": "unknown",
       "workMode": "hybrid",
       "roleType": null,
+      "experienceMin": 20,
       "salary": {
         "min": 155000,
         "max": 390000,
@@ -4739,7 +4749,7 @@
       },
       "postedAt": "2026-09-10T20:23:18-04:00",
       "firstSeen": "2026-09-11T08:06:49.750Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "company-head-of-technology-197e1d",
@@ -5493,6 +5503,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 10,
       "salary": {
         "min": 69515,
         "max": 119408,
@@ -5504,7 +5515,7 @@
       },
       "postedAt": "2026-09-10T06:09:03-04:00",
       "firstSeen": "2026-09-20T08:52:52.682Z",
-      "updatedAt": "2026-09-20T08:52:52.682Z"
+      "updatedAt": "2026-09-20T09:55:21.010Z"
     },
     {
       "id": "moniepoint-head-of-engineering-sales-marketing-tool-1d6e81",
@@ -5659,6 +5670,8 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 10,
+      "experienceMax": 15,
       "salary": {
         "min": 69515,
         "max": 119408,
@@ -5670,7 +5683,7 @@
       },
       "postedAt": "2026-09-10T03:27:12-04:00",
       "firstSeen": "2026-09-20T08:52:52.682Z",
-      "updatedAt": "2026-09-20T08:52:52.682Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "kurt-geiger-vp-of-technology-delivery-transformation-15c4f2",
@@ -6065,6 +6078,8 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 10,
+      "experienceMax": 15,
       "salary": {
         "min": 41575,
         "max": 41575,
@@ -6076,7 +6091,7 @@
       },
       "postedAt": "2026-09-09T07:36:53-04:00",
       "firstSeen": "2026-09-20T08:52:52.682Z",
-      "updatedAt": "2026-09-20T08:52:52.682Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "roblox-head-of-developer-relations-sea-and-oce-2ba23d",
@@ -6172,6 +6187,7 @@
       "visa": "unknown",
       "workMode": "onsite",
       "roleType": null,
+      "experienceMin": 10,
       "salary": {
         "min": 200000,
         "max": 350000,
@@ -6183,7 +6199,7 @@
       },
       "postedAt": "2026-09-09T05:54:53-04:00",
       "firstSeen": "2026-09-10T08:11:49.301Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "moniepoint-head-of-engineering-payment-gateway-6c8493",
@@ -6341,6 +6357,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 10,
       "salary": {
         "min": 240000,
         "max": 438000,
@@ -6352,7 +6369,7 @@
       },
       "postedAt": "2026-09-09T05:05:16-04:00",
       "firstSeen": "2026-09-20T08:52:52.682Z",
-      "updatedAt": "2026-09-20T08:52:52.682Z"
+      "updatedAt": "2026-09-20T09:55:21.010Z"
     },
     {
       "id": "alloy-partners-chief-technology-officer-co-founder-digi-03343f",
@@ -6762,6 +6779,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 8,
       "salary": {
         "min": 5000000,
         "max": 15000000,
@@ -6773,7 +6791,7 @@
       },
       "postedAt": "2026-09-07T13:18:20-04:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "tatum-head-of-engineering-operations-e5833f",
@@ -8489,6 +8507,7 @@
       "visa": "unknown",
       "workMode": "hybrid",
       "roleType": null,
+      "experienceMin": 8,
       "salary": {
         "min": 306000,
         "max": 360000,
@@ -8498,7 +8517,7 @@
       },
       "postedAt": "2026-09-03T16:28:11-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "coursedog-senior-director-of-engineering-core-prod-52536d",
@@ -9059,6 +9078,7 @@
       "visa": "unknown",
       "workMode": "hybrid",
       "roleType": null,
+      "experienceMin": 10,
       "salary": {
         "min": 306000,
         "max": 360000,
@@ -9068,7 +9088,7 @@
       },
       "postedAt": "2026-09-02T12:50:58-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "velsera-vp-software-engineering-b440d6",
@@ -9331,6 +9351,7 @@
       "visa": "unknown",
       "workMode": "onsite",
       "roleType": "full-time",
+      "experienceMin": 12,
       "salary": {
         "min": 272000,
         "max": 340000,
@@ -9340,7 +9361,7 @@
       },
       "postedAt": "2026-09-01T16:30:48-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:55:21.010Z"
     },
     {
       "id": "traqcheck-chief-technology-officer-cto-cf6c5d",
@@ -9794,6 +9815,7 @@
       "visa": "yes",
       "workMode": "hybrid",
       "roleType": null,
+      "experienceMin": 12,
       "salary": {
         "min": 270000,
         "max": 315000,
@@ -9803,7 +9825,7 @@
       },
       "postedAt": "2026-08-29T02:34:37-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "hyprwork-head-of-web-production-dtc-growth-techno-11133f",
@@ -11022,6 +11044,7 @@
       "visa": "unknown",
       "workMode": "hybrid",
       "roleType": null,
+      "experienceMin": 16,
       "salary": {
         "min": 5000000,
         "max": 15000000,
@@ -11033,7 +11056,7 @@
       },
       "postedAt": "2026-08-25T05:03:24-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "solaris-head-of-product-engineering-18328b",
@@ -11205,6 +11228,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 3,
       "salary": {
         "min": 63500,
         "max": 84700,
@@ -11216,7 +11240,7 @@
       },
       "postedAt": "2026-08-24T19:33:02-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "cam-tran-director-of-engineering-c8361e",
@@ -11939,6 +11963,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 10,
       "salary": {
         "min": 69515,
         "max": 119408,
@@ -11950,7 +11975,7 @@
       },
       "postedAt": "2026-08-20T14:10:33-04:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-14T15:51:43.867Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "databricks-sr-technology-partner-director-ai-code-g-7cbb53",
@@ -12115,6 +12140,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": null,
+      "experienceMin": 7,
       "salary": {
         "min": 178800,
         "max": 245850,
@@ -12124,7 +12150,7 @@
       },
       "postedAt": "2026-08-20T11:39:23-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "linkedin-job-wrapping-director-ai-agentic-engineering-239077",
@@ -12245,6 +12271,7 @@
       "visa": "unknown",
       "workMode": "hybrid",
       "roleType": null,
+      "experienceMin": 8,
       "salary": {
         "min": 138060,
         "max": 220730,
@@ -12256,7 +12283,7 @@
       },
       "postedAt": "2026-08-19T20:13:23-04:00",
       "firstSeen": "2026-09-14T15:51:43.867Z",
-      "updatedAt": "2026-09-14T15:51:43.867Z"
+      "updatedAt": "2026-09-20T09:55:21.010Z"
     },
     {
       "id": "ghx-director-software-engineering-6b51f6",
@@ -12368,6 +12395,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": "contract",
+      "experienceMin": 15,
       "salary": {
         "min": 150000,
         "max": 214000,
@@ -12377,7 +12405,7 @@
       },
       "postedAt": "2026-08-19T15:58:13-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "oklahoma-chiller-director-of-information-technology-428e64",
@@ -12789,6 +12817,7 @@
       "visa": "unknown",
       "workMode": "onsite",
       "roleType": "full-time",
+      "experienceMin": 10,
       "salary": {
         "min": 525510,
         "max": 573690,
@@ -12798,7 +12827,7 @@
       },
       "postedAt": "2026-08-18T16:23:10-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "elastic-director-it-software-engineering-c4af4b",
@@ -13079,6 +13108,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": "contract",
+      "experienceMin": 12,
       "salary": {
         "min": 199700,
         "max": 315900,
@@ -13088,7 +13118,7 @@
       },
       "postedAt": "2026-08-18T12:25:26-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "hellofresh-director-of-engineering-operations-plann-d8c976",
@@ -13676,6 +13706,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 12,
       "salary": {
         "min": 240000,
         "max": 270000,
@@ -13685,7 +13716,7 @@
       },
       "postedAt": "2026-08-14T09:44:29-04:00",
       "firstSeen": "2026-09-14T15:51:43.867Z",
-      "updatedAt": "2026-09-14T15:51:43.867Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "dragos-director-engineering-df96c0",
@@ -13802,7 +13833,7 @@
       },
       "postedAt": "2026-08-14T09:15:04-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:55:21.010Z"
     },
     {
       "id": "gitlab-director-of-engineering-organizations-ce-4fd348",
@@ -14127,6 +14158,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 12,
       "salary": {
         "min": 157250,
         "max": 263750,
@@ -14138,7 +14170,7 @@
       },
       "postedAt": "2026-08-13T08:06:44-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "linah-group-head-of-technology-5213b1",
@@ -14413,6 +14445,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": null,
+      "experienceMin": 8,
       "salary": {
         "min": 138060,
         "max": 220730,
@@ -14424,7 +14457,7 @@
       },
       "postedAt": "2026-08-11T09:50:11-04:00",
       "firstSeen": "2026-09-20T08:52:52.682Z",
-      "updatedAt": "2026-09-20T08:52:52.682Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "hellofresh-senior-director-of-machine-learning-engi-78b0f5",
@@ -14538,6 +14571,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 12,
       "salary": {
         "min": 63500,
         "max": 84700,
@@ -14549,7 +14583,7 @@
       },
       "postedAt": "2026-08-11T06:44:53-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "databricks-director-field-engineering-cpg-retail-38f156",
@@ -14793,6 +14827,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": null,
+      "experienceMin": 3,
       "salary": {
         "min": 138060,
         "max": 220730,
@@ -14804,7 +14839,7 @@
       },
       "postedAt": "2026-08-10T22:18:48-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:55:21.010Z"
     },
     {
       "id": "chime-financial-inc-director-engineering-d6d127",
@@ -14950,6 +14985,7 @@
       "visa": "unknown",
       "workMode": "onsite",
       "roleType": "full-time",
+      "experienceMin": 10,
       "salary": {
         "min": 138060,
         "max": 220730,
@@ -14961,7 +14997,7 @@
       },
       "postedAt": "2026-08-10T15:34:35-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "scale-ai-sr-director-applied-ai-forward-deployed--15b9b2",
@@ -15104,6 +15140,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": "full-time",
+      "experienceMin": 12,
       "salary": {
         "min": 285200,
         "max": 356500,
@@ -15113,7 +15150,7 @@
       },
       "postedAt": "2026-08-10T15:23:30-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "1kosmos-vp-of-engineering-df6872",
@@ -15384,6 +15421,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": "freelance",
+      "experienceMin": 12,
       "salary": {
         "min": 69515,
         "max": 119408,
@@ -15395,7 +15433,7 @@
       },
       "postedAt": "2026-08-07T03:03:27-04:00",
       "firstSeen": "2026-09-14T04:34:39.479Z",
-      "updatedAt": "2026-09-14T04:34:39.479Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "godaddy-director-of-engineering-identity-platfor-74d663",
@@ -15593,6 +15631,7 @@
       "visa": "unknown",
       "workMode": "hybrid",
       "roleType": "full-time",
+      "experienceMin": 10,
       "salary": {
         "min": 215000,
         "max": 323000,
@@ -15602,7 +15641,7 @@
       },
       "postedAt": "2026-08-06T11:14:14-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "innovaccer-analytics-4448-associate-director-implementation-e-639737",
@@ -15704,6 +15743,8 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": "full-time",
+      "experienceMin": 12,
+      "experienceMax": 18,
       "salary": {
         "min": 5000000,
         "max": 15000000,
@@ -15715,7 +15756,7 @@
       },
       "postedAt": "2026-08-06T10:23:21.684Z",
       "firstSeen": "2026-09-08T08:08:59.401Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "ayana-hospitality-assistant-director-of-engineering-ayana--b4316c",
@@ -15908,6 +15949,7 @@
       "visa": "unknown",
       "workMode": "hybrid",
       "roleType": null,
+      "experienceMin": 12,
       "salary": {
         "min": 306000,
         "max": 360000,
@@ -15917,7 +15959,7 @@
       },
       "postedAt": "2026-08-04T13:51:35-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "mercury-head-of-revenue-technology-architecture-fcd59b",
@@ -16040,7 +16082,7 @@
       },
       "postedAt": "2026-08-03T14:25:48-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:55:21.010Z"
     },
     {
       "id": "verneek-head-of-technology-179e2f",
@@ -16205,6 +16247,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 5,
       "salary": {
         "min": 218025,
         "max": 256500,
@@ -16214,7 +16257,7 @@
       },
       "postedAt": "2026-07-31T16:56:36-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "pinterest-director-of-engineering-core-ads-serving-c345dc",
@@ -16350,6 +16393,7 @@
       "visa": "yes",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 5,
       "salary": {
         "min": 285452,
         "max": 449541,
@@ -16359,7 +16403,7 @@
       },
       "postedAt": "2026-07-31T15:48:57-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "careers-at-tide-head-of-engineering-developer-experience-76638d",
@@ -16868,6 +16912,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": "full-time",
+      "experienceMin": 8,
       "salary": {
         "min": 302400,
         "max": 378000,
@@ -16877,7 +16922,7 @@
       },
       "postedAt": "2026-07-27T20:23:37-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "clover-health-director-of-engineering-data-products-561062",
@@ -17036,6 +17081,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 10,
       "salary": {
         "min": 223100,
         "max": 290000,
@@ -17045,7 +17091,7 @@
       },
       "postedAt": "2026-07-27T18:39:08-04:00",
       "firstSeen": "2026-09-14T15:51:43.867Z",
-      "updatedAt": "2026-09-14T15:51:43.867Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "terrapay-information-technology-infrastructure-he-1188c6",
@@ -17308,6 +17354,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 5,
       "salary": {
         "min": 218025,
         "max": 256500,
@@ -17317,7 +17364,7 @@
       },
       "postedAt": "2026-07-22T11:44:57-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "atum-ventures-founder-cto-data-centre-cooling-venture-019fca",
@@ -17935,6 +17982,7 @@
       "visa": "unknown",
       "workMode": "hybrid",
       "roleType": null,
+      "experienceMin": 15,
       "salary": {
         "min": 5000000,
         "max": 15000000,
@@ -17946,7 +17994,7 @@
       },
       "postedAt": "2026-07-15T01:56:25-04:00",
       "firstSeen": "2026-09-20T08:36:18.338Z",
-      "updatedAt": "2026-09-20T08:36:18.338Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "coinbase-forward-deployed-engineer-legal-office-o-7ff1fe",
@@ -18047,6 +18095,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": "contract",
+      "experienceMin": 5,
       "salary": {
         "min": 186065,
         "max": 218900,
@@ -18056,7 +18105,7 @@
       },
       "postedAt": "2026-07-13T19:51:05-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-20T08:36:18.338Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "gitlab-director-engineering-platform-operations-d046f7",
@@ -18322,6 +18371,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": null,
+      "experienceMin": 3,
       "salary": {
         "min": 218400,
         "max": 300300,
@@ -18331,7 +18381,7 @@
       },
       "postedAt": "2026-07-13T09:17:27-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:55:21.010Z"
     },
     {
       "id": "power-factors-head-of-software-architecture-2c970b",
@@ -18792,6 +18842,8 @@
       "visa": "unknown",
       "workMode": "onsite",
       "roleType": null,
+      "experienceMin": 15,
+      "experienceMax": 20,
       "salary": {
         "min": 138060,
         "max": 220730,
@@ -18803,7 +18855,7 @@
       },
       "postedAt": "2026-07-13T08:59:34.230Z",
       "firstSeen": "2026-09-20T08:36:18.338Z",
-      "updatedAt": "2026-09-20T08:36:18.338Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "okta-director-engineering-okta-integration-ne-9b534f",
@@ -18963,6 +19015,7 @@
       "visa": "unknown",
       "workMode": "hybrid",
       "roleType": "permanent",
+      "experienceMin": 12,
       "salary": {
         "min": 275000,
         "max": 378000,
@@ -18972,7 +19025,7 @@
       },
       "postedAt": "2026-07-10T13:31:50-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "hellofresh-associate-director-maintenance-and-relia-dfcc7d",
@@ -19147,6 +19200,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": null,
+      "experienceMin": 10,
       "salary": {
         "min": 103950,
         "max": 126000,
@@ -19156,7 +19210,7 @@
       },
       "postedAt": "2026-07-10T08:45:31-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "easyship-head-of-data-data-engineering-machine-le-82647a",
@@ -19275,6 +19329,7 @@
       "visa": "unknown",
       "workMode": "onsite",
       "roleType": "full-time",
+      "experienceMin": 7,
       "salary": {
         "min": 5000000,
         "max": 15000000,
@@ -19286,7 +19341,7 @@
       },
       "postedAt": "2026-07-09T11:47:35-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "alixpartners-tech-modernisation-enterprise-architectu-518c66",
@@ -20086,10 +20141,11 @@
       "visa": "unknown",
       "workMode": "hybrid",
       "roleType": "contract",
+      "experienceMin": 8,
       "salary": null,
       "postedAt": "2026-06-29T14:41:01-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "opswat-director-of-engineering-metadefender-man-b7cab6",
@@ -20250,6 +20306,7 @@
       "visa": "unknown",
       "workMode": "hybrid",
       "roleType": "contract",
+      "experienceMin": 8,
       "salary": {
         "min": 138060,
         "max": 220730,
@@ -20261,7 +20318,7 @@
       },
       "postedAt": "2026-06-29T14:38:53-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "hellofresh-global-director-people-technology-all-ge-65df4d",
@@ -20520,6 +20577,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": null,
+      "experienceMin": 8,
       "salary": {
         "min": 200000,
         "max": 350000,
@@ -20531,7 +20589,7 @@
       },
       "postedAt": "2026-06-29T10:35:47-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "reddit-senior-director-product-technology-finan-e0f97f",
@@ -20671,6 +20729,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": "freelance",
+      "experienceMin": 15,
       "salary": {
         "min": 260000,
         "max": 390000,
@@ -20680,7 +20739,7 @@
       },
       "postedAt": "2026-06-24T17:06:13-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "monzo-engineering-director-eu-de78c8",
@@ -21066,6 +21125,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 10,
       "salary": {
         "min": 200000,
         "max": 350000,
@@ -21077,7 +21137,7 @@
       },
       "postedAt": "2026-06-22T02:44:35-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "qiddiya-investment-company-associate-director-digital-infrastructur-d1fbcb",
@@ -21299,6 +21359,7 @@
       "visa": "unknown",
       "workMode": "onsite",
       "roleType": null,
+      "experienceMin": 8,
       "salary": {
         "min": 200000,
         "max": 350000,
@@ -21310,7 +21371,7 @@
       },
       "postedAt": "2026-06-19T06:42:33-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "true-anomaly-director-production-and-test-engineering-499db1",
@@ -21480,6 +21541,7 @@
       "visa": "unknown",
       "workMode": "hybrid",
       "roleType": "permanent",
+      "experienceMin": 10,
       "salary": {
         "min": 190000,
         "max": 265000,
@@ -21489,7 +21551,7 @@
       },
       "postedAt": "2026-06-18T22:04:16-04:00",
       "firstSeen": "2026-09-20T08:52:52.682Z",
-      "updatedAt": "2026-09-20T08:52:52.682Z"
+      "updatedAt": "2026-09-20T09:55:21.010Z"
     },
     {
       "id": "huntress-director-engineering-platform-3fffc5",
@@ -21642,6 +21704,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": "full-time",
+      "experienceMin": 10,
       "salary": {
         "min": 240000,
         "max": 300000,
@@ -21651,7 +21714,7 @@
       },
       "postedAt": "2026-06-18T13:56:29-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "burson-head-of-technology-practice-3dedd0",
@@ -22552,6 +22615,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 10,
       "salary": {
         "min": 41575,
         "max": 41575,
@@ -22563,7 +22627,7 @@
       },
       "postedAt": "2026-06-10T06:52:04-04:00",
       "firstSeen": "2026-09-20T08:52:52.682Z",
-      "updatedAt": "2026-09-20T08:52:52.682Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "duolingo-senior-director-of-engineering-new-subje-686c8d",
@@ -23172,7 +23236,7 @@
       },
       "postedAt": "2026-05-29T17:48:45-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:55:21.010Z"
     },
     {
       "id": "asm-senior-director-of-manufacturing-enginee-31c396",
@@ -23732,6 +23796,7 @@
       "visa": "unknown",
       "workMode": "onsite",
       "roleType": "full-time",
+      "experienceMin": 15,
       "salary": {
         "min": 308000,
         "max": 385000,
@@ -23741,7 +23806,7 @@
       },
       "postedAt": "2026-05-11T13:10:22-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-14T15:51:43.867Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "zeta-global-director-of-engineering-6ba392",
@@ -23855,6 +23920,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 10,
       "salary": {
         "min": 5000000,
         "max": 15000000,
@@ -23866,7 +23932,7 @@
       },
       "postedAt": "2026-05-11T09:52:10-04:00",
       "firstSeen": "2026-09-07T05:36:52.333Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "alixpartners-vice-president-telecommunication-media-a-2abe53",
@@ -23978,6 +24044,8 @@
       "visa": "unknown",
       "workMode": "hybrid",
       "roleType": null,
+      "experienceMin": 7,
+      "experienceMax": 15,
       "salary": {
         "min": 95000,
         "max": 180000,
@@ -23989,7 +24057,7 @@
       },
       "postedAt": "2026-05-11T03:28:30-04:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:55:21.010Z"
     },
     {
       "id": "qiddiya-investment-company-executive-director-development-del-1-439e39",
@@ -24409,6 +24477,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 10,
       "salary": {
         "min": 138060,
         "max": 220730,
@@ -24420,7 +24489,7 @@
       },
       "postedAt": "2026-05-05T12:55:39-04:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "doordash-usa-director-of-engineering-logistics-ec086a",
@@ -24582,6 +24651,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 12,
       "salary": {
         "min": 268600,
         "max": 395000,
@@ -24591,7 +24661,7 @@
       },
       "postedAt": "2026-05-04T20:29:05-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "flosum-director-of-software-engineering-canada-3f1462",
@@ -25536,6 +25606,7 @@
       "visa": "unknown",
       "workMode": "hybrid",
       "roleType": null,
+      "experienceMin": 8,
       "salary": {
         "min": 247470,
         "max": 309338,
@@ -25545,7 +25616,7 @@
       },
       "postedAt": "2026-04-17T12:55:34-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-14T04:42:24.566Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "qiddiya-investment-company-director-city-technology-governance-pmo-7b72ad",
@@ -26025,6 +26096,8 @@
       "visa": "unknown",
       "workMode": "hybrid",
       "roleType": "full-time",
+      "experienceMin": 10,
+      "experienceMax": 15,
       "salary": {
         "min": 200000,
         "max": 350000,
@@ -26036,7 +26109,7 @@
       },
       "postedAt": "2026-04-07T13:30:48.972Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "tiger-analytics-inc-sr-manager-associate-director-technology-8cbf9e",
@@ -26351,6 +26424,7 @@
       "visa": "yes",
       "workMode": "hybrid",
       "roleType": "full-time",
+      "experienceMin": 7,
       "salary": {
         "min": 191240,
         "max": 239050,
@@ -26360,7 +26434,7 @@
       },
       "postedAt": "2026-04-06T16:40:54-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "huzzle-head-of-gtm-engineering-ai-systems-fecef2",
@@ -26635,6 +26709,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": null,
+      "experienceMin": 10,
       "salary": {
         "min": 200000,
         "max": 350000,
@@ -26646,7 +26721,7 @@
       },
       "postedAt": "2026-04-02T05:30:09-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "okx-engineering-director-frontend-7372bd",
@@ -26788,6 +26863,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": "contract",
+      "experienceMin": 10,
       "salary": {
         "min": 200000,
         "max": 350000,
@@ -26799,7 +26875,7 @@
       },
       "postedAt": "2026-04-02T05:30:08-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "celonis-head-of-value-engineering-nordics-83ee93",
@@ -27861,6 +27937,7 @@
       "visa": "unknown",
       "workMode": "hybrid",
       "roleType": "contract",
+      "experienceMin": 15,
       "salary": {
         "min": 188000,
         "max": 282000,
@@ -27870,7 +27947,7 @@
       },
       "postedAt": "2026-03-25T16:49:36-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "asm-senior-member-of-technical-staff-directo-91a496",
@@ -28042,6 +28119,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": null,
+      "experienceMin": 15,
       "salary": {
         "min": 138060,
         "max": 220730,
@@ -28053,7 +28131,7 @@
       },
       "postedAt": "2026-03-24T20:10:29-04:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "gemmo-head-of-engineering-543037",
@@ -28422,6 +28500,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": "full-time",
+      "experienceMin": 8,
       "salary": {
         "min": 250000,
         "max": 350000,
@@ -28431,7 +28510,7 @@
       },
       "postedAt": "2026-03-20T15:21:22-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:55:21.010Z"
     },
     {
       "id": "okx-senior-engineering-director-trading-serv-1b7955",
@@ -28712,6 +28791,7 @@
       "visa": "unknown",
       "workMode": "hybrid",
       "roleType": "full-time",
+      "experienceMin": 15,
       "salary": {
         "min": 399420,
         "max": 457970,
@@ -28721,7 +28801,7 @@
       },
       "postedAt": "2026-03-17T16:05:40-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "fireblocks-director-of-engineering-dynamic-platform-2e4ecd",
@@ -28837,6 +28917,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 5,
       "salary": {
         "min": 220000,
         "max": 300000,
@@ -28846,7 +28927,7 @@
       },
       "postedAt": "2026-03-11T15:43:29-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "huzzle-head-of-automation-engineering-3b6e93",
@@ -29501,6 +29582,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": null,
+      "experienceMin": 5,
       "salary": {
         "min": 221200,
         "max": 304150,
@@ -29510,7 +29592,7 @@
       },
       "postedAt": "2026-02-24T15:32:37-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "asm-senior-director-process-engineering-cb9269",
@@ -29629,6 +29711,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": null,
+      "experienceMin": 12,
       "salary": {
         "min": 138060,
         "max": 220730,
@@ -29640,7 +29723,7 @@
       },
       "postedAt": "2026-02-23T17:09:49-05:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "ripple-vice-president-of-engineering-fiat-infra-7f9e8f",
@@ -30323,6 +30406,7 @@
       "visa": "yes",
       "workMode": "hybrid",
       "roleType": null,
+      "experienceMin": 10,
       "salary": {
         "min": 300000,
         "max": 360000,
@@ -30332,7 +30416,7 @@
       },
       "postedAt": "2026-02-02T13:09:19-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "databricks-field-cto-america-industries-e01773",
@@ -30454,6 +30538,7 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": null,
+      "experienceMin": 15,
       "salary": {
         "min": 249800,
         "max": 343400,
@@ -30463,7 +30548,7 @@
       },
       "postedAt": "2026-01-27T19:08:31-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "databricks-director-of-engineering-data-infrastruct-b46137",
@@ -30778,6 +30863,7 @@
       "visa": "yes",
       "workMode": "hybrid",
       "roleType": "full-time",
+      "experienceMin": 12,
       "salary": {
         "min": 195000,
         "max": 265000,
@@ -30787,7 +30873,7 @@
       },
       "postedAt": "2025-11-05T10:27:35-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "asm-director-software-engineering-308a15",
@@ -30945,6 +31031,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 15,
       "salary": {
         "min": 138060,
         "max": 220730,
@@ -30956,7 +31043,7 @@
       },
       "postedAt": "2025-09-22T16:50:48-04:00",
       "firstSeen": "2026-09-13T10:09:21.102Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "intuition-machines-inc-director-of-engineering-76a6d8",
@@ -31049,6 +31136,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": "contract",
+      "experienceMin": 5,
       "salary": {
         "min": 141500,
         "max": 275000,
@@ -31060,7 +31148,7 @@
       },
       "postedAt": "2025-09-22T09:48:15.808Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "databricks-director-of-engineering-5f3e27",
@@ -31169,6 +31257,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 15,
       "salary": {
         "min": 5000000,
         "max": 15000000,
@@ -31180,7 +31269,7 @@
       },
       "postedAt": "2025-08-14T11:06:35-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "satsuma-vp-of-engineering-5c71a2",
@@ -31514,6 +31603,7 @@
       "visa": "unknown",
       "workMode": "hybrid",
       "roleType": null,
+      "experienceMin": 5,
       "salary": {
         "min": 200000,
         "max": 350000,
@@ -31525,7 +31615,7 @@
       },
       "postedAt": "2025-05-08T08:48:51-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "avomind-head-of-infrastructure-technology-18a040",
@@ -31734,6 +31824,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": "contract",
+      "experienceMin": 5,
       "salary": {
         "min": 240000,
         "max": 438000,
@@ -31745,7 +31836,7 @@
       },
       "postedAt": "2025-02-05T16:53:36.000Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "mongodb-principal-technologist-field-cto-38757e",
@@ -31858,6 +31949,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 10,
       "salary": {
         "min": 5000000,
         "max": 15000000,
@@ -31869,7 +31961,7 @@
       },
       "postedAt": "2024-11-26T14:45:19-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "databricks-head-of-corporate-engineering-c4d748",
@@ -32008,6 +32100,7 @@
       "visa": "unknown",
       "workMode": "remote",
       "roleType": null,
+      "experienceMin": 10,
       "salary": {
         "min": 265000,
         "max": 364300,
@@ -32017,7 +32110,7 @@
       },
       "postedAt": "2024-07-17T15:32:11-04:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z"
+      "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
       "id": "ayana-hospitality-cluster-director-of-engineering-expatria-6cad2c",

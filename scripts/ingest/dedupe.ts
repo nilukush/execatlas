@@ -62,6 +62,8 @@ function mergeJobs(a: Job, b: Job): Job {
     postedAt: primary.postedAt < secondary.postedAt ? primary.postedAt : secondary.postedAt,
     visa: primary.visa !== "unknown" ? primary.visa : secondary.visa,
     salary: primary.salary ?? secondary.salary,
+    experienceMin: primary.experienceMin ?? secondary.experienceMin,
+    experienceMax: primary.experienceMax ?? secondary.experienceMax,
     requirements: primary.requirements.length >= secondary.requirements.length ? primary.requirements : secondary.requirements,
   };
 }

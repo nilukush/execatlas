@@ -84,6 +84,8 @@ export interface Job {
   workMode: WorkMode;
   officeDays?: number;
   roleType: RoleType | null;
+  experienceMin?: number;
+  experienceMax?: number;
   salary: SalaryBand | null;
   postedAt: string;
   firstSeen: string;
@@ -108,6 +110,8 @@ export interface IndexEntry {
   workMode: WorkMode;
   officeDays?: number;
   roleType: RoleType | null;
+  experienceMin?: number;
+  experienceMax?: number;
   salaryMin?: number;
   salaryMax?: number;
   salaryCurrency?: string;

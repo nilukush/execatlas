@@ -95,7 +95,9 @@
     "savedSearches": "عمليات بحث محفوظة",
     "savedNew": "{count} جديدة",
     "removeSaved": "أزل البحث المحفوظ",
-    "backToBrowser": "ابحث وصفِّ كل الأدوار"
+    "backToBrowser": "ابحث وصفِّ كل الأدوار",
+    "experienceYears": "{min}-{max} سنوات",
+    "experienceYearsPlus": "{min}+ سنوات"
   },
   "Roles": {
     "cto": "مدير تقنية / تنفيذي",
@@ -134,7 +136,8 @@
     "back": "العودة إلى الوظائف",
     "estimateNote": "التقديرات من بيانات ExpatRate المرجعية: من المئين 25 إلى 75 من الراتب السنوي الإجمالي بالعملة المحلية عند الحاجة. اعتبرها توجيهًا لا عروضًا.",
     "poster": "نشره",
-    "daysAgo": "{days, plural, one {أمس} other {قبل # أيام}}"
+    "daysAgo": "{days, plural, one {أمس} other {قبل # أيام}}",
+    "experience": "سنوات الخبرة"
   },
   "About": {
     "title": "حول ExecAtlas",

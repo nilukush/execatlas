@@ -33,6 +33,8 @@ describe("normalizeJob", () => {
     expect(job?.location.region).toBe("middle-east");
     expect(job?.visa).toBe("yes");
     expect(job?.requirements).toContain("10+ years in engineering leadership");
+    expect(job?.experienceMin).toBe(10);
+    expect(job?.experienceMax).toBeUndefined();
     expect(job?.salary).toEqual({
       min: 660000,
       max: 1080000,

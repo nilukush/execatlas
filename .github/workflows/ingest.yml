@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: ingest
@@ -42,3 +43,18 @@ jobs:
           fi
           git commit -m "chore(data): refresh job dataset"
           git push
+      # The bot email already reports each failed run; this tracking issue is
+      # the durable inbox item that records every failure in one place.
+      - name: Record failure in the tracking issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TITLE="Ingest pipeline failure tracker"
+          BODY="Ingest run failed at $(date -u +%Y-%m-%dT%H:%MZ): ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          NUMBER=$(gh issue list --state open --search "in:title \"$TITLE\"" --json number --limit 1 --jq '.[0].number')
+          if [ -n "$NUMBER" ]; then
+            gh issue comment "$NUMBER" --body "$BODY"
+          else
+            gh issue create --title "$TITLE" --body "$BODY"
+          fi

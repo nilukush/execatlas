@@ -95,7 +95,9 @@
     "savedSearches": "Saved searches",
     "savedNew": "{count} new",
     "removeSaved": "Remove saved search",
-    "backToBrowser": "Search and filter all roles"
+    "backToBrowser": "Search and filter all roles",
+    "experienceYears": "{min}-{max} yrs",
+    "experienceYearsPlus": "{min}+ yrs"
   },
   "Roles": {
     "cto": "CTO / Chief",
@@ -134,7 +136,8 @@
     "back": "Back to roles",
     "estimateNote": "Estimates use ExpatRate country benchmarks: P25 to P75 annual gross, converted to local currency where needed. Treat them as orientation, not offers.",
     "poster": "Posted by",
-    "daysAgo": "{days, plural, one {yesterday} other {# days ago}}"
+    "daysAgo": "{days, plural, one {yesterday} other {# days ago}}",
+    "experience": "Years of experience"
   },
   "About": {
     "title": "About ExecAtlas",

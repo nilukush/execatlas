@@ -5,6 +5,7 @@ import { parsePostingHtml } from "../../src/lib/jd";
 import { detectVisa } from "../../src/lib/enrich/visa";
 import { detectWorkMode } from "../../src/lib/enrich/workmode";
 import { detectRoleType } from "../../src/lib/enrich/role-type";
+import { extractExperience } from "../../src/lib/enrich/experience";
 import { parseStatedSalary, estimateSalary } from "../../src/lib/salary";
 import type { Job, RawJob, SalaryBand } from "../../src/lib/types";
 
@@ -56,6 +57,7 @@ export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | nu
   const visa = detectVisa(parsed.text);
   const work = detectWorkMode(parsed.text, raw.remoteHint === true);
   const roleType = detectRoleType(parsed.text, raw.employmentHint);
+  const experience = extractExperience(parsed.text, parsed.requirements.join("\n"));
 
   let salary: SalaryBand | null = null;
   if (salaryHint) {
@@ -94,6 +96,8 @@ export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | nu
     workMode: work.mode,
     officeDays: work.officeDays,
     roleType,
+    experienceMin: experience?.min,
+    experienceMax: experience?.max,
     salary,
     postedAt: raw.postedAt ?? existing?.postedAt ?? now,
     firstSeen: existing?.firstSeen ?? now,

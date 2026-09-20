@@ -211,6 +211,7 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
     visaUnknown: t("visaUnknown"),
     perYear: t("perYear"),
     perMonth: t("perMonth"),
+    experience: (min, max) => (max !== undefined ? t("experienceYears", { min, max }) : t("experienceYearsPlus", { min })),
     posted: (date) => tJob("posted", { date: formatDate(date, locale) }),
     roleTypeLabels: Object.fromEntries(ROLE_TYPES.map((type) => [type, tRoleType(type)])),
     sourceLabels: Object.fromEntries(Object.entries(SOURCE_LABELS)),

@@ -180,6 +180,17 @@ export default async function JobDetailPage({
             )}
           </section>
 
+          {job.experienceMin !== undefined && (
+            <section className="card-ui p-5 text-sm">
+              <h2 className="text-sm font-bold uppercase tracking-wide text-muted">{t("experience")}</h2>
+              <p className="mt-2 font-serif text-lg font-bold">
+                {job.experienceMax !== undefined
+                  ? tJobs("experienceYears", { min: job.experienceMin, max: job.experienceMax })
+                  : tJobs("experienceYearsPlus", { min: job.experienceMin })}
+              </p>
+            </section>
+          )}
+
           <section className="card-ui p-5 text-sm">
             <h2 className="text-sm font-bold uppercase tracking-wide text-muted">{t("location")}</h2>
             <p className="mt-2">{place}</p>
