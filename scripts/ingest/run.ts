@@ -7,11 +7,13 @@ import {
   WORKABLE_QUERIES,
   ARBEITNOW_PAGES,
   JOBICY_COUNT,
+  LEVER_TOKENS,
 } from "./config";
 import { greenhouseConnector } from "./connectors/greenhouse";
 import { workableConnector } from "./connectors/workable";
 import { arbeitnowConnector } from "./connectors/arbeitnow";
 import { jobicyConnector } from "./connectors/jobicy";
+import { leverConnector } from "./connectors/lever";
 import { normalizeJob, stableId, stableUpdatedAt } from "./normalize";
 import { dedupeJobs } from "./dedupe";
 import { datasetProblems, shouldRunSanityGate } from "./sanity";
@@ -105,6 +107,7 @@ async function main() {
     }),
     arbeitnowConnector(deps, { pages: smoke ? 1 : ARBEITNOW_PAGES }),
     jobicyConnector(deps, { count: smoke ? 5 : JOBICY_COUNT }),
+    leverConnector(deps, { tokens: smoke ? ["netomi"] : LEVER_TOKENS }),
   ].filter((connector) => !only || connector.id === only);
 
   const prevEnvelope = loadPrevEnvelope();

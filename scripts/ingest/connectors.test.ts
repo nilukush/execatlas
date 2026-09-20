@@ -51,6 +51,46 @@ describe("greenhouse connector", () => {
   });
 });
 
+import leverFixture from "./__fixtures__/lever.json";
+import { leverConnector } from "./connectors/lever";
+
+describe("lever connector", () => {
+  it("maps postings to raw jobs with a prettified company name", async () => {
+    const connector = leverConnector(
+      { fetchJson: stubFetch({ "api.lever.co": leverFixture }) },
+      { tokens: ["netomi"] }
+    );
+    const jobs = await connector.run();
+    expect(jobs.length).toBe(2);
+    expect(jobs[0]).toMatchObject({
+      source: "lever",
+      company: "Netomi",
+      title: expect.stringContaining(""),
+      applyUrl: expect.stringContaining("https://"),
+      sourceUrl: expect.stringContaining("jobs.lever.co"),
+      remoteHint: true,
+    });
+    expect(jobs[0].postedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
+    expect(jobs[0].employmentHint).toBe("Full-time");
+  });
+
+  it("continues past a failing board and accepts the hits envelope shape", async () => {
+    let calls = 0;
+    const connector = leverConnector(
+      {
+        fetchJson: async () => {
+          calls += 1;
+          if (calls === 1) throw new Error("HTTP 404");
+          return { hits: leverFixture };
+        },
+      },
+      { tokens: ["deadboard", "netomi"] }
+    );
+    const jobs = await connector.run();
+    expect(jobs.length).toBe(2);
+  });
+});
+
 describe("workable connector", () => {
   it("maps search results with company, logo and structured location", async () => {
     const connector = workableConnector(

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-20T11:13:06.674Z",
+  "generatedAt": "2026-09-20T11:52:40.043Z",
   "jobs": [
     {
       "id": "botsync-head-of-engineering-syncos-ea9885",
@@ -5787,6 +5787,61 @@
       "postedAt": "2026-09-09T13:47:57.401Z",
       "firstSeen": "2026-09-10T08:11:49.301Z",
       "updatedAt": "2026-09-13T10:30:55.497Z"
+    },
+    {
+      "id": "spotify-director-of-engineering-content-platform-b925a3",
+      "title": "Director of Engineering - Content Platform (Catalog)",
+      "company": "Spotify",
+      "applyUrl": "https://jobs.lever.co/spotify/5861816e-7ac4-4921-8e90-8e093707e27d/apply",
+      "sourceUrl": "https://jobs.lever.co/spotify/5861816e-7ac4-4921-8e90-8e093707e27d",
+      "source": "lever",
+      "sources": [
+        "lever"
+      ],
+      "text": "We design Spotify’s consumer experience—end to end, moment to moment, across every screen, platform, and partner integration. Our mission is to make listening feel effortless, personal, and joyful for billions of users around the world. That means turning complexity into clarity across hundreds of touchpoints—from our mobile and desktop apps to the smart speakers, TVs, cars, and integrations where Spotify shows up every day. If it touches a consumer, we shape it. We bring deep insight into human behavior, design, and technology to craft experiences that feel intuitive, expressive, and unmistakably Spotify.\nThis position sits at the heart of Spotify’s Content Platform, responsible for the systems that define, structure, and govern content across the platform. Our mission is to provide a trusted, consistent source of truth so content can be reliably managed and reused across every Spotify experience. We build and operate the core systems and workflows that ensure content is accurate, complete, and available, from APIs and lifecycle orchestration through to content quality and integrity.\nAs Spotify’s content ecosystem continues to grow in scale and complexity across new formats, use cases, and regulatory environments, this domain plays a critical role in helping us scale intentionally while maintaining the trust and quality our users and creators expect.\nWe’re seeking a Director of Engineering to lead this domain, shaping its technical direction, developing teams, and evolving the systems that underpin Spotify’s global content platform.",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "We design Spotify’s consumer experience—end to end, moment to moment, across every screen, platform, and partner integration. Our mission is to make listening feel effortless, personal, and joyful for billions of users around the world. That means turning complexity into clarity across hundreds of touchpoints—from our mobile and desktop apps to the smart speakers, TVs, cars, and integrations where Spotify shows up every day. If it touches a consumer, we shape it. We bring deep insight into human behavior, design, and technology to craft experiences that feel intuitive, expressive, and unmistakably Spotify."
+        },
+        {
+          "type": "para",
+          "text": "This position sits at the heart of Spotify’s Content Platform, responsible for the systems that define, structure, and govern content across the platform. Our mission is to provide a trusted, consistent source of truth so content can be reliably managed and reused across every Spotify experience. We build and operate the core systems and workflows that ensure content is accurate, complete, and available, from APIs and lifecycle orchestration through to content quality and integrity."
+        },
+        {
+          "type": "para",
+          "text": "As Spotify’s content ecosystem continues to grow in scale and complexity across new formats, use cases, and regulatory environments, this domain plays a critical role in helping us scale intentionally while maintaining the trust and quality our users and creators expect."
+        },
+        {
+          "type": "para",
+          "text": "We’re seeking a Director of Engineering to lead this domain, shaping its technical direction, developing teams, and evolving the systems that underpin Spotify’s global content platform."
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "GB",
+        "countryName": "United Kingdom",
+        "region": "europe",
+        "remote": false,
+        "raw": "London"
+      },
+      "seniority": "director",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "remote",
+      "roleType": "permanent",
+      "salary": {
+        "min": 69515,
+        "max": 119408,
+        "currency": "GBP",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "High",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-09-09T11:01:39.358Z",
+      "firstSeen": "2026-09-20T11:52:40.043Z",
+      "updatedAt": "2026-09-20T11:52:40.043Z"
     },
     {
       "id": "moniepoint-head-of-engineering-supply-chain-42ef74",
@@ -14697,6 +14752,61 @@
       "postedAt": "2026-08-06T10:23:21.684Z",
       "firstSeen": "2026-09-08T08:08:59.401Z",
       "updatedAt": "2026-09-20T09:38:52.513Z"
+    },
+    {
+      "id": "spotify-director-of-ml-engineering-conversation--a80cf9",
+      "title": "Director of ML Engineering - Conversation Product Area",
+      "company": "Spotify",
+      "applyUrl": "https://jobs.lever.co/spotify/600a4ac7-6ffa-4ced-8d34-253d00147aa9/apply",
+      "sourceUrl": "https://jobs.lever.co/spotify/600a4ac7-6ffa-4ced-8d34-253d00147aa9",
+      "source": "lever",
+      "sources": [
+        "lever"
+      ],
+      "text": "The Personalization team makes deciding what to play next easier and more enjoyable for every listener. From Blend to Discover Weekly, we're behind some of Spotify's most-loved features. We built them by understanding the world of music and podcasts better than anyone else. Join us and you'll keep millions of users listening by making great recommendations to each and every one of them.\nSpotify's Personalization mission (PZN) is building the single intelligence layer that powers how hundreds of millions of people discover and experience audio. One agent, one reasoning engine, and one taste model, moving to a unified single stack.\nWe're looking for a Director of Engineering to lead the Conversation Product Area. The Conversation Product Area is the technical center of gravity for the shift to one Agent, building the shared Agent Engine harness and the evaluation infrastructure that supports it. The Product Area also owns the Search Brain (intent routing and search-driven conversation) the intent-detection and prompt-suggestion platform behind our agentic consumer features like Chat and AI DJ, and the Speak Platform, Spotify's first-party voice team, which spans applied research, production infrastructure, and the character/brand decisions behind every voice Spotify users hear. This is the engineering org where architecture decisions get made that power every agentic surface at the company.\nYou'll be working with many of Spotify's senior architects, with product leadership in the consumer AI space, and with cross functional partners. The team needs a leader who is as comfortable making critical architectural calls as they are managing the people making them.",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "The Personalization team makes deciding what to play next easier and more enjoyable for every listener. From Blend to Discover Weekly, we're behind some of Spotify's most-loved features. We built them by understanding the world of music and podcasts better than anyone else. Join us and you'll keep millions of users listening by making great recommendations to each and every one of them."
+        },
+        {
+          "type": "para",
+          "text": "Spotify's Personalization mission (PZN) is building the single intelligence layer that powers how hundreds of millions of people discover and experience audio. One agent, one reasoning engine, and one taste model, moving to a unified single stack."
+        },
+        {
+          "type": "para",
+          "text": "We're looking for a Director of Engineering to lead the Conversation Product Area. The Conversation Product Area is the technical center of gravity for the shift to one Agent, building the shared Agent Engine harness and the evaluation infrastructure that supports it. The Product Area also owns the Search Brain (intent routing and search-driven conversation) the intent-detection and prompt-suggestion platform behind our agentic consumer features like Chat and AI DJ, and the Speak Platform, Spotify's first-party voice team, which spans applied research, production infrastructure, and the character/brand decisions behind every voice Spotify users hear. This is the engineering org where architecture decisions get made that power every agentic surface at the company."
+        },
+        {
+          "type": "para",
+          "text": "You'll be working with many of Spotify's senior architects, with product leadership in the consumer AI space, and with cross functional partners. The team needs a leader who is as comfortable making critical architectural calls as they are managing the people making them."
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "US",
+        "countryName": "United States",
+        "region": "north-america",
+        "remote": false,
+        "raw": "New York, NY"
+      },
+      "seniority": "director",
+      "domain": "engineering-product",
+      "visa": "unknown",
+      "workMode": "remote",
+      "roleType": "permanent",
+      "salary": {
+        "min": 138060,
+        "max": 220730,
+        "currency": "USD",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "High",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-08-06T09:48:16.508Z",
+      "firstSeen": "2026-09-20T11:52:40.043Z",
+      "updatedAt": "2026-09-20T11:52:40.043Z"
     },
     {
       "id": "ayana-hospitality-assistant-director-of-engineering-ayana--b4316c",
@@ -23808,6 +23918,89 @@
       "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
+      "id": "fullscript-director-of-engineering-developer-infras-d92bbd",
+      "title": "Director of Engineering, Developer Infrastructure",
+      "company": "Fullscript",
+      "applyUrl": "https://jobs.lever.co/fullscript/87a6de4c-5cb7-4344-8058-253a72116aa3/apply",
+      "sourceUrl": "https://jobs.lever.co/fullscript/87a6de4c-5cb7-4344-8058-253a72116aa3",
+      "source": "lever",
+      "sources": [
+        "lever"
+      ],
+      "text": "About Fullscript\nWe’re an industry-leading health technology company on a mission to help people get better. We started in 2011 with one simple idea. Make it easier for practitioners to access the products they trust so they can deliver better care.\nThat simple idea grew into a platform that powers every part of care. Today, more than 125,000 practitioners use Fullscript for clinical insights, lab interpretations, patient analytics, education, and access to high-quality supplements. Over 10 million patients rely on Fullscript to stay connected to their care plans and follow through on treatment.\nWe build tools that make care smarter and more human. Tools that save time, simplify decisions, and help practitioners stay closely connected to the people they care for. When everything they need is in one place, they can focus on what matters most: helping people get better.\nThis is your invitation.\nBring your ideas, your grit, and your care for people.\nJoin us and shape the future of care.\nThe Role\nWe’re looking for a Director of Engineering to lead high-impact engineering teams and shape the future of Fullscript’s platform. You’ll drive technical vision, scalability, and innovation, ensuring our technology empowers practitioners to provide better patient care.\nAs a strategic and hands-on leader, you’ll guide engineering teams, managers, and cross-functional partners to deliver exceptional products and infrastructure. Your role is to enable teams to move quickly, solve complex technical challenges, and ensure our systems scale to meet growing demand.\nThis role bridges the gap between infrastructure teams and product engineering, focusing on developer productivity, system reliability, and scalability",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "About Fullscript"
+        },
+        {
+          "type": "para",
+          "text": "We’re an industry-leading health technology company on a mission to help people get better. We started in 2011 with one simple idea. Make it easier for practitioners to access the products they trust so they can deliver better care."
+        },
+        {
+          "type": "para",
+          "text": "That simple idea grew into a platform that powers every part of care. Today, more than 125,000 practitioners use Fullscript for clinical insights, lab interpretations, patient analytics, education, and access to high-quality supplements. Over 10 million patients rely on Fullscript to stay connected to their care plans and follow through on treatment."
+        },
+        {
+          "type": "para",
+          "text": "We build tools that make care smarter and more human. Tools that save time, simplify decisions, and help practitioners stay closely connected to the people they care for. When everything they need is in one place, they can focus on what matters most: helping people get better."
+        },
+        {
+          "type": "para",
+          "text": "This is your invitation."
+        },
+        {
+          "type": "para",
+          "text": "Bring your ideas, your grit, and your care for people."
+        },
+        {
+          "type": "para",
+          "text": "Join us and shape the future of care."
+        },
+        {
+          "type": "heading",
+          "text": "The Role"
+        },
+        {
+          "type": "para",
+          "text": "We’re looking for a Director of Engineering to lead high-impact engineering teams and shape the future of Fullscript’s platform. You’ll drive technical vision, scalability, and innovation, ensuring our technology empowers practitioners to provide better patient care."
+        },
+        {
+          "type": "para",
+          "text": "As a strategic and hands-on leader, you’ll guide engineering teams, managers, and cross-functional partners to deliver exceptional products and infrastructure. Your role is to enable teams to move quickly, solve complex technical challenges, and ensure our systems scale to meet growing demand."
+        },
+        {
+          "type": "para",
+          "text": "This role bridges the gap between infrastructure teams and product engineering, focusing on developer productivity, system reliability, and scalability"
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "CA",
+        "countryName": "Canada",
+        "region": "north-america",
+        "remote": false,
+        "raw": "Ottawa, ON"
+      },
+      "seniority": "director",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "remote",
+      "roleType": "full-time",
+      "salary": {
+        "min": 141500,
+        "max": 275000,
+        "currency": "CAD",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "High",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-04-27T13:52:34.194Z",
+      "firstSeen": "2026-09-20T11:52:40.043Z",
+      "updatedAt": "2026-09-20T11:52:40.043Z"
+    },
+    {
       "id": "flatgigs-cto-co-founder-hardware-climate-technolo-7d4f9d",
       "title": "CTO / Co-Founder - Hardware & Climate Technology (AWH)",
       "company": "Flatgigs",
@@ -29240,6 +29433,120 @@
       "postedAt": "2025-11-05T10:27:35-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
       "updatedAt": "2026-09-20T09:38:52.513Z"
+    },
+    {
+      "id": "sambatv-senior-director-sales-engineering-ce9a8c",
+      "title": "Senior Director, Sales Engineering",
+      "company": "Sambatv",
+      "applyUrl": "https://jobs.lever.co/sambatv/4572f79a-367c-4e6f-8ad7-f80b17351390/apply",
+      "sourceUrl": "https://jobs.lever.co/sambatv/4572f79a-367c-4e6f-8ad7-f80b17351390",
+      "source": "lever",
+      "sources": [
+        "lever"
+      ],
+      "text": "Samba is a media intelligence company. We know what the world is watching, reading, and thinking about — in real time, at scale, across every screen. Our data exists with the consent of over a billion people, organized into the most complete picture of consumer attention ever built. The biggest brands in the world use that picture to make smarter decisions. We think it’s the most interesting data asset on the planet, because it’s the most culturally relevant.\nThe Sr. Director, Sales Engineering will play a key role in driving Samba TV’s sales and revenue efforts by combining technical expertise with consultative selling strategies to position our enterprise products as trusted solutions for clients. This individual will empower sales teams to close deals effectively while emphasizing the measurable value of Samba TV’s offerings in Media Activation, TV measurement, planning, tune-in analysis, and outcomes-based strategies. They will own the global Sales Engineering function that powers Samba TV’s enterprise growth. Set strategy, lead a high-performing team, and turn complex data and measurement products into clear business value for C-suite buyers.\nThis role requires a balance of technical skill, consultative sales ability, and a client-focused approach. The ideal candidate will be instrumental in shaping sales conversations, demonstrating how Samba TV’s products solve critical business challenges and deliver ROI while building strong client relationships.",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "Samba is a media intelligence company. We know what the world is watching, reading, and thinking about — in real time, at scale, across every screen. Our data exists with the consent of over a billion people, organized into the most complete picture of consumer attention ever built. The biggest brands in the world use that picture to make smarter decisions. We think it’s the most interesting data asset on the planet, because it’s the most culturally relevant."
+        },
+        {
+          "type": "para",
+          "text": "The Sr. Director, Sales Engineering will play a key role in driving Samba TV’s sales and revenue efforts by combining technical expertise with consultative selling strategies to position our enterprise products as trusted solutions for clients. This individual will empower sales teams to close deals effectively while emphasizing the measurable value of Samba TV’s offerings in Media Activation, TV measurement, planning, tune-in analysis, and outcomes-based strategies. They will own the global Sales Engineering function that powers Samba TV’s enterprise growth. Set strategy, lead a high-performing team, and turn complex data and measurement products into clear business value for C-suite buyers."
+        },
+        {
+          "type": "para",
+          "text": "This role requires a balance of technical skill, consultative sales ability, and a client-focused approach. The ideal candidate will be instrumental in shaping sales conversations, demonstrating how Samba TV’s products solve critical business challenges and deliver ROI while building strong client relationships."
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "US",
+        "countryName": "United States",
+        "region": "north-america",
+        "remote": false,
+        "raw": "New York City, New York"
+      },
+      "seniority": "director",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "unspecified",
+      "roleType": "full-time",
+      "salary": {
+        "min": 138060,
+        "max": 220730,
+        "currency": "USD",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "High",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2025-10-31T13:19:36.423Z",
+      "firstSeen": "2026-09-20T11:52:40.043Z",
+      "updatedAt": "2026-09-20T11:52:40.043Z"
+    },
+    {
+      "id": "netomi-director-quality-engineering-ai-testing-17fc4e",
+      "title": "Director, Quality Engineering & AI Testing",
+      "company": "Netomi",
+      "applyUrl": "https://jobs.lever.co/netomi/f29aa119-e39f-4645-b4b8-874945e7a9ed/apply",
+      "sourceUrl": "https://jobs.lever.co/netomi/f29aa119-e39f-4645-b4b8-874945e7a9ed",
+      "source": "lever",
+      "sources": [
+        "lever"
+      ],
+      "text": "About the Company:\nNetomi is the leading agentic AI platform for enterprise customer experience. We work with the largest global brands like Delta Airlines, MetLife, United, and others to enable agentic automation at scale across the entire customer journey. Our no-code platform delivers the fastest time to market, lowest total cost of ownership, and simple, scalable management of AI agents for any CX use case. Backed by WndrCo, Y Combinator, and Index Ventures, we help enterprises drive efficiency, lower costs, and deliver higher quality customer experiences.\nWant to be part of the AI revolution and transform how the world’s largest global brands do business? Join us!\nWe are seeking a highly experienced Director of Quality Engineering & AI Testing to lead our global quality organization and establish world-class testing practices for enterprise SaaS and AI-driven products.\nThis leader will be responsible for building quality strategy, scaling test automation, improving release confidence, and driving reliability across platform, AI, and customer-facing solutions. The ideal candidate combines deep expertise in software quality engineering with modern approaches to AI testing, automation, and continuous delivery.\nThis role will partner closely with Engineering, Product Management, Applied AI, Customer Success, and Delivery teams to ensure Netomi delivers highly reliable, scalable, and secure enterprise-grade solutions.",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "About the Company:"
+        },
+        {
+          "type": "para",
+          "text": "Netomi is the leading agentic AI platform for enterprise customer experience. We work with the largest global brands like Delta Airlines, MetLife, United, and others to enable agentic automation at scale across the entire customer journey. Our no-code platform delivers the fastest time to market, lowest total cost of ownership, and simple, scalable management of AI agents for any CX use case. Backed by WndrCo, Y Combinator, and Index Ventures, we help enterprises drive efficiency, lower costs, and deliver higher quality customer experiences."
+        },
+        {
+          "type": "para",
+          "text": "Want to be part of the AI revolution and transform how the world’s largest global brands do business? Join us!"
+        },
+        {
+          "type": "para",
+          "text": "We are seeking a highly experienced Director of Quality Engineering & AI Testing to lead our global quality organization and establish world-class testing practices for enterprise SaaS and AI-driven products."
+        },
+        {
+          "type": "para",
+          "text": "This leader will be responsible for building quality strategy, scaling test automation, improving release confidence, and driving reliability across platform, AI, and customer-facing solutions. The ideal candidate combines deep expertise in software quality engineering with modern approaches to AI testing, automation, and continuous delivery."
+        },
+        {
+          "type": "para",
+          "text": "This role will partner closely with Engineering, Product Management, Applied AI, Customer Success, and Delivery teams to ensure Netomi delivers highly reliable, scalable, and secure enterprise-grade solutions."
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "IN",
+        "countryName": "India",
+        "region": "india",
+        "remote": true,
+        "raw": "Remote - India"
+      },
+      "seniority": "director",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "remote",
+      "roleType": "full-time",
+      "salary": {
+        "min": 5000000,
+        "max": 15000000,
+        "currency": "INR",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "Medium",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2025-10-22T08:51:31.331Z",
+      "firstSeen": "2026-09-20T11:52:40.043Z",
+      "updatedAt": "2026-09-20T11:52:40.043Z"
     },
     {
       "id": "asm-director-software-engineering-308a15",

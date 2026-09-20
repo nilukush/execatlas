@@ -1,0 +1,38 @@
+[
+  {
+    "id": "0e6b7355-330a-4d10-b8d5-c235bd555622",
+    "text": "Agentic Engineer Level II/III",
+    "categories": {
+      "commitment": "Full-time",
+      "department": "Global Services & Delivery",
+      "location": "Remote - India",
+      "team": "Agentic Delivery",
+      "allLocations": [
+        "Remote - India"
+      ]
+    },
+    "hostedUrl": "https://jobs.lever.co/netomi/0e6b7355-330a-4d10-b8d5-c235bd555622",
+    "applyUrl": "https://jobs.lever.co/netomi/0e6b7355-330a-4d10-b8d5-c235bd555622/apply",
+    "createdAt": 1787568814518,
+    "workplaceType": "remote",
+    "description": "<div><strong style=\"font-size: 15px;\">About the Company:</strong></div>\n<div><span style=\"font-size: 15px;\">Netomi is the leading agentic AI platform for enterprise customer experience. We work with the largest global brands like Delta Airlines, MetLife, United, and others to enable agentic automation at scale across the entire customer journey. Our no-code platform delivers the fastest time to market, lowest total cost of ownership, and simple,  ...trimmed... ion and transform how the world\u2019s largest global brands do business? Join us!</span></div><div><br></div><p><span style=\"font-size: 16px;\">About the role<br><br>We are looking for an Agentic Engineer to build and scale agentic workflows and tools using Netomi\u2019s no-code platform. This role requires strong software engineering fundamentals combined with prompt engineering and API-driven automation to power reliable, autonomous AI agents.</span></p>"
+  },
+  {
+    "id": "a8cc0d22-25b4-48f4-a6b1-0d1fd37bcc84",
+    "text": "Agentic Product Manager",
+    "categories": {
+      "commitment": "Full-time",
+      "department": "Global Services & Delivery",
+      "location": "Gurugram",
+      "team": "Agentic Delivery",
+      "allLocations": [
+        "Gurugram"
+      ]
+    },
+    "hostedUrl": "https://jobs.lever.co/netomi/a8cc0d22-25b4-48f4-a6b1-0d1fd37bcc84",
+    "applyUrl": "https://jobs.lever.co/netomi/a8cc0d22-25b4-48f4-a6b1-0d1fd37bcc84/apply",
+    "createdAt": 1782970696293,
+    "workplaceType": "remote",
+    "description": "<div><strong style=\"font-size: 15px;\">About the Company:</strong></div>\n<div><span style=\"font-size: 15px;\">Netomi is the leading agentic AI platform for enterprise customer experience. We work with the largest global brands like Delta Airlines, MetLife, United, and others to enable agentic automation at scale across the entire customer journey. Our no-code platform delivers the fastest time to market, lowest total cost of ownership, and simple,  ...trimmed... ns</span><span style=\"font-size: 16px;\"> for enterprise customers. You will translate complex business processes into AI-driven workflows, define integration blueprints, and guide customers through their transformation to autonomous AI agents.&nbsp;</span></p>\n<p><span style=\"font-size: 16px;\">You will work closely with Customers, CSM, Integration Engineers, QA, Product, and Engineering to ensure end-to-end success of every deployment.</span></p>"
+  }
+]
