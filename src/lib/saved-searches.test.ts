@@ -31,6 +31,17 @@ function make(over: Partial<IndexEntry>): IndexEntry {
 
 const filters = { ...DEFAULT_FILTERS, seniority: "vp" as const, query: "engineering" };
 
+import { SOURCE_IDS } from "./types";
+
+describe("saved search source coverage", () => {
+  it("accepts every configured source id", () => {
+    for (const id of SOURCE_IDS) {
+      const saved = [createSavedSearch("engineering", { ...DEFAULT_FILTERS, source: id }, "s1")];
+      expect(parseSavedSearches(JSON.stringify(saved))).toHaveLength(1);
+    }
+  });
+});
+
 describe("markSeen seenIds cap", () => {
   it("keeps only the newest 500 seen ids so storage stays bounded", () => {
     const entries = Array.from({ length: 600 }, (_, i) => ({

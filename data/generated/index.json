@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-20T11:52:40.043Z",
+  "generatedAt": "2026-09-20T12:08:56.965Z",
   "jobs": [
     {
       "id": "botsync-head-of-engineering-syncos-ea9885",
@@ -274,7 +274,7 @@
       "salaryCurrency": "EUR",
       "salaryPeriod": "annual",
       "salarySource": "estimated",
-      "postedAt": "2026-09-17T13:46:27.429Z",
+      "postedAt": "2026-09-17T13:46:27.199Z",
       "source": "workable"
     },
     {
@@ -3335,7 +3335,7 @@
       "salaryCurrency": "EUR",
       "salaryPeriod": "annual",
       "salarySource": "estimated",
-      "postedAt": "2026-06-15T19:30:24.292Z",
+      "postedAt": "2026-06-15T19:30:23.864Z",
       "source": "workable"
     },
     {
@@ -4272,7 +4272,7 @@
       "salaryCurrency": "USD",
       "salaryPeriod": "annual",
       "salarySource": "stated",
-      "postedAt": "2026-03-25T16:56:36.765Z",
+      "postedAt": "2026-03-25T16:56:35.904Z",
       "source": "workable"
     },
     {
@@ -4704,9 +4704,9 @@
       "source": "greenhouse"
     },
     {
-      "id": "sambatv-senior-director-sales-engineering-ce9a8c",
+      "id": "samba-tv-senior-director-sales-engineering-ce9a8c",
       "title": "Senior Director, Sales Engineering",
-      "company": "Sambatv",
+      "company": "Samba TV",
       "seniority": "director",
       "domain": "engineering",
       "countryIso2": "US",

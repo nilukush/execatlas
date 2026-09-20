@@ -145,7 +145,7 @@
     "title": "Tentang ExecAtlas",
     "intro": "ExecAtlas mengumpulkan posisi kepemimpinan teknik senior dari API lowongan resmi dan publik, membaca setiap lowongan untuk mencari sinyal yang penting bagi kandidat internasional, dan menyajikannya dengan filter serta konteks gaji dalam mata uang lokal.",
     "sourcesTitle": "Dari mana lowongan berasal",
-    "sourcesBody": "Lowongan berasal dari API Job Board publik Greenhouse, pencarian publik Workable, serta API terbuka Arbeitnow dan Jobicy. Setiap lowongan tertaut ke halaman perusahaan itu sendiri.",
+    "sourcesBody": "Lowongan berasal dari API job board publik Greenhouse dan Lever, pencarian publik Workable, serta API terbuka Arbeitnow dan Jobicy.",
     "blockedTitle": "Mengapa tidak ada lowongan LinkedIn, Indeed, atau Naukri?",
     "blockedBody": "Situs-situs itu tidak menyediakan API lowongan publik dan ketentuan mereka melarang pengumpulan otomatis. Mengambil data dengan cara krap bukan pendekatan proyek ini. Jika salah satunya membuka jalur resmi, slot konektor sudah siap. Banyak perusahaan memasang peran yang sama di papan Greenhouse atau Workable milik mereka, dan itu tercakup di sini.",
     "visaTitle": "Bagaimana sponsorship visa dideteksi",

@@ -23,6 +23,7 @@ const SOURCES_STATUS = [
   { name: "Workable", status: "public-endpoint", url: "https://jobs.workable.com" },
   { name: "Arbeitnow", status: "open-api", url: "https://www.arbeitnow.com/blog/job-board-api" },
   { name: "Jobicy", status: "open-api", url: "https://jobicy.com/jobs-api" },
+  { name: "Lever", status: "open-api", url: "https://github.com/lever/postings-api" },
   { name: "LinkedIn", status: "no-compliant-path", url: "https://www.linkedin.com" },
   { name: "Indeed", status: "no-compliant-path", url: "https://www.indeed.com" },
   { name: "Naukri.com", status: "no-compliant-path", url: "https://www.naukri.com" },

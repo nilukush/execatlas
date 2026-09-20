@@ -6,7 +6,7 @@
  */
 
 import { applyFilters, type JobFilters } from "./search";
-import { ROLE_TYPES } from "./types";
+import { ROLE_TYPES, SOURCE_IDS } from "./types";
 import type { IndexEntry } from "./types";
 import type { RegionId } from "./locations";
 
@@ -56,7 +56,9 @@ const SENIORITY_VALUES = new Set(["all", "cto", "vp", "avp", "director", "head"]
 const VISA_VALUES = new Set(["all", "yes", "no", "unknown"]);
 const WORKMODE_VALUES = new Set(["all", "remote", "hybrid", "onsite"]);
 const ROLETYPE_VALUES = new Set<string>(["all", ...ROLE_TYPES]);
-const SOURCE_VALUES = new Set(["all", "greenhouse", "workable", "arbeitnow", "jobicy"]);
+// derived from SOURCE_IDS so a new connector can never invalidate an
+// existing saved search (dropping it on the next parse would lose it)
+const SOURCE_VALUES = new Set<string>(["all", ...SOURCE_IDS]);
 const SORT_VALUES = new Set(["newest", "salary"]);
 
 function isObject(v: unknown): v is Record<string, unknown> {

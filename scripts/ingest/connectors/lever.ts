@@ -25,7 +25,7 @@ function companyFromToken(token: string): string {
  */
 export function leverConnector(
   deps: FetchDeps,
-  options: { tokens: string[] }
+  options: { tokens: string[]; names?: Record<string, string> }
 ): { id: "lever"; run: () => Promise<RawJob[]> } {
   return {
     id: "lever",
@@ -46,7 +46,7 @@ export function leverConnector(
               source: "lever",
               externalId: `lv-${job.id.slice(0, 8)}`,
               title: job.text,
-              company: companyFromToken(token),
+              company: options.names?.[token] ?? companyFromToken(token),
               applyUrl: apply,
               sourceUrl: job.hostedUrl ?? apply,
               descriptionHtml: job.description ?? "",

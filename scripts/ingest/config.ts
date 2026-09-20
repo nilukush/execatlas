@@ -2,6 +2,7 @@ import { workableSeedQueries } from "../../src/lib/roles";
 
 export { GREENHOUSE_TOKENS } from "./greenhouse-tokens";
 export { LEVER_TOKENS } from "./lever-tokens";
+export { LEVER_COMPANY_NAMES } from "./lever-tokens";
 
 /**
  * Workable's public search understands region names, so we query broadly at

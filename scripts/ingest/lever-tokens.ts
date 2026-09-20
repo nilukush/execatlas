@@ -16,3 +16,9 @@ export const LEVER_TOKENS: string[] = [
   'spotify',
   'yuno',
 ];
+
+// tokens whose brand styling differs from naive token capitalization
+export const LEVER_COMPANY_NAMES: Record<string, string> = {
+  finn: "FINN",
+  sambatv: "Samba TV",
+};

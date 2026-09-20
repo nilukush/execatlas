@@ -68,6 +68,30 @@ describe("groupCountryVariants", () => {
 
 });
 
+describe("variant collapse details", () => {
+  it("keeps a same-country office sibling of a remote-qualified primary", () => {
+    const remoteUk = job({ source: "workable", externalId: "wk-r", title: "Director of Engineering", company: "Acme", locationRaw: "Remote, United Kingdom", applyUrl: "https://acme.example/r", sourceUrl: "https://acme.example/r", companyLogoUrl: "https://acme.example/logo.png" });
+    const officeUk = job({ source: "workable", externalId: "wk-o", title: "Director of Engineering", company: "Acme", locationRaw: "London, UK", applyUrl: "https://acme.example/o", sourceUrl: "https://acme.example/o" });
+    const grouped = dedupeJobs([remoteUk, officeUk].filter(notNull));
+    expect(grouped).toHaveLength(1);
+    // the stated salary makes the remote record the deterministic primary
+    expect(grouped[0].location.remote).toBe(true);
+    expect(grouped[0].variants ?? []).toHaveLength(1);
+    const urls = new Set([grouped[0].applyUrl, ...(grouped[0].variants ?? []).map((v) => v.applyUrl)]);
+    expect(urls).toEqual(new Set([remoteUk?.applyUrl, officeUk?.applyUrl].filter(Boolean) as string[]));
+  });
+
+  it("stamps the group with the earliest posting date and first-seen", () => {
+    const earlier = job({ source: "workable", externalId: "wk-e", title: "Director of Engineering", company: "Acme", locationRaw: "Warsaw, Poland", postedAt: "2026-09-05T02:00:00.000Z" });
+    const later = job({ source: "workable", externalId: "wk-l", title: "Director of Engineering", company: "Acme", locationRaw: "Madrid, Spain", postedAt: "2026-09-05T20:00:00.000Z", applyUrl: "https://acme.example/l", sourceUrl: "https://acme.example/l", companyLogoUrl: "https://acme.example/logo.png" });
+    const grouped = dedupeJobs([later, earlier].filter(notNull));
+    // the logo makes the later posting the deterministic primary, but the group keeps the earliest facts
+    expect(grouped[0].location.countryIso2).toBe("ES");
+    expect(grouped[0].postedAt).toBe("2026-09-05T02:00:00.000Z");
+    expect(grouped[0].firstSeen).toBe(earlier?.firstSeen);
+  });
+});
+
 describe("dedupeJobs", () => {
   it("merges remote postings of the same role that differ only by country qualifier", () => {
     const uk = job({ externalId: "gh-uk", locationRaw: "Remote, United Kingdom" });
@@ -120,8 +144,8 @@ describe("dedupeJobs", () => {
   });
 
   it("groups identical per-country postings and keeps distinct requisitions apart", () => {
-    const a = job({ externalId: "gh-1", locationRaw: "Dubai, UAE" });
-    const b = job({ externalId: "gh-2", locationRaw: "London, UK" });
+    const a = job({ externalId: "gh-1", locationRaw: "Dubai, UAE", applyUrl: "https://acme.example/dubai", sourceUrl: "https://acme.example/dubai" });
+    const b = job({ externalId: "gh-2", locationRaw: "London, UK", applyUrl: "https://acme.example/london", sourceUrl: "https://acme.example/london" });
     // same description and timestamp: one role posted per country
     const grouped = dedupeJobs([a, b].filter(notNull));
     expect(grouped).toHaveLength(1);

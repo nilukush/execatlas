@@ -213,7 +213,7 @@ export default async function JobDetailPage({
                       rel="noopener noreferrer"
                       className="font-semibold text-brand-500 hover:underline"
                     >
-                      {variant.remote ? tJobs("remoteWorldwide") : (variant.countryName ?? "")}{" "}
+                      {variant.remote ? tJobs("remoteWorldwide") : (variant.countryName ?? (variant.region ? regionLabel(variant.region) : ""))}{" "}
                       <span aria-hidden="true">{locale === "ar" ? "←" : "→"}</span>
                     </a>
                   </li>

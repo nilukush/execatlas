@@ -127,8 +127,10 @@ function collapseCluster(cluster: Job[]): Job {
   const [primary, ...rest] = [...cluster].sort(
     (a, b) => richness(b) - richness(a) || sourceRank(a) - sourceRank(b) || a.id.localeCompare(b.id)
   );
+  // every distinct posting survives: same country can still mean two posts
+  // (a remote-qualified page and an office page), so the apply URL decides
   const others = rest
-    .filter((job) => job.location.countryIso2 !== primary.location.countryIso2 || job.location.remote)
+    .filter((job) => job.applyUrl !== primary.applyUrl)
     .map<JobVariant>((job) => ({
       countryIso2: job.location.countryIso2,
       countryName: job.location.countryName,
@@ -142,10 +144,16 @@ function collapseCluster(cluster: Job[]): Job {
     : others.length > 0 && rest.some((job) => job.visa !== "unknown")
       ? (rest.find((job) => job.visa !== "unknown")!.visa)
       : "unknown";
+  // the group is one role seen across countries: earliest facts win, as in
+  // mergeJobs, so primary churn cannot reset freshness or first-seen
+  const elder = cluster.reduce((a, b) => (a.firstSeen <= b.firstSeen ? a : b));
+  const earliestPostedAt = cluster.reduce((a, b) => (a.postedAt <= b.postedAt ? a : b)).postedAt;
   return {
     ...primary,
     visa,
     salary: primary.salary ?? rest.find((job) => job.salary)?.salary ?? null,
+    postedAt: earliestPostedAt,
+    firstSeen: elder.firstSeen,
     variants: others.length > 0 ? others : undefined,
   };
 }

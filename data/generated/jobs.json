@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-20T11:52:40.043Z",
+  "generatedAt": "2026-09-20T12:08:56.965Z",
   "jobs": [
     {
       "id": "botsync-head-of-engineering-syncos-ea9885",
@@ -2029,9 +2029,9 @@
         "quality": "Medium",
         "familyUsed": "it-executive"
       },
-      "postedAt": "2026-09-17T13:46:27.429Z",
+      "postedAt": "2026-09-17T13:46:27.199Z",
       "firstSeen": "2026-09-20T08:36:18.338Z",
-      "updatedAt": "2026-09-20T08:36:18.338Z",
+      "updatedAt": "2026-09-20T12:08:56.965Z",
       "variants": [
         {
           "countryIso2": "PL",
@@ -21076,9 +21076,9 @@
         "quality": "High",
         "familyUsed": "it-executive"
       },
-      "postedAt": "2026-06-15T19:30:24.292Z",
+      "postedAt": "2026-06-15T19:30:23.864Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z",
+      "updatedAt": "2026-09-20T12:08:56.965Z",
       "variants": [
         {
           "countryIso2": "BY",
@@ -26218,9 +26218,9 @@
         "period": "annual",
         "source": "stated"
       },
-      "postedAt": "2026-03-25T16:56:36.765Z",
+      "postedAt": "2026-03-25T16:56:35.904Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-13T10:30:55.497Z",
+      "updatedAt": "2026-09-20T12:08:56.965Z",
       "variants": [
         {
           "countryIso2": "SG",
@@ -29435,9 +29435,9 @@
       "updatedAt": "2026-09-20T09:38:52.513Z"
     },
     {
-      "id": "sambatv-senior-director-sales-engineering-ce9a8c",
+      "id": "samba-tv-senior-director-sales-engineering-ce9a8c",
       "title": "Senior Director, Sales Engineering",
-      "company": "Sambatv",
+      "company": "Samba TV",
       "applyUrl": "https://jobs.lever.co/sambatv/4572f79a-367c-4e6f-8ad7-f80b17351390/apply",
       "sourceUrl": "https://jobs.lever.co/sambatv/4572f79a-367c-4e6f-8ad7-f80b17351390",
       "source": "lever",
@@ -29482,8 +29482,8 @@
         "familyUsed": "it-executive"
       },
       "postedAt": "2025-10-31T13:19:36.423Z",
-      "firstSeen": "2026-09-20T11:52:40.043Z",
-      "updatedAt": "2026-09-20T11:52:40.043Z"
+      "firstSeen": "2026-09-20T12:08:56.965Z",
+      "updatedAt": "2026-09-20T12:08:56.965Z"
     },
     {
       "id": "netomi-director-quality-engineering-ai-testing-17fc4e",

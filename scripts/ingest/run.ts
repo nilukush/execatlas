@@ -8,6 +8,7 @@ import {
   ARBEITNOW_PAGES,
   JOBICY_COUNT,
   LEVER_TOKENS,
+  LEVER_COMPANY_NAMES,
 } from "./config";
 import { greenhouseConnector } from "./connectors/greenhouse";
 import { workableConnector } from "./connectors/workable";
@@ -107,7 +108,7 @@ async function main() {
     }),
     arbeitnowConnector(deps, { pages: smoke ? 1 : ARBEITNOW_PAGES }),
     jobicyConnector(deps, { count: smoke ? 5 : JOBICY_COUNT }),
-    leverConnector(deps, { tokens: smoke ? ["netomi"] : LEVER_TOKENS }),
+    leverConnector(deps, { tokens: smoke ? ["netomi"] : LEVER_TOKENS, names: LEVER_COMPANY_NAMES }),
   ].filter((connector) => !only || connector.id === only);
 
   const prevEnvelope = loadPrevEnvelope();
