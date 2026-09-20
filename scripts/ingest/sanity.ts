@@ -5,8 +5,8 @@ export interface SanityProblem {
   detail: string;
 }
 
-/** Sources below this previous count are not floor-checked; tiny boards dry up legitimately. */
-const SMALL_SOURCE = 5;
+/** Sources at or above this previous count are floor-checked; smaller ones swing and drought naturally. */
+const LARGE_SOURCE = 20;
 
 function countBySource(jobs: Array<{ source?: string }>): Record<string, number> {
   const bySource: Record<string, number> = {};
@@ -38,12 +38,20 @@ export function datasetProblems(
     }
     const bySource = countBySource(jobs);
     for (const [source, previousCount] of Object.entries(prev.bySource)) {
-      if (previousCount < SMALL_SOURCE) continue;
+      // the gate exists to catch dead sources and gutted datasets, not to
+      // enforce stability: a large source dropping to nothing or under a
+      // quarter means breakage, while small general boards swing and drought
+      // naturally (a one-night spike must not lock in as a floor forever,
+      // since aborted runs never write a fresher baseline)
+      if (previousCount < LARGE_SOURCE) continue;
       const current = bySource[source] ?? 0;
-      if (current < Math.ceil(previousCount / 2)) {
+      if (current < Math.ceil(previousCount / 4)) {
         problems.push({
           rule: "source-floor",
-          detail: `${source}: ${current} jobs is under half the previous ${previousCount}`,
+          detail:
+            current === 0
+              ? `${source}: returned nothing after ${previousCount} jobs`
+              : `${source}: ${current} jobs is under a quarter of the previous ${previousCount}`,
         });
       }
     }

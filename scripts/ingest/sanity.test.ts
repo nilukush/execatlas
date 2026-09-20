@@ -43,6 +43,35 @@ describe("datasetProblems", () => {
     expect(result.map((p) => p.rule)).toContain("source-floor");
   });
 
+  it("still fires when a large source loses most but not all of its flow", () => {
+    const result = datasetProblems(jobs({ greenhouse: 93, workable: 30, arbeitnow: 3, jobicy: 1 }), prevStats());
+    expect(result.map((p) => p.rule)).toContain("source-floor");
+  });
+
+  it("tolerates a moderate shrink of a large source", () => {
+    const result = datasetProblems(jobs({ greenhouse: 93, workable: 40, arbeitnow: 3, jobicy: 1 }), prevStats());
+    expect(result).toEqual([]);
+  });
+
+  it("tolerates a small source returning to its baseline after a spike", () => {
+    // arbeitnow spiked to 11 one night, then expired back to its usual 2 to 5;
+    // the gate must not lock the spike in as a floor forever
+    const prev = prevStats({ total: 250, bySource: { greenhouse: 93, workable: 143, arbeitnow: 11, jobicy: 1 } });
+    expect(datasetProblems(jobs({ greenhouse: 93, workable: 143, arbeitnow: 2, jobicy: 1 }), prev)).toEqual([]);
+  });
+
+  it("still fires when a large source dies entirely", () => {
+    const result = datasetProblems(jobs({ greenhouse: 93, arbeitnow: 3, jobicy: 1 }), prevStats());
+    expect(result.map((p) => p.rule)).toContain("source-floor");
+  });
+
+  it("tolerates a small source fully drying up while the pipeline stays alive", () => {
+    // arbeitnow fetched 700 jobs with zero in scope: alive API, empty of
+    // leadership roles; the dataset must still commit
+    const prev = prevStats({ total: 250, bySource: { greenhouse: 93, workable: 143, arbeitnow: 11, jobicy: 1 } });
+    expect(datasetProblems(jobs({ greenhouse: 93, workable: 143, jobicy: 1 }), prev)).toEqual([]);
+  });
+
   it("ignores small sources so a tiny board drying up is not fatal", () => {
     const result = datasetProblems(jobs({ greenhouse: 93, workable: 146, jobicy: 1 }), prevStats());
     expect(result).toEqual([]);
