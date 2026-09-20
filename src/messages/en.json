@@ -1,10 +1,10 @@
 {
   "Meta": {
     "siteName": "ExecAtlas",
-    "title": "ExecAtlas: senior engineering leadership jobs worldwide",
-    "description": "Director, VP and CTO roles across India, the Middle East, Southeast Asia, North Africa, Europe and North America. Real apply links, visa sponsorship signals and local-currency pay bands.",
+    "title": "ExecAtlas: senior leadership jobs worldwide",
+    "description": "Director, VP and Head roles across engineering, product, design and data in India, the Middle East, Southeast Asia, North Africa, Europe and North America. Real apply links, visa sponsorship signals and local-currency pay bands.",
     "jobsTitle": "Browse leadership roles",
-    "jobsDescription": "Filter senior engineering leadership roles by region, visa sponsorship, work mode and role type.",
+    "jobsDescription": "Filter senior leadership roles in engineering, product, design and data by region, visa sponsorship, work mode and role type.",
     "aboutTitle": "About ExecAtlas",
     "aboutDescription": "How ExecAtlas sources roles, detects visa sponsorship and estimates salaries in local currency.",
     "jobTitle": "{title} at {company}",
@@ -20,9 +20,9 @@
     "skipToContent": "Skip to content"
   },
   "Home": {
-    "kicker": "Director, VP and CTO roles",
-    "heroTitle": "Senior engineering leadership roles, worldwide",
-    "heroSubtitle": "One place to find Director, VP, Head of and CTO roles across India, the Middle East, Southeast Asia, North Africa, Europe and North America. Real apply links, visa signals, and pay bands in local currency.",
+    "kicker": "Director, VP and C-suite roles",
+    "heroTitle": "Senior leadership roles, worldwide",
+    "heroSubtitle": "One place to find Director, VP, Head of and C-suite roles across engineering, product, design and data in India, the Middle East, Southeast Asia, North Africa, Europe and North America. Real apply links, visa signals, and pay bands in local currency.",
     "browse": "Browse all roles",
     "howItWorks": "How it works",
     "statRoles": "open leadership roles",
@@ -143,7 +143,7 @@
   },
   "About": {
     "title": "About ExecAtlas",
-    "intro": "ExecAtlas collects senior engineering leadership roles from official and public job APIs, reads every posting for signals that matter to international candidates, and presents them with filters and local-currency pay context.",
+    "intro": "ExecAtlas collects senior leadership roles across engineering, product, design and data from official and public job APIs, reads every posting for signals that matter to international candidates, and presents them with filters and local-currency pay context.",
     "sourcesTitle": "Where the jobs come from",
     "sourcesBody": "Listings come from the public Greenhouse and Lever job board APIs, Workable's public job search, and the open APIs of Arbeitnow and Jobicy.",
     "blockedTitle": "Why no LinkedIn, Indeed or Naukri jobs?",
@@ -154,7 +154,8 @@
     "salaryBody": "When a posting states a range, it is shown as stated. Otherwise an estimated band is computed from ExpatRate's curated country benchmarks for senior technology roles, always in the local currency of the job's country, and always labeled as an estimate.",
     "limitsTitle": "Known limits",
     "limitsBody": "Estimates are orientation, not offers. Visa detection reads words, not immigration policy. Some countries have thin benchmark data and will show no estimate. The about page will always be honest about gaps.",
-    "contactTitle": "Contact"
+    "contactTitle": "Contact",
+    "liveRoles": "{count} live roles"
   },
   "Footer": {
     "tagline": "Senior engineering leadership roles across six regions, with visa signals and local pay context.",

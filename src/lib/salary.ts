@@ -32,6 +32,9 @@ const FAMILY_CHAIN: Record<Domain, string[]> = {
   engineering: ["it-executive", "software-engineering", "data-and-ai"],
   technology: ["it-executive", "software-engineering", "data-and-ai"],
   "engineering-product": ["it-executive", "software-engineering", "product-management"],
+  product: ["product-management", "it-executive"],
+  design: ["it-executive", "product-management"],
+  data: ["data-and-ai", "it-executive"],
 };
 
 export function monthsPerYear(iso3: string): number {

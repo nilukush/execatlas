@@ -21,6 +21,7 @@ import { datasetProblems, shouldRunSanityGate } from "./sanity";
 import { writeJsonAtomic } from "./write";
 import { buildQueryMatrix } from "../../src/lib/roles";
 import { DATASET_VERSION } from "../../src/lib/types";
+import { SOURCE_IDS } from "../../src/lib/types";
 import type { DatasetStats, IndexEntry, Job, JobsFile, SourceId } from "../../src/lib/types";
 
 const GENERATED_DIR = path.join(process.cwd(), "data", "generated");
@@ -75,8 +76,10 @@ function toIndexEntry(job: Job): IndexEntry {
   };
 }
 
-function computeStats(jobs: Job[], generatedAt: string): DatasetStats {
-  const bySource: Record<string, number> = {};
+export function computeStats(jobs: Job[], generatedAt: string): DatasetStats {
+  // every configured source appears, zeros included, so a dried-up pipeline
+  // is visible in stats.json instead of silently disappearing
+  const bySource: Record<string, number> = Object.fromEntries(SOURCE_IDS.map((id) => [id, 0]));
   const byRegion: Record<string, number> = {};
   const byVisa: Record<string, number> = {};
   const countries = new Set<string>();

@@ -52,6 +52,27 @@ export function arbeitnowConnector(
           console.warn(`[arbeitnow] page ${page} failed: ${(error as Error).message}`);
         }
       }
+      // cross-reference the visa_sponsorship=true feed: their platform-declared
+      // sponsorship flag is not in the per-job payload, only in this filter
+      try {
+        const sponsoredSlugs = new Set<string>();
+        for (let page = 1; page <= options.pages; page += 1) {
+          const filtered = (await deps.fetchJson(
+            `https://www.arbeitnow.com/api/job-board-api?visa_sponsorship=true&page=${page}`
+          )) as { data?: ArbeitnowJob[] };
+          const slugs = (filtered.data ?? []).map((job) => job.slug).filter(Boolean);
+          if (slugs.length === 0) break;
+          for (const slug of slugs) sponsoredSlugs.add(slug);
+        }
+        if (sponsoredSlugs.size > 0) {
+          for (const job of out) {
+            const slug = job.externalId.replace(/^an-/, "");
+            if (sponsoredSlugs.has(slug)) job.visaHint = true;
+          }
+        }
+      } catch (error) {
+        console.warn(`[arbeitnow] visa feed failed: ${(error as Error).message}`);
+      }
       return out;
     },
   };

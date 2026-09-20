@@ -1,10 +1,10 @@
 {
   "Meta": {
     "siteName": "ExecAtlas",
-    "title": "ExecAtlas: posisi kepemimpinan teknik senior di seluruh dunia",
-    "description": "Peran Director, VP, dan CTO di India, Timur Tengah, Asia Tenggara, Afrika Utara, Eropa, dan Amerika Utara. Tautan lamaran asli, info sponsorship visa, dan kisaran gaji dalam mata uang lokal.",
+    "title": "ExecAtlas: pekerjaan kepemimpinan senior di seluruh dunia",
+    "description": "Peran Director, VP, dan Head di bidang engineering, produk, desain, dan data di India, Timur Tengah, Asia Tenggara, Afrika Utara, Eropa, dan Amerika Utara. Tautan lamaran nyata, sinyal sponsorship visa, dan kisaran gaji dalam mata uang lokal.",
     "jobsTitle": "Jelajahi posisi kepemimpinan",
-    "jobsDescription": "Saring posisi kepemimpinan teknik senior berdasarkan wilayah, sponsorship visa, mode kerja, dan jenis peran.",
+    "jobsDescription": "Filter peran kepemimpinan senior di engineering, produk, desain, dan data berdasarkan wilayah, sponsorship visa, mode kerja, dan tipe peran.",
     "aboutTitle": "Tentang ExecAtlas",
     "aboutDescription": "Bagaimana ExecAtlas mengumpulkan lowongan, mendeteksi sponsorship visa, dan memperkirakan gaji dalam mata uang lokal.",
     "jobTitle": "{title} di {company}",
@@ -20,9 +20,9 @@
     "skipToContent": "Lompat ke konten"
   },
   "Home": {
-    "kicker": "Peran Director, VP, dan CTO",
-    "heroTitle": "Posisi kepemimpinan teknik senior di seluruh dunia",
-    "heroSubtitle": "Satu tempat untuk menemukan peran Director, VP, Head of, dan CTO di India, Timur Tengah, Asia Tenggara, Afrika Utara, Eropa, dan Amerika Utara. Tautan lamaran asli, info visa, dan kisaran gaji dalam mata uang lokal.",
+    "kicker": "Peran Director, VP, dan C-suite",
+    "heroTitle": "Peran kepemimpinan senior, di seluruh dunia",
+    "heroSubtitle": "Satu tempat untuk menemukan peran Director, VP, Head, dan C-suite di bidang engineering, produk, desain, dan data di India, Timur Tengah, Asia Tenggara, Afrika Utara, Eropa, dan Amerika Utara. Tautan lamaran nyata, sinyal visa, dan kisaran gaji dalam mata uang lokal.",
     "browse": "Jelajahi semua peran",
     "howItWorks": "Cara kerjanya",
     "statRoles": "posisi kepemimpinan terbuka",
@@ -143,7 +143,7 @@
   },
   "About": {
     "title": "Tentang ExecAtlas",
-    "intro": "ExecAtlas mengumpulkan posisi kepemimpinan teknik senior dari API lowongan resmi dan publik, membaca setiap lowongan untuk mencari sinyal yang penting bagi kandidat internasional, dan menyajikannya dengan filter serta konteks gaji dalam mata uang lokal.",
+    "intro": "ExecAtlas mengumpulkan peran kepemimpinan senior di bidang engineering, produk, desain, dan data dari API pekerjaan resmi dan publik, membaca setiap lowongan untuk sinyal yang penting bagi kandidat internasional, dan menyajikannya dengan filter serta konteks gaji dalam mata uang lokal.",
     "sourcesTitle": "Dari mana lowongan berasal",
     "sourcesBody": "Lowongan berasal dari API job board publik Greenhouse dan Lever, pencarian publik Workable, serta API terbuka Arbeitnow dan Jobicy.",
     "blockedTitle": "Mengapa tidak ada lowongan LinkedIn, Indeed, atau Naukri?",
@@ -154,7 +154,8 @@
     "salaryBody": "Bila lowongan mencantumkan kisaran, ditampilkan apa adanya. Bila tidak, kisaran perkiraan dihitung dari data tolok ukur ExpatRate untuk peran teknologi senior, selalu dalam mata uang lokal negara lowongan, dan selalu berlabel perkiraan.",
     "limitsTitle": "Keterbatasan yang diketahui",
     "limitsBody": "Perkiraan adalah gambaran, bukan penawaran. Deteksi visa membaca kata-kata, bukan kebijakan imigrasi. Data beberapa negara masih tipis sehingga tidak menampilkan perkiraan. Halaman ini selalu jujur soal celah.",
-    "contactTitle": "Kontak"
+    "contactTitle": "Kontak",
+    "liveRoles": "{count} peran aktif"
   },
   "Footer": {
     "tagline": "Posisi kepemimpinan teknik senior di enam wilayah, dengan info visa dan konteks gaji lokal.",

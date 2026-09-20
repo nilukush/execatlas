@@ -54,7 +54,8 @@ export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | nu
   if (!location || (!location.country && !location.region && !location.remote)) return null;
 
   const parsed = parsePostingHtml(raw.descriptionHtml ?? "");
-  const visa = detectVisa(parsed.text);
+  // a source-declared sponsorship flag (Arbeitnow visa filter) beats text detection
+  const visa = raw.visaHint === true ? "yes" : detectVisa(parsed.text);
   const work = detectWorkMode(parsed.text, raw.remoteHint === true);
   const roleType = detectRoleType(parsed.text, raw.employmentHint);
   const experience = extractExperience(parsed.text, parsed.requirements.join("\n"));

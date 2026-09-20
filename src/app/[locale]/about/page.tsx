@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
-import { getQueryCount } from "@/lib/data";
+import { getQueryCount, getStats } from "@/lib/data";
 import { buildAlternates } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -40,6 +40,7 @@ export default async function AboutPage({
   setRequestLocale(locale);
   const t = await getTranslations("About");
   const queryCount = getQueryCount();
+  const stats = getStats();
 
   return (
     <section className="container-page max-w-3xl py-12">
@@ -65,7 +66,9 @@ export default async function AboutPage({
                   </a>
                 </td>
                 <td className="py-2 text-muted">
-                  {source.status === "no-compliant-path" ? "not used (no compliant access)" : "active"}
+                  {source.status === "no-compliant-path"
+                    ? "not used (no compliant access)"
+                    : `${t("liveRoles", { count: stats.bySource[source.name.toLowerCase()] ?? 0 })}`}
                 </td>
               </tr>
             ))}

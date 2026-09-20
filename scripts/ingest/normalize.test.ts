@@ -23,6 +23,29 @@ function makeRaw(overrides: Partial<RawJob> = {}): RawJob {
   };
 }
 
+describe("visaHint from source metadata", () => {
+  it("marks a visa-sponsored job from the source hint", () => {
+    const job = normalizeJob(
+      makeRaw({
+        descriptionHtml: "<p>Lead the org.</p>",
+        visaHint: true,
+      }),
+      NOW
+    );
+    expect(job?.visa).toBe("yes");
+  });
+
+  it("falls back to text detection without a hint", () => {
+    const noHint = normalizeJob(makeRaw({ descriptionHtml: "<p>Lead the org.</p>" }), NOW);
+    expect(noHint?.visa).toBe("unknown");
+    const fromText = normalizeJob(
+      makeRaw({ descriptionHtml: "<p>Visa sponsorship available.</p>" }),
+      NOW
+    );
+    expect(fromText?.visa).toBe("yes");
+  });
+});
+
 describe("normalizeJob", () => {
   it("normalizes an in-scope job with enrichment and an estimated salary", () => {
     const job = normalizeJob(makeRaw(), NOW);

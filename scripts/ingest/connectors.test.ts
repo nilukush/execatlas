@@ -119,6 +119,39 @@ describe("workable connector", () => {
   });
 });
 
+describe("arbeitnow visa cross-reference", () => {
+  it("marks jobs whose slug appears in the visa-filtered feed", async () => {
+    const normal = { data: arbeitnowFixture.data ?? arbeitnowFixture };
+    const visaFeed = { data: [(arbeitnowFixture.data ?? arbeitnowFixture)[0]] };
+    const connector = arbeitnowConnector(
+      {
+        fetchJson: async (url: string) =>
+          url.includes("visa_sponsorship=true") ? visaFeed : normal,
+      },
+      { pages: 1 }
+    );
+    const jobs = await connector.run();
+    const flagged = jobs.filter((j) => j.visaHint === true);
+    expect(flagged).toHaveLength(1);
+    expect(flagged[0].externalId).toBe(`an-${(arbeitnowFixture.data ?? arbeitnowFixture)[0].slug}`);
+  });
+
+  it("keeps running without hints when the filtered feed fails", async () => {
+    const connector = arbeitnowConnector(
+      {
+        fetchJson: async (url: string) => {
+          if (url.includes("visa_sponsorship=true")) throw new Error("HTTP 500");
+          return { data: arbeitnowFixture.data ?? arbeitnowFixture };
+        },
+      },
+      { pages: 1 }
+    );
+    const jobs = await connector.run();
+    expect(jobs.length).toBeGreaterThan(0);
+    expect(jobs.every((j) => j.visaHint !== true)).toBe(true);
+  });
+});
+
 describe("arbeitnow connector", () => {
   it("converts unix timestamps to ISO dates", async () => {
     const connector = arbeitnowConnector(

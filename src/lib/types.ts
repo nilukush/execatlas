@@ -69,6 +69,7 @@ export interface RawJob {
   locationRaw: string;
   remoteHint?: boolean;
   employmentHint?: string | null;
+  visaHint?: boolean;
   salaryHint?: { min: number; max: number; currency: string; period: "annual" | "monthly" } | null;
   postedAt?: string | null;
   posterName?: string | null;

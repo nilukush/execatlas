@@ -1,12 +1,13 @@
 /**
- * Role taxonomy for ExecAtlas: the owner-specified senior leadership families
- * (Director, AVP, Assistant Vice President, VP, Vice President, Head of, CTO
- * family) crossed with engineering / technology / product-pairing subjects,
- * plus the classifier used to filter real job titles against that scope.
+ * Role taxonomy for ExecAtlas: senior leadership families (Director, AVP,
+ * Assistant Vice President, VP, Vice President, Head of, CTO family) crossed
+ * with the function subjects. Started engineering-only per the wave-1 record;
+ * widened 2026-09-20 to the owner's original intent: engineering, technology
+ * and product pairings plus pure product, design, and data leadership.
  */
 
 export type Seniority = "cto" | "vp" | "avp" | "director" | "head";
-export type Domain = "engineering" | "technology" | "engineering-product";
+export type Domain = "engineering" | "technology" | "engineering-product" | "product" | "design" | "data";
 
 export interface RoleQuery {
   phrase: string;
@@ -29,6 +30,16 @@ const SUBJECTS: Array<{ text: string; domain: Domain }> = [
   { text: "Technology", domain: "technology" },
   { text: "Technology and Product", domain: "engineering-product" },
   { text: "Product and Technology", domain: "engineering-product" },
+  { text: "Product", domain: "product" },
+  { text: "Product Management", domain: "product" },
+  { text: "Design", domain: "design" },
+  { text: "Product Design", domain: "design" },
+  { text: "UX", domain: "design" },
+  { text: "User Experience", domain: "design" },
+  { text: "Data", domain: "data" },
+  { text: "Data and Analytics", domain: "data" },
+  { text: "Data Science", domain: "data" },
+  { text: "Analytics", domain: "data" },
 ];
 
 const PREFIXES: Array<{ text: string; seniority: Seniority }> = [
@@ -110,6 +121,13 @@ export function workableSeedQueries(): string[] {
     "CTO",
     "Chief Technology Officer",
     "CTPO",
+    "Director of Product",
+    "VP of Product",
+    "Head of Product",
+    "VP of Design",
+    "Director of Data",
+    "Head of Data Science",
+    "VP of Analytics",
   ];
 }
 
@@ -128,7 +146,7 @@ function normalizeTitle(title: string): string {
  * "Development" and "tech" appear in HR, M&A, design and sales titles too.
  */
 const NON_TECH_TITLE_RE =
-  /\bbusiness development\b|\bcorporate development\b|\btalent development\b|\b(?:sales|client|market|community|partner(?:ship)?|fundraising|instructor|teacher|professional|organization(?:al)?|leadership)\s+development\b|\blearning (?:and|&) development\b|\bl&d\b|\bhardware development\b|\bvehicle development\b|\bproduct design\b|\bagency development\b|\btalent acquisition\b|\brecruit(?:ing|ment)\b|\b(?:art|creative) director\b|\bstrategic accounts\b|\baccount director\b/i;
+  /\bbusiness development\b|\bcorporate development\b|\btalent development\b|\b(?:sales|client|market|community|partner(?:ship)?|fundraising|instructor|teacher|professional|organization(?:al)?|leadership)\s+development\b|\blearning (?:and|&) development\b|\bl&d\b|\bhardware development\b|\bvehicle development\b|\bagency development\b|\b(?:fashion|interior|instructional|industrial|set|floral|lighting|sound)\s+design\b|\btalent acquisition\b|\brecruit(?:ing|ment)\b|\b(?:art|creative) director\b|\bstrategic accounts\b|\baccount director\b|\bsales\b|\bmarketing\b|\bgtm\b|\bgo[- ]to[- ]market\b/i;
 
 /**
  * Classifies a real-world job title into the ExecAtlas scope.
@@ -190,6 +208,10 @@ function detectDomain(t: string, seniority: Seniority): Domain | null {
       ? "technology"
       : "engineering";
   }
-  // pure product leadership is outside the owner's specified scope
+  // widened families: design beats data beats pure product in mixed titles
+  // ("Director of Product and Data" reads as a data lead)
+  if (/\bdesign\b|\bux\b|\buser experience\b/.test(t)) return "design";
+  if (/\bdata\b|\banalytics\b|\bmachine learning\b/.test(t)) return "data";
+  if (hasProduct) return "product";
   return null;
 }

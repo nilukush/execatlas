@@ -92,7 +92,7 @@ describe("classifyTitle", () => {
     ["Senior Software Engineer", null],
     ["Staff Engineer", null],
     ["Engineering Manager", null],
-    ["Director, WMS Product Design and Development", null],
+    ["Director, WMS Product Design and Development", { seniority: "director", domain: "engineering-product" }],
     ["Agency Development Director, DACH", null],
     ["Product Manager", null],
     // out of scope: leadership but wrong domain
@@ -102,8 +102,8 @@ describe("classifyTitle", () => {
     ["Chief Financial Officer", null],
     ["Chief Operating Officer", null],
     // out of scope: pure product leadership (owner matrix pairs product with engineering/technology only)
-    ["VP of Product", null],
-    ["Head of Product", null],
+    ["VP of Product", { seniority: "vp", domain: "product" }],
+    ["Head of Product", { seniority: "head", domain: "product" }],
     // out of scope: non-software "development" and "tech" compounds
     ["Director of Business Development", null],
     ["VP of Business Development", null],
@@ -134,10 +134,49 @@ describe("workableSeedQueries", () => {
   it("returns a bounded, deduplicated list of seed queries for search sources", () => {
     const seeds = workableSeedQueries();
     expect(seeds.length).toBeGreaterThan(5);
-    expect(seeds.length).toBeLessThanOrEqual(16);
+    expect(seeds.length).toBeLessThanOrEqual(24);
     expect(new Set(seeds).size).toBe(seeds.length);
     for (const seed of seeds) {
       expect(classifyTitle(seed), `seed "${seed}" must be in scope`).not.toBeNull();
     }
+  });
+});
+
+describe("adjacent senior families in scope", () => {
+  it("classifies pure product leadership", () => {
+    expect(classifyTitle("Director of Product")).toEqual({ seniority: "director", domain: "product" });
+    expect(classifyTitle("VP of Product Management")).toEqual({ seniority: "vp", domain: "product" });
+    expect(classifyTitle("Head of Product")).toEqual({ seniority: "head", domain: "product" });
+  });
+
+  it("classifies design leadership", () => {
+    expect(classifyTitle("VP of Design")).toEqual({ seniority: "vp", domain: "design" });
+    expect(classifyTitle("Director of Product Design")).toEqual({ seniority: "director", domain: "design" });
+    expect(classifyTitle("Head of UX")).toEqual({ seniority: "head", domain: "design" });
+  });
+
+  it("classifies data and analytics leadership", () => {
+    expect(classifyTitle("Director of Data")).toEqual({ seniority: "director", domain: "data" });
+    expect(classifyTitle("Head of Data Science")).toEqual({ seniority: "head", domain: "data" });
+    expect(classifyTitle("VP of Analytics")).toEqual({ seniority: "vp", domain: "data" });
+  });
+
+  it("keeps sales and marketing leadership out of the widened families", () => {
+    expect(classifyTitle("Director, Sales - Data & AI Security")).toBeNull();
+    expect(classifyTitle("Head of Product Marketing")).toBeNull();
+    expect(classifyTitle("VP of Sales Engineering")).toBeNull();
+    expect(classifyTitle("Director of Product, Growth and Marketing")).toBeNull();
+  });
+
+  it("keeps non-technology design and product noise out", () => {
+    expect(classifyTitle("Director of Fashion Design")).toBeNull();
+    expect(classifyTitle("Interior Design Director")).toBeNull();
+    expect(classifyTitle("Creative Director")).toBeNull();
+    expect(classifyTitle("Director of Instructional Design")).toBeNull();
+  });
+
+  it("keeps engineering precedence over the new families in mixed titles", () => {
+    expect(classifyTitle("VP of Engineering and Design")).toEqual({ seniority: "vp", domain: "engineering" });
+    expect(classifyTitle("Director of Product and Data")).toEqual({ seniority: "director", domain: "data" });
   });
 });
