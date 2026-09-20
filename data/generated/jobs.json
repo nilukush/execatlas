@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-20T08:36:18.338Z",
+  "generatedAt": "2026-09-20T08:39:05.919Z",
   "jobs": [
     {
       "id": "botsync-head-of-engineering-syncos-ea9885",
@@ -12218,8 +12218,8 @@
       "title": "VP, Platform Engineering",
       "company": "Kaufman Rossin",
       "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/640237/logo",
-      "applyUrl": "https://jobs.workable.com/view/ghLLPxhBMyGZRm5nvXJfqi/hybrid-vp%2C-platform-engineering-in-boca-raton-at-kaufman-rossin",
-      "sourceUrl": "https://jobs.workable.com/view/ghLLPxhBMyGZRm5nvXJfqi/hybrid-vp%2C-platform-engineering-in-boca-raton-at-kaufman-rossin",
+      "applyUrl": "https://jobs.workable.com/view/4omC7Lty4LUe7vbJiSNFdy/hybrid-vp%2C-platform-engineering-in-palm-beach-gardens-at-kaufman-rossin",
+      "sourceUrl": "https://jobs.workable.com/view/4omC7Lty4LUe7vbJiSNFdy/hybrid-vp%2C-platform-engineering-in-palm-beach-gardens-at-kaufman-rossin",
       "source": "workable",
       "sources": [
         "workable"
@@ -12350,7 +12350,7 @@
         "countryName": "United States",
         "region": "north-america",
         "remote": false,
-        "raw": "Boca Raton, United States"
+        "raw": "Palm Beach Gardens, United States"
       },
       "seniority": "vp",
       "domain": "engineering",
@@ -12368,7 +12368,7 @@
       },
       "postedAt": "2026-08-14T14:19:17.404Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-14T04:42:24.566Z"
+      "updatedAt": "2026-09-20T08:39:05.919Z"
     },
     {
       "id": "turbine-vp-of-engineering-1efec5",
