@@ -1,10 +1,9 @@
-// Verified 2026-09-06 (original 99), 2026-09-07 (20 more), 2026-09-13 (15
-// from the first discovery sweep) and 2026-09-14 (14 more from an expanded
-// sweep with new query angles: xapo61/stackblitz/globalizationpartners for
-// remote-anywhere leadership, awin/ogilvy for Berlin and agency tech,
-// speechify/oneacrefundglobal/kivaorg for Nairobi and Kigali,
-// artefactjobs/artefactlinkedin/nuitee for Casablanca and travel tech,
-// leaflink/cloverhealth/serhant for US and UK leadership pools).
+// Verified 2026-09-06 (99), 2026-09-07 (20), 2026-09-13 (15), 2026-09-14
+// (14) and 2026-09-20 (13 via the boards.greenhouse.io domain filter and
+// fresh angles: reltio for Bengaluru, moniepoint for Lagos, podium81 and
+// supplyhouse for US leadership pools, spacex and janestreet and monks and
+// trueanomalyinc as large ongoing pools, gigs/taboola/castaigroupinc/eridan/
+// medallionakafirstlayerai for Europe and niche coverage).
 // Each token returns HTTP 200 with a jobs array from the public Greenhouse
 // Job Board API. Re-verify when adding or pruning boards.
 export const GREENHOUSE_TOKENS: string[] = [
@@ -35,6 +34,7 @@ export const GREENHOUSE_TOKENS: string[] = [
   'buzzfeed',
   'bybit',
   'careem',
+  'castaigroupinc',
   'celonis',
   'censys',
   'checkr',
@@ -57,6 +57,7 @@ export const GREENHOUSE_TOKENS: string[] = [
   'duolingo',
   'easyship',
   'elastic',
+  'eridan',
   'expel',
   'fastly',
   'figma',
@@ -67,6 +68,7 @@ export const GREENHOUSE_TOKENS: string[] = [
   'flix',
   'gemini',
   'getyourguide',
+  'gigs',
   'gitlab',
   'globalhealthcareexchangeinc',
   'globalizationpartners',
@@ -80,6 +82,7 @@ export const GREENHOUSE_TOKENS: string[] = [
   'instacart',
   'intercom',
   'intrinsicrobotics',
+  'janestreet',
   'jumptrading',
   'kickstarter',
   'kindsnacks',
@@ -87,12 +90,15 @@ export const GREENHOUSE_TOKENS: string[] = [
   'klaviyo',
   'leaflink',
   'lyft',
+  'medallionakafirstlayerai',
   'medium',
   'mercari',
   'mercury',
   'mindbody',
   'minio',
   'mongodb',
+  'moniepoint',
+  'monks',
   'monzo',
   'motional',
   'mozilla',
@@ -113,11 +119,13 @@ export const GREENHOUSE_TOKENS: string[] = [
   'peloton',
   'pendo',
   'pinterest',
+  'podium81',
   'point72',
   'poshmark',
   'postman',
   'raisin',
   'reddit',
+  'reltio',
   'ripple',
   'robinhood',
   'roblox',
@@ -129,17 +137,21 @@ export const GREENHOUSE_TOKENS: string[] = [
   'singlestore',
   'sofi',
   'solarisbank',
+  'spacex',
   'speechify',
   'stackblitz',
   'stockx',
   'stripe',
   'sumologic',
+  'supplyhouse',
+  'taboola',
   'tamara',
   'teneo',
   'teneolinkedin',
   'tide',
   'traderepublic',
   'trivago',
+  'trueanomalyinc',
   'truveta',
   'twilio',
   'twitch',

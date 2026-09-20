@@ -93,6 +93,7 @@ describe("classifyTitle", () => {
     ["Staff Engineer", null],
     ["Engineering Manager", null],
     ["Director, WMS Product Design and Development", null],
+    ["Agency Development Director, DACH", null],
     ["Product Manager", null],
     // out of scope: leadership but wrong domain
     ["VP of Sales", null],

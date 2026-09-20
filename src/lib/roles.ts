@@ -128,7 +128,7 @@ function normalizeTitle(title: string): string {
  * "Development" and "tech" appear in HR, M&A, design and sales titles too.
  */
 const NON_TECH_TITLE_RE =
-  /\bbusiness development\b|\bcorporate development\b|\btalent development\b|\b(?:sales|client|market|community|partner(?:ship)?|fundraising|instructor|teacher|professional|organization(?:al)?|leadership)\s+development\b|\blearning (?:and|&) development\b|\bl&d\b|\bhardware development\b|\bvehicle development\b|\bproduct design\b|\btalent acquisition\b|\brecruit(?:ing|ment)\b|\b(?:art|creative) director\b|\bstrategic accounts\b|\baccount director\b/i;
+  /\bbusiness development\b|\bcorporate development\b|\btalent development\b|\b(?:sales|client|market|community|partner(?:ship)?|fundraising|instructor|teacher|professional|organization(?:al)?|leadership)\s+development\b|\blearning (?:and|&) development\b|\bl&d\b|\bhardware development\b|\bvehicle development\b|\bproduct design\b|\bagency development\b|\btalent acquisition\b|\brecruit(?:ing|ment)\b|\b(?:art|creative) director\b|\bstrategic accounts\b|\baccount director\b/i;
 
 /**
  * Classifies a real-world job title into the ExecAtlas scope.

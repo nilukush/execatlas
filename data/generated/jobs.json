@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-20T08:39:05.919Z",
+  "generatedAt": "2026-09-20T08:54:25.529Z",
   "jobs": [
     {
       "id": "botsync-head-of-engineering-syncos-ea9885",
@@ -1260,6 +1260,141 @@
       "postedAt": "2026-09-18T12:49:08.906Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
       "updatedAt": "2026-09-20T08:36:18.338Z"
+    },
+    {
+      "id": "podium-senior-director-of-engineering-ai-agents-6a1024",
+      "title": "Senior Director of Engineering, AI Agents",
+      "company": "Podium",
+      "applyUrl": "https://job-boards.greenhouse.io/podium81/jobs/8209762",
+      "sourceUrl": "https://job-boards.greenhouse.io/podium81/jobs/8209762",
+      "source": "greenhouse",
+      "sources": [
+        "greenhouse"
+      ],
+      "text": "At Podium, we bring AI Employees to local businesses that turn every conversation into revenue. Trusted by 60,000+ businesses across Auto, Home Services, and Aesthetics, Podium captures and converts leads 24/7, driving both new business and repeat customers.\nIn under 24 months, we crossed $100M in AI Agent ARR, scaling 300% year-over-year. During this time, we’ve deployed 10,000 AI employees to empower real business outcomes for our customers. Podium is building what we believe will be the most impactful AI employee ecosystem for local business.\nPodium has been recognized as the Best AI Implementation by Inc. Magazine, highlighted by OpenAI for building revenue-driving AI Agents, and awarded the #1 AI Agent for Business Operations by G2.\nOur growth is fueled by hiring exceptional people, holding them to high standards, and creating opportunities for them to grow and make an impact. Our operating principles guide daily behavior and ensure we hire people who will thrive at Podium. If you're hungry for growth, aligned to our operating principles, and ready to get to work, you won't find a better place to learn and accelerate your career.\nAbout the Role:\nPodium built the AI Employee local businesses now depend on to answer every lead, book every appointment, and win the moments that used to slip through the cracks. It's not a chatbot bolted onto a CRM — it's an autonomous teammate that qualifies leads, holds real conversations, and closes the loop from first message to booked revenue, 24/7.\nWe're looking for a Senior Director of Engineering to take ownership of our AI Agents product and turn it from a fast-growing platform into the industry-defining agent infrastructure for local business. This is a hands-on leadership role — equal parts zero-to-one builder and scale-up operator. You'll architect and ship the systems that let our agents reason, act, and get better over time, while building the team and the org-level muscle to run these systems reliably at massive scale, across thousands of customer-facing workflows and business verticals.\nWhat you will be doing:\nOwning the technical architecture and roadmap for Podium's AI agent platform — the orchestration layer, tool-use frameworks, memory, and reasoning systems that power customer-facing agents across every industry vertical we serve\nLeading and growing a team of engineers building and operating production agent systems, setting the technical bar and staying hands-on in design, code, and incident response where it matters most\nBuilding and maturing our evaluation infrastructure — the offline and online eval harnesses, quality metrics, and feedback loops that let us ship agent improvements with confidence instead of guesswork\nDriving the \"0 to 1\" build-out of new agent capabilities and workflows, then the \"1 to scale\" work of hardening those systems for reliability, latency, and cost as usage grows into the tens of millions of conversations\nPartnering closely with Product to translate business outcomes (response time, conversion, show rate, revenue recovered) into agent capabilities and prioritized technical bets\nPartnering with Infrastructure/Platform teams to ensure agent systems are observable, cost-efficient, and resilient at scale — this includes model routing, latency budgets, fallback behavior, and guardrails\nWorking directly with customers and customer-facing teams (Sales, CS, Support) to understand where agents succeed or fail in the field, and feeding that signal back into the roadmap\nEstablishing best practices for prompt/context engineering, agent testing, safety and guardrails, and responsible deployment of autonomous systems in live customer environments\nRepresenting AI Agents engineering in leadership conversations — setting a clear technical narrative, calling out risk early, and making sound build-vs-buy and model-vs-vendor tradeoffs\nWhat you should have:\n10+ years of software engineering experience, including significant time in engineering leadership roles (Director, Head of Engineering, or equivalent scope as a hands-on lead)\nDirect experience building and operating production LLM-powered or agentic systems — not just prototypes, but systems serving real users at real volume with real reliability requirements\nDeep fluency in applied AI architecture: orchestration frameworks, tool-calling/function-calling patterns, RAG and context management, and the tradeoffs between latency, cost, and quality\nA track record of building and scaling evaluation systems for non-deterministic software — you know how to measure agent quality, catch regressions, and make shipping decisions without waiting for perfect certainty\nExperience leading both \"0 to 1\" builds and \"1 to scale\" hardening — you've stood up something from nothing and you've also kept something running under real production load\nStrong instincts for working cross-functionally with Product, Infrastructure, and customer-facing teams, and the communication skills to align technical decisions with business outcomes\nGenuine, hands-on fluency with modern AI coding tools (Claude Code, Codex, Cursor, or similar) as part of how you and your team build\nWhat we hope you have:\nExperience building agent systems specifically for customer-facing, revenue-critical workflows (sales, support, scheduling, or similar)\nFamiliarity with voice AI, conversational AI, or real-time multimodal systems\nExperience operating in a high-growth SaaS or vertical software company, ideally one serving SMB customers\nA point of view on the frontier of agentic AI — what's changing fast, what's overhyped, and where the real leverage is for a company like Podium\nWhy you'll love working here:\nPodium is the best place to work to:\nJoin the leaders in AI agents — you'll be building on top of a product already trusted by 60,000+ businesses to run their AI Employee, with a real mandate and real usage to learn from\nUnlock career-defining growth — this role owns a product area at the center of Podium's future, with the scope and visibility that comes with it\nBuild with world-class talent — join a team of engineers who ship fast, use AI tooling seriously, and care as much about outcomes as elegance\nMake a real impact on local business — the agents you build directly help local businesses respond faster, convert more leads, and grow revenue without adding headcount\nPodium is an equal opportunity employer. Podium provides equal employment opportunities (EEO) to all employees and applicants for employment without regard to race, color, religion, gender, national origin, sexual orientation, gender identity or expression, age, disability, genetic information, marital status or veteran status.",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "At Podium, we bring AI Employees to local businesses that turn every conversation into revenue. Trusted by 60,000+ businesses across Auto, Home Services, and Aesthetics, Podium captures and converts leads 24/7, driving both new business and repeat customers."
+        },
+        {
+          "type": "para",
+          "text": "In under 24 months, we crossed $100M in AI Agent ARR, scaling 300% year-over-year. During this time, we’ve deployed 10,000 AI employees to empower real business outcomes for our customers. Podium is building what we believe will be the most impactful AI employee ecosystem for local business."
+        },
+        {
+          "type": "para",
+          "text": "Podium has been recognized as the Best AI Implementation by Inc. Magazine, highlighted by OpenAI for building revenue-driving AI Agents, and awarded the #1 AI Agent for Business Operations by G2."
+        },
+        {
+          "type": "para",
+          "text": "Our growth is fueled by hiring exceptional people, holding them to high standards, and creating opportunities for them to grow and make an impact. Our operating principles guide daily behavior and ensure we hire people who will thrive at Podium. If you're hungry for growth, aligned to our operating principles, and ready to get to work, you won't find a better place to learn and accelerate your career."
+        },
+        {
+          "type": "heading",
+          "text": "About the Role:"
+        },
+        {
+          "type": "para",
+          "text": "Podium built the AI Employee local businesses now depend on to answer every lead, book every appointment, and win the moments that used to slip through the cracks. It's not a chatbot bolted onto a CRM — it's an autonomous teammate that qualifies leads, holds real conversations, and closes the loop from first message to booked revenue, 24/7."
+        },
+        {
+          "type": "para",
+          "text": "We're looking for a Senior Director of Engineering to take ownership of our AI Agents product and turn it from a fast-growing platform into the industry-defining agent infrastructure for local business. This is a hands-on leadership role — equal parts zero-to-one builder and scale-up operator. You'll architect and ship the systems that let our agents reason, act, and get better over time, while building the team and the org-level muscle to run these systems reliably at massive scale, across thousands of customer-facing workflows and business verticals."
+        },
+        {
+          "type": "heading",
+          "text": "What you will be doing:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Owning the technical architecture and roadmap for Podium's AI agent platform — the orchestration layer, tool-use frameworks, memory, and reasoning systems that power customer-facing agents across every industry vertical we serve",
+            "Leading and growing a team of engineers building and operating production agent systems, setting the technical bar and staying hands-on in design, code, and incident response where it matters most",
+            "Building and maturing our evaluation infrastructure — the offline and online eval harnesses, quality metrics, and feedback loops that let us ship agent improvements with confidence instead of guesswork",
+            "Driving the \"0 to 1\" build-out of new agent capabilities and workflows, then the \"1 to scale\" work of hardening those systems for reliability, latency, and cost as usage grows into the tens of millions of conversations",
+            "Partnering closely with Product to translate business outcomes (response time, conversion, show rate, revenue recovered) into agent capabilities and prioritized technical bets",
+            "Partnering with Infrastructure/Platform teams to ensure agent systems are observable, cost-efficient, and resilient at scale — this includes model routing, latency budgets, fallback behavior, and guardrails",
+            "Working directly with customers and customer-facing teams (Sales, CS, Support) to understand where agents succeed or fail in the field, and feeding that signal back into the roadmap",
+            "Establishing best practices for prompt/context engineering, agent testing, safety and guardrails, and responsible deployment of autonomous systems in live customer environments",
+            "Representing AI Agents engineering in leadership conversations — setting a clear technical narrative, calling out risk early, and making sound build-vs-buy and model-vs-vendor tradeoffs"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "What you should have:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "10+ years of software engineering experience, including significant time in engineering leadership roles (Director, Head of Engineering, or equivalent scope as a hands-on lead)",
+            "Direct experience building and operating production LLM-powered or agentic systems — not just prototypes, but systems serving real users at real volume with real reliability requirements",
+            "Deep fluency in applied AI architecture: orchestration frameworks, tool-calling/function-calling patterns, RAG and context management, and the tradeoffs between latency, cost, and quality",
+            "A track record of building and scaling evaluation systems for non-deterministic software — you know how to measure agent quality, catch regressions, and make shipping decisions without waiting for perfect certainty",
+            "Experience leading both \"0 to 1\" builds and \"1 to scale\" hardening — you've stood up something from nothing and you've also kept something running under real production load",
+            "Strong instincts for working cross-functionally with Product, Infrastructure, and customer-facing teams, and the communication skills to align technical decisions with business outcomes",
+            "Genuine, hands-on fluency with modern AI coding tools (Claude Code, Codex, Cursor, or similar) as part of how you and your team build"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "What we hope you have:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Experience building agent systems specifically for customer-facing, revenue-critical workflows (sales, support, scheduling, or similar)",
+            "Familiarity with voice AI, conversational AI, or real-time multimodal systems",
+            "Experience operating in a high-growth SaaS or vertical software company, ideally one serving SMB customers",
+            "A point of view on the frontier of agentic AI — what's changing fast, what's overhyped, and where the real leverage is for a company like Podium"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Why you'll love working here:"
+        },
+        {
+          "type": "para",
+          "text": "Podium is the best place to work to:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Join the leaders in AI agents — you'll be building on top of a product already trusted by 60,000+ businesses to run their AI Employee, with a real mandate and real usage to learn from",
+            "Unlock career-defining growth — this role owns a product area at the center of Podium's future, with the scope and visibility that comes with it",
+            "Build with world-class talent — join a team of engineers who ship fast, use AI tooling seriously, and care as much about outcomes as elegance",
+            "Make a real impact on local business — the agents you build directly help local businesses respond faster, convert more leads, and grow revenue without adding headcount"
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Podium is an equal opportunity employer. Podium provides equal employment opportunities (EEO) to all employees and applicants for employment without regard to race, color, religion, gender, national origin, sexual orientation, gender identity or expression, age, disability, genetic information, marital status or veteran status."
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "US",
+        "countryName": "United States",
+        "region": "north-america",
+        "remote": true,
+        "raw": "Lehi, Utah, Open to Remote; Remote, US"
+      },
+      "seniority": "director",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "unspecified",
+      "roleType": null,
+      "salary": {
+        "min": 138060,
+        "max": 220730,
+        "currency": "USD",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "High",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-09-18T11:15:05-04:00",
+      "firstSeen": "2026-09-20T08:52:52.682Z",
+      "updatedAt": "2026-09-20T08:52:52.682Z"
     },
     {
       "id": "nakhla-head-of-enterprise-solutions-engineering-6f7c00",
@@ -4267,6 +4402,202 @@
       "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
+      "id": "moniepoint-head-of-engineering-rewards-786e58",
+      "title": "Head of Engineering, Rewards",
+      "company": "Moniepoint",
+      "applyUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4974176101",
+      "sourceUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4974176101",
+      "source": "greenhouse",
+      "sources": [
+        "greenhouse"
+      ],
+      "text": "Who we are\nMoniepoint Inc. is Africa’s all-in-one financial platform, helping 20 million businesses and individuals access seamless payments, banking, credit, cross-border, and business management tools each month.\nAs Nigeria’s largest merchant acquirer, we power most of the country’s point-of-sale (POS) transactions. Through our subsidiaries, Moniepoint Inc. processes over $250 billion in digital payment transaction value annually.\nWhy Poland\nPoland is a new and deliberate addition to our engineering map. We recently made our first technology hire in the country, and we see it as a long-term strategic location for senior hires, particularly within engineering. Joining now means joining early, and helping shape what our presence here becomes.\nSo, now we are looking for our Head of Engineering, Rewards to join us in Poland.\nAbout The Role\nRewards is one of the most strategically important platforms at Moniepoint, and it is being built into a dedicated charter with its own engineering and product leadership. The platform sits at the centre of our retention strategy across a user base of approximately 23 million people.\nToday the platform does one thing: cashback. It works, but it has barely scratched the surface of what rewards can be, and the cashback product itself is not yet built to the depth it deserves. The ambition is to evolve it into a full rewards, retention, engagement and personalisation platform — and to do that across the full 360 degrees of our network. That means rewards for our business customers, rewards for our consumer customers, and rewards for the sales agents who drive our distribution. Very few companies get to design this from close to a blank page at this scale.\nThe Head of Engineering owns that platform end to end. You will inherit a team of nine engineers, including an Engineering Manager, and build the organisation out from there — the current expectation is a minimum of three product units and upwards of 25 people, though the eventual shape is genuinely yours to define. Your first objective is to get the best possible performance out of the cashback product we already have. From there, you will work with Growth, Sales and Marketing to determine what we build for acquisition and retention, and roll it out across every customer we serve.\nThis is a consumer-facing product engineering role, and that is the most important thing to understand about it. Rewards is won or lost on experimentation, personalisation, and the quality of the experience in a customer's hands. We are looking for a leader who has built and shipped direct-to-consumer products at scale, who is fluent in experimentation and A/B testing, and who has real depth in front-end and mobile engineering — not a purely backend platform leader.\nMoniepoint runs a Domain CTO model. We view our Heads of Engineering as the CTO of their domain: you own the technical roadmap, the architecture, the delivery, and the organisation beneath you. You will have full autonomy over engineering strategy, architecture, hiring, operating cadence and roadmap trade-offs.\nYou will report functionally to our Group CTO, with a dual reporting line into the Product leader for Rewards. That second line is a delivery relationship rather than a seniority one — engineering and product are peers here, and you will build the team to full capacity together. Your responsibilities as Head of Engineering, Rewards includes:\nOwning the technical strategy, architecture and roadmap for the Rewards Platform end to end.\nImproving the performance, reliability and depth of the existing cashback product as an immediate first priority.\nEvolving cashback into a broader rewards, retention, engagement and personalisation platform serving business customers, consumer customers and sales agents.\nBuilding the engineering organisation from its current base - structuring product units, hiring engineers and Engineering Managers, and leading through those managers as the team scales.\nEstablishing a strong experimentation culture: A/B testing, cohort analysis, and measurement that lets the team learn quickly what actually changes customer behaviour.\nWorking closely with Growth, Sales and Marketing to translate acquisition and retention objectives into product and engineering initiatives.\nOwning the customer-facing experience of rewards across mobile and web, including how quickly and reliably customers receive what they have earned.\nDefine architecture standards, engineering processes and quality metrics, and own the engineering health of the domain — incidents, production defects, deployment frequency, change failure rate, and developer experience.\nBuild the platform to serve customers across multiple geographies as Moniepoint expands.\nPartner with Product to define the rewards-specific metrics and OKRs that do not yet exist, and hold the team to them.\nWho You Are\nDirect-to-consumer product engineering at scale. You have built and shipped products used directly by large consumer audiences, and you understand what moves engagement and retention. This is the defining requirement of the role.\nGenuine front-end and mobile depth. You have led or personally built consumer-facing mobile and web experiences. A backend-only background, however strong, is not what this role needs.\nExperimentation and growth engineering. Hands-on experience running A/B tests, feature flagging, and measurement frameworks, and using the results to drive product decisions rather than to justify them.\nAt least 5 years of experience managing managers — leading an engineering organisation through other engineering leaders, not a single team.\nHands-on technical leadership. You are still close to the code. We expect a meaningful proportion of hands-on engineering time and technical credibility with the engineers you lead.\n10+ years of overall software engineering experience, with at least 5 years leading engineering teams through growth phases.\nComfort with our backend environment — Java and Spring Boot — and the ability to lead backend engineers credibly, even if it is not where your own depth sits.\nExperience building and scaling an engineering organisation from a small base, including hiring and developing Engineering Managers.\nStrong collaboration with commercial stakeholders — growth, marketing and sales — and the ability to translate business objectives into engineering work.\nRewards, loyalty, gamification, personalisation or growth platform experience is a strong advantage but is not required.\nFintech or payments experience is an advantage, not a requirement.\nCultural Alignment\nAs well, we assess every candidate across eight dimensions that define how great leaders operate at Moniepoint. We look for evidence of all eight throughout the process, not just in a single conversation.\nCustomer Obsession: Build deep empathy for users. Solve problems intuitively, and fix root causes, not just tickets.\nCraft: Master the fundamentals. Reason from first principles, make trade-offs explicit, and raise the bar on quality.\nSystemisation: Turn repeating decisions into scalable mechanisms. Reduce cognitive load and raise engineering quality.\nUrgency: Move with disciplined speed. Act autonomously within scope, remove friction, and escalate risks early.\nOwnership: Treat the platform as your own. Take initiative across boundaries and follow through without reminders.\nNo Ego: Put the mission first. Share credit, welcome debate, and never protect status over team outcomes.\nCandour: Surface uncomfortable truths and risks early. Intelligent failure is welcome; concealment is not.\nIntegrity: Stay truthful and ethically consistent. Refuse toxic behavior. Performance without integrity is unacceptable.\nWhat Success Looks Like In The Role\nThe existing cashback product performing measurably better — faster, more reliable, and more compelling to customers.\nA credible rewards platform roadmap defined with Product, and the first initiatives beyond cashback shipped.\nA functioning experimentation practice, where the team ships, measures and learns on a short cycle.\nAn engineering organisation built out from its current base, with a strong bench of Engineering Managers and senior engineers.\nRewards established as a measurable contributor to retention and engagement across the customer base.\nClear architecture standards and engineering processes in place across the product units.\nWhy Join Us\nA rare blank page. The platform exists, but almost everything it could become is still ahead of it, and you will define what that is.\nDirect influence on retention across a base of roughly 23 million users, at one of the largest and fastest-growing digital banks in Africa.\nFull autonomy as the CTO of your domain, with the backing to build the organisation you think the problem needs.\nBe part of a mission-driven company expanding access to financial services for millions of businesses and individuals.\nWhat To Expect In The Hiring Process\n60 minute High level System Design round with one of our Engineering Managers.\n60 minute Panel Interview with 2 of our Head of Engineering leaders. 30 minutes focused on a technical deep dive into your CV and into a project or system you built in the past. 30 minutes focused on testing for leadership attributes.\n60 minute Stakeholder Management Round with one of our Product Heads/VPs, focused on your stakeholder management and collaboration skills with product and business.\n60 minute Technical round and Culture fit interview with our Co-founder & Group CTO (the hiring manager).\nMoniepoint is an equal opportunity employer. We celebrate diversity and are committed to creating an inclusive environment for all employees and candidates.\n#LI-Remote",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "Who we are"
+        },
+        {
+          "type": "para",
+          "text": "Moniepoint Inc. is Africa’s all-in-one financial platform, helping 20 million businesses and individuals access seamless payments, banking, credit, cross-border, and business management tools each month."
+        },
+        {
+          "type": "para",
+          "text": "As Nigeria’s largest merchant acquirer, we power most of the country’s point-of-sale (POS) transactions. Through our subsidiaries, Moniepoint Inc. processes over $250 billion in digital payment transaction value annually."
+        },
+        {
+          "type": "para",
+          "text": "Why Poland"
+        },
+        {
+          "type": "para",
+          "text": "Poland is a new and deliberate addition to our engineering map. We recently made our first technology hire in the country, and we see it as a long-term strategic location for senior hires, particularly within engineering. Joining now means joining early, and helping shape what our presence here becomes."
+        },
+        {
+          "type": "para",
+          "text": "So, now we are looking for our Head of Engineering, Rewards to join us in Poland."
+        },
+        {
+          "type": "para",
+          "text": "About The Role"
+        },
+        {
+          "type": "para",
+          "text": "Rewards is one of the most strategically important platforms at Moniepoint, and it is being built into a dedicated charter with its own engineering and product leadership. The platform sits at the centre of our retention strategy across a user base of approximately 23 million people."
+        },
+        {
+          "type": "para",
+          "text": "Today the platform does one thing: cashback. It works, but it has barely scratched the surface of what rewards can be, and the cashback product itself is not yet built to the depth it deserves. The ambition is to evolve it into a full rewards, retention, engagement and personalisation platform — and to do that across the full 360 degrees of our network. That means rewards for our business customers, rewards for our consumer customers, and rewards for the sales agents who drive our distribution. Very few companies get to design this from close to a blank page at this scale."
+        },
+        {
+          "type": "para",
+          "text": "The Head of Engineering owns that platform end to end. You will inherit a team of nine engineers, including an Engineering Manager, and build the organisation out from there — the current expectation is a minimum of three product units and upwards of 25 people, though the eventual shape is genuinely yours to define. Your first objective is to get the best possible performance out of the cashback product we already have. From there, you will work with Growth, Sales and Marketing to determine what we build for acquisition and retention, and roll it out across every customer we serve."
+        },
+        {
+          "type": "para",
+          "text": "This is a consumer-facing product engineering role, and that is the most important thing to understand about it. Rewards is won or lost on experimentation, personalisation, and the quality of the experience in a customer's hands. We are looking for a leader who has built and shipped direct-to-consumer products at scale, who is fluent in experimentation and A/B testing, and who has real depth in front-end and mobile engineering — not a purely backend platform leader."
+        },
+        {
+          "type": "para",
+          "text": "Moniepoint runs a Domain CTO model. We view our Heads of Engineering as the CTO of their domain: you own the technical roadmap, the architecture, the delivery, and the organisation beneath you. You will have full autonomy over engineering strategy, architecture, hiring, operating cadence and roadmap trade-offs."
+        },
+        {
+          "type": "para",
+          "text": "You will report functionally to our Group CTO, with a dual reporting line into the Product leader for Rewards. That second line is a delivery relationship rather than a seniority one — engineering and product are peers here, and you will build the team to full capacity together. Your responsibilities as Head of Engineering, Rewards includes:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Owning the technical strategy, architecture and roadmap for the Rewards Platform end to end.",
+            "Improving the performance, reliability and depth of the existing cashback product as an immediate first priority.",
+            "Evolving cashback into a broader rewards, retention, engagement and personalisation platform serving business customers, consumer customers and sales agents.",
+            "Building the engineering organisation from its current base - structuring product units, hiring engineers and Engineering Managers, and leading through those managers as the team scales.",
+            "Establishing a strong experimentation culture: A/B testing, cohort analysis, and measurement that lets the team learn quickly what actually changes customer behaviour.",
+            "Working closely with Growth, Sales and Marketing to translate acquisition and retention objectives into product and engineering initiatives.",
+            "Owning the customer-facing experience of rewards across mobile and web, including how quickly and reliably customers receive what they have earned.",
+            "Define architecture standards, engineering processes and quality metrics, and own the engineering health of the domain — incidents, production defects, deployment frequency, change failure rate, and developer experience.",
+            "Build the platform to serve customers across multiple geographies as Moniepoint expands.",
+            "Partner with Product to define the rewards-specific metrics and OKRs that do not yet exist, and hold the team to them."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Who You Are"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Direct-to-consumer product engineering at scale. You have built and shipped products used directly by large consumer audiences, and you understand what moves engagement and retention. This is the defining requirement of the role.",
+            "Genuine front-end and mobile depth. You have led or personally built consumer-facing mobile and web experiences. A backend-only background, however strong, is not what this role needs.",
+            "Experimentation and growth engineering. Hands-on experience running A/B tests, feature flagging, and measurement frameworks, and using the results to drive product decisions rather than to justify them.",
+            "At least 5 years of experience managing managers — leading an engineering organisation through other engineering leaders, not a single team.",
+            "Hands-on technical leadership. You are still close to the code. We expect a meaningful proportion of hands-on engineering time and technical credibility with the engineers you lead.",
+            "10+ years of overall software engineering experience, with at least 5 years leading engineering teams through growth phases.",
+            "Comfort with our backend environment — Java and Spring Boot — and the ability to lead backend engineers credibly, even if it is not where your own depth sits.",
+            "Experience building and scaling an engineering organisation from a small base, including hiring and developing Engineering Managers.",
+            "Strong collaboration with commercial stakeholders — growth, marketing and sales — and the ability to translate business objectives into engineering work.",
+            "Rewards, loyalty, gamification, personalisation or growth platform experience is a strong advantage but is not required.",
+            "Fintech or payments experience is an advantage, not a requirement."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Cultural Alignment"
+        },
+        {
+          "type": "para",
+          "text": "As well, we assess every candidate across eight dimensions that define how great leaders operate at Moniepoint. We look for evidence of all eight throughout the process, not just in a single conversation."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Customer Obsession: Build deep empathy for users. Solve problems intuitively, and fix root causes, not just tickets.",
+            "Craft: Master the fundamentals. Reason from first principles, make trade-offs explicit, and raise the bar on quality.",
+            "Systemisation: Turn repeating decisions into scalable mechanisms. Reduce cognitive load and raise engineering quality.",
+            "Urgency: Move with disciplined speed. Act autonomously within scope, remove friction, and escalate risks early.",
+            "Ownership: Treat the platform as your own. Take initiative across boundaries and follow through without reminders.",
+            "No Ego: Put the mission first. Share credit, welcome debate, and never protect status over team outcomes.",
+            "Candour: Surface uncomfortable truths and risks early. Intelligent failure is welcome; concealment is not.",
+            "Integrity: Stay truthful and ethically consistent. Refuse toxic behavior. Performance without integrity is unacceptable."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "What Success Looks Like In The Role"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The existing cashback product performing measurably better — faster, more reliable, and more compelling to customers.",
+            "A credible rewards platform roadmap defined with Product, and the first initiatives beyond cashback shipped.",
+            "A functioning experimentation practice, where the team ships, measures and learns on a short cycle.",
+            "An engineering organisation built out from its current base, with a strong bench of Engineering Managers and senior engineers.",
+            "Rewards established as a measurable contributor to retention and engagement across the customer base.",
+            "Clear architecture standards and engineering processes in place across the product units."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Why Join Us"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A rare blank page. The platform exists, but almost everything it could become is still ahead of it, and you will define what that is.",
+            "Direct influence on retention across a base of roughly 23 million users, at one of the largest and fastest-growing digital banks in Africa.",
+            "Full autonomy as the CTO of your domain, with the backing to build the organisation you think the problem needs.",
+            "Be part of a mission-driven company expanding access to financial services for millions of businesses and individuals."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "What To Expect In The Hiring Process"
+        },
+        {
+          "type": "list",
+          "items": [
+            "60 minute High level System Design round with one of our Engineering Managers.",
+            "60 minute Panel Interview with 2 of our Head of Engineering leaders. 30 minutes focused on a technical deep dive into your CV and into a project or system you built in the past. 30 minutes focused on testing for leadership attributes.",
+            "60 minute Stakeholder Management Round with one of our Product Heads/VPs, focused on your stakeholder management and collaboration skills with product and business.",
+            "60 minute Technical round and Culture fit interview with our Co-founder & Group CTO (the hiring manager)."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Moniepoint is an equal opportunity employer. We celebrate diversity and are committed to creating an inclusive environment for all employees and candidates."
+        },
+        {
+          "type": "para",
+          "text": "#LI-Remote"
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "PL",
+        "countryName": "Poland",
+        "region": "europe",
+        "remote": true,
+        "raw": "Remote, Poland"
+      },
+      "seniority": "head",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "remote",
+      "roleType": null,
+      "salary": {
+        "min": 240000,
+        "max": 438000,
+        "currency": "PLN",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "Medium",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-09-11T03:03:32-04:00",
+      "firstSeen": "2026-09-20T08:52:52.682Z",
+      "updatedAt": "2026-09-20T08:52:52.682Z"
+    },
+    {
       "id": "vml-executive-director-data-engineering-679547",
       "title": "Executive Director, Data Engineering",
       "company": "VML",
@@ -4927,6 +5258,421 @@
       "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
+      "id": "moniepoint-head-of-engineering-field-verification-749512",
+      "title": "Head of Engineering, Field Verification",
+      "company": "Moniepoint",
+      "applyUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4972359101",
+      "sourceUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4972359101",
+      "source": "greenhouse",
+      "sources": [
+        "greenhouse"
+      ],
+      "text": "Who we are\nMoniepoint Inc. is Africa’s all-in-one financial platform, helping 20 million businesses and individuals access seamless payments, banking, credit, cross-border, and business management tools each month.\nAs Nigeria’s largest merchant acquirer, we power most of the country’s point-of-sale (POS) transactions. Through our subsidiaries, Moniepoint Inc. processes over $250 billion in digital payment transaction value annually.\nWhy the UK\nThe UK is home to our headquarters where more than 70 team members are based, with team members joining us from companies like Tide, Klarna, Revolut, Capital One, Teya, Wise, Starling, Monzo, and many others! Our London office is located at Sea Containers, just by London Bridge - this is also where a significant number of our most senior leaders sit, which makes it a natural base for a Head of Engineering.\nSo, now we are looking for our Head of Engineering, Field Verification to join us in UK.\nAbout The Role\nField Verification is how Moniepoint knows that the people and businesses on our platform are real. Every Moniepoint customer, retail and business, requires a completed field verification as part of KYC. The platform coordinates physical, in-person checks — verifying individuals, business owners, business addresses and loan guarantors — and it serves nearly every part of the company: onboarding, loans, compliance and the fraud team.\nThe system works today. A back office gives each business unit visibility and control over its own verification requests. A mobile-friendly web app puts the work in the hands of Field Verification Officers and the cluster leads who manage them across local government areas. An API layer lets other business units push verification requests in and receive results back by webhook, and an assignment algorithm routes each request to an officer close enough to carry it out.\nWe want to be straightforward about the rest. This domain has never had a dedicated engineering leader, and that is the single biggest constraint on it. The team is one lean, cross-functional squad — an Engineering Manager, four engineers and a QA — carrying verification volume for the entire customer base. They have done that impressively well, but running lean means running in keep-the-lights-on mode, and a long list of things that would make this platform substantially better has been waiting for someone to own it.\nThat list is the role. Trip and route management, so an officer can plan an optimal day across several sites rather than making a separate journey for each one — today we pay for a round trip per verification, and the logistics are nowhere near optimal. Capacity management. A native mobile app, wanted for a long time and never resourced. Liveness and identity verification tooling, exposed as APIs the rest of the business can build on. And as Moniepoint expands into markets where identity verification is as difficult as it is in Nigeria, Kenya among them, a platform that works beyond a single country.\nThere is a great deal of room to build here. Whoever takes this on will set the direction rather than inherit someone else's plan, on a system that already carries real weight for the business.\nAs Head of Engineering, Field Verification, your responsibilities will include:\nOwning the technical strategy, architecture and roadmap for the Field Verification platform end to end, and setting direction for a domain that has been running without dedicated engineering leadership.\nMoving the platform from keep-the-lights-on operation to deliberate, prioritised development.\nLeading and growing the existing cross-functional team, and building the organisation out as scope expands.\nBuilding the operational efficiency layer — trip and route optimisation, task allocation and capacity management for field officers.\nOwning the platform's client-facing surface: the APIs and webhooks that other business units integrate with, and the back office those units rely on.\nDelivering a native mobile experience for field officers.\nEnsuring verification data is structured, auditable and fit for compliance scrutiny.\nBuilding for multi-country expansion as Moniepoint enters new markets.\nPartnering closely with Product and with the business units that depend on the platform — onboarding, loans, compliance and fraud.\nDefining architecture standards, engineering processes and quality metrics, and hiring and developing engineers and Engineering Managers.\nWho You Are\nYou have built things yourself, and grew into leadership from there. We are explicit about this: we are not looking for someone who moved into management early and has led from a distance since. We want an engineer who became a leader.\nYou are capable across disciplines. Backend, web and mobile. This platform spans all three and you will need credibility in each — a specialist in one layer will struggle here.\nYou have built platforms, not just products. Systems used by several distinct groups of users and internal business units, with the flexibility to serve requirements you did not anticipate.\nYou are a problem solver first. We would rather have someone adaptable than someone with the exact domain experience. Having built across different industries — fintech, e-commerce, logistics or otherwise — is a positive signal, not a scattered CV.\nYou have 10+ years of overall software engineering experience, with substantial hands-on production engineering and strong backend depth. Our backend environment is Java and Spring Boot.\nYou have at least 5 years of engineering leadership, including managing Engineering Managers.\nYou collaborate well with product and business stakeholders, and can translate operational requirements into engineering solutions.\nExperience working with location and geospatial data is a strong plus, including map integrations.\nExperience with route, trip or delivery optimisation is a strong plus.\nExperience building for compliance — where data must be structured to evidence what was done and when — is a strong plus.\nExperience with identity, KYC or verification platforms is a plus. None of these four are requirements.\nMoniepoint Inc. is Africa’s all-in-one financial platform, helping 20 million businesses and individuals access seamless payments, banking, credit, cross-border, and business management tools each month.\nAs Nigeria’s largest merchant acquirer, we power most of the country’s point-of-sale (POS) transactions. Through our subsidiaries, Moniepoint Inc. processes over $250 billion in digital payment transaction value annually.\nWhy Poland\nPoland is a new and deliberate addition to our engineering map. We recently made our first technology hire in the country, and we are looking at Poland as a long-term strategic location for senior hires, particularly within our engineering organisation. Joining now means joining early, and helping shape what our presence here becomes.\nSo, now we are looking for our Head of Engineering, Sales & Marketing Tools, to join us in Poland.\nAbout The Role\nSales and Marketing Tools owns MonieCRM, the operating system for Moniepoint's 50,000-strong sales network. This is not a CRM we bought — it is a workforce operations platform built entirely in-house for a multi-level field sales hierarchy, and it is how those teams run their day to day: the portfolio of businesses they manage, their own teams, their goals and performance, the physical and digital resources they need in the field, and an emerging AI-assisted support layer. Sixteen capabilities span onboarding and network management, pipeline and portfolio, performance and goals, compensation, and sales experience and support.\nA significant part of the domain moves money. The platform owns wallets, commission calculation and attribution, cashout and welfare funds for a network that drives the overwhelming majority of company revenue — which makes financial correctness, not just availability, a core engineering requirement of the role.\nAlongside that, the domain covers partner management, a rewards and retention platform serving tens of millions of users, and our marketing technology stack, including the engineering and customisation of Braze, the platform we use for customer engagement. The mandate is modernisation and reliability: re-architecting systems that have grown very quickly and making them dependable at a scale of more than 20 million users. This is a platform engineering and legacy modernisation challenge first and foremost, and prior CRM or SalesTech experience is genuinely not required.\nWho You Are\nYou have 10–15 years of overall software engineering experience, with at least 5 years leading engineering teams through growth phases.\n5+ years of hands-on, production-level experience writing and shipping Java code as a practising engineer. This means years spent writing Java yourself, not years spent overseeing teams who write it.\nAt least 5 years of experience managing managers — leading an engineering organisation through other engineering leaders, rather than running a single team.\nYou have proven platform engineering experience at scale — building and running complex distributed systems, not feature delivery alone.\nYou have navigated legacy migrations and re-architecture projects at 20M+ user scale.\nYou have strong backend engineering skills in high-throughput, data-intensive distributed systems, and are proficient in Java and Spring Boot.\nYou have managed and developed large engineering teams of 20 or more members.\nExperience building systems where financial correctness matters — commissions, payouts, wallets, ledgers or equivalent — is a strong advantage.\nA fintech or payments background is strongly preferred. CRM or SalesTech domain experience is nice to have and explicitly not required.\nExposure to customer engagement or marketing automation platforms such as Braze is a plus, but not a requirement.\nCultural Alignment\nAs well, we assess every candidate across eight dimensions that define how great leaders operate at Moniepoint. We look for evidence of all eight throughout the process, not just in a single conversation.\nCustomer Obsession: Build deep empathy for users. Solve problems intuitively, and fix root causes, not just tickets.\nCraft: Master the fundamentals. Reason from first principles, make trade-offs explicit, and raise the bar on quality.\nSystemisation: Turn repeating decisions into scalable mechanisms. Reduce cognitive load and raise engineering quality.\nUrgency: Move with disciplined speed. Act autonomously within scope, remove friction, and escalate risks early.\nOwnership: Treat the platform as your own. Take initiative across boundaries and follow through without reminders.\nNo Ego: Put the mission first. Share credit, welcome debate, and never protect status over team outcomes.\nCandour: Surface uncomfortable truths and risks early. Intelligent failure is welcome; concealment is not.\nIntegrity: Stay truthful and ethically consistent. Refuse toxic behavior. Performance without integrity is unacceptable.\nWhat Success Looks Like\nThe domain has clear technical ownership and direction for the first time.\nThe team out of keep-the-lights-on mode and delivering against a prioritised roadmap.\nMeasurable improvement in field officer efficiency — more verifications per trip, lower cost per verification.\nA native mobile experience shipped for field officers.\nVerification data that stands up to compliance scrutiny across every business unit the platform serves.\nThe platform ready to support a new market.\nA team grown beyond its current size, with a strong bench of engineers and managers.\nWhy Join Us\nA genuinely greenfield mandate on a system that already matters. Every customer Moniepoint onboards passes through this platform.\nA lean, capable team making outsized impact, and the remit to build the organisation around them.\nBreadth: backend, web, mobile, location data, compliance and operational optimisation in one domain.\nBe part of a mission-driven company expanding access to financial services for millions of businesses and individuals.\nWhat To Expect in The Hiring Process\nA preliminary phone call with the recruiter.\n60 minute High level System Design round with one of our Engineering Managers.\n60 minute Panel Interview with 2 of our Head of Engineering leaders. 30 minutes focused on a technical deep dive into your CV and into a project or system you built in the past. 30 minutes focused on testing for leadership attributes.\n60 minute Stakeholder Management Round with one of our Product Heads/VPs, focused on your stakeholder management and collaboration skills with product and business.\n60 minute Technical round and Culture fit interview with our Co-founder & Group CTO (the hiring manager).\nMoniepoint is an equal opportunity employer. We celebrate diversity and are committed to building an inclusive organisation.",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "Who we are"
+        },
+        {
+          "type": "para",
+          "text": "Moniepoint Inc. is Africa’s all-in-one financial platform, helping 20 million businesses and individuals access seamless payments, banking, credit, cross-border, and business management tools each month."
+        },
+        {
+          "type": "para",
+          "text": "As Nigeria’s largest merchant acquirer, we power most of the country’s point-of-sale (POS) transactions. Through our subsidiaries, Moniepoint Inc. processes over $250 billion in digital payment transaction value annually."
+        },
+        {
+          "type": "para",
+          "text": "Why the UK"
+        },
+        {
+          "type": "para",
+          "text": "The UK is home to our headquarters where more than 70 team members are based, with team members joining us from companies like Tide, Klarna, Revolut, Capital One, Teya, Wise, Starling, Monzo, and many others! Our London office is located at Sea Containers, just by London Bridge - this is also where a significant number of our most senior leaders sit, which makes it a natural base for a Head of Engineering."
+        },
+        {
+          "type": "para",
+          "text": "So, now we are looking for our Head of Engineering, Field Verification to join us in UK."
+        },
+        {
+          "type": "para",
+          "text": "About The Role"
+        },
+        {
+          "type": "para",
+          "text": "Field Verification is how Moniepoint knows that the people and businesses on our platform are real. Every Moniepoint customer, retail and business, requires a completed field verification as part of KYC. The platform coordinates physical, in-person checks — verifying individuals, business owners, business addresses and loan guarantors — and it serves nearly every part of the company: onboarding, loans, compliance and the fraud team."
+        },
+        {
+          "type": "para",
+          "text": "The system works today. A back office gives each business unit visibility and control over its own verification requests. A mobile-friendly web app puts the work in the hands of Field Verification Officers and the cluster leads who manage them across local government areas. An API layer lets other business units push verification requests in and receive results back by webhook, and an assignment algorithm routes each request to an officer close enough to carry it out."
+        },
+        {
+          "type": "para",
+          "text": "We want to be straightforward about the rest. This domain has never had a dedicated engineering leader, and that is the single biggest constraint on it. The team is one lean, cross-functional squad — an Engineering Manager, four engineers and a QA — carrying verification volume for the entire customer base. They have done that impressively well, but running lean means running in keep-the-lights-on mode, and a long list of things that would make this platform substantially better has been waiting for someone to own it."
+        },
+        {
+          "type": "para",
+          "text": "That list is the role. Trip and route management, so an officer can plan an optimal day across several sites rather than making a separate journey for each one — today we pay for a round trip per verification, and the logistics are nowhere near optimal. Capacity management. A native mobile app, wanted for a long time and never resourced. Liveness and identity verification tooling, exposed as APIs the rest of the business can build on. And as Moniepoint expands into markets where identity verification is as difficult as it is in Nigeria, Kenya among them, a platform that works beyond a single country."
+        },
+        {
+          "type": "para",
+          "text": "There is a great deal of room to build here. Whoever takes this on will set the direction rather than inherit someone else's plan, on a system that already carries real weight for the business."
+        },
+        {
+          "type": "para",
+          "text": "As Head of Engineering, Field Verification, your responsibilities will include:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Owning the technical strategy, architecture and roadmap for the Field Verification platform end to end, and setting direction for a domain that has been running without dedicated engineering leadership.",
+            "Moving the platform from keep-the-lights-on operation to deliberate, prioritised development.",
+            "Leading and growing the existing cross-functional team, and building the organisation out as scope expands.",
+            "Building the operational efficiency layer — trip and route optimisation, task allocation and capacity management for field officers.",
+            "Owning the platform's client-facing surface: the APIs and webhooks that other business units integrate with, and the back office those units rely on.",
+            "Delivering a native mobile experience for field officers.",
+            "Ensuring verification data is structured, auditable and fit for compliance scrutiny.",
+            "Building for multi-country expansion as Moniepoint enters new markets.",
+            "Partnering closely with Product and with the business units that depend on the platform — onboarding, loans, compliance and fraud.",
+            "Defining architecture standards, engineering processes and quality metrics, and hiring and developing engineers and Engineering Managers."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Who You Are"
+        },
+        {
+          "type": "list",
+          "items": [
+            "You have built things yourself, and grew into leadership from there. We are explicit about this: we are not looking for someone who moved into management early and has led from a distance since. We want an engineer who became a leader.",
+            "You are capable across disciplines. Backend, web and mobile. This platform spans all three and you will need credibility in each — a specialist in one layer will struggle here.",
+            "You have built platforms, not just products. Systems used by several distinct groups of users and internal business units, with the flexibility to serve requirements you did not anticipate.",
+            "You are a problem solver first. We would rather have someone adaptable than someone with the exact domain experience. Having built across different industries — fintech, e-commerce, logistics or otherwise — is a positive signal, not a scattered CV.",
+            "You have 10+ years of overall software engineering experience, with substantial hands-on production engineering and strong backend depth. Our backend environment is Java and Spring Boot.",
+            "You have at least 5 years of engineering leadership, including managing Engineering Managers.",
+            "You collaborate well with product and business stakeholders, and can translate operational requirements into engineering solutions.",
+            "Experience working with location and geospatial data is a strong plus, including map integrations.",
+            "Experience with route, trip or delivery optimisation is a strong plus.",
+            "Experience building for compliance — where data must be structured to evidence what was done and when — is a strong plus.",
+            "Experience with identity, KYC or verification platforms is a plus. None of these four are requirements."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Moniepoint Inc. is Africa’s all-in-one financial platform, helping 20 million businesses and individuals access seamless payments, banking, credit, cross-border, and business management tools each month."
+        },
+        {
+          "type": "para",
+          "text": "As Nigeria’s largest merchant acquirer, we power most of the country’s point-of-sale (POS) transactions. Through our subsidiaries, Moniepoint Inc. processes over $250 billion in digital payment transaction value annually."
+        },
+        {
+          "type": "para",
+          "text": "Why Poland"
+        },
+        {
+          "type": "para",
+          "text": "Poland is a new and deliberate addition to our engineering map. We recently made our first technology hire in the country, and we are looking at Poland as a long-term strategic location for senior hires, particularly within our engineering organisation. Joining now means joining early, and helping shape what our presence here becomes."
+        },
+        {
+          "type": "para",
+          "text": "So, now we are looking for our Head of Engineering, Sales & Marketing Tools, to join us in Poland."
+        },
+        {
+          "type": "para",
+          "text": "About The Role"
+        },
+        {
+          "type": "para",
+          "text": "Sales and Marketing Tools owns MonieCRM, the operating system for Moniepoint's 50,000-strong sales network. This is not a CRM we bought — it is a workforce operations platform built entirely in-house for a multi-level field sales hierarchy, and it is how those teams run their day to day: the portfolio of businesses they manage, their own teams, their goals and performance, the physical and digital resources they need in the field, and an emerging AI-assisted support layer. Sixteen capabilities span onboarding and network management, pipeline and portfolio, performance and goals, compensation, and sales experience and support."
+        },
+        {
+          "type": "para",
+          "text": "A significant part of the domain moves money. The platform owns wallets, commission calculation and attribution, cashout and welfare funds for a network that drives the overwhelming majority of company revenue — which makes financial correctness, not just availability, a core engineering requirement of the role."
+        },
+        {
+          "type": "para",
+          "text": "Alongside that, the domain covers partner management, a rewards and retention platform serving tens of millions of users, and our marketing technology stack, including the engineering and customisation of Braze, the platform we use for customer engagement. The mandate is modernisation and reliability: re-architecting systems that have grown very quickly and making them dependable at a scale of more than 20 million users. This is a platform engineering and legacy modernisation challenge first and foremost, and prior CRM or SalesTech experience is genuinely not required."
+        },
+        {
+          "type": "para",
+          "text": "Who You Are"
+        },
+        {
+          "type": "list",
+          "items": [
+            "You have 10–15 years of overall software engineering experience, with at least 5 years leading engineering teams through growth phases.",
+            "5+ years of hands-on, production-level experience writing and shipping Java code as a practising engineer. This means years spent writing Java yourself, not years spent overseeing teams who write it.",
+            "At least 5 years of experience managing managers — leading an engineering organisation through other engineering leaders, rather than running a single team.",
+            "You have proven platform engineering experience at scale — building and running complex distributed systems, not feature delivery alone.",
+            "You have navigated legacy migrations and re-architecture projects at 20M+ user scale.",
+            "You have strong backend engineering skills in high-throughput, data-intensive distributed systems, and are proficient in Java and Spring Boot.",
+            "You have managed and developed large engineering teams of 20 or more members.",
+            "Experience building systems where financial correctness matters — commissions, payouts, wallets, ledgers or equivalent — is a strong advantage.",
+            "A fintech or payments background is strongly preferred. CRM or SalesTech domain experience is nice to have and explicitly not required.",
+            "Exposure to customer engagement or marketing automation platforms such as Braze is a plus, but not a requirement."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Cultural Alignment"
+        },
+        {
+          "type": "para",
+          "text": "As well, we assess every candidate across eight dimensions that define how great leaders operate at Moniepoint. We look for evidence of all eight throughout the process, not just in a single conversation."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Customer Obsession: Build deep empathy for users. Solve problems intuitively, and fix root causes, not just tickets.",
+            "Craft: Master the fundamentals. Reason from first principles, make trade-offs explicit, and raise the bar on quality.",
+            "Systemisation: Turn repeating decisions into scalable mechanisms. Reduce cognitive load and raise engineering quality.",
+            "Urgency: Move with disciplined speed. Act autonomously within scope, remove friction, and escalate risks early.",
+            "Ownership: Treat the platform as your own. Take initiative across boundaries and follow through without reminders.",
+            "No Ego: Put the mission first. Share credit, welcome debate, and never protect status over team outcomes.",
+            "Candour: Surface uncomfortable truths and risks early. Intelligent failure is welcome; concealment is not.",
+            "Integrity: Stay truthful and ethically consistent. Refuse toxic behavior. Performance without integrity is unacceptable."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "What Success Looks Like"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The domain has clear technical ownership and direction for the first time.",
+            "The team out of keep-the-lights-on mode and delivering against a prioritised roadmap.",
+            "Measurable improvement in field officer efficiency — more verifications per trip, lower cost per verification.",
+            "A native mobile experience shipped for field officers.",
+            "Verification data that stands up to compliance scrutiny across every business unit the platform serves.",
+            "The platform ready to support a new market.",
+            "A team grown beyond its current size, with a strong bench of engineers and managers."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Why Join Us"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A genuinely greenfield mandate on a system that already matters. Every customer Moniepoint onboards passes through this platform.",
+            "A lean, capable team making outsized impact, and the remit to build the organisation around them.",
+            "Breadth: backend, web, mobile, location data, compliance and operational optimisation in one domain.",
+            "Be part of a mission-driven company expanding access to financial services for millions of businesses and individuals."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "What To Expect in The Hiring Process"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A preliminary phone call with the recruiter.",
+            "60 minute High level System Design round with one of our Engineering Managers.",
+            "60 minute Panel Interview with 2 of our Head of Engineering leaders. 30 minutes focused on a technical deep dive into your CV and into a project or system you built in the past. 30 minutes focused on testing for leadership attributes.",
+            "60 minute Stakeholder Management Round with one of our Product Heads/VPs, focused on your stakeholder management and collaboration skills with product and business.",
+            "60 minute Technical round and Culture fit interview with our Co-founder & Group CTO (the hiring manager)."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Moniepoint is an equal opportunity employer. We celebrate diversity and are committed to building an inclusive organisation."
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "GB",
+        "countryName": "United Kingdom",
+        "region": "europe",
+        "remote": true,
+        "raw": "Remote, London, United Kingdom"
+      },
+      "seniority": "head",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "remote",
+      "roleType": null,
+      "salary": {
+        "min": 69515,
+        "max": 119408,
+        "currency": "GBP",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "High",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-09-10T06:09:03-04:00",
+      "firstSeen": "2026-09-20T08:52:52.682Z",
+      "updatedAt": "2026-09-20T08:52:52.682Z"
+    },
+    {
+      "id": "moniepoint-head-of-engineering-sales-marketing-tool-1d6e81",
+      "title": "Head of Engineering, Sales & Marketing Tools",
+      "company": "Moniepoint",
+      "applyUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4972349101",
+      "sourceUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4972349101",
+      "source": "greenhouse",
+      "sources": [
+        "greenhouse"
+      ],
+      "text": "Who we are\nMoniepoint Inc. is Africa’s all-in-one financial platform, helping 20 million businesses and individuals access seamless payments, banking, credit, cross-border, and business management tools each month.\nAs Nigeria’s largest merchant acquirer, we power most of the country’s point-of-sale (POS) transactions. Through our subsidiaries, Moniepoint Inc. processes over $250 billion in digital payment transaction value annually.\nWhy the UK\nThe UK is home to our headquarters where more than 70 team members are based, with team members joining us from companies like Tide, Klarna, Revolut, Capital One, Teya, Wise, Starling, Monzo, and many others! Our London office is located at Sea Containers, just by London Bridge - this is also where a significant number of our most senior leaders sit, which makes it a natural base for a Head of Engineering.\nSo, now we are looking for our Head of Engineering, Sales & Marketing Tools, to join us in UK.\nAbout The Role\nSales and Marketing Tools owns MonieCRM, the operating system for Moniepoint's 50,000-strong sales network. This is not a CRM we bought — it is a workforce operations platform built entirely in-house for a multi-level field sales hierarchy, and it is how those teams run their day to day: the portfolio of businesses they manage, their own teams, their goals and performance, the physical and digital resources they need in the field, and an emerging AI-assisted support layer. Sixteen capabilities span onboarding and network management, pipeline and portfolio, performance and goals, compensation, and sales experience and support.\nA significant part of the domain moves money. The platform owns wallets, commission calculation and attribution, cashout and welfare funds for a network that drives the overwhelming majority of company revenue — which makes financial correctness, not just availability, a core engineering requirement of the role.\nAlongside that, the domain covers partner management, a rewards and retention platform serving tens of millions of users, and our marketing technology stack, including the engineering and customisation of Braze, the platform we use for customer engagement. The mandate is modernisation and reliability: re-architecting systems that have grown very quickly and making them dependable at a scale of more than 20 million users. This is a platform engineering and legacy modernisation challenge first and foremost, and prior CRM or SalesTech experience is genuinely not required.\nWho You Are\nYou have 10–15 years of overall software engineering experience, with at least 5 years leading engineering teams through growth phases.\n5+ years of hands-on, production-level experience writing and shipping Java code as a practising engineer. This means years spent writing Java yourself, not years spent overseeing teams who write it.\nAt least 5 years of experience managing managers — leading an engineering organisation through other engineering leaders, rather than running a single team.\nYou have proven platform engineering experience at scale — building and running complex distributed systems, not feature delivery alone.\nYou have navigated legacy migrations and re-architecture projects at 20M+ user scale.\nYou have strong backend engineering skills in high-throughput, data-intensive distributed systems, and are proficient in Java and Spring Boot.\nYou have managed and developed large engineering teams of 20 or more members.\nExperience building systems where financial correctness matters — commissions, payouts, wallets, ledgers or equivalent — is a strong advantage.\nA fintech or payments background is strongly preferred. CRM or SalesTech domain experience is nice to have and explicitly not required.\nExposure to customer engagement or marketing automation platforms such as Braze is a plus, but not a requirement.\nCultural Alignment\nAs well, we assess every candidate across eight dimensions that define how great leaders operate at Moniepoint. We look for evidence of all eight throughout the process, not just in a single conversation.\nCustomer Obsession: Build deep empathy for users. Solve problems intuitively, and fix root causes, not just tickets.\nCraft: Master the fundamentals. Reason from first principles, make trade-offs explicit, and raise the bar on quality.\nSystemisation: Turn repeating decisions into scalable mechanisms. Reduce cognitive load and raise engineering quality.\nUrgency: Move with disciplined speed. Act autonomously within scope, remove friction, and escalate risks early.\nOwnership: Treat the platform as your own. Take initiative across boundaries and follow through without reminders.\nNo Ego: Put the mission first. Share credit, welcome debate, and never protect status over team outcomes.\nCandour: Surface uncomfortable truths and risks early. Intelligent failure is welcome; concealment is not.\nIntegrity: Stay truthful and ethically consistent. Refuse toxic behavior. Performance without integrity is unacceptable.\nWhat Success Looks Like In The Role\nLegacy systems modernised and re-architected, with measurable improvement in reliability and performance.\nCommissions and earnings calculated, attributed and paid accurately and on time, at network scale.\nA sales and marketing platform that scales with a rapidly growing agent network across multiple markets.\nCommercial teams able to move faster because the tooling beneath them is dependable.\nA high-performing engineering team with a strong bench of managers and senior engineers.\nWhy Join Us\nOwn the platform behind the commercial engine of one of Africa's largest digital banks — the system 50,000 people rely on to do their jobs and to get paid.\nA genuine platform modernisation mandate with the autonomy and backing to see it through.\nBe part of a mission-driven company impacting millions of businesses and individuals across Africa and beyond.\nWhat To Expect In The Hiring Process\n60 minute High level System Design round with one of our Engineering Managers.\n60 minute Panel Interview with 2 of our Head of Engineering leaders. 30 minutes focused on a technical deep dive into your CV and into a project or system you built in the past. 30 minutes focused on testing for leadership attributes.\n60 minute Stakeholder Management Round with one of our Product Heads/VPs, focused on your stakeholder management and collaboration skills with product and business.\n60 minute Technical round and Culture fit interview with our Co-founder & Group CTO (the hiring manager).\nMoniepoint is an equal opportunity employer. We celebrate diversity and are committed to creating an inclusive environment for all employees and candidates.\n#LI-Remote",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "Who we are"
+        },
+        {
+          "type": "para",
+          "text": "Moniepoint Inc. is Africa’s all-in-one financial platform, helping 20 million businesses and individuals access seamless payments, banking, credit, cross-border, and business management tools each month."
+        },
+        {
+          "type": "para",
+          "text": "As Nigeria’s largest merchant acquirer, we power most of the country’s point-of-sale (POS) transactions. Through our subsidiaries, Moniepoint Inc. processes over $250 billion in digital payment transaction value annually."
+        },
+        {
+          "type": "para",
+          "text": "Why the UK"
+        },
+        {
+          "type": "para",
+          "text": "The UK is home to our headquarters where more than 70 team members are based, with team members joining us from companies like Tide, Klarna, Revolut, Capital One, Teya, Wise, Starling, Monzo, and many others! Our London office is located at Sea Containers, just by London Bridge - this is also where a significant number of our most senior leaders sit, which makes it a natural base for a Head of Engineering."
+        },
+        {
+          "type": "para",
+          "text": "So, now we are looking for our Head of Engineering, Sales & Marketing Tools, to join us in UK."
+        },
+        {
+          "type": "para",
+          "text": "About The Role"
+        },
+        {
+          "type": "para",
+          "text": "Sales and Marketing Tools owns MonieCRM, the operating system for Moniepoint's 50,000-strong sales network. This is not a CRM we bought — it is a workforce operations platform built entirely in-house for a multi-level field sales hierarchy, and it is how those teams run their day to day: the portfolio of businesses they manage, their own teams, their goals and performance, the physical and digital resources they need in the field, and an emerging AI-assisted support layer. Sixteen capabilities span onboarding and network management, pipeline and portfolio, performance and goals, compensation, and sales experience and support."
+        },
+        {
+          "type": "para",
+          "text": "A significant part of the domain moves money. The platform owns wallets, commission calculation and attribution, cashout and welfare funds for a network that drives the overwhelming majority of company revenue — which makes financial correctness, not just availability, a core engineering requirement of the role."
+        },
+        {
+          "type": "para",
+          "text": "Alongside that, the domain covers partner management, a rewards and retention platform serving tens of millions of users, and our marketing technology stack, including the engineering and customisation of Braze, the platform we use for customer engagement. The mandate is modernisation and reliability: re-architecting systems that have grown very quickly and making them dependable at a scale of more than 20 million users. This is a platform engineering and legacy modernisation challenge first and foremost, and prior CRM or SalesTech experience is genuinely not required."
+        },
+        {
+          "type": "para",
+          "text": "Who You Are"
+        },
+        {
+          "type": "list",
+          "items": [
+            "You have 10–15 years of overall software engineering experience, with at least 5 years leading engineering teams through growth phases.",
+            "5+ years of hands-on, production-level experience writing and shipping Java code as a practising engineer. This means years spent writing Java yourself, not years spent overseeing teams who write it.",
+            "At least 5 years of experience managing managers — leading an engineering organisation through other engineering leaders, rather than running a single team.",
+            "You have proven platform engineering experience at scale — building and running complex distributed systems, not feature delivery alone.",
+            "You have navigated legacy migrations and re-architecture projects at 20M+ user scale.",
+            "You have strong backend engineering skills in high-throughput, data-intensive distributed systems, and are proficient in Java and Spring Boot.",
+            "You have managed and developed large engineering teams of 20 or more members.",
+            "Experience building systems where financial correctness matters — commissions, payouts, wallets, ledgers or equivalent — is a strong advantage.",
+            "A fintech or payments background is strongly preferred. CRM or SalesTech domain experience is nice to have and explicitly not required.",
+            "Exposure to customer engagement or marketing automation platforms such as Braze is a plus, but not a requirement."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Cultural Alignment"
+        },
+        {
+          "type": "para",
+          "text": "As well, we assess every candidate across eight dimensions that define how great leaders operate at Moniepoint. We look for evidence of all eight throughout the process, not just in a single conversation."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Customer Obsession: Build deep empathy for users. Solve problems intuitively, and fix root causes, not just tickets.",
+            "Craft: Master the fundamentals. Reason from first principles, make trade-offs explicit, and raise the bar on quality.",
+            "Systemisation: Turn repeating decisions into scalable mechanisms. Reduce cognitive load and raise engineering quality.",
+            "Urgency: Move with disciplined speed. Act autonomously within scope, remove friction, and escalate risks early.",
+            "Ownership: Treat the platform as your own. Take initiative across boundaries and follow through without reminders.",
+            "No Ego: Put the mission first. Share credit, welcome debate, and never protect status over team outcomes.",
+            "Candour: Surface uncomfortable truths and risks early. Intelligent failure is welcome; concealment is not.",
+            "Integrity: Stay truthful and ethically consistent. Refuse toxic behavior. Performance without integrity is unacceptable."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "What Success Looks Like In The Role"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Legacy systems modernised and re-architected, with measurable improvement in reliability and performance.",
+            "Commissions and earnings calculated, attributed and paid accurately and on time, at network scale.",
+            "A sales and marketing platform that scales with a rapidly growing agent network across multiple markets.",
+            "Commercial teams able to move faster because the tooling beneath them is dependable.",
+            "A high-performing engineering team with a strong bench of managers and senior engineers."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Why Join Us"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Own the platform behind the commercial engine of one of Africa's largest digital banks — the system 50,000 people rely on to do their jobs and to get paid.",
+            "A genuine platform modernisation mandate with the autonomy and backing to see it through.",
+            "Be part of a mission-driven company impacting millions of businesses and individuals across Africa and beyond."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "What To Expect In The Hiring Process"
+        },
+        {
+          "type": "list",
+          "items": [
+            "60 minute High level System Design round with one of our Engineering Managers.",
+            "60 minute Panel Interview with 2 of our Head of Engineering leaders. 30 minutes focused on a technical deep dive into your CV and into a project or system you built in the past. 30 minutes focused on testing for leadership attributes.",
+            "60 minute Stakeholder Management Round with one of our Product Heads/VPs, focused on your stakeholder management and collaboration skills with product and business.",
+            "60 minute Technical round and Culture fit interview with our Co-founder & Group CTO (the hiring manager)."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Moniepoint is an equal opportunity employer. We celebrate diversity and are committed to creating an inclusive environment for all employees and candidates."
+        },
+        {
+          "type": "para",
+          "text": "#LI-Remote"
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "GB",
+        "countryName": "United Kingdom",
+        "region": "europe",
+        "remote": true,
+        "raw": "Remote, London, United Kingdom"
+      },
+      "seniority": "head",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "remote",
+      "roleType": null,
+      "salary": {
+        "min": 69515,
+        "max": 119408,
+        "currency": "GBP",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "High",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-09-10T03:27:12-04:00",
+      "firstSeen": "2026-09-20T08:52:52.682Z",
+      "updatedAt": "2026-09-20T08:52:52.682Z"
+    },
+    {
       "id": "kurt-geiger-vp-of-technology-delivery-transformation-15c4f2",
       "title": "VP of Technology Delivery & Transformation",
       "company": "Kurt Geiger",
@@ -5162,6 +5908,177 @@
       "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
+      "id": "moniepoint-head-of-engineering-supply-chain-42ef74",
+      "title": "Head of Engineering, Supply Chain",
+      "company": "Moniepoint",
+      "applyUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4972181101",
+      "sourceUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4972181101",
+      "source": "greenhouse",
+      "sources": [
+        "greenhouse"
+      ],
+      "text": "Who We Are\nMoniepoint Inc. is Africa’s all-in-one financial platform, helping 20 million businesses and individuals access seamless payments, banking, credit, cross-border, and business management tools each month.\nAs Nigeria’s largest merchant acquirer, we power most of the country’s point-of-sale (POS) transactions. Through our subsidiaries, Moniepoint Inc. processes over $250 billion in digital payment transaction value annually.\nWhy Spain\nSome of our most mission-critical team members are based in Spain, having joined us from companies like Wise and Glovo. Moniepoint is one of the largest and fastest-growing digital banks in Africa, and this is an opportunity to work on genuinely impactful problems: disrupting financial services at scale in emerging markets, and building systems and products that process hundreds of billions of dollars in transaction volume annually for tens of millions of people.\nSo, now we are looking for our Head of Engineering, Supply Chain to join us in Spain.\nAbout The Role\nPOS Hardware and Device Platforms owns the software behind the physical side of Moniepoint's business: the systems that track, move, maintain and account for millions of POS terminals in the field. That covers inventory and warehouse management, logistics and distribution, repair and maintenance workflows, and the operational tooling the business runs on day to day. It is a backend and distributed systems challenge at real scale - making operational data about millions of physical devices visible, trustworthy and consistent across every market we operate in. It is not a hardware engineering role.\nThe Head of Engineering, POS Supply Chain, oversees that software estate and is vital as Moniepoint expands internationally and scales device operations globally. The position involves leading the technical strategy for the domain and managing a large engineering organisation in a remote, distributed environment. As Head of Engineering, Supply Chain, your responsibilities will include:\nOwning the technical strategy and architecture for inventory and logistics tools and repair management software.\nLeading an engineering organisation of approximately 25 engineers, including managers, QA, SRE and Data Engineering.\nDriving platformisation of inventory and supply chain systems so operational data is visible, trustworthy and consistent across millions of terminals.\nBridging the gap between operational practice and software systems by building operationally disciplined solutions.\nDefining architecture standards, engineering processes and quality metrics across squads to ensure reliability and data integrity.\nCollaborating with business and operational stakeholders to translate operational requirements into engineering solutions.\nHiring, mentoring and developing engineering managers and senior engineers to support team growth up to 30+ members.\nWho You Are\n10–15 years of overall software engineering experience, with at least 5 years leading engineering teams through growth phases.\n5+ years of hands-on, production-level experience writing and shipping Java code as a practising engineer. This means years spent writing Java yourself, not years spent overseeing teams who write it.\nAt least 5 years of experience managing managers - leading an engineering organisation through other engineering leaders, rather than running a single team.\nDeep hands-on experience in supply chain, inventory, warehouse or logistics software at scale.\nFintech or regulated-industry experience, with an understanding of the operational stakes of device management in a payments environment.\nStrong backend engineering skills for data-intensive, distributed, operational systems.\nProven system design ability at large scale, managing hundreds of thousands of devices or more.\nExperience managing and developing large engineering teams of 20 or more members.\nExcellent stakeholder management, translating complex technical concepts for non-technical leaders.\nA product-minded approach to solving operational problems with engineering solutions.\nCultural Alignment\nAs well, we assess every candidate across eight dimensions that define how great leaders operate at Moniepoint. We look for evidence of all eight throughout the process, not just in a single conversation.\nCustomer Obsession: Build deep empathy for users. Solve problems intuitively, and fix root causes, not just tickets.\nCraft: Master the fundamentals. Reason from first principles, make trade-offs explicit, and raise the bar on quality.\nSystemisation: Turn repeating decisions into scalable mechanisms. Reduce cognitive load and raise engineering quality.\nUrgency: Move with disciplined speed. Act autonomously within scope, remove friction, and escalate risks early.\nOwnership: Treat the platform as your own. Take initiative across boundaries and follow through without reminders.\nNo Ego: Put the mission first. Share credit, welcome debate, and never protect status over team outcomes.\nCandour: Surface uncomfortable truths and risks early. Intelligent failure is welcome; concealment is not.\nIntegrity: Stay truthful and ethically consistent. Refuse toxic behavior. Performance without integrity is unacceptable.\nWhat Success Looks Like In The Role\nScalable inventory and logistics systems delivered, supporting millions of devices across multiple countries.\nA high-performing, motivated engineering team aligned with company growth.\nOperational data visibility and trust established across multiple global markets.\nRobust architecture standards enabling reliability and data integrity.\nEffective collaboration with business and operational teams to meet rapid expansion needs.\nWhat we can offer you\nLead engineering for one of Africa's largest POS networks and directly influence our global expansion.\nWork in a fast-paced, innovative environment at the intersection of fintech and hardware operations.\nBe part of a mission-driven company impacting millions of businesses and individuals across Africa and beyond.\nWhat to expect in the hiring process\nA preliminary phone call with the recruiter.\n60 minute High level System Design round with one of our Engineering Managers.\n60 minute Panel Interview with 2 of our Head of Engineering leaders, 30 minutes focused on a technical deep dive into your CV and into a project/system you built in the past. 30 minutes will be focused on testing for leadership attributes.\n60 minute Stakeholder Management Round with one of our Product Heads/VPs, focused on your stakeholder management, collaboration skills with product/business.\n60 minute Technical round and Culture fit interview with our Co-founder & Group CTO (the hiring manager).\nMoniepoint is an equal opportunity employer. We celebrate diversity and are committed to creating an inclusive environment for all employees and candidates.",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "Who We Are"
+        },
+        {
+          "type": "para",
+          "text": "Moniepoint Inc. is Africa’s all-in-one financial platform, helping 20 million businesses and individuals access seamless payments, banking, credit, cross-border, and business management tools each month."
+        },
+        {
+          "type": "para",
+          "text": "As Nigeria’s largest merchant acquirer, we power most of the country’s point-of-sale (POS) transactions. Through our subsidiaries, Moniepoint Inc. processes over $250 billion in digital payment transaction value annually."
+        },
+        {
+          "type": "para",
+          "text": "Why Spain"
+        },
+        {
+          "type": "para",
+          "text": "Some of our most mission-critical team members are based in Spain, having joined us from companies like Wise and Glovo. Moniepoint is one of the largest and fastest-growing digital banks in Africa, and this is an opportunity to work on genuinely impactful problems: disrupting financial services at scale in emerging markets, and building systems and products that process hundreds of billions of dollars in transaction volume annually for tens of millions of people."
+        },
+        {
+          "type": "para",
+          "text": "So, now we are looking for our Head of Engineering, Supply Chain to join us in Spain."
+        },
+        {
+          "type": "para",
+          "text": "About The Role"
+        },
+        {
+          "type": "para",
+          "text": "POS Hardware and Device Platforms owns the software behind the physical side of Moniepoint's business: the systems that track, move, maintain and account for millions of POS terminals in the field. That covers inventory and warehouse management, logistics and distribution, repair and maintenance workflows, and the operational tooling the business runs on day to day. It is a backend and distributed systems challenge at real scale - making operational data about millions of physical devices visible, trustworthy and consistent across every market we operate in. It is not a hardware engineering role."
+        },
+        {
+          "type": "para",
+          "text": "The Head of Engineering, POS Supply Chain, oversees that software estate and is vital as Moniepoint expands internationally and scales device operations globally. The position involves leading the technical strategy for the domain and managing a large engineering organisation in a remote, distributed environment. As Head of Engineering, Supply Chain, your responsibilities will include:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Owning the technical strategy and architecture for inventory and logistics tools and repair management software.",
+            "Leading an engineering organisation of approximately 25 engineers, including managers, QA, SRE and Data Engineering.",
+            "Driving platformisation of inventory and supply chain systems so operational data is visible, trustworthy and consistent across millions of terminals.",
+            "Bridging the gap between operational practice and software systems by building operationally disciplined solutions.",
+            "Defining architecture standards, engineering processes and quality metrics across squads to ensure reliability and data integrity.",
+            "Collaborating with business and operational stakeholders to translate operational requirements into engineering solutions.",
+            "Hiring, mentoring and developing engineering managers and senior engineers to support team growth up to 30+ members."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Who You Are"
+        },
+        {
+          "type": "list",
+          "items": [
+            "10–15 years of overall software engineering experience, with at least 5 years leading engineering teams through growth phases.",
+            "5+ years of hands-on, production-level experience writing and shipping Java code as a practising engineer. This means years spent writing Java yourself, not years spent overseeing teams who write it.",
+            "At least 5 years of experience managing managers - leading an engineering organisation through other engineering leaders, rather than running a single team.",
+            "Deep hands-on experience in supply chain, inventory, warehouse or logistics software at scale.",
+            "Fintech or regulated-industry experience, with an understanding of the operational stakes of device management in a payments environment.",
+            "Strong backend engineering skills for data-intensive, distributed, operational systems.",
+            "Proven system design ability at large scale, managing hundreds of thousands of devices or more.",
+            "Experience managing and developing large engineering teams of 20 or more members.",
+            "Excellent stakeholder management, translating complex technical concepts for non-technical leaders.",
+            "A product-minded approach to solving operational problems with engineering solutions."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Cultural Alignment"
+        },
+        {
+          "type": "para",
+          "text": "As well, we assess every candidate across eight dimensions that define how great leaders operate at Moniepoint. We look for evidence of all eight throughout the process, not just in a single conversation."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Customer Obsession: Build deep empathy for users. Solve problems intuitively, and fix root causes, not just tickets.",
+            "Craft: Master the fundamentals. Reason from first principles, make trade-offs explicit, and raise the bar on quality.",
+            "Systemisation: Turn repeating decisions into scalable mechanisms. Reduce cognitive load and raise engineering quality.",
+            "Urgency: Move with disciplined speed. Act autonomously within scope, remove friction, and escalate risks early.",
+            "Ownership: Treat the platform as your own. Take initiative across boundaries and follow through without reminders.",
+            "No Ego: Put the mission first. Share credit, welcome debate, and never protect status over team outcomes.",
+            "Candour: Surface uncomfortable truths and risks early. Intelligent failure is welcome; concealment is not.",
+            "Integrity: Stay truthful and ethically consistent. Refuse toxic behavior. Performance without integrity is unacceptable."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "What Success Looks Like In The Role"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Scalable inventory and logistics systems delivered, supporting millions of devices across multiple countries.",
+            "A high-performing, motivated engineering team aligned with company growth.",
+            "Operational data visibility and trust established across multiple global markets.",
+            "Robust architecture standards enabling reliability and data integrity.",
+            "Effective collaboration with business and operational teams to meet rapid expansion needs."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "What we can offer you"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Lead engineering for one of Africa's largest POS networks and directly influence our global expansion.",
+            "Work in a fast-paced, innovative environment at the intersection of fintech and hardware operations.",
+            "Be part of a mission-driven company impacting millions of businesses and individuals across Africa and beyond."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "What to expect in the hiring process"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A preliminary phone call with the recruiter.",
+            "60 minute High level System Design round with one of our Engineering Managers.",
+            "60 minute Panel Interview with 2 of our Head of Engineering leaders, 30 minutes focused on a technical deep dive into your CV and into a project/system you built in the past. 30 minutes will be focused on testing for leadership attributes.",
+            "60 minute Stakeholder Management Round with one of our Product Heads/VPs, focused on your stakeholder management, collaboration skills with product/business.",
+            "60 minute Technical round and Culture fit interview with our Co-founder & Group CTO (the hiring manager)."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Moniepoint is an equal opportunity employer. We celebrate diversity and are committed to creating an inclusive environment for all employees and candidates."
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "ES",
+        "countryName": "Spain",
+        "region": "europe",
+        "remote": true,
+        "raw": "Remote, Spain"
+      },
+      "seniority": "head",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "remote",
+      "roleType": null,
+      "salary": {
+        "min": 41575,
+        "max": 41575,
+        "currency": "EUR",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "Medium",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-09-09T07:36:53-04:00",
+      "firstSeen": "2026-09-20T08:52:52.682Z",
+      "updatedAt": "2026-09-20T08:52:52.682Z"
+    },
+    {
       "id": "roblox-head-of-developer-relations-sea-and-oce-2ba23d",
       "title": "Head of Developer Relations, SEA and OCE",
       "company": "Roblox",
@@ -5267,6 +6184,175 @@
       "postedAt": "2026-09-09T05:54:53-04:00",
       "firstSeen": "2026-09-10T08:11:49.301Z",
       "updatedAt": "2026-09-13T10:30:55.497Z"
+    },
+    {
+      "id": "moniepoint-head-of-engineering-payment-gateway-6c8493",
+      "title": "Head of Engineering, Payment Gateway",
+      "company": "Moniepoint",
+      "applyUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4971797101",
+      "sourceUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4971797101",
+      "source": "greenhouse",
+      "sources": [
+        "greenhouse"
+      ],
+      "text": "Who We Are\nMoniepoint Inc. is Africa’s all-in-one financial platform, helping 20 million businesses and individuals access seamless payments, banking, credit, cross-border, and business management tools each month.\nAs Nigeria’s largest merchant acquirer, we power most of the country’s point-of-sale (POS) transactions. Through our subsidiaries, Moniepoint Inc. processes over $250 billion in digital payment transaction value annually.\nWhy Poland\nPoland is a new and deliberate addition to our engineering map. We recently made our first technology hire in the country, and we see it as a long-term strategic location for senior hires, particularly within engineering. Joining now means joining early, and helping shape what our presence here becomes.\nSo, now we are looking for our Head of Engineering, Payment Gateway to join us in Poland.\nAbout The Role\nMonnify is Moniepoint's online payment acceptance platform: the gateway layer connecting merchants to card networks, banks and payment aggregators, and the tools that let businesses and developers accept and send money digitally. The division owns transaction reliability, routing and throughput at scale, together with the developer experience that sits on top of it - APIs, SDKs, documentation and ease of integration. Built first for Nigerian businesses and developers, the platform is now scaling internationally and moving towards multi-currency, multi-market support.\nThe Head of Engineering owns the technical direction and architecture of that platform, ensuring scalability, security and developer experience for both technical and non-technical users. The role involves leading multiple engineering teams through their managers, setting strategic architecture, and ensuring platform reliability, security and scalability across Payment In, Payout, Commerce Tools and developer-facing features. As the Head of Engineering, Payment Gateway, your responsibilities will include:\nOwn the full technical strategy, architecture and roadmap for the Monnify platform across all capability areas.\nLead multiple engineering teams through engineering managers, setting quality standards and building organisational capability.\nOwn the developer experience end-to-end, including APIs, documentation, SDKs and integration ease.\nDrive platform evolution towards multi-currency and international scalability.\nEnsure platform reliability, scalability and security within a regulated environment.\nPartner with product, commercial and operations teams to align technical investments with business goals.\nHire, mentor and develop engineering managers and senior engineers to support growth.\nWho You Are\nOver 10 years of software engineering experience, with at least 5 years in engineering leadership roles.\n5+ years of hands-on, production-level experience writing and shipping Java code as a practising engineer. This means years spent writing Java yourself, not only years spent overseeing teams who write it.\nAt least 5 years of experience managing managers - leading an engineering organisation through other engineering leaders, rather than running a single team.\nExperience in payments, fintech or financial services products, with a working understanding of payment flows and compliance.\nDeep knowledge of API-first products, developer platforms and API integration.\nProven leadership of multiple engineering teams via managers in a scaling organisation.\nStrong backend engineering skills in high-throughput, distributed transactional systems.\nExperience building or operating a payment gateway or multi-currency payment platform is a strong plus.\nCultural Alignment\nAs well, we assess every candidate across eight dimensions that define how great leaders operate at Moniepoint. We look for evidence of all eight throughout the process, not just in a single conversation.\nCustomer Obsession: Build deep empathy for users. Solve problems intuitively, and fix root causes, not just tickets.\nCraft: Master the fundamentals. Reason from first principles, make trade-offs explicit, and raise the bar on quality.\nSystemisation: Turn repeating decisions into scalable mechanisms. Reduce cognitive load and raise engineering quality.\nUrgency: Move with disciplined speed. Act autonomously within scope, remove friction, and escalate risks early.\nOwnership: Treat the platform as your own. Take initiative across boundaries and follow through without reminders.\nNo Ego: Put the mission first. Share credit, welcome debate, and never protect status over team outcomes.\nCandour: Surface uncomfortable truths and risks early. Intelligent failure is welcome; concealment is not.\nIntegrity: Stay truthful and ethically consistent. Refuse toxic behavior. Performance without integrity is unacceptable.\nWhat To Expect In The Hiring Process\nA preliminary phone call with the recruiter\nA Panel interview session with two of our VPs of Engineering\nA Technical Assessment with our Group CTO / Co-founder\nA Behavioral and technical interview with our Group CEO / Founder\nTechnical Workshop with our Group CTO / Co-founder\nSome of the technologies you’ll get to work with\nJava (latest versions)\nSpring and Spring Boot\nDocker and Kubernetes\nPostgreSQL, DynamoDB, Elastic search\nMicroservices architecture on AWS\nWhat we can offer you\nOwn the payments infrastructure that thousands of businesses and developers build on, at a company processing hundreds of billions of dollars in transaction volume annually.\nWork in a fast-paced, technically demanding environment at the core of how money moves in high-growth markets.\nBe part of a mission-driven company expanding access to financial services for millions of businesses and individuals.\nMoniepoint is an equal opportunity employer. We celebrate diversity and are committed to creating an inclusive environment for all employees and candidates.",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "Who We Are"
+        },
+        {
+          "type": "para",
+          "text": "Moniepoint Inc. is Africa’s all-in-one financial platform, helping 20 million businesses and individuals access seamless payments, banking, credit, cross-border, and business management tools each month."
+        },
+        {
+          "type": "para",
+          "text": "As Nigeria’s largest merchant acquirer, we power most of the country’s point-of-sale (POS) transactions. Through our subsidiaries, Moniepoint Inc. processes over $250 billion in digital payment transaction value annually."
+        },
+        {
+          "type": "para",
+          "text": "Why Poland"
+        },
+        {
+          "type": "para",
+          "text": "Poland is a new and deliberate addition to our engineering map. We recently made our first technology hire in the country, and we see it as a long-term strategic location for senior hires, particularly within engineering. Joining now means joining early, and helping shape what our presence here becomes."
+        },
+        {
+          "type": "para",
+          "text": "So, now we are looking for our Head of Engineering, Payment Gateway to join us in Poland."
+        },
+        {
+          "type": "para",
+          "text": "About The Role"
+        },
+        {
+          "type": "para",
+          "text": "Monnify is Moniepoint's online payment acceptance platform: the gateway layer connecting merchants to card networks, banks and payment aggregators, and the tools that let businesses and developers accept and send money digitally. The division owns transaction reliability, routing and throughput at scale, together with the developer experience that sits on top of it - APIs, SDKs, documentation and ease of integration. Built first for Nigerian businesses and developers, the platform is now scaling internationally and moving towards multi-currency, multi-market support."
+        },
+        {
+          "type": "para",
+          "text": "The Head of Engineering owns the technical direction and architecture of that platform, ensuring scalability, security and developer experience for both technical and non-technical users. The role involves leading multiple engineering teams through their managers, setting strategic architecture, and ensuring platform reliability, security and scalability across Payment In, Payout, Commerce Tools and developer-facing features. As the Head of Engineering, Payment Gateway, your responsibilities will include:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Own the full technical strategy, architecture and roadmap for the Monnify platform across all capability areas.",
+            "Lead multiple engineering teams through engineering managers, setting quality standards and building organisational capability.",
+            "Own the developer experience end-to-end, including APIs, documentation, SDKs and integration ease.",
+            "Drive platform evolution towards multi-currency and international scalability.",
+            "Ensure platform reliability, scalability and security within a regulated environment.",
+            "Partner with product, commercial and operations teams to align technical investments with business goals.",
+            "Hire, mentor and develop engineering managers and senior engineers to support growth."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Who You Are"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Over 10 years of software engineering experience, with at least 5 years in engineering leadership roles.",
+            "5+ years of hands-on, production-level experience writing and shipping Java code as a practising engineer. This means years spent writing Java yourself, not only years spent overseeing teams who write it.",
+            "At least 5 years of experience managing managers - leading an engineering organisation through other engineering leaders, rather than running a single team.",
+            "Experience in payments, fintech or financial services products, with a working understanding of payment flows and compliance.",
+            "Deep knowledge of API-first products, developer platforms and API integration.",
+            "Proven leadership of multiple engineering teams via managers in a scaling organisation.",
+            "Strong backend engineering skills in high-throughput, distributed transactional systems.",
+            "Experience building or operating a payment gateway or multi-currency payment platform is a strong plus."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Cultural Alignment"
+        },
+        {
+          "type": "para",
+          "text": "As well, we assess every candidate across eight dimensions that define how great leaders operate at Moniepoint. We look for evidence of all eight throughout the process, not just in a single conversation."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Customer Obsession: Build deep empathy for users. Solve problems intuitively, and fix root causes, not just tickets.",
+            "Craft: Master the fundamentals. Reason from first principles, make trade-offs explicit, and raise the bar on quality.",
+            "Systemisation: Turn repeating decisions into scalable mechanisms. Reduce cognitive load and raise engineering quality.",
+            "Urgency: Move with disciplined speed. Act autonomously within scope, remove friction, and escalate risks early.",
+            "Ownership: Treat the platform as your own. Take initiative across boundaries and follow through without reminders.",
+            "No Ego: Put the mission first. Share credit, welcome debate, and never protect status over team outcomes.",
+            "Candour: Surface uncomfortable truths and risks early. Intelligent failure is welcome; concealment is not.",
+            "Integrity: Stay truthful and ethically consistent. Refuse toxic behavior. Performance without integrity is unacceptable."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "What To Expect In The Hiring Process"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A preliminary phone call with the recruiter",
+            "A Panel interview session with two of our VPs of Engineering",
+            "A Technical Assessment with our Group CTO / Co-founder",
+            "A Behavioral and technical interview with our Group CEO / Founder",
+            "Technical Workshop with our Group CTO / Co-founder"
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Some of the technologies you’ll get to work with"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Java (latest versions)",
+            "Spring and Spring Boot",
+            "Docker and Kubernetes",
+            "PostgreSQL, DynamoDB, Elastic search",
+            "Microservices architecture on AWS"
+          ]
+        },
+        {
+          "type": "para",
+          "text": "What we can offer you"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Own the payments infrastructure that thousands of businesses and developers build on, at a company processing hundreds of billions of dollars in transaction volume annually.",
+            "Work in a fast-paced, technically demanding environment at the core of how money moves in high-growth markets.",
+            "Be part of a mission-driven company expanding access to financial services for millions of businesses and individuals."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Moniepoint is an equal opportunity employer. We celebrate diversity and are committed to creating an inclusive environment for all employees and candidates."
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "PL",
+        "countryName": "Poland",
+        "region": "europe",
+        "remote": true,
+        "raw": "Remote, Poland"
+      },
+      "seniority": "head",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "remote",
+      "roleType": null,
+      "salary": {
+        "min": 240000,
+        "max": 438000,
+        "currency": "PLN",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "Medium",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-09-09T05:05:16-04:00",
+      "firstSeen": "2026-09-20T08:52:52.682Z",
+      "updatedAt": "2026-09-20T08:52:52.682Z"
     },
     {
       "id": "alloy-partners-chief-technology-officer-co-founder-digi-03343f",
@@ -12218,8 +13304,8 @@
       "title": "VP, Platform Engineering",
       "company": "Kaufman Rossin",
       "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/640237/logo",
-      "applyUrl": "https://jobs.workable.com/view/4omC7Lty4LUe7vbJiSNFdy/hybrid-vp%2C-platform-engineering-in-palm-beach-gardens-at-kaufman-rossin",
-      "sourceUrl": "https://jobs.workable.com/view/4omC7Lty4LUe7vbJiSNFdy/hybrid-vp%2C-platform-engineering-in-palm-beach-gardens-at-kaufman-rossin",
+      "applyUrl": "https://jobs.workable.com/view/ghLLPxhBMyGZRm5nvXJfqi/hybrid-vp%2C-platform-engineering-in-boca-raton-at-kaufman-rossin",
+      "sourceUrl": "https://jobs.workable.com/view/ghLLPxhBMyGZRm5nvXJfqi/hybrid-vp%2C-platform-engineering-in-boca-raton-at-kaufman-rossin",
       "source": "workable",
       "sources": [
         "workable"
@@ -12350,7 +13436,7 @@
         "countryName": "United States",
         "region": "north-america",
         "remote": false,
-        "raw": "Palm Beach Gardens, United States"
+        "raw": "Boca Raton, United States"
       },
       "seniority": "vp",
       "domain": "engineering",
@@ -12368,7 +13454,7 @@
       },
       "postedAt": "2026-08-14T14:19:17.404Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
-      "updatedAt": "2026-09-20T08:39:05.919Z"
+      "updatedAt": "2026-09-20T08:52:52.682Z"
     },
     {
       "id": "turbine-vp-of-engineering-1efec5",
@@ -13162,6 +14248,183 @@
       "postedAt": "2026-08-12T13:13:05.721Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
       "updatedAt": "2026-09-13T10:30:55.497Z"
+    },
+    {
+      "id": "eridan-director-of-rf-hardware-systems-engineer-a75827",
+      "title": "Director of RF Hardware Systems Engineering",
+      "company": "Eridan",
+      "applyUrl": "https://job-boards.greenhouse.io/eridan/jobs/4723070005",
+      "sourceUrl": "https://job-boards.greenhouse.io/eridan/jobs/4723070005",
+      "source": "greenhouse",
+      "sources": [
+        "greenhouse"
+      ],
+      "text": "About Eridan\nAt Eridan we believe in the power of collaboration and communication to achieve our mission: connect the planet to empower a sustainable, shared future. That mission is possible with our patented transmitter which decreases the cost and power required to roll out 5G by 10x when deployed globally. This is all facilitated through our offices: our Sunnyvale headquarters has big windows (even in the lab!), is walking distance to downtown and the Caltrain, and fits the entire team in the cafeteria for our frequent company parties. Learn more about our mission here.\nDirector of RF Hardware Systems Engineering\nAbout this Job\nThe Director of RF Hardware Systems Engineering is a senior technical leadership role that owns the systems engineering function across Eridan’s radio product lines. The role sits at the intersection of systems architecture, hardware integration, and cross-functional execution, and is responsible for ensuring that engineering outputs hold together as coherent, specification-compliant systems — not just collections of subsystems.\nThis role serves as the internal owner of system-level specifications and integration integrity. Requirements arrive from Solutions Engineering and Deployments; this role translates them into rigorous engineering deliverables and drives alignment across hardware, firmware, and software. The Director of RF Hardware Systems Engineering is the person who is accountable when a system does — or does not — perform as intended.\nThe role will initially focus on Eridan’s compact and high power radio unit product lines, with scope expected to expand as additional platforms come online. Leading an RF hardware systems engineering team is a core part of the mandate from the outset.\nAs a Director of RF Hardware Systems Engineering, You Will\nSystems Engineering Ownership\nOwn end-to-end systems hardware engineering across active radio product lines: requirements definition, architecture, integration, and verification\nMaintain and enforce system-level specifications, ensuring fidelity from requirements intake through product qualification\nDrive resolution of cross-subsystem technical issues and represent systems integrity in design reviews and milestone gate decisions\nEstablish systems engineering processes and documentation standards appropriate for a scaling hardware startup\nOversee board-level integration and PCB development, ensuring robust RF/high-speed layout practices and design-for-manufacturability standards\nRequirements Intake and Specification Ownership\nServe as the primary engineering interface for requirements arriving from Solutions Engineering and Deployments — translating operational needs into precise, actionable system specifications\nEnsure that engineering priorities and trade-off decisions are grounded in validated requirements\nPartner with the VP of Engineering as well as Product and Operations leadership to align specification work with program milestones and planning commitments\nTeam Building and Leadership\nManage and develop a team of hardware engineers aligned to active product lines\nStructure the team for growth as additional product lines come online, in partnership with the VP of Engineering\nMentor developing engineers and help build the systems engineering discipline across the organization\nCross-Functional Execution\nWork closely with hardware, software, and test engineering teams to align integration milestones and system-level validation plans\nCoordinate with Test and Operations on qualification activities and readiness criteria\nContribute to engineering program planning and resource discussions with cross-functional leadership\nQualities of a Successful Candidate\n8+ years of experience in RF hardware systems engineering or a closely related technical discipline, with at least 3 years in a people management role\nB.S. or M.S. in Electrical Engineering, Systems Engineering, or a related technical field\nDeep expertise in RF, wireless, or telecommunications hardware systems — experience at the radio unit, subsystem, or component level in any generation (4G, 5G, satellite, defense RF, or similar)\nDemonstrated ability to own system-level specifications and drive integration in complex hardware/software co-development environments\nProven track record of translating operational or customer requirements into rigorous engineering deliverables\nStrong communication and influencing skills across technical and cross-functional audiences\nExperience transitioning technology from R&D to high volume production\nNice to Have\nExperience with 5G radio hardware (O-RAN, small cell, macro radio)\nFamiliarity with all levels of radio unit design, including power distribution, digital motherboards, RF circuitry, mechanical design, and manufacturing considerations\nExperience scaling a systems engineering function at a startup or growth-stage hardware company\nPerks of working at Eridan\nWork on new technology that will make a significant impact on global infrastructure\nAbility to learn, develop, and advance within a flexible environment\nCollaborate with smart, passionate, and helpful co-workers\nCelebrate progress company-wide\nPre-IPO equity\n401K with automatic match\nHealth, Vision and Dental insurance\nSalary Range\nGiven our anticipated growth, we are open to hiring individuals with varying levels of experience to fill this role. Salary will be commensurate with job-related skills, experience and other relevant factors. The base salary range for the primary location of this role is between $180,000 and $210,000 plus stock options and benefits.\nEridan is an equal opportunity employer. We value and celebrate diversity and are committed to creating an inclusive environment for all employees. Qualified applicants will be considered for employment without regard to race, color, religion, sex, national origin, sexual orientation, gender identity, disability or protected veteran status.",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "About Eridan"
+        },
+        {
+          "type": "para",
+          "text": "At Eridan we believe in the power of collaboration and communication to achieve our mission: connect the planet to empower a sustainable, shared future. That mission is possible with our patented transmitter which decreases the cost and power required to roll out 5G by 10x when deployed globally. This is all facilitated through our offices: our Sunnyvale headquarters has big windows (even in the lab!), is walking distance to downtown and the Caltrain, and fits the entire team in the cafeteria for our frequent company parties. Learn more about our mission here."
+        },
+        {
+          "type": "para",
+          "text": "Director of RF Hardware Systems Engineering"
+        },
+        {
+          "type": "para",
+          "text": "About this Job"
+        },
+        {
+          "type": "para",
+          "text": "The Director of RF Hardware Systems Engineering is a senior technical leadership role that owns the systems engineering function across Eridan’s radio product lines. The role sits at the intersection of systems architecture, hardware integration, and cross-functional execution, and is responsible for ensuring that engineering outputs hold together as coherent, specification-compliant systems — not just collections of subsystems."
+        },
+        {
+          "type": "para",
+          "text": "This role serves as the internal owner of system-level specifications and integration integrity. Requirements arrive from Solutions Engineering and Deployments; this role translates them into rigorous engineering deliverables and drives alignment across hardware, firmware, and software. The Director of RF Hardware Systems Engineering is the person who is accountable when a system does — or does not — perform as intended."
+        },
+        {
+          "type": "para",
+          "text": "The role will initially focus on Eridan’s compact and high power radio unit product lines, with scope expected to expand as additional platforms come online. Leading an RF hardware systems engineering team is a core part of the mandate from the outset."
+        },
+        {
+          "type": "para",
+          "text": "As a Director of RF Hardware Systems Engineering, You Will"
+        },
+        {
+          "type": "para",
+          "text": "Systems Engineering Ownership"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Own end-to-end systems hardware engineering across active radio product lines: requirements definition, architecture, integration, and verification",
+            "Maintain and enforce system-level specifications, ensuring fidelity from requirements intake through product qualification",
+            "Drive resolution of cross-subsystem technical issues and represent systems integrity in design reviews and milestone gate decisions",
+            "Establish systems engineering processes and documentation standards appropriate for a scaling hardware startup",
+            "Oversee board-level integration and PCB development, ensuring robust RF/high-speed layout practices and design-for-manufacturability standards"
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Requirements Intake and Specification Ownership"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Serve as the primary engineering interface for requirements arriving from Solutions Engineering and Deployments — translating operational needs into precise, actionable system specifications",
+            "Ensure that engineering priorities and trade-off decisions are grounded in validated requirements",
+            "Partner with the VP of Engineering as well as Product and Operations leadership to align specification work with program milestones and planning commitments"
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Team Building and Leadership"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Manage and develop a team of hardware engineers aligned to active product lines",
+            "Structure the team for growth as additional product lines come online, in partnership with the VP of Engineering",
+            "Mentor developing engineers and help build the systems engineering discipline across the organization"
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Cross-Functional Execution"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Work closely with hardware, software, and test engineering teams to align integration milestones and system-level validation plans",
+            "Coordinate with Test and Operations on qualification activities and readiness criteria",
+            "Contribute to engineering program planning and resource discussions with cross-functional leadership"
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Qualities of a Successful Candidate"
+        },
+        {
+          "type": "list",
+          "items": [
+            "8+ years of experience in RF hardware systems engineering or a closely related technical discipline, with at least 3 years in a people management role",
+            "B.S. or M.S. in Electrical Engineering, Systems Engineering, or a related technical field",
+            "Deep expertise in RF, wireless, or telecommunications hardware systems — experience at the radio unit, subsystem, or component level in any generation (4G, 5G, satellite, defense RF, or similar)",
+            "Demonstrated ability to own system-level specifications and drive integration in complex hardware/software co-development environments",
+            "Proven track record of translating operational or customer requirements into rigorous engineering deliverables",
+            "Strong communication and influencing skills across technical and cross-functional audiences",
+            "Experience transitioning technology from R&D to high volume production"
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Nice to Have"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Experience with 5G radio hardware (O-RAN, small cell, macro radio)",
+            "Familiarity with all levels of radio unit design, including power distribution, digital motherboards, RF circuitry, mechanical design, and manufacturing considerations",
+            "Experience scaling a systems engineering function at a startup or growth-stage hardware company"
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Perks of working at Eridan"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Work on new technology that will make a significant impact on global infrastructure",
+            "Ability to learn, develop, and advance within a flexible environment",
+            "Collaborate with smart, passionate, and helpful co-workers",
+            "Celebrate progress company-wide",
+            "Pre-IPO equity",
+            "401K with automatic match",
+            "Health, Vision and Dental insurance"
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Salary Range"
+        },
+        {
+          "type": "para",
+          "text": "Given our anticipated growth, we are open to hiring individuals with varying levels of experience to fill this role. Salary will be commensurate with job-related skills, experience and other relevant factors. The base salary range for the primary location of this role is between $180,000 and $210,000 plus stock options and benefits."
+        },
+        {
+          "type": "para",
+          "text": "Eridan is an equal opportunity employer. We value and celebrate diversity and are committed to creating an inclusive environment for all employees. Qualified applicants will be considered for employment without regard to race, color, religion, sex, national origin, sexual orientation, gender identity, disability or protected veteran status."
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "US",
+        "countryName": "United States",
+        "region": "north-america",
+        "remote": false,
+        "raw": "Sunnyvale, California, United States"
+      },
+      "seniority": "director",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "unspecified",
+      "roleType": null,
+      "salary": {
+        "min": 138060,
+        "max": 220730,
+        "currency": "USD",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "High",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-08-11T09:50:11-04:00",
+      "firstSeen": "2026-09-20T08:52:52.682Z",
+      "updatedAt": "2026-09-20T08:52:52.682Z"
     },
     {
       "id": "hellofresh-senior-director-of-machine-learning-engi-78b0f5",
@@ -20050,6 +21313,185 @@
       "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
+      "id": "true-anomaly-director-production-and-test-engineering-499db1",
+      "title": "Director, Production and Test Engineering",
+      "company": "True Anomaly",
+      "applyUrl": "https://job-boards.greenhouse.io/trueanomalyinc/jobs/5169340007",
+      "sourceUrl": "https://job-boards.greenhouse.io/trueanomalyinc/jobs/5169340007",
+      "source": "greenhouse",
+      "sources": [
+        "greenhouse"
+      ],
+      "text": "Space is a warfighting domain. True Anomaly seeks those with the talent and ambition to build the technology that secures it.\nOUR MISSION\nTrue Anomaly delivers decisive capabilities for space superiority. We build autonomous spacecraft, advanced payloads, mission software, and space-based interceptors — enabling the U.S. and its Allies to secure the space environment and counter threats from the ultimate high ground.\nOUR VALUES\nBe the offset. We create asymmetric advantages with creativity and ingenuity.\nWhat would it take? We challenge assumptions to deliver ambitious results.\nIt’s the people. Our team is our competitive advantage and we are better together.\nYOUR MISSION\nAs Director, Production and Test Engineering, you will lead the Denver-based team of technicians, production engineers, test engineers, and manufacturing engineers to deliver fully qualified spacecraft on aggressive timelines. You will own the build and test processes, schedules, and capacity planning required to execute production commitments. You will partner closely with Program Management and Engineering to provide inputs to the Integrated Master Schedule (IMS), align capacity with demand, and drive disciplined execution against production milestones. Beyond delivery, you will be accountable for continuously improving efficiency, automation, and process maturity to reduce turn time and increase throughput. This role requires both strategic foresight and hands-on leadership: setting standards, driving automation, solving problems, and developing people to their full potential while ensuring every spacecraft meets mission assurance standards.\nRESPONSIBILITIES\nLead and mentor a high-performing team across production, test, and manufacturing engineering.\nOwn execution of production and test schedules to meet program delivery commitments.\nDrive load capacity planning - forecast demand, balance resources, and ensure teams are properly staffed and focused.\nProvide accurate inputs to the Integrated Master Schedule (IMS), aligning production and test activities with program needs.\nOwn and continuously improve build and test processes, ensuring efficiency, repeatability, and compliance with AS9100/ISO9001 standards.\nChampion efficiency and automation initiatives to reduce cycle time, improve first-time yield, and scale production capability.\nOversee test execution, including requirements verification, procedure development, data analysis, and anomaly resolution.\nLead root cause investigations and ensure corrective actions are implemented effectively.\nInvest in developing team members through coaching, mentorship, and growth opportunities, enabling them to reach their full potential.\nEnsure facilities and workspaces are clean, organized, and optimized for safety and efficiency.\nWhat Success Looks Like\nProduction and test schedules executed predictably, with milestones met or exceeded.\nEfficiency and automation drive measurable reductions in turn time and increase throughput.\nCapacity plans that accurately anticipate workload and prevent bottlenecks.\nHigh first-time yield and reduced anomalies demonstrate process maturity.\nDenver team engagement, technical excellence, and professional growth consistently visible.\nBuild and test processes that are scalable, disciplined, and trusted by stakeholders.\nBASIC QUALIFICATIONS\nBachelor’s degree in manufacturing, Mechanical, Aerospace Engineering, or a related discipline.\nOver 10 years of experience in space component, spacecraft production, and testing.\nIn-depth knowledge of AS9100/ISO9001 production standards, requirements, and testing protocols.\nProven track record in managing high-rate, complex components and assemblies, as well as executing detailed test plans.\nExtensive experience with MRP, PLM, and MES application systems, and the integration of automation components across these systems.\nStrong expertise in lean manufacturing principles, rapid prototyping methodologies, and environmental testing such as vibration, thermal, or shock testing.\nSolid understanding of spacecraft testing facilities and tooling, including vibration tables, TVAC, EMI/EMC chambers, optical alignment stations, and FlatSats.\nExperience with ESD sensitive component and assembly manufacturing.\nDemonstrated ability to effectively manage and maintain a cleanroom environment, ensuring organization and cleanliness to the highest standards.\nPREFERRED QUALIFICATIONS\nMaster’s degree in manufacturing, mechanical, aerospace engineering or equivalent discipline.\n15+ years of experience in space component and/or spacecraft production and testing.\nExperience with CNC, tube bending, and other production equipment.\nFamiliarity with LabVIEW, MATLAB, or Python for data processing or test automation.\nCapable of building and maintaining IMS schedules with Program Management and schedulers with a deep understanding of critical paths and mitigation techniques.\nActive DoD clearance or ability to obtain one is a plus.\nCOMPENSATION\nBase Salary: $190,000 - $265,000\nEquity + Benefits including Health, Dental, Vision, HRA/HSA options, PTO and paid holidays, 401K, Parental Leave\nYour actual level and base salary will be determined on a case-by-case basis and may vary based on the following considerations: job-related knowledge and skills, education, location, and experience.\nADDITIONAL REQUIREMENTS\nWork Location—Successful candidates will be located near Denver, CO. While we observe a hybrid work environment, some work must be done on site.\nWork environment—the work environment; temperature, noise level, inside or outside, or other factors that will affect the person's working conditions while performing the job.\nPhysical demands—the physical demands of the job, including bending, sitting, lifting and driving.\nThis position will be open until it is successfully filled. To submit your application, please follow the directions below.\n#LI-Onsite\nTo conform to U.S. Government space technology export regulations, including the International Traffic in Arms Regulations (ITAR) you must be a U.S. citizen, lawful permanent resident of the U.S., protected individual as defined by 8 U.S.C. 1324b(a)(3), or eligible to obtain the required authorizations from the U.S. Department of State.\nTrue Anomaly is committed to equal employment opportunity on any basis protected by applicable state and federal laws. If you have a disability or additional need that requires accommodation, please do not hesitate to let us.",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "Space is a warfighting domain. True Anomaly seeks those with the talent and ambition to build the technology that secures it."
+        },
+        {
+          "type": "para",
+          "text": "OUR MISSION"
+        },
+        {
+          "type": "para",
+          "text": "True Anomaly delivers decisive capabilities for space superiority. We build autonomous spacecraft, advanced payloads, mission software, and space-based interceptors — enabling the U.S. and its Allies to secure the space environment and counter threats from the ultimate high ground."
+        },
+        {
+          "type": "para",
+          "text": "OUR VALUES"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Be the offset. We create asymmetric advantages with creativity and ingenuity.",
+            "What would it take? We challenge assumptions to deliver ambitious results.",
+            "It’s the people. Our team is our competitive advantage and we are better together."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "YOUR MISSION"
+        },
+        {
+          "type": "para",
+          "text": "As Director, Production and Test Engineering, you will lead the Denver-based team of technicians, production engineers, test engineers, and manufacturing engineers to deliver fully qualified spacecraft on aggressive timelines. You will own the build and test processes, schedules, and capacity planning required to execute production commitments. You will partner closely with Program Management and Engineering to provide inputs to the Integrated Master Schedule (IMS), align capacity with demand, and drive disciplined execution against production milestones. Beyond delivery, you will be accountable for continuously improving efficiency, automation, and process maturity to reduce turn time and increase throughput. This role requires both strategic foresight and hands-on leadership: setting standards, driving automation, solving problems, and developing people to their full potential while ensuring every spacecraft meets mission assurance standards."
+        },
+        {
+          "type": "para",
+          "text": "RESPONSIBILITIES"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Lead and mentor a high-performing team across production, test, and manufacturing engineering.",
+            "Own execution of production and test schedules to meet program delivery commitments.",
+            "Drive load capacity planning - forecast demand, balance resources, and ensure teams are properly staffed and focused.",
+            "Provide accurate inputs to the Integrated Master Schedule (IMS), aligning production and test activities with program needs.",
+            "Own and continuously improve build and test processes, ensuring efficiency, repeatability, and compliance with AS9100/ISO9001 standards.",
+            "Champion efficiency and automation initiatives to reduce cycle time, improve first-time yield, and scale production capability.",
+            "Oversee test execution, including requirements verification, procedure development, data analysis, and anomaly resolution.",
+            "Lead root cause investigations and ensure corrective actions are implemented effectively.",
+            "Invest in developing team members through coaching, mentorship, and growth opportunities, enabling them to reach their full potential.",
+            "Ensure facilities and workspaces are clean, organized, and optimized for safety and efficiency."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "What Success Looks Like"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Production and test schedules executed predictably, with milestones met or exceeded.",
+            "Efficiency and automation drive measurable reductions in turn time and increase throughput.",
+            "Capacity plans that accurately anticipate workload and prevent bottlenecks.",
+            "High first-time yield and reduced anomalies demonstrate process maturity.",
+            "Denver team engagement, technical excellence, and professional growth consistently visible.",
+            "Build and test processes that are scalable, disciplined, and trusted by stakeholders."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "BASIC QUALIFICATIONS"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bachelor’s degree in manufacturing, Mechanical, Aerospace Engineering, or a related discipline.",
+            "Over 10 years of experience in space component, spacecraft production, and testing.",
+            "In-depth knowledge of AS9100/ISO9001 production standards, requirements, and testing protocols.",
+            "Proven track record in managing high-rate, complex components and assemblies, as well as executing detailed test plans.",
+            "Extensive experience with MRP, PLM, and MES application systems, and the integration of automation components across these systems.",
+            "Strong expertise in lean manufacturing principles, rapid prototyping methodologies, and environmental testing such as vibration, thermal, or shock testing.",
+            "Solid understanding of spacecraft testing facilities and tooling, including vibration tables, TVAC, EMI/EMC chambers, optical alignment stations, and FlatSats.",
+            "Experience with ESD sensitive component and assembly manufacturing.",
+            "Demonstrated ability to effectively manage and maintain a cleanroom environment, ensuring organization and cleanliness to the highest standards."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "PREFERRED QUALIFICATIONS"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Master’s degree in manufacturing, mechanical, aerospace engineering or equivalent discipline.",
+            "15+ years of experience in space component and/or spacecraft production and testing.",
+            "Experience with CNC, tube bending, and other production equipment.",
+            "Familiarity with LabVIEW, MATLAB, or Python for data processing or test automation.",
+            "Capable of building and maintaining IMS schedules with Program Management and schedulers with a deep understanding of critical paths and mitigation techniques.",
+            "Active DoD clearance or ability to obtain one is a plus."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "COMPENSATION"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Base Salary: $190,000 - $265,000",
+            "Equity + Benefits including Health, Dental, Vision, HRA/HSA options, PTO and paid holidays, 401K, Parental Leave"
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Your actual level and base salary will be determined on a case-by-case basis and may vary based on the following considerations: job-related knowledge and skills, education, location, and experience."
+        },
+        {
+          "type": "para",
+          "text": "ADDITIONAL REQUIREMENTS"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Work Location—Successful candidates will be located near Denver, CO. While we observe a hybrid work environment, some work must be done on site.",
+            "Work environment—the work environment; temperature, noise level, inside or outside, or other factors that will affect the person's working conditions while performing the job.",
+            "Physical demands—the physical demands of the job, including bending, sitting, lifting and driving."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "This position will be open until it is successfully filled. To submit your application, please follow the directions below."
+        },
+        {
+          "type": "para",
+          "text": "#LI-Onsite"
+        },
+        {
+          "type": "para",
+          "text": "To conform to U.S. Government space technology export regulations, including the International Traffic in Arms Regulations (ITAR) you must be a U.S. citizen, lawful permanent resident of the U.S., protected individual as defined by 8 U.S.C. 1324b(a)(3), or eligible to obtain the required authorizations from the U.S. Department of State."
+        },
+        {
+          "type": "para",
+          "text": "True Anomaly is committed to equal employment opportunity on any basis protected by applicable state and federal laws. If you have a disability or additional need that requires accommodation, please do not hesitate to let us."
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "US",
+        "countryName": "United States",
+        "region": "north-america",
+        "remote": false,
+        "raw": "Denver, CO"
+      },
+      "seniority": "director",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "hybrid",
+      "roleType": "permanent",
+      "salary": {
+        "min": 190000,
+        "max": 265000,
+        "currency": "USD",
+        "period": "annual",
+        "source": "stated"
+      },
+      "postedAt": "2026-06-18T22:04:16-04:00",
+      "firstSeen": "2026-09-20T08:52:52.682Z",
+      "updatedAt": "2026-09-20T08:52:52.682Z"
+    },
+    {
       "id": "huntress-director-engineering-platform-3fffc5",
       "title": "Director, Engineering - Platform",
       "company": "Huntress",
@@ -20925,6 +22367,203 @@
       "postedAt": "2026-06-15T19:30:23.864Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
       "updatedAt": "2026-09-13T10:30:55.497Z"
+    },
+    {
+      "id": "moniepoint-head-of-engineering-pos-application-plat-88399e",
+      "title": "Head of Engineering, POS Application Platform",
+      "company": "Moniepoint",
+      "applyUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4900313101",
+      "sourceUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4900313101",
+      "source": "greenhouse",
+      "sources": [
+        "greenhouse"
+      ],
+      "text": "Who we are\nMoniepoint Inc. is Africa’s all-in-one financial platform, helping 20 million businesses and individuals access seamless payments, banking, credit, cross-border, and business management tools each month. As Nigeria’s largest merchant acquirer, we power most of the country’s point-of-sale (POS) transactions. Through our subsidiaries, Moniepoint Inc. processes over $250 billion in digital payment transaction value annually.\nWhy Spain\nSome of our most mission-critical team members are based in Spain, having joined us from companies like Wise and Glovo. Moniepoint is one of the largest and fastest-growing digital banks in Africa, and this is an opportunity to work on genuinely impactful problems: disrupting financial services at scale in emerging markets, and building systems and products that process hundreds of billions of dollars in transaction volume annually for tens of millions of people.\nSo, now we are looking for our Head of Engineering, POS Apps to join us in Spain.\nAbout the role\nMore than 6 million businesses run their financial lives through Moniepoint - and the primary way they interact with us every single day is through a POS device. For most of our merchants, that device is their business. It is how they accept payments, how they access credit, and how they track their finances. Everything those devices are capable of, in terms of speed, reliability, and developer quality, flows from the engineering platform this role leads.\nWe are building a dedicated POS Application Platform function: the foundational Kotlin-based engineering layer that sits beneath every POS product at Moniepoint. Think of it as the operating system for our POS engineering organisation - the standards, frameworks, tooling, and architectural backbone that every POS engineer across the business builds on top of. This is not a feature team. It is a platform team in the truest sense, and the Head of Engineering for POS Application Platform is the technical owner of that layer.\nWe currently operate across five POS device types from multiple OEM manufacturers, all running on Android. The engineering challenges here span device governance, developer experience, platform reliability, foundational frameworks, and adoption across a distributed set of POS engineers working in separate product squads.\nAnd the scope is growing. We have a UK entity live, a cross-border payments product in market, and a microfinance bank acquisition which just finalized in Kenya. The platform you build will become the foundation for tens of millions of businesses across multiple markets to accept payments, access financial services, and grow. If you have spent your career going deep on POS systems and you want to build the platform that underpins one of Africa's most consequential fintech businesses during its expansion, this is the role.\nWhat you'll get to do\nOwn the technical strategy and architecture for the POS Application Platform, acting as the domain CTO for everything that runs on our POS devices.\nBuild and govern the four core platform pillars across the organisation: developer experience (tools, libraries, SDKs), platform reliability (observability, uptime, quality standards), foundational frameworks (architecture, coding standards, testing and release pipelines), and squad adoption (driving uptake of platform tooling across all embedded POS engineers).\nDefine and enforce engineering standards across all POS device types and OEM manufacturers, ensuring architectural consistency and quality across a heterogeneous device fleet.\nFunctionally lead POS engineers embedded across Payments, Onboarding, VAS, Savings, and Loans squads - setting the bar for engineering quality and providing the platform layer above all of them.\nOwn POS observability end-to-end: monitoring, alerting, and incident response frameworks that ensure platform health across all devices and squads.\nDrive the architecture for how Moniepoint supports multiple POS device types, including defining how new devices are onboarded, governed, and integrated with the platform.\nCollaborate with OEM partners and the POS hardware team when new device types are introduced, ensuring the application layer is ready to support them from day one.\nBuild and scale the POS platform team, including hiring, mentoring, and structuring for growth as the platform expands internationally.\nTranslate platform decisions into business impact, working closely with Product, Payments, and Business leadership across markets.\nEstablish and continuously improve engineering processes, tooling standards, CI/CD pipelines, and developer productivity metrics across the POS engineering community.\nTo succeed in this role, we think you should have\nA minimum of 10 years of hands-on software engineering experience, with at least 6 years leading engineering teams through meaningful growth phases, ideally in multi-national or large VC-backed companies.\nDirect, hands-on experience building software that runs on Point-of-Sale terminal devices. This means engineering on the device itself — the application layer — not server-side integrations with POS systems. This is a non-negotiable requirement and candidates without it will not be considered.\nStrong working knowledge of EMV standards (Europay, Mastercard, Visa) and experience navigating payment certification processes such as PCI DSS and P2PE. Candidates without this will not be considered.\nDeep Android engineering expertise in Kotlin and Java. The POS application layer at Moniepoint is Android-based and there are no exceptions to this requirement.\nProven experience building internal engineering platforms, shared libraries, developer tooling, or foundational frameworks used by other engineering teams — not just consumer-facing feature products.\nExperience governing or architecting across multiple POS device types from different hardware manufacturers, with an understanding of how OEM integrations and device management work at scale.\nExperience building or maturing platform engineering functions, including establishing engineering processes, tooling strategies, and cross-squad governance structures.\nDemonstrated ability to scale engineering teams and build the organisational layer beneath you — leaders who can grow into and around the role you are hiring into.\nExperience at a company processing high volumes of financial transactions in a regulated environment. Fintech background is strongly preferred.\nFamiliarity with terminal management systems and device observability tooling is a strong advantage.\nBackend engineering experience in Java or Spring Boot is a strong plus given the breadth of the platform and the integration surface it sits on.\nExperience working directly with OEM vendors on hardware specification and integration is a bonus.\nExposure to C or C++ is a plus — one of our device variants uses C.\nExperience at Series A or B stage startups alone is unlikely to reflect the scale and complexity required for this role.\nCultural Alignment\nWe assess every candidate across eight dimensions that define how great leaders operate at Moniepoint. We look for evidence of all eight throughout the process, not just in a single conversation.\nCustomer Obsession: Build deep empathy for users. Solve problems intuitively, and fix root causes, not just tickets.\nCraft: Master the fundamentals. Reason from first principles, make trade-offs explicit, and raise the bar on quality.\nSystemisation: Turn repeating decisions into scalable mechanisms. Reduce cognitive load and raise engineering quality.\nUrgency: Move with disciplined speed. Act autonomously within scope, remove friction, and escalate risks early.\nOwnership: Treat the platform as your own. Take initiative across boundaries and follow through without reminders.\nNo Ego: Put the mission first. Share credit, welcome debate, and never protect status over team outcomes.\nCandour: Surface uncomfortable truths and risks early. Intelligent failure is welcome; concealment is not.\nIntegrity: Stay truthful and ethically consistent. Refuse toxic behavior. Performance without integrity is unacceptable.\nSome of the technologies you'll work with\nAndroid (Kotlin, Java) - primary platform for all POS application development\nEMV payment standards and PCI/P2PE certification frameworks\nMultiple POS device types and OEM manufacturers, including Topwise and Telpo\nTerminal management systems and device observability tooling\nJava, Spring Boot — backend services and integration layer\nDocker and Kubernetes\nPostgreSQL, DynamoDB, Elasticsearch\nMicroservices architecture on AWS\nWhat we can offer you\nCulture - We put our people first and prioritise the well-being of every team member. We have built a company where all opinions carry weight and where all voices are heard. We value and respect each other and always look out for one another. Above all, we are human.\nLearning - We have a learning and development-focused environment with an emphasis on knowledge sharing, training, and regular internal technical talks.\nCompensation - You will receive an attractive salary, pension, health insurance, annual bonus, plus other benefits.\nWhat to expect in the hiring process\nStage 1: A preliminary phone call with one of our recruiters.\nStage 2: Technical Round focused on core technical strengths and depth in Android/Kotlin\nStage 3: System Design - You will be asked to solve complex system design problems to assess your technical and architectural skills, with a particular focus on POS and mobile platform architecture and payment systems.\nStage 4: Technical and Architectural Leadership - An interview with one Head of Engineering focused on leadership skills and attributes.\nStage 5: CTO Interview - A conversation with our CTO assessing first-principles thinking, problem-solving under ambiguity, clarity of thought, and cultural alignment.\nHow to apply: Please send us your CV or LinkedIn profile via our career website.\nMoniepoint is an equal opportunity employer. We celebrate diversity and are committed to creating an inclusive environment for all employees and candidates!\n#LI-Remote",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "Who we are"
+        },
+        {
+          "type": "para",
+          "text": "Moniepoint Inc. is Africa’s all-in-one financial platform, helping 20 million businesses and individuals access seamless payments, banking, credit, cross-border, and business management tools each month. As Nigeria’s largest merchant acquirer, we power most of the country’s point-of-sale (POS) transactions. Through our subsidiaries, Moniepoint Inc. processes over $250 billion in digital payment transaction value annually."
+        },
+        {
+          "type": "para",
+          "text": "Why Spain"
+        },
+        {
+          "type": "para",
+          "text": "Some of our most mission-critical team members are based in Spain, having joined us from companies like Wise and Glovo. Moniepoint is one of the largest and fastest-growing digital banks in Africa, and this is an opportunity to work on genuinely impactful problems: disrupting financial services at scale in emerging markets, and building systems and products that process hundreds of billions of dollars in transaction volume annually for tens of millions of people."
+        },
+        {
+          "type": "para",
+          "text": "So, now we are looking for our Head of Engineering, POS Apps to join us in Spain."
+        },
+        {
+          "type": "para",
+          "text": "About the role"
+        },
+        {
+          "type": "para",
+          "text": "More than 6 million businesses run their financial lives through Moniepoint - and the primary way they interact with us every single day is through a POS device. For most of our merchants, that device is their business. It is how they accept payments, how they access credit, and how they track their finances. Everything those devices are capable of, in terms of speed, reliability, and developer quality, flows from the engineering platform this role leads."
+        },
+        {
+          "type": "para",
+          "text": "We are building a dedicated POS Application Platform function: the foundational Kotlin-based engineering layer that sits beneath every POS product at Moniepoint. Think of it as the operating system for our POS engineering organisation - the standards, frameworks, tooling, and architectural backbone that every POS engineer across the business builds on top of. This is not a feature team. It is a platform team in the truest sense, and the Head of Engineering for POS Application Platform is the technical owner of that layer."
+        },
+        {
+          "type": "para",
+          "text": "We currently operate across five POS device types from multiple OEM manufacturers, all running on Android. The engineering challenges here span device governance, developer experience, platform reliability, foundational frameworks, and adoption across a distributed set of POS engineers working in separate product squads."
+        },
+        {
+          "type": "para",
+          "text": "And the scope is growing. We have a UK entity live, a cross-border payments product in market, and a microfinance bank acquisition which just finalized in Kenya. The platform you build will become the foundation for tens of millions of businesses across multiple markets to accept payments, access financial services, and grow. If you have spent your career going deep on POS systems and you want to build the platform that underpins one of Africa's most consequential fintech businesses during its expansion, this is the role."
+        },
+        {
+          "type": "para",
+          "text": "What you'll get to do"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Own the technical strategy and architecture for the POS Application Platform, acting as the domain CTO for everything that runs on our POS devices.",
+            "Build and govern the four core platform pillars across the organisation: developer experience (tools, libraries, SDKs), platform reliability (observability, uptime, quality standards), foundational frameworks (architecture, coding standards, testing and release pipelines), and squad adoption (driving uptake of platform tooling across all embedded POS engineers).",
+            "Define and enforce engineering standards across all POS device types and OEM manufacturers, ensuring architectural consistency and quality across a heterogeneous device fleet.",
+            "Functionally lead POS engineers embedded across Payments, Onboarding, VAS, Savings, and Loans squads - setting the bar for engineering quality and providing the platform layer above all of them.",
+            "Own POS observability end-to-end: monitoring, alerting, and incident response frameworks that ensure platform health across all devices and squads.",
+            "Drive the architecture for how Moniepoint supports multiple POS device types, including defining how new devices are onboarded, governed, and integrated with the platform.",
+            "Collaborate with OEM partners and the POS hardware team when new device types are introduced, ensuring the application layer is ready to support them from day one.",
+            "Build and scale the POS platform team, including hiring, mentoring, and structuring for growth as the platform expands internationally.",
+            "Translate platform decisions into business impact, working closely with Product, Payments, and Business leadership across markets.",
+            "Establish and continuously improve engineering processes, tooling standards, CI/CD pipelines, and developer productivity metrics across the POS engineering community."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "To succeed in this role, we think you should have"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A minimum of 10 years of hands-on software engineering experience, with at least 6 years leading engineering teams through meaningful growth phases, ideally in multi-national or large VC-backed companies.",
+            "Direct, hands-on experience building software that runs on Point-of-Sale terminal devices. This means engineering on the device itself — the application layer — not server-side integrations with POS systems. This is a non-negotiable requirement and candidates without it will not be considered.",
+            "Strong working knowledge of EMV standards (Europay, Mastercard, Visa) and experience navigating payment certification processes such as PCI DSS and P2PE. Candidates without this will not be considered.",
+            "Deep Android engineering expertise in Kotlin and Java. The POS application layer at Moniepoint is Android-based and there are no exceptions to this requirement.",
+            "Proven experience building internal engineering platforms, shared libraries, developer tooling, or foundational frameworks used by other engineering teams — not just consumer-facing feature products.",
+            "Experience governing or architecting across multiple POS device types from different hardware manufacturers, with an understanding of how OEM integrations and device management work at scale.",
+            "Experience building or maturing platform engineering functions, including establishing engineering processes, tooling strategies, and cross-squad governance structures.",
+            "Demonstrated ability to scale engineering teams and build the organisational layer beneath you — leaders who can grow into and around the role you are hiring into.",
+            "Experience at a company processing high volumes of financial transactions in a regulated environment. Fintech background is strongly preferred.",
+            "Familiarity with terminal management systems and device observability tooling is a strong advantage.",
+            "Backend engineering experience in Java or Spring Boot is a strong plus given the breadth of the platform and the integration surface it sits on.",
+            "Experience working directly with OEM vendors on hardware specification and integration is a bonus.",
+            "Exposure to C or C++ is a plus — one of our device variants uses C.",
+            "Experience at Series A or B stage startups alone is unlikely to reflect the scale and complexity required for this role."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Cultural Alignment"
+        },
+        {
+          "type": "para",
+          "text": "We assess every candidate across eight dimensions that define how great leaders operate at Moniepoint. We look for evidence of all eight throughout the process, not just in a single conversation."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Customer Obsession: Build deep empathy for users. Solve problems intuitively, and fix root causes, not just tickets.",
+            "Craft: Master the fundamentals. Reason from first principles, make trade-offs explicit, and raise the bar on quality.",
+            "Systemisation: Turn repeating decisions into scalable mechanisms. Reduce cognitive load and raise engineering quality.",
+            "Urgency: Move with disciplined speed. Act autonomously within scope, remove friction, and escalate risks early.",
+            "Ownership: Treat the platform as your own. Take initiative across boundaries and follow through without reminders.",
+            "No Ego: Put the mission first. Share credit, welcome debate, and never protect status over team outcomes.",
+            "Candour: Surface uncomfortable truths and risks early. Intelligent failure is welcome; concealment is not.",
+            "Integrity: Stay truthful and ethically consistent. Refuse toxic behavior. Performance without integrity is unacceptable."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "Some of the technologies you'll work with"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Android (Kotlin, Java) - primary platform for all POS application development",
+            "EMV payment standards and PCI/P2PE certification frameworks",
+            "Multiple POS device types and OEM manufacturers, including Topwise and Telpo",
+            "Terminal management systems and device observability tooling",
+            "Java, Spring Boot — backend services and integration layer",
+            "Docker and Kubernetes",
+            "PostgreSQL, DynamoDB, Elasticsearch",
+            "Microservices architecture on AWS"
+          ]
+        },
+        {
+          "type": "para",
+          "text": "What we can offer you"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Culture - We put our people first and prioritise the well-being of every team member. We have built a company where all opinions carry weight and where all voices are heard. We value and respect each other and always look out for one another. Above all, we are human.",
+            "Learning - We have a learning and development-focused environment with an emphasis on knowledge sharing, training, and regular internal technical talks.",
+            "Compensation - You will receive an attractive salary, pension, health insurance, annual bonus, plus other benefits."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "What to expect in the hiring process"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Stage 1: A preliminary phone call with one of our recruiters.",
+            "Stage 2: Technical Round focused on core technical strengths and depth in Android/Kotlin",
+            "Stage 3: System Design - You will be asked to solve complex system design problems to assess your technical and architectural skills, with a particular focus on POS and mobile platform architecture and payment systems.",
+            "Stage 4: Technical and Architectural Leadership - An interview with one Head of Engineering focused on leadership skills and attributes.",
+            "Stage 5: CTO Interview - A conversation with our CTO assessing first-principles thinking, problem-solving under ambiguity, clarity of thought, and cultural alignment."
+          ]
+        },
+        {
+          "type": "para",
+          "text": "How to apply: Please send us your CV or LinkedIn profile via our career website."
+        },
+        {
+          "type": "para",
+          "text": "Moniepoint is an equal opportunity employer. We celebrate diversity and are committed to creating an inclusive environment for all employees and candidates!"
+        },
+        {
+          "type": "para",
+          "text": "#LI-Remote"
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "ES",
+        "countryName": "Spain",
+        "region": "europe",
+        "remote": true,
+        "raw": "Remote, Spain"
+      },
+      "seniority": "head",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "remote",
+      "roleType": null,
+      "salary": {
+        "min": 41575,
+        "max": 41575,
+        "currency": "EUR",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "Medium",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-06-10T06:52:04-04:00",
+      "firstSeen": "2026-09-20T08:52:52.682Z",
+      "updatedAt": "2026-09-20T08:52:52.682Z"
     },
     {
       "id": "duolingo-senior-director-of-engineering-new-subje-686c8d",
