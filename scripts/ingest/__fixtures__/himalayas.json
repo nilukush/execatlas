@@ -14,9 +14,9 @@
     ],
     "employmentType": "Contractor",
     "description": "<b>Role Summary</b><br><a href=\"https://himalayas.app/companies/prove-partners\">Prove Partners</a> is consolidating two Salesforce orgs and migrating a legacy system of record into Salesforce. The program runs in continuous release cycles, and every cycle changes objects, page layouts, permission sets, flows, Apex, and integrations. Each of those changes has to be proven out end to end before it reaches production users.<br><br>We are looking for ...trimmed... and is logging usable defects without rework.</li>\n<li>By 30 days: is authoring new test cases from user stories with minimal correction, and owns the regression suite for at least one functional area.</li>\n<li>By 60 days: is the reliable go-to for release readiness on their areas \u2014 the team trusts that if this person has signed off, the release is safe to deploy.</li>\n</ul><p>Originally posted on <a href=\"https://himalayas.app\">Himalayas</a></p>",
-    "minSalary": null,
-    "maxSalary": null,
-    "currency": null,
+    "minSalary": 120000,
+    "maxSalary": 180000,
+    "currency": "USD",
     "salaryPeriod": "annual"
   },
   {

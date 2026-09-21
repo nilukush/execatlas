@@ -203,6 +203,16 @@ describe("widening leak regressions (reviewer scan 2026-09-20)", () => {
     expect(classifyTitle(title)).toBeNull();
   });
 
+  it("keeps advisory analyst and physical-project leadership out", () => {
+    expect(classifyTitle("VP, Analyst - Chief Supply Chain Officer - Strategy, Technology & Transformation")).toBeNull();
+    expect(classifyTitle("Sr Director Analyst, HR Technology - Talent & Learning")).toBeNull();
+    expect(classifyTitle("Head of Project Engineering (LQ) (F-4851-I)")).toBeNull();
+    expect(classifyTitle("Director, Engineering (Remote, GA, US, 99999)")).toBeNull();
+    expect(classifyTitle("Vice President, Presales Engineering")).toBeNull();
+    // analytics leadership stays in: analyst and analytics are different words
+    expect(classifyTitle("Director of Analytics")).toEqual({ seniority: "director", domain: "data" });
+  });
+
   it("keeps support-engineering leadership out", () => {
     expect(classifyTitle("Director of Support Engineering - Americas")).toBeNull();
   });

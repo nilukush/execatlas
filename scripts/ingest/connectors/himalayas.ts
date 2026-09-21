@@ -17,19 +17,20 @@ interface HimalayasJob {
   salaryPeriod?: string;
 }
 
-// their period vocabulary maps onto ours; anything else (hourly) is skipped
-// rather than annualized into a misleading band
+// their period vocabulary is lowercase (annual, monthly, hourly, ...);
+// hourly, weekly and fortnightly are skipped rather than annualized into a
+// misleading band
 const PERIOD_MAP: Record<string, "annual" | "monthly"> = {
-  Year: "annual",
-  "Per Year": "annual",
-  Month: "monthly",
-  "Per Month": "monthly",
+  annual: "annual",
+  monthly: "monthly",
 };
 
 /**
  * Himalayas free remote-jobs API, no key. The firehose holds 100k+ jobs with
  * almost no leadership titles, so the connector queries the search endpoint
- * per seniority tag (Director, Executive) instead, paging with nextCursor.
+ * with keyword feeds crossed with the Director and Executive seniority tags.
+ * The search endpoint pages with the page parameter (nextCursor exists only
+ * on the browse endpoint) and reports offset and totalCount for exhaustion.
  * Docs: https://himalayas.app/docs/remote-jobs-api. Apply links point at
  * himalayas.app, which serves as the visible source credit their terms ask.
  */
@@ -48,20 +49,22 @@ export function himalayasConnector(
       const seen = new Set<string>();
       for (const query of options.queries) {
        for (const seniority of seniorities) {
-        let cursor: string | undefined;
         for (let page = 1; page <= options.pages; page += 1) {
           try {
             const url = new URL("https://himalayas.app/jobs/api/search");
             url.searchParams.set("q", query);
             url.searchParams.set("seniority", seniority);
-            url.searchParams.set("limit", "20");
-            if (cursor) url.searchParams.set("cursor", cursor);
+            url.searchParams.set("page", String(page));
             const payload = (await deps.fetchJson(url.toString())) as {
               jobs?: HimalayasJob[];
-              nextCursor?: string;
+              offset?: number;
+              totalCount?: number;
             };
             const jobs = payload.jobs ?? [];
             if (jobs.length === 0) break;
+            const offset = payload.offset ?? 0;
+            const total = payload.totalCount ?? Number.MAX_SAFE_INTEGER;
+            if (offset + jobs.length >= total) break;
             for (const job of jobs) {
               if (!job.guid || !job.title || !job.applicationLink) continue;
               if (seen.has(job.guid)) continue;
@@ -71,7 +74,7 @@ export function himalayasConnector(
               const published = job.pubDate ? new Date(job.pubDate * 1000) : null;
               out.push({
                 source: "himalayas",
-                externalId: `hml-${job.guid.slice(0, 8)}`,
+                externalId: `hml-${job.guid.split("/").pop() ?? job.guid}`,
                 title: job.title,
                 company: job.companyName?.trim() || "Unknown company",
                 companyLogoUrl: job.companyLogo,
@@ -89,8 +92,6 @@ export function himalayasConnector(
                   published && !Number.isNaN(published.getTime()) ? published.toISOString() : null,
               });
             }
-            if (!payload.nextCursor) break;
-            cursor = payload.nextCursor;
           } catch (error) {
             console.warn(`[himalayas] ${query}/${seniority} page ${page} failed: ${(error as Error).message}`);
             break;

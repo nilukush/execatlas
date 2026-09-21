@@ -39,7 +39,7 @@ const BASIC_ENTITIES: Array<[RegExp, string]> = [
 function decodeEntities(value: string): string {
   let out = value;
   for (const [pattern, replacement] of BASIC_ENTITIES) out = out.replace(pattern, replacement);
-  return out;
+  return out.replace(/\u00a0/g, " ");
 }
 
 function isWebUrl(value: string | undefined): boolean {

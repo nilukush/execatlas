@@ -170,17 +170,14 @@ describe("himalayas connector", () => {
       employmentHint: expect.any(String),
     });
     expect(jobs[0].postedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
-    const first = himalayasFixture[0];
-    if (first.minSalary && first.maxSalary && first.currency) {
-      expect(jobs[0].salaryHint).toEqual({
-        min: first.minSalary,
-        max: first.maxSalary,
-        currency: first.currency,
-        period: expect.stringMatching(/^(annual|monthly)$/),
-      });
-    } else {
-      expect(jobs[0].salaryHint).toBeNull();
-    }
+    expect(jobs[0].salaryHint).toEqual({
+      min: himalayasFixture[0].minSalary,
+      max: himalayasFixture[0].maxSalary,
+      currency: himalayasFixture[0].currency,
+      period: "annual",
+    });
+    // the guid is a URL; the id must use its unique tail, not the scheme
+    expect(jobs[0].externalId).not.toContain("https");
   });
 
   it("queries keyword and seniority search feeds, not the firehose", async () => {
@@ -201,20 +198,32 @@ describe("himalayas connector", () => {
     expect(urls).toHaveLength(4);
   });
 
-  it("stops paging when a seniority feed is exhausted and tolerates failure", async () => {
-    let calls = 0;
+  it("pages with the page parameter and stops on feed exhaustion, tolerating failure", async () => {
+    const calls: string[] = [];
+    let failed = false;
     const connector = himalayasConnector(
       {
-        fetchJson: async () => {
-          calls += 1;
-          if (calls === 1) throw new Error("HTTP 429");
-          return { jobs: himalayasFixture, nextCursor: "abc" };
+        fetchJson: async (url: string) => {
+          calls.push(url);
+          if (!failed) {
+            failed = true;
+            throw new Error("HTTP 429");
+          }
+          const page = new URL(url).searchParams.get("page");
+          if (page === "1") {
+            return { jobs: himalayasFixture, offset: 0, totalCount: himalayasFixture.length + 5 };
+          }
+          return { jobs: himalayasFixture.slice(0, 1), offset: himalayasFixture.length, totalCount: himalayasFixture.length + 5 };
         },
       },
-      { pages: 2, queries: ["engineering"] }
+      { pages: 3, queries: ["engineering"] }
     );
     const jobs = await connector.run();
-    expect(jobs.length).toBe(2);
+    // first feed call failed once then paged to exhaustion; seniority=Executive feeds also ran
+    expect(calls.some((u) => u.includes("page=1"))).toBe(true);
+    expect(calls.some((u) => u.includes("page=2"))).toBe(true);
+    expect(jobs.length).toBeGreaterThanOrEqual(2);
+    expect(jobs.every((j) => !j.externalId.includes("https"))).toBe(true);
   });
 });
 
