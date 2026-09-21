@@ -1,26 +1,27 @@
 {
-  "generatedAt": "2026-09-21T15:54:37.500Z",
-  "total": 433,
+  "generatedAt": "2026-09-21T17:14:25.885Z",
+  "total": 441,
   "bySource": {
     "greenhouse": 209,
     "workable": 181,
     "arbeitnow": 7,
     "jobicy": 29,
-    "lever": 7
+    "lever": 7,
+    "ashby": 8
   },
   "byRegion": {
-    "north-america": 217,
+    "north-america": 223,
     "india": 26,
-    "europe": 95,
+    "europe": 96,
     "southeast-asia": 62,
     "middle-east": 20,
-    "remote": 8,
+    "remote": 9,
     "north-africa": 5
   },
   "byVisa": {
-    "unknown": 410,
+    "unknown": 416,
     "yes": 22,
-    "no": 1
+    "no": 3
   },
   "countries": 35
 }

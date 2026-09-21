@@ -10,12 +10,15 @@ import {
   JOBICY_TAGS,
   LEVER_TOKENS,
   LEVER_COMPANY_NAMES,
+  ASHBY_TOKENS,
+  ASHBY_COMPANY_NAMES,
 } from "./config";
 import { greenhouseConnector } from "./connectors/greenhouse";
 import { workableConnector } from "./connectors/workable";
 import { arbeitnowConnector } from "./connectors/arbeitnow";
 import { jobicyConnector } from "./connectors/jobicy";
 import { leverConnector } from "./connectors/lever";
+import { ashbyConnector } from "./connectors/ashby";
 import { normalizeJob, stableId, stableUpdatedAt } from "./normalize";
 import { dedupeJobs } from "./dedupe";
 import { datasetProblems, shouldRunSanityGate } from "./sanity";
@@ -113,6 +116,7 @@ async function main() {
     arbeitnowConnector(deps, { pages: smoke ? 1 : ARBEITNOW_PAGES }),
     jobicyConnector(deps, { count: smoke ? 5 : JOBICY_COUNT, tags: smoke ? undefined : JOBICY_TAGS }),
     leverConnector(deps, { tokens: smoke ? ["netomi"] : LEVER_TOKENS, names: LEVER_COMPANY_NAMES }),
+    ashbyConnector(deps, { tokens: smoke ? ["docker"] : ASHBY_TOKENS, names: ASHBY_COMPANY_NAMES }),
   ].filter((connector) => !only || connector.id === only);
 
   const prevEnvelope = loadPrevEnvelope();

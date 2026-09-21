@@ -2,6 +2,8 @@ import { describe, expect, it } from "vitest";
 import greenhouseFixture from "./__fixtures__/greenhouse.json";
 import workableFixture from "./__fixtures__/workable.json";
 import arbeitnowFixture from "./__fixtures__/arbeitnow.json";
+import ashbyFixture from "./__fixtures__/ashby.json";
+import { ashbyConnector } from "./connectors/ashby";
 import jobicyFixture from "./__fixtures__/jobicy.json";
 import { greenhouseConnector } from "./connectors/greenhouse";
 import { workableConnector } from "./connectors/workable";
@@ -149,6 +151,41 @@ describe("arbeitnow visa cross-reference", () => {
     const jobs = await connector.run();
     expect(jobs.length).toBeGreaterThan(0);
     expect(jobs.every((j) => j.visaHint !== true)).toBe(true);
+  });
+});
+
+describe("ashby connector", () => {
+  it("maps job-board postings to raw jobs with normalized employment hints", async () => {
+    const connector = ashbyConnector(
+      { fetchJson: stubFetch({ "api.ashbyhq.com": { jobs: ashbyFixture } }) },
+      { tokens: ["docker"], names: { docker: "Docker" } }
+    );
+    const jobs = await connector.run();
+    expect(jobs.length).toBe(1);
+    expect(jobs[0]).toMatchObject({
+      source: "ashby",
+      company: "Docker",
+      remoteHint: true,
+      employmentHint: "Full-time",
+    });
+    expect(jobs[0].postedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
+    expect(jobs[0].applyUrl).toContain("https://");
+  });
+
+  it("continues past a failing board", async () => {
+    let calls = 0;
+    const connector = ashbyConnector(
+      {
+        fetchJson: async () => {
+          calls += 1;
+          if (calls === 1) throw new Error("HTTP 404");
+          return { jobs: ashbyFixture };
+        },
+      },
+      { tokens: ["deadboard", "docker"], names: {} }
+    );
+    const jobs = await connector.run();
+    expect(jobs.length).toBe(1);
   });
 });
 

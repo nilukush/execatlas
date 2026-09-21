@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-21T15:54:37.500Z",
+  "generatedAt": "2026-09-21T17:14:25.885Z",
   "jobs": [
     {
       "id": "valsoft-corporation-chef-de-l-inge-nierie-head-of-engineerin-d8c234",
@@ -15078,6 +15078,506 @@
       "updatedAt": "2026-09-20T17:57:09.240Z"
     },
     {
+      "id": "docker-senior-director-product-management-233ba9",
+      "title": "Senior Director, Product Management",
+      "company": "Docker",
+      "applyUrl": "https://jobs.ashbyhq.com/docker/0438debe-b282-4598-b89a-eea04f550cd7/application",
+      "sourceUrl": "https://jobs.ashbyhq.com/docker/0438debe-b282-4598-b89a-eea04f550cd7",
+      "source": "ashby",
+      "sources": [
+        "ashby"
+      ],
+      "text": "About Docker\nDocker has been one of the most loved brands in developer tooling, trusted by more than 20 million monthly users and over 20 billion container image pulls. From solo founders to the world's largest companies, developers rely on Docker to build, share, and run their applications across our suite of products including Docker Desktop, Docker Hub, and Docker Scout.\nWe are a globally distributed, remote-first team building the tools that define how software gets built and delivered. As AI agents redefine software development, Docker is at the center of that shift, providing the sandboxed environments, verified images, and secure infrastructure that make autonomous workflows trustworthy by default.\n_______________________________________________________________________\nDocker is looking for a Product leader for our growing suite of offerings. With millions of active developers globally this is a rare career defining opportunity to transform an industry. Docker’s products help developers to bring their ideas to life by delivering a magical experience simplifying and accelerating the complexities of building and shipping applications. This leader is responsible for managing the entire product lifecycle and leading a cross-functional team to define, prioritize and bring to market winning products that delight developers and dev teams.\nIf you love 1 to 10 scaling projects, dynamic environments with lots of opportunity to shape process and standardize, we want to talk with you. You can help write the next gen case study on world class PLG. This is a unique opportunity to engage with a vibrant community of millions of developers in a way that truly simplifies how cloud-native application development is done.\nResponsibilities:\nHire, develop, and retain the best product team of your entire career\nDeliver results for our customer and our business working across teams to deliver ongoing successful product market fit\nFacilitate alignment on a compelling product vision and strategy with customers and market opportunities top of mind\nSet clear multi-team priorities and shape focus for the team to the benefit of our customer and our financial results\nDrive team metrics that help determine if we are making real progress well ahead of “grow ARR”\nFoster rapid learning cycles on the team (and foster an aversion for “build it and they will come”)\nHelp products have a healthy ecosystem in which to thrive (developers, partners, customers, and online communities)\nBonus: serve as product spokesperson with customers, partners, press, analysts, and events\nQualifications\nYou have a favorite CLI, thoughts on how Docker could approve, and an opinion about pros and cons for various SDLC approaches\nEvidence of many years of hands on product management across multiple product stages hopefully including some wisdom from prior efforts adding #2 to n products or SKUs\nFoster a mindset of 10x rather than 10% thinking\nEnjoy engagement with customers and users and iterating on ways to validate we are building what they need (not just what they say) before engineering work is complete\nOperate from a presence over pretense mindset - humbly confident is a Docker virtue and you know from your experiences that influence matters more than authority (egos need not apply - you know who you are)\nComfortable in a remote 1st company across ~8 timezones - really this means you are great at writing or other methods of reinforcing information sharing without literally being “at the front of the room”\nPossess a growth mindset and demonstrate where you have learned new customers, markets and business models quickly - bonus only: you already have experience in dev tools, SaaS, cloud service and/or open source freemium models\nLove for and success in a fast-growth scale up environment characterized by controlled chaos (sometimes described as: lack of resources, imperfect information, quickly-changing user markets and competitive landscape, and limited structure and guidance)\nBonus only: experience engaging with and enabling large developer communities\nPrior experience as a coding engineer or evidence of successfully serving this user\nWhat to Expect\nIn the first week, expect to:\nObserve - get to know our: customers, product, team, and ways of working (we use OKRs)\nTell us where we got the expectations wrong below as you work to build a world class team and business\nIn the first month, expect to:\nContinue learning (we love a growth mindset here and believe in progress over perfection)\nOrient to the team’s talents, current product direction, and the resulting metrics\nCompile early observations about where we should investigate making adjustments to maximize return on invested engineering effort\nIn the first three months, expect to:\nSet goals (OKRs) with the team\nHiring a world class talent and making any needed adjustments to our hiring process in a collaborative way\nAdjusting goals and roadmaps to help provide a better return on invested engineering effort\nIn the first year, expect to:\nHave made system wide impact on Docker’s product while changing the lives of millions of developers\nDocker does not offer visa sponsorship for this role.\nCompensation & Equity\nCanada: CA$316,400– CA$452,000 + equity\nUnited States: $228,000 – $326,000+ equity\n______________________________________________________________________\nPosting Information\nOpen vacancy: This posting is for an existing open role.\nAI in hiring: Docker may use AI-assisted tools during our recruiting process.\nInterview recordings: Candidates will be invited to opt in to interview recordings to support interviewer calibration and consistent evaluations. Recordings are optional and require explicit consent.\n______________________________________________________________________\nPerks & Benefits\nRemote-first by design – Work from your home, with offices in Seattle and Paris for connection and collaboration.\nFlexibility that fits your life – We trust you to manage your schedule while delivering great work.\nTime to recharge – Generous PTO, designated quarterly Whaleness Days, and a designated end-of-year Whaleness break.\nHome office support – Set up your workspace for comfort and success.\nTechnology stipend – Equivalent to US$100 net per month to help support your work.\nLearning & development – Annual stipend for conferences, courses, certifications, and continued learning.\nParental leave – 16 weeks of paid parental leave after six months of employment.\nEquity for all full-time employees – Share in Docker's long-term success as we continue to grow.\nComprehensive benefits – Medical, retirement, and paid holidays vary by country.\nDocker swag – Because representing the whale never gets old.\nDocker is proud to be an equal opportunity employer. We are committed to building a team that reflects a broad range of backgrounds, experiences, and perspectives. We believe diverse teams build better products, make better decisions, and better serve our global community.\n#LI-REMOTE",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "About Docker"
+        },
+        {
+          "type": "para",
+          "text": "Docker has been one of the most loved brands in developer tooling, trusted by more than 20 million monthly users and over 20 billion container image pulls. From solo founders to the world's largest companies, developers rely on Docker to build, share, and run their applications across our suite of products including Docker Desktop, Docker Hub, and Docker Scout."
+        },
+        {
+          "type": "para",
+          "text": "We are a globally distributed, remote-first team building the tools that define how software gets built and delivered. As AI agents redefine software development, Docker is at the center of that shift, providing the sandboxed environments, verified images, and secure infrastructure that make autonomous workflows trustworthy by default."
+        },
+        {
+          "type": "para",
+          "text": "_______________________________________________________________________"
+        },
+        {
+          "type": "para",
+          "text": "Docker is looking for a Product leader for our growing suite of offerings. With millions of active developers globally this is a rare career defining opportunity to transform an industry. Docker’s products help developers to bring their ideas to life by delivering a magical experience simplifying and accelerating the complexities of building and shipping applications. This leader is responsible for managing the entire product lifecycle and leading a cross-functional team to define, prioritize and bring to market winning products that delight developers and dev teams."
+        },
+        {
+          "type": "para",
+          "text": "If you love 1 to 10 scaling projects, dynamic environments with lots of opportunity to shape process and standardize, we want to talk with you. You can help write the next gen case study on world class PLG. This is a unique opportunity to engage with a vibrant community of millions of developers in a way that truly simplifies how cloud-native application development is done."
+        },
+        {
+          "type": "heading",
+          "text": "Responsibilities:"
+        },
+        {
+          "type": "para",
+          "text": "Hire, develop, and retain the best product team of your entire career"
+        },
+        {
+          "type": "para",
+          "text": "Deliver results for our customer and our business working across teams to deliver ongoing successful product market fit"
+        },
+        {
+          "type": "para",
+          "text": "Facilitate alignment on a compelling product vision and strategy with customers and market opportunities top of mind"
+        },
+        {
+          "type": "para",
+          "text": "Set clear multi-team priorities and shape focus for the team to the benefit of our customer and our financial results"
+        },
+        {
+          "type": "para",
+          "text": "Drive team metrics that help determine if we are making real progress well ahead of “grow ARR”"
+        },
+        {
+          "type": "para",
+          "text": "Foster rapid learning cycles on the team (and foster an aversion for “build it and they will come”)"
+        },
+        {
+          "type": "para",
+          "text": "Help products have a healthy ecosystem in which to thrive (developers, partners, customers, and online communities)"
+        },
+        {
+          "type": "para",
+          "text": "Bonus: serve as product spokesperson with customers, partners, press, analysts, and events"
+        },
+        {
+          "type": "heading",
+          "text": "Qualifications"
+        },
+        {
+          "type": "para",
+          "text": "You have a favorite CLI, thoughts on how Docker could approve, and an opinion about pros and cons for various SDLC approaches"
+        },
+        {
+          "type": "para",
+          "text": "Evidence of many years of hands on product management across multiple product stages hopefully including some wisdom from prior efforts adding #2 to n products or SKUs"
+        },
+        {
+          "type": "para",
+          "text": "Foster a mindset of 10x rather than 10% thinking"
+        },
+        {
+          "type": "para",
+          "text": "Enjoy engagement with customers and users and iterating on ways to validate we are building what they need (not just what they say) before engineering work is complete"
+        },
+        {
+          "type": "para",
+          "text": "Operate from a presence over pretense mindset - humbly confident is a Docker virtue and you know from your experiences that influence matters more than authority (egos need not apply - you know who you are)"
+        },
+        {
+          "type": "para",
+          "text": "Comfortable in a remote 1st company across ~8 timezones - really this means you are great at writing or other methods of reinforcing information sharing without literally being “at the front of the room”"
+        },
+        {
+          "type": "para",
+          "text": "Possess a growth mindset and demonstrate where you have learned new customers, markets and business models quickly - bonus only: you already have experience in dev tools, SaaS, cloud service and/or open source freemium models"
+        },
+        {
+          "type": "para",
+          "text": "Love for and success in a fast-growth scale up environment characterized by controlled chaos (sometimes described as: lack of resources, imperfect information, quickly-changing user markets and competitive landscape, and limited structure and guidance)"
+        },
+        {
+          "type": "para",
+          "text": "Bonus only: experience engaging with and enabling large developer communities"
+        },
+        {
+          "type": "para",
+          "text": "Prior experience as a coding engineer or evidence of successfully serving this user"
+        },
+        {
+          "type": "heading",
+          "text": "What to Expect"
+        },
+        {
+          "type": "heading",
+          "text": "In the first week, expect to:"
+        },
+        {
+          "type": "para",
+          "text": "Observe - get to know our: customers, product, team, and ways of working (we use OKRs)"
+        },
+        {
+          "type": "para",
+          "text": "Tell us where we got the expectations wrong below as you work to build a world class team and business"
+        },
+        {
+          "type": "heading",
+          "text": "In the first month, expect to:"
+        },
+        {
+          "type": "para",
+          "text": "Continue learning (we love a growth mindset here and believe in progress over perfection)"
+        },
+        {
+          "type": "para",
+          "text": "Orient to the team’s talents, current product direction, and the resulting metrics"
+        },
+        {
+          "type": "para",
+          "text": "Compile early observations about where we should investigate making adjustments to maximize return on invested engineering effort"
+        },
+        {
+          "type": "heading",
+          "text": "In the first three months, expect to:"
+        },
+        {
+          "type": "para",
+          "text": "Set goals (OKRs) with the team"
+        },
+        {
+          "type": "para",
+          "text": "Hiring a world class talent and making any needed adjustments to our hiring process in a collaborative way"
+        },
+        {
+          "type": "para",
+          "text": "Adjusting goals and roadmaps to help provide a better return on invested engineering effort"
+        },
+        {
+          "type": "heading",
+          "text": "In the first year, expect to:"
+        },
+        {
+          "type": "para",
+          "text": "Have made system wide impact on Docker’s product while changing the lives of millions of developers"
+        },
+        {
+          "type": "para",
+          "text": "Docker does not offer visa sponsorship for this role."
+        },
+        {
+          "type": "para",
+          "text": "Compensation & Equity"
+        },
+        {
+          "type": "para",
+          "text": "Canada: CA$316,400– CA$452,000 + equity"
+        },
+        {
+          "type": "para",
+          "text": "United States: $228,000 – $326,000+ equity"
+        },
+        {
+          "type": "para",
+          "text": "______________________________________________________________________"
+        },
+        {
+          "type": "heading",
+          "text": "Posting Information"
+        },
+        {
+          "type": "para",
+          "text": "Open vacancy: This posting is for an existing open role."
+        },
+        {
+          "type": "para",
+          "text": "AI in hiring: Docker may use AI-assisted tools during our recruiting process."
+        },
+        {
+          "type": "para",
+          "text": "Interview recordings: Candidates will be invited to opt in to interview recordings to support interviewer calibration and consistent evaluations. Recordings are optional and require explicit consent."
+        },
+        {
+          "type": "para",
+          "text": "______________________________________________________________________"
+        },
+        {
+          "type": "heading",
+          "text": "Perks & Benefits"
+        },
+        {
+          "type": "para",
+          "text": "Remote-first by design – Work from your home, with offices in Seattle and Paris for connection and collaboration."
+        },
+        {
+          "type": "para",
+          "text": "Flexibility that fits your life – We trust you to manage your schedule while delivering great work."
+        },
+        {
+          "type": "para",
+          "text": "Time to recharge – Generous PTO, designated quarterly Whaleness Days, and a designated end-of-year Whaleness break."
+        },
+        {
+          "type": "para",
+          "text": "Home office support – Set up your workspace for comfort and success."
+        },
+        {
+          "type": "para",
+          "text": "Technology stipend – Equivalent to US$100 net per month to help support your work."
+        },
+        {
+          "type": "para",
+          "text": "Learning & development – Annual stipend for conferences, courses, certifications, and continued learning."
+        },
+        {
+          "type": "para",
+          "text": "Parental leave – 16 weeks of paid parental leave after six months of employment."
+        },
+        {
+          "type": "para",
+          "text": "Equity for all full-time employees – Share in Docker's long-term success as we continue to grow."
+        },
+        {
+          "type": "para",
+          "text": "Comprehensive benefits – Medical, retirement, and paid holidays vary by country."
+        },
+        {
+          "type": "para",
+          "text": "Docker swag – Because representing the whale never gets old."
+        },
+        {
+          "type": "para",
+          "text": "Docker is proud to be an equal opportunity employer. We are committed to building a team that reflects a broad range of backgrounds, experiences, and perspectives. We believe diverse teams build better products, make better decisions, and better serve our global community."
+        },
+        {
+          "type": "para",
+          "text": "#LI-REMOTE"
+        }
+      ],
+      "requirements": [
+        "You have a favorite CLI, thoughts on how Docker could approve, and an opinion about pros and cons for various SDLC approaches",
+        "Evidence of many years of hands on product management across multiple product stages hopefully including some wisdom from prior efforts adding #2 to n products or SKUs",
+        "Foster a mindset of 10x rather than 10% thinking",
+        "Enjoy engagement with customers and users and iterating on ways to validate we are building what they need (not just what they say) before engineering work is complete",
+        "Operate from a presence over pretense mindset - humbly confident is a Docker virtue and you know from your experiences that influence matters more than authority (egos need not apply - you know who you are)",
+        "Comfortable in a remote 1st company across ~8 timezones - really this means you are great at writing or other methods of reinforcing information sharing without literally being “at the front of the room”",
+        "Possess a growth mindset and demonstrate where you have learned new customers, markets and business models quickly - bonus only: you already have experience in dev tools, SaaS, cloud service and/or open source freemium models",
+        "Love for and success in a fast-growth scale up environment characterized by controlled chaos (sometimes described as: lack of resources, imperfect information, quickly-changing user markets and competitive landscape, and limited structure and guidance)",
+        "Bonus only: experience engaging with and enabling large developer communities",
+        "Prior experience as a coding engineer or evidence of successfully serving this user"
+      ],
+      "location": {
+        "countryIso2": "US",
+        "countryName": "United States",
+        "region": "north-america",
+        "remote": false,
+        "raw": "Seattle, WA"
+      },
+      "seniority": "director",
+      "domain": "product",
+      "visa": "no",
+      "workMode": "remote",
+      "roleType": "full-time",
+      "salary": {
+        "min": 228000,
+        "max": 326000,
+        "currency": "USD",
+        "period": "annual",
+        "source": "stated"
+      },
+      "postedAt": "2026-09-09T17:46:20.560Z",
+      "firstSeen": "2026-09-21T17:14:25.885Z",
+      "updatedAt": "2026-09-21T17:14:25.885Z"
+    },
+    {
+      "id": "openai-field-cto-9334d1",
+      "title": "Field CTO",
+      "company": "OpenAI",
+      "applyUrl": "https://jobs.ashbyhq.com/openai/23239cae-2a91-4985-94d1-a2acbb3ffa25/application",
+      "sourceUrl": "https://jobs.ashbyhq.com/openai/23239cae-2a91-4985-94d1-a2acbb3ffa25",
+      "source": "ashby",
+      "sources": [
+        "ashby"
+      ],
+      "text": "About the Role\nAs a Field CTO (Strategic Pursuits), you will serve as a strategic bridge between our customers, go-to-market (GTM) teams, and product organization. You will partner closely with Sales, Technical Success, and Product to shape high-impact deals, guide customer architecture decisions, and influence our product roadmap based on real-world adoption and feedback.\nThis is a highly cross-functional, externally facing leadership role for someone who combines deep technical expertise with strong business acumen and customer empathy.\nIn this role, you will:\nCustomer & Deal Strategy\nPartner with Sales, Product and Technical Success teams to support complex, high-value deals as a technical and strategic advisor.\nTranslate customer business needs into scalable technical solutions and architectures.\nEngage with senior customer stakeholders (CTO/CIO/VP-level) to drive alignment on vision, roadmap, and adoption.\nLead technical strategy discussions during key deal stages, including discovery, solution design, and executive presentations.\nArchitecture & Implementation Guidance\nGuide customers on best practices for deploying and scaling AI-driven solutions in production.\nProvide architectural oversight across use cases such as LLM applications, integrations, data pipelines, and security.\nAct as a trusted advisor to ensure long-term success, not just short-term wins.\nProduct & Feedback Loop\nBring structured customer insights back to Product and Engineering teams to inform roadmap and prioritization.\nIdentify gaps, opportunities, and emerging patterns from customer deployments.\nInfluence product direction based on real-world usage, scalability needs, and enterprise requirements.\nGTM Strategy & Thought Leadership\nHelp shape GTM strategies by identifying repeatable patterns across industries and customer segments.\nDevelop scalable frameworks, reference architectures, and playbooks for broader field teams.\nRepresent the company externally through customer engagements, industry events, and thought leadership.\nExperience\n15+ years of experience in technical leadership roles.\nStrong background in enterprise architecture, cloud platforms, and modern software systems.\nExperience supporting enterprise sales cycles or working closely with GTM teams.\nExposure to AI/ML systems, especially LLMs and applied AI use cases, is highly preferred.\nSkills & Capabilities\nAbility to translate complex technical concepts into clear business value for non-technical stakeholders.\nStrong problem-solving skills with a bias for action and ownership.\nExcellent communication and executive presence.\nProven ability to influence without authority across cross-functional teams.\nAbout OpenAI\nOpenAI is an AI research and deployment company dedicated to ensuring that general-purpose artificial intelligence benefits all of humanity. We push the boundaries of the capabilities of AI systems and seek to safely deploy them to the world through our products. AI is an extremely powerful tool that must be created with safety and human needs at its core, and to achieve our mission, we must encompass and value the many different perspectives, voices, and experiences that form the full spectrum of humanity.\nWe are an equal opportunity employer, and we do not discriminate on the basis of race, religion, color, national origin, sex, sexual orientation, age, veteran status, disability, genetic information, or other applicable legally protected characteristic.\nFor additional information, please see OpenAI’s Affirmative Action and Equal Employment Opportunity Policy Statement.\nBackground checks for applicants will be administered in accordance with applicable law, and qualified applicants with arrest or conviction records will be considered for employment consistent with those laws, including the San Francisco Fair Chance Ordinance, the Los Angeles County Fair Chance Ordinance for Employers, and the California Fair Chance Act, for US-based candidates. For unincorporated Los Angeles County workers: we reasonably believe that criminal history may have a direct, adverse and negative relationship with the following job duties, potentially resulting in the withdrawal of a conditional offer of employment: protect computer hardware entrusted to you from theft, loss or damage; return all computer hardware in your possession (including the data contained therein) upon termination of employment or end of assignment; and maintain the confidentiality of proprietary, confidential, and non-public information. In addition, job duties require access to secure and protected information technology systems and related data security obligations.\nTo notify OpenAI that you believe this job posting is non-compliant, please submit a report through this form. No response will be provided to inquiries unrelated to job posting compliance.\nWe are committed to providing reasonable accommodations to applicants with disabilities, and requests can be made via this link.\nOpenAI Global Applicant Privacy Policy\nAt OpenAI, we believe artificial intelligence has the potential to help people solve immense global challenges, and we want the upside of AI to be widely shared. Join us in shaping the future of technology.",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "About the Role"
+        },
+        {
+          "type": "para",
+          "text": "As a Field CTO (Strategic Pursuits), you will serve as a strategic bridge between our customers, go-to-market (GTM) teams, and product organization. You will partner closely with Sales, Technical Success, and Product to shape high-impact deals, guide customer architecture decisions, and influence our product roadmap based on real-world adoption and feedback."
+        },
+        {
+          "type": "para",
+          "text": "This is a highly cross-functional, externally facing leadership role for someone who combines deep technical expertise with strong business acumen and customer empathy."
+        },
+        {
+          "type": "heading",
+          "text": "In this role, you will:"
+        },
+        {
+          "type": "heading",
+          "text": "Customer & Deal Strategy"
+        },
+        {
+          "type": "para",
+          "text": "Partner with Sales, Product and Technical Success teams to support complex, high-value deals as a technical and strategic advisor."
+        },
+        {
+          "type": "para",
+          "text": "Translate customer business needs into scalable technical solutions and architectures."
+        },
+        {
+          "type": "para",
+          "text": "Engage with senior customer stakeholders (CTO/CIO/VP-level) to drive alignment on vision, roadmap, and adoption."
+        },
+        {
+          "type": "para",
+          "text": "Lead technical strategy discussions during key deal stages, including discovery, solution design, and executive presentations."
+        },
+        {
+          "type": "heading",
+          "text": "Architecture & Implementation Guidance"
+        },
+        {
+          "type": "para",
+          "text": "Guide customers on best practices for deploying and scaling AI-driven solutions in production."
+        },
+        {
+          "type": "para",
+          "text": "Provide architectural oversight across use cases such as LLM applications, integrations, data pipelines, and security."
+        },
+        {
+          "type": "para",
+          "text": "Act as a trusted advisor to ensure long-term success, not just short-term wins."
+        },
+        {
+          "type": "heading",
+          "text": "Product & Feedback Loop"
+        },
+        {
+          "type": "para",
+          "text": "Bring structured customer insights back to Product and Engineering teams to inform roadmap and prioritization."
+        },
+        {
+          "type": "para",
+          "text": "Identify gaps, opportunities, and emerging patterns from customer deployments."
+        },
+        {
+          "type": "para",
+          "text": "Influence product direction based on real-world usage, scalability needs, and enterprise requirements."
+        },
+        {
+          "type": "heading",
+          "text": "GTM Strategy & Thought Leadership"
+        },
+        {
+          "type": "para",
+          "text": "Help shape GTM strategies by identifying repeatable patterns across industries and customer segments."
+        },
+        {
+          "type": "para",
+          "text": "Develop scalable frameworks, reference architectures, and playbooks for broader field teams."
+        },
+        {
+          "type": "para",
+          "text": "Represent the company externally through customer engagements, industry events, and thought leadership."
+        },
+        {
+          "type": "heading",
+          "text": "Experience"
+        },
+        {
+          "type": "para",
+          "text": "15+ years of experience in technical leadership roles."
+        },
+        {
+          "type": "para",
+          "text": "Strong background in enterprise architecture, cloud platforms, and modern software systems."
+        },
+        {
+          "type": "para",
+          "text": "Experience supporting enterprise sales cycles or working closely with GTM teams."
+        },
+        {
+          "type": "para",
+          "text": "Exposure to AI/ML systems, especially LLMs and applied AI use cases, is highly preferred."
+        },
+        {
+          "type": "heading",
+          "text": "Skills & Capabilities"
+        },
+        {
+          "type": "para",
+          "text": "Ability to translate complex technical concepts into clear business value for non-technical stakeholders."
+        },
+        {
+          "type": "para",
+          "text": "Strong problem-solving skills with a bias for action and ownership."
+        },
+        {
+          "type": "para",
+          "text": "Excellent communication and executive presence."
+        },
+        {
+          "type": "para",
+          "text": "Proven ability to influence without authority across cross-functional teams."
+        },
+        {
+          "type": "para",
+          "text": "About OpenAI"
+        },
+        {
+          "type": "para",
+          "text": "OpenAI is an AI research and deployment company dedicated to ensuring that general-purpose artificial intelligence benefits all of humanity. We push the boundaries of the capabilities of AI systems and seek to safely deploy them to the world through our products. AI is an extremely powerful tool that must be created with safety and human needs at its core, and to achieve our mission, we must encompass and value the many different perspectives, voices, and experiences that form the full spectrum of humanity."
+        },
+        {
+          "type": "para",
+          "text": "We are an equal opportunity employer, and we do not discriminate on the basis of race, religion, color, national origin, sex, sexual orientation, age, veteran status, disability, genetic information, or other applicable legally protected characteristic."
+        },
+        {
+          "type": "para",
+          "text": "For additional information, please see OpenAI’s Affirmative Action and Equal Employment Opportunity Policy Statement."
+        },
+        {
+          "type": "para",
+          "text": "Background checks for applicants will be administered in accordance with applicable law, and qualified applicants with arrest or conviction records will be considered for employment consistent with those laws, including the San Francisco Fair Chance Ordinance, the Los Angeles County Fair Chance Ordinance for Employers, and the California Fair Chance Act, for US-based candidates. For unincorporated Los Angeles County workers: we reasonably believe that criminal history may have a direct, adverse and negative relationship with the following job duties, potentially resulting in the withdrawal of a conditional offer of employment: protect computer hardware entrusted to you from theft, loss or damage; return all computer hardware in your possession (including the data contained therein) upon termination of employment or end of assignment; and maintain the confidentiality of proprietary, confidential, and non-public information. In addition, job duties require access to secure and protected information technology systems and related data security obligations."
+        },
+        {
+          "type": "para",
+          "text": "To notify OpenAI that you believe this job posting is non-compliant, please submit a report through this form. No response will be provided to inquiries unrelated to job posting compliance."
+        },
+        {
+          "type": "para",
+          "text": "We are committed to providing reasonable accommodations to applicants with disabilities, and requests can be made via this link."
+        },
+        {
+          "type": "para",
+          "text": "OpenAI Global Applicant Privacy Policy"
+        },
+        {
+          "type": "para",
+          "text": "At OpenAI, we believe artificial intelligence has the potential to help people solve immense global challenges, and we want the upside of AI to be widely shared. Join us in shaping the future of technology."
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "US",
+        "countryName": "United States",
+        "region": "north-america",
+        "remote": false,
+        "raw": "San Francisco"
+      },
+      "seniority": "cto",
+      "domain": "technology",
+      "visa": "unknown",
+      "workMode": "remote",
+      "roleType": "full-time",
+      "experienceMin": 15,
+      "salary": {
+        "min": 138060,
+        "max": 220730,
+        "currency": "USD",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "High",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-09-09T16:49:15.057Z",
+      "firstSeen": "2026-09-21T17:14:25.885Z",
+      "updatedAt": "2026-09-21T17:14:25.885Z"
+    },
+    {
       "id": "kurt-geiger-vp-of-technology-delivery-transformation-15c4f2",
       "title": "VP of Technology Delivery & Transformation",
       "company": "Kurt Geiger",
@@ -16046,6 +16546,297 @@
       "postedAt": "2026-09-08T20:17:26.148Z",
       "firstSeen": "2026-09-06T11:31:50.820Z",
       "updatedAt": "2026-09-13T10:30:55.497Z"
+    },
+    {
+      "id": "ashby-director-of-support-engineering-americas-643325",
+      "title": "Director of Support Engineering - Americas",
+      "company": "Ashby",
+      "applyUrl": "https://jobs.ashbyhq.com/ashby/bf3a9621-0ff5-4f6a-a90d-081562d4dad2/application",
+      "sourceUrl": "https://jobs.ashbyhq.com/ashby/bf3a9621-0ff5-4f6a-a90d-081562d4dad2",
+      "source": "ashby",
+      "sources": [
+        "ashby"
+      ],
+      "text": "Hello!\nI’m Allie, Head of Support at Ashby. I’m excited to share that we’re hiring a Director of Support Engineering in AMER.\nAs Ashby grows, our customers’ workflows, integrations, and technical environments become more complex. Support Engineering is the bridge that helps frontline Support investigate those issues, helps Engineering focus on confirmed defects and roadmap work, and turns technical customer issues into improvements across the product and support experience.\nWe’re looking for a leader to shape that bridge at scale. You’ll lead through a Support Engineering Manager and their team, partner closely with Support, Product, and Engineering leadership, and define the systems and standards that help a growing organization resolve complex issues with clarity, speed, and sound judgment.\nAbout the role\nSupport Engineering investigates the issues that require deeper technical understanding than frontline Support can provide. The team uses customer context, application behavior, logs, databases, integrations, APIs, and code-level context to determine whether an issue can be resolved through configuration, data correction, documentation, enablement, or an in-app change—or whether it is a product defect that Engineering needs to fix. Your role is to make that path clear and scalable: establish shared expectations across teams, ensure escalations are well validated and actionable, and help the organization learn from recurring patterns rather than treating each issue as an isolated event.\nYou’ll lead the strategic evolution of the function through strong partnership with Support Engineering managers, frontline Support, Product, and Engineering. You’ll shape routing, triage, escalation, and feedback mechanisms; build reporting that makes technical friction visible; and guide investments in diagnostics, tooling, documentation, and enablement. You’ll also help leaders make better tradeoffs between immediate customer resolution and durable product or process improvements.\nAs Director, you’ll directly manage the Support Engineering Manager and hold them accountable for team performance, technical quality, people development, and progress against the function’s priorities. You’ll set the vision for how Support Engineering grows with Ashby’s product surface area and customer complexity, while building the leadership structure, career paths, and operating model needed to scale over time.\nWhat you’ll own\nSet the vision and operating model for Support Engineering, aligning the function’s priorities with Ashby’s broader Customer Success goals.\nDirectly lead, coach, and develop the Support Engineering Manager through clear expectations, regular feedback, career support, and accountability for team health, technical quality, and customer outcomes.\nBuild shared operating standards across frontline Support, Support Engineering, Product, and Engineering for triage, investigation, documentation, escalation quality, ownership, and handoffs, while clarifying how technical issues move from Support intake through investigation to Engineering or Product partnership.\nPartner with Engineering and Product leadership to synthesize recurring technical customer patterns, improve supportability and operability, and influence prioritization of product, platform, tooling, and process improvements.\nEstablish the data and review mechanisms needed to understand escalation health, recurring friction, resolution speed, frontline self-sufficiency, customer effort, and the function’s influence on product priorities and supportability. Use these signals to guide improvements and develop the team over time.\nEvolve the organization’s structure, hiring plan, onboarding, career paths, and regional model as Support Engineering scales.\nBuild trust across leadership by making tradeoffs visible, communicating technical and customer impact clearly, and helping teams move forward when ownership or priorities are ambiguous.\nYou should apply if\nYou have led a Support Engineering, Technical Support, Developer Support, Production Support, or similarly technical function in a B2B SaaS or complex software environment.\nYou have led through managers or built a leadership layer, and know how to create clarity, accountability, and growth without becoming a bottleneck for decisions.\nYou have enough technical depth to reason about APIs, integrations, logs, databases, application behavior, architecture, and debugging approaches—and to earn the trust of experienced engineers.\nYou have shaped the boundary between frontline Support, Support Engineering, Product, and Engineering, including escalation criteria, triage practices, ownership, and feedback loops.\nYou have used data and recurring patterns to drive improvements in supportability, product quality, tooling, process, or Engineering prioritization.\nYou are energized by systems-level problems and can turn operational friction into a focused strategy, a useful first version, and measurable improvement.\nYou communicate clearly with technical and non-technical audiences, especially when explaining tradeoffs, uncertainty, customer impact, and recommended action to senior stakeholders. You communicate with concision and can compress a complex tradeoff into a few clear sentences for senior stakeholders.\nYou are a hands-on, customer-centric leader who can move between strategy, organizational design, technical details, and the day-to-day realities of supporting customers.\nYou think about scalable support systems through automation, self-serve, and AI-enhanced tooling applied with good judgment.\nYou should not apply if\nYou’re looking primarily for a people-management or queue-oversight role and do not want to shape technical workflows, escalation quality, or cross-functional operating models.\nMost of your experience is in internal IT, infrastructure, cloud operations, or systems administration without substantial experience with customer-impacting SaaS applications, technical support, or product supportability.\nYou prefer to operate within established systems rather than design new structures as a function and product organization grows.\nYou see Support Engineering primarily as a pass-through queue to Engineering rather than an investigation, enablement, and leverage layer that should help resolve more issues independently.\nYou’re uncomfortable influencing Engineering or Product priorities, challenging assumptions respectfully, or navigating tradeoffs between a quick resolution and a more scalable solution.\nYou prefer prolonged analysis or perfect certainty over making a well-reasoned decision, learning quickly, and improving the system in motion.\nAbout Ashby\nAshby builds a suite of products that helps talent leaders, recruiters, and hiring managers run their hiring process significantly better. We raised a $50M Series D in July 2025 and support nearly 5,000 customers, including Shopify, Snowflake, OpenAI, Deliveroo, and Confluent. We’re growing much faster than 100% year over year, with a team of roughly 300 people across 22+ countries. Learn more at ashbyhq.com.\nAbout Go To Market\nWe view our Support team as an extension of the product itself, one that ensures an optimal customer experience for customers ranging across all market segments. Here are a few points that should give you an idea of what it is like to work with us:\nWe spend a lot of time building best-in-class products since we believe a highly differentiated product is easier to sell.\nWe also spend a lot of time building a best-in-class customer experience. We aim to offer deep expertise whenever we interact with prospects and customers.\nWe strongly believe that small teams with very talented people and the right work environment deliver much better performance than teams with large headcount.\nWe value a strong sense of ownership, principled thinking over experience, and thoughtful communication (we put a lot of effort into using the right communication channels) - we’ll get into these and other values during the hiring process. You can take a look at our Leadership Principles to get a sense of what we value in People Leaders at Ashby.\nInterview process\nOur interview process is thorough and designed to give you enough information to assess whether Ashby is the right fit for you, while helping us evaluate technical leadership, people management, communication, judgment, and cross-functional collaboration.\nIntro call with Recruiting — 30 min\nHiring Manager interview — 45 min\nTake-home assessment - 5 days to complete\nSupport Leadership — 30 min\nFounder interview — 30 min\nVirtual Onsite — 75 min\nEngineering Partnership — 30 min\nSupport Eng Team — 30 min\nClosing Questions — 15 min\nBenefits\nBenefits vary by country and are shared in more detail during the process. International employees receive statutory benefits and, where available, employer-paid supplemental health coverage.\n10-year exercise window for stock options. You shouldn’t feel pressure to purchase stock options if you leave Ashby—do it when you feel financially comfortable.\nUnlimited PTO with four weeks recommended per year. Expect “Vacation?” in our one-on-one agenda until you start taking it 😅\nTwelve weeks of fully paid family leave in the US. We plan to expand this to employees in other countries as situations arise.\nA $1,200 annual learning and professional-development budget.\nA one-time $2,000 home-office setup budget for furniture, monitors, peripherals, and ergonomic equipment, plus a company-provided laptop.\nExtended health benefits for you and your dependents (subject to availability with our Employer of Record)\nOpportunities to spend time with teammates through an annual company offsite, team offsites, local meetups, and virtual events.\nAshby provides equal employment opportunities (EEO) to all employees and applicants for employment without regard to race, color, religion, sex, national origin, age, disability, genetics, sexual orientation, gender identity, or gender expression. We are committed to a diverse and inclusive workforce and welcome people from all backgrounds, experiences, perspectives, and abilities.\nAshby is committed to a fair and transparent hiring process. We confirm that this advertisement is for an active, existing vacancy within our organization. Please be advised that we may use artificial intelligence-driven tools to assist our recruitment team in screening, assessing, and selecting candidates for this position.",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Hello!"
+        },
+        {
+          "type": "para",
+          "text": "I’m Allie, Head of Support at Ashby. I’m excited to share that we’re hiring a Director of Support Engineering in AMER."
+        },
+        {
+          "type": "para",
+          "text": "As Ashby grows, our customers’ workflows, integrations, and technical environments become more complex. Support Engineering is the bridge that helps frontline Support investigate those issues, helps Engineering focus on confirmed defects and roadmap work, and turns technical customer issues into improvements across the product and support experience."
+        },
+        {
+          "type": "para",
+          "text": "We’re looking for a leader to shape that bridge at scale. You’ll lead through a Support Engineering Manager and their team, partner closely with Support, Product, and Engineering leadership, and define the systems and standards that help a growing organization resolve complex issues with clarity, speed, and sound judgment."
+        },
+        {
+          "type": "heading",
+          "text": "About the role"
+        },
+        {
+          "type": "para",
+          "text": "Support Engineering investigates the issues that require deeper technical understanding than frontline Support can provide. The team uses customer context, application behavior, logs, databases, integrations, APIs, and code-level context to determine whether an issue can be resolved through configuration, data correction, documentation, enablement, or an in-app change—or whether it is a product defect that Engineering needs to fix. Your role is to make that path clear and scalable: establish shared expectations across teams, ensure escalations are well validated and actionable, and help the organization learn from recurring patterns rather than treating each issue as an isolated event."
+        },
+        {
+          "type": "para",
+          "text": "You’ll lead the strategic evolution of the function through strong partnership with Support Engineering managers, frontline Support, Product, and Engineering. You’ll shape routing, triage, escalation, and feedback mechanisms; build reporting that makes technical friction visible; and guide investments in diagnostics, tooling, documentation, and enablement. You’ll also help leaders make better tradeoffs between immediate customer resolution and durable product or process improvements."
+        },
+        {
+          "type": "para",
+          "text": "As Director, you’ll directly manage the Support Engineering Manager and hold them accountable for team performance, technical quality, people development, and progress against the function’s priorities. You’ll set the vision for how Support Engineering grows with Ashby’s product surface area and customer complexity, while building the leadership structure, career paths, and operating model needed to scale over time."
+        },
+        {
+          "type": "heading",
+          "text": "What you’ll own"
+        },
+        {
+          "type": "para",
+          "text": "Set the vision and operating model for Support Engineering, aligning the function’s priorities with Ashby’s broader Customer Success goals."
+        },
+        {
+          "type": "para",
+          "text": "Directly lead, coach, and develop the Support Engineering Manager through clear expectations, regular feedback, career support, and accountability for team health, technical quality, and customer outcomes."
+        },
+        {
+          "type": "para",
+          "text": "Build shared operating standards across frontline Support, Support Engineering, Product, and Engineering for triage, investigation, documentation, escalation quality, ownership, and handoffs, while clarifying how technical issues move from Support intake through investigation to Engineering or Product partnership."
+        },
+        {
+          "type": "para",
+          "text": "Partner with Engineering and Product leadership to synthesize recurring technical customer patterns, improve supportability and operability, and influence prioritization of product, platform, tooling, and process improvements."
+        },
+        {
+          "type": "para",
+          "text": "Establish the data and review mechanisms needed to understand escalation health, recurring friction, resolution speed, frontline self-sufficiency, customer effort, and the function’s influence on product priorities and supportability. Use these signals to guide improvements and develop the team over time."
+        },
+        {
+          "type": "para",
+          "text": "Evolve the organization’s structure, hiring plan, onboarding, career paths, and regional model as Support Engineering scales."
+        },
+        {
+          "type": "para",
+          "text": "Build trust across leadership by making tradeoffs visible, communicating technical and customer impact clearly, and helping teams move forward when ownership or priorities are ambiguous."
+        },
+        {
+          "type": "heading",
+          "text": "You should apply if"
+        },
+        {
+          "type": "para",
+          "text": "You have led a Support Engineering, Technical Support, Developer Support, Production Support, or similarly technical function in a B2B SaaS or complex software environment."
+        },
+        {
+          "type": "para",
+          "text": "You have led through managers or built a leadership layer, and know how to create clarity, accountability, and growth without becoming a bottleneck for decisions."
+        },
+        {
+          "type": "para",
+          "text": "You have enough technical depth to reason about APIs, integrations, logs, databases, application behavior, architecture, and debugging approaches—and to earn the trust of experienced engineers."
+        },
+        {
+          "type": "para",
+          "text": "You have shaped the boundary between frontline Support, Support Engineering, Product, and Engineering, including escalation criteria, triage practices, ownership, and feedback loops."
+        },
+        {
+          "type": "para",
+          "text": "You have used data and recurring patterns to drive improvements in supportability, product quality, tooling, process, or Engineering prioritization."
+        },
+        {
+          "type": "para",
+          "text": "You are energized by systems-level problems and can turn operational friction into a focused strategy, a useful first version, and measurable improvement."
+        },
+        {
+          "type": "para",
+          "text": "You communicate clearly with technical and non-technical audiences, especially when explaining tradeoffs, uncertainty, customer impact, and recommended action to senior stakeholders. You communicate with concision and can compress a complex tradeoff into a few clear sentences for senior stakeholders."
+        },
+        {
+          "type": "para",
+          "text": "You are a hands-on, customer-centric leader who can move between strategy, organizational design, technical details, and the day-to-day realities of supporting customers."
+        },
+        {
+          "type": "para",
+          "text": "You think about scalable support systems through automation, self-serve, and AI-enhanced tooling applied with good judgment."
+        },
+        {
+          "type": "heading",
+          "text": "You should not apply if"
+        },
+        {
+          "type": "para",
+          "text": "You’re looking primarily for a people-management or queue-oversight role and do not want to shape technical workflows, escalation quality, or cross-functional operating models."
+        },
+        {
+          "type": "para",
+          "text": "Most of your experience is in internal IT, infrastructure, cloud operations, or systems administration without substantial experience with customer-impacting SaaS applications, technical support, or product supportability."
+        },
+        {
+          "type": "para",
+          "text": "You prefer to operate within established systems rather than design new structures as a function and product organization grows."
+        },
+        {
+          "type": "para",
+          "text": "You see Support Engineering primarily as a pass-through queue to Engineering rather than an investigation, enablement, and leverage layer that should help resolve more issues independently."
+        },
+        {
+          "type": "para",
+          "text": "You’re uncomfortable influencing Engineering or Product priorities, challenging assumptions respectfully, or navigating tradeoffs between a quick resolution and a more scalable solution."
+        },
+        {
+          "type": "para",
+          "text": "You prefer prolonged analysis or perfect certainty over making a well-reasoned decision, learning quickly, and improving the system in motion."
+        },
+        {
+          "type": "heading",
+          "text": "About Ashby"
+        },
+        {
+          "type": "para",
+          "text": "Ashby builds a suite of products that helps talent leaders, recruiters, and hiring managers run their hiring process significantly better. We raised a $50M Series D in July 2025 and support nearly 5,000 customers, including Shopify, Snowflake, OpenAI, Deliveroo, and Confluent. We’re growing much faster than 100% year over year, with a team of roughly 300 people across 22+ countries. Learn more at ashbyhq.com."
+        },
+        {
+          "type": "heading",
+          "text": "About Go To Market"
+        },
+        {
+          "type": "para",
+          "text": "We view our Support team as an extension of the product itself, one that ensures an optimal customer experience for customers ranging across all market segments. Here are a few points that should give you an idea of what it is like to work with us:"
+        },
+        {
+          "type": "para",
+          "text": "We spend a lot of time building best-in-class products since we believe a highly differentiated product is easier to sell."
+        },
+        {
+          "type": "para",
+          "text": "We also spend a lot of time building a best-in-class customer experience. We aim to offer deep expertise whenever we interact with prospects and customers."
+        },
+        {
+          "type": "para",
+          "text": "We strongly believe that small teams with very talented people and the right work environment deliver much better performance than teams with large headcount."
+        },
+        {
+          "type": "para",
+          "text": "We value a strong sense of ownership, principled thinking over experience, and thoughtful communication (we put a lot of effort into using the right communication channels) - we’ll get into these and other values during the hiring process. You can take a look at our Leadership Principles to get a sense of what we value in People Leaders at Ashby."
+        },
+        {
+          "type": "heading",
+          "text": "Interview process"
+        },
+        {
+          "type": "para",
+          "text": "Our interview process is thorough and designed to give you enough information to assess whether Ashby is the right fit for you, while helping us evaluate technical leadership, people management, communication, judgment, and cross-functional collaboration."
+        },
+        {
+          "type": "para",
+          "text": "Intro call with Recruiting — 30 min"
+        },
+        {
+          "type": "para",
+          "text": "Hiring Manager interview — 45 min"
+        },
+        {
+          "type": "para",
+          "text": "Take-home assessment - 5 days to complete"
+        },
+        {
+          "type": "para",
+          "text": "Support Leadership — 30 min"
+        },
+        {
+          "type": "para",
+          "text": "Founder interview — 30 min"
+        },
+        {
+          "type": "para",
+          "text": "Virtual Onsite — 75 min"
+        },
+        {
+          "type": "para",
+          "text": "Engineering Partnership — 30 min"
+        },
+        {
+          "type": "para",
+          "text": "Support Eng Team — 30 min"
+        },
+        {
+          "type": "para",
+          "text": "Closing Questions — 15 min"
+        },
+        {
+          "type": "heading",
+          "text": "Benefits"
+        },
+        {
+          "type": "para",
+          "text": "Benefits vary by country and are shared in more detail during the process. International employees receive statutory benefits and, where available, employer-paid supplemental health coverage."
+        },
+        {
+          "type": "para",
+          "text": "10-year exercise window for stock options. You shouldn’t feel pressure to purchase stock options if you leave Ashby—do it when you feel financially comfortable."
+        },
+        {
+          "type": "para",
+          "text": "Unlimited PTO with four weeks recommended per year. Expect “Vacation?” in our one-on-one agenda until you start taking it 😅"
+        },
+        {
+          "type": "para",
+          "text": "Twelve weeks of fully paid family leave in the US. We plan to expand this to employees in other countries as situations arise."
+        },
+        {
+          "type": "para",
+          "text": "A $1,200 annual learning and professional-development budget."
+        },
+        {
+          "type": "para",
+          "text": "A one-time $2,000 home-office setup budget for furniture, monitors, peripherals, and ergonomic equipment, plus a company-provided laptop."
+        },
+        {
+          "type": "para",
+          "text": "Extended health benefits for you and your dependents (subject to availability with our Employer of Record)"
+        },
+        {
+          "type": "para",
+          "text": "Opportunities to spend time with teammates through an annual company offsite, team offsites, local meetups, and virtual events."
+        },
+        {
+          "type": "para",
+          "text": "Ashby provides equal employment opportunities (EEO) to all employees and applicants for employment without regard to race, color, religion, sex, national origin, age, disability, genetics, sexual orientation, gender identity, or gender expression. We are committed to a diverse and inclusive workforce and welcome people from all backgrounds, experiences, perspectives, and abilities."
+        },
+        {
+          "type": "para",
+          "text": "Ashby is committed to a fair and transparent hiring process. We confirm that this advertisement is for an active, existing vacancy within our organization. Please be advised that we may use artificial intelligence-driven tools to assist our recruitment team in screening, assessing, and selecting candidates for this position."
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "US",
+        "countryName": "United States",
+        "region": "north-america",
+        "remote": true,
+        "raw": "Remote - US"
+      },
+      "seniority": "director",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "onsite",
+      "roleType": "full-time",
+      "salary": {
+        "min": 138060,
+        "max": 220730,
+        "currency": "USD",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "High",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-09-08T15:49:59.619Z",
+      "firstSeen": "2026-09-21T17:14:25.885Z",
+      "updatedAt": "2026-09-21T17:14:25.885Z"
     },
     {
       "id": "cp-axtra-director-software-engineering-technology-3f729d",
@@ -31068,6 +31859,284 @@
       "updatedAt": "2026-09-13T10:30:55.497Z"
     },
     {
+      "id": "docker-field-cto-c3b9d7",
+      "title": "Field CTO",
+      "company": "Docker",
+      "applyUrl": "https://jobs.ashbyhq.com/docker/bb2d6ff4-e338-4e61-a343-75084e71756f/application",
+      "sourceUrl": "https://jobs.ashbyhq.com/docker/bb2d6ff4-e338-4e61-a343-75084e71756f",
+      "source": "ashby",
+      "sources": [
+        "ashby"
+      ],
+      "text": "About Docker\nDocker has been one of the most loved brands in developer tooling, trusted by more than 20 million monthly users and over 20 billion container image pulls. From solo founders to the world's largest companies, developers rely on Docker to build, share, and run their applications across our suite of products including Docker Desktop, Docker Hub, and Docker Scout.\nWe are a globally distributed, remote-first team building the tools that define how software gets built and delivered. As AI agents redefine software development, Docker is at the center of that shift, providing the sandboxed environments, verified images, and secure infrastructure that make autonomous workflows trustworthy by default.\n_______________________________________________________________________\nThe Field CTO will serve as the senior technical voice across Docker’s global sales and customer organization. This leader acts as a trusted advisor to strategic customers, helping them align Docker’s platform capabilities to their modernization, AI, and software supply chain initiatives. The Field CTO partners closely with Sales, Solutions Engineering, Product, and Marketing to influence both customer strategy and Docker’s technical direction in the market.\nThis is a thought leadership and influence role, not an operational engineering or implementation position. The ideal candidate combines executive-level communication, broad architectural depth, and commercial acumen to drive business outcomes through technology.\nResponsibilities\nServe as Docker’s senior customer-facing technology advocate, shaping the technical vision in key enterprise accounts and partnerships.\nAct as a strategic advisor to CxOs, helping them define and realize outcomes around developer productivity, secure software supply chains, and AI-driven development.\nPartner with Sales leadership to accelerate large, complex opportunities by guiding technical alignment and executive confidence in Docker’s architecture and roadmap.\nRepresent Docker externally at industry events, executive briefings, and partner engagements, helping to articulate our value and thought leadership.\nCollaborate with Product and Engineering to provide strategic customer feedback that influences roadmap priorities.\nBuild trusted relationships across key accounts, ensuring alignment between technical capabilities and customer outcomes.\nMentor Solutions Engineers and Technical Account Managers, raising the overall level of technical sales acumen and executive communication.\nDevelop reusable strategic narratives and technical blueprints that enable the field to engage at a higher, outcome-oriented level.\nPartner cross-functionally with Marketing to shape external messaging and thought leadership content aligned with customer priorities.\nQualifications\nRequired:\n15+ years of experience in enterprise technology, including significant time in customer-facing roles or internally facing leadership roles (Field CTO, Principal Architect, Distinguished Engineer, or similar).\nProven success engaging executive stakeholders to align technology strategy with business outcomes.\nDeep understanding of modern application architectures, containers, and developer platforms.\nExpertise in software supply chain security, developer productivity, and AI/ML infrastructure.\nExceptional communication and presentation skills, with a demonstrated ability to influence at the C-suite level.\nStrong commercial and business orientation; able to link technical decisions to revenue outcomes.\nPreferred:\nExperience working with or building on Docker, Kubernetes, or container-native platforms.\nFamiliarity with large-scale CI/CD, cloud-native architectures, and multi-cloud deployments.\nExperience with Generative AI/Agentic tooling platforms (security, orchestration, configuration)\nPrior background in pre-sales, solutions architecture, or technical evangelism.\nThought leadership experience through conferences, blogs, or open-source contributions.\nBachelor’s or advanced degree in Computer Science, Engineering, or related field.\nWhat to Expect\n30 Days\nGain a strong understanding of Docker’s go-to-market strategy, customer segments, and product portfolio. Begin building relationships with Sales and Product leadership.\n60 Days\nActively support key enterprise opportunities by shaping technical strategy and executive messaging. Begin representing Docker in select customer and industry settings.\n6 Months\nBe recognized as a trusted advisor across strategic accounts and a key contributor to product and GTM strategy. Drive measurable influence on revenue growth, customer success, and brand perception as a technical thought leader.\nDocker does not offer visa sponsorship for this role.\nCompensation & Equity\nEU: €200K – €286K OTE + equity\n______________________________________________________________________\nPosting Information\nOpen vacancy: This posting is for an existing open role.\nAI in hiring: Docker may use AI-assisted tools during our recruiting process.\nInterview recordings: Candidates will be invited to opt in to interview recordings to support interviewer calibration and consistent evaluations. Recordings are optional and require explicit consent.\n______________________________________________________________________\nPerks & Benefits\nRemote-first by design – Work from your home, with offices in Seattle and Paris for connection and collaboration.\nFlexibility that fits your life – We trust you to manage your schedule while delivering great work.\nTime to recharge – Generous PTO, designated quarterly Whaleness Days, and a designated end-of-year Whaleness break.\nHome office support – Set up your workspace for comfort and success.\nTechnology stipend – Equivalent to US$100 net per month to help support your work.\nLearning & development – Annual stipend for conferences, courses, certifications, and continued learning.\nParental leave – 16 weeks of paid parental leave after six months of employment.\nEquity for all full-time employees – Share in Docker's long-term success as we continue to grow.\nComprehensive benefits – Medical, retirement, and paid holidays vary by country.\nDocker swag – Because representing the whale never gets old.\nDocker is proud to be an equal opportunity employer. We are committed to building a team that reflects a broad range of backgrounds, experiences, and perspectives. We believe diverse teams build better products, make better decisions, and better serve our global community.\n#LI-REMOTE",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "About Docker"
+        },
+        {
+          "type": "para",
+          "text": "Docker has been one of the most loved brands in developer tooling, trusted by more than 20 million monthly users and over 20 billion container image pulls. From solo founders to the world's largest companies, developers rely on Docker to build, share, and run their applications across our suite of products including Docker Desktop, Docker Hub, and Docker Scout."
+        },
+        {
+          "type": "para",
+          "text": "We are a globally distributed, remote-first team building the tools that define how software gets built and delivered. As AI agents redefine software development, Docker is at the center of that shift, providing the sandboxed environments, verified images, and secure infrastructure that make autonomous workflows trustworthy by default."
+        },
+        {
+          "type": "para",
+          "text": "_______________________________________________________________________"
+        },
+        {
+          "type": "para",
+          "text": "The Field CTO will serve as the senior technical voice across Docker’s global sales and customer organization. This leader acts as a trusted advisor to strategic customers, helping them align Docker’s platform capabilities to their modernization, AI, and software supply chain initiatives. The Field CTO partners closely with Sales, Solutions Engineering, Product, and Marketing to influence both customer strategy and Docker’s technical direction in the market."
+        },
+        {
+          "type": "para",
+          "text": "This is a thought leadership and influence role, not an operational engineering or implementation position. The ideal candidate combines executive-level communication, broad architectural depth, and commercial acumen to drive business outcomes through technology."
+        },
+        {
+          "type": "heading",
+          "text": "Responsibilities"
+        },
+        {
+          "type": "para",
+          "text": "Serve as Docker’s senior customer-facing technology advocate, shaping the technical vision in key enterprise accounts and partnerships."
+        },
+        {
+          "type": "para",
+          "text": "Act as a strategic advisor to CxOs, helping them define and realize outcomes around developer productivity, secure software supply chains, and AI-driven development."
+        },
+        {
+          "type": "para",
+          "text": "Partner with Sales leadership to accelerate large, complex opportunities by guiding technical alignment and executive confidence in Docker’s architecture and roadmap."
+        },
+        {
+          "type": "para",
+          "text": "Represent Docker externally at industry events, executive briefings, and partner engagements, helping to articulate our value and thought leadership."
+        },
+        {
+          "type": "para",
+          "text": "Collaborate with Product and Engineering to provide strategic customer feedback that influences roadmap priorities."
+        },
+        {
+          "type": "para",
+          "text": "Build trusted relationships across key accounts, ensuring alignment between technical capabilities and customer outcomes."
+        },
+        {
+          "type": "para",
+          "text": "Mentor Solutions Engineers and Technical Account Managers, raising the overall level of technical sales acumen and executive communication."
+        },
+        {
+          "type": "para",
+          "text": "Develop reusable strategic narratives and technical blueprints that enable the field to engage at a higher, outcome-oriented level."
+        },
+        {
+          "type": "para",
+          "text": "Partner cross-functionally with Marketing to shape external messaging and thought leadership content aligned with customer priorities."
+        },
+        {
+          "type": "heading",
+          "text": "Qualifications"
+        },
+        {
+          "type": "heading",
+          "text": "Required:"
+        },
+        {
+          "type": "para",
+          "text": "15+ years of experience in enterprise technology, including significant time in customer-facing roles or internally facing leadership roles (Field CTO, Principal Architect, Distinguished Engineer, or similar)."
+        },
+        {
+          "type": "para",
+          "text": "Proven success engaging executive stakeholders to align technology strategy with business outcomes."
+        },
+        {
+          "type": "para",
+          "text": "Deep understanding of modern application architectures, containers, and developer platforms."
+        },
+        {
+          "type": "para",
+          "text": "Expertise in software supply chain security, developer productivity, and AI/ML infrastructure."
+        },
+        {
+          "type": "para",
+          "text": "Exceptional communication and presentation skills, with a demonstrated ability to influence at the C-suite level."
+        },
+        {
+          "type": "para",
+          "text": "Strong commercial and business orientation; able to link technical decisions to revenue outcomes."
+        },
+        {
+          "type": "heading",
+          "text": "Preferred:"
+        },
+        {
+          "type": "para",
+          "text": "Experience working with or building on Docker, Kubernetes, or container-native platforms."
+        },
+        {
+          "type": "para",
+          "text": "Familiarity with large-scale CI/CD, cloud-native architectures, and multi-cloud deployments."
+        },
+        {
+          "type": "para",
+          "text": "Experience with Generative AI/Agentic tooling platforms (security, orchestration, configuration)"
+        },
+        {
+          "type": "para",
+          "text": "Prior background in pre-sales, solutions architecture, or technical evangelism."
+        },
+        {
+          "type": "para",
+          "text": "Thought leadership experience through conferences, blogs, or open-source contributions."
+        },
+        {
+          "type": "para",
+          "text": "Bachelor’s or advanced degree in Computer Science, Engineering, or related field."
+        },
+        {
+          "type": "heading",
+          "text": "What to Expect"
+        },
+        {
+          "type": "heading",
+          "text": "30 Days"
+        },
+        {
+          "type": "para",
+          "text": "Gain a strong understanding of Docker’s go-to-market strategy, customer segments, and product portfolio. Begin building relationships with Sales and Product leadership."
+        },
+        {
+          "type": "heading",
+          "text": "60 Days"
+        },
+        {
+          "type": "para",
+          "text": "Actively support key enterprise opportunities by shaping technical strategy and executive messaging. Begin representing Docker in select customer and industry settings."
+        },
+        {
+          "type": "heading",
+          "text": "6 Months"
+        },
+        {
+          "type": "para",
+          "text": "Be recognized as a trusted advisor across strategic accounts and a key contributor to product and GTM strategy. Drive measurable influence on revenue growth, customer success, and brand perception as a technical thought leader."
+        },
+        {
+          "type": "para",
+          "text": "Docker does not offer visa sponsorship for this role."
+        },
+        {
+          "type": "para",
+          "text": "Compensation & Equity"
+        },
+        {
+          "type": "para",
+          "text": "EU: €200K – €286K OTE + equity"
+        },
+        {
+          "type": "para",
+          "text": "______________________________________________________________________"
+        },
+        {
+          "type": "heading",
+          "text": "Posting Information"
+        },
+        {
+          "type": "para",
+          "text": "Open vacancy: This posting is for an existing open role."
+        },
+        {
+          "type": "para",
+          "text": "AI in hiring: Docker may use AI-assisted tools during our recruiting process."
+        },
+        {
+          "type": "para",
+          "text": "Interview recordings: Candidates will be invited to opt in to interview recordings to support interviewer calibration and consistent evaluations. Recordings are optional and require explicit consent."
+        },
+        {
+          "type": "para",
+          "text": "______________________________________________________________________"
+        },
+        {
+          "type": "heading",
+          "text": "Perks & Benefits"
+        },
+        {
+          "type": "para",
+          "text": "Remote-first by design – Work from your home, with offices in Seattle and Paris for connection and collaboration."
+        },
+        {
+          "type": "para",
+          "text": "Flexibility that fits your life – We trust you to manage your schedule while delivering great work."
+        },
+        {
+          "type": "para",
+          "text": "Time to recharge – Generous PTO, designated quarterly Whaleness Days, and a designated end-of-year Whaleness break."
+        },
+        {
+          "type": "para",
+          "text": "Home office support – Set up your workspace for comfort and success."
+        },
+        {
+          "type": "para",
+          "text": "Technology stipend – Equivalent to US$100 net per month to help support your work."
+        },
+        {
+          "type": "para",
+          "text": "Learning & development – Annual stipend for conferences, courses, certifications, and continued learning."
+        },
+        {
+          "type": "para",
+          "text": "Parental leave – 16 weeks of paid parental leave after six months of employment."
+        },
+        {
+          "type": "para",
+          "text": "Equity for all full-time employees – Share in Docker's long-term success as we continue to grow."
+        },
+        {
+          "type": "para",
+          "text": "Comprehensive benefits – Medical, retirement, and paid holidays vary by country."
+        },
+        {
+          "type": "para",
+          "text": "Docker swag – Because representing the whale never gets old."
+        },
+        {
+          "type": "para",
+          "text": "Docker is proud to be an equal opportunity employer. We are committed to building a team that reflects a broad range of backgrounds, experiences, and perspectives. We believe diverse teams build better products, make better decisions, and better serve our global community."
+        },
+        {
+          "type": "para",
+          "text": "#LI-REMOTE"
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "GB",
+        "countryName": "United Kingdom",
+        "region": "europe",
+        "remote": false,
+        "raw": "England"
+      },
+      "seniority": "cto",
+      "domain": "technology",
+      "visa": "no",
+      "workMode": "remote",
+      "roleType": "full-time",
+      "experienceMin": 15,
+      "salary": {
+        "min": 200000,
+        "max": 286000,
+        "currency": "EUR",
+        "period": "annual",
+        "source": "stated"
+      },
+      "postedAt": "2026-08-13T14:33:47.856Z",
+      "firstSeen": "2026-09-21T17:14:25.885Z",
+      "updatedAt": "2026-09-21T17:14:25.885Z"
+    },
+    {
       "id": "klaviyo-director-site-reliability-engineering-72d34b",
       "title": "Director, Site Reliability Engineering",
       "company": "Klaviyo",
@@ -41611,6 +42680,130 @@
       "updatedAt": "2026-09-20T17:57:09.240Z"
     },
     {
+      "id": "cursor-regional-director-field-engineering-heal-7d83c2",
+      "title": "Regional Director, Field Engineering, Healthcare",
+      "company": "Cursor",
+      "applyUrl": "https://jobs.ashbyhq.com/cursor/646f20fa-9cea-4a23-a245-4339619a5497/application",
+      "sourceUrl": "https://jobs.ashbyhq.com/cursor/646f20fa-9cea-4a23-a245-4339619a5497",
+      "source": "ashby",
+      "sources": [
+        "ashby"
+      ],
+      "text": "Our mission is to automate coding. The first step in our journey is to build the best tool for professional programmers, using a combination of inventive research, design, and engineering. Our organization is very flat, and our team is small and talent dense. We particularly like people who are truth-seeking, passionate, and creative. We enjoy spirited debate, crazy ideas, and shipping code.\nAbout the role\nWe're hiring a Regional Director, Field Engineering to build and lead a high impact pre-sales Field Engineering team focused on SpaceXAI's healthcare vertical — supporting our fastest growing enterprise accounts across health systems, payers, and healthcare software companies. This role sits at the intersection of Sales, Product, and Engineering and is responsible for ensuring our technical pre-sales motion scales with quality, speed, and credibility.\nAs the Regional Director, Field Engineering, you’ll manage and develop Field Engineers who partner closely with AEs to run technical discovery, demos, and proofs of concept tailored to Healthcare buyers. You’ll also stay close to customers and deals yourself, coaching in real time, unblocking complex evaluations, and ensuring Cursor is positioned as the best AI-native development platform for healthcare engineering organizations.\nThis is a hands-on leadership role for someone who combines technical fluency, strong people management, and excellent cross-functional judgment.\nWhat you’ll do\nLead, coach, and scale a team of Field Engineers supporting enterprise opportunities\nPartner closely with Sales leadership and AEs to drive high quality technical discovery, demos, and POCs\nEstablish best practices for evaluations, proof-of-concept execution, and technical deal strategy, accounting for healthcare-specific requirements (HIPAA, data governance, legacy systems integration)\nServe as an escalation point for complex customer evaluations and high-stakes enterprise deals in the healthcare space\nHire, onboard, and develop top-tier Field Engineering talent with healthcare or regulated-industry domain experience; set clear expectations and career paths\nAct as the voice of the field internally, feeding customer and prospect insights back to Product and Engineering\nEnsure tight handoffs with post-sales teams to support successful customer onboarding and adoption\nMaintain deep knowledge of Cursor’s product, roadmap, and competitive landscape\nYou may be a fit if\nYou have 4+ years experience leading Field Engineers, Solutions Architects, or Pre-Sales teams in enterprise software, with meaningful exposure to healthcare, health tech, or another regulated industry\nYou have direct experience navigating healthcare buyer environments — health systems, payers, or healthcare software vendors — including compliance, security, and procurement dynamics specific to the space\nYou have proven your ability to partner effectively with Sales while maintaining technical integrity and customer trust\nYou are comfortable operating in customer-facing, high-pressure deal environments and guiding teams through complexity\nYou have strong communication skills and executive presence, and can engage developers, architects, CTOs, and healthcare IT leadership\nYou have a builder mindset: you thrive in fast-moving, startup environments and enjoy creating structure where little exists",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "Our mission is to automate coding. The first step in our journey is to build the best tool for professional programmers, using a combination of inventive research, design, and engineering. Our organization is very flat, and our team is small and talent dense. We particularly like people who are truth-seeking, passionate, and creative. We enjoy spirited debate, crazy ideas, and shipping code."
+        },
+        {
+          "type": "heading",
+          "text": "About the role"
+        },
+        {
+          "type": "para",
+          "text": "We're hiring a Regional Director, Field Engineering to build and lead a high impact pre-sales Field Engineering team focused on SpaceXAI's healthcare vertical — supporting our fastest growing enterprise accounts across health systems, payers, and healthcare software companies. This role sits at the intersection of Sales, Product, and Engineering and is responsible for ensuring our technical pre-sales motion scales with quality, speed, and credibility."
+        },
+        {
+          "type": "para",
+          "text": "As the Regional Director, Field Engineering, you’ll manage and develop Field Engineers who partner closely with AEs to run technical discovery, demos, and proofs of concept tailored to Healthcare buyers. You’ll also stay close to customers and deals yourself, coaching in real time, unblocking complex evaluations, and ensuring Cursor is positioned as the best AI-native development platform for healthcare engineering organizations."
+        },
+        {
+          "type": "para",
+          "text": "This is a hands-on leadership role for someone who combines technical fluency, strong people management, and excellent cross-functional judgment."
+        },
+        {
+          "type": "heading",
+          "text": "What you’ll do"
+        },
+        {
+          "type": "para",
+          "text": "Lead, coach, and scale a team of Field Engineers supporting enterprise opportunities"
+        },
+        {
+          "type": "para",
+          "text": "Partner closely with Sales leadership and AEs to drive high quality technical discovery, demos, and POCs"
+        },
+        {
+          "type": "para",
+          "text": "Establish best practices for evaluations, proof-of-concept execution, and technical deal strategy, accounting for healthcare-specific requirements (HIPAA, data governance, legacy systems integration)"
+        },
+        {
+          "type": "para",
+          "text": "Serve as an escalation point for complex customer evaluations and high-stakes enterprise deals in the healthcare space"
+        },
+        {
+          "type": "para",
+          "text": "Hire, onboard, and develop top-tier Field Engineering talent with healthcare or regulated-industry domain experience; set clear expectations and career paths"
+        },
+        {
+          "type": "para",
+          "text": "Act as the voice of the field internally, feeding customer and prospect insights back to Product and Engineering"
+        },
+        {
+          "type": "para",
+          "text": "Ensure tight handoffs with post-sales teams to support successful customer onboarding and adoption"
+        },
+        {
+          "type": "para",
+          "text": "Maintain deep knowledge of Cursor’s product, roadmap, and competitive landscape"
+        },
+        {
+          "type": "heading",
+          "text": "You may be a fit if"
+        },
+        {
+          "type": "para",
+          "text": "You have 4+ years experience leading Field Engineers, Solutions Architects, or Pre-Sales teams in enterprise software, with meaningful exposure to healthcare, health tech, or another regulated industry"
+        },
+        {
+          "type": "para",
+          "text": "You have direct experience navigating healthcare buyer environments — health systems, payers, or healthcare software vendors — including compliance, security, and procurement dynamics specific to the space"
+        },
+        {
+          "type": "para",
+          "text": "You have proven your ability to partner effectively with Sales while maintaining technical integrity and customer trust"
+        },
+        {
+          "type": "para",
+          "text": "You are comfortable operating in customer-facing, high-pressure deal environments and guiding teams through complexity"
+        },
+        {
+          "type": "para",
+          "text": "You have strong communication skills and executive presence, and can engage developers, architects, CTOs, and healthcare IT leadership"
+        },
+        {
+          "type": "para",
+          "text": "You have a builder mindset: you thrive in fast-moving, startup environments and enjoy creating structure where little exists"
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "US",
+        "countryName": "United States",
+        "region": "north-america",
+        "remote": false,
+        "raw": "San Francisco"
+      },
+      "seniority": "director",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "unspecified",
+      "roleType": "full-time",
+      "experienceMin": 4,
+      "salary": {
+        "min": 138060,
+        "max": 220730,
+        "currency": "USD",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "High",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-07-08T17:24:45.335Z",
+      "firstSeen": "2026-09-21T17:14:25.885Z",
+      "updatedAt": "2026-09-21T17:14:25.885Z"
+    },
+    {
       "id": "visium-sa-platform-data-engineering-director-cb9c6a",
       "title": "Platform & Data Engineering Director",
       "company": "Visium SA",
@@ -45500,6 +46693,158 @@
       "postedAt": "2026-06-23T10:50:59-04:00",
       "firstSeen": "2026-09-20T17:57:09.240Z",
       "updatedAt": "2026-09-20T17:57:09.240Z"
+    },
+    {
+      "id": "cursor-regional-director-forward-deployed-engin-4d1fea",
+      "title": "Regional Director, Forward Deployed Engineering",
+      "company": "Cursor",
+      "applyUrl": "https://jobs.ashbyhq.com/cursor/f7ec7811-a573-42fa-8ade-01e2d07681ef/application",
+      "sourceUrl": "https://jobs.ashbyhq.com/cursor/f7ec7811-a573-42fa-8ade-01e2d07681ef",
+      "source": "ashby",
+      "sources": [
+        "ashby"
+      ],
+      "text": "Our mission is to automate coding. The first step in our journey is to build the best tool for professional programmers, using a combination of inventive research, design, and engineering. Our organization is very flat, and our team is small and talent dense. We particularly like people who are truth-seeking, passionate, and creative. We enjoy spirited debate, crazy ideas, and shipping code.\nAbout the role\nWe're building a Forward Deployed Engineering team to close the gap between the value our enterprise customers expect from Cursor and the value they're actually getting. FDEs don't advise, they embed directly with customer engineering teams, build production-grade Cursor workflows, and transfer the habits and culture that compound long after the engagement ends. The measure of success is what's different at day 30, not what got shipped.\nWe're looking for a Regional Director, Forward Deployed Engineering to lead and help scale this team. You'll manage a growing team of FDEs working across our most strategic enterprise accounts, own what makes a world-class FDE engagement, and stay close enough to the work to escalate, coach, and course-correct in real time. You will serve as the primary point of contact for customers, owning both project delivery and the day-to-day relationship, while also identifying and scoping new opportunities. You'll also build our partner FDE track — training and enabling GSI and consulting partners who extend this motion at scale.\nThis is a hands-on leadership role for someone who combines deep technical credibility, strong people management, and the judgment to keep engagements scoped tight, delivered fast, and worth repeating.\nWhat you’ll do\nSell\nOwn the full arc from technical discovery to executive close — partnering with Sales and Account teams to qualify opportunities, leading architecture reviews, surfacing integration complexity and infrastructure constraints, and scoping engagements with enough precision to de-risk delivery before a line of code is written\nBuild and present proposals that translate ambiguous customer problems into concrete, time-boxed deliverables with clear ROI\nSell the vision and the plan to C-suite stakeholders who need to believe in both the outcome and the team delivering it\nDrive deal strategy on strategic accounts; your technical credibility is a direct lever on close rates for six- and seven-figure engagements\nDeliver\nServe as executive technical sponsor on your region's highest-priority engagements and manage stakeholder relationships from IC engineers to C-suite\nEnsure delivery quality across your team's projects: appropriate scoping, milestone tracking, technical standards, and clean handoffs to customer engineering teamsTranslate between business outcomes and technical implementation in both directions\nIdentify and escalate product gaps, integration friction, and recurring customer pain back to Product and Engineering with enough specificity to drive roadmap decisions\nManage active engagements: escalate on complex builds, coach FDEs on scoping and delivery decisions, and step in directly on accounts where the stakes are highest\nBuild reusable playbooks that make the broader FDE org more capable over time\nManage People\nLead, develop, and scale a team of 6–8 Forward Deployed Engineers working strategic FDE projects\nHire top-tier FDE talent; set clear expectations, technical performance standards, and career growth paths for a team where \"excellent\" means actually shipping in production\nCoach FDEs through the hardest problems in the field — scoping under deal pressure, building alongside senior technical stakeholders, and knowing when to protect scope vs. when to flex\nBuild and scale the partner FDE track — train, enable, and hold the quality bar for GSI and consulting partners who carry the FDE motion forward at volume\nYou may be a fit if\nYou have 8+ years of experience leading technical teams that build and ship in production — Forward Deployed Engineering, Solutions Engineering, or a similar function where writing and reviewing code is part of the job\nYou have experience with software development and coding in Python, Javascript/Typescript\nYou’ve built and owned AI-native workflows in production, not just prototypes, and have debugged real-world model failures\nYou can diagnose a complex enterprise engineering environment quickly, identify the highest-leverage intervention, and scope a meaningful engagement\nYou've built and scaled IC-level technical teams and know what excellence looks like in the field: sharp scoping, clean delivery, and knowledge that stays at the customer long after the engagement closes",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "Our mission is to automate coding. The first step in our journey is to build the best tool for professional programmers, using a combination of inventive research, design, and engineering. Our organization is very flat, and our team is small and talent dense. We particularly like people who are truth-seeking, passionate, and creative. We enjoy spirited debate, crazy ideas, and shipping code."
+        },
+        {
+          "type": "heading",
+          "text": "About the role"
+        },
+        {
+          "type": "para",
+          "text": "We're building a Forward Deployed Engineering team to close the gap between the value our enterprise customers expect from Cursor and the value they're actually getting. FDEs don't advise, they embed directly with customer engineering teams, build production-grade Cursor workflows, and transfer the habits and culture that compound long after the engagement ends. The measure of success is what's different at day 30, not what got shipped."
+        },
+        {
+          "type": "para",
+          "text": "We're looking for a Regional Director, Forward Deployed Engineering to lead and help scale this team. You'll manage a growing team of FDEs working across our most strategic enterprise accounts, own what makes a world-class FDE engagement, and stay close enough to the work to escalate, coach, and course-correct in real time. You will serve as the primary point of contact for customers, owning both project delivery and the day-to-day relationship, while also identifying and scoping new opportunities. You'll also build our partner FDE track — training and enabling GSI and consulting partners who extend this motion at scale."
+        },
+        {
+          "type": "para",
+          "text": "This is a hands-on leadership role for someone who combines deep technical credibility, strong people management, and the judgment to keep engagements scoped tight, delivered fast, and worth repeating."
+        },
+        {
+          "type": "heading",
+          "text": "What you’ll do"
+        },
+        {
+          "type": "para",
+          "text": "Sell"
+        },
+        {
+          "type": "para",
+          "text": "Own the full arc from technical discovery to executive close — partnering with Sales and Account teams to qualify opportunities, leading architecture reviews, surfacing integration complexity and infrastructure constraints, and scoping engagements with enough precision to de-risk delivery before a line of code is written"
+        },
+        {
+          "type": "para",
+          "text": "Build and present proposals that translate ambiguous customer problems into concrete, time-boxed deliverables with clear ROI"
+        },
+        {
+          "type": "para",
+          "text": "Sell the vision and the plan to C-suite stakeholders who need to believe in both the outcome and the team delivering it"
+        },
+        {
+          "type": "para",
+          "text": "Drive deal strategy on strategic accounts; your technical credibility is a direct lever on close rates for six- and seven-figure engagements"
+        },
+        {
+          "type": "para",
+          "text": "Deliver"
+        },
+        {
+          "type": "para",
+          "text": "Serve as executive technical sponsor on your region's highest-priority engagements and manage stakeholder relationships from IC engineers to C-suite"
+        },
+        {
+          "type": "para",
+          "text": "Ensure delivery quality across your team's projects: appropriate scoping, milestone tracking, technical standards, and clean handoffs to customer engineering teamsTranslate between business outcomes and technical implementation in both directions"
+        },
+        {
+          "type": "para",
+          "text": "Identify and escalate product gaps, integration friction, and recurring customer pain back to Product and Engineering with enough specificity to drive roadmap decisions"
+        },
+        {
+          "type": "para",
+          "text": "Manage active engagements: escalate on complex builds, coach FDEs on scoping and delivery decisions, and step in directly on accounts where the stakes are highest"
+        },
+        {
+          "type": "para",
+          "text": "Build reusable playbooks that make the broader FDE org more capable over time"
+        },
+        {
+          "type": "para",
+          "text": "Manage People"
+        },
+        {
+          "type": "para",
+          "text": "Lead, develop, and scale a team of 6–8 Forward Deployed Engineers working strategic FDE projects"
+        },
+        {
+          "type": "para",
+          "text": "Hire top-tier FDE talent; set clear expectations, technical performance standards, and career growth paths for a team where \"excellent\" means actually shipping in production"
+        },
+        {
+          "type": "para",
+          "text": "Coach FDEs through the hardest problems in the field — scoping under deal pressure, building alongside senior technical stakeholders, and knowing when to protect scope vs. when to flex"
+        },
+        {
+          "type": "para",
+          "text": "Build and scale the partner FDE track — train, enable, and hold the quality bar for GSI and consulting partners who carry the FDE motion forward at volume"
+        },
+        {
+          "type": "heading",
+          "text": "You may be a fit if"
+        },
+        {
+          "type": "para",
+          "text": "You have 8+ years of experience leading technical teams that build and ship in production — Forward Deployed Engineering, Solutions Engineering, or a similar function where writing and reviewing code is part of the job"
+        },
+        {
+          "type": "para",
+          "text": "You have experience with software development and coding in Python, Javascript/Typescript"
+        },
+        {
+          "type": "para",
+          "text": "You’ve built and owned AI-native workflows in production, not just prototypes, and have debugged real-world model failures"
+        },
+        {
+          "type": "para",
+          "text": "You can diagnose a complex enterprise engineering environment quickly, identify the highest-leverage intervention, and scope a meaningful engagement"
+        },
+        {
+          "type": "para",
+          "text": "You've built and scaled IC-level technical teams and know what excellence looks like in the field: sharp scoping, clean delivery, and knowledge that stays at the customer long after the engagement closes"
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "US",
+        "countryName": "United States",
+        "region": "north-america",
+        "remote": false,
+        "raw": "San Francisco"
+      },
+      "seniority": "director",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "unspecified",
+      "roleType": "full-time",
+      "experienceMin": 8,
+      "salary": {
+        "min": 138060,
+        "max": 220730,
+        "currency": "USD",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "High",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-06-22T21:43:35.904Z",
+      "firstSeen": "2026-09-21T17:14:25.885Z",
+      "updatedAt": "2026-09-21T17:14:25.885Z"
     },
     {
       "id": "big-viking-games-head-of-data-science-analytics-8fe5bc",
@@ -50189,6 +51534,127 @@
       "postedAt": "2026-05-18T11:17:37-04:00",
       "firstSeen": "2026-09-20T17:57:09.240Z",
       "updatedAt": "2026-09-20T17:57:09.240Z"
+    },
+    {
+      "id": "cursor-regional-director-field-engineering-vert-b86480",
+      "title": "Regional Director, Field Engineering - Verticals",
+      "company": "Cursor",
+      "applyUrl": "https://jobs.ashbyhq.com/cursor/040ac0f8-dba7-4d13-8171-b902e925f334/application",
+      "sourceUrl": "https://jobs.ashbyhq.com/cursor/040ac0f8-dba7-4d13-8171-b902e925f334",
+      "source": "ashby",
+      "sources": [
+        "ashby"
+      ],
+      "text": "Our mission is to automate coding. The first step in our journey is to build the best tool for professional programmers, using a combination of inventive research, design, and engineering. Our organization is very flat, and our team is small and talent dense. We particularly like people who are truth-seeking, passionate, and creative. We enjoy spirited debate, crazy ideas, and shipping code.\nAbout the role\nWe're hiring a Regional Director, Field Engineering to build and lead a high-impact pre-sales Field Engineering team within one of our key industry verticals: High Tech, Retail, Life Sciences, Financial Services, Public Sector, Aerospace, or Healthcare. This role sits at the intersection of Sales, Product, and Engineering and is responsible for ensuring our technical pre-sales motion scales with quality, speed, and credibility inside a specific vertical.\nAs the Regional Director, Field Engineering, you'll manage and develop Field Engineers who partner closely with AEs to run technical discovery, demos, and proofs of concept with the largest and most complex accounts in your vertical. You'll also stay close to customers and deals yourself, coaching in real time, unblocking complex evaluations, and ensuring Cursor is positioned as the best AI-native development platform for your industry.\nThis is a hands-on, entrepreneurial leadership role for someone who combines deep vertical expertise, technical fluency, strong people management, and the drive to build something from scratch.\nWhat you'll do\nLead, coach, and scale a team of Field Engineers supporting enterprise opportunities within your vertical\nPartner closely with Sales leadership and AEs to drive high-quality technical discovery, demos, and POCs with strategic and Fortune 500 accounts\nOwn the 0-to-1 build-out of the vertical Field Engineering practice — including field events, industry-specific collateral, customer stories, and deep executive relationship building\nEstablish best practices for evaluations, proof-of-concept execution, and technical deal strategy tailored to the buyers, compliance requirements, and workflows of your vertical\nServe as an escalation point for complex customer evaluations and high-stakes enterprise deals\nHire, onboard, and develop top-tier Field Engineering talent with relevant vertical experience; set clear expectations and career paths\nAct as the voice of the field internally, feeding vertical-specific customer and prospect insights back to Product and Engineering\nEnsure tight handoffs with post-sales teams to support successful customer onboarding and adoption\nMaintain deep knowledge of Cursor's product, roadmap, and competitive landscape\nYou may be a fit if\nYou have 3+ years leading Field Engineers, Solutions Architects, or Pre-Sales teams focused on a specific vertical or strategic/Fortune 500 accounts\nYou have demonstrated expertise selling to or supporting accounts in one or more of our target verticals (High Tech, Retail, Life Sciences, Finserv, Public Sector, Aerospace, Healthcare), and direct industry background is a strong plus\nYou have a proven track record selling to and engaging technical buyers, developers, architects, CTOs, and their equivalents in regulated or complex industries\nYou have a strong technical foundation and fluency in modern software development workflows, AI tooling, and developer productivity\nYou have an entrepreneurial drive, and are comfortable building from zero, creating enablement assets, running field events, and developing the vertical playbook without a template to follow\nYou have a proven ability to partner effectively with Sales while maintaining technical integrity and customer trust\nYou have strong communication skills and executive presence, able to engage across technical and business stakeholders at the largest accounts in your industry",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "Our mission is to automate coding. The first step in our journey is to build the best tool for professional programmers, using a combination of inventive research, design, and engineering. Our organization is very flat, and our team is small and talent dense. We particularly like people who are truth-seeking, passionate, and creative. We enjoy spirited debate, crazy ideas, and shipping code."
+        },
+        {
+          "type": "heading",
+          "text": "About the role"
+        },
+        {
+          "type": "para",
+          "text": "We're hiring a Regional Director, Field Engineering to build and lead a high-impact pre-sales Field Engineering team within one of our key industry verticals: High Tech, Retail, Life Sciences, Financial Services, Public Sector, Aerospace, or Healthcare. This role sits at the intersection of Sales, Product, and Engineering and is responsible for ensuring our technical pre-sales motion scales with quality, speed, and credibility inside a specific vertical."
+        },
+        {
+          "type": "para",
+          "text": "As the Regional Director, Field Engineering, you'll manage and develop Field Engineers who partner closely with AEs to run technical discovery, demos, and proofs of concept with the largest and most complex accounts in your vertical. You'll also stay close to customers and deals yourself, coaching in real time, unblocking complex evaluations, and ensuring Cursor is positioned as the best AI-native development platform for your industry."
+        },
+        {
+          "type": "para",
+          "text": "This is a hands-on, entrepreneurial leadership role for someone who combines deep vertical expertise, technical fluency, strong people management, and the drive to build something from scratch."
+        },
+        {
+          "type": "heading",
+          "text": "What you'll do"
+        },
+        {
+          "type": "para",
+          "text": "Lead, coach, and scale a team of Field Engineers supporting enterprise opportunities within your vertical"
+        },
+        {
+          "type": "para",
+          "text": "Partner closely with Sales leadership and AEs to drive high-quality technical discovery, demos, and POCs with strategic and Fortune 500 accounts"
+        },
+        {
+          "type": "para",
+          "text": "Own the 0-to-1 build-out of the vertical Field Engineering practice — including field events, industry-specific collateral, customer stories, and deep executive relationship building"
+        },
+        {
+          "type": "para",
+          "text": "Establish best practices for evaluations, proof-of-concept execution, and technical deal strategy tailored to the buyers, compliance requirements, and workflows of your vertical"
+        },
+        {
+          "type": "para",
+          "text": "Serve as an escalation point for complex customer evaluations and high-stakes enterprise deals"
+        },
+        {
+          "type": "para",
+          "text": "Hire, onboard, and develop top-tier Field Engineering talent with relevant vertical experience; set clear expectations and career paths"
+        },
+        {
+          "type": "para",
+          "text": "Act as the voice of the field internally, feeding vertical-specific customer and prospect insights back to Product and Engineering"
+        },
+        {
+          "type": "para",
+          "text": "Ensure tight handoffs with post-sales teams to support successful customer onboarding and adoption"
+        },
+        {
+          "type": "para",
+          "text": "Maintain deep knowledge of Cursor's product, roadmap, and competitive landscape"
+        },
+        {
+          "type": "heading",
+          "text": "You may be a fit if"
+        },
+        {
+          "type": "para",
+          "text": "You have 3+ years leading Field Engineers, Solutions Architects, or Pre-Sales teams focused on a specific vertical or strategic/Fortune 500 accounts"
+        },
+        {
+          "type": "para",
+          "text": "You have demonstrated expertise selling to or supporting accounts in one or more of our target verticals (High Tech, Retail, Life Sciences, Finserv, Public Sector, Aerospace, Healthcare), and direct industry background is a strong plus"
+        },
+        {
+          "type": "para",
+          "text": "You have a proven track record selling to and engaging technical buyers, developers, architects, CTOs, and their equivalents in regulated or complex industries"
+        },
+        {
+          "type": "para",
+          "text": "You have a strong technical foundation and fluency in modern software development workflows, AI tooling, and developer productivity"
+        },
+        {
+          "type": "para",
+          "text": "You have an entrepreneurial drive, and are comfortable building from zero, creating enablement assets, running field events, and developing the vertical playbook without a template to follow"
+        },
+        {
+          "type": "para",
+          "text": "You have a proven ability to partner effectively with Sales while maintaining technical integrity and customer trust"
+        },
+        {
+          "type": "para",
+          "text": "You have strong communication skills and executive presence, able to engage across technical and business stakeholders at the largest accounts in your industry"
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "region": null,
+        "remote": true,
+        "raw": "Remote"
+      },
+      "seniority": "director",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "remote",
+      "roleType": "full-time",
+      "salary": null,
+      "postedAt": "2026-05-15T01:05:23.764Z",
+      "firstSeen": "2026-09-21T17:14:25.885Z",
+      "updatedAt": "2026-09-21T17:14:25.885Z"
     },
     {
       "id": "flosum-salesforce-field-cto-3ea79e",
@@ -60230,6 +61696,130 @@
       "postedAt": "2026-01-27T19:08:31-05:00",
       "firstSeen": "2026-09-06T11:31:50.820Z",
       "updatedAt": "2026-09-20T09:38:52.513Z"
+    },
+    {
+      "id": "cursor-regional-director-field-engineering-b8e9e1",
+      "title": "Regional Director, Field Engineering",
+      "company": "Cursor",
+      "applyUrl": "https://jobs.ashbyhq.com/cursor/3d9da649-b3e6-4b4c-943d-1d081dae9497/application",
+      "sourceUrl": "https://jobs.ashbyhq.com/cursor/3d9da649-b3e6-4b4c-943d-1d081dae9497",
+      "source": "ashby",
+      "sources": [
+        "ashby"
+      ],
+      "text": "Our mission is to automate coding. The first step in our journey is to build the best tool for professional programmers, using a combination of inventive research, design, and engineering. Our organization is very flat, and our team is small and talent dense. We particularly like people who are truth-seeking, passionate, and creative. We enjoy spirited debate, crazy ideas, and shipping code.\nAbout the role\nWe’re hiring a Regional Director, Field Engineering to build and lead a high impact pre-sales Field Engineering team supporting our fastest growing enterprise accounts. This role sits at the intersection of Sales, Product, and Engineering and is responsible for ensuring our technical pre-sales motion scales with quality, speed, and credibility.\nAs the Regional Director, Field Engineering, you’ll manage and develop Field Engineers who partner closely with AEs to run technical discovery, demos, and proofs of concept. You’ll also stay close to customers and deals yourself, coaching in real time, unblocking complex evaluations, and ensuring Cursor is positioned as the best AI-native development platform on the market.\nThis is a hands-on leadership role for someone who combines technical fluency, strong people management, and excellent cross-functional judgment.\nWhat you’ll do\nLead, coach, and scale a team of Field Engineers supporting enterprise opportunities\nPartner closely with Sales leadership and AEs to drive high quality technical discovery, demos, and POCs\nEstablish best practices for evaluations, proof-of-concept execution, and technical deal strategy\nServe as an escalation point for complex customer evaluations and high-stakes enterprise deals\nHire, onboard, and develop top-tier Field Engineering talent; set clear expectations and career paths\nAct as the voice of the field internally, feeding customer and prospect insights back to Product and Engineering\nEnsure tight handoffs with post-sales teams to support successful customer onboarding and adoption\nMaintain deep knowledge of Cursor’s product, roadmap, and competitive landscape\nYou may be a fit if\nYou have 4+ years experience leading Field Engineers, Solutions Architects, or Pre-Sales teams in enterprise software\nYou have a strong technical foundation and fluency in modern software development workflows, AI tooling, and developer productivity\nYou have proven your ability to partner effectively with Sales while maintaining technical integrity and customer trust\nYou are comfortable operating in customer-facing, high-pressure deal environments and guiding teams through complexity\nYou have strong communication skills and executive presence, are able to engage developers, architects, and CTOs\nYou have a builder mindset: you thrive in fast-moving, startup environments and enjoy creating structure where little exists",
+      "blocks": [
+        {
+          "type": "para",
+          "text": "Our mission is to automate coding. The first step in our journey is to build the best tool for professional programmers, using a combination of inventive research, design, and engineering. Our organization is very flat, and our team is small and talent dense. We particularly like people who are truth-seeking, passionate, and creative. We enjoy spirited debate, crazy ideas, and shipping code."
+        },
+        {
+          "type": "heading",
+          "text": "About the role"
+        },
+        {
+          "type": "para",
+          "text": "We’re hiring a Regional Director, Field Engineering to build and lead a high impact pre-sales Field Engineering team supporting our fastest growing enterprise accounts. This role sits at the intersection of Sales, Product, and Engineering and is responsible for ensuring our technical pre-sales motion scales with quality, speed, and credibility."
+        },
+        {
+          "type": "para",
+          "text": "As the Regional Director, Field Engineering, you’ll manage and develop Field Engineers who partner closely with AEs to run technical discovery, demos, and proofs of concept. You’ll also stay close to customers and deals yourself, coaching in real time, unblocking complex evaluations, and ensuring Cursor is positioned as the best AI-native development platform on the market."
+        },
+        {
+          "type": "para",
+          "text": "This is a hands-on leadership role for someone who combines technical fluency, strong people management, and excellent cross-functional judgment."
+        },
+        {
+          "type": "heading",
+          "text": "What you’ll do"
+        },
+        {
+          "type": "para",
+          "text": "Lead, coach, and scale a team of Field Engineers supporting enterprise opportunities"
+        },
+        {
+          "type": "para",
+          "text": "Partner closely with Sales leadership and AEs to drive high quality technical discovery, demos, and POCs"
+        },
+        {
+          "type": "para",
+          "text": "Establish best practices for evaluations, proof-of-concept execution, and technical deal strategy"
+        },
+        {
+          "type": "para",
+          "text": "Serve as an escalation point for complex customer evaluations and high-stakes enterprise deals"
+        },
+        {
+          "type": "para",
+          "text": "Hire, onboard, and develop top-tier Field Engineering talent; set clear expectations and career paths"
+        },
+        {
+          "type": "para",
+          "text": "Act as the voice of the field internally, feeding customer and prospect insights back to Product and Engineering"
+        },
+        {
+          "type": "para",
+          "text": "Ensure tight handoffs with post-sales teams to support successful customer onboarding and adoption"
+        },
+        {
+          "type": "para",
+          "text": "Maintain deep knowledge of Cursor’s product, roadmap, and competitive landscape"
+        },
+        {
+          "type": "heading",
+          "text": "You may be a fit if"
+        },
+        {
+          "type": "para",
+          "text": "You have 4+ years experience leading Field Engineers, Solutions Architects, or Pre-Sales teams in enterprise software"
+        },
+        {
+          "type": "para",
+          "text": "You have a strong technical foundation and fluency in modern software development workflows, AI tooling, and developer productivity"
+        },
+        {
+          "type": "para",
+          "text": "You have proven your ability to partner effectively with Sales while maintaining technical integrity and customer trust"
+        },
+        {
+          "type": "para",
+          "text": "You are comfortable operating in customer-facing, high-pressure deal environments and guiding teams through complexity"
+        },
+        {
+          "type": "para",
+          "text": "You have strong communication skills and executive presence, are able to engage developers, architects, and CTOs"
+        },
+        {
+          "type": "para",
+          "text": "You have a builder mindset: you thrive in fast-moving, startup environments and enjoy creating structure where little exists"
+        }
+      ],
+      "requirements": [],
+      "location": {
+        "countryIso2": "US",
+        "countryName": "United States",
+        "region": "north-america",
+        "remote": false,
+        "raw": "San Francisco"
+      },
+      "seniority": "director",
+      "domain": "engineering",
+      "visa": "unknown",
+      "workMode": "unspecified",
+      "roleType": "full-time",
+      "experienceMin": 4,
+      "salary": {
+        "min": 138060,
+        "max": 220730,
+        "currency": "USD",
+        "period": "annual",
+        "source": "estimated",
+        "quality": "High",
+        "familyUsed": "it-executive"
+      },
+      "postedAt": "2026-01-23T23:03:11.646Z",
+      "firstSeen": "2026-09-21T17:14:25.885Z",
+      "updatedAt": "2026-09-21T17:14:25.885Z"
     },
     {
       "id": "webook-com-director-of-data-platforms-intelligence-f29bcb",
