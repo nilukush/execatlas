@@ -86,11 +86,12 @@ export default async function JobsListPage({
         {t("count", { count: entries.length })} · {t("page", { page, total: pageCount })}
       </p>
 
-      <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {slice.map((job) => (
           <JobCard key={job.id} job={job} labels={labels} locale={locale} headingLevel="h2" />
         ))}
       </div>
+      <p className="mt-4 text-xs text-muted">{t("estimateNote")}</p>
 
       <nav className="mt-8 flex flex-wrap items-center justify-center gap-4" aria-label={t("pagination")}>
         <Link href={pageHref(page - 1)} className="btn-ghost">

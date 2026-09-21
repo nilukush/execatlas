@@ -21,6 +21,11 @@ function make(over: Partial<IndexEntry>): IndexEntry {
     roleType: over.roleType ?? "permanent",
     experienceMin: over.experienceMin,
     experienceMax: over.experienceMax,
+    salaryMin: over.salaryMin,
+    salaryMax: over.salaryMax,
+    salaryCurrency: over.salaryCurrency,
+    salaryPeriod: over.salaryPeriod,
+    salarySource: over.salarySource,
     postedAt: over.postedAt ?? "2026-09-01",
     source: over.source ?? "greenhouse",
   };
@@ -63,6 +68,38 @@ describe("JobsBrowser ask and saved searches", () => {
     expect(chipTexts("Hybrid")).toHaveLength(1);
     expect(chipTexts("On-site").length).toBeGreaterThanOrEqual(1);
     expect(screen.queryByText("hybrid")).not.toBeInTheDocument();
+  });
+
+  it("hides the placeholder visa chip on unknown roles", () => {
+    renderBrowser([
+      make({ id: "unknown-visa", visa: "unknown" }),
+      make({ id: "sponsored", visa: "yes" }),
+    ]);
+    const visaChips = (text: string) => screen.getAllByText(text).filter((el) => el.closest(".chip"));
+    expect(visaChips(en.Jobs.visaUnknown)).toHaveLength(0);
+    expect(visaChips(en.Jobs.visaYes).length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("marks estimated pay with an asterisk, stated pay without", () => {
+    renderBrowser([
+      make({ id: "est", salaryMin: 100, salaryMax: 200, salaryCurrency: "USD", salaryPeriod: "annual", salarySource: "estimated" }),
+      make({ id: "said", salaryMin: 300, salaryMax: 400, salaryCurrency: "USD", salaryPeriod: "annual", salarySource: "stated" }),
+    ]);
+    const chips = [...document.querySelectorAll(".chip")].map((el) => el.textContent ?? "");
+    const est = chips.find((text) => text.includes("100"));
+    const said = chips.find((text) => text.includes("300"));
+    expect(est).toMatch(/\*/);
+    // the visible parenthetical is gone; the word survives only in sr-only text
+    expect(est).not.toMatch(/\(estimated\)/);
+    expect(said).not.toMatch(/\*/);
+    expect(said).not.toMatch(/estimated/);
+    expect(screen.getByText(en.Jobs.estimateNote)).toBeInTheDocument();
+  });
+
+  it("clamps card titles to two lines", () => {
+    renderBrowser([make({ id: "clamp" })]);
+    const heading = screen.getByRole("heading", { name: /VP of Engineering/ });
+    expect(heading.className).toContain("line-clamp-2");
   });
 
   it("renders years of experience as a chip when the role states it", () => {

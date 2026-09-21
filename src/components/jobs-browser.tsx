@@ -462,12 +462,13 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
           <p className="mt-2 text-sm text-muted">{t("noResultsBody")}</p>
         </div>
       ) : (
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {slice.map((job) => (
             <JobCard key={job.id} job={job} labels={cardLabels} locale={locale} headingLevel="h2" />
           ))}
         </div>
       )}
+      {slice.length > 0 && <p className="mt-4 text-xs text-muted">{t("estimateNote")}</p>}
 
       {pageCount > 1 && (
         <nav className="mt-8 flex items-center justify-center gap-4" aria-label={t("pagination")}>

@@ -40,7 +40,7 @@ export function JobCard({
       <div className="flex items-start gap-3">
         <CompanyLogo name={job.company} logoUrl={job.companyLogoUrl} size={44} />
         <div className="min-w-0 flex-1">
-          <Heading className="font-serif text-lg font-bold leading-snug">
+          <Heading className="line-clamp-2 font-serif text-lg font-bold leading-snug">
             <Link href={`/jobs/${job.id}`} className="text-ink hover:text-brand-solid-hover">
               {job.title}
             </Link>
@@ -56,17 +56,17 @@ export function JobCard({
       </div>
 
       <div className="flex flex-wrap gap-1.5">
-        <span
-          className={`chip ${
-            job.visa === "yes"
-              ? "!border-transparent !bg-visa-bg !text-visa-fg"
-              : job.visa === "no"
-                ? "!border-transparent !bg-novisa-bg !text-novisa-fg"
-                : ""
-          }`}
-        >
-          {job.visa === "yes" ? labels.visaYes : job.visa === "no" ? labels.visaNo : labels.visaUnknown}
-        </span>
+        {job.visa !== "unknown" && (
+          <span
+            className={`chip ${
+              job.visa === "yes"
+                ? "!border-transparent !bg-visa-bg !text-visa-fg"
+                : "!border-transparent !bg-novisa-bg !text-novisa-fg"
+            }`}
+          >
+            {job.visa === "yes" ? labels.visaYes : labels.visaNo}
+          </span>
+        )}
         {job.workMode !== "unspecified" && (
           <span
             className={`chip ${job.workMode === "hybrid" ? "!border-transparent !bg-hybrid-bg !text-hybrid-fg" : ""}`}
@@ -97,10 +97,10 @@ export function JobCard({
               locale
             )}{" "}
             {job.salaryPeriod === "monthly" ? labels.perMonth : labels.perYear}
-            <span className="font-normal text-muted">
-              {" "}
-              ({job.salarySource === "stated" ? labels.salaryStated : labels.salaryEstimated})
-            </span>
+            {job.salarySource !== "stated" && <span aria-hidden="true"> *</span>}
+            {job.salarySource !== "stated" && (
+              <span className="sr-only"> {labels.salaryEstimated}</span>
+            )}
           </span>
         )}
         <span className="chip">{labels.sourceLabels[job.source] ?? job.source}</span>

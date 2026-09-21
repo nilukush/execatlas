@@ -116,7 +116,7 @@ export default async function HomePage({
               {t("viewAll")} <span aria-hidden="true">{locale === "ar" ? "←" : "→"}</span>
             </Link>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {latest.map((job) => (
               <JobCard key={job.id} job={job} labels={labels} />
             ))}
