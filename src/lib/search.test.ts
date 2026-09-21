@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { applyFilters, DEFAULT_FILTERS, defaultOrder, PAGE_SIZE, paginate } from "./search";
+import { applyFilters, countPostedWithin, DEFAULT_FILTERS, defaultOrder, PAGE_SIZE, paginate } from "./search";
 import type { IndexEntry } from "./types";
 
 function make(over: Partial<IndexEntry>): IndexEntry {
@@ -25,6 +25,22 @@ function make(over: Partial<IndexEntry>): IndexEntry {
     salaryPeriod: over.salaryPeriod,
   };
 }
+
+describe("countPostedWithin", () => {
+  const NOW = new Date("2026-09-21T12:00:00.000Z").getTime();
+  it("counts entries posted inside the window", () => {
+    const entries = [
+      make({ id: "today", postedAt: "2026-09-21T08:00:00.000Z" }),
+      make({ id: "edge", postedAt: "2026-09-14T12:00:00.000Z" }),
+      make({ id: "old", postedAt: "2026-08-01T00:00:00.000Z" }),
+    ];
+    expect(countPostedWithin(entries, 7, NOW)).toBe(2);
+  });
+
+  it("returns 0 for an empty list", () => {
+    expect(countPostedWithin([], 7, NOW)).toBe(0);
+  });
+});
 
 describe("variant-aware filters", () => {
   it("matches a country filter against any variant country", () => {

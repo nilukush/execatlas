@@ -38,7 +38,8 @@
     "featureApplyTitle": "Real apply links",
     "featureApplyBody": "Every role links to the employer's own posting. No middlemen, no re-hosted forms, no expired aggregator pages.",
     "sourcesNote": "Sourced from official and public job APIs. * marks estimated pay bands. Details on the About page.",
-    "updated": "updated"
+    "updated": "updated",
+    "trendThisWeek": "+{count} this week"
   },
   "Jobs": {
     "title": "Leadership roles",

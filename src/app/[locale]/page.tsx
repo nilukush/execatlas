@@ -1,7 +1,7 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getIndexEntries, getStats } from "@/lib/data";
-import { defaultOrder } from "@/lib/search";
+import { countPostedWithin, defaultOrder } from "@/lib/search";
 import { JobCard, type JobCardLabels } from "@/components/job-card";
 import { ROLE_TYPES, SOURCE_IDS, SOURCE_LABELS } from "@/lib/types";
 import { formatDate } from "@/lib/seo";
@@ -67,6 +67,9 @@ export default async function HomePage({
               <div className="card-ui p-4">
                 <dt className="truncate text-xs uppercase tracking-wide text-muted">{t("statRoles")}</dt>
                 <dd className="mt-1 whitespace-nowrap font-serif text-2xl font-bold">{stats.total}</dd>
+                <dd className="mt-0.5 whitespace-nowrap text-xs text-muted">
+                  {t("trendThisWeek", { count: countPostedWithin(entries, 7, Date.parse(stats.generatedAt)) })}
+                </dd>
               </div>
               <div className="card-ui p-4">
                 <dt className="truncate text-xs uppercase tracking-wide text-muted">{t("statCountries")}</dt>

@@ -61,6 +61,19 @@ function searchScore(entry: IndexEntry, tokens: string[]): number {
   return score;
 }
 
+/**
+ * Roles whose posting date falls within the window before the reference
+ * time. Powers the "+N this week" trend cue on the stats band; the dataset
+ * generation time is the honest cutoff, not the build time.
+ */
+export function countPostedWithin(entries: IndexEntry[], days: number, now: number): number {
+  const cutoff = now - days * 24 * 60 * 60 * 1000;
+  return entries.filter((entry) => {
+    const posted = Date.parse(entry.postedAt);
+    return !Number.isNaN(posted) && posted >= cutoff && posted <= now;
+  }).length;
+}
+
 export function applyFilters(entries: IndexEntry[], filters: JobFilters): IndexEntry[] {
   const tokens = filters.query.trim().toLowerCase().split(/\s+/).filter(Boolean);
 

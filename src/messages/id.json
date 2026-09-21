@@ -38,7 +38,8 @@
     "featureApplyTitle": "Tautan lamaran asli",
     "featureApplyBody": "Setiap peran tertaut ke lowongan milik perusahaan sendiri. Tanpa perantara, tanpa halaman kadaluarsa.",
     "sourcesNote": "Bersumber dari API pekerjaan resmi dan publik. * menandakan kisaran gaji estimasi. Detail di halaman Tentang.",
-    "updated": "diperbarui"
+    "updated": "diperbarui",
+    "trendThisWeek": "+{count} minggu ini"
   },
   "Jobs": {
     "title": "Posisi kepemimpinan",
