@@ -25,6 +25,15 @@ export const WORKABLE_LOCATIONS = [
 
 export const WORKABLE_QUERIES = workableSeedQueries();
 
-export const ARBEITNOW_PAGES = 4;
+export const ARBEITNOW_PAGES = 10;
+
+// Jobicy tag searches: the API accepts a tag filter the plain feed lacks,
+// so seed queries reach leadership roles beyond the newest slice
+export const JOBICY_TAGS = [
+  "head of engineering",
+  "director of engineering",
+  "vp of engineering",
+  "chief technology officer",
+];
 
 export const JOBICY_COUNT = 100;

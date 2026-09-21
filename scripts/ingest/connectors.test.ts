@@ -152,6 +152,41 @@ describe("arbeitnow visa cross-reference", () => {
   });
 });
 
+describe("jobicy tag queries", () => {
+  it("fetches tag-searched jobs and dedupes against the plain feed", async () => {
+    const plain = { jobs: jobicyFixture.jobs ?? jobicyFixture };
+    const first = (jobicyFixture.jobs ?? jobicyFixture)[0];
+    const taggedHit = { ...first, id: 99901, jobTitle: "Head of Engineering" };
+    const connector = jobicyConnector(
+      {
+        fetchJson: async (url: string) =>
+          url.includes("tag=") ? { jobs: [taggedHit] } : plain,
+      },
+      { count: 5, tags: ["head of engineering"] }
+    );
+    const jobs = await connector.run();
+    expect(jobs.some((j) => j.externalId === "jc-99901")).toBe(true);
+    const ids = jobs.map((j) => j.externalId);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it("keeps the plain feed when a tag query fails", async () => {
+    const plain = { jobs: jobicyFixture.jobs ?? jobicyFixture };
+    const connector = jobicyConnector(
+      {
+        fetchJson: async (url: string) => {
+          if (url.includes("tag=")) throw new Error("HTTP 500");
+          return plain;
+        },
+      },
+      { count: 5, tags: ["cto"] }
+    );
+    const jobs = await connector.run();
+    expect(jobs.length).toBeGreaterThan(0);
+    expect(jobs.every((j) => !j.externalId.includes("999"))).toBe(true);
+  });
+});
+
 describe("arbeitnow connector", () => {
   it("converts unix timestamps to ISO dates", async () => {
     const connector = arbeitnowConnector(

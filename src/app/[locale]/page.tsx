@@ -63,23 +63,27 @@ export default async function HomePage({
           </div>
 
           {stats.total > 0 && (
-            <dl className="mt-10 grid max-w-2xl grid-cols-2 gap-4 sm:grid-cols-4">
+            <dl className="mt-10 grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4">
               <div className="card-ui p-4">
-                <dt className="text-xs uppercase tracking-wide text-muted">{t("statRoles")}</dt>
-                <dd className="mt-1 font-serif text-2xl font-bold">{stats.total}</dd>
+                <dt className="truncate text-xs uppercase tracking-wide text-muted">{t("statRoles")}</dt>
+                <dd className="mt-1 whitespace-nowrap font-serif text-2xl font-bold">{stats.total}</dd>
               </div>
               <div className="card-ui p-4">
-                <dt className="text-xs uppercase tracking-wide text-muted">{t("statCountries")}</dt>
-                <dd className="mt-1 font-serif text-2xl font-bold">{stats.countries}</dd>
+                <dt className="truncate text-xs uppercase tracking-wide text-muted">{t("statCountries")}</dt>
+                <dd className="mt-1 whitespace-nowrap font-serif text-2xl font-bold">{stats.countries}</dd>
               </div>
               <div className="card-ui p-4">
-                <dt className="text-xs uppercase tracking-wide text-muted">{t("statSources")}</dt>
-                <dd className="mt-1 font-serif text-2xl font-bold">{SOURCE_IDS.length}</dd>
+                <dt className="truncate text-xs uppercase tracking-wide text-muted">{t("statSources")}</dt>
+                <dd className="mt-1 whitespace-nowrap font-serif text-2xl font-bold">{SOURCE_IDS.length}</dd>
               </div>
               <div className="card-ui p-4">
-                <dt className="text-xs uppercase tracking-wide text-muted">{t("updated")}</dt>
-                <dd className="mt-1 font-serif text-2xl font-bold">
-                  {formatDate(stats.generatedAt, locale)}
+                <dt className="truncate text-xs uppercase tracking-wide text-muted">{t("updated")}</dt>
+                {/* compact on purpose: a full date wraps at four-across and
+                    breaks the value alignment across the band */}
+                <dd className="mt-1 whitespace-nowrap font-serif text-2xl font-bold">
+                  {new Intl.DateTimeFormat(locale, { day: "numeric", month: "short" }).format(
+                    new Date(stats.generatedAt)
+                  )}
                 </dd>
               </div>
             </dl>

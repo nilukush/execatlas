@@ -7,6 +7,7 @@ import {
   WORKABLE_QUERIES,
   ARBEITNOW_PAGES,
   JOBICY_COUNT,
+  JOBICY_TAGS,
   LEVER_TOKENS,
   LEVER_COMPANY_NAMES,
 } from "./config";
@@ -110,7 +111,7 @@ async function main() {
       locations: smoke ? ["United Arab Emirates"] : WORKABLE_LOCATIONS,
     }),
     arbeitnowConnector(deps, { pages: smoke ? 1 : ARBEITNOW_PAGES }),
-    jobicyConnector(deps, { count: smoke ? 5 : JOBICY_COUNT }),
+    jobicyConnector(deps, { count: smoke ? 5 : JOBICY_COUNT, tags: smoke ? undefined : JOBICY_TAGS }),
     leverConnector(deps, { tokens: smoke ? ["netomi"] : LEVER_TOKENS, names: LEVER_COMPANY_NAMES }),
   ].filter((connector) => !only || connector.id === only);
 

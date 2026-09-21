@@ -24,18 +24,26 @@ interface JobicyJob {
  */
 export function jobicyConnector(
   deps: FetchDeps,
-  options: { count: number }
+  options: { count: number; tags?: string[] }
 ): { id: "jobicy"; run: () => Promise<RawJob[]> } {
   return {
     id: "jobicy",
     async run() {
       const out: RawJob[] = [];
+      const seenIds = new Set<number>();
+      // the plain feed first, then tag searches so seed queries reach roles
+      // beyond the newest slice; ids dedupe across fetches
+      const urls = [`https://jobicy.com/api/v2/remote-jobs?count=${options.count}`];
+      for (const tag of options.tags ?? []) {
+        urls.push(`https://jobicy.com/api/v2/remote-jobs?count=${options.count}&tag=${encodeURIComponent(tag)}`);
+      }
+      for (const url of urls) {
       try {
-        const payload = (await deps.fetchJson(
-          `https://jobicy.com/api/v2/remote-jobs?count=${options.count}`
-        )) as { jobs?: JobicyJob[] };
+        const payload = (await deps.fetchJson(url)) as { jobs?: JobicyJob[] };
         for (const job of payload.jobs ?? []) {
           if (!job.id || !job.jobTitle || !job.url) continue;
+          if (seenIds.has(job.id)) continue;
+          seenIds.add(job.id);
           out.push({
             source: "jobicy",
             externalId: `jc-${job.id}`,
@@ -60,7 +68,8 @@ export function jobicyConnector(
           });
         }
       } catch (error) {
-        console.warn(`[jobicy] failed: ${(error as Error).message}`);
+        console.warn(`[jobicy] fetch failed for ${url}: ${(error as Error).message}`);
+      }
       }
       return out;
     },
