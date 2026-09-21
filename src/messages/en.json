@@ -147,7 +147,7 @@
     "title": "About ExecAtlas",
     "intro": "ExecAtlas collects senior leadership roles across engineering, product, design and data from official and public job APIs, reads every posting for signals that matter to international candidates, and presents them with filters and local-currency pay context.",
     "sourcesTitle": "Where the jobs come from",
-    "sourcesBody": "Listings come from the public Greenhouse, Lever and Ashby job board APIs, Workable's public job search, and the open APIs of Arbeitnow and Jobicy.",
+    "sourcesBody": "Listings come from the public Greenhouse, Lever and Ashby job board APIs, Workable's public job search, the open APIs of Arbeitnow and Jobicy, and the Himalayas remote jobs API.",
     "blockedTitle": "Why no LinkedIn, Indeed or Naukri jobs?",
     "blockedBody": "Those sites do not offer public job APIs and their terms do not allow automated collection. Scraping them is not something this project does. If any of them opens an official access path, a connector slot is ready. Many employers post the same roles on their own Greenhouse or Workable boards, which this site does cover.",
     "visaTitle": "How visa sponsorship is detected",
@@ -161,7 +161,7 @@
   },
   "Footer": {
     "tagline": "Senior leadership roles across engineering, product, design and data, in six regions, with visa signals and local pay context.",
-    "data": "Greenhouse, Lever, Ashby, Workable, Arbeitnow and Jobicy",
+    "data": "Greenhouse, Lever, Ashby, Himalayas, Workable, Arbeitnow and Jobicy",
     "salary": "Salary benchmarks by ExpatRate (CC BY 4.0).",
     "method": "Sources and method",
     "license": "Code under MIT."

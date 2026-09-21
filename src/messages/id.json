@@ -147,7 +147,7 @@
     "title": "Tentang ExecAtlas",
     "intro": "ExecAtlas mengumpulkan peran kepemimpinan senior di bidang engineering, produk, desain, dan data dari API pekerjaan resmi dan publik, membaca setiap lowongan untuk sinyal yang penting bagi kandidat internasional, dan menyajikannya dengan filter serta konteks gaji dalam mata uang lokal.",
     "sourcesTitle": "Dari mana lowongan berasal",
-    "sourcesBody": "Lowongan berasal dari API job board publik Greenhouse, Lever, dan Ashby, pencarian publik Workable, serta API terbuka Arbeitnow dan Jobicy.",
+    "sourcesBody": "Lowongan berasal dari API job board publik Greenhouse, Lever, dan Ashby, pencarian publik Workable, API terbuka Arbeitnow dan Jobicy, serta API pekerjaan remote Himalayas.",
     "blockedTitle": "Mengapa tidak ada lowongan LinkedIn, Indeed, atau Naukri?",
     "blockedBody": "Situs-situs itu tidak menyediakan API lowongan publik dan ketentuan mereka melarang pengumpulan otomatis. Mengambil data dengan cara krap bukan pendekatan proyek ini. Jika salah satunya membuka jalur resmi, slot konektor sudah siap. Banyak perusahaan memasang peran yang sama di papan Greenhouse atau Workable milik mereka, dan itu tercakup di sini.",
     "visaTitle": "Bagaimana sponsorship visa dideteksi",
@@ -161,7 +161,7 @@
   },
   "Footer": {
     "tagline": "Peran kepemimpinan senior di engineering, produk, desain, dan data, di enam wilayah, dengan sinyal visa dan konteks gaji lokal.",
-    "data": "Greenhouse, Lever, Ashby, Workable, Arbeitnow, dan Jobicy",
+    "data": "Greenhouse, Lever, Ashby, Himalayas, Workable, Arbeitnow, dan Jobicy",
     "salary": "Data tolok ukur gaji oleh ExpatRate (CC BY 4.0).",
     "method": "Sumber dan metode",
     "license": "Kode di bawah MIT."

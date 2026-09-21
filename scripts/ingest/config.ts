@@ -38,3 +38,8 @@ export const JOBICY_TAGS = [
 ];
 
 export const JOBICY_COUNT = 100;
+
+// pages per keyword+seniority feed (20 jobs each) and the seed keywords
+// spanning the widened function families
+export const HIMALAYAS_PAGES = 4;
+export const HIMALAYAS_QUERIES = ["engineering", "product", "data", "technology"];

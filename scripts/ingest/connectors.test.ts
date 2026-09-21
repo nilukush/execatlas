@@ -3,7 +3,9 @@ import greenhouseFixture from "./__fixtures__/greenhouse.json";
 import workableFixture from "./__fixtures__/workable.json";
 import arbeitnowFixture from "./__fixtures__/arbeitnow.json";
 import ashbyFixture from "./__fixtures__/ashby.json";
+import himalayasFixture from "./__fixtures__/himalayas.json";
 import { ashbyConnector } from "./connectors/ashby";
+import { himalayasConnector } from "./connectors/himalayas";
 import jobicyFixture from "./__fixtures__/jobicy.json";
 import { greenhouseConnector } from "./connectors/greenhouse";
 import { workableConnector } from "./connectors/workable";
@@ -151,6 +153,68 @@ describe("arbeitnow visa cross-reference", () => {
     const jobs = await connector.run();
     expect(jobs.length).toBeGreaterThan(0);
     expect(jobs.every((j) => j.visaHint !== true)).toBe(true);
+  });
+});
+
+describe("himalayas connector", () => {
+  it("maps search results to raw remote jobs with stated salaries", async () => {
+    const connector = himalayasConnector(
+      { fetchJson: async () => ({ jobs: himalayasFixture }) },
+      { pages: 1, queries: ["engineering"] }
+    );
+    const jobs = await connector.run();
+    expect(jobs.length).toBe(2);
+    expect(jobs[0]).toMatchObject({
+      source: "himalayas",
+      remoteHint: true,
+      employmentHint: expect.any(String),
+    });
+    expect(jobs[0].postedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
+    const first = himalayasFixture[0];
+    if (first.minSalary && first.maxSalary && first.currency) {
+      expect(jobs[0].salaryHint).toEqual({
+        min: first.minSalary,
+        max: first.maxSalary,
+        currency: first.currency,
+        period: expect.stringMatching(/^(annual|monthly)$/),
+      });
+    } else {
+      expect(jobs[0].salaryHint).toBeNull();
+    }
+  });
+
+  it("queries keyword and seniority search feeds, not the firehose", async () => {
+    const urls: string[] = [];
+    const connector = himalayasConnector(
+      {
+        fetchJson: async (url: string) => {
+          urls.push(url);
+          return { jobs: [] };
+        },
+      },
+      { pages: 1, queries: ["engineering", "product"] }
+    );
+    await connector.run();
+    expect(urls.some((u) => u.includes("seniority=Director") && u.includes("q=engineering"))).toBe(true);
+    expect(urls.some((u) => u.includes("seniority=Executive") && u.includes("q=product"))).toBe(true);
+    expect(urls.every((u) => u.includes("/search"))).toBe(true);
+    expect(urls).toHaveLength(4);
+  });
+
+  it("stops paging when a seniority feed is exhausted and tolerates failure", async () => {
+    let calls = 0;
+    const connector = himalayasConnector(
+      {
+        fetchJson: async () => {
+          calls += 1;
+          if (calls === 1) throw new Error("HTTP 429");
+          return { jobs: himalayasFixture, nextCursor: "abc" };
+        },
+      },
+      { pages: 2, queries: ["engineering"] }
+    );
+    const jobs = await connector.run();
+    expect(jobs.length).toBe(2);
   });
 });
 
