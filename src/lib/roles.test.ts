@@ -203,6 +203,10 @@ describe("widening leak regressions (reviewer scan 2026-09-20)", () => {
     expect(classifyTitle(title)).toBeNull();
   });
 
+  it("keeps support-engineering leadership out", () => {
+    expect(classifyTitle("Director of Support Engineering - Americas")).toBeNull();
+  });
+
   it("keeps genuine CTO titles while dropping office tags", () => {
     expect(classifyTitle("Forward Deployed Engineer, Compliance [Office of the CTO]")).toBeNull();
     expect(classifyTitle("CTO, Acme Group")).toEqual({ seniority: "cto", domain: "technology" });

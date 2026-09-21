@@ -51,9 +51,9 @@ export function leverConnector(
               sourceUrl: job.hostedUrl ?? apply,
               descriptionHtml: job.description ?? "",
               locationRaw: location,
-              remoteHint: job.workplaceType === "remote" || /remote/i.test(location),
+              remoteHint: job.workplaceType?.toLowerCase() === "remote" || /remote/i.test(location),
               employmentHint: job.categories?.commitment ?? null,
-              postedAt: job.createdAt ? new Date(job.createdAt).toISOString() : null,
+              postedAt: (() => { const d = job.createdAt ? new Date(job.createdAt) : null; return d && !Number.isNaN(d.getTime()) ? d.toISOString() : null; })(),
             });
           }
         } catch (error) {

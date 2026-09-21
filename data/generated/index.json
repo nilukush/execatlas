@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-21T17:14:25.885Z",
+  "generatedAt": "2026-09-21T17:21:37.245Z",
   "jobs": [
     {
       "id": "valsoft-corporation-chef-de-l-inge-nierie-head-of-engineerin-d8c234",
@@ -2259,27 +2259,6 @@
       "salarySource": "estimated",
       "postedAt": "2026-09-08T20:17:26.148Z",
       "source": "workable"
-    },
-    {
-      "id": "ashby-director-of-support-engineering-americas-643325",
-      "title": "Director of Support Engineering - Americas",
-      "company": "Ashby",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": true,
-      "visa": "unknown",
-      "workMode": "onsite",
-      "roleType": "full-time",
-      "salaryMin": 138060,
-      "salaryMax": 220730,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-09-08T15:49:59.619Z",
-      "source": "ashby"
     },
     {
       "id": "cp-axtra-director-software-engineering-technology-3f729d",

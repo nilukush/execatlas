@@ -62,9 +62,9 @@ export function ashbyConnector(
               descriptionHtml: job.descriptionHtml ?? "",
               locationRaw: location,
               remoteHint:
-                job.isRemote === true || job.workplaceType === "remote" || /remote/i.test(location),
+                job.isRemote === true || job.workplaceType?.toLowerCase() === "remote" || /remote/i.test(location),
               employmentHint: job.employmentType ? (EMPLOYMENT_MAP[job.employmentType] ?? job.employmentType) : null,
-              postedAt: job.publishedAt ? new Date(job.publishedAt).toISOString() : null,
+              postedAt: (() => { const d = job.publishedAt ? new Date(job.publishedAt) : null; return d && !Number.isNaN(d.getTime()) ? d.toISOString() : null; })(),
             });
           }
         } catch (error) {

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { computeStats } from "./run";
+import { SOURCE_IDS } from "../../src/lib/types";
 import type { Job } from "../../src/lib/types";
 
 const base = {
@@ -28,6 +29,7 @@ const base = {
 describe("computeStats", () => {
   it("reports every configured source, zeros included", () => {
     const stats = computeStats([base], "2026-09-20T00:00:00.000Z");
-    expect(stats.bySource).toMatchObject({ greenhouse: 1, workable: 0, arbeitnow: 0, jobicy: 0, lever: 0 });
+    expect(Object.keys(stats.bySource).sort()).toEqual([...SOURCE_IDS].sort());
+    expect(stats.bySource).toMatchObject({ greenhouse: 1, workable: 0, arbeitnow: 0, jobicy: 0, lever: 0, ashby: 0 });
   });
 });
