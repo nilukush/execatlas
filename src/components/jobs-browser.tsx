@@ -213,6 +213,7 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
     perMonth: t("perMonth"),
     experience: (min, max) => (max !== undefined ? t("experienceYears", { min, max }) : t("experienceYearsPlus", { min })),
     plusPlaces: (n) => t("plusPlaces", { n }),
+    locationRestricted: t("locationRestricted"),
     posted: (date) => tJob("posted", { date: formatDate(date, locale) }),
     roleTypeLabels: Object.fromEntries(ROLE_TYPES.map((type) => [type, tRoleType(type)])),
     sourceLabels: Object.fromEntries(Object.entries(SOURCE_LABELS)),

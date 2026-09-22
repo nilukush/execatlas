@@ -100,7 +100,8 @@
     "experienceYears": "{min}-{max} سنوات",
     "experienceYearsPlus": "{min}+ سنوات",
     "plusPlaces": "+{n} أخرى",
-    "estimateNote": "* تعني راتبًا مقدرًا من معايير السوق المحلية ولم يذكره صاحب العمل."
+    "estimateNote": "* تعني راتبًا مقدرًا من معايير السوق المحلية ولم يذكره صاحب العمل.",
+    "locationRestricted": "الموقع مقيّد"
   },
   "Roles": {
     "cto": "مدير تقنية / تنفيذي",

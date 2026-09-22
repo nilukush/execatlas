@@ -100,7 +100,8 @@
     "experienceYears": "{min}-{max} वर्ष",
     "experienceYearsPlus": "{min}+ वर्ष",
     "plusPlaces": "+{n} और",
-    "estimateNote": "* का अर्थ है स्थानीय बेंचमार्क से अनुमानित वेतन, नियोक्ता द्वारा बताया नहीं गया।"
+    "estimateNote": "* का अर्थ है स्थानीय बेंचमार्क से अनुमानित वेतन, नियोक्ता द्वारा बताया नहीं गया।",
+    "locationRestricted": "स्थान सीमित"
   },
   "Roles": {
     "cto": "CTO / चीफ",

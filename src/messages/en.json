@@ -100,7 +100,8 @@
     "experienceYears": "{min}-{max} yrs",
     "experienceYearsPlus": "{min}+ yrs",
     "plusPlaces": "+{n} more",
-    "estimateNote": "* marks pay estimated from local benchmarks, not stated by the employer."
+    "estimateNote": "* marks pay estimated from local benchmarks, not stated by the employer.",
+    "locationRestricted": "Location restricted"
   },
   "Roles": {
     "cto": "CTO / Chief",

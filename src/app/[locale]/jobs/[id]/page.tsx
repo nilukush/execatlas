@@ -198,6 +198,9 @@ export default async function JobDetailPage({
             {job.workMode === "hybrid" && job.officeDays && (
               <p className="mt-2 text-muted">{t("hybridDays", { days: job.officeDays })}</p>
             )}
+            {job.location.remote && job.location.countryIso2 && (
+              <p className="mt-2 font-semibold text-ink">{tJobs("locationRestricted")}</p>
+            )}
             {country?.expatFriendly && <p className="mt-2 text-visa-fg">✓ {t("expatFriendlyYes")}</p>}
           </section>
 

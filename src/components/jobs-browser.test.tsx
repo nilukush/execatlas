@@ -96,6 +96,18 @@ describe("JobsBrowser ask and saved searches", () => {
     expect(screen.getByText(en.Jobs.estimateNote)).toBeInTheDocument();
   });
 
+  it("marks remote roles that are restricted to a country", () => {
+    const worldwide = make({ id: "worldwide", remote: true });
+    worldwide.countryIso2 = undefined; // the builder defaults to AE
+    renderBrowser([
+      make({ id: "restricted", remote: true, countryIso2: "JM", countryName: "Jamaica" }),
+      worldwide,
+      make({ id: "office", remote: false }),
+    ]);
+    const chipTexts = [...document.querySelectorAll(".chip")].map((el) => el.textContent?.trim() ?? "");
+    expect(chipTexts.filter((x) => x === en.Jobs.locationRestricted)).toHaveLength(1);
+  });
+
   it("clamps card titles to two lines", () => {
     renderBrowser([make({ id: "clamp" })]);
     const heading = screen.getByRole("heading", { name: /VP of Engineering/ });
