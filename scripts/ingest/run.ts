@@ -39,6 +39,7 @@ import { writeJsonAtomic } from "./write";
 import { buildQueryMatrix } from "../../src/lib/roles";
 import { DATASET_VERSION } from "../../src/lib/types";
 import { SOURCE_IDS } from "../../src/lib/types";
+import type { SourceQuality } from "../../src/lib/types";
 import type { DatasetStats, IndexEntry, Job, JobsFile, SourceId } from "../../src/lib/types";
 
 const GENERATED_DIR = path.join(process.cwd(), "data", "generated");
@@ -107,7 +108,24 @@ export function computeStats(jobs: Job[], generatedAt: string): DatasetStats {
     byVisa[job.visa] = (byVisa[job.visa] ?? 0) + 1;
     if (job.location.countryIso2) countries.add(job.location.countryIso2);
   }
-  return { generatedAt, total: jobs.length, bySource, byRegion, byVisa, countries: countries.size };
+  // source scorecard: volume, marginal contribution (exclusive), signal
+  // richness and freshness, so source quality is measured nightly, not guessed
+  const bySourceQuality: Record<string, SourceQuality> = {};
+  for (const source of SOURCE_IDS) {
+    const mine = jobs.filter((job) => job.source === source);
+    const ages = mine
+      .map((job) => Math.floor((Date.parse(generatedAt) - Date.parse(job.postedAt)) / 86400000))
+      .filter((age) => Number.isFinite(age) && age >= 0)
+      .sort((a, b) => a - b);
+    bySourceQuality[source] = {
+      kept: mine.length,
+      exclusive: mine.filter((job) => job.sources.length === 1).length,
+      visaKnown: mine.filter((job) => job.visa !== "unknown").length,
+      salaryStated: mine.filter((job) => job.salary?.source === "stated").length,
+      medianPostedAgeDays: ages.length > 0 ? ages[Math.floor(ages.length / 2)] : 0,
+    };
+  }
+  return { bySourceQuality, generatedAt, total: jobs.length, bySource, byRegion, byVisa, countries: countries.size };
 }
 
 async function main() {

@@ -27,6 +27,12 @@ const base = {
 } as Job;
 
 describe("computeStats", () => {
+  it("scores each source on exclusivity, signals and freshness", () => {
+    const stats = computeStats([base], "2026-09-22T00:00:00.000Z");
+    const q = stats.bySourceQuality!.greenhouse;
+    expect(q).toEqual({ kept: 1, exclusive: 1, visaKnown: 0, salaryStated: 0, medianPostedAgeDays: 21 });
+  });
+
   it("reports every configured source, zeros included", () => {
     const stats = computeStats([base], "2026-09-20T00:00:00.000Z");
     expect(Object.keys(stats.bySource).sort()).toEqual([...SOURCE_IDS].sort());

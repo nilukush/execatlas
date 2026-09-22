@@ -137,6 +137,14 @@ export interface IndexEntry {
   source: SourceId;
 }
 
+export interface SourceQuality {
+  kept: number;
+  exclusive: number;
+  visaKnown: number;
+  salaryStated: number;
+  medianPostedAgeDays: number;
+}
+
 export const DATASET_VERSION = 2;
 
 export interface JobsFile {
@@ -160,4 +168,5 @@ export interface DatasetStats {
   byRegion: Record<string, number>;
   byVisa: Record<string, number>;
   countries: number;
+  bySourceQuality?: Record<string, SourceQuality>;
 }
