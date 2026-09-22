@@ -14,7 +14,9 @@ export const LEVER_TOKENS: string[] = [
   'ro',
   'sambatv',
   'spotify',
+  'trendyol',
   'yuno',
+  'zopa',
 ];
 
 // tokens whose brand styling differs from naive token capitalization

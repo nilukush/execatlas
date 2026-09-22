@@ -17,6 +17,7 @@ export interface JobCardLabels {
   experience: (min: number, max?: number) => string;
   plusPlaces: (n: number) => string;
   locationRestricted: string;
+  worldwideRemote: string;
   posted: (date: string) => string;
   roleTypeLabels: Record<string, string>;
   sourceLabels: Record<string, string>;
@@ -70,6 +71,9 @@ export function JobCard({
         )}
         {job.remote && job.countryIso2 && (
           <span className="chip">{labels.locationRestricted}</span>
+        )}
+        {job.remote && !job.countryIso2 && (
+          <span className="chip">{labels.worldwideRemote}</span>
         )}
         {job.workMode !== "unspecified" && (
           <span

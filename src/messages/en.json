@@ -101,7 +101,8 @@
     "experienceYearsPlus": "{min}+ yrs",
     "plusPlaces": "+{n} more",
     "estimateNote": "* marks pay estimated from local benchmarks, not stated by the employer.",
-    "locationRestricted": "Location restricted"
+    "locationRestricted": "Location restricted",
+    "worldwideRemote": "Worldwide remote"
   },
   "Roles": {
     "cto": "CTO / Chief",

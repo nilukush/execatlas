@@ -10,12 +10,17 @@ export const ASHBY_TOKENS: string[] = [
   'clickup',
   'cursor',
   'docker',
+  'elevenlabs',
+  'krea',
   'linear',
   'lovable',
+  'notion',
   'openai',
   'oyster',
   'photoroom',
   'posthog',
+  'ramp',
+  'vanta',
   'qonto',
   'quora',
   'zapier',
@@ -24,6 +29,7 @@ export const ASHBY_TOKENS: string[] = [
 // tokens whose brand styling differs from naive token capitalization
 export const ASHBY_COMPANY_NAMES: Record<string, string> = {
   clickup: "ClickUp",
+  elevenlabs: "ElevenLabs",
   openai: "OpenAI",
   posthog: "PostHog",
 };

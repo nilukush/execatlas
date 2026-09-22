@@ -101,7 +101,8 @@
     "experienceYearsPlus": "{min}+ thn",
     "plusPlaces": "+{n} lagi",
     "estimateNote": "* menandakan gaji estimasi dari tolok ukur lokal, bukan yang dinyatakan pemberi kerja.",
-    "locationRestricted": "Lokasi terbatas"
+    "locationRestricted": "Lokasi terbatas",
+    "worldwideRemote": "Remote di seluruh dunia"
   },
   "Roles": {
     "cto": "CTO / Chief",

@@ -29,17 +29,17 @@
       "medianPostedAgeDays": 9
     },
     "lever": {
-      "kept": 7,
-      "exclusive": 7,
+      "kept": 9,
+      "exclusive": 9,
       "visaKnown": 0,
       "salaryStated": 0,
       "medianPostedAgeDays": 47
     },
     "ashby": {
-      "kept": 7,
-      "exclusive": 7,
+      "kept": 11,
+      "exclusive": 11,
       "visaKnown": 2,
-      "salaryStated": 2,
+      "salaryStated": 3,
       "medianPostedAgeDays": 75
     },
     "himalayas": {
@@ -57,29 +57,29 @@
       "medianPostedAgeDays": 28
     }
   },
-  "generatedAt": "2026-09-22T11:09:34.030Z",
-  "total": 1184,
+  "generatedAt": "2026-09-22T12:57:34.986Z",
+  "total": 1190,
   "bySource": {
     "greenhouse": 200,
     "workable": 175,
     "arbeitnow": 7,
     "jobicy": 28,
-    "lever": 7,
-    "ashby": 7,
+    "lever": 9,
+    "ashby": 11,
     "himalayas": 340,
     "adzuna": 420
   },
   "byRegion": {
-    "europe": 332,
-    "north-america": 575,
+    "europe": 334,
+    "north-america": 576,
     "india": 93,
     "north-africa": 7,
     "southeast-asia": 127,
     "middle-east": 25,
-    "remote": 25
+    "remote": 28
   },
   "byVisa": {
-    "unknown": 1139,
+    "unknown": 1145,
     "yes": 33,
     "no": 12
   },

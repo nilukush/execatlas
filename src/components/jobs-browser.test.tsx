@@ -106,6 +106,7 @@ describe("JobsBrowser ask and saved searches", () => {
     ]);
     const chipTexts = [...document.querySelectorAll(".chip")].map((el) => el.textContent?.trim() ?? "");
     expect(chipTexts.filter((x) => x === en.Jobs.locationRestricted)).toHaveLength(1);
+    expect(chipTexts.filter((x) => x === en.Jobs.worldwideRemote)).toHaveLength(1);
   });
 
   it("clamps card titles to two lines", () => {

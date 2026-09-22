@@ -40,6 +40,7 @@ export default async function HomePage({
     experience: (min, max) => (max !== undefined ? tJobs("experienceYears", { min, max }) : tJobs("experienceYearsPlus", { min })),
     plusPlaces: (n) => tJobs("plusPlaces", { n }),
     locationRestricted: tJobs("locationRestricted"),
+    worldwideRemote: tJobs("worldwideRemote"),
     roleTypeLabels: Object.fromEntries(ROLE_TYPES.map((type) => [type, tRoleType(type)])),
     posted: (date) => tJob("posted", { date: formatDate(date, locale) }),
     sourceLabels: Object.fromEntries(Object.entries(SOURCE_LABELS)),
