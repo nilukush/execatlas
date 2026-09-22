@@ -71,6 +71,6 @@ export async function cachedFetchJson(
 }
 
 export function cacheFilePath(url: string): string {
-  const hash = crypto.createHash("sha1").update(url).digest("hex");
+  const hash = crypto.createHash("sha256").update(url).digest("hex");
   return path.join(cacheDir(), `${hash}.json`);
 }

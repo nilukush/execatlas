@@ -27,7 +27,9 @@ export function parseDataset<T extends { version: number; jobs: unknown[] }>(tex
 }
 
 function readText(name: string): string {
-  const file = path.join(GENERATED_DIR, name);
+  // basename guards against traversal even though every call site passes a
+  // fixed literal today
+  const file = path.join(GENERATED_DIR, path.basename(name));
   if (!fs.existsSync(file)) throw new Error(`${name}: missing from data/generated; run pnpm ingest`);
   return fs.readFileSync(file, "utf8");
 }

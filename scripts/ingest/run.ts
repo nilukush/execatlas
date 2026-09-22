@@ -14,6 +14,8 @@ import {
   ASHBY_COMPANY_NAMES,
   HIMALAYAS_PAGES,
   HIMALAYAS_QUERIES,
+  ADZUNA_COUNTRIES,
+  ADZUNA_QUERIES,
 } from "./config";
 import { greenhouseConnector } from "./connectors/greenhouse";
 import { workableConnector } from "./connectors/workable";
@@ -22,6 +24,7 @@ import { jobicyConnector } from "./connectors/jobicy";
 import { leverConnector } from "./connectors/lever";
 import { ashbyConnector } from "./connectors/ashby";
 import { himalayasConnector } from "./connectors/himalayas";
+import { adzunaConnector } from "./connectors/adzuna";
 import { normalizeJob, stableId, stableUpdatedAt } from "./normalize";
 import { dedupeJobs } from "./dedupe";
 import { datasetProblems, shouldRunSanityGate } from "./sanity";
@@ -121,6 +124,13 @@ async function main() {
     leverConnector(deps, { tokens: smoke ? ["netomi"] : LEVER_TOKENS, names: LEVER_COMPANY_NAMES }),
     ashbyConnector(deps, { tokens: smoke ? ["docker"] : ASHBY_TOKENS, names: ASHBY_COMPANY_NAMES }),
     himalayasConnector(deps, { pages: smoke ? 1 : HIMALAYAS_PAGES, queries: HIMALAYAS_QUERIES }),
+    adzunaConnector(deps, {
+      appId: process.env.ADZUNA_APP_ID ?? "",
+      appKey: process.env.ADZUNA_APP_KEY ?? "",
+      countries: smoke ? ["gb"] : ADZUNA_COUNTRIES,
+      queries: smoke ? ["engineering director"] : ADZUNA_QUERIES,
+      pages: 1,
+    }),
   ].filter((connector) => !only || connector.id === only);
 
   const prevEnvelope = loadPrevEnvelope();

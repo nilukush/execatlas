@@ -1,0 +1,53 @@
+[
+  {
+    "id": "5871612361",
+    "title": "Fire Engineering Director",
+    "company": {
+      "display_name": "Odevo UK",
+      "__CLASS__": "Adzuna::API::Response::Company"
+    },
+    "location": {
+      "display_name": "South East London, London",
+      "__CLASS__": "Adzuna::API::Response::Location",
+      "area": [
+        "UK",
+        "London",
+        "South East London"
+      ]
+    },
+    "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5871612361?se=QshZOnG28RG7t6kfOdp34w&utm_medium=api&utm_source=8a5b754b&v=012582F09BFB4961BA6146494F7D7FAFABF76021",
+    "created": "2026-09-05T07:32:46Z",
+    "contract_time": null,
+    "contract_type": "permanent",
+    "description": "FIRE ENGINEERING DIRECTOR Odevo UK Competitive Home Based ROLE OVERVIEW As our most senior fire engineering professional, you will set the strategic direction, technical standards and commercial performance of Odevo UKs Fire Engineering function. You will lead and grow a multidisciplinary team of fire engineers, technicians and support colleagues, ensuring every design, assessment and compliance project meets the highest professional, regulatory and quality benchmarks. This is a senior leadersh\u2026",
+    "salary_min": 71220.25,
+    "salary_max": 71220.25,
+    "salary_is_predicted": "1"
+  },
+  {
+    "id": "5878877903",
+    "title": "Fire Engineering Director",
+    "company": {
+      "display_name": "Diamond & Co",
+      "__CLASS__": "Adzuna::API::Response::Company"
+    },
+    "location": {
+      "display_name": "Normanton, West Yorkshire",
+      "__CLASS__": "Adzuna::API::Response::Location",
+      "area": [
+        "UK",
+        "Yorkshire And The Humber",
+        "West Yorkshire",
+        "Normanton"
+      ]
+    },
+    "redirect_url": "https://www.adzuna.co.uk/jobs/land/ad/5878877903?se=QshZOnG28RG7t6kfOdp34w&utm_medium=api&utm_source=8a5b754b&v=072A271CE6E2D9D209038686D11DE6BC1A8B27AA",
+    "created": "2026-09-10T22:25:51Z",
+    "contract_time": null,
+    "contract_type": null,
+    "description": "FIRE ENGINEERING DIRECTOR Odevo UK Competitive Home Based ROLE OVERVIEW As our most senior fire engineering professional, you will set the strategic direction, technical standards and commercial performance of Odevo UKs Fire Engineering function. You will lead and grow a multidisciplinary team of fire engineers, technicians and support colleagues, ensuring every design, assessment and complian",
+    "salary_min": 52264.81,
+    "salary_max": 52264.81,
+    "salary_is_predicted": "1"
+  }
+]

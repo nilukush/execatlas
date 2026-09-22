@@ -209,6 +209,10 @@ describe("widening leak regressions (reviewer scan 2026-09-20)", () => {
     expect(classifyTitle("Head of Project Engineering (LQ) (F-4851-I)")).toBeNull();
     expect(classifyTitle("Director, Engineering (Remote, GA, US, 99999)")).toBeNull();
     expect(classifyTitle("Vice President, Presales Engineering")).toBeNull();
+    expect(classifyTitle("Fire Engineering Director")).toBeNull();
+    expect(classifyTitle("Director of Civil Engineering")).toBeNull();
+    expect(classifyTitle("Director of Manufacturing Engineering and Maintenance")).toBeNull();
+    expect(classifyTitle("Engineering Director, Nuclear")).toBeNull();
     // analytics leadership stays in: analyst and analytics are different words
     expect(classifyTitle("Director of Analytics")).toEqual({ seniority: "director", domain: "data" });
   });

@@ -26,6 +26,7 @@ const SOURCES_STATUS = [
   { name: "Lever", status: "open-api", url: "https://github.com/lever/postings-api" },
   { name: "Ashby", status: "open-api", url: "https://developers.ashbyhq.com" },
   { name: "Himalayas", status: "open-api", url: "https://himalayas.app/docs/remote-jobs-api" },
+  { name: "Adzuna", status: "open-api", url: "https://www.adzuna.com" },
   { name: "LinkedIn", status: "no-compliant-path", url: "https://www.linkedin.com" },
   { name: "Indeed", status: "no-compliant-path", url: "https://www.indeed.com" },
   { name: "Naukri.com", status: "no-compliant-path", url: "https://www.naukri.com" },

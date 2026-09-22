@@ -1,9 +1,9 @@
 import type { RegionId } from "./locations";
 import type { Seniority, Domain } from "./roles";
 
-export type SourceId = "greenhouse" | "workable" | "arbeitnow" | "jobicy" | "lever" | "ashby" | "himalayas";
+export type SourceId = "greenhouse" | "workable" | "arbeitnow" | "jobicy" | "lever" | "ashby" | "himalayas" | "adzuna";
 
-export const SOURCE_IDS: SourceId[] = ["greenhouse", "workable", "arbeitnow", "jobicy", "lever", "ashby", "himalayas"];
+export const SOURCE_IDS: SourceId[] = ["greenhouse", "workable", "arbeitnow", "jobicy", "lever", "ashby", "himalayas", "adzuna"];
 
 export const SOURCE_LABELS: Record<SourceId, string> = {
   greenhouse: "Greenhouse",
@@ -13,6 +13,7 @@ export const SOURCE_LABELS: Record<SourceId, string> = {
   lever: "Lever",
   ashby: "Ashby",
   himalayas: "Himalayas",
+  adzuna: "Adzuna",
 };
 
 export type VisaSignal = "yes" | "no" | "unknown";

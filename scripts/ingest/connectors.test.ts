@@ -4,8 +4,10 @@ import workableFixture from "./__fixtures__/workable.json";
 import arbeitnowFixture from "./__fixtures__/arbeitnow.json";
 import ashbyFixture from "./__fixtures__/ashby.json";
 import himalayasFixture from "./__fixtures__/himalayas.json";
+import adzunaFixture from "./__fixtures__/adzuna.json";
 import { ashbyConnector } from "./connectors/ashby";
 import { himalayasConnector } from "./connectors/himalayas";
+import { adzunaConnector } from "./connectors/adzuna";
 import jobicyFixture from "./__fixtures__/jobicy.json";
 import { greenhouseConnector } from "./connectors/greenhouse";
 import { workableConnector } from "./connectors/workable";
@@ -153,6 +155,64 @@ describe("arbeitnow visa cross-reference", () => {
     const jobs = await connector.run();
     expect(jobs.length).toBeGreaterThan(0);
     expect(jobs.every((j) => j.visaHint !== true)).toBe(true);
+  });
+});
+
+describe("adzuna connector", () => {
+  it("maps search results with the queried country prefixed to the location", async () => {
+    const connector = adzunaConnector(
+      { fetchJson: async () => ({ results: adzunaFixture }) },
+      { appId: "id", appKey: "key", countries: ["gb"], queries: ["engineering director"], pages: 1 }
+    );
+    const jobs = await connector.run();
+    expect(jobs.length).toBe(2);
+    expect(jobs[0]).toMatchObject({
+      source: "adzuna",
+      company: "Odevo UK",
+      locationRaw: expect.stringMatching(/^United Kingdom/),
+      applyUrl: expect.stringContaining("https://"),
+      postedAt: expect.stringMatching(/^\d{4}-\d{2}-\d{2}T/),
+      salaryHint: null,
+    });
+  });
+
+  it("skips the source entirely without credentials and keeps going on a country failure", async () => {
+    const noCreds = adzunaConnector(
+      { fetchJson: async () => { throw new Error("must not fetch"); } },
+      { appId: "", appKey: "", countries: ["gb"], queries: ["x"], pages: 1 }
+    );
+    expect(await noCreds.run()).toEqual([]);
+
+    let calls = 0;
+    const partial = adzunaConnector(
+      {
+        fetchJson: async () => {
+          calls += 1;
+          if (calls === 1) throw new Error("HTTP 403 quota");
+          return { results: adzunaFixture };
+        },
+      },
+      { appId: "id", appKey: "key", countries: ["de", "gb"], queries: ["q"], pages: 1 }
+    );
+    const jobs = await partial.run();
+    expect(jobs.length).toBe(2);
+    expect(jobs[0].locationRaw.startsWith("United Kingdom")).toBe(true);
+  });
+
+  it("sends credentials and pagination on every request", async () => {
+    const urls: string[] = [];
+    const connector = adzunaConnector(
+      {
+        fetchJson: async (url: string) => {
+          urls.push(url);
+          return { results: [] };
+        },
+      },
+      { appId: "myid", appKey: "mykey", countries: ["gb", "in"], queries: ["a", "b"], pages: 1 }
+    );
+    await connector.run();
+    expect(urls).toHaveLength(4);
+    expect(urls.every((u) => u.includes("app_id=myid") && u.includes("app_key=mykey"))).toBe(true);
   });
 });
 
