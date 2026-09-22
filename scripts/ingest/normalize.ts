@@ -39,6 +39,10 @@ const BASIC_ENTITIES: Array<[RegExp, string]> = [
 function decodeEntities(value: string): string {
   let out = value;
   for (const [pattern, replacement] of BASIC_ENTITIES) out = out.replace(pattern, replacement);
+  // numeric entities, including ones the named pass just unescaped
+  for (let pass = 0; pass < 2; pass += 1) {
+    out = out.replace(/&#(\d+);/g, (_, code: string) => String.fromCodePoint(Number(code)));
+  }
   return out.replace(/\u00a0/g, " ");
 }
 
@@ -57,7 +61,11 @@ function isValidCurrency(code: string | undefined): code is string {
  * and a plain web apply URL.
  */
 export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | null {
-  const classification = classifyTitle(raw.title);
+  // decode before anything downstream reads the title or company: the
+  // classifier, ids and dedupe keys must all see clean text
+  const title = decodeEntities(raw.title).trim();
+  const company = decodeEntities(raw.company).trim();
+  const classification = classifyTitle(title);
   if (!classification) return null;
   if (!isWebUrl(raw.applyUrl)) return null;
   if (!isWebUrl(raw.sourceUrl)) raw = { ...raw, sourceUrl: raw.applyUrl };
@@ -88,9 +96,9 @@ export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | nu
   }
 
   const job: Job = {
-    id: existing?.id ?? stableId(decodeEntities(raw.company), decodeEntities(raw.title), raw.source, raw.externalId),
-    title: decodeEntities(raw.title).trim(),
-    company: decodeEntities(raw.company).trim(),
+    id: existing?.id ?? stableId(company, title, raw.source, raw.externalId),
+    title,
+    company,
     companyLogoUrl: raw.companyLogoUrl,
     applyUrl: raw.applyUrl,
     sourceUrl: raw.sourceUrl,

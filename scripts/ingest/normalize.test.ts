@@ -52,6 +52,12 @@ describe("title and company entity decoding", () => {
     expect(job?.title).toBe("VP of Engineering & Product");
     expect(job?.company).toBe("Foo & Bar Ltd");
   });
+
+  it("decodes numeric entities including double-escaped ones", () => {
+    const job = normalizeJob(makeRaw({ title: "VP of Engineering &#038; Product", company: "hims &amp;#038; hers" }), NOW);
+    expect(job?.title).toBe("VP of Engineering & Product");
+    expect(job?.company).toBe("hims & hers");
+  });
 });
 
 describe("normalizeJob", () => {

@@ -1,4 +1,11 @@
 import fs from "node:fs";
+
+// local runs read .env.local when present; real environment variables win
+try {
+  process.loadEnvFile(".env.local");
+} catch {
+  // no .env.local (CI, fresh clones): nothing to load
+}
 import path from "node:path";
 import { cachedFetchJson } from "./http";
 import {

@@ -1,29 +1,29 @@
 {
-  "generatedAt": "2026-09-22T10:50:10.601Z",
-  "total": 1177,
+  "generatedAt": "2026-09-22T11:09:34.030Z",
+  "total": 1184,
   "bySource": {
     "greenhouse": 200,
-    "workable": 178,
-    "arbeitnow": 6,
-    "jobicy": 29,
+    "workable": 175,
+    "arbeitnow": 7,
+    "jobicy": 28,
     "lever": 7,
     "ashby": 7,
-    "himalayas": 325,
-    "adzuna": 425
+    "himalayas": 340,
+    "adzuna": 420
   },
   "byRegion": {
     "europe": 332,
+    "north-america": 575,
     "india": 93,
-    "southeast-asia": 130,
-    "north-america": 570,
-    "middle-east": 24,
-    "remote": 22,
-    "north-africa": 6
+    "north-africa": 7,
+    "southeast-asia": 127,
+    "middle-east": 25,
+    "remote": 25
   },
   "byVisa": {
-    "unknown": 1136,
-    "no": 12,
-    "yes": 29
+    "unknown": 1139,
+    "yes": 33,
+    "no": 12
   },
   "countries": 37
 }
