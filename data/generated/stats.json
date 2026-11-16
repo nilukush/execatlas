@@ -1,31 +1,31 @@
 {
   "bySourceQuality": {
     "greenhouse": {
-      "kept": 196,
-      "exclusive": 188,
+      "kept": 198,
+      "exclusive": 190,
       "visaKnown": 17,
-      "salaryStated": 94,
+      "salaryStated": 93,
       "medianPostedAgeDays": 60
     },
     "workable": {
-      "kept": 185,
-      "exclusive": 174,
+      "kept": 177,
+      "exclusive": 164,
       "visaKnown": 2,
-      "salaryStated": 16,
-      "medianPostedAgeDays": 40
+      "salaryStated": 15,
+      "medianPostedAgeDays": 41
     },
     "arbeitnow": {
-      "kept": 23,
-      "exclusive": 19,
-      "visaKnown": 2,
-      "salaryStated": 1,
+      "kept": 19,
+      "exclusive": 17,
+      "visaKnown": 13,
+      "salaryStated": 2,
       "medianPostedAgeDays": 2
     },
     "jobicy": {
-      "kept": 9,
-      "exclusive": 9,
-      "visaKnown": 1,
-      "salaryStated": 4,
+      "kept": 13,
+      "exclusive": 13,
+      "visaKnown": 3,
+      "salaryStated": 6,
       "medianPostedAgeDays": 1
     },
     "lever": {
@@ -33,55 +33,55 @@
       "exclusive": 5,
       "visaKnown": 0,
       "salaryStated": 0,
-      "medianPostedAgeDays": 67
+      "medianPostedAgeDays": 68
     },
     "ashby": {
       "kept": 13,
       "exclusive": 13,
       "visaKnown": 3,
       "salaryStated": 5,
-      "medianPostedAgeDays": 18
+      "medianPostedAgeDays": 19
     },
     "himalayas": {
-      "kept": 215,
-      "exclusive": 210,
-      "visaKnown": 8,
+      "kept": 218,
+      "exclusive": 213,
+      "visaKnown": 7,
       "salaryStated": 110,
       "medianPostedAgeDays": 22
     },
     "adzuna": {
-      "kept": 440,
-      "exclusive": 440,
+      "kept": 454,
+      "exclusive": 454,
       "visaKnown": 2,
-      "salaryStated": 10,
-      "medianPostedAgeDays": 29
+      "salaryStated": 11,
+      "medianPostedAgeDays": 26
     }
   },
-  "generatedAt": "2026-11-15T11:01:42.117Z",
-  "total": 1086,
+  "generatedAt": "2026-11-16T11:31:27.637Z",
+  "total": 1097,
   "bySource": {
-    "greenhouse": 196,
-    "workable": 185,
-    "arbeitnow": 23,
-    "jobicy": 9,
+    "greenhouse": 198,
+    "workable": 177,
+    "arbeitnow": 19,
+    "jobicy": 13,
     "lever": 5,
     "ashby": 13,
-    "himalayas": 215,
-    "adzuna": 440
+    "himalayas": 218,
+    "adzuna": 454
   },
   "byRegion": {
-    "europe": 365,
-    "north-america": 456,
-    "india": 89,
-    "southeast-asia": 136,
+    "middle-east": 21,
+    "north-america": 480,
+    "europe": 350,
+    "southeast-asia": 138,
+    "india": 91,
     "remote": 12,
-    "middle-east": 23,
     "north-africa": 5
   },
   "byVisa": {
-    "unknown": 1051,
-    "yes": 27,
-    "no": 8
+    "unknown": 1050,
+    "yes": 40,
+    "no": 7
   },
   "countries": 37
 }
