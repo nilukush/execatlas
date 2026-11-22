@@ -31,6 +31,21 @@ const NEGATIVE: RegExp[] = [
  * Reads posting text for visa sponsorship language. Explicit refusals win
  * over generic sponsorship mentions; silence stays unknown.
  */
+/**
+ * The single sentence that carries the visa signal, quoted as evidence on
+ * the job detail page. Negative sentences win for the same reason as in
+ * detectVisa; returns null when the signal is unknown.
+ */
+export function visaEvidence(text: string): string | null {
+  if (!text) return null;
+  const sentences = text.split(/(?<=[.!?])\s+/);
+  const hit = (patterns: RegExp[]) =>
+    sentences.find((sentence) => patterns.some((re) => re.test(sentence))) ?? null;
+  if (detectVisa(text) === "no") return hit(NEGATIVE) ?? hit(POSITIVE);
+  if (detectVisa(text) === "yes") return hit(POSITIVE);
+  return null;
+}
+
 export function detectVisa(text: string): VisaSignal {
   if (!text) return "unknown";
   if (NEGATIVE.some((re) => re.test(text))) return "no";

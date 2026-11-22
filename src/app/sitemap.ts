@@ -7,7 +7,7 @@ import { defaultOrder, paginate } from "@/lib/search";
 export const dynamic = "force-static";
 
 /** Static, non-job paths in the sitemap; verify-build asserts against this list. */
-export const STATIC_PATHS = ["", "/jobs", "/about"];
+export const STATIC_PATHS = ["", "/jobs", "/stats", "/about"];
 
 /**
  * Pure builder so the date policy is testable: static and list pages carry the

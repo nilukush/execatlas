@@ -58,8 +58,46 @@ const entries = [
   }),
 ];
 
+describe("listing state survives navigation (issue 3)", () => {
+  afterEach(() => {
+    cleanup();
+    window.history.replaceState({}, "", "/en/jobs");
+  });
+
+  it("restores the page from the URL on mount", () => {
+    window.history.replaceState({}, "", "/en/jobs?page=2");
+    // distinct dates make the newest-first order deterministic: Firm 29 first
+    renderBrowser(
+      Array.from({ length: 30 }, (_, i) =>
+        make({ id: `j${i}`, company: `Firm ${i}`, postedAt: `2026-09-${String(i + 1).padStart(2, "0")}` })
+      )
+    );
+    expect(screen.getByText("Page 2 of 2")).toBeInTheDocument();
+    expect(screen.getByText(/Firm 5/)).toBeInTheDocument();
+    expect(screen.queryByText(/Firm 29/)).not.toBeInTheDocument();
+  });
+
+  it("restores filters from the URL on mount", () => {
+    window.history.replaceState({}, "", "/en/jobs?visa=yes");
+    renderBrowser([make({ id: "sponsored", company: "Sponsored Co", visa: "yes" }), make({ id: "plain", company: "Plain Co", visa: "unknown" })]);
+    expect(screen.getByText(/Sponsored Co/)).toBeInTheDocument();
+    expect(screen.queryByText(/Plain Co/)).not.toBeInTheDocument();
+  });
+
+  it("writes non-default state into the URL when filters change", async () => {
+    window.history.replaceState({}, "", "/en/jobs");
+    renderBrowser(Array.from({ length: 30 }, (_, i) => make({ id: `j${i}`, company: `Firm ${i}` })));
+    const visaSelect = screen.getByLabelText("Visa sponsorship") as HTMLSelectElement;
+    fireEvent.change(visaSelect, { target: { value: "yes" } });
+    expect(window.location.search).toContain("visa=yes");
+  });
+});
+
 describe("JobsBrowser ask and saved searches", () => {
-  afterEach(cleanup);
+  afterEach(() => {
+    cleanup();
+    window.history.replaceState({}, "", "/en/jobs");
+  });
 
   it("renders translated work mode badges on the cards", () => {
     renderBrowser(entries);
@@ -186,7 +224,10 @@ describe("JobsBrowser ask and saved searches", () => {
 });
 
 describe("JobsBrowser search and filters surface", () => {
-  afterEach(cleanup);
+  afterEach(() => {
+    cleanup();
+    window.history.replaceState({}, "", "/en/jobs");
+  });
 
   it("accepts plain keywords in the ask box without a second search input", () => {
     renderBrowser(entries);
@@ -244,6 +285,7 @@ describe("JobsBrowser search and filters surface", () => {
     renderBrowser(many);
     fireEvent.change(screen.getByLabelText("Visa sponsorship"), { target: { value: "yes" } });
     fireEvent.click(screen.getByRole("button", { name: "Next page" }));
+    console.log("DBG search:", window.location.search, "| firms:", [...document.querySelectorAll("p")].map((e2) => e2.textContent?.split(" · ")[0]).filter((x) => x?.startsWith("Firm")).join(","));
     expect(screen.getByText("Page 2 of 2")).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: "Clear filters" }));

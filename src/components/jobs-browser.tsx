@@ -22,18 +22,64 @@ const SENIORITIES = ["cto", "vp", "avp", "director", "head"] as const;
 const STORAGE_KEY = "ea-saved-searches";
 const MAX_SAVED = 8;
 
+const URL_KEYS: Array<{ key: string; filter: keyof JobFilters }> = [
+  { key: "region", filter: "region" },
+  { key: "country", filter: "country" },
+  { key: "seniority", filter: "seniority" },
+  { key: "visa", filter: "visa" },
+  { key: "workMode", filter: "workMode" },
+  { key: "roleType", filter: "roleType" },
+  { key: "source", filter: "source" },
+  { key: "sort", filter: "sort" },
+];
+
+function filtersFromUrl(): JobFilters {
+  if (typeof window === "undefined") return DEFAULT_FILTERS;
+  const params = new URLSearchParams(window.location.search);
+  const next = { ...DEFAULT_FILTERS, query: params.get("q") ?? "" };
+  for (const { key, filter } of URL_KEYS) {
+    const value = params.get(key);
+    if (value !== null) (next as Record<string, unknown>)[filter] = value;
+  }
+  return next;
+}
+
+function pageFromUrl(): number {
+  if (typeof window === "undefined") return 1;
+  const raw = Number(new URLSearchParams(window.location.search).get("page"));
+  return Number.isInteger(raw) && raw >= 1 ? raw : 1;
+}
+
+function writeStateToUrl(filters: JobFilters, page: number): void {
+  const params = new URLSearchParams();
+  if (filters.query) params.set("q", filters.query);
+  for (const { key, filter } of URL_KEYS) {
+    const value = filters[filter];
+    if (value !== DEFAULT_FILTERS[filter]) params.set(key, String(value));
+  }
+  if (page > 1) params.set("page", String(page));
+  const search = params.toString();
+  window.history.replaceState({}, "", `${window.location.pathname}${search ? `?${search}` : ""}`);
+}
+
 export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale: string }) {
   const t = useTranslations("Jobs");
   const tJob = useTranslations("Job");
   const tRoles = useTranslations("Roles");
   const tRoleType = useTranslations("RoleType");
-  const [filters, setFilters] = useState<JobFilters>(DEFAULT_FILTERS);
-  const [page, setPage] = useState(1);
+  // listing state lives in the URL so the browser back button and refresh
+  // land the visitor where they were (issue 3)
+  const [filters, setFilters] = useState<JobFilters>(() => filtersFromUrl());
+  const [page, setPage] = useState(() => pageFromUrl());
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState<AskAnswer | null>(null);
   const [saved, setSaved] = useState<SavedSearch[]>([]);
   const [storageReady, setStorageReady] = useState(false);
   const [filtersOpen, setFiltersOpen] = useState(false);
+
+  useEffect(() => {
+    writeStateToUrl(filters, page);
+  }, [filters, page]);
 
   useEffect(() => {
     try {

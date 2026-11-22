@@ -1,6 +1,31 @@
 import { describe, expect, it } from "vitest";
 import { parsePostingHtml } from "./jd";
 
+describe("requirement heading variants (issue 2)", () => {
+  it("extracts requirements under 'Your skills and experience'", () => {
+    const parsed = parsePostingHtml(
+      "<h2>About</h2><p>Intro.</p>" +
+        "<h2>Your skills and experience</h2><p>Ten years in consulting.</p><ul><li>Leadership.</li></ul>" +
+        "<h2>Benefits</h2><p>Perks.</p>"
+    );
+    expect(parsed.requirements).toEqual(["Ten years in consulting.", "Leadership."]);
+  });
+
+  it("extracts requirements under 'What we're looking for'", () => {
+    const parsed = parsePostingHtml(
+      "<h3>What we're looking for</h3><p>Scale experience.</p><h3>Our offer</h3><p>Pay.</p>"
+    );
+    expect(parsed.requirements).toEqual(["Scale experience."]);
+  });
+
+  it("extracts requirements under 'Who we are looking for'", () => {
+    const parsed = parsePostingHtml(
+      "<h2>Who we are looking for</h2><p>Product leadership.</p><h2>Team</h2><p>Us.</p>"
+    );
+    expect(parsed.requirements).toEqual(["Product leadership."]);
+  });
+});
+
 describe("parsePostingHtml", () => {
   it("parses headings, paragraphs and lists into blocks", () => {
     const result = parsePostingHtml(

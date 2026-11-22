@@ -1,6 +1,25 @@
 import { describe, expect, it } from "vitest";
 import { detectVisa } from "./visa";
 
+import { visaEvidence } from "./visa";
+
+describe("visaEvidence", () => {
+  it("returns the sentence that carries the positive signal", () => {
+    const text =
+      "About us. We are a fintech. Visa sponsorship is available for exceptional candidates. Apply now.";
+    expect(visaEvidence(text)).toBe("Visa sponsorship is available for exceptional candidates.");
+  });
+
+  it("returns the refusing sentence for a negative signal", () => {
+    const text = "Join our team. We are unable to offer sponsorship for this role. Perks follow.";
+    expect(visaEvidence(text)).toBe("We are unable to offer sponsorship for this role.");
+  });
+
+  it("returns null when the signal is unknown", () => {
+    expect(visaEvidence("A plain posting with no visa language at all.")).toBeNull();
+  });
+});
+
 describe("detectVisa", () => {
   const cases: Array<[string, "yes" | "no" | "unknown"]> = [
     // sponsorship offered

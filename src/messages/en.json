@@ -8,7 +8,8 @@
     "aboutTitle": "About ExecAtlas",
     "aboutDescription": "How ExecAtlas sources roles, detects visa sponsorship and estimates salaries in local currency.",
     "jobTitle": "{title} at {company}",
-    "jobOgTail": "See the full role, salary band and apply link on ExecAtlas."
+    "jobOgTail": "See the full role, salary band and apply link on ExecAtlas.",
+    "statsTitle": "ExecAtlas stats: sources and dataset health"
   },
   "Nav": {
     "home": "Home",
@@ -17,7 +18,8 @@
     "menu": "Main menu",
     "theme": "Toggle dark mode",
     "language": "Change language",
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "stats": "Stats"
   },
   "Home": {
     "kicker": "Director, VP and C-suite roles",
@@ -143,7 +145,10 @@
     "poster": "Posted by",
     "daysAgo": "{days, plural, one {yesterday} other {# days ago}}",
     "experience": "Years of experience",
-    "alsoHiring": "Also hiring in"
+    "alsoHiring": "Also hiring in",
+    "visaSignal": "Visa signal",
+    "visaEvidencePrefix": "Signal read from the posting:",
+    "briefListing": "This source provides only a short preview. The full role details and the application live at the apply link."
   },
   "About": {
     "title": "About ExecAtlas",
@@ -172,5 +177,22 @@
     "title": "Page not found",
     "body": "The page you are looking for does not exist or has moved.",
     "back": "Back to home"
+  },
+  "Stats": {
+    "title": "How this dataset is doing",
+    "intro": "Refreshed nightly from eight public job APIs. Last refresh {date}.",
+    "roles": "Live roles",
+    "countries": "Countries",
+    "sources": "Job sources",
+    "scorecardTitle": "Source scorecard",
+    "scorecardIntro": "Every source is scored nightly on volume, exclusivity, signal richness and freshness.",
+    "source": "Source",
+    "liveRoles": "Live roles",
+    "exclusive": "Exclusive",
+    "visaKnown": "Visa known",
+    "salaryStated": "Pay stated",
+    "medianAge": "Median age",
+    "days": "{count, plural, one {# day} other {# days}}",
+    "methodNote": "Exclusive means roles no other source carries. Visa known and pay stated share how often a source gives employer-declared signals. Median age is how old the typical posting is in days."
   }
 }

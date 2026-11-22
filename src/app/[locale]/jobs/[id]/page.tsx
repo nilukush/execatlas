@@ -6,6 +6,7 @@ import { getAllJobIds, getJobById } from "@/lib/data";
 import { CompanyLogo } from "@/components/company-logo";
 import { SOURCE_LABELS, type JdBlock } from "@/lib/types";
 import { formatSalaryBand, SALARY_ATTRIBUTION } from "@/lib/salary";
+import { visaEvidence } from "@/lib/enrich/visa";
 import { countryByIso2, regionLabel } from "@/lib/locations";
 import { buildAlternates, formatDate, jobOgDescription, SITE_URL } from "@/lib/seo";
 
@@ -148,6 +149,9 @@ export default async function JobDetailPage({
 
           <section>
             <h2 className="font-serif text-xl font-bold">{t("description")}</h2>
+            {job.text.length < 600 && (
+              <p className="mt-3 rounded-lg bg-card-2 p-3 text-sm text-muted">{t("briefListing")}</p>
+            )}
             <div className="mt-4 space-y-3">
               {job.blocks.map((block, index) => (
                 <JdBlockView key={index} block={block} />
@@ -157,6 +161,20 @@ export default async function JobDetailPage({
         </div>
 
         <aside className="space-y-4">
+          {job.visa !== "unknown" && (
+            <section className="card-ui p-5 text-sm">
+              <h2 className="text-sm font-bold uppercase tracking-wide text-muted">{t("visaSignal")}</h2>
+              <p className={job.visa === "yes" ? "mt-2 font-semibold text-visa-fg" : "mt-2 font-semibold text-novisa-fg"}>
+                {job.visa === "yes" ? tJobs("visaYes") : tJobs("visaNo")}
+              </p>
+              {visaEvidence(job.text) && (
+                <p className="mt-2 text-xs leading-relaxed text-muted">
+                  {t("visaEvidencePrefix")} &ldquo;{visaEvidence(job.text)}&rdquo;
+                </p>
+              )}
+            </section>
+          )}
+
           <section className="card-ui p-5">
             <h2 className="text-sm font-bold uppercase tracking-wide text-muted">{t("salary")}</h2>
             {job.salary ? (

@@ -8,7 +8,8 @@
     "aboutTitle": "Tentang ExecAtlas",
     "aboutDescription": "Bagaimana ExecAtlas mengumpulkan lowongan, mendeteksi sponsorship visa, dan memperkirakan gaji dalam mata uang lokal.",
     "jobTitle": "{title} di {company}",
-    "jobOgTail": "Lihat peran lengkap, kisaran gaji, dan tautan lamaran di ExecAtlas."
+    "jobOgTail": "Lihat peran lengkap, kisaran gaji, dan tautan lamaran di ExecAtlas.",
+    "statsTitle": "Statistik ExecAtlas: sumber dan kesehatan dataset"
   },
   "Nav": {
     "home": "Beranda",
@@ -17,7 +18,8 @@
     "menu": "Menu utama",
     "theme": "Ganti mode gelap",
     "language": "Ganti bahasa",
-    "skipToContent": "Lompat ke konten"
+    "skipToContent": "Lompat ke konten",
+    "stats": "Statistik"
   },
   "Home": {
     "kicker": "Peran Director, VP, dan C-suite",
@@ -143,7 +145,10 @@
     "poster": "Diposting oleh",
     "daysAgo": "{days, plural, other {# hari lalu}}",
     "experience": "Pengalaman (tahun)",
-    "alsoHiring": "Juga merekrut di"
+    "alsoHiring": "Juga merekrut di",
+    "visaSignal": "Sinyal visa",
+    "visaEvidencePrefix": "Sinyal dibaca dari lowongan:",
+    "briefListing": "Sumber ini hanya memberikan pratinjau singkat. Detail peran lengkap dan pendaftaran ada di tautan lamaran."
   },
   "About": {
     "title": "Tentang ExecAtlas",
@@ -172,5 +177,22 @@
     "title": "Halaman tidak ditemukan",
     "body": "Halaman yang Anda cari tidak ada atau sudah dipindahkan.",
     "back": "Kembali ke beranda"
+  },
+  "Stats": {
+    "title": "Kondisi dataset ini",
+    "intro": "Diperbarui tiap malam dari delapan API pekerjaan publik. Pembaruan terakhir {date}.",
+    "roles": "Peran aktif",
+    "countries": "Negara",
+    "sources": "Sumber pekerjaan",
+    "scorecardTitle": "Kartu skor sumber",
+    "scorecardIntro": "Setiap sumber dinilai tiap malam pada volume, eksklusivitas, kekayaan sinyal dan kesegaran.",
+    "source": "Sumber",
+    "liveRoles": "Peran aktif",
+    "exclusive": "Eksklusif",
+    "visaKnown": "Visa diketahui",
+    "salaryStated": "Gaji disebut",
+    "medianAge": "Usia median",
+    "days": "{count, plural, other {# hari}}",
+    "methodNote": "Eksklusif berarti peran yang tidak dibawa sumber lain. Persentase visa dan gaji menunjukkan seberapa sering sumber memberi sinyal dari pemberi kerja. Usia median adalah usia iklan tipikal dalam hari."
   }
 }

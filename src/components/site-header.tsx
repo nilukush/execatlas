@@ -34,6 +34,12 @@ export async function SiteHeader() {
             {t("jobs")}
           </Link>
           <Link
+            href="/stats"
+            className="rounded-lg px-3 py-1.5 text-sm font-medium text-muted hover:bg-card-2 hover:text-ink"
+          >
+            {t("stats")}
+          </Link>
+          <Link
             href="/about"
             className="hidden rounded-lg px-3 py-1.5 text-sm font-medium text-muted hover:bg-card-2 hover:text-ink sm:block"
           >
