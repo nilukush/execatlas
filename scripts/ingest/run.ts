@@ -44,6 +44,10 @@ import type { DatasetStats, IndexEntry, Job, JobsFile, SourceId } from "../../sr
 
 const GENERATED_DIR = path.join(process.cwd(), "data", "generated");
 
+// Smoke runs once wrote their tiny dataset over the committed files and a
+// careless git add shipped it. Smoke mode now stops before writing at all:
+// it fetches, normalizes and reports, then exits (issue 38).
+
 function loadPrevEnvelope(): JobsFile | null {
   const file = path.join(GENERATED_DIR, "jobs.json");
   if (!fs.existsSync(file)) return null;
@@ -196,6 +200,11 @@ async function main() {
     prevEnvelope && JSON.stringify(deduped) === JSON.stringify(prevEnvelope.jobs)
       ? prevEnvelope.generatedAt
       : now;
+
+  if (smoke) {
+    console.log("Smoke mode: fetched and normalized only, nothing written.");
+    return;
+  }
 
   fs.mkdirSync(GENERATED_DIR, { recursive: true });
   writeJsonAtomic(path.join(GENERATED_DIR, "jobs.json"), {

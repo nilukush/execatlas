@@ -8,7 +8,7 @@ import { cacheFilePath, cachedFetchJson } from "./http";
 let testCacheRoot: string;
 
 beforeEach(() => {
-  testCacheRoot = fs.mkdtempSync(path.join(os.tmpdir(), "execatlas-http-test-"));
+  testCacheRoot = fs.mkdtempSync(path.join(process.cwd(), "data", "execatlas-http-test-"));
   process.env.EXECATLAS_CACHE_DIR = testCacheRoot;
 });
 

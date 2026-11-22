@@ -1,6 +1,15 @@
 import { describe, expect, it } from "vitest";
 import { parsePostingHtml } from "./jd";
 
+describe("double-encoded entities (issue 40)", () => {
+  it("fully decodes double-escaped ampersands in block text", () => {
+    const parsed = parsePostingHtml("<p>Join AT&amp;amp;T and R&amp;#38;D teams.</p>");
+    const para = parsed.blocks[0];
+    expect(para.type).toBe("para");
+    if (para.type === "para") expect(para.text).toBe("Join AT&T and R&D teams.");
+  });
+});
+
 describe("requirement heading variants (issue 2)", () => {
   it("extracts requirements under 'Your skills and experience'", () => {
     const parsed = parsePostingHtml(

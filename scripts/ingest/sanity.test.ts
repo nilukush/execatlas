@@ -22,6 +22,17 @@ function jobs(sources: Record<string, number>): Array<{ source: string }> {
   return out;
 }
 
+describe("Workable shape monitoring (issue 26)", () => {
+  it("flags a Workable fetch that returned no parsable jobs array", () => {
+    // an undocumented API drifting shape shows up as zero fetched rows;
+    // the gate must say so instead of reading as a quiet market
+    const prev = prevStats({ total: 250, bySource: { greenhouse: 93, workable: 143, arbeitnow: 3, jobicy: 1 } });
+    const result = datasetProblems(jobs({ greenhouse: 95, arbeitnow: 3, jobicy: 1, workable: 0 }), prev);
+    expect(result.map((p) => p.rule)).toContain("source-floor");
+    expect(result.some((p) => p.detail.includes("workable"))).toBe(true);
+  });
+});
+
 describe("datasetProblems", () => {
   it("accepts a healthy refresh against the previous stats", () => {
     const result = datasetProblems(jobs({ greenhouse: 95, workable: 140, arbeitnow: 4, jobicy: 1 }), prevStats());
