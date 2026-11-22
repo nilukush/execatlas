@@ -1,6 +1,8 @@
 import fxData from "@/data/salary/fx.json";
 import type { IndexEntry } from "./types";
 import type { RegionId } from "./locations";
+import { countryByIso2 } from "./locations";
+import { monthsPerYear } from "./salary";
 
 export interface JobFilters {
   query: string;
@@ -39,7 +41,11 @@ export function toUsd(amount: number | undefined, currency: string | undefined):
 /** Annualized USD value for ranking; monthly bands must compare against annual ones. */
 function annualizedUsd(entry: IndexEntry): number {
   const usd = toUsd(entry.salaryMax, entry.salaryCurrency);
-  return entry.salaryPeriod === "monthly" ? usd * 12 : usd;
+  if (entry.salaryPeriod !== "monthly") return usd;
+  // rank by the country's real pay calendar (13-month conventions) rather
+  // than a flat 12, so Philippine and Indonesian monthly bands compare fairly
+  const iso3 = entry.countryIso2 ? countryByIso2(entry.countryIso2)?.iso3 : undefined;
+  return usd * monthsPerYear(iso3 ?? "");
 }
 
 function searchScore(entry: IndexEntry, tokens: string[]): number {

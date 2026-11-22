@@ -42,6 +42,33 @@ describe("countPostedWithin", () => {
   });
 });
 
+describe("salary sort with local pay conventions (issue 39)", () => {
+  it("annualizes monthly bands with the country's months-per-year convention", () => {
+    const philippines = make({
+      id: "phl-monthly",
+      countryIso2: "PH",
+      // PHP 250000 monthly is about USD 4000: flat-12 annualizes under the
+      // USD 50k band while the 13-month convention clears it
+      salaryMin: 220000,
+      salaryMax: 250000,
+      salaryCurrency: "PHP",
+      salaryPeriod: "monthly",
+    });
+    const anywhereAnnual = make({
+      id: "flat-annual",
+      salaryMin: 50000,
+      salaryMax: 50000,
+      salaryCurrency: "USD",
+      salaryPeriod: "annual",
+    });
+    const result = applyFilters([philippines, anywhereAnnual], { ...DEFAULT_FILTERS, sort: "salary" });
+    // PHP 300000 monthly x 13 months is roughly USD 68k at ~57 PHP/USD,
+    // so the Philippine role must outrank the flat USD 50k annual band;
+    // a flat 12 would leave them nearly tied in the wrong direction
+    expect(result.map((e) => e.id)).toEqual(["phl-monthly", "flat-annual"]);
+  });
+});
+
 describe("variant-aware filters", () => {
   it("matches a country filter against any variant country", () => {
     const grouped = make({
