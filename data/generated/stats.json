@@ -1,11 +1,11 @@
 {
   "bySourceQuality": {
     "greenhouse": {
-      "kept": 209,
-      "exclusive": 196,
-      "visaKnown": 17,
-      "salaryStated": 101,
-      "medianPostedAgeDays": 57
+      "kept": 236,
+      "exclusive": 223,
+      "visaKnown": 19,
+      "salaryStated": 110,
+      "medianPostedAgeDays": 58
     },
     "workable": {
       "kept": 188,
@@ -57,10 +57,10 @@
       "medianPostedAgeDays": 30
     }
   },
-  "generatedAt": "2026-11-22T08:50:53.677Z",
-  "total": 1237,
+  "generatedAt": "2026-11-22T09:09:37.878Z",
+  "total": 1264,
   "bySource": {
-    "greenhouse": 209,
+    "greenhouse": 236,
     "workable": 188,
     "arbeitnow": 17,
     "jobicy": 23,
@@ -70,8 +70,8 @@
     "adzuna": 440
   },
   "byRegion": {
-    "north-america": 553,
-    "europe": 389,
+    "north-america": 567,
+    "europe": 402,
     "india": 98,
     "southeast-asia": 146,
     "remote": 21,
@@ -79,9 +79,9 @@
     "north-africa": 6
   },
   "byVisa": {
-    "unknown": 1178,
+    "unknown": 1203,
     "no": 16,
-    "yes": 43
+    "yes": 45
   },
   "countries": 40
 }
