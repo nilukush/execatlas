@@ -58,3 +58,6 @@ data/*.db-journal
 .mimosa/
 /public/data/
 /data/smoke/
+test-results/
+playwright-report/
+
