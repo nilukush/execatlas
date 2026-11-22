@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { datasetSignature, getIndexEntries, getStats } from "@/lib/data";
 import { JobsBrowser } from "@/components/jobs-browser";
 import { buildAlternates } from "@/lib/seo";
-import { defaultOrder, paginate } from "@/lib/search";
+import { defaultOrder, paginate, PAGE_SIZE } from "@/lib/search";
 import { Link } from "@/i18n/navigation";
 
 export async function generateMetadata({
@@ -38,7 +38,7 @@ export default async function JobsPage({
     <section className="container-page py-10">
       <h1 className="font-serif text-3xl font-bold">{t("title")}</h1>
       <div className="mt-6">
-        <JobsBrowser datasetUrl={datasetUrl} locale={locale} />
+        <JobsBrowser entries={defaultOrder(entries).slice(0, PAGE_SIZE)} datasetUrl={datasetUrl} locale={locale} />
       </div>
       {pageCount > 1 && (
         <nav className="mt-8 flex flex-wrap items-center justify-center gap-1" aria-label={t("pagination")}>

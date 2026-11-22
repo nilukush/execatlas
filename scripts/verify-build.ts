@@ -35,6 +35,23 @@ export function isLocalizedHtml(html: string, locale: string): boolean {
   return tag.includes(`lang="${locale}"`) && tag.includes(`dir="${dirFor(locale)}"`);
 }
 
+function verifyDatasetAsset(outDir: string, locales: string[]): void {
+  const dataDir = path.join(outDir, "data");
+  const files = fs.existsSync(dataDir) ? fs.readdirSync(dataDir).filter((f) => f.startsWith("index-")) : [];
+  if (files.length !== 1) {
+    throw new Error(`out/data must hold exactly one index-*.json, found: ${files.join(", ") || "none"}`);
+  }
+  for (const locale of locales) {
+    const page = fs.readFileSync(path.join(outDir, locale, "jobs.html"), "utf8");
+    const match = page.match(/data\/index-[\dT]+\.json/);
+    if (!match) throw new Error(`${locale}/jobs.html references no dataset asset`);
+    if (!fs.existsSync(path.join(dataDir, path.basename(match[0])))) {
+      throw new Error(`${locale}/jobs.html references ${match[0]} but out/data does not contain it`);
+    }
+  }
+  console.log("[verify-build] dataset asset referenced by every locale exists");
+}
+
 function main(): void {
   const outDir = path.join(process.cwd(), "out");
   if (!fs.existsSync(outDir)) {
@@ -113,6 +130,8 @@ function main(): void {
     for (const problem of problems) console.error(`[verify-build] ${problem}`);
     process.exit(1);
   }
+  verifyDatasetAsset(outDir, locales);
+
   console.log(`[verify-build] ok: ${expected} sitemap URLs, ${entries.length} job pages x ${locales.length} locales`);
 }
 

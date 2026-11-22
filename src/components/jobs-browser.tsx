@@ -102,6 +102,9 @@ export function JobsBrowser({
   // land the visitor where they were (issue 3)
   const [entries, setEntries] = useState<IndexEntry[]>(initialEntries ?? []);
   const [loadFailed, setLoadFailed] = useState(false);
+  // a caller may pass a seed slice for instant first paint; the clamp can
+  // only trust page counts once the full dataset has arrived
+  const [datasetLoaded, setDatasetLoaded] = useState(!datasetUrl);
   const [filters, setFilters] = useState<JobFilters>(() => filtersFromUrl());
   const [page, setPage] = useState(() => pageFromUrl());
   const [question, setQuestion] = useState("");
@@ -117,7 +120,7 @@ export function JobsBrowser({
   // dataset arrives as a hashed asset, so a cached response is always the
   // right one for this build (issue 10: keep the listing HTML small)
   useEffect(() => {
-    if (!datasetUrl || initialEntries) return;
+    if (!datasetUrl) return;
     let cancelled = false;
     fetch(datasetUrl)
       .then((response) => {
@@ -127,6 +130,7 @@ export function JobsBrowser({
       .then((text) => {
         if (cancelled) return;
         setEntries(parseDataset<IndexFile>(text, "index.json").jobs);
+        setDatasetLoaded(true);
       })
       .catch(() => {
         if (!cancelled) setLoadFailed(true);
@@ -158,10 +162,13 @@ export function JobsBrowser({
   const { slice, pageCount } = useMemo(() => paginate(filtered, page), [filtered, page]);
 
   // a stale or crafted ?page beyond the end walks down from an impossible
-  // number; clamp to what the current filter set actually has
+  // number; clamp to what the current filter set actually has. Skip while
+  // the dataset is still loading, or an empty list would clamp every deep
+  // link back to page one before the data arrives
   useEffect(() => {
+    if (!datasetLoaded) return;
     if (page > pageCount) setPage(pageCount);
-  }, [page, pageCount]);
+  }, [page, pageCount, datasetLoaded]);
 
   const countryOptions = useMemo(() => {
     const list =
@@ -537,9 +544,13 @@ export function JobsBrowser({
       </div>
 
       <div className="mb-4 flex items-center justify-between gap-3">
-        <p aria-live="polite" className="text-sm text-muted">
-          {t("count", { count: filtered.length })}
-        </p>
+        {entries.length === 0 && datasetUrl ? (
+          <span />
+        ) : (
+          <p aria-live="polite" className="text-sm text-muted">
+            {t("count", { count: filtered.length })}
+          </p>
+        )}
         {isFiltered && (
           <span className="flex items-center gap-2">
             <button

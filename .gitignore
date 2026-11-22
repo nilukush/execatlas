@@ -56,3 +56,4 @@ data/*.db-journal
 /.idea/
 .zcodeignore
 .mimosa/
+/public/data/

@@ -1,5 +1,5 @@
 import { describe, afterEach, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import { JobsBrowser } from "./jobs-browser";
 import en from "../messages/en.json";
@@ -81,6 +81,33 @@ describe("runtime dataset fetch (issue 10)", () => {
     expect(screen.getByText(en.Jobs.loading)).toBeInTheDocument();
     expect(await screen.findByText(/Fetched Co/)).toBeInTheDocument();
     expect(fetchMock).toHaveBeenCalledWith("/data/index-20261122T000000.json");
+  });
+
+  it("keeps the URL page through the loading window and clamps after arrival", async () => {
+    const dataset = {
+      version: 2,
+      generatedAt: "2026-11-22T00:00:00.000Z",
+      jobs: Array.from({ length: 60 }, (_, i) => ({ ...make({ id: `f${i}`, postedAt: `2026-09-${String(i + 1).padStart(2, "0")}` }), company: `Late Co ${i}` })),
+    };
+    let resolveFetch: (r: Response) => void = () => {};
+    const fetchMock = vi.fn(
+      () => new Promise<Response>((resolve) => { resolveFetch = resolve; })
+    );
+    vi.stubGlobal("fetch", fetchMock);
+    window.history.replaceState({}, "", "/en/jobs?page=2");
+    render(
+      <NextIntlClientProvider locale="en" messages={en} timeZone="UTC">
+        <JobsBrowser datasetUrl="/data/index-x.json" locale="en" />
+      </NextIntlClientProvider>
+    );
+    // still loading: the clamp must not have reset the page
+    await waitFor(() => expect(fetchMock).toHaveBeenCalled());
+    expect(window.location.search).toContain("page=2");
+    await act(async () => {
+      resolveFetch(new Response(JSON.stringify(dataset), { status: 200 }));
+    });
+    expect(await screen.findByText(/Late Co 24/)).toBeInTheDocument();
+    expect(window.location.search).toContain("page=2");
   });
 
   it("shows the failure state when the dataset cannot be loaded", async () => {

@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { datasetSignature } from "../src/lib/dataset";
 
 /**
  * Publishes the job index as a content-addressed static asset so the jobs
@@ -8,21 +9,19 @@ import path from "node:path";
  * signature, so cache-first fetching an old URL can never serve stale data.
  */
 const GENERATED = path.join(process.cwd(), "data", "generated");
-const OUT_DIR = path.join(process.cwd(), "out", "data");
+const OUT_DIRS = [path.join(process.cwd(), "out", "data"), path.join(process.cwd(), "public", "data")];
 
 function main() {
   const stats = JSON.parse(fs.readFileSync(path.join(GENERATED, "stats.json"), "utf8"));
-  const digits = stats.generatedAt.replace(/[^0-9]/g, "");
-  const signature = `${digits.slice(0, 8)}T${digits.slice(8, 14)}`;
-  fs.mkdirSync(OUT_DIR, { recursive: true });
-  for (const stale of fs.readdirSync(OUT_DIR)) {
-    if (stale.startsWith("index-")) fs.rmSync(path.join(OUT_DIR, stale));
+  const signature = datasetSignature(stats.generatedAt);
+  for (const dir of OUT_DIRS) {
+    fs.mkdirSync(dir, { recursive: true });
+    for (const stale of fs.readdirSync(dir)) {
+      if (stale.startsWith("index-")) fs.rmSync(path.join(dir, stale));
+    }
+    fs.copyFileSync(path.join(GENERATED, "index.json"), path.join(dir, `index-${signature}.json`));
   }
-  fs.copyFileSync(
-    path.join(GENERATED, "index.json"),
-    path.join(OUT_DIR, `index-${signature}.json`)
-  );
-  console.log(`[publish-dataset] out/data/index-${signature}.json`);
+  console.log(`[publish-dataset] index-${signature}.json (out/data and public/data)`);
 }
 
 main();
