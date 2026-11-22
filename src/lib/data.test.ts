@@ -4,6 +4,15 @@ import { DATASET_VERSION } from "./types";
 
 const good = JSON.stringify({ version: DATASET_VERSION, generatedAt: "2026-09-13T00:00:00.000Z", jobs: [{ id: "j1" }] });
 
+import { datasetSignature } from "./data";
+
+describe("datasetSignature", () => {
+  it("derives a stable file-safe signature from the generation time", () => {
+    expect(datasetSignature("2026-11-22T11:12:53.085Z")).toBe("20261122T111253");
+    expect(datasetSignature("2026-11-22T11:12:53.085Z")).toBe(datasetSignature("2026-11-22T11:12:53.085Z"));
+  });
+});
+
 describe("parseDataset", () => {
   it("parses a versioned dataset with jobs", () => {
     const parsed = parseDataset<{ version: number; jobs: Array<{ id: string }> }>(good, "jobs.json");

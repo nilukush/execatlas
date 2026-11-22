@@ -104,7 +104,8 @@
     "plusPlaces": "+{n} more",
     "estimateNote": "* marks pay estimated from local benchmarks, not stated by the employer.",
     "locationRestricted": "Location restricted",
-    "worldwideRemote": "Worldwide remote"
+    "worldwideRemote": "Worldwide remote",
+    "loadFailed": "The role list failed to load. Refresh to try again."
   },
   "Roles": {
     "cto": "CTO / Chief",

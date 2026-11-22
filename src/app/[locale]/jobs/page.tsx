@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
-import { getIndexEntries } from "@/lib/data";
+import { datasetSignature, getIndexEntries, getStats } from "@/lib/data";
 import { JobsBrowser } from "@/components/jobs-browser";
 import { buildAlternates } from "@/lib/seo";
 import { defaultOrder, paginate } from "@/lib/search";
@@ -29,6 +29,8 @@ export default async function JobsPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("Jobs");
+  const stats = getStats();
+  const datasetUrl = `/data/index-${datasetSignature(stats.generatedAt)}.json`;
   const { jobs: entries } = getIndexEntries();
   const { pageCount } = paginate(defaultOrder(entries), 1);
 
@@ -36,7 +38,7 @@ export default async function JobsPage({
     <section className="container-page py-10">
       <h1 className="font-serif text-3xl font-bold">{t("title")}</h1>
       <div className="mt-6">
-        <JobsBrowser entries={entries} locale={locale} />
+        <JobsBrowser datasetUrl={datasetUrl} locale={locale} />
       </div>
       {pageCount > 1 && (
         <nav className="mt-8 flex flex-wrap items-center justify-center gap-1" aria-label={t("pagination")}>

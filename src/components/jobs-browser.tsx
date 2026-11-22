@@ -16,6 +16,8 @@ import {
   type SavedSearch,
 } from "@/lib/saved-searches";
 import { formatDate } from "@/lib/seo";
+import { parseDataset } from "@/lib/dataset";
+import type { IndexFile } from "@/lib/types";
 import { JobCard, type JobCardLabels } from "./job-card";
 
 const SENIORITIES = ["cto", "vp", "avp", "director", "head"] as const;
@@ -81,13 +83,25 @@ function writeStateToUrl(filters: JobFilters, page: number): void {
   window.history.replaceState({}, "", `${window.location.pathname}${search ? `?${search}` : ""}`);
 }
 
-export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale: string }) {
+export function JobsBrowser({
+  entries: initialEntries,
+  datasetUrl,
+  locale,
+}: {
+  /** Passing entries directly bakes them into the HTML; prefer datasetUrl
+   *  so the listing page stays small and the dataset caches as an asset. */
+  entries?: IndexEntry[];
+  datasetUrl?: string;
+  locale: string;
+}) {
   const t = useTranslations("Jobs");
   const tJob = useTranslations("Job");
   const tRoles = useTranslations("Roles");
   const tRoleType = useTranslations("RoleType");
   // listing state lives in the URL so the browser back button and refresh
   // land the visitor where they were (issue 3)
+  const [entries, setEntries] = useState<IndexEntry[]>(initialEntries ?? []);
+  const [loadFailed, setLoadFailed] = useState(false);
   const [filters, setFilters] = useState<JobFilters>(() => filtersFromUrl());
   const [page, setPage] = useState(() => pageFromUrl());
   const [question, setQuestion] = useState("");
@@ -99,6 +113,28 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
   useEffect(() => {
     writeStateToUrl(filters, page);
   }, [filters, page]);
+
+  // dataset arrives as a hashed asset, so a cached response is always the
+  // right one for this build (issue 10: keep the listing HTML small)
+  useEffect(() => {
+    if (!datasetUrl || initialEntries) return;
+    let cancelled = false;
+    fetch(datasetUrl)
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.text();
+      })
+      .then((text) => {
+        if (cancelled) return;
+        setEntries(parseDataset<IndexFile>(text, "index.json").jobs);
+      })
+      .catch(() => {
+        if (!cancelled) setLoadFailed(true);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [datasetUrl, initialEntries]);
 
   useEffect(() => {
     try {
@@ -529,7 +565,15 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
         )}
       </div>
 
-      {slice.length === 0 ? (
+      {loadFailed ? (
+        <div className="card-ui p-10 text-center">
+          <p className="font-serif text-lg font-bold">{t("loadFailed")}</p>
+        </div>
+      ) : entries.length === 0 && datasetUrl ? (
+        <div className="card-ui p-10 text-center">
+          <p className="text-sm text-muted">{t("loading")}</p>
+        </div>
+      ) : slice.length === 0 ? (
         <div className="card-ui p-10 text-center">
           <p className="font-serif text-lg font-bold">{t("noResults")}</p>
           <p className="mt-2 text-sm text-muted">{t("noResultsBody")}</p>

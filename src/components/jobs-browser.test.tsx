@@ -1,4 +1,4 @@
-import { describe, afterEach, expect, it } from "vitest";
+import { describe, afterEach, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import { JobsBrowser } from "./jobs-browser";
@@ -57,6 +57,42 @@ const entries = [
     source: "workable",
   }),
 ];
+
+describe("runtime dataset fetch (issue 10)", () => {
+  afterEach(() => {
+    cleanup();
+    window.history.replaceState({}, "", "/en/jobs");
+    vi.restoreAllMocks();
+  });
+
+  it("loads the dataset from the hashed URL and renders the grid", async () => {
+    const dataset = {
+      version: 2,
+      generatedAt: "2026-11-22T00:00:00.000Z",
+      jobs: [make({ id: "f1", company: "Fetched Co" })],
+    };
+    const fetchMock = vi.fn(async () => new Response(JSON.stringify(dataset), { status: 200 }));
+    vi.stubGlobal("fetch", fetchMock);
+    render(
+      <NextIntlClientProvider locale="en" messages={en} timeZone="UTC">
+        <JobsBrowser datasetUrl="/data/index-20261122T000000.json" locale="en" />
+      </NextIntlClientProvider>
+    );
+    expect(screen.getByText(en.Jobs.loading)).toBeInTheDocument();
+    expect(await screen.findByText(/Fetched Co/)).toBeInTheDocument();
+    expect(fetchMock).toHaveBeenCalledWith("/data/index-20261122T000000.json");
+  });
+
+  it("shows the failure state when the dataset cannot be loaded", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => new Response("nope", { status: 500 })));
+    render(
+      <NextIntlClientProvider locale="en" messages={en} timeZone="UTC">
+        <JobsBrowser datasetUrl="/data/index-x.json" locale="en" />
+      </NextIntlClientProvider>
+    );
+    expect(await screen.findByText(en.Jobs.loadFailed)).toBeInTheDocument();
+  });
+});
 
 describe("listing state survives navigation (issue 3)", () => {
   afterEach(() => {

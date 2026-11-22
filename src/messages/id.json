@@ -104,7 +104,8 @@
     "plusPlaces": "+{n} lagi",
     "estimateNote": "* menandakan gaji estimasi dari tolok ukur lokal, bukan yang dinyatakan pemberi kerja.",
     "locationRestricted": "Lokasi terbatas",
-    "worldwideRemote": "Remote di seluruh dunia"
+    "worldwideRemote": "Remote di seluruh dunia",
+    "loadFailed": "Daftar peran gagal dimuat. Muat ulang untuk mencoba lagi."
   },
   "Roles": {
     "cto": "CTO / Chief",
