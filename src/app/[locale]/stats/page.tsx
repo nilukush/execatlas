@@ -5,10 +5,6 @@ import { getStats } from "@/lib/data";
 import { buildAlternates } from "@/lib/seo";
 import { SOURCE_IDS, SOURCE_LABELS } from "@/lib/types";
 
-export function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "hi" }, { locale: "ar" }, { locale: "id" }];
-}
-
 export async function generateMetadata({
   params,
 }: {

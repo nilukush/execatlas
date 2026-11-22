@@ -178,7 +178,7 @@ function blocksToText(blocks: JdBlock[]): string {
 }
 
 const REQ_HEADING_RE =
-  /^(?:requirements?|qualifications?|must[- ]?haves?|what you(?:'ll| will| wi)? ?(?:need|bring)|what we need|who you are|skills?(?: (?:and|&) ?experience)?|experience(?: (?:and|&) ?)? ?(?:skills|qualifications)|your (?:skills|qualifications)(?: (?:and|&) ?experience)?|minimum (?:qualifications|requirements)|key (?:requirements|qualifications)|what we(?:'re| are)? looking for|who we(?:'re| are)? looking for|what we look for)\s*[:.]?\s*$/i;
+  /^(?:requirements?|qualifications?|must[- ]?haves?|what you(?:['’]ll| will| wi)? ?(?:need|bring)|what we need|who you are|skills?(?: (?:and|&) ?experience)?|experience(?: (?:and|&) ?)? ?(?:skills|qualifications)|your (?:skills|qualifications)(?: (?:and|&) ?experience)?|minimum (?:qualifications|requirements)|key (?:requirements|qualifications)|what we(?:['’]re| are)? looking for|who we(?:['’]re| are)? looking for|what we look for)\s*[:.]?\s*$/i;
 
 function isRequirementHeading(heading: string): boolean {
   return REQ_HEADING_RE.test(norm(heading).replace(/[:.]+$/, ""));

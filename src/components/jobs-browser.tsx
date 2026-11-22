@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import type { IndexEntry } from "@/lib/types";
 import { COUNTRIES, REGIONS } from "@/lib/locations";
-import { SOURCE_LABELS, type SourceId, ROLE_TYPES } from "@/lib/types";
+import { SOURCE_LABELS, SOURCE_IDS, type SourceId, ROLE_TYPES } from "@/lib/types";
 import { applyFilters, DEFAULT_FILTERS, paginate, type JobFilters } from "@/lib/search";
 import { answerFilters, answerQuestion, intentFilters, type AskAnswer, type AskSuggestion, type QuestionIntent } from "@/lib/ask";
 import {
@@ -33,13 +33,32 @@ const URL_KEYS: Array<{ key: string; filter: keyof JobFilters }> = [
   { key: "sort", filter: "sort" },
 ];
 
+// URL values are untrusted: each filter accepts only its known set so a
+// crafted or stale link falls back to the default instead of blanking
+// selects and emptying the grid
+const ALLOWED: Record<keyof JobFilters, ReadonlySet<string>> = {
+  query: new Set(),
+  region: new Set(["all", "india", "middle-east", "southeast-asia", "north-africa", "europe", "north-america", "remote"]),
+  country: new Set(["all"]),
+  seniority: new Set(["all", "cto", "vp", "avp", "director", "head"]),
+  visa: new Set(["all", "yes", "no", "unknown"]),
+  workMode: new Set(["all", "remote", "hybrid", "onsite"]),
+  roleType: new Set(["all", ...ROLE_TYPES]),
+  source: new Set(["all", ...SOURCE_IDS]),
+  sort: new Set(["newest", "salary"]),
+};
+
 function filtersFromUrl(): JobFilters {
   if (typeof window === "undefined") return DEFAULT_FILTERS;
   const params = new URLSearchParams(window.location.search);
   const next = { ...DEFAULT_FILTERS, query: params.get("q") ?? "" };
   for (const { key, filter } of URL_KEYS) {
     const value = params.get(key);
-    if (value !== null) (next as Record<string, unknown>)[filter] = value;
+    const allowed = ALLOWED[filter];
+    // country options are dynamic; any two-letter code is structurally valid
+    if (value !== null && (allowed.has(value) || (filter === "country" && /^[A-Z]{2}$/.test(value)))) {
+      (next as Record<string, unknown>)[filter] = value;
+    }
   }
   return next;
 }
@@ -101,6 +120,12 @@ export function JobsBrowser({ entries, locale }: { entries: IndexEntry[]; locale
 
   const filtered = useMemo(() => applyFilters(entries, filters), [entries, filters]);
   const { slice, pageCount } = useMemo(() => paginate(filtered, page), [filtered, page]);
+
+  // a stale or crafted ?page beyond the end walks down from an impossible
+  // number; clamp to what the current filter set actually has
+  useEffect(() => {
+    if (page > pageCount) setPage(pageCount);
+  }, [page, pageCount]);
 
   const countryOptions = useMemo(() => {
     const list =

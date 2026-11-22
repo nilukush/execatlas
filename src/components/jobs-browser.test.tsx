@@ -285,7 +285,6 @@ describe("JobsBrowser search and filters surface", () => {
     renderBrowser(many);
     fireEvent.change(screen.getByLabelText("Visa sponsorship"), { target: { value: "yes" } });
     fireEvent.click(screen.getByRole("button", { name: "Next page" }));
-    console.log("DBG search:", window.location.search, "| firms:", [...document.querySelectorAll("p")].map((e2) => e2.textContent?.split(" · ")[0]).filter((x) => x?.startsWith("Firm")).join(","));
     expect(screen.getByText("Page 2 of 2")).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: "Clear filters" }));

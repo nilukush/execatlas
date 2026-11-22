@@ -167,11 +167,14 @@ export default async function JobDetailPage({
               <p className={job.visa === "yes" ? "mt-2 font-semibold text-visa-fg" : "mt-2 font-semibold text-novisa-fg"}>
                 {job.visa === "yes" ? tJobs("visaYes") : tJobs("visaNo")}
               </p>
-              {visaEvidence(job.text) && (
-                <p className="mt-2 text-xs leading-relaxed text-muted">
-                  {t("visaEvidencePrefix")} &ldquo;{visaEvidence(job.text)}&rdquo;
-                </p>
-              )}
+              {(() => {
+                const evidence = visaEvidence(job.text);
+                return evidence ? (
+                  <p className="mt-2 text-xs leading-relaxed text-muted">
+                    {t("visaEvidencePrefix")} &ldquo;{evidence}&rdquo;
+                  </p>
+                ) : null;
+              })()}
             </section>
           )}
 

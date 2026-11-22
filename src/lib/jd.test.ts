@@ -18,6 +18,15 @@ describe("requirement heading variants (issue 2)", () => {
     expect(parsed.requirements).toEqual(["Scale experience."]);
   });
 
+  it("accepts typographic apostrophes in contraction headings", () => {
+    // boards overwhelmingly post curly quotes, often entity-encoded
+    const parsed = parsePostingHtml(
+      "<h3>What we&rsquo;re looking for</h3><p>Scale experience.</p>" +
+        "<h3>Who we&rsquo;re looking for</h3><p>Depth.</p><h3>Offer</h3><p>Pay.</p>"
+    );
+    expect(parsed.requirements).toEqual(["Scale experience."]);
+  });
+
   it("extracts requirements under 'Who we are looking for'", () => {
     const parsed = parsePostingHtml(
       "<h2>Who we are looking for</h2><p>Product leadership.</p><h2>Team</h2><p>Us.</p>"

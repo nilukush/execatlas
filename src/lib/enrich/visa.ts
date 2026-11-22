@@ -28,10 +28,6 @@ const NEGATIVE: RegExp[] = [
 ];
 
 /**
- * Reads posting text for visa sponsorship language. Explicit refusals win
- * over generic sponsorship mentions; silence stays unknown.
- */
-/**
  * The single sentence that carries the visa signal, quoted as evidence on
  * the job detail page. Negative sentences win for the same reason as in
  * detectVisa; returns null when the signal is unknown.
