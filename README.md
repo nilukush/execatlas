@@ -1,11 +1,14 @@
 # ExecAtlas
 
-Senior engineering leadership jobs, worldwide. Live at https://execatlas.vercel.app (Vercel free tier, rebuilt automatically whenever the dataset refreshes). ExecAtlas aggregates Director, AVP, VP, Head of and CTO level roles from official and public job APIs across India, the Middle East, Southeast Asia, North Africa, Europe and North America, then enriches every posting with the things international candidates actually need:
+Senior leadership jobs across engineering, product, design and data, worldwide. Live at https://execatlas.vercel.app (Vercel free tier, rebuilt automatically whenever the dataset refreshes). ExecAtlas aggregates Director, AVP, VP, Head of and CTO level roles from official and public job APIs across India, the Middle East, Southeast Asia, North Africa, Europe and North America, then enriches every posting with the things international candidates actually need:
 
-- Visa sponsorship signal, read from each posting (sponsors / does not sponsor / unspecified)
+- Visa sponsorship signal, read from each posting (sponsors / does not sponsor / unspecified), with the evidence sentence quoted on the job page
 - The real apply link, pointing at the employer's own posting
 - Requirements extracted from the description and shown first
-- Commute type (remote, hybrid with office days, on-site) and role type (permanent, contract, freelance, temporary, part-time, full-time, interim)
+- Years of experience when the posting states it, as a tag and on the job page
+- Commute type (remote, hybrid with office days, on-site), role type (permanent, contract, freelance, temporary, part-time, full-time, interim), and explicit markers for country-restricted versus worldwide remote roles
+- Per-country postings of one role grouped into a single card, every location still individually applyable
+- A public Stats page with the nightly source scorecard (volume, exclusivity, signal richness, freshness)
 - Salary: the stated range when the posting includes one, otherwise an estimated P25 to P75 band in the local currency of the job's country, built on the ExpatRate benchmark dataset (https://expatrate.pages.dev)
 - Filters (region, country, seniority, visa, work mode, role type, source), sorting and pagination; on phones the filters fold behind one button with an active count
 - One search box for questions and keywords alike: ask "is there a VP Engineering role in Dubai with visa sponsorship?" and get a yes or no with counts, the filters it understood, and when nothing matches, the closest relaxation that does
@@ -27,11 +30,11 @@ pnpm dev           # http://localhost:4317
 Other commands:
 
 ```bash
-pnpm test               # vitest unit and component tests
+pnpm test               # vitest unit and component tests (395 tests, 31 files)
 npx tsc --noEmit        # type gate, must be clean
 pnpm build              # static production build into out/, then artifact checks
-pnpm ingest:smoke       # single-board connectivity check; overwrites the
-                       # committed dataset, so re-run a full ingest afterwards
+pnpm e2e                # Playwright browser journeys against out/ (run build first)
+pnpm ingest:smoke       # single-board connectivity check; a dry run, writes nothing
 ```
 
 The site reads `data/generated/*.json` at build time, so it renders even offline after one successful ingest. The generated dataset is committed, so a fresh clone builds without re-ingesting.
@@ -40,10 +43,14 @@ The site reads `data/generated/*.json` at build time, so it renders even offline
 
 | Source | Access | Status |
 | --- | --- | --- |
-| Greenhouse | Official public Job Board API (no auth) | Active. 148 verified company boards |
+| Greenhouse | Official public Job Board API (no auth) | Active. 169 verified company boards |
 | Workable | Public search endpoint used by their own frontend | Active, rate limited and cached |
-| Arbeitnow | Free public job board API | Active |
-| Jobicy | Public API v2 | Active |
+| Arbeitnow | Free public job board API | Active, with a visa-sponsorship feed cross-reference |
+| Jobicy | Public API v2, searched by leadership tags | Active |
+| Lever | Public postings API per company | Active. 12 verified boards |
+| Ashby | Public posting API per company | Active. 19 verified boards |
+| Himalayas | Free remote-jobs search API (no auth) | Active, keyword feeds by seniority |
+| Adzuna | Search API with free Trial Access key | Active across 12 countries |
 | LinkedIn, Indeed, Naukri, Naukrigulf, GulfTalent | No public jobs API; terms prohibit automated collection | Not used |
 
 The five unused sources have no compliant free access path. Scraping them, or building tooling to get around their bot protection, is out of scope for this project. Many employers post the same roles on their own Greenhouse or Workable boards, which recovers a real share of that inventory legitimately. The About page explains this to visitors as well.
@@ -82,7 +89,7 @@ Run `pnpm ingest` and commit the updated `data/generated/` files. A scheduled Gi
 ## Roadmap
 
 - Periodically repeat the Greenhouse board discovery sweep (several newly added boards have large non-leadership pools that will yield leadership roles over time)
-- Scale work as the dataset grows past about 1000 roles: ship a compact index to the browser instead of the full one, and shard the sitemap
+- Shard the sitemap once URL counts approach the 50,000 limit
 - Push alerts for saved searches, only if a hosting or backend story ever appears
 - Connectors for any source that opens an official access path
 

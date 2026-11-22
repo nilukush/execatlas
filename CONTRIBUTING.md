@@ -9,7 +9,9 @@ pnpm install
 pnpm dev            # http://localhost:4317
 ```
 
-The generated dataset is committed, so pages render straight after clone. `pnpm ingest:smoke` is a single-board connectivity check that overwrites `data/generated/` with a tiny dataset; if you run it, re-run a full `pnpm ingest` before committing anything.
+The generated dataset is committed, so pages render straight after clone. `pnpm ingest:smoke` is a single-board connectivity check that fetches and reports without writing anything, so it can never disturb the committed dataset.
+
+End-to-end checks live under `scripts/e2e/`; `pnpm e2e` builds nothing itself, so run `pnpm build` first. It serves `out/` on port 4318 and drives a real browser through the production journeys (dataset fetch, listing navigation state, stats page).
 
 ## Workflow
 
