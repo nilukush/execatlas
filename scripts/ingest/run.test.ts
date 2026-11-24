@@ -147,4 +147,77 @@ describe("scripts/ingest/run entry point", () => {
       expect(() => entry.selectConnectors(all, "linkedin")).toThrow(/linkedin/);
     });
   });
+
+  describe("records judged tonight", () => {
+    const previous: Job[] = [
+      job,
+      { ...job, id: "j2", source: "himalayas", sources: ["himalayas"] },
+      { ...job, id: "j3", source: "adzuna", sources: ["adzuna"] },
+    ];
+
+    it("hands carryOver only the previous records of the sources fetched tonight", () => {
+      const ids = (sources: string[]) => entry.previousOfSources(previous, sources).map((record) => record.id);
+      expect(ids(["himalayas"])).toEqual(["j2"]);
+      expect(ids(["greenhouse", "adzuna"])).toEqual(["j1", "j3"]);
+      // a full run fetches every source and judges every record
+      expect(ids(["greenhouse", "himalayas", "adzuna"])).toEqual(["j1", "j2", "j3"]);
+    });
+  });
+
+  describe("rememberSourceVisa", () => {
+    const visaFeed = { source: "arbeitnow" as const, unit: "visa-feed-2", status: 429, transient: true, message: "HTTP 429" };
+    const jobPage = { source: "arbeitnow" as const, unit: "page-1", status: 429, transient: true, message: "HTTP 429" };
+
+    it("is passed for a transient visa feed failure", () => {
+      expect(entry.visaFeedFailed([visaFeed])).toBe(true);
+      expect(entry.visaFeedFailed([jobPage, visaFeed])).toBe(true);
+    });
+
+    it("is passed for nothing else", () => {
+      expect(entry.visaFeedFailed([])).toBe(false);
+      // gone for good, a job page, and a visa feed of another source
+      expect(entry.visaFeedFailed([{ ...visaFeed, transient: false }])).toBe(false);
+      expect(entry.visaFeedFailed([jobPage])).toBe(false);
+      expect(entry.visaFeedFailed([{ ...visaFeed, source: "greenhouse", unit: "visa-feed-1" }])).toBe(false);
+    });
+  });
+
+  describe("a quiet night", () => {
+    const nextNight = "2026-11-25T03:17:00.000Z";
+    const previous = { version: 2, generatedAt: "2026-11-24T03:17:00.000Z", jobs: [job] };
+
+    it("keeps the previous stamp and the previous records when only lastSeenAt differs", () => {
+      const fresh = [{ ...job, lastSeenAt: nextNight }];
+      expect(entry.settleNight(fresh, previous, nextNight)).toEqual({
+        jobs: previous.jobs,
+        generatedAt: "2026-11-24T03:17:00.000Z",
+      });
+    });
+
+    it("writes the final records with tonight's stamp on any other night", () => {
+      const changed = [{ ...job, updatedAt: nextNight, lastSeenAt: nextNight }];
+      expect(entry.settleNight(changed, previous, nextNight)).toEqual({ jobs: changed, generatedAt: nextNight });
+      const absent = [{ ...job, lastSeenAt: nextNight, absentNights: 1 }];
+      expect(entry.settleNight(absent, previous, nextNight).jobs).toEqual(absent);
+      expect(entry.settleNight([], previous, nextNight).generatedAt).toBe(nextNight);
+      // a first run has no previous dataset
+      expect(entry.settleNight([job], null, nextNight)).toEqual({ jobs: [job], generatedAt: nextNight });
+    });
+  });
+
+  it("adds no last seen date, night count or expiry to the index entry", () => {
+    const stored = JSON.parse(
+      JSON.stringify(
+        entry.toIndexEntry({
+          ...job,
+          lastSeenAt: "2026-11-24T03:17:00.000Z",
+          absentNights: 1,
+          expiresAt: "2026-12-24T00:00:00.000Z",
+        })
+      )
+    );
+    expect(stored).not.toHaveProperty("lastSeenAt");
+    expect(stored).not.toHaveProperty("absentNights");
+    expect(stored).not.toHaveProperty("expiresAt");
+  });
 });

@@ -384,8 +384,44 @@ describe("rememberSourceVisa: the visa feed failed tonight", () => {
     expect(remembered.visaBasis).toBe("source");
     expect(remembered.visaEvidence).toBeNull();
     expect(remembered.visaDeclaredAt).toBe(NIGHT_ONE);
-    // the record is byte-identical to the stored one, so a quiet ingest can skip the commit
+    // the night counts on the carry counter; the content did not change, so the stamp stands
+    expect(remembered.carriedNights).toBe(1);
     expect(remembered.updatedAt).toBe(NIGHT_ONE);
+  });
+
+  it("counts the remembered nights on carriedNights, three at most, and reads unknown on the fourth", () => {
+    const NIGHT_THREE = "2026-09-20T10:00:00.000Z";
+    const NIGHT_FOUR = "2026-09-27T10:00:00.000Z";
+    const NIGHT_FIVE = "2026-10-04T10:00:00.000Z";
+    const remember = { rememberSourceVisa: true };
+    const second = normalizeJob(
+      makeRaw({ descriptionHtml: QUIET }),
+      NIGHT_THREE,
+      { ...storedTag(), carriedNights: 1 },
+      remember
+    )!;
+    expect(second).toMatchObject({ visa: "yes", carriedNights: 2, visaDeclaredAt: NIGHT_ONE });
+    const third = normalizeJob(makeRaw({ descriptionHtml: QUIET }), NIGHT_FOUR, second, remember)!;
+    expect(third).toMatchObject({ visa: "yes", carriedNights: 3, visaDeclaredAt: NIGHT_ONE });
+    // the source has not confirmed the tag for four nights
+    const fourth = normalizeJob(makeRaw({ descriptionHtml: QUIET }), NIGHT_FIVE, third, remember)!;
+    expect(fourth.visa).toBe("unknown");
+    expect(fourth.visaBasis).toBeUndefined();
+    expect(fourth.visaDeclaredAt).toBeUndefined();
+    expect(fourth).not.toHaveProperty("carriedNights");
+    expect(fourth.updatedAt).toBe(NIGHT_FIVE);
+  });
+
+  it("leaves carriedNights absent on a night the tag is present", () => {
+    const job = normalizeJob(
+      makeRaw({ descriptionHtml: QUIET, visaHint: true }),
+      NIGHT_TWO,
+      { ...storedTag(), carriedNights: 3 }
+    )!;
+    expect(job.visa).toBe("yes");
+    expect(job.visaBasis).toBe("source");
+    expect(job.visaDeclaredAt).toBe(NIGHT_ONE);
+    expect(job).not.toHaveProperty("carriedNights");
   });
 
   it("reads an unknown signal again without the option", () => {
@@ -400,6 +436,7 @@ describe("rememberSourceVisa: the visa feed failed tonight", () => {
     const job = normalizeJob(makeRaw({ descriptionHtml: QUIET }), NIGHT_TWO, plain, { rememberSourceVisa: true })!;
     expect(job.visa).toBe("unknown");
     expect(job.visaBasis).toBeUndefined();
+    expect(job).not.toHaveProperty("carriedNights");
   });
 
   it("dates a remembered tag with the run time when the stored record has no date", () => {
@@ -452,6 +489,83 @@ describe("stableJob", () => {
 
     // swapped, the comparison reads tonight's date as a change and keeps tonight's stamp
     expect(stableVisaDeclaredAt(stableUpdatedAt(again, stored), stored).updatedAt).toBe(nightTwo);
-    expect(stableJob(again, stored)).toEqual(first);
+    // the one difference is the last-seen stamp, which is the run time of every night a feed lists the role
+    expect(stableJob(again, stored)).toEqual({ ...first, lastSeenAt: nightTwo });
+  });
+});
+
+describe("last seen and the one year limit", () => {
+  const DAY_MS = 24 * 60 * 60 * 1000;
+  const postedDaysAgo = (days: number) => new Date(Date.parse(NOW) - days * DAY_MS).toISOString();
+
+  it("dates a fresh role with the run time as last seen", () => {
+    const first = normalizeJob(makeRaw(), NOW)!;
+    expect(first.lastSeenAt).toBe(NOW);
+    // the stamp moves every night the feed lists the role, and updatedAt does not
+    const later = normalizeJob(makeRaw(), "2026-09-13T10:00:00.000Z", first)!;
+    expect(later.lastSeenAt).toBe("2026-09-13T10:00:00.000Z");
+    expect(later.updatedAt).toBe(first.updatedAt);
+  });
+
+  it("drops a role posted more than 365 whole days before the run, and keeps one at 365 days", () => {
+    expect(normalizeJob(makeRaw({ postedAt: postedDaysAgo(366) }), NOW)).toBeNull();
+    expect(normalizeJob(makeRaw({ postedAt: postedDaysAgo(365) }), NOW)).not.toBeNull();
+  });
+
+  it("judges a raw role that states no posted date by the date of its stored record", () => {
+    // the pipeline dates such a role with the night it was first seen
+    const stored = normalizeJob(makeRaw({ postedAt: null }), postedDaysAgo(400))!;
+    expect(normalizeJob(makeRaw({ postedAt: null }), NOW, stored)).toBeNull();
+    expect(normalizeJob(makeRaw({ postedAt: null }), NOW)).not.toBeNull();
+  });
+
+  it("keeps the expiry date of the raw job, and writes none for a job that has none", () => {
+    const expiresAt = "2026-12-01T00:00:00.000Z";
+    expect(normalizeJob(makeRaw({ expiresAt }), NOW)?.expiresAt).toBe(expiresAt);
+    expect(normalizeJob(makeRaw(), NOW)).not.toHaveProperty("expiresAt");
+  });
+
+  it("keeps updatedAt when only the feed, the last-seen stamp or the night counters differ", () => {
+    const first = normalizeJob(makeRaw(), NOW)!;
+    const stored: Job = { ...first, feedUnit: "page-1", carriedNights: 2, absentNights: 1 };
+    const later = normalizeJob(makeRaw({ feedUnit: "page-2" }), "2026-09-13T10:00:00.000Z", stored)!;
+    expect(later.updatedAt).toBe(first.updatedAt);
+    expect(later.lastSeenAt).toBe("2026-09-13T10:00:00.000Z");
+    expect(later.feedUnit).toBe("page-2");
+    expect(later).not.toHaveProperty("carriedNights");
+    expect(later).not.toHaveProperty("absentNights");
+  });
+});
+
+describe("R39: a stated band passes the plausibility check before it is stored", () => {
+  const ESTIMATED = {
+    min: 660000,
+    max: 1080000,
+    currency: "AED",
+    period: "annual",
+    source: "estimated",
+    quality: "Medium",
+    familyUsed: "it-executive",
+  };
+
+  it("gives a United Arab Emirates role the estimated band when the text states the revenue of its clients", () => {
+    const job = normalizeJob(makeRaw({ descriptionHtml: "<p>Our clients generate $1M to $100M in revenue.</p>" }), NOW);
+    expect(job?.salary).toEqual(ESTIMATED);
+  });
+
+  it("keeps a stated band that is plausible pay", () => {
+    const job = normalizeJob(makeRaw({ descriptionHtml: "<p>Salary: $200,000 to $260,000 a year.</p>" }), NOW);
+    expect(job?.salary).toEqual({ min: 200000, max: 260000, currency: "USD", period: "annual", source: "stated" });
+  });
+
+  it("gives a Himalayas role the estimated band when its salary hint is not plausible pay", () => {
+    const job = normalizeJob(
+      makeRaw({
+        source: "himalayas",
+        salaryHint: { min: 25000000, max: 50000000, currency: "USD", period: "annual" },
+      }),
+      NOW
+    );
+    expect(job?.salary).toEqual(ESTIMATED);
   });
 });

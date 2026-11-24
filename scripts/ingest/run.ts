@@ -128,6 +128,49 @@ export function selectConnectors<T extends { id: string }>(all: T[], only: strin
   return selected;
 }
 
+/**
+ * The previous records a run may judge tonight: those of the sources it
+ * fetched. A run with --only=x never speaks for the records of another source.
+ */
+export function previousOfSources(previous: Job[], fetchedSources: string[]): Job[] {
+  const fetched = new Set(fetchedSources);
+  return previous.filter((job) => fetched.has(job.source));
+}
+
+/**
+ * Whether an Arbeitnow visa feed failed transiently tonight. Its raw jobs
+ * then come back untagged, and the stored source tag stands in for them.
+ */
+export function visaFeedFailed(failures: FeedFailure[]): boolean {
+  return failures.some(
+    (failure) => failure.transient && failure.source === "arbeitnow" && failure.unit.startsWith("visa-feed-")
+  );
+}
+
+/**
+ * What a run writes. A quiet night, one whose final list equals the previous
+ * records with only lastSeenAt apart, keeps the previous stamp and records,
+ * so the workflow's no-change check can fire and skip the commit (ruling R46).
+ */
+export function settleNight(
+  finalJobs: Job[],
+  previous: JobsFile | null,
+  now: string
+): { jobs: Job[]; generatedAt: string } {
+  if (previous && JSON.stringify(apartFromLastSeen(finalJobs)) === JSON.stringify(apartFromLastSeen(previous.jobs))) {
+    return { jobs: previous.jobs, generatedAt: previous.generatedAt };
+  }
+  return { jobs: finalJobs, generatedAt: now };
+}
+
+function apartFromLastSeen(jobs: Job[]): Job[] {
+  return jobs.map((job) => {
+    const copy = { ...job };
+    delete copy.lastSeenAt;
+    return copy;
+  });
+}
+
 export function computeStats(
   jobs: Job[],
   generatedAt: string,
@@ -206,7 +249,7 @@ async function main() {
       jobicyConnector(deps, { count: smoke ? 5 : JOBICY_COUNT, tags: smoke ? undefined : JOBICY_TAGS }),
       leverConnector(deps, { tokens: smoke ? ["netomi"] : LEVER_TOKENS, names: LEVER_COMPANY_NAMES }),
       ashbyConnector(deps, { tokens: smoke ? ["docker"] : ASHBY_TOKENS, names: ASHBY_COMPANY_NAMES }),
-      himalayasConnector(deps, { pages: smoke ? 1 : HIMALAYAS_PAGES, queries: HIMALAYAS_QUERIES }),
+      himalayasConnector(deps, { pages: smoke ? 1 : HIMALAYAS_PAGES, queries: HIMALAYAS_QUERIES, now }),
       adzunaConnector(deps, {
         appId: process.env.ADZUNA_APP_ID ?? "",
         appKey: process.env.ADZUNA_APP_KEY ?? "",
@@ -227,9 +270,7 @@ async function main() {
     const rawJobs = await connector.run();
     // the Arbeitnow visa tag lives in a feed of its own: when that feed
     // failed, its raw jobs come back untagged and the stored tag stands in
-    const rememberSourceVisa = failures.some(
-      (failure) => failure.source === "arbeitnow" && failure.unit.startsWith("visa-feed-")
-    );
+    const rememberSourceVisa = visaFeedFailed(failures);
     let kept = 0;
     for (const raw of rawJobs) {
       const priorJob = existing.get(stableIdForRaw(raw));
@@ -247,17 +288,23 @@ async function main() {
   // the first night of a source tag is carried from the stored merged record
   // before the stamp comparison, so an unchanged role stays byte-identical
   const fresh = dedupeJobs(allJobs).map((job) => stableJob(job, existing));
+  const fetchedSources = connectors.map((connector) => connector.id);
   const carried = carryOver({
-    previous: prevEnvelope?.jobs ?? [],
+    // only the sources fetched tonight are judged: a run with --only never speaks for the rest
+    previous: previousOfSources(prevEnvelope?.jobs ?? [], fetchedSources),
     previousGeneratedAt: prevEnvelope?.generatedAt,
     fresh,
     failures,
+    now,
   });
   const failedFeeds = new Set(failures.map((failure) => `${failure.source}/${failure.unit}`)).size;
   if (failedFeeds > 0) {
     console.log(`[carry] ${carried.jobs.length} roles kept from the previous refresh after ${failedFeeds} failed feeds`);
   }
-  // a carried record is stored as it was, so it joins after the dedupe
+  if (carried.graceCount > 0) {
+    console.log(`[grace] ${carried.graceCount} roles kept for two nights after leaving their feed`);
+  }
+  // a carried or grace record is stored as it was, so it joins after the dedupe
   const finalJobs = [...fresh, ...carried.jobs];
   finalJobs.sort((a, b) => (a.postedAt === b.postedAt ? a.id.localeCompare(b.id) : a.postedAt < b.postedAt ? 1 : -1));
 
@@ -269,12 +316,9 @@ async function main() {
     }
   }
 
-  // a quiet run whose content is byte-identical keeps the previous stamp so
-  // the workflow's no-change check can actually fire and skip the commit
-  const stamp =
-    prevEnvelope && JSON.stringify(finalJobs) === JSON.stringify(prevEnvelope.jobs)
-      ? prevEnvelope.generatedAt
-      : now;
+  // a quiet run whose content is byte-identical, lastSeenAt aside, keeps the
+  // previous stamp and records, so the workflow's no-change check can fire
+  const { jobs, generatedAt: stamp } = settleNight(finalJobs, prevEnvelope, now);
 
   if (smoke) {
     console.log("Smoke mode: fetched and normalized only, nothing written.");
@@ -285,21 +329,21 @@ async function main() {
   writeJsonAtomic(path.join(GENERATED_DIR, "jobs.json"), {
     version: DATASET_VERSION,
     generatedAt: stamp,
-    jobs: finalJobs,
+    jobs,
   });
   writeJsonAtomic(path.join(GENERATED_DIR, "index.json"), {
     version: DATASET_VERSION,
     generatedAt: stamp,
-    jobs: finalJobs.map(toIndexEntry),
+    jobs: jobs.map(toIndexEntry),
   });
-  const stats = computeStats(finalJobs, stamp, { carriedBySource: carried.carriedBySource, failedFeeds: failures });
+  const stats = computeStats(jobs, stamp, { carriedBySource: carried.carriedBySource, failedFeeds: failures });
   writeJsonAtomic(path.join(GENERATED_DIR, "stats.json"), stats);
   writeJsonAtomic(path.join(GENERATED_DIR, "queries.json"), {
     generatedAt: stamp,
     queries: buildQueryMatrix().map((q) => q.phrase),
   });
 
-  console.log(`Done: ${finalJobs.length} jobs (${dropped} out of scope), ${stats.countries} countries`);
+  console.log(`Done: ${jobs.length} jobs (${dropped} out of scope), ${stats.countries} countries`);
   if (stamp !== now) console.log("Dataset unchanged; kept previous generatedAt");
   console.log("By source:", stats.bySource);
   console.log("By region:", stats.byRegion);

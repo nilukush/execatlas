@@ -6,7 +6,8 @@ import { detectRelocation, detectVisa, relocationEvidence, visaEvidence } from "
 import { detectWorkMode } from "../../src/lib/enrich/workmode";
 import { detectRoleType } from "../../src/lib/enrich/role-type";
 import { extractExperience } from "../../src/lib/enrich/experience";
-import { parseStatedSalary, estimateSalary } from "../../src/lib/salary";
+import { parseStatedSalary, estimateSalary, isPlausibleBand } from "../../src/lib/salary";
+import { MAX_CARRIED_NIGHTS, postedTooLongAgo } from "./carry";
 import type { Job, RawJob, SalaryBand } from "../../src/lib/types";
 
 function slugify(input: string): string {
@@ -68,7 +69,8 @@ function tagDate(previous: Job | undefined, tonight: string | undefined): string
  * the posting beats a source tag (Arbeitnow visa filter); a tag stands on
  * its own only when the posting has no visa words, and is dated with the
  * first night the tag was seen. When the tagged feed failed tonight the
- * raw job carries no tag: the stored tag then stands in for it.
+ * raw job carries no tag: the stored tag then stands in for it and counts
+ * its nights on the carry counter, three at most (ruling R44).
  */
 function visaSignal(
   text: string,
@@ -76,14 +78,27 @@ function visaSignal(
   now: string,
   previous: Job | undefined,
   rememberSourceVisa: boolean
-): Pick<Job, "visa" | "visaBasis" | "visaEvidence" | "visaDeclaredAt"> {
+): Pick<Job, "visa" | "visaBasis" | "visaEvidence" | "visaDeclaredAt" | "carriedNights"> {
   const visa = detectVisa(text);
   if (visa !== "unknown") {
     return { visa, visaBasis: "posting", visaEvidence: visaEvidence(text), visaDeclaredAt: undefined };
   }
-  const remembered = rememberSourceVisa && previous?.visaBasis === "source" && previous.visa === "yes";
+  const rememberedNights = previous?.carriedNights ?? 0;
+  // a tag the source has not confirmed for three nights is not remembered on the fourth
+  const remembered =
+    rememberSourceVisa &&
+    previous?.visaBasis === "source" &&
+    previous.visa === "yes" &&
+    rememberedNights < MAX_CARRIED_NIGHTS;
   if (tagged || remembered) {
-    return { visa: "yes", visaBasis: "source", visaEvidence: null, visaDeclaredAt: tagDate(previous, now) };
+    return {
+      visa: "yes",
+      visaBasis: "source",
+      visaEvidence: null,
+      visaDeclaredAt: tagDate(previous, now),
+      // a remembered tag counts its night on the carry counter; a tag the feed confirms counts none
+      ...(remembered && !tagged ? { carriedNights: rememberedNights + 1 } : {}),
+    };
   }
   return { visa, visaBasis: undefined, visaEvidence: null, visaDeclaredAt: undefined };
 }
@@ -97,8 +112,9 @@ function decodedNames(raw: RawJob): { company: string; title: string } {
  * Turns a connector's raw job into a canonical, enriched Job record.
  * Returns null when the job falls outside the product scope: leadership
  * titles only, locations within the six supported regions (or remote),
- * and a plain web apply URL. `rememberSourceVisa` keeps a stored source
- * tag on a night the tagged feed failed.
+ * and a plain web apply URL, and a posting dated within the last 365 days.
+ * `rememberSourceVisa` keeps a stored source tag on a night the tagged feed
+ * failed.
  */
 export function normalizeJob(
   raw: RawJob,
@@ -112,6 +128,9 @@ export function normalizeJob(
   const classification = classifyTitle(title);
   if (!classification) return null;
   if (!isWebUrl(raw.applyUrl)) return null;
+  // a role posted more than a year ago is out of scope, whatever its feed still lists
+  const postedAt = raw.postedAt ?? existing?.postedAt ?? now;
+  if (postedTooLongAgo(postedAt, now)) return null;
   if (!isWebUrl(raw.sourceUrl)) raw = { ...raw, sourceUrl: raw.applyUrl };
   if (!isWebUrl(raw.companyLogoUrl)) raw = { ...raw, companyLogoUrl: undefined };
   const salaryHint =
@@ -126,16 +145,17 @@ export function normalizeJob(
   const roleType = detectRoleType(parsed.text, raw.employmentHint);
   const experience = extractExperience(parsed.text, parsed.requirements.join("\n"));
 
-  let salary: SalaryBand | null = null;
+  // a band that is not plausible pay falls through to the estimate, as if nothing was stated (ruling R39)
+  const estimated = (): SalaryBand | null =>
+    location.country ? estimateSalary(location.country.iso3, classification.domain) : null;
+  let salary: SalaryBand | null;
   if (salaryHint) {
-    salary = { ...salaryHint, source: "stated" };
+    const stated: SalaryBand = { ...salaryHint, source: "stated" };
+    salary = isPlausibleBand(stated) ? stated : estimated();
   } else {
-    const stated = parseStatedSalary(parsed.text);
-    if (stated) {
-      salary = { ...stated, source: "stated" };
-    } else if (location.country) {
-      salary = estimateSalary(location.country.iso3, classification.domain);
-    }
+    const fromText = parseStatedSalary(parsed.text);
+    const stated: SalaryBand | null = fromText ? { ...fromText, source: "stated" } : null;
+    salary = stated && isPlausibleBand(stated) ? stated : estimated();
   }
 
   const job: Job = {
@@ -170,13 +190,16 @@ export function normalizeJob(
     experienceMin: experience?.min,
     experienceMax: experience?.max,
     salary,
-    postedAt: raw.postedAt ?? existing?.postedAt ?? now,
+    postedAt,
     firstSeen: existing?.firstSeen ?? now,
     updatedAt: now,
     posterName: raw.posterName ?? undefined,
     posterUrl: raw.posterUrl ?? undefined,
     feedUnit: raw.feedUnit,
     sourceHome: raw.sourceHome,
+    // the run time of every refresh whose feed listed the role
+    lastSeenAt: now,
+    ...(raw.expiresAt ? { expiresAt: raw.expiresAt } : {}),
   };
 
   // a job whose content did not change keeps its previous updatedAt so a
@@ -232,9 +255,9 @@ export function stableJob(job: Job, prevById: Map<string, Job>): Job {
   return stableUpdatedAt(stableVisaDeclaredAt(job, prevById), prevById);
 }
 
+// the feed, the last-seen stamp and the night counters say when a role was seen, not what it is
+const NOT_CONTENT = ["updatedAt", "firstSeen", "feedUnit", "lastSeenAt", "carriedNights", "absentNights"];
+
 function contentSignature(job: Job): string {
-  const keys = Object.keys(job)
-    .filter((k) => k !== "updatedAt" && k !== "firstSeen")
-    .sort();
-  return JSON.stringify(job, keys);
+  return JSON.stringify(job, Object.keys(job).filter((k) => !NOT_CONTENT.includes(k)).sort());
 }

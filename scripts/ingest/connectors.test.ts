@@ -23,6 +23,9 @@ function stubFetch(payloadByHost: Record<string, unknown>) {
   };
 }
 
+// the night after the Himalayas fixture was published: the run time an expiry is judged against
+const HIMALAYAS_RUN = new Date((himalayasFixture[0].pubDate + 24 * 60 * 60) * 1000).toISOString();
+
 describe("greenhouse connector", () => {
   it("maps board jobs to raw jobs", async () => {
     const connector = greenhouseConnector(
@@ -220,7 +223,7 @@ describe("himalayas connector", () => {
   it("maps search results to raw remote jobs with stated salaries", async () => {
     const connector = himalayasConnector(
       { fetchJson: async () => ({ jobs: himalayasFixture }) },
-      { pages: 1, queries: ["engineering"] }
+      { pages: 1, queries: ["engineering"], now: HIMALAYAS_RUN }
     );
     const jobs = await connector.run();
     expect(jobs.length).toBe(2);
@@ -251,7 +254,7 @@ describe("himalayas connector", () => {
     const unrestricted = { ...himalayasFixture[1], locationRestrictions: undefined };
     const connector = himalayasConnector(
       { fetchJson: async () => ({ jobs: [restricted, unrestricted] }) },
-      { pages: 1, queries: ["engineering"] }
+      { pages: 1, queries: ["engineering"], now: HIMALAYAS_RUN }
     );
     const jobs = await connector.run();
     expect(jobs).toHaveLength(2);
@@ -271,7 +274,7 @@ describe("himalayas connector", () => {
           return { jobs: [] };
         },
       },
-      { pages: 1, queries: ["engineering", "product"] }
+      { pages: 1, queries: ["engineering", "product"], now: HIMALAYAS_RUN }
     );
     await connector.run();
     expect(urls.some((u) => u.includes("seniority=Director") && u.includes("q=engineering"))).toBe(true);
@@ -298,7 +301,7 @@ describe("himalayas connector", () => {
           return { jobs: himalayasFixture.slice(0, 1), offset: himalayasFixture.length, totalCount: himalayasFixture.length + 5 };
         },
       },
-      { pages: 3, queries: ["engineering"] }
+      { pages: 3, queries: ["engineering"], now: HIMALAYAS_RUN }
     );
     const jobs = await connector.run();
     // first feed call failed once then paged to exhaustion; seniority=Executive feeds also ran
@@ -306,6 +309,45 @@ describe("himalayas connector", () => {
     expect(calls.some((u) => u.includes("page=2"))).toBe(true);
     expect(jobs.length).toBeGreaterThanOrEqual(2);
     expect(jobs.every((j) => !j.externalId.includes("https"))).toBe(true);
+  });
+
+  it("maps the expiry date to an ISO stamp", async () => {
+    const connector = himalayasConnector(
+      { fetchJson: async () => ({ jobs: himalayasFixture }) },
+      { pages: 1, queries: ["engineering"], now: HIMALAYAS_RUN }
+    );
+    const jobs = await connector.run();
+    expect(jobs[0].expiresAt).toBe(new Date(himalayasFixture[0].expiryDate * 1000).toISOString());
+    expect(jobs[0].expiresAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
+  });
+
+  it("skips a job whose expiry lies before the run time", async () => {
+    const first = himalayasFixture[0];
+    // dated one hour after it was published, so the night after is past its expiry
+    const expired = {
+      ...first,
+      guid: `${first.guid}-expired`,
+      applicationLink: `${first.applicationLink}-expired`,
+      expiryDate: first.pubDate + 60 * 60,
+    };
+    const connector = himalayasConnector(
+      { fetchJson: async () => ({ jobs: [expired, himalayasFixture[1]] }) },
+      { pages: 1, queries: ["engineering"], now: HIMALAYAS_RUN }
+    );
+    const jobs = await connector.run();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].externalId).toBe(`hml-${himalayasFixture[1].guid.split("/").pop()}`);
+  });
+
+  it("keeps a job the API dates with no expiry", async () => {
+    const undated = { ...himalayasFixture[0], expiryDate: undefined };
+    const connector = himalayasConnector(
+      { fetchJson: async () => ({ jobs: [undated] }) },
+      { pages: 1, queries: ["engineering"], now: HIMALAYAS_RUN }
+    );
+    const jobs = await connector.run();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).not.toHaveProperty("expiresAt");
   });
 });
 
@@ -611,7 +653,7 @@ describe("failed feed reporting and feed tags", () => {
         },
         reportFailure,
       },
-      { pages: 2, queries: ["engineering"] }
+      { pages: 2, queries: ["engineering"], now: HIMALAYAS_RUN }
     );
     const jobs = await connector.run();
     expectOneFailure(reported, "himalayas", "engineering/Director");

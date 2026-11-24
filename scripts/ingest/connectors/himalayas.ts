@@ -9,6 +9,7 @@ interface HimalayasJob {
   applicationLink: string;
   locationRestrictions?: string[];
   pubDate?: number;
+  expiryDate?: number;
   employmentType?: string;
   description?: string;
   minSalary?: number;
@@ -25,6 +26,12 @@ const PERIOD_MAP: Record<string, "annual" | "monthly"> = {
   monthly: "monthly",
 };
 
+// their dates are Unix timestamps in seconds; an empty or broken one gives no stamp
+function stampOf(seconds: number | undefined): string | null {
+  const date = seconds ? new Date(seconds * 1000) : null;
+  return date && !Number.isNaN(date.getTime()) ? date.toISOString() : null;
+}
+
 /**
  * Himalayas free remote-jobs API, no key. The firehose holds 100k+ jobs with
  * almost no leadership titles, so the connector queries the search endpoint
@@ -33,10 +40,11 @@ const PERIOD_MAP: Record<string, "annual" | "monthly"> = {
  * on the browse endpoint) and reports offset and totalCount for exhaustion.
  * Docs: https://himalayas.app/docs/remote-jobs-api. Apply links point at
  * himalayas.app, which serves as the visible source credit their terms ask.
+ * A job whose expiryDate lies before the run time has expired and is skipped.
  */
 export function himalayasConnector(
   deps: FetchDeps,
-  options: { pages: number; queries: string[] }
+  options: { pages: number; queries: string[]; now: string }
 ): { id: "himalayas"; run: () => Promise<RawJob[]> } {
   const seniorities = ["Director", "Executive"];
   // the plain seniority feeds surface only the fresh slice (a handful of
@@ -67,11 +75,13 @@ export function himalayasConnector(
             if (offset + jobs.length >= total) break;
             for (const job of jobs) {
               if (!job.guid || !job.title || !job.applicationLink) continue;
+              const expiresAt = stampOf(job.expiryDate);
+              // the feed still returns a role after its expiry: it is not listed tonight
+              if (expiresAt !== null && expiresAt < options.now) continue;
               if (seen.has(job.guid)) continue;
               seen.add(job.guid);
               const restrictions = job.locationRestrictions ?? [];
               const period = job.salaryPeriod ? PERIOD_MAP[job.salaryPeriod] : undefined;
-              const published = job.pubDate ? new Date(job.pubDate * 1000) : null;
               out.push({
                 source: "himalayas",
                 feedUnit: `${query}/${seniority}`,
@@ -90,8 +100,8 @@ export function himalayasConnector(
                   job.minSalary && job.maxSalary && job.currency && period
                     ? { min: job.minSalary, max: job.maxSalary, currency: job.currency, period }
                     : null,
-                postedAt:
-                  published && !Number.isNaN(published.getTime()) ? published.toISOString() : null,
+                postedAt: stampOf(job.pubDate),
+                ...(expiresAt ? { expiresAt } : {}),
               });
             }
           } catch (error) {

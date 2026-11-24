@@ -1,45 +1,91 @@
+import { dedupeKey } from "./dedupe";
 import type { FeedFailure } from "./http";
 import type { Job } from "../../src/lib/types";
 
 // a role outlives its failed feed for three nights at most (issues 46, 47, 59)
-const MAX_CARRIED_NIGHTS = 3;
+export const MAX_CARRIED_NIGHTS = 3;
+// and an answering feed that no longer lists it for two nights (issue 32)
+const MAX_ABSENT_NIGHTS = 2;
+// a role posted this many whole days ago is the oldest the site keeps (issue 62)
+const MAX_POSTED_AGE_DAYS = 365;
+const DAY_MS = 24 * 60 * 60 * 1000;
 
 /**
- * Keeps the previous records of the feeds that failed tonight. A feed that
- * answered and no longer lists a role, or failed for good, drops it. The
- * result holds the carried records only: each is stored as it was, with the
- * night count and the last-seen stamp updated.
+ * True when a role was posted more than 365 whole days before `now`.
+ * normalizeJob drops a raw role on it, and carryOver a stored one.
+ */
+export function postedTooLongAgo(postedAt: string, now: string): boolean {
+  return Math.floor((Date.parse(now) - Date.parse(postedAt)) / DAY_MS) > MAX_POSTED_AGE_DAYS;
+}
+
+/**
+ * The record as it was, with the given night counter set and the last-seen
+ * stamp kept: its own value, else the stamp of the previous dataset.
+ */
+function keep(
+  previous: Job,
+  nights: Partial<Pick<Job, "carriedNights" | "absentNights">>,
+  previousGeneratedAt?: string
+): Job {
+  const lastSeenAt = previous.lastSeenAt ?? previousGeneratedAt;
+  return lastSeenAt === undefined ? { ...previous, ...nights } : { ...previous, ...nights, lastSeenAt };
+}
+
+/**
+ * Judges every previous record that tonight's fresh list does not hold, in
+ * five rules: present tonight, posted more than a year ago, its feed failed
+ * tonight, its feed is gone for good, or its feed answered without it. The
+ * result holds the kept records only, each as it was: a carried one when its
+ * feed failed, a grace one when its feed answered and no longer lists it.
  */
 export function carryOver(input: {
   previous: Job[];
   previousGeneratedAt?: string;
   fresh: Job[];
   failures: FeedFailure[];
-}): { jobs: Job[]; carriedBySource: Record<string, number> } {
+  now: string;
+}): { jobs: Job[]; carriedBySource: Record<string, number>; graceCount: number } {
   const freshIds = new Set(input.fresh.map((job) => job.id));
-  const failedUnits = new Map<string, Set<string>>();
+  const freshKeys = new Set(input.fresh.map(dedupeKey));
+  const failuresBySource = new Map<string, FeedFailure[]>();
   for (const failure of input.failures) {
-    if (!failure.transient) continue;
-    const units = failedUnits.get(failure.source);
-    if (units) units.add(failure.unit);
-    else failedUnits.set(failure.source, new Set([failure.unit]));
+    const reported = failuresBySource.get(failure.source);
+    if (reported) reported.push(failure);
+    else failuresBySource.set(failure.source, [failure]);
   }
 
   const jobs: Job[] = [];
   const carriedBySource: Record<string, number> = {};
+  let graceCount = 0;
   for (const previous of input.previous) {
-    if (freshIds.has(previous.id)) continue;
-    // a record from before feeds were tagged belongs to its source as a whole
-    const failed =
-      previous.feedUnit === undefined
-        ? failedUnits.has(previous.source)
-        : failedUnits.get(previous.source)?.has(previous.feedUnit) === true;
-    if (!failed) continue;
-    const carriedNights = (previous.carriedNights ?? 0) + 1;
-    if (carriedNights > MAX_CARRIED_NIGHTS) continue;
-    const lastSeenAt = previous.lastSeenAt ?? input.previousGeneratedAt;
-    jobs.push(lastSeenAt === undefined ? { ...previous, carriedNights } : { ...previous, carriedNights, lastSeenAt });
-    carriedBySource[previous.source] = (carriedBySource[previous.source] ?? 0) + 1;
+    // 1. present tonight, by id or by company, title and place: the fresh record wins
+    if (freshIds.has(previous.id) || freshKeys.has(dedupeKey(previous))) continue;
+    // 2. posted more than a year ago
+    if (postedTooLongAgo(previous.postedAt, input.now)) continue;
+    // a record from before feeds were tagged has no feed of its own
+    const untagged = previous.feedUnit === undefined;
+    const reported = failuresBySource.get(previous.source) ?? [];
+    const own = untagged ? [] : reported.filter((failure) => failure.unit === previous.feedUnit);
+    // 3. its feed failed tonight, or any feed of its source when it names none
+    const failedTonight = untagged
+      ? reported.some((failure) => failure.transient)
+      : own.some((failure) => failure.transient);
+    if (failedTonight) {
+      const carriedNights = (previous.carriedNights ?? 0) + 1;
+      if (carriedNights <= MAX_CARRIED_NIGHTS) {
+        jobs.push(keep(previous, { carriedNights }, input.previousGeneratedAt));
+        carriedBySource[previous.source] = (carriedBySource[previous.source] ?? 0) + 1;
+      }
+      continue;
+    }
+    // 4. its feed is gone for good
+    if (own.length > 0) continue;
+    // 5. its feed answered and no longer lists it
+    const absentNights = (previous.absentNights ?? 0) + 1;
+    if (absentNights <= MAX_ABSENT_NIGHTS) {
+      jobs.push(keep(previous, { absentNights }, input.previousGeneratedAt));
+      graceCount += 1;
+    }
   }
-  return { jobs, carriedBySource };
+  return { jobs, carriedBySource, graceCount };
 }

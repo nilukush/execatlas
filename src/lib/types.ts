@@ -83,6 +83,8 @@ export interface RawJob {
   /** The feed of the source that returned the job, so a failed feed can be told from a quiet one. */
   feedUnit?: string;
   sourceHome?: string;
+  /** When the source stops listing the role, as an ISO stamp. Absent when the source dates no expiry. */
+  expiresAt?: string;
 }
 
 export interface Job {
@@ -124,10 +126,18 @@ export interface Job {
   posterUrl?: string;
   feedUnit?: string;
   sourceHome?: string;
-  /** Nights in a row this record was kept from the previous refresh after its feed failed. Absent while its feed lists it. */
+  /** When the source stops listing the role, as an ISO stamp. Absent when the source dates no expiry. */
+  expiresAt?: string;
+  /**
+   * Nights in a row a failed feed was stood in for by the previous refresh: three at most, for this
+   * record after its feed failed, or for its source visa tag after the visa feed failed. Absent on a
+   * night no feed failed.
+   */
   carriedNights?: number;
-  /** The stamp of the last dataset whose feed listed the role. Set the first night the record is carried. */
+  /** The run time of the last refresh whose feed listed the role. A carried record keeps the one it had. */
   lastSeenAt?: string;
+  /** Nights in a row an answering feed no longer listed the role while the record was kept anyway: two at most. */
+  absentNights?: number;
 }
 
 /** Compact card/search index entry derived from a Job. */
