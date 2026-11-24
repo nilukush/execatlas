@@ -126,3 +126,55 @@ describe("ExpatRate copy", () => {
     expect(EXPATRATE_URL).toBe("https://expatrate.pages.dev");
   });
 });
+
+describe("apply and listing copy", () => {
+  type Catalog = { Home: Record<string, string>; Job: Record<string, string>; Stats: Record<string, string> };
+  const section = (locale: string) => load(locale) as Catalog;
+  // the wording each catalog leaves behind
+  const oldPromise: Record<string, string> = {
+    en: "employer's own posting",
+    hi: "नियोक्ता की अपनी पोस्टिंग",
+    ar: "صاحب العمل نفسه",
+    id: "milik perusahaan sendiri",
+  };
+  const oldOpenRoles: Record<string, string> = {
+    en: "open leadership roles",
+    hi: "खुली लीडरशिप भूमिकाएँ",
+    ar: "وظيفة قيادية مفتوحة",
+    id: "posisi kepemimpinan terbuka",
+  };
+  const oldLiveRoles: Record<string, string> = {
+    en: "Live roles",
+    hi: "लाइव भूमिकाएं",
+    ar: "وظائف مباشرة",
+    id: "Peran aktif",
+  };
+
+  it("en carries the agreed wording", () => {
+    const en = section("en");
+    expect(en.Job.applyVia).toBe("Apply via {source}");
+    expect(en.Job.apply).toBe("Apply on company site");
+    expect(en.Home.statRoles).toBe("leadership roles listed");
+    expect(en.Stats.roles).toBe("Roles listed");
+    expect(en.Stats.liveRoles).toBe("Roles listed");
+    expect(en.Home.featureApplyBody).toBe(
+      "Every role links to where it was posted. Some lead to the employer's own careers site. The rest lead to the job board that carries the posting, and the button says which."
+    );
+  });
+
+  it("every locale names the board on the button", () => {
+    for (const locale of locales) {
+      expect(section(locale).Job.applyVia.split("{source}").length - 1, locale).toBe(1);
+    }
+  });
+
+  it("no locale keeps the promise that every link is the employer's own posting, or calls the roles open or live", () => {
+    for (const locale of locales) {
+      const { Home, Stats } = section(locale);
+      expect(Home.featureApplyBody, locale).not.toContain(oldPromise[locale]);
+      expect(Home.statRoles, locale).not.toBe(oldOpenRoles[locale]);
+      expect(Stats.roles, locale).not.toBe(oldLiveRoles[locale]);
+      expect(Stats.liveRoles, locale).toBe(Stats.roles);
+    }
+  });
+});

@@ -1,9 +1,28 @@
-import { afterEach, describe, expect, it } from "vitest";
-import { cleanup, render } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { cleanup, render, screen } from "@testing-library/react";
 import { createTranslator, NextIntlClientProvider } from "next-intl";
 import { JobCard, type JobCardLabels } from "./job-card";
-import { ROLE_TYPES, SOURCE_LABELS, type IndexEntry } from "@/lib/types";
+import { ROLE_TYPES, SOURCE_LABELS, type IndexEntry, type Job } from "@/lib/types";
+import JobDetailPage from "@/app/[locale]/jobs/[id]/page";
 import en from "../messages/en.json";
+
+type Namespace = "Job" | "Jobs";
+
+// the page reads the dataset and the request translations, and a unit test has neither
+const dataset = vi.hoisted(() => ({ jobs: [] as Job[] }));
+vi.mock("@/lib/data", () => ({
+  getAllJobIds: () => dataset.jobs.map((job) => job.id),
+  getJobById: (id: string) => dataset.jobs.find((job) => job.id === id) ?? null,
+}));
+vi.mock("next-intl/server", () => ({
+  setRequestLocale: () => undefined,
+  getTranslations: async (namespace: Namespace | { namespace: Namespace }) =>
+    createTranslator({
+      locale: "en",
+      messages: en,
+      namespace: typeof namespace === "string" ? namespace : namespace.namespace,
+    }),
+}));
 
 const t = createTranslator({ locale: "en", messages: en });
 
@@ -122,5 +141,78 @@ describe("JobCard remote scope", () => {
     renderCards(make(anywhere));
     expect(chips()).toContain("Worldwide remote");
     expect(chips()).not.toContain("Location restricted");
+  });
+});
+
+function makeJob(over: Partial<Job> = {}): Job {
+  return {
+    id: "j1",
+    title: "Director of Engineering",
+    company: "Acme",
+    applyUrl: "https://careers.acme.com/1",
+    sourceUrl: "https://careers.acme.com/1",
+    source: "greenhouse",
+    sources: ["greenhouse"],
+    text: "",
+    blocks: [],
+    requirements: [],
+    location: { raw: "Berlin", region: "europe", remote: false },
+    seniority: "director",
+    domain: "engineering",
+    visa: "unknown",
+    workMode: "onsite",
+    roleType: "permanent",
+    salary: null,
+    postedAt: "2026-11-24",
+    firstSeen: "2026-11-24",
+    updatedAt: "2026-11-24",
+    ...over,
+  };
+}
+
+async function renderPage(id: string) {
+  const page = await JobDetailPage({ params: Promise.resolve({ locale: "en", id }) });
+  return render(
+    <NextIntlClientProvider locale="en" messages={en} timeZone="UTC">
+      {page}
+    </NextIntlClientProvider>
+  );
+}
+
+describe("job page apply button", () => {
+  it('says "Apply via" and the board when the link opens a board', async () => {
+    dataset.jobs = [makeJob({ source: "adzuna", sources: ["adzuna"], applyUrl: "https://www.adzuna.sg/details/1" })];
+    await renderPage("j1");
+    expect(screen.getByRole("link", { name: "Apply via Adzuna" }).getAttribute("href")).toBe(
+      "https://www.adzuna.sg/details/1"
+    );
+  });
+
+  it('keeps "Apply on company site" when the employer hosts the link, whatever the source', async () => {
+    dataset.jobs = [makeJob({ source: "arbeitnow", sources: ["arbeitnow"] })];
+    await renderPage("j1");
+    expect(screen.getByRole("link", { name: "Apply on company site" }).getAttribute("href")).toBe(
+      "https://careers.acme.com/1"
+    );
+    expect(screen.queryByRole("link", { name: /^Apply via/ })).toBeNull();
+  });
+
+  it("follows the host of the apply link for a role that two sources list", async () => {
+    dataset.jobs = [
+      makeJob({ source: "arbeitnow", sources: ["arbeitnow", "adzuna"], applyUrl: "https://www.adzuna.in/details/2" }),
+    ];
+    await renderPage("j1");
+    expect(screen.getByRole("link", { name: "Apply via Adzuna" }).getAttribute("href")).toBe(
+      "https://www.adzuna.in/details/2"
+    );
+  });
+
+  it('keeps the label and the target of the "View original posting" link', async () => {
+    const sourceUrl = "https://careers.acme.com/1";
+    dataset.jobs = [
+      makeJob({ source: "adzuna", sources: ["adzuna"], applyUrl: "https://www.adzuna.sg/details/1", sourceUrl }),
+    ];
+    await renderPage("j1");
+    expect(screen.getByRole("link", { name: "View original posting" }).getAttribute("href")).toBe(sourceUrl);
   });
 });

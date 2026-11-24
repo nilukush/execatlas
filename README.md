@@ -2,8 +2,8 @@
 
 Senior leadership jobs across engineering, product, design and data, worldwide. Live at https://execatlas.vercel.app (Vercel free tier, rebuilt automatically whenever the dataset refreshes). ExecAtlas aggregates Director, AVP, VP, Head of and CTO level roles from official and public job APIs across India, the Middle East, Southeast Asia, North Africa, Europe and North America, then enriches every posting with the things international candidates actually need:
 
-- Visa sponsorship signal, read from each posting (sponsors / does not sponsor / unspecified), with the evidence sentence quoted on the job page
-- The real apply link, pointing at the employer's own posting
+- Visa sponsorship signal, read from each posting (sponsors / does not sponsor / unspecified), with the evidence sentence or the source board named on the job page
+- A real apply link for every role, to the employer's own posting or to the board that carries it, named on the button
 - Requirements extracted from the description and shown first
 - Years of experience when the posting states it, as a tag and on the job page
 - Commute type (remote, hybrid with office days, on-site), role type (permanent, contract, freelance, temporary, part-time, full-time, interim), and explicit markers for country-restricted versus worldwide remote roles

@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { applyDestination } from "@/lib/apply";
 import { getAllJobIds, getJobById } from "@/lib/data";
 import { CompanyLogo } from "@/components/company-logo";
 import { SOURCE_LABELS, type JdBlock } from "@/lib/types";
@@ -73,6 +74,8 @@ export default async function JobDetailPage({
   const restrictions = job.location.restrictions ?? [];
   const visa = signalView(job);
   const source = SOURCE_LABELS[job.source] ?? job.source;
+  // the button follows the host of the apply link, not the source that listed the role
+  const destination = applyDestination(job.applyUrl);
   // an old dataset dates no tag, so the headline names the source instead
   const undatedTag = visa.basis === "source" && !job.visaDeclaredAt;
 
@@ -102,7 +105,9 @@ export default async function JobDetailPage({
           </div>
         </div>
         <a href={job.applyUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
-          {t("apply")}
+          {destination === "employer"
+            ? t("apply")
+            : t("applyVia", { source: SOURCE_LABELS[destination] })}
         </a>
       </header>
 
