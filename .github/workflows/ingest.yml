@@ -82,7 +82,8 @@ jobs:
             const headline =
               "Latest run: " + failedFeedCount + " feeds failed, " + carried.total + " roles kept from the previous refresh.";
             const bySource = Object.entries(carried.bySource).map(([source, count]) => source + " " + count).join(", ");
-            const feeds = failedFeeds.map(
+            // a feed that reported more than once gets one line, its last report, keyed as the count above keys it
+            const feeds = [...new Map(failedFeeds.map((feed) => [feed.source + "/" + feed.unit, feed])).values()].map(
               (feed) =>
                 "- " +
                 feed.source +

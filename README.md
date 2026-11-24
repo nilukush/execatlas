@@ -11,7 +11,7 @@ Senior leadership jobs across engineering, product, design and data, worldwide. 
 - Per-country postings of one role grouped into a single card, every location still individually applyable
 - A public Stats page with the nightly source scorecard (volume, exclusivity, signal richness, freshness)
 - Roles kept from the previous refresh for three nights at most when their source fails to answer, counted on the Stats page
-- Salary: the stated range when the posting includes one and it can be pay, otherwise an estimated P25 to P75 band in the local currency of the job's country, built on the ExpatRate benchmark dataset (https://expatrate.pages.dev). A stated range that cannot be pay, such as a revenue range, is replaced by that estimate
+- Salary: the stated range when the posting includes one and it can be pay, otherwise an estimated P25 to P75 band in the local currency of the job's country, built on the ExpatRate benchmark dataset (https://expatrate.pages.dev). A stated range that cannot be pay, such as a revenue range, is replaced by that estimate. A role in a country without benchmark coverage shows no band
 - Filters (region, country, seniority, visa, work mode, role type, source), sorting and pagination; on phones the filters fold behind one button with an active count
 - One search box for questions and keywords alike: ask "is there a VP Engineering role in Dubai with visa sponsorship?" and get a yes or no with counts, the filters it understood, and when nothing matches, the closest relaxation that does
 - Saved searches on your device with a count of new roles since you last looked; no account needed

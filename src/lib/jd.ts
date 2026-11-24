@@ -8,7 +8,7 @@ const ENTITIES: Record<string, string> = {
   apos: "'",
   nbsp: " ",
   ndash: "–",
-  mdash: "—",
+  mdash: "\u2014",
   rsquo: "’",
   lsquo: "‘",
   ldquo: "“",

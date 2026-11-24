@@ -135,7 +135,7 @@ function normalizeTitle(title: string): string {
   return title
     .toLowerCase()
     .replace(/&/g, " and ")
-    .replace(/[,.;:()\[\]{}\-_|/·—–]/g, " ")
+    .replace(/[,.;:()\[\]{}\-_|/·\u2014–]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
 }

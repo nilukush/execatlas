@@ -1,28 +1,9 @@
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import { createTranslator, NextIntlClientProvider } from "next-intl";
 import { JobCard, type JobCardLabels } from "./job-card";
-import { ROLE_TYPES, SOURCE_LABELS, type DatasetStats, type IndexEntry, type Job } from "@/lib/types";
+import { ROLE_TYPES, SOURCE_LABELS, type IndexEntry } from "@/lib/types";
 import en from "../messages/en.json";
-
-type Namespace = "Job" | "Jobs" | "Stats";
-
-// the pages read the dataset and the request translations, and a unit test has neither
-const dataset = vi.hoisted(() => ({ jobs: [] as Job[], stats: null as DatasetStats | null }));
-vi.mock("@/lib/data", () => ({
-  getAllJobIds: () => dataset.jobs.map((job) => job.id),
-  getJobById: (id: string) => dataset.jobs.find((job) => job.id === id) ?? null,
-  getStats: () => dataset.stats,
-}));
-vi.mock("next-intl/server", () => ({
-  setRequestLocale: () => undefined,
-  getTranslations: async (namespace: Namespace | { namespace: Namespace }) =>
-    createTranslator({
-      locale: "en",
-      messages: en,
-      namespace: typeof namespace === "string" ? namespace : namespace.namespace,
-    }),
-}));
 
 const t = createTranslator({ locale: "en", messages: en });
 
