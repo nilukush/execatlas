@@ -1,9 +1,18 @@
-import { describe, afterEach, expect, it } from "vitest";
+import { describe, afterEach, expect, it, vi } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import { SiteHeader } from "./site-header";
 import { SiteFooter } from "./site-footer";
+import { EXPATRATE_URL } from "@/lib/salary";
 import en from "../messages/en.json";
+
+// getTranslations reads the Next request scope, which does not exist under vitest.
+vi.mock("next-intl/server", () => ({
+  getTranslations: async (namespace: "Footer") => {
+    const { createTranslator } = await import("next-intl");
+    return createTranslator({ locale: "en", messages: en, namespace });
+  },
+}));
 
 // SiteHeader and SiteFooter are async server components in app code; for
 // testing we render the markup contract through the same catalogs the
@@ -66,6 +75,20 @@ describe("site footer contract", () => {
     ]) {
       expect(en.Footer.data, `Footer.data missing ${source}`).toContain(source);
     }
+  });
+
+  it("names ExpatRate in the salary credit and links it to the project site", async () => {
+    const footer = await SiteFooter();
+    render(
+      <NextIntlClientProvider locale="en" messages={en} timeZone="UTC">
+        {footer}
+      </NextIntlClientProvider>
+    );
+    const link = screen.getByRole("link", { name: "ExpatRate" });
+    expect(link).toHaveAttribute("href", EXPATRATE_URL);
+    expect(link).toHaveAttribute("target", "_blank");
+    expect(link).toHaveAttribute("rel", "noopener noreferrer");
+    expect(link.closest("p")).toHaveTextContent("Salary benchmarks by ExpatRate (CC BY 4.0).");
   });
 
   it("keeps the license line meaningful for the copyright row", () => {

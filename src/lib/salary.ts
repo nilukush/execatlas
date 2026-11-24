@@ -3,8 +3,7 @@ import type { SalaryBand } from "./types";
 import benchmarksJson from "@/data/salary/benchmarks.json";
 import conventionsJson from "@/data/salary/conventions.json";
 
-export const SALARY_ATTRIBUTION =
-  "Salary estimates from the ExpatRate benchmark dataset (expatrate.pages.dev), CC BY 4.0.";
+export const EXPATRATE_URL = "https://expatrate.pages.dev";
 
 export interface BenchmarkRow {
   f: string;

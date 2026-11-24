@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getAllJobIds, getJobById } from "@/lib/data";
 import { CompanyLogo } from "@/components/company-logo";
 import { SOURCE_LABELS, type JdBlock } from "@/lib/types";
-import { formatSalaryBand, SALARY_ATTRIBUTION } from "@/lib/salary";
+import { formatSalaryBand, EXPATRATE_URL } from "@/lib/salary";
 import { remoteScope, signalView } from "@/lib/signals";
 import { countryByIso2, regionLabel } from "@/lib/locations";
 import { buildAlternates, formatDate, jobOgDescription, SITE_URL } from "@/lib/seo";
@@ -231,7 +232,9 @@ export default async function JobDetailPage({
                   {job.salary.quality ? ` · ${job.salary.quality}` : ""}
                 </p>
                 {job.salary.source === "estimated" && (
-                  <p className="mt-3 text-xs leading-relaxed text-muted">{t("estimateNote")}</p>
+                  <p className="mt-3 text-xs leading-relaxed text-muted">
+                    {t.rich("estimateNote", { link: expatrateLink })}
+                  </p>
                 )}
               </>
             ) : (
@@ -300,11 +303,26 @@ export default async function JobDetailPage({
             >
               {t("viewOriginal")}
             </a>
-            <p className="mt-3 text-xs leading-relaxed text-muted">{SALARY_ATTRIBUTION}</p>
+            <p className="mt-3 text-xs leading-relaxed text-muted">
+              {t.rich("salaryAttribution", { link: expatrateLink })}
+            </p>
           </section>
         </aside>
       </div>
     </article>
+  );
+}
+
+function expatrateLink(chunks: ReactNode) {
+  return (
+    <a
+      href={EXPATRATE_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline underline-offset-2 hover:text-brand-500"
+    >
+      {chunks}
+    </a>
   );
 }
 

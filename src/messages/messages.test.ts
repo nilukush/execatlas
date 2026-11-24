@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { EXPATRATE_URL } from "@/lib/salary";
 
 const locales = ["en", "hi", "ar", "id"];
 
@@ -73,8 +74,55 @@ describe("placeholder parity", () => {
       if (locale === "en") continue;
       const other = Object.fromEntries(flatten(load(locale) as Record<string, unknown>));
       for (const [key, value] of en) {
-        expect(placeholders(other[key]), `${locale} ${key}`).toEqual(placeholders(value));
+          expect(placeholders(other[key]), `${locale} ${key}`).toEqual(placeholders(value));
       }
     }
+  });
+});
+
+describe("ExpatRate copy", () => {
+  // the linked keys go through t.rich: the formatter calls a handler only for a tag, not for a bare {link} argument
+  const linkTag = "<link>ExpatRate</link>";
+  const linkedKeys = ["Footer.salary", "Job.salaryAttribution", "Job.estimateNote", "About.salaryBody"];
+  const agreedCopy: Record<string, string> = {
+    "Footer.salary": "Salary benchmarks by <link>ExpatRate</link> (CC BY 4.0).",
+    "Job.salaryAttribution": "Salary estimates from the <link>ExpatRate</link> benchmark dataset (CC BY 4.0).",
+    "Job.estimateNote":
+      "Estimated from <link>ExpatRate</link>, an open set of salary benchmarks by country and role family. The band runs from the 25th to the 75th percentile of annual gross pay, in local currency. Treat it as orientation.",
+    "About.salaryBody":
+      "When a posting states a range, it is shown as stated. Otherwise an estimated band is computed from the country benchmarks of <link>ExpatRate</link>, a free and open salary benchmark project, for senior technology roles, always in the local currency of the job's country, and always labeled as an estimate.",
+    "Home.featurePayBody":
+      "Stated salaries are shown as posted. When a posting hides the number, an estimated band from the ExpatRate country benchmarks fills the gap, always labeled as an estimate.",
+  };
+
+  const read = (catalog: Record<string, unknown>, path: string): unknown =>
+    path.split(".").reduce<unknown>((node, key) => (node as Record<string, unknown> | undefined)?.[key], catalog);
+
+  it("every locale has the five keys, four of them with one ExpatRate link tag", () => {
+    for (const locale of locales) {
+      const catalog = load(locale);
+      for (const key of Object.keys(agreedCopy)) {
+        const value = read(catalog, key);
+        expect(typeof value, `${locale} ${key}`).toBe("string");
+        const text = String(value);
+        if (linkedKeys.includes(key)) {
+          expect(text.split(linkTag).length - 1, `${locale} ${key} link tags`).toBe(1);
+          expect(text, `${locale} ${key}`).not.toContain("{link}");
+        } else {
+          expect(text, `${locale} ${key}`).toContain("ExpatRate");
+        }
+      }
+    }
+  });
+
+  it("en carries the agreed wording", () => {
+    const en = load("en");
+    for (const [key, copy] of Object.entries(agreedCopy)) {
+      expect(read(en, key), key).toBe(copy);
+    }
+  });
+
+  it("EXPATRATE_URL is the public project site", () => {
+    expect(EXPATRATE_URL).toBe("https://expatrate.pages.dev");
   });
 });
