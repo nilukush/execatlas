@@ -32,7 +32,7 @@ pnpm dev           # http://localhost:4317
 Other commands:
 
 ```bash
-pnpm test               # vitest unit and component tests (395 tests, 31 files)
+pnpm test               # vitest unit and component tests (1085 tests, 38 files)
 npx tsc --noEmit        # type gate, must be clean
 pnpm build              # static production build into out/, then artifact checks
 pnpm e2e                # Playwright browser journeys against out/ (run build first)
