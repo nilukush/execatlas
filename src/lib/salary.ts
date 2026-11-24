@@ -285,15 +285,21 @@ const MIN_ANNUAL_USD = 12_000;
 const MAX_SPREAD = 10;
 
 /**
- * False when a stated band cannot be a salary: its annual maximum is above
- * 2,000,000 US dollars, or under 12,000, or more than ten times its minimum.
+ * False when a stated band cannot be a salary. A minimum of zero or less, a
+ * negative maximum or a value that is not a finite number gives false. Else
+ * the annual maximum in US dollars must lie from MIN_ANNUAL_USD up to
+ * MAX_ANNUAL_USD, and the maximum may be at most MAX_SPREAD times the minimum.
  * A currency without a vendored rate cannot be judged, so it passes.
  */
 export function isPlausibleBand(band: SalaryBand): boolean {
+  if (!Number.isFinite(band.min) || !Number.isFinite(band.max) || band.min <= 0 || band.max < 0) {
+    return false;
+  }
   const rate = FX_RATES[band.currency];
   if (!rate) return true;
   const months = band.period === "monthly" ? 12 : 1;
-  const min = (band.min / rate) * months;
   const max = (band.max / rate) * months;
-  return max <= MAX_ANNUAL_USD && max >= MIN_ANNUAL_USD && max / min <= MAX_SPREAD;
+  // the spread is judged on the stated figures, because converting first can
+  // turn a spread of exactly 10 into 10.000000000000002
+  return max <= MAX_ANNUAL_USD && max >= MIN_ANNUAL_USD && band.max / band.min <= MAX_SPREAD;
 }

@@ -28,6 +28,20 @@ describe("isPlausibleBand", () => {
     ["accepts EGP 40,000 to 60,000 a month", stated(40000, 60000, "EGP", "monthly"), true],
     ["accepts INR 5,000,000 to 15,000,000", stated(5000000, 15000000, "INR", "annual"), true],
     ["accepts a currency with no exchange rate", stated(1, 500000000, "XXX", "annual"), true],
+    ["accepts exactly 2,000,000 US dollars a year", stated(2000000, 2000000, "USD", "annual"), true],
+    ["accepts exactly 12,000 US dollars a year", stated(12000, 12000, "USD", "annual"), true],
+    ["accepts a spread of exactly 10 in USD", stated(20000, 200000, "USD", "annual"), true],
+    ["accepts a spread of exactly 10 in GBP", stated(10000, 100000, "GBP", "annual"), true],
+    ["rejects a minimum of 0", stated(0, 150000, "USD", "annual"), false],
+    ["rejects a minimum of -5", stated(-5, 150000, "USD", "annual"), false],
+    ["rejects a negative maximum", stated(5, -100, "USD", "annual"), false],
+    ["rejects NaN as the minimum", stated(NaN, 150000, "USD", "annual"), false],
+    ["rejects NaN as the maximum", stated(150000, NaN, "USD", "annual"), false],
+    // the shape of a band is judged before its currency, so a band of no shape gives false with no rate to judge by
+    ["rejects a minimum of 0 in a currency with no exchange rate", stated(0, 150000, "XXX", "annual"), false],
+    ["rejects a negative maximum in a currency with no exchange rate", stated(5, -100, "XXX", "annual"), false],
+    ["rejects NaN as the minimum in a currency with no exchange rate", stated(NaN, 150000, "XXX", "annual"), false],
+    ["rejects NaN as the maximum in a currency with no exchange rate", stated(150000, NaN, "XXX", "annual"), false],
   ];
 
   it.each(cases)("%s", (_label, band, expected) => {
