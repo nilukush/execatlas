@@ -34,6 +34,7 @@ export function greenhouseConnector(
             if (!job.title || !job.absolute_url) continue;
             out.push({
               source: "greenhouse",
+              feedUnit: token,
               externalId: `gh-${job.id}`,
               title: job.title,
               company: job.company_name?.trim() || token,
@@ -45,7 +46,9 @@ export function greenhouseConnector(
             });
           }
         } catch (error) {
-          console.warn(`[greenhouse] board "${token}" failed: ${(error as Error).message}`);
+          const failure = error as { status?: number; transient?: boolean; message: string };
+          console.warn(`[greenhouse] board "${token}" failed: ${failure.message}`);
+          deps.reportFailure?.({ source: "greenhouse", unit: token, status: failure.status, transient: failure.transient ?? true, message: failure.message });
         }
       }
       return out;

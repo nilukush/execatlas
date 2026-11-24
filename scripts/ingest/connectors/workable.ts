@@ -39,6 +39,7 @@ export function workableConnector(
               if (byId.has(`wk-${job.id}`)) continue;
               byId.set(`wk-${job.id}`, {
                 source: "workable",
+                feedUnit: `${query}/${location}`,
                 externalId: `wk-${job.id}`,
                 title: job.title,
                 company: job.company?.title?.trim() || "Unknown company",
@@ -53,9 +54,11 @@ export function workableConnector(
               });
             }
           } catch (error) {
+            const failure = error as { status?: number; transient?: boolean; message: string };
             console.warn(
-              `[workable] query "${query}" / "${location}" failed: ${(error as Error).message}`
+              `[workable] query "${query}" / "${location}" failed: ${failure.message}`
             );
+            deps.reportFailure?.({ source: "workable", unit: `${query}/${location}`, status: failure.status, transient: failure.transient ?? true, message: failure.message });
           }
         }
       }

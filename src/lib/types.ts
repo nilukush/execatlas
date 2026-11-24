@@ -80,6 +80,9 @@ export interface RawJob {
   postedAt?: string | null;
   posterName?: string | null;
   posterUrl?: string | null;
+  /** The feed of the source that returned the job, so a failed feed can be told from a quiet one. */
+  feedUnit?: string;
+  sourceHome?: string;
 }
 
 export interface Job {
@@ -119,6 +122,8 @@ export interface Job {
   updatedAt: string;
   posterName?: string;
   posterUrl?: string;
+  feedUnit?: string;
+  sourceHome?: string;
 }
 
 /** Compact card/search index entry derived from a Job. */
@@ -151,6 +156,8 @@ export interface IndexEntry {
   salarySource?: "stated" | "estimated";
   postedAt: string;
   source: SourceId;
+  /** The site a redirect-style apply link leads back to; absent when the source names none. */
+  sourceHome?: string;
 }
 
 export interface SourceQuality {

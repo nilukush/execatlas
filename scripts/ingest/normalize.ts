@@ -162,6 +162,8 @@ export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | nu
     updatedAt: now,
     posterName: raw.posterName ?? undefined,
     posterUrl: raw.posterUrl ?? undefined,
+    feedUnit: raw.feedUnit,
+    sourceHome: raw.sourceHome,
   };
 
   // a job whose content did not change keeps its previous updatedAt so a

@@ -44,7 +44,7 @@ export const JOBICY_COUNT = 100;
 export const HIMALAYAS_PAGES = 4;
 export const HIMALAYAS_QUERIES = ["engineering", "product", "data", "technology"];
 
-// Adzuna Trial Access: keep the nightly request count bounded (about 26
+// Adzuna Trial Access: keep the nightly request count bounded (24
 // requests) so the free quota lasts the month; credentials come from env
-export const ADZUNA_COUNTRIES = ["gb", "de", "fr", "nl", "es", "it", "pl", "in", "sg", "br", "us", "ca"];
+export const ADZUNA_COUNTRIES = ["gb", "de", "fr", "nl", "es", "it", "pl", "in", "sg", "mx", "us", "ca"];
 export const ADZUNA_QUERIES = ["engineering director", "vp engineering"];

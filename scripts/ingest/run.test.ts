@@ -84,4 +84,12 @@ describe("scripts/ingest/run entry point", () => {
     expect(stored).not.toHaveProperty("visaBasis");
     expect(stored).not.toHaveProperty("locationRestrictions");
   });
+
+  it("copies sourceHome into the index entry and adds none to an old dataset record", () => {
+    expect(entry.toIndexEntry({ ...job, sourceHome: "https://www.adzuna.com" }).sourceHome).toBe(
+      "https://www.adzuna.com"
+    );
+    const stored = JSON.parse(JSON.stringify(entry.toIndexEntry(job)));
+    expect(stored).not.toHaveProperty("sourceHome");
+  });
 });

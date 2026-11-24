@@ -74,6 +74,7 @@ export function himalayasConnector(
               const published = job.pubDate ? new Date(job.pubDate * 1000) : null;
               out.push({
                 source: "himalayas",
+                feedUnit: `${query}/${seniority}`,
                 externalId: `hml-${job.guid.split("/").pop() ?? job.guid}`,
                 title: job.title,
                 company: job.companyName?.trim() || "Unknown company",
@@ -94,7 +95,9 @@ export function himalayasConnector(
               });
             }
           } catch (error) {
-            console.warn(`[himalayas] ${query}/${seniority} page ${page} failed: ${(error as Error).message}`);
+            const failure = error as { status?: number; transient?: boolean; message: string };
+            console.warn(`[himalayas] ${query}/${seniority} page ${page} failed: ${failure.message}`);
+            deps.reportFailure?.({ source: "himalayas", unit: `${query}/${seniority}`, status: failure.status, transient: failure.transient ?? true, message: failure.message });
             break;
           }
         }

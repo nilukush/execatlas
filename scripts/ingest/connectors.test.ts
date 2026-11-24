@@ -404,3 +404,253 @@ describe("jobicy connector", () => {
     expect(jobs[0].locationRaw).toBe("USA");
   });
 });
+
+import { ADZUNA_COUNTRIES } from "./config";
+import type { FeedFailure } from "./http";
+
+describe("adzuna query window", () => {
+  it("caps the age of every request at the source", async () => {
+    const urls: string[] = [];
+    const connector = adzunaConnector(
+      {
+        fetchJson: async (url: string) => {
+          urls.push(url);
+          return { results: [] };
+        },
+      },
+      { appId: "id", appKey: "key", countries: ["gb", "in"], queries: ["a", "b"], pages: 1 }
+    );
+    await connector.run();
+    expect(urls.map((u) => new URL(u).searchParams.get("max_days_old"))).toEqual(["365", "365", "365", "365"]);
+  });
+
+  it("queries Mexico in place of Brazil, under a name the connector knows", async () => {
+    expect(ADZUNA_COUNTRIES).toContain("mx");
+    expect(ADZUNA_COUNTRIES).not.toContain("br");
+    const urls: string[] = [];
+    const connector = adzunaConnector(
+      {
+        fetchJson: async (url: string) => {
+          urls.push(url);
+          return { results: [] };
+        },
+      },
+      { appId: "id", appKey: "key", countries: ADZUNA_COUNTRIES, queries: ["engineering director"], pages: 1 }
+    );
+    await connector.run();
+    // a country without an English name is skipped before any request
+    expect(urls).toHaveLength(ADZUNA_COUNTRIES.length);
+    expect(urls.some((u) => u.includes("/jobs/mx/search/"))).toBe(true);
+  });
+});
+
+describe("adzuna attribution home", () => {
+  it("stores the host of each apply link and nothing for a link that does not parse", async () => {
+    const [first] = adzunaFixture;
+    const connector = adzunaConnector(
+      {
+        fetchJson: async () => ({
+          results: [
+            { ...first, id: "home-1", redirect_url: "https://www.adzuna.com/landing-page/ads/1" },
+            { ...first, id: "home-2", redirect_url: "not a url" },
+          ],
+        }),
+      },
+      { appId: "id", appKey: "key", countries: ["gb"], queries: ["engineering director"], pages: 1 }
+    );
+    const jobs = await connector.run();
+    expect(jobs.map((j) => [j.externalId, j.sourceHome])).toEqual([
+      ["ad-home-1", "https://www.adzuna.com"],
+      ["ad-home-2", undefined],
+    ]);
+  });
+});
+
+describe("failed feed reporting and feed tags", () => {
+  // a plain array: vitest clears mock call history before each test
+  function recorder() {
+    const reported: FeedFailure[] = [];
+    return {
+      reported,
+      reportFailure: (failure: FeedFailure) => {
+        reported.push(failure);
+      },
+    };
+  }
+
+  const rateLimited = () => Object.assign(new Error("HTTP 429"), { status: 429, transient: true });
+
+  function expectOneFailure(reported: FeedFailure[], source: FeedFailure["source"], unit: string) {
+    expect(reported).toEqual([{ source, unit, status: 429, transient: true, message: "HTTP 429" }]);
+  }
+
+  it("greenhouse reports a failed board and tags each job with its board", async () => {
+    const { reported, reportFailure } = recorder();
+    const connector = greenhouseConnector(
+      {
+        fetchJson: async (url: string) => {
+          if (url.includes("deadboard")) throw rateLimited();
+          return greenhouseFixture;
+        },
+        reportFailure,
+      },
+      { tokens: ["deadboard", "stripe"] }
+    );
+    const jobs = await connector.run();
+    expectOneFailure(reported, "greenhouse", "deadboard");
+    expect(jobs.length).toBe(5);
+    expect(jobs.every((j) => j.feedUnit === "stripe")).toBe(true);
+  });
+
+  it("lever reports a failed board and tags each job with its board", async () => {
+    const { reported, reportFailure } = recorder();
+    const connector = leverConnector(
+      {
+        fetchJson: async (url: string) => {
+          if (url.includes("deadboard")) throw rateLimited();
+          return leverFixture;
+        },
+        reportFailure,
+      },
+      { tokens: ["deadboard", "netomi"] }
+    );
+    const jobs = await connector.run();
+    expectOneFailure(reported, "lever", "deadboard");
+    expect(jobs.length).toBe(2);
+    expect(jobs.every((j) => j.feedUnit === "netomi")).toBe(true);
+  });
+
+  it("ashby reports a failed board and tags each job with its board", async () => {
+    const { reported, reportFailure } = recorder();
+    const connector = ashbyConnector(
+      {
+        fetchJson: async (url: string) => {
+          if (url.includes("deadboard")) throw rateLimited();
+          return { jobs: ashbyFixture };
+        },
+        reportFailure,
+      },
+      { tokens: ["deadboard", "docker"], names: {} }
+    );
+    const jobs = await connector.run();
+    expectOneFailure(reported, "ashby", "deadboard");
+    expect(jobs.length).toBe(1);
+    expect(jobs[0].feedUnit).toBe("docker");
+  });
+
+  it("workable reports a failed query and location and keeps the first feed of a job", async () => {
+    const { reported, reportFailure } = recorder();
+    const connector = workableConnector(
+      {
+        fetchJson: async (url: string) => {
+          const params = new URL(url).searchParams;
+          if (params.get("query") === "CTO" && params.get("location") === "Qatar") throw rateLimited();
+          return workableFixture;
+        },
+        reportFailure,
+      },
+      { queries: ["CTO", "Head of Engineering"], locations: ["United Arab Emirates", "Qatar"] }
+    );
+    const jobs = await connector.run();
+    expectOneFailure(reported, "workable", "CTO/Qatar");
+    // the other three units all return both jobs
+    expect(jobs.length).toBe(2);
+    expect(jobs.every((j) => j.feedUnit === "CTO/United Arab Emirates")).toBe(true);
+  });
+
+  it("jobicy reports a failed tag and names each feed by its tag or plain", async () => {
+    const { reported, reportFailure } = recorder();
+    const plain = { jobs: jobicyFixture.jobs ?? jobicyFixture };
+    const taggedHit = { ...plain.jobs[0], id: 99901, jobTitle: "Head of Engineering" };
+    const connector = jobicyConnector(
+      {
+        fetchJson: async (url: string) => {
+          if (url.includes("tag=cto")) throw rateLimited();
+          return url.includes("tag=head") ? { jobs: [taggedHit] } : plain;
+        },
+        reportFailure,
+      },
+      { count: 5, tags: ["cto", "head of engineering"] }
+    );
+    const jobs = await connector.run();
+    expectOneFailure(reported, "jobicy", "cto");
+    expect(jobs.find((j) => j.externalId === "jc-99901")?.feedUnit).toBe("head of engineering");
+    expect(jobs.filter((j) => j.externalId !== "jc-99901").every((j) => j.feedUnit === "plain")).toBe(true);
+  });
+
+  it("arbeitnow reports a failed job page and a failed visa feed page by their numbers", async () => {
+    const { reported, reportFailure } = recorder();
+    const data = arbeitnowFixture.data ?? arbeitnowFixture;
+    const connector = arbeitnowConnector(
+      {
+        fetchJson: async (url: string) => {
+          if (new URL(url).searchParams.get("page") === "2") throw rateLimited();
+          return url.includes("visa_sponsorship=true") ? { data: [data[0]] } : { data };
+        },
+        reportFailure,
+      },
+      { pages: 2 }
+    );
+    const jobs = await connector.run();
+    expect(reported).toEqual([
+      { source: "arbeitnow", unit: "page-2", status: 429, transient: true, message: "HTTP 429" },
+      { source: "arbeitnow", unit: "visa-feed-2", status: 429, transient: true, message: "HTTP 429" },
+    ]);
+    expect(jobs.length).toBe(3);
+    expect(jobs.every((j) => j.feedUnit === "page-1")).toBe(true);
+  });
+
+  it("himalayas reports a failed page under its query and seniority", async () => {
+    const { reported, reportFailure } = recorder();
+    const connector = himalayasConnector(
+      {
+        fetchJson: async (url: string) => {
+          const params = new URL(url).searchParams;
+          if (params.get("seniority") === "Director" && params.get("page") === "2") throw rateLimited();
+          return { jobs: himalayasFixture, offset: 0, totalCount: himalayasFixture.length + 5 };
+        },
+        reportFailure,
+      },
+      { pages: 2, queries: ["engineering"] }
+    );
+    const jobs = await connector.run();
+    expectOneFailure(reported, "himalayas", "engineering/Director");
+    // the Executive feeds return the same jobs, which keep the feed that first returned them
+    expect(jobs.length).toBe(2);
+    expect(jobs.every((j) => j.feedUnit === "engineering/Director")).toBe(true);
+  });
+
+  it("adzuna reports a failed country and query and tags each job with them", async () => {
+    const { reported, reportFailure } = recorder();
+    const connector = adzunaConnector(
+      {
+        fetchJson: async (url: string) => {
+          if (url.includes("/jobs/de/")) throw rateLimited();
+          return { results: adzunaFixture };
+        },
+        reportFailure,
+      },
+      { appId: "id", appKey: "key", countries: ["de", "gb"], queries: ["engineering director"], pages: 1 }
+    );
+    const jobs = await connector.run();
+    expectOneFailure(reported, "adzuna", "de/engineering director");
+    expect(jobs.length).toBe(2);
+    expect(jobs.every((j) => j.feedUnit === "gb/engineering director")).toBe(true);
+  });
+
+  it("reports an error without a transient flag as transient", async () => {
+    const { reported, reportFailure } = recorder();
+    const connector = greenhouseConnector(
+      {
+        fetchJson: async (url: string) => {
+          if (url.includes("deadboard")) throw new Error("boom");
+          return greenhouseFixture;
+        },
+        reportFailure,
+      },
+      { tokens: ["deadboard"] }
+    );
+    await connector.run();
+    expect(reported).toEqual([{ source: "greenhouse", unit: "deadboard", status: undefined, transient: true, message: "boom" }]);
+  });
+});

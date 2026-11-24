@@ -54,6 +54,7 @@ export function ashbyConnector(
             const location = job.location ?? "";
             out.push({
               source: "ashby",
+              feedUnit: token,
               externalId: `as-${job.id.slice(0, 8)}`,
               title: job.title,
               company: options.names?.[token] ?? companyFromToken(token),
@@ -68,7 +69,9 @@ export function ashbyConnector(
             });
           }
         } catch (error) {
-          console.warn(`[ashby] board "${token}" failed: ${(error as Error).message}`);
+          const failure = error as { status?: number; transient?: boolean; message: string };
+          console.warn(`[ashby] board "${token}" failed: ${failure.message}`);
+          deps.reportFailure?.({ source: "ashby", unit: token, status: failure.status, transient: failure.transient ?? true, message: failure.message });
         }
       }
       return out;

@@ -344,3 +344,18 @@ describe("normalizeJob", () => {
     expect(job?.salary?.source).toBe("estimated");
   });
 });
+
+describe("feed and source home carried from the raw job", () => {
+  it("keeps the feed that returned the job", () => {
+    expect(normalizeJob(makeRaw({ feedUnit: "stripe" }), NOW)?.feedUnit).toBe("stripe");
+  });
+
+  it("keeps the source home, and writes none for a job that has none", () => {
+    expect(normalizeJob(makeRaw({ sourceHome: "https://www.adzuna.com" }), NOW)?.sourceHome).toBe(
+      "https://www.adzuna.com"
+    );
+    const stored = JSON.parse(JSON.stringify(normalizeJob(makeRaw(), NOW)));
+    expect(stored).not.toHaveProperty("sourceHome");
+    expect(stored).not.toHaveProperty("feedUnit");
+  });
+});

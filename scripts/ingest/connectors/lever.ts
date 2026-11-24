@@ -44,6 +44,7 @@ export function leverConnector(
             const location = job.categories?.location ?? "";
             out.push({
               source: "lever",
+              feedUnit: token,
               externalId: `lv-${job.id.slice(0, 8)}`,
               title: job.text,
               company: options.names?.[token] ?? companyFromToken(token),
@@ -57,7 +58,9 @@ export function leverConnector(
             });
           }
         } catch (error) {
-          console.warn(`[lever] board "${token}" failed: ${(error as Error).message}`);
+          const failure = error as { status?: number; transient?: boolean; message: string };
+          console.warn(`[lever] board "${token}" failed: ${failure.message}`);
+          deps.reportFailure?.({ source: "lever", unit: token, status: failure.status, transient: failure.transient ?? true, message: failure.message });
         }
       }
       return out;

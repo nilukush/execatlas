@@ -3,6 +3,7 @@ import path from "node:path";
 import crypto from "node:crypto";
 import net from "node:net";
 import { writeJsonAtomic } from "./write";
+import type { SourceId } from "../../src/lib/types";
 
 /**
  * Polite JSON fetcher for the ingestion pipeline:
@@ -12,8 +13,18 @@ import { writeJsonAtomic } from "./write";
  * - tries a request at most three times, waiting as Retry-After asks, capped at 30 s
  * - fetches public http and https targets only
  */
+export interface FeedFailure {
+  source: SourceId;
+  unit: string;
+  status?: number;
+  transient: boolean;
+  message: string;
+}
+
 export interface FetchDeps {
   fetchJson: (url: string) => Promise<unknown>;
+  // optional: a caller that ignores failed feeds stays valid
+  reportFailure?: (failure: FeedFailure) => void;
 }
 
 export interface FetchOptions {
@@ -180,7 +191,18 @@ async function politeFetch(
       continue;
     }
 
-    if (res.ok) return res.json();
+    if (res.ok) {
+      try {
+        return await res.json();
+      } catch (error) {
+        // a 2xx whose body is not JSON counts as transient (ruling R28)
+        throw fetchError(
+          `body of ${url} is not JSON: ${error instanceof Error ? error.message : String(error)}`,
+          res.status,
+          true
+        );
+      }
+    }
 
     const transient = res.status === 429 || res.status >= 500;
     if (!transient || attempt === MAX_ATTEMPTS) {

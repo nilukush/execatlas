@@ -407,3 +407,28 @@ describe("cachedFetchJson public target guard", () => {
     await refused(target);
   });
 });
+
+describe("cachedFetchJson on a 2xx whose body is not JSON", () => {
+  it("rejects with a transient FetchError that carries status 200 and names the body", async () => {
+    const url = "https://unit-test.example/not-json";
+    const notJson = async (): Promise<unknown> => ({
+      ok: true,
+      status: 200,
+      json: async () => {
+        throw new SyntaxError("Unexpected token < in JSON at position 0");
+      },
+    });
+    const error: FetchError = await cachedFetchJson(url, {
+      ttlMs: 60_000,
+      fetchImpl: notJson as unknown as typeof fetch,
+      sleep: async () => {},
+    }).then(
+      () => {
+        throw new Error("a body that is not JSON must not resolve");
+      },
+      (reason: FetchError) => reason
+    );
+    expect(error).toMatchObject({ status: 200, transient: true });
+    expect(error.message).toMatch(/is not JSON/);
+  });
+});

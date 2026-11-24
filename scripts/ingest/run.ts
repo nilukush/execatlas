@@ -92,6 +92,7 @@ export function toIndexEntry(job: Job): IndexEntry {
     salarySource: job.salary?.source,
     postedAt: job.postedAt,
     source: job.source,
+    sourceHome: job.sourceHome,
   };
 }
 
