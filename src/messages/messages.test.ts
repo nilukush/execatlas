@@ -245,3 +245,28 @@ describe("apply and listing copy", () => {
     }
   });
 });
+
+describe("About visa copy", () => {
+  type Catalog = { About: Record<string, string> };
+  // the date on a role page is the night a source tag was first seen. No check runs, so no page may call it one
+  const oldCheck: Record<string, string> = {
+    en: "date of the check",
+    hi: "जाँच की तारीख़",
+    ar: "تاريخ الفحص",
+    id: "tanggal pengecekan",
+  };
+  const firstSeen: Record<string, string> = {
+    en: "first seen",
+    hi: "पहली बार",
+    ar: "أول ظهور",
+    id: "pertama kali",
+  };
+
+  it("no locale calls that date a check, and every locale says the tag was first seen", () => {
+    for (const locale of locales) {
+      const body = (load(locale) as Catalog).About.visaBody;
+      expect(body, `${locale} calls the date a check`).not.toContain(oldCheck[locale]);
+      expect(body, `${locale} does not say the tag was first seen`).toContain(firstSeen[locale]);
+    }
+  });
+});

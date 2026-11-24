@@ -2,6 +2,7 @@ import { Link } from "@/i18n/navigation";
 import { adzunaMarkHref } from "@/lib/apply";
 import { SOURCE_LABELS, type IndexEntry } from "@/lib/types";
 import { remoteScope, signalView } from "@/lib/signals";
+import { regionLabel } from "@/lib/locations";
 import { CompanyLogo } from "./company-logo";
 import { formatSalaryBand } from "@/lib/salary";
 
@@ -69,8 +70,10 @@ export function JobCard({
   headingLevel?: "h2" | "h3";
 }) {
   const scope = remoteScope(job);
-  // a restricted remote role must not claim worldwide in its place line either
-  const place = job.countryName ?? (scope === "worldwide" ? labels.remoteWorldwide : (job.region ?? ""));
+  // a restricted remote role must not claim worldwide in its place line either, and a region id is no label
+  const place =
+    job.countryName ??
+    (scope === "worldwide" ? labels.remoteWorldwide : (job.region ? regionLabel(job.region) : labels.workModeLabels.remote));
   const source = labels.sourceLabels[job.source] ?? job.source;
   const visaChip =
     job.visa === "unknown"

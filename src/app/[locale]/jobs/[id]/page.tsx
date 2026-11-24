@@ -7,10 +7,11 @@ import { adzunaMarkHref, applyDestination } from "@/lib/apply";
 import { getAllJobIds, getJobById } from "@/lib/data";
 import { CompanyLogo } from "@/components/company-logo";
 import { AdzunaMark } from "@/components/job-card";
-import { SOURCE_LABELS, type JdBlock } from "@/lib/types";
+import { SOURCE_LABELS, type Job, type JdBlock } from "@/lib/types";
 import { formatSalaryBand } from "@/lib/salary";
 import { expatrateLink } from "@/components/expatrate-link";
-import { remoteScope, signalView } from "@/lib/signals";
+import { remoteScope, signalView, type SignalView } from "@/lib/signals";
+import { visaEvidence } from "@/lib/enrich/visa";
 import { countryByIso2, regionLabel } from "@/lib/locations";
 import { buildAlternates, formatDate, jobOgDescription, jobPostingJsonLd, SITE_URL } from "@/lib/seo";
 
@@ -68,13 +69,14 @@ export default async function JobDetailPage({
     region: job.location.region,
     locationRestrictions: job.location.restrictions,
   });
-  // a restricted remote role must not claim worldwide: it carries the location line of its source
+  const region = job.location.region ? regionLabel(job.location.region) : null;
+  // a restricted remote role must not claim worldwide, and never prints the line of its source
   const place = country?.name
     ?? (job.location.remote
-      ? (scope === "worldwide" ? tJobs("remoteWorldwide") : job.location.raw)
-      : (job.location.region ? regionLabel(job.location.region) : job.location.raw));
+      ? (scope === "worldwide" ? tJobs("remoteWorldwide") : (region ?? tJobs("remote")))
+      : (region ?? job.location.raw));
   const restrictions = job.location.restrictions ?? [];
-  const visa = signalView(job);
+  const visa = jobSignal(job);
   const source = SOURCE_LABELS[job.source] ?? job.source;
   // the button follows the host of the apply link, not the source that listed the role
   const destination = applyDestination(job.applyUrl);
@@ -160,7 +162,10 @@ export default async function JobDetailPage({
                       {t("visaEvidencePrefix")} &ldquo;{visa.evidence}&rdquo;
                     </p>
                   )}
-                  <p className="mt-2 text-xs leading-relaxed text-muted">{t("visaMethod")}</p>
+                  {/* the method line explains a match, so a refusal stands on its quote alone */}
+                  {job.visa === "yes" && (
+                    <p className="mt-2 text-xs leading-relaxed text-muted">{t("visaMethod")}</p>
+                  )}
                 </>
               )}
               {visa.basis === "source" && job.visaDeclaredAt && (
@@ -250,7 +255,7 @@ export default async function JobDetailPage({
                       rel="noopener noreferrer"
                       className="font-semibold text-brand-500 hover:underline"
                     >
-                      {variant.remote ? tJobs("remoteWorldwide") : (variant.countryName ?? (variant.region ? regionLabel(variant.region) : ""))}{" "}
+                      {variant.countryName ?? (variant.remote ? tJobs("remote") : (variant.region ? regionLabel(variant.region) : ""))}{" "}
                       <span aria-hidden="true">{locale === "ar" ? "←" : "→"}</span>
                     </a>
                   </li>
@@ -304,4 +309,18 @@ function JdBlockView({ block }: { block: JdBlock }) {
     );
   }
   return <p className="text-sm leading-relaxed">{block.text}</p>;
+}
+
+/**
+ * The signal of a role page. A dataset that predates the stored basis is read again here, the one
+ * place that holds the posting text. The posting wins, as at ingest. Arbeitnow is the one source
+ * that tags, and a tag only ever says yes.
+ */
+function jobSignal(job: Job): SignalView {
+  const stored = signalView(job);
+  if (stored.basis !== undefined) return stored;
+  const evidence = visaEvidence(job.text);
+  if (evidence) return { basis: "posting", evidence };
+  if (job.source === "arbeitnow" && job.visa === "yes") return { basis: "source", evidence: null };
+  return stored;
 }

@@ -74,20 +74,16 @@ describe("signalView", () => {
     expect(view).toEqual({ basis: "source", evidence: null });
   });
 
-  it("reads an old record with visa words as a posting signal", () => {
+  it("gives no basis to a record without a stored basis, though its text holds visa words", () => {
     const view = signalView(makeJob({ visa: "yes", text: `About the role. ${SPONSOR} You will lead a team.` }));
-    expect(view.basis).toBe("posting");
-    expect(view.evidence).toBe(SPONSOR);
+    expect(view).toEqual({ basis: undefined, evidence: null });
   });
 
-  it("reads an old Arbeitnow record without visa words as a source tag", () => {
-    const view = signalView(makeJob({ visa: "yes", source: "arbeitnow", sources: ["arbeitnow"] }));
-    expect(view).toEqual({ basis: "source", evidence: null });
-  });
-
-  it("lets the posting win over the tag of an old Arbeitnow record", () => {
-    const view = signalView(makeJob({ visa: "yes", source: "arbeitnow", sources: ["arbeitnow"], text: SPONSOR }));
-    expect(view.basis).toBe("posting");
+  it("gives no basis to an old Arbeitnow record or card entry, because their tag is not stored", () => {
+    const unsupported = { basis: undefined, evidence: null };
+    expect(signalView(makeJob({ visa: "yes", source: "arbeitnow", sources: ["arbeitnow"] }))).toEqual(unsupported);
+    expect(signalView(makeEntry({ visa: "yes", source: "arbeitnow" }))).toEqual(unsupported);
+    expect(signalView(makeEntry({ visa: "yes" }))).toEqual(unsupported);
   });
 
   it("gives no basis to an old record that nothing supports", () => {
@@ -100,10 +96,6 @@ describe("signalView", () => {
     expect(signalView(makeEntry({ visa: "yes", visaBasis: "source", source: "arbeitnow" })).basis).toBe("source");
   });
 
-  it("reads an old Arbeitnow card entry as a source tag and leaves any other old entry unsupported", () => {
-    expect(signalView(makeEntry({ visa: "yes", source: "arbeitnow" })).basis).toBe("source");
-    expect(signalView(makeEntry({ visa: "yes" })).basis).toBeUndefined();
-  });
 });
 
 describe("remoteScope", () => {

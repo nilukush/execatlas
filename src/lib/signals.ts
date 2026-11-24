@@ -1,8 +1,7 @@
-import { visaEvidence } from "./enrich/visa";
 import type { IndexEntry, Job } from "./types";
 
-/** A card entry carries no text, so an old record can there be read as a tag only. */
-type SignalFacts = Pick<Job, "visa" | "visaBasis" | "visaEvidence" | "source"> & { text?: string };
+/** The stored fields of a signal, all a card entry carries next to no text. */
+type SignalFacts = Pick<Job, "visaBasis" | "visaEvidence">;
 
 export interface SignalView {
   /** Undefined when nothing supports the signal. */
@@ -14,11 +13,8 @@ export interface SignalView {
 export function signalView(job: SignalFacts): SignalView {
   if (job.visaBasis === "posting") return { basis: "posting", evidence: job.visaEvidence ?? null };
   if (job.visaBasis === "source") return { basis: "source", evidence: null };
-  // A dataset that predates the stored basis is read again. The posting wins, as at ingest.
-  // Arbeitnow is the one source that tags, and a tag only ever says yes.
-  const evidence = job.text ? visaEvidence(job.text) : null;
-  if (evidence) return { basis: "posting", evidence };
-  if (job.source === "arbeitnow" && job.visa === "yes") return { basis: "source", evidence: null };
+  // A dataset that predates the stored basis gives no basis here. Such a record is read again on
+  // the job page, which holds the text, and never in a card or in the client bundle.
   return { basis: undefined, evidence: null };
 }
 

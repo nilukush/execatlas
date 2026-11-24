@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, render, screen, within } from "@testing-library/react";
 import { createTranslator, NextIntlClientProvider } from "next-intl";
 import { JobCard, type JobCardLabels } from "./job-card";
 import { ROLE_TYPES, SOURCE_LABELS, type DatasetStats, type IndexEntry, type Job } from "@/lib/types";
@@ -106,9 +106,9 @@ describe("JobCard visa chip", () => {
     expect(chips()).toContain("No sponsorship");
   });
 
-  it("reads an old Arbeitnow entry as a source tag and leaves any other old entry plain", () => {
+  it("says only Sponsors for an entry of an old dataset, whatever its source, because a card holds no text to read", () => {
     renderCards(make({ id: "tagged", visa: "yes", source: "arbeitnow" }), make({ id: "read", visa: "yes" }));
-    expect(chips().filter((text) => text.startsWith("Sponsors"))).toEqual(["Sponsors (per Arbeitnow)", "Sponsors"]);
+    expect(chips().filter((text) => text.startsWith("Sponsors"))).toEqual(["Sponsors", "Sponsors"]);
   });
 });
 
@@ -143,6 +143,18 @@ describe("JobCard remote scope", () => {
     renderCards(make(anywhere));
     expect(chips()).toContain("Worldwide remote");
     expect(chips()).not.toContain("Location restricted");
+  });
+});
+
+describe("JobCard place label", () => {
+  it("names the region of a remote role restricted to a region and with no country, and not the region id", () => {
+    renderCards(make({ ...anywhere, region: "europe" }));
+    expect(screen.getByText("Acme · Europe")).toBeInTheDocument();
+  });
+
+  it('says "Remote" for a remote role restricted by a list of countries, with no country or region of its own', () => {
+    renderCards(make({ ...anywhere, locationRestrictions: ["Colombia", "Jamaica"] }));
+    expect(screen.getByText("Acme · Remote")).toBeInTheDocument();
   });
 });
 
@@ -328,6 +340,108 @@ describe("job page last seen date", () => {
     dataset.jobs = [makeJob()];
     await renderPage("j1");
     expect(screen.queryByText(/Last listed by the source/)).toBeNull();
+  });
+});
+
+describe("job page place label", () => {
+  // the line under the title holds the company, the place and the posting date
+  const byline = () => screen.getByRole("heading", { level: 1 }).nextElementSibling;
+
+  it("names the region of a remote role restricted to a region and with no country, and not the line of its source", async () => {
+    dataset.jobs = [makeJob({ location: { raw: "Anywhere in EMEA", region: "europe", remote: true } })];
+    await renderPage("j1");
+    expect(byline()).toHaveTextContent("Acme · Europe · Posted 24 Nov 2026");
+    expect(screen.queryByText(/Anywhere in EMEA/)).toBeNull();
+  });
+
+  it('says "Remote" for a remote role restricted by a list of countries, with no country or region of its own', async () => {
+    dataset.jobs = [
+      makeJob({
+        location: { raw: "Remote (Colombia or Jamaica)", region: null, remote: true, restrictions: ["Colombia", "Jamaica"] },
+      }),
+    ];
+    await renderPage("j1");
+    expect(byline()).toHaveTextContent("Acme · Remote · Posted 24 Nov 2026");
+    expect(screen.queryByText(/Remote \(Colombia/)).toBeNull();
+  });
+
+  it("names the country of a remote variant, and says only Remote for a variant with no country", async () => {
+    dataset.jobs = [
+      makeJob({
+        variants: [
+          { countryIso2: "GB", countryName: "United Kingdom", region: "europe", remote: true, applyUrl: "https://careers.acme.com/uk" },
+          { region: "remote", remote: true, applyUrl: "https://careers.acme.com/anywhere" },
+        ],
+      }),
+    ];
+    await renderPage("j1");
+    const section = screen.getByRole("heading", { name: "Also hiring in" }).closest("section");
+    expect(section && within(section).getAllByRole("link").map((link) => link.textContent)).toEqual([
+      "United Kingdom →",
+      "Remote →",
+    ]);
+  });
+});
+
+describe("job page method line", () => {
+  const sponsor = "Visa sponsorship is available for exceptional candidates.";
+  const refusal = "We do not sponsor visas.";
+  const quote = (sentence: string) => `${t("Job.visaEvidencePrefix")} “${sentence}”`;
+
+  it("shows the method line under an affirmation read from the posting", async () => {
+    dataset.jobs = [makeJob({ visa: "yes", visaBasis: "posting", visaEvidence: sponsor })];
+    await renderPage("j1");
+    expect(screen.getByText(quote(sponsor))).toBeInTheDocument();
+    expect(screen.getByText(t("Job.visaMethod"))).toBeInTheDocument();
+  });
+
+  it("shows no method line under a refusal read from the posting, and keeps its quote", async () => {
+    dataset.jobs = [makeJob({ visa: "no", visaBasis: "posting", visaEvidence: refusal })];
+    await renderPage("j1");
+    expect(screen.getByText(quote(refusal))).toBeInTheDocument();
+    expect(screen.queryByText(t("Job.visaMethod"))).toBeNull();
+  });
+});
+
+describe("job page signal of an old dataset", () => {
+  // a dataset that predates the stored basis is read again on the page, the one place that holds the text
+  const sponsor = "Visa sponsorship is available for exceptional candidates.";
+  const quote = (sentence: string) => `${t("Job.visaEvidencePrefix")} “${sentence}”`;
+
+  it("reads a record with visa words as a posting signal, with its quote", async () => {
+    dataset.jobs = [makeJob({ visa: "yes", text: `About the role. ${sponsor} You will lead a team.` })];
+    await renderPage("j1");
+    expect(screen.getByText(quote(sponsor))).toBeInTheDocument();
+    expect(screen.getByText(t("Job.visaMethod"))).toBeInTheDocument();
+  });
+
+  it("reads an old Arbeitnow record without visa words as a source tag", async () => {
+    dataset.jobs = [makeJob({ visa: "yes", source: "arbeitnow", sources: ["arbeitnow"] })];
+    await renderPage("j1");
+    expect(screen.getByText("Sponsors (per Arbeitnow)")).toBeInTheDocument();
+    expect(screen.queryByText(/Signal read from the posting:/)).toBeNull();
+  });
+
+  it("lets the posting win over the tag of an old Arbeitnow record", async () => {
+    dataset.jobs = [makeJob({ visa: "yes", source: "arbeitnow", sources: ["arbeitnow"], text: sponsor })];
+    await renderPage("j1");
+    expect(screen.getByText(quote(sponsor))).toBeInTheDocument();
+    expect(screen.queryByText(/per Arbeitnow/)).toBeNull();
+  });
+
+  it("gives no quote, no method line and no source name to an old record that nothing supports", async () => {
+    dataset.jobs = [makeJob({ visa: "yes" })];
+    await renderPage("j1");
+    expect(screen.getByText("Sponsors")).toBeInTheDocument();
+    expect(screen.queryByText(/Signal read from the posting:/)).toBeNull();
+    expect(screen.queryByText(t("Job.visaMethod"))).toBeNull();
+
+    cleanup();
+    dataset.jobs = [makeJob({ visa: "no", source: "arbeitnow", sources: ["arbeitnow"] })];
+    await renderPage("j1");
+    expect(screen.getByText("No sponsorship")).toBeInTheDocument();
+    expect(screen.queryByText(/Signal read from the posting:/)).toBeNull();
+    expect(screen.queryByText(t("Job.visaMethod"))).toBeNull();
   });
 });
 
