@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { applyDestination } from "./apply";
+import { adzunaHomeUrl, applyDestination } from "./apply";
 
 // every Adzuna host of the committed dataset
 const adzunaHosts = [
@@ -61,5 +61,16 @@ describe("applyDestination", () => {
 
   it.each(["", "/jobs/1", "adzuna.sg"])("reads a link without a host as the employer's own site: %j", (url) => {
     expect(applyDestination(url)).toBe("employer");
+  });
+});
+
+describe("adzunaHomeUrl", () => {
+  it("gives the Adzuna site an apply link lives on", () => {
+    expect(adzunaHomeUrl("https://www.adzuna.sg/details/1")).toBe("https://www.adzuna.sg");
+    expect(adzunaHomeUrl("https://www.adzuna.co.uk/jobs/land/ad/1")).toBe("https://www.adzuna.co.uk");
+  });
+
+  it("gives null for a link that is not on Adzuna", () => {
+    expect(adzunaHomeUrl("https://careers.example.com/x")).toBeNull();
   });
 });

@@ -1,8 +1,27 @@
 import { Link } from "@/i18n/navigation";
-import type { IndexEntry } from "@/lib/types";
+import { ADZUNA_HOME } from "@/lib/apply";
+import { SOURCE_LABELS, type IndexEntry } from "@/lib/types";
 import { remoteScope, signalView } from "@/lib/signals";
 import { CompanyLogo } from "./company-logo";
 import { formatSalaryBand } from "@/lib/salary";
+
+// the Adzuna terms want a link of at least 116 by 23 pixels, and only a flex box honours a minimum size on an inline element
+const MARK_CLASSES =
+  "inline-flex min-w-29 min-h-6 items-center justify-center underline underline-offset-2 hover:text-brand-500";
+
+/** The attribution mark the Adzuna terms require on every Adzuna advert. */
+export function AdzunaMark({ href, className }: { href: string; className?: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className ? `${MARK_CLASSES} ${className}` : MARK_CLASSES}
+    >
+      {SOURCE_LABELS.adzuna}
+    </a>
+  );
+}
 
 export interface JobCardLabels {
   remoteWorldwide: string;
@@ -122,7 +141,11 @@ export function JobCard({
             )}
           </span>
         )}
-        <span className="chip">{source}</span>
+        {job.source === "adzuna" ? (
+          <AdzunaMark href={job.sourceHome ?? ADZUNA_HOME} className="chip" />
+        ) : (
+          <span className="chip">{source}</span>
+        )}
       </div>
 
       <p className="mt-auto text-xs text-muted">{labels.posted(job.postedAt)}</p>

@@ -2,6 +2,9 @@ import type { SourceId } from "./types";
 
 export type ApplyDestination = SourceId | "employer";
 
+/** The site the Adzuna terms name. It stands in when a dataset predates sourceHome. */
+export const ADZUNA_HOME = "https://www.adzuna.co.uk";
+
 // a board and the host family that serves its pages. The family is the host without a leading www
 const BOARD_FAMILIES: ReadonlyArray<readonly [family: RegExp, board: SourceId]> = [
   [/^adzuna\.[a-z]+(?:\.[a-z]+)?$/, "adzuna"],
@@ -25,4 +28,9 @@ export function applyDestination(applyUrl: string): ApplyDestination {
   if (host === null) return "employer";
   const family = host.replace(/^www\./, "");
   return BOARD_FAMILIES.find(([pattern]) => pattern.test(family))?.[1] ?? "employer";
+}
+
+/** The Adzuna site an apply link lives on, or null when the link is not on Adzuna. */
+export function adzunaHomeUrl(applyUrl: string): string | null {
+  return applyDestination(applyUrl) === "adzuna" ? `https://${new URL(applyUrl).host}` : null;
 }

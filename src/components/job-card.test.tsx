@@ -216,3 +216,60 @@ describe("job page apply button", () => {
     expect(screen.getByRole("link", { name: "View original posting" }).getAttribute("href")).toBe(sourceUrl);
   });
 });
+
+describe("JobCard Adzuna mark", () => {
+  it("renders the Adzuna chip as the attribution link", () => {
+    renderCards(make({ source: "adzuna", sourceHome: "https://www.adzuna.sg" }));
+    const mark = screen.getByRole("link", { name: "Adzuna" });
+    expect(mark.getAttribute("href")).toBe("https://www.adzuna.sg");
+    expect(mark.getAttribute("target")).toBe("_blank");
+    expect(mark.getAttribute("rel")).toBe("noopener noreferrer");
+    expect(mark.className).toContain("inline-flex");
+    expect(mark.className).toContain("min-w-29");
+    expect(mark.className).toContain("min-h-6");
+    expect(chips()).toContain("Adzuna");
+  });
+
+  it("links an entry of an old dataset to the site the Adzuna terms name", () => {
+    renderCards(make({ source: "adzuna" }));
+    expect(screen.getByRole("link", { name: "Adzuna" }).getAttribute("href")).toBe("https://www.adzuna.co.uk");
+  });
+
+  it("keeps the source chip of every other source as plain text", () => {
+    renderCards(make());
+    expect(screen.queryByRole("link", { name: "Greenhouse" })).toBeNull();
+    expect(chips()).toContain("Greenhouse");
+  });
+});
+
+describe("job page Adzuna mark", () => {
+  it("links the Adzuna name of the source line and leaves the other names plain", async () => {
+    dataset.jobs = [
+      makeJob({ source: "arbeitnow", sources: ["arbeitnow", "adzuna"], sourceHome: "https://www.adzuna.sg" }),
+    ];
+    await renderPage("j1");
+    const mark = screen.getByRole("link", { name: "Adzuna" });
+    expect(mark.getAttribute("href")).toBe("https://www.adzuna.sg");
+    expect(mark.getAttribute("target")).toBe("_blank");
+    expect(mark.getAttribute("rel")).toBe("noopener noreferrer");
+    expect(mark.className).toContain("inline-flex");
+    expect(mark.className).toContain("min-w-29");
+    expect(mark.className).toContain("min-h-6");
+    expect(mark.closest("p")?.textContent).toBe("Arbeitnow, Adzuna");
+    expect(screen.queryByRole("link", { name: "Arbeitnow" })).toBeNull();
+  });
+
+  it("links an old dataset record to the site the Adzuna terms name", async () => {
+    dataset.jobs = [makeJob({ source: "adzuna", sources: ["adzuna"], applyUrl: "https://www.adzuna.sg/details/1" })];
+    await renderPage("j1");
+    expect(screen.getByRole("link", { name: "Adzuna" }).getAttribute("href")).toBe("https://www.adzuna.co.uk");
+  });
+
+  it("renders no mark for a role Adzuna does not list", async () => {
+    dataset.jobs = [
+      makeJob({ source: "arbeitnow", sources: ["arbeitnow", "himalayas"], applyUrl: "https://www.adzuna.sg/details/1" }),
+    ];
+    await renderPage("j1");
+    expect(screen.queryByRole("link", { name: "Adzuna" })).toBeNull();
+  });
+});

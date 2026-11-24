@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { applyDestination } from "@/lib/apply";
+import { ADZUNA_HOME, applyDestination } from "@/lib/apply";
 import { getAllJobIds, getJobById } from "@/lib/data";
 import { CompanyLogo } from "@/components/company-logo";
+import { AdzunaMark } from "@/components/job-card";
 import { SOURCE_LABELS, type JdBlock } from "@/lib/types";
 import { formatSalaryBand, EXPATRATE_URL } from "@/lib/salary";
 import { remoteScope, signalView } from "@/lib/signals";
@@ -257,7 +258,12 @@ export default async function JobDetailPage({
           <section className="card-ui p-5 text-sm">
             <h2 className="text-sm font-bold uppercase tracking-wide text-muted">{t("source")}</h2>
             <p className="mt-2">
-              {job.sources.map((s) => SOURCE_LABELS[s] ?? s).join(", ")}
+              {job.sources.map((s, index) => (
+                <Fragment key={s}>
+                  {index > 0 && ", "}
+                  {s === "adzuna" ? <AdzunaMark href={job.sourceHome ?? ADZUNA_HOME} /> : (SOURCE_LABELS[s] ?? s)}
+                </Fragment>
+              ))}
             </p>
             <a
               href={job.sourceUrl}
