@@ -438,6 +438,34 @@ describe("detectVisa and detectRelocation", () => {
     ["We do not provide relocation, however we sponsor work visas.", "unknown", "no"],
     ["We do not offer relocation or visa sponsorship.", "no", "no"],
     ["We do not offer relocation and visa sponsorship.", "no", "no"],
+    // a list of refused items stays a refusal when the visa item is not the first
+    ["We do not offer relocation assistance, visa sponsorship, or signing bonuses.", "no", "no"],
+    // a relocation refusal never decides visa (ruling R29)
+    ["We do not offer relocation assistance, and visa sponsorship is available for all roles.", "yes", "no"],
+    ["We cannot offer relocation, and visa sponsorship is available for all roles.", "yes", "no"],
+    ["We are unable to offer relocation assistance, and visa sponsorship is available.", "yes", "no"],
+    ["We are unable to provide relocation support, and visa sponsorship is available.", "yes", "no"],
+    ["We do not offer relocation assistance: visa sponsorship is available for all roles.", "yes", "no"],
+    ["We do not offer relocation assistance - visa sponsorship is available for all roles.", "yes", "no"],
+    ["We do not offer relocation assistance (visa sponsorship is available).", "yes", "no"],
+    ["We cannot provide relocation support, visa sponsorship is available for all roles.", "yes", "no"],
+    [
+      "Relocation assistance is not available for this position, and visa sponsorship is available for the right candidate.",
+      "yes",
+      "no",
+    ],
+    // the object window stops at ", and" and at an object that opens a clause of its own
+    ["We do not offer relocation, and visa sponsorship varies by role.", "unknown", "no"],
+    ["We cannot provide relocation support, work permits are available.", "unknown", "no"],
+    // relocation sponsorship is a relocation matter only
+    ["We do not offer relocation sponsorship.", "unknown", "no"],
+    ["We cannot provide relocation sponsorship.", "unknown", "no"],
+    ["Relocation sponsorship is not available.", "unknown", "no"],
+    ["This position is not eligible for relocation sponsorship.", "unknown", "no"],
+    ["Relocation sponsorship isn't available for this position.", "unknown", "no"],
+    ["Relocation sponsorship is available.", "unknown", "unknown"],
+    // the noun guard holds a cue across the commas of a list
+    ["We do not fund relocation, visa sponsorship, or work permits.", "unknown", "unknown"],
     // sounds like a visa refusal but is not one
     ["We're unable to offer individual feedback during the interview process.", "unknown", "unknown"],
     ["We participate in E-Verify and confirm work authorization with Form I-9 data.", "unknown", "unknown"],
@@ -491,6 +519,26 @@ describe("detectVisa and detectRelocation", () => {
       "unknown",
       "unknown",
     ],
+    // contractions the matcher could not read
+    ["Visa isn't provided.", "no", "unknown"],
+    ["Employment visas aren't sponsored by the company.", "no", "unknown"],
+    ["Candidates who require visa sponsorship aren't eligible for this position.", "no", "unknown"],
+    // a bare "sponsor", or a comma after the negation, does not make a refusal
+    ["Visa sponsorship is not, and never has been, a problem for us.", "unknown", "unknown"],
+    ["Visa sponsorship is not, however, guaranteed for every role.", "unknown", "unknown"],
+    ["The executive sponsor is not included in the interview loop.", "unknown", "unknown"],
+    ["The project sponsor is not permitted to waive the fees.", "unknown", "unknown"],
+    ["Sponsorship of the conference is not provided this year.", "unknown", "unknown"],
+    // the noun guard: one sentence for each cue and for each guarded noun ("unavailable" is ruling R23)
+    ["Visa sponsorship for this role remains unavailable.", "unknown", "unknown"],
+    ["We are unable to help with visa sponsorship applications.", "unknown", "unknown"],
+    ["We no longer assist with visa sponsorship.", "unknown", "unknown"],
+    ["We can't assist with visa sponsorship applications.", "unknown", "unknown"],
+    ["We can't help with work permit sponsorship.", "unknown", "unknown"],
+    ["We do not supply employment visas.", "unknown", "unknown"],
+    ["We can't confirm whether relocation assistance is offered.", "unknown", "unknown"],
+    ["No assistance with relocation.", "unknown", "unknown"],
+    ["We may not be willing to relocate the right candidate.", "unknown", "unknown"],
     // nothing said
     ["We are looking for a hands-on engineering leader in Dubai.", "unknown", "unknown"],
     ["You will lead five teams across three products.", "unknown", "unknown"],
