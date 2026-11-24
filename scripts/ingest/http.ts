@@ -76,16 +76,29 @@ const cacheDir = () => process.env.EXECATLAS_CACHE_DIR ?? path.join(process.cwd(
 
 const realSleep = (ms: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, ms));
 
-// a query string can carry a key, so a failure message names an http or https URL up to its path only
-const URL_WITH_QUERY = /\bhttps?:\/\/[^\s"'`<>?]*\?[^\s"'`<>]*/g;
+// a query string can carry a key, so a failure message names an http or https URL up to its path only,
+// whatever the case of its scheme
+const URL_WITH_QUERY = /\bhttps?:\/\/[^\s"'`<>?]*\?[^\s"'`<>]*/gi;
+// the user and the password before the host are a credential too
+const URL_USER_INFO = /(\bhttps?:\/\/)[^\s/?#"'`<>]*@/gi;
+// a key can also sit in a text that is no URL, as the value of a parameter under the name of a credential
+const CREDENTIAL_PARAMETER = /(app_key|app_id|api_key|apikey|key|token|secret|password|pwd)=[^\s"'`<>&]+/gi;
 const CLOSING_PUNCTUATION = /[)\]},;:.]+$/;
 
-/** Removes the query string of every http and https URL in a text. Running it a second time changes nothing. */
+/**
+ * Strips every shape of a credential out of a failure message (ruling R60):
+ * the query string, and the user and the password, of every http and https
+ * URL, and the value of a parameter named like a credential wherever it sits.
+ * Running it a second time changes nothing.
+ */
 export function withoutQueryString(text: string): string {
-  return text.replace(URL_WITH_QUERY, (url) => {
-    // punctuation that closes the sentence around the URL is no part of the URL
-    return url.slice(0, url.indexOf("?")) + (url.match(CLOSING_PUNCTUATION)?.[0] ?? "");
-  });
+  return text
+    .replace(URL_WITH_QUERY, (url) => {
+      // punctuation that closes the sentence around the URL is no part of the URL
+      return url.slice(0, url.indexOf("?")) + (url.match(CLOSING_PUNCTUATION)?.[0] ?? "");
+    })
+    .replace(URL_USER_INFO, "$1")
+    .replace(CREDENTIAL_PARAMETER, "$1=***");
 }
 
 function fetchError(message: string, status: number | undefined, transient: boolean): FetchError {

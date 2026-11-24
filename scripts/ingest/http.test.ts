@@ -233,6 +233,14 @@ describe("a failure message names no query string", () => {
     const error = await failure(get(`https://retry.unit-test.example/network?app_key=${key}`));
     expect(error.message).toBe("network error for https://retry.unit-test.example/network: fetch failed");
   });
+
+  it("holds neither the user and the password of the request URL nor the query of an upper case scheme", async () => {
+    const { get } = request([{ status: 429 }]);
+    const withUser = await failure(get(`https://user:${key}@retry.unit-test.example/user`));
+    expect(withUser.message).toBe("HTTP 429 for https://retry.unit-test.example/user");
+    const upperCase = await failure(get(`HTTPS://retry.unit-test.example/upper-case?app_key=${key}`));
+    expect(upperCase.message).toBe("HTTP 429 for HTTPS://retry.unit-test.example/upper-case");
+  });
 });
 
 describe("withoutQueryString", () => {
@@ -252,6 +260,78 @@ describe("withoutQueryString", () => {
     const once = withoutQueryString(text);
     expect(once).toBe("network error for https://api.example.test/search: failed");
     expect(withoutQueryString(once)).toBe(once);
+  });
+
+  it("matches the scheme in any case, and is safe to run twice there too", () => {
+    const text = "HTTP 429 for HTTPS://api.adzuna.com/v1/api/jobs/sg/search/1?app_id=abc&app_key=SECRETVALUE";
+    const once = withoutQueryString(text);
+    expect(once).toBe("HTTP 429 for HTTPS://api.adzuna.com/v1/api/jobs/sg/search/1");
+    expect(withoutQueryString(once)).toBe(once);
+    expect(withoutQueryString("HTTP 429 for Https://api.example.test/search?app_key=SECRETVALUE")).toBe(
+      "HTTP 429 for Https://api.example.test/search"
+    );
+  });
+
+  it("removes the user and the password before the host", () => {
+    expect(withoutQueryString("HTTP 401 for https://user:SECRETVALUE@api.adzuna.com/v1/api/jobs/sg/search/1")).toBe(
+      "HTTP 401 for https://api.adzuna.com/v1/api/jobs/sg/search/1"
+    );
+    // a user alone, and a user before a query string
+    expect(withoutQueryString("HTTP 401 for https://SECRETVALUE@api.example.test/a?x=1")).toBe(
+      "HTTP 401 for https://api.example.test/a"
+    );
+  });
+
+  // every name a credential takes, in lower, upper and capitalised case
+  const credentialNames = ["app_key", "app_id", "api_key", "apikey", "key", "token", "secret", "password", "pwd"];
+  const casedNames = credentialNames.flatMap((name) => [
+    name,
+    name.toUpperCase(),
+    name.charAt(0).toUpperCase() + name.slice(1),
+  ]);
+
+  it.each(casedNames)("masks the value of a parameter named %s, also outside a URL", (name) => {
+    const text = `request failed, ${name}=SECRETVALUE rejected`;
+    expect(withoutQueryString(text)).toBe(`request failed, ${name}=*** rejected`);
+    const once = withoutQueryString(text);
+    expect(withoutQueryString(once)).toBe(once);
+  });
+
+  it("masks each parameter on its own and leaves the rest of the text as it was", () => {
+    expect(withoutQueryString("sent app_id=abc123&app_key=SECRETVALUE&what=x, got a 401")).toBe(
+      "sent app_id=***&app_key=***&what=x, got a 401"
+    );
+    // a name that ends in the name of a credential is one too
+    expect(withoutQueryString("client_secret=SECRETVALUE rejected")).toBe("client_secret=*** rejected");
+  });
+
+  // each row keeps the output the lower case query rule gave before the other rules were added
+  const kept: ReadonlyArray<[string, string, string]> = [
+    [
+      "a closing bracket and full stop after a URL",
+      "HTTP 500 for https://api.adzuna.com/v1/api/jobs/gb/search/1?app_key=SECRETVALUE).",
+      "HTTP 500 for https://api.adzuna.com/v1/api/jobs/gb/search/1).",
+    ],
+    [
+      "two URLs in one text",
+      "a https://a.test/p?app_key=SECRETVALUE then https://b.test/q?k=SECRETVALUE.",
+      "a https://a.test/p then https://b.test/q.",
+    ],
+    ["a question mark in prose", "What? See https://a.test/p and tell me.", "What? See https://a.test/p and tell me."],
+    [
+      "a URL without a query",
+      "HTTP 404 for https://boards.greenhouse.io/v1/boards/acme/jobs",
+      "HTTP 404 for https://boards.greenhouse.io/v1/boards/acme/jobs",
+    ],
+    ["a URL in quotes", `failed for "https://a.test/p?app_key=SECRETVALUE" today`, `failed for "https://a.test/p" today`],
+    ["a URL in brackets", "failed (<https://a.test/p?app_key=SECRETVALUE>) today", "failed (<https://a.test/p>) today"],
+    ["a bare host with a query", "HTTP 429 for https://a.test?app_key=SECRETVALUE", "HTTP 429 for https://a.test"],
+    ["a query and a fragment", "HTTP 429 for https://a.test/p?app_key=SECRETVALUE#top", "HTTP 429 for https://a.test/p"],
+    ["a URL followed by a word with no space", "for https://a.test/p?app_key=SECRETVALUEand-more text", "for https://a.test/p text"],
+  ];
+
+  it.each(kept)("keeps the output of %s", (_case, text, output) => {
+    expect(withoutQueryString(text)).toBe(output);
   });
 });
 
