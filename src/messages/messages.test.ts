@@ -188,7 +188,12 @@ describe("ExpatRate copy", () => {
 });
 
 describe("apply and listing copy", () => {
-  type Catalog = { Home: Record<string, string>; Job: Record<string, string>; Stats: Record<string, string> };
+  type Catalog = {
+    Home: Record<string, string>;
+    Job: Record<string, string>;
+    About: Record<string, string>;
+    Stats: Record<string, string>;
+  };
   const section = (locale: string) => load(locale) as Catalog;
   // the wording each catalog leaves behind
   const oldPromise: Record<string, string> = {
@@ -217,6 +222,7 @@ describe("apply and listing copy", () => {
     expect(en.Home.statRoles).toBe("leadership roles listed");
     expect(en.Stats.roles).toBe("Roles listed");
     expect(en.Stats.liveRoles).toBe("Roles listed");
+    expect(en.About.liveRoles).toBe("{count, plural, one {# role listed} other {# roles listed}}");
     expect(en.Home.featureApplyBody).toBe(
       "Every role links to where it was posted. Some lead to the employer's own careers site. The rest lead to the job board that carries the posting, and the button says which."
     );
@@ -230,9 +236,10 @@ describe("apply and listing copy", () => {
 
   it("no locale keeps the promise that every link is the employer's own posting, or calls the roles open or live", () => {
     for (const locale of locales) {
-      const { Home, Stats } = section(locale);
+      const { Home, About, Stats } = section(locale);
       expect(Home.featureApplyBody, locale).not.toContain(oldPromise[locale]);
       expect(Home.statRoles, locale).not.toBe(oldOpenRoles[locale]);
+      expect(About.liveRoles.toLowerCase(), locale).not.toContain(oldLiveRoles[locale].toLowerCase());
       expect(Stats.roles, locale).not.toBe(oldLiveRoles[locale]);
       expect(Stats.liveRoles, locale).toBe(Stats.roles);
     }

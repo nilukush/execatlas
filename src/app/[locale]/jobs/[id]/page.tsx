@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { ADZUNA_HOME, applyDestination } from "@/lib/apply";
+import { adzunaMarkHref, applyDestination } from "@/lib/apply";
 import { getAllJobIds, getJobById } from "@/lib/data";
 import { CompanyLogo } from "@/components/company-logo";
 import { AdzunaMark } from "@/components/job-card";
@@ -265,7 +265,7 @@ export default async function JobDetailPage({
               {job.sources.map((s, index) => (
                 <Fragment key={s}>
                   {index > 0 && ", "}
-                  {s === "adzuna" ? <AdzunaMark href={job.sourceHome ?? ADZUNA_HOME} /> : (SOURCE_LABELS[s] ?? s)}
+                  {s === "adzuna" ? <AdzunaMark href={adzunaMarkHref(job)} align="start" /> : (SOURCE_LABELS[s] ?? s)}
                 </Fragment>
               ))}
             </p>

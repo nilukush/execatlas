@@ -93,6 +93,14 @@ describe("scripts/ingest/run entry point", () => {
     expect(stored).not.toHaveProperty("sourceHome");
   });
 
+  it("copies the sources into the index entry and adds none to a record of an old dataset", () => {
+    expect(entry.toIndexEntry({ ...job, sources: ["greenhouse", "adzuna"] }).sources).toEqual(["greenhouse", "adzuna"]);
+    // a record written before the list was kept reaches toIndexEntry as parsed JSON, without the field
+    const { sources: _dropped, ...oldRecord } = job;
+    const stored = JSON.parse(JSON.stringify(entry.toIndexEntry(oldRecord as Job)));
+    expect(stored).not.toHaveProperty("sources");
+  });
+
   describe("collected failures", () => {
     it("stores a reported failure with the query string of its URL removed, and so with no key", () => {
       const { failures, reportFailure } = entry.failureCollector();

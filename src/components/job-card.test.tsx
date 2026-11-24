@@ -242,6 +242,17 @@ describe("JobCard Adzuna mark", () => {
     expect(screen.queryByRole("link", { name: "Greenhouse" })).toBeNull();
     expect(chips()).toContain("Greenhouse");
   });
+
+  it("shows the mark next to the source chip of a role Adzuna lists as a second source", () => {
+    renderCards(make({ sources: ["greenhouse", "adzuna"], sourceHome: "https://www.adzuna.sg" }));
+    expect(screen.getByRole("link", { name: "Adzuna" }).getAttribute("href")).toBe("https://www.adzuna.sg");
+    expect(chips()).toContain("Greenhouse");
+  });
+
+  it("shows no mark for a role that no Adzuna source lists, and for an entry of an old dataset", () => {
+    renderCards(make({ id: "listed", sources: ["greenhouse", "himalayas"] }), make({ id: "old" }));
+    expect(screen.queryByRole("link", { name: "Adzuna" })).toBeNull();
+  });
 });
 
 describe("job page Adzuna mark", () => {
@@ -257,12 +268,20 @@ describe("job page Adzuna mark", () => {
     expect(mark.className).toContain("inline-flex");
     expect(mark.className).toContain("min-w-29");
     expect(mark.className).toContain("min-h-6");
+    // the word starts its box, so the minimum width leaves its gap after the word and not after the comma
+    expect(mark.className).toContain("justify-start");
     expect(mark.closest("p")?.textContent).toBe("Arbeitnow, Adzuna");
     expect(screen.queryByRole("link", { name: "Arbeitnow" })).toBeNull();
   });
 
-  it("links an old dataset record to the site the Adzuna terms name", async () => {
+  it("links an old dataset record to the origin of its Adzuna apply link", async () => {
     dataset.jobs = [makeJob({ source: "adzuna", sources: ["adzuna"], applyUrl: "https://www.adzuna.sg/details/1" })];
+    await renderPage("j1");
+    expect(screen.getByRole("link", { name: "Adzuna" }).getAttribute("href")).toBe("https://www.adzuna.sg");
+  });
+
+  it("links a record with no Adzuna apply link and no site to the site the Adzuna terms name", async () => {
+    dataset.jobs = [makeJob({ source: "adzuna", sources: ["adzuna"] })];
     await renderPage("j1");
     expect(screen.getByRole("link", { name: "Adzuna" }).getAttribute("href")).toBe("https://www.adzuna.co.uk");
   });
@@ -273,6 +292,10 @@ describe("job page Adzuna mark", () => {
     ];
     await renderPage("j1");
     expect(screen.queryByRole("link", { name: "Adzuna" })).toBeNull();
+    // the button follows the host of the apply link, whatever the sources say
+    expect(screen.getByRole("link", { name: "Apply via Adzuna" }).getAttribute("href")).toBe(
+      "https://www.adzuna.sg/details/1"
+    );
   });
 });
 

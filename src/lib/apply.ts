@@ -32,5 +32,14 @@ export function applyDestination(applyUrl: string): ApplyDestination {
 
 /** The Adzuna site an apply link lives on, or null when the link is not on Adzuna. */
 export function adzunaHomeUrl(applyUrl: string): string | null {
-  return applyDestination(applyUrl) === "adzuna" ? `https://${new URL(applyUrl).host}` : null;
+  return applyDestination(applyUrl) === "adzuna" ? `https://${new URL(applyUrl).hostname}` : null;
+}
+
+/**
+ * Where the attribution mark links: the site the source names, else the site
+ * the apply link lives on, else the site the Adzuna terms name. An index
+ * entry carries no apply link, so its mark goes straight to the last.
+ */
+export function adzunaMarkHref(job: { sourceHome?: string; applyUrl?: string }): string {
+  return job.sourceHome ?? (job.applyUrl ? adzunaHomeUrl(job.applyUrl) : null) ?? ADZUNA_HOME;
 }

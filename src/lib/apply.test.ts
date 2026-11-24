@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { adzunaHomeUrl, applyDestination } from "./apply";
+import { adzunaHomeUrl, adzunaMarkHref, applyDestination } from "./apply";
 
 // every Adzuna host of the committed dataset
 const adzunaHosts = [
@@ -55,22 +55,42 @@ describe("applyDestination", () => {
     "https://notadzuna.com/1",
     "https://adzuna.com.example.org/1",
     "https://careers.adzuna.com/1",
+    // a trailing dot closes the host name, so the host is not one of the board's
+    "https://www.adzuna.sg./x",
   ])("is not taken in by a host that only looks like a board, %s", (url) => {
     expect(applyDestination(url)).toBe("employer");
   });
 
-  it.each(["", "/jobs/1", "adzuna.sg"])("reads a link without a host as the employer's own site: %j", (url) => {
-    expect(applyDestination(url)).toBe("employer");
-  });
+  it.each(["", "/jobs/1", "adzuna.sg", "www.adzuna.sg/x"])(
+    "reads a link with no protocol or no host as the employer's own site: %j",
+    (url) => {
+      expect(applyDestination(url)).toBe("employer");
+    }
+  );
 });
 
 describe("adzunaHomeUrl", () => {
-  it("gives the Adzuna site an apply link lives on", () => {
+  it("gives the Adzuna site an apply link lives on, without its port", () => {
     expect(adzunaHomeUrl("https://www.adzuna.sg/details/1")).toBe("https://www.adzuna.sg");
     expect(adzunaHomeUrl("https://www.adzuna.co.uk/jobs/land/ad/1")).toBe("https://www.adzuna.co.uk");
+    expect(adzunaHomeUrl("https://www.adzuna.sg:8443/x")).toBe("https://www.adzuna.sg");
   });
 
   it("gives null for a link that is not on Adzuna", () => {
     expect(adzunaHomeUrl("https://careers.example.com/x")).toBeNull();
+  });
+});
+
+describe("adzunaMarkHref", () => {
+  it("links to the origin of an Adzuna apply link when the source names no site", () => {
+    expect(adzunaMarkHref({ applyUrl: "https://www.adzuna.sg:8443/details/1" })).toBe("https://www.adzuna.sg");
+  });
+
+  it("prefers the site the source names, and falls back to the site the Adzuna terms name", () => {
+    expect(adzunaMarkHref({ sourceHome: "https://www.adzuna.com", applyUrl: "https://www.adzuna.sg/details/1" })).toBe(
+      "https://www.adzuna.com"
+    );
+    expect(adzunaMarkHref({ applyUrl: "https://careers.example.com/x" })).toBe("https://www.adzuna.co.uk");
+    expect(adzunaMarkHref({})).toBe("https://www.adzuna.co.uk");
   });
 });

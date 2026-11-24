@@ -176,7 +176,7 @@
     "limitsTitle": "Keterbatasan yang diketahui",
     "limitsBody": "Perkiraan adalah gambaran, bukan penawaran. Deteksi visa membaca kata-kata, bukan kebijakan imigrasi. Data beberapa negara masih tipis sehingga tidak menampilkan perkiraan. Halaman ini selalu jujur soal celah.",
     "contactTitle": "Kontak",
-    "liveRoles": "{count} peran aktif"
+    "liveRoles": "{count, plural, other {# peran terdaftar}}"
   },
   "Footer": {
     "tagline": "Peran kepemimpinan senior di engineering, produk, desain, dan data, di enam wilayah, dengan sinyal visa dan konteks gaji lokal.",

@@ -176,7 +176,7 @@
     "limitsTitle": "Known limits",
     "limitsBody": "Estimates are orientation, not offers. Visa detection reads words, not immigration policy. Some countries have thin benchmark data and will show no estimate. The about page will always be honest about gaps.",
     "contactTitle": "Contact",
-    "liveRoles": "{count} live roles"
+    "liveRoles": "{count, plural, one {# role listed} other {# roles listed}}"
   },
   "Footer": {
     "tagline": "Senior leadership roles across engineering, product, design and data, in six regions, with visa signals and local pay context.",

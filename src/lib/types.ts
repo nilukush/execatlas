@@ -170,6 +170,8 @@ export interface IndexEntry {
   salarySource?: "stated" | "estimated";
   postedAt: string;
   source: SourceId;
+  /** Every source that lists the role. Absent in a dataset written before the list was kept. */
+  sources?: SourceId[];
   /** The site a redirect-style apply link leads back to; absent when the source names none. */
   sourceHome?: string;
 }

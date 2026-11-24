@@ -1,5 +1,5 @@
 import { Link } from "@/i18n/navigation";
-import { ADZUNA_HOME } from "@/lib/apply";
+import { adzunaMarkHref } from "@/lib/apply";
 import { SOURCE_LABELS, type IndexEntry } from "@/lib/types";
 import { remoteScope, signalView } from "@/lib/signals";
 import { CompanyLogo } from "./company-logo";
@@ -7,16 +7,28 @@ import { formatSalaryBand } from "@/lib/salary";
 
 // the Adzuna terms want a link of at least 116 by 23 pixels, and only a flex box honours a minimum size on an inline element
 const MARK_CLASSES =
-  "inline-flex min-w-29 min-h-6 items-center justify-center underline underline-offset-2 hover:text-brand-500";
+  "inline-flex min-w-29 min-h-6 items-center underline underline-offset-2 hover:text-brand-500";
+// a chip centres its word. In a line of names the word starts its box, so the minimum width
+// leaves its gap after the word and not after the comma before it
+const MARK_ALIGN = { center: "justify-center", start: "justify-start" } as const;
 
 /** The attribution mark the Adzuna terms require on every Adzuna advert. */
-export function AdzunaMark({ href, className }: { href: string; className?: string }) {
+export function AdzunaMark({
+  href,
+  className,
+  align = "center",
+}: {
+  href: string;
+  className?: string;
+  align?: keyof typeof MARK_ALIGN;
+}) {
+  const classes = `${MARK_CLASSES} ${MARK_ALIGN[align]}`;
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={className ? `${MARK_CLASSES} ${className}` : MARK_CLASSES}
+      className={className ? `${classes} ${className}` : classes}
     >
       {SOURCE_LABELS.adzuna}
     </a>
@@ -141,10 +153,9 @@ export function JobCard({
             )}
           </span>
         )}
-        {job.source === "adzuna" ? (
-          <AdzunaMark href={job.sourceHome ?? ADZUNA_HOME} className="chip" />
-        ) : (
-          <span className="chip">{source}</span>
+        {job.source !== "adzuna" && <span className="chip">{source}</span>}
+        {(job.source === "adzuna" || (job.sources?.includes("adzuna") ?? false)) && (
+          <AdzunaMark href={adzunaMarkHref(job)} className="chip" />
         )}
       </div>
 
