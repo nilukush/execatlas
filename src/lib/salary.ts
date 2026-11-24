@@ -2,6 +2,7 @@ import type { Domain } from "./roles";
 import type { SalaryBand } from "./types";
 import benchmarksJson from "@/data/salary/benchmarks.json";
 import conventionsJson from "@/data/salary/conventions.json";
+import fxData from "@/data/salary/fx.json";
 
 export const EXPATRATE_URL = "https://expatrate.pages.dev";
 
@@ -268,4 +269,31 @@ export function parseStatedSalary(text: string): StatedSalary | null {
 function currencyInside(match: string): string | null {
   const iso = match.toUpperCase().match(new RegExp(`\\b(${ISO_CODES.join("|")})\\b`));
   return iso ? iso[1] : null;
+}
+
+// ---------------------------------------------------------------------------
+// Plausibility of a stated band
+// ---------------------------------------------------------------------------
+
+const FX_RATES = (fxData as { rates: Record<string, number> }).rates;
+
+/** Annual band ceiling in US dollars; above it the figure is revenue or funding. */
+const MAX_ANNUAL_USD = 2_000_000;
+/** Annual band floor in US dollars; under it the figure is not a yearly pay band. */
+const MIN_ANNUAL_USD = 12_000;
+/** Widest spread between minimum and maximum that one role can pay. */
+const MAX_SPREAD = 10;
+
+/**
+ * False when a stated band cannot be a salary: its annual maximum is above
+ * 2,000,000 US dollars, or under 12,000, or more than ten times its minimum.
+ * A currency without a vendored rate cannot be judged, so it passes.
+ */
+export function isPlausibleBand(band: SalaryBand): boolean {
+  const rate = FX_RATES[band.currency];
+  if (!rate) return true;
+  const months = band.period === "monthly" ? 12 : 1;
+  const min = (band.min / rate) * months;
+  const max = (band.max / rate) * months;
+  return max <= MAX_ANNUAL_USD && max >= MIN_ANNUAL_USD && max / min <= MAX_SPREAD;
 }

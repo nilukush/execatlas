@@ -4,7 +4,36 @@ import {
   estimateSalary,
   formatSalaryBand,
   monthsPerYear,
+  isPlausibleBand,
 } from "./salary";
+import type { SalaryBand } from "./types";
+
+describe("isPlausibleBand", () => {
+  const stated = (
+    min: number,
+    max: number,
+    currency: string,
+    period: "annual" | "monthly"
+  ): SalaryBand => ({ min, max, currency, period, source: "stated" });
+
+  const cases: Array<[string, SalaryBand, boolean]> = [
+    ["rejects USD 200,000 to 260,000,000 a year", stated(200000, 260000000, "USD", "annual"), false],
+    ["rejects USD 50,000,000 to 150,000,000", stated(50000000, 150000000, "USD", "annual"), false],
+    ["rejects USD 1,000,000 to 100,000,000", stated(1000000, 100000000, "USD", "annual"), false],
+    ["rejects USD 5 to 100,000,000", stated(5, 100000000, "USD", "annual"), false],
+    ["rejects USD 10,000 to 10,000 a year", stated(10000, 10000, "USD", "annual"), false],
+    ["accepts USD 1,000,000 to 1,000,000", stated(1000000, 1000000, "USD", "annual"), true],
+    ["accepts USD 150,000 to 250,000", stated(150000, 250000, "USD", "annual"), true],
+    ["accepts AED 60,000 to 80,000 a month", stated(60000, 80000, "AED", "monthly"), true],
+    ["accepts EGP 40,000 to 60,000 a month", stated(40000, 60000, "EGP", "monthly"), true],
+    ["accepts INR 5,000,000 to 15,000,000", stated(5000000, 15000000, "INR", "annual"), true],
+    ["accepts a currency with no exchange rate", stated(1, 500000000, "XXX", "annual"), true],
+  ];
+
+  it.each(cases)("%s", (_label, band, expected) => {
+    expect(isPlausibleBand(band)).toBe(expected);
+  });
+});
 
 describe("parseStatedSalary", () => {
   const cases: Array<
