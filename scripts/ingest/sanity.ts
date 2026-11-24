@@ -24,7 +24,8 @@ function countBySource(jobs: Array<{ source?: string }>): Record<string, number>
  * API shapes, rate limits) must abort the run instead of shipping to the site.
  * The floors read the final counts, carried roles included; a dataset that
  * leans on carried roles for more than 40 percent is a collapse in slow
- * motion and aborts as well.
+ * motion and aborts as well. `carriedCount` holds carried roles only: grace
+ * roles are not counted.
  */
 export function datasetProblems(
   jobs: Array<{ source?: string }> | null | undefined,

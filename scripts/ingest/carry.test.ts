@@ -143,6 +143,25 @@ describe("carryOver", () => {
     expect(carry([job("odd", { postedAt: "not a date" })], [], []).jobs).toHaveLength(1);
   });
 
+  it("drops a role whose expiry lies before the run, so that it appears in no count", () => {
+    const yesterday = new Date(Date.parse(NOW) - DAY_MS).toISOString();
+    // no feed failed tonight: the role would have stayed in grace
+    expect(carry([job("a", { expiresAt: yesterday })], [], [])).toEqual(nothing);
+    // its feed failed tonight: it is not carried either
+    expect(carry([job("a", { expiresAt: yesterday, carriedNights: 1 })], [], rateLimited)).toEqual(nothing);
+    // a date that does not parse proves no expiry
+    expect(carry([job("odd", { expiresAt: "not a date" })], [], []).graceCount).toBe(1);
+  });
+
+  it("keeps a role in grace while its expiry lies after the run, or at the run time itself", () => {
+    const tomorrow = new Date(Date.parse(NOW) + DAY_MS).toISOString();
+    const { jobs, carriedBySource, graceCount } = carry([job("a", { expiresAt: tomorrow })], [], []);
+    expect(jobs).toMatchObject([{ id: "a", absentNights: 1 }]);
+    expect(carriedBySource).toEqual({});
+    expect(graceCount).toBe(1);
+    expect(carry([job("edge", { expiresAt: NOW })], [], []).graceCount).toBe(1);
+  });
+
   it("keeps a record from before feeds were tagged when any feed of its source failed", () => {
     const { jobs, carriedBySource } = carry([job("a", { feedUnit: undefined })], [], [failure("greenhouse", "board-q")]);
     expect(jobs).toMatchObject([{ id: "a", carriedNights: 1, lastSeenAt: PREVIOUS }]);
@@ -156,6 +175,27 @@ describe("carryOver", () => {
     expect(jobs).toEqual([{ ...untagged, absentNights: 1, lastSeenAt: PREVIOUS }]);
     expect(carriedBySource).toEqual({});
     expect(graceCount).toBe(1);
+  });
+
+  it("carries every record of a source whose transient failure names the source as a whole", () => {
+    const wholeSource = [failure("greenhouse", "source")];
+    const tagged = carry([job("a", { feedUnit: "board-x" })], [], wholeSource);
+    expect(tagged.jobs).toMatchObject([{ id: "a", carriedNights: 1 }]);
+    expect(tagged.carriedBySource).toEqual({ greenhouse: 1 });
+    expect(tagged.graceCount).toBe(0);
+    // a record that names no feed of its own
+    const untagged = carry([job("a", { feedUnit: undefined })], [], wholeSource);
+    expect(untagged.jobs).toMatchObject([{ id: "a", carriedNights: 1 }]);
+    expect(untagged.carriedBySource).toEqual({ greenhouse: 1 });
+  });
+
+  it("leaves the record to the grace rule when the failure that names the source as a whole is not transient", () => {
+    const goneForGood = [failure("greenhouse", "source", { status: 404, transient: false })];
+    const tagged = carry([job("a", { feedUnit: "board-x" })], [], goneForGood);
+    expect(tagged.jobs).toMatchObject([{ id: "a", absentNights: 1 }]);
+    expect(tagged.carriedBySource).toEqual({});
+    expect(tagged.graceCount).toBe(1);
+    expect(carry([job("a", { feedUnit: undefined })], [], goneForGood).graceCount).toBe(1);
   });
 
   it("stores the carried record as it was, apart from the night count and the last-seen stamp", () => {

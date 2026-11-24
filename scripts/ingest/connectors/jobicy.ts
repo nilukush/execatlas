@@ -73,7 +73,8 @@ export function jobicyConnector(
         }
       } catch (error) {
         const failure = error as { status?: number; transient?: boolean; message: string };
-        console.warn(`[jobicy] fetch failed for ${url}: ${failure.message}`);
+        // the feed is named by its unit: the URL would print its query string
+        console.warn(`[jobicy] fetch failed for ${unit}: ${failure.message}`);
         deps.reportFailure?.({ source: "jobicy", unit, status: failure.status, transient: failure.transient ?? true, message: failure.message });
       }
       }

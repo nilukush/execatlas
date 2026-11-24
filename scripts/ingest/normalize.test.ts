@@ -320,6 +320,21 @@ describe("normalizeJob", () => {
     expect(again?.firstSeen).toBe("2026-08-01T00:00:00.000Z");
   });
 
+  it("takes the id and the first night of the stored record it was matched with, under another id", () => {
+    const firstSeen = "2026-08-01T00:00:00.000Z";
+    const stored: Job = { ...normalizeJob(makeRaw(), firstSeen)!, id: "another-id" };
+    expect(stored.id).not.toBe(stableIdForRaw(makeRaw()));
+    const matched = normalizeJob(makeRaw(), NOW, stored)!;
+    expect(matched.id).toBe("another-id");
+    expect(matched.firstSeen).toBe(firstSeen);
+  });
+
+  it("builds the id from the raw job and dates the first night with the run time when no stored record is passed", () => {
+    const job = normalizeJob(makeRaw(), NOW)!;
+    expect(job.id).toBe(stableIdForRaw(makeRaw()));
+    expect(job.firstSeen).toBe(NOW);
+  });
+
   it("detects work mode from the description", () => {
     const job = normalizeJob(
       makeRaw({ descriptionHtml: "<p>Hybrid role, 3 days per week in our Abu Dhabi office.</p>" }),
@@ -413,10 +428,13 @@ describe("rememberSourceVisa: the visa feed failed tonight", () => {
   });
 
   it("leaves carriedNights absent on a night the tag is present", () => {
+    // the stored tag would be remembered and counted tonight, had the raw job carried no tag:
+    // only the tag being present keeps the counter away
     const job = normalizeJob(
       makeRaw({ descriptionHtml: QUIET, visaHint: true }),
       NIGHT_TWO,
-      { ...storedTag(), carriedNights: 3 }
+      { ...storedTag(), carriedNights: 1 },
+      { rememberSourceVisa: true }
     )!;
     expect(job.visa).toBe("yes");
     expect(job.visaBasis).toBe("source");
@@ -505,6 +523,14 @@ describe("last seen and the one year limit", () => {
     const later = normalizeJob(makeRaw(), "2026-09-13T10:00:00.000Z", first)!;
     expect(later.lastSeenAt).toBe("2026-09-13T10:00:00.000Z");
     expect(later.updatedAt).toBe(first.updatedAt);
+  });
+
+  it("dates a fresh role with the run time as last seen when the stored record has no such stamp", () => {
+    // a record from before the last-seen stamp existed
+    const stored: Job = { ...normalizeJob(makeRaw(), "2026-08-01T00:00:00.000Z")!, id: "another-id" };
+    delete stored.lastSeenAt;
+    expect(stored).not.toHaveProperty("lastSeenAt");
+    expect(normalizeJob(makeRaw(), NOW, stored)?.lastSeenAt).toBe(NOW);
   });
 
   it("drops a role posted more than 365 whole days before the run, and keeps one at 365 days", () => {

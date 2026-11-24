@@ -9,7 +9,7 @@ interface HimalayasJob {
   applicationLink: string;
   locationRestrictions?: string[];
   pubDate?: number;
-  expiryDate?: number;
+  expiryDate?: number | null;
   employmentType?: string;
   description?: string;
   minSalary?: number;
@@ -27,7 +27,7 @@ const PERIOD_MAP: Record<string, "annual" | "monthly"> = {
 };
 
 // their dates are Unix timestamps in seconds; an empty or broken one gives no stamp
-function stampOf(seconds: number | undefined): string | null {
+function stampOf(seconds: number | null | undefined): string | null {
   const date = seconds ? new Date(seconds * 1000) : null;
   return date && !Number.isNaN(date.getTime()) ? date.toISOString() : null;
 }
@@ -55,6 +55,8 @@ export function himalayasConnector(
     async run() {
       const out: RawJob[] = [];
       const seen = new Set<string>();
+      // an expiry is judged by the times, not by the order of two ISO strings
+      const runTime = Date.parse(options.now);
       for (const query of options.queries) {
        for (const seniority of seniorities) {
         for (let page = 1; page <= options.pages; page += 1) {
@@ -77,7 +79,7 @@ export function himalayasConnector(
               if (!job.guid || !job.title || !job.applicationLink) continue;
               const expiresAt = stampOf(job.expiryDate);
               // the feed still returns a role after its expiry: it is not listed tonight
-              if (expiresAt !== null && expiresAt < options.now) continue;
+              if (expiresAt !== null && Date.parse(expiresAt) < runTime) continue;
               if (seen.has(job.guid)) continue;
               seen.add(job.guid);
               const restrictions = job.locationRestrictions ?? [];

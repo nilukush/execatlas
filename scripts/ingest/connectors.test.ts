@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import greenhouseFixture from "./__fixtures__/greenhouse.json";
 import workableFixture from "./__fixtures__/workable.json";
 import arbeitnowFixture from "./__fixtures__/arbeitnow.json";
@@ -339,15 +339,38 @@ describe("himalayas connector", () => {
     expect(jobs[0].externalId).toBe(`hml-${himalayasFixture[1].guid.split("/").pop()}`);
   });
 
-  it("keeps a job the API dates with no expiry", async () => {
-    const undated = { ...himalayasFixture[0], expiryDate: undefined };
+  it("judges an expiry by the parsed times, not by the spelling of the two stamps", async () => {
+    const first = himalayasFixture[0];
+    const dated = (suffix: string, expiresAt: string) => ({
+      ...first,
+      guid: `${first.guid}-${suffix}`,
+      applicationLink: `${first.applicationLink}-${suffix}`,
+      expiryDate: Date.parse(expiresAt) / 1000,
+    });
+    // a run time spelled with an offset: 10:00 UTC, two hours after the first expiry and two hours before the second
+    const now = "2026-10-01T06:00:00-04:00";
     const connector = himalayasConnector(
-      { fetchJson: async () => ({ jobs: [undated] }) },
-      { pages: 1, queries: ["engineering"], now: HIMALAYAS_RUN }
+      {
+        fetchJson: async () => ({ jobs: [dated("gone", "2026-10-01T08:00:00.000Z"), dated("live", "2026-10-01T12:00:00.000Z")] }),
+      },
+      { pages: 1, queries: ["engineering"], now }
     );
     const jobs = await connector.run();
-    expect(jobs).toHaveLength(1);
-    expect(jobs[0]).not.toHaveProperty("expiresAt");
+    expect(jobs.map((j) => j.externalId)).toEqual([`hml-${first.guid.split("/").pop()}-live`]);
+  });
+
+  it("keeps a job the API dates with no expiry", async () => {
+    // a null stamp and an absent one both date no expiry
+    for (const expiryDate of [null, undefined]) {
+      const undated = { ...himalayasFixture[0], expiryDate };
+      const connector = himalayasConnector(
+        { fetchJson: async () => ({ jobs: [undated] }) },
+        { pages: 1, queries: ["engineering"], now: HIMALAYAS_RUN }
+      );
+      const jobs = await connector.run();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).not.toHaveProperty("expiresAt");
+    }
   });
 });
 
@@ -618,6 +641,28 @@ describe("failed feed reporting and feed tags", () => {
     expectOneFailure(reported, "jobicy", "cto");
     expect(jobs.find((j) => j.externalId === "jc-99901")?.feedUnit).toBe("head of engineering");
     expect(jobs.filter((j) => j.externalId !== "jc-99901").every((j) => j.feedUnit === "plain")).toBe(true);
+  });
+
+  it("jobicy warns of a failed feed by its unit, never by a URL with its query string", async () => {
+    // a plain array: vitest clears mock call history before each test
+    const warnings: string[] = [];
+    const warn = vi.spyOn(console, "warn").mockImplementation((...parts: unknown[]) => {
+      warnings.push(parts.join(" "));
+    });
+    try {
+      const connector = jobicyConnector(
+        {
+          fetchJson: async () => {
+            throw rateLimited();
+          },
+        },
+        { count: 5, tags: ["cto"] }
+      );
+      await connector.run();
+    } finally {
+      warn.mockRestore();
+    }
+    expect(warnings).toEqual(["[jobicy] fetch failed for plain: HTTP 429", "[jobicy] fetch failed for cto: HTTP 429"]);
   });
 
   it("arbeitnow reports a failed job page and a failed visa feed page by their numbers", async () => {
