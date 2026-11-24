@@ -2,17 +2,19 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import { createTranslator, NextIntlClientProvider } from "next-intl";
 import { JobCard, type JobCardLabels } from "./job-card";
-import { ROLE_TYPES, SOURCE_LABELS, type IndexEntry, type Job } from "@/lib/types";
+import { ROLE_TYPES, SOURCE_LABELS, type DatasetStats, type IndexEntry, type Job } from "@/lib/types";
 import JobDetailPage from "@/app/[locale]/jobs/[id]/page";
+import StatsPage from "@/app/[locale]/stats/page";
 import en from "../messages/en.json";
 
-type Namespace = "Job" | "Jobs";
+type Namespace = "Job" | "Jobs" | "Stats";
 
-// the page reads the dataset and the request translations, and a unit test has neither
-const dataset = vi.hoisted(() => ({ jobs: [] as Job[] }));
+// the pages read the dataset and the request translations, and a unit test has neither
+const dataset = vi.hoisted(() => ({ jobs: [] as Job[], stats: null as DatasetStats | null }));
 vi.mock("@/lib/data", () => ({
   getAllJobIds: () => dataset.jobs.map((job) => job.id),
   getJobById: (id: string) => dataset.jobs.find((job) => job.id === id) ?? null,
+  getStats: () => dataset.stats,
 }));
 vi.mock("next-intl/server", () => ({
   setRequestLocale: () => undefined,
@@ -290,5 +292,58 @@ describe("job page pay note", () => {
     await renderPage("j1");
     expect(screen.getByText(/The figure is the median annual gross pay/)).toBeInTheDocument();
     expect(screen.queryByText(/The band lies between the 25th and the 75th percentile/)).toBeNull();
+  });
+});
+
+describe("job page last seen date", () => {
+  it("says when the source last listed the role, and says nothing for a record of an old dataset", async () => {
+    dataset.jobs = [makeJob({ lastSeenAt: "2026-11-24T03:17:00.000Z" })];
+    await renderPage("j1");
+    expect(screen.getByText("Last listed by the source on 24 Nov 2026.")).toBeInTheDocument();
+
+    cleanup();
+    dataset.jobs = [makeJob()];
+    await renderPage("j1");
+    expect(screen.queryByText(/Last listed by the source/)).toBeNull();
+  });
+});
+
+describe("stats page carried note", () => {
+  const stats = (carried?: DatasetStats["carried"]): DatasetStats => ({
+    generatedAt: "2026-11-24T03:17:00.000Z",
+    total: 1108,
+    bySource: {},
+    byRegion: {},
+    byVisa: {},
+    countries: 12,
+    ...(carried ? { carried } : {}),
+  });
+
+  async function renderStats() {
+    const page = await StatsPage({ params: Promise.resolve({ locale: "en" }) });
+    return render(
+      <NextIntlClientProvider locale="en" messages={en} timeZone="UTC">
+        {page}
+      </NextIntlClientProvider>
+    );
+  }
+
+  it("counts the roles kept from the previous refresh after a source failed to answer", async () => {
+    dataset.stats = stats({ total: 5, bySource: { adzuna: 5 } });
+    await renderStats();
+    expect(
+      screen.getByText("5 roles are kept from the previous refresh after a source failed to answer.")
+    ).toBeInTheDocument();
+  });
+
+  it("shows no line for a dataset that kept no role, and for one written before the count existed", async () => {
+    dataset.stats = stats({ total: 0, bySource: {} });
+    await renderStats();
+    expect(screen.queryByText(/kept from the previous refresh/)).toBeNull();
+
+    cleanup();
+    dataset.stats = stats();
+    await renderStats();
+    expect(screen.queryByText(/kept from the previous refresh/)).toBeNull();
   });
 });

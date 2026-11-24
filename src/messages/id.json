@@ -129,6 +129,7 @@
     "apply": "Lamar di situs perusahaan",
     "applyVia": "Lamar melalui {source}",
     "viewOriginal": "Lihat lowongan asli",
+    "lastSeen": "Terakhir dicantumkan oleh sumber pada {date}.",
     "posted": "Diposting {date}",
     "salary": "Gaji",
     "stated": "tercantum di lowongan",
@@ -192,6 +193,7 @@
   "Stats": {
     "title": "Kondisi dataset ini",
     "intro": "Diperbarui tiap malam dari delapan API pekerjaan publik. Pembaruan terakhir {date}.",
+    "carriedNote": "{count, plural, other {# peran}} dipertahankan dari pembaruan sebelumnya setelah sumber tidak menjawab.",
     "roles": "Peran terdaftar",
     "countries": "Negara",
     "sources": "Sumber pekerjaan",

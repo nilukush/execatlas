@@ -269,6 +269,9 @@ export default async function JobDetailPage({
                 </Fragment>
               ))}
             </p>
+            {job.lastSeenAt && (
+              <p className="mt-2 text-xs text-muted">{t("lastSeen", { date: formatDate(job.lastSeenAt, locale) })}</p>
+            )}
             <a
               href={job.sourceUrl}
               target="_blank"

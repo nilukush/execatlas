@@ -71,6 +71,7 @@ export function jobPostingJsonLd(job: Job, locale: string): Record<string, unkno
     title: job.title,
     description: job.text.slice(0, 4000),
     datePosted: job.postedAt,
+    ...(job.expiresAt ? { validThrough: job.expiresAt } : {}),
     employmentType: job.roleType?.toUpperCase().replace("-", "_"),
     hiringOrganization: {
       "@type": "Organization",

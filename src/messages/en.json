@@ -129,6 +129,7 @@
     "apply": "Apply on company site",
     "applyVia": "Apply via {source}",
     "viewOriginal": "View original posting",
+    "lastSeen": "Last listed by the source on {date}.",
     "posted": "Posted {date}",
     "salary": "Salary",
     "stated": "stated in posting",
@@ -192,6 +193,7 @@
   "Stats": {
     "title": "How this dataset is doing",
     "intro": "Refreshed nightly from eight public job APIs. Last refresh {date}.",
+    "carriedNote": "{count, plural, one {# role is} other {# roles are}} kept from the previous refresh after a source failed to answer.",
     "roles": "Roles listed",
     "countries": "Countries",
     "sources": "Job sources",
