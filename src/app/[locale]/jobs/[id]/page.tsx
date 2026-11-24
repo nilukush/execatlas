@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fragment, type ReactNode } from "react";
+import { Fragment } from "react";
 import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
@@ -8,7 +8,8 @@ import { getAllJobIds, getJobById } from "@/lib/data";
 import { CompanyLogo } from "@/components/company-logo";
 import { AdzunaMark } from "@/components/job-card";
 import { SOURCE_LABELS, type JdBlock } from "@/lib/types";
-import { formatSalaryBand, EXPATRATE_URL } from "@/lib/salary";
+import { formatSalaryBand } from "@/lib/salary";
+import { expatrateLink } from "@/components/expatrate-link";
 import { remoteScope, signalView } from "@/lib/signals";
 import { countryByIso2, regionLabel } from "@/lib/locations";
 import { buildAlternates, formatDate, jobOgDescription, jobPostingJsonLd, SITE_URL } from "@/lib/seo";
@@ -198,7 +199,10 @@ export default async function JobDetailPage({
                 </p>
                 {job.salary.source === "estimated" && (
                   <p className="mt-3 text-xs leading-relaxed text-muted">
-                    {t.rich("estimateNote", { link: expatrateLink })}
+                    {/* a benchmark that holds the median only gives one value, and the band note would be false on it */}
+                    {job.salary.min === job.salary.max
+                      ? t.rich("estimateSingleNote", { link: expatrateLink })
+                      : t.rich("estimateBandNote", { link: expatrateLink })}
                   </p>
                 )}
               </>
@@ -280,19 +284,6 @@ export default async function JobDetailPage({
         </aside>
       </div>
     </article>
-  );
-}
-
-function expatrateLink(chunks: ReactNode) {
-  return (
-    <a
-      href={EXPATRATE_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="underline underline-offset-2 hover:text-brand-500"
-    >
-      {chunks}
-    </a>
   );
 }
 

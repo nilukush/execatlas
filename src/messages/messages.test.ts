@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { readFileSync, readdirSync } from "node:fs";
+import { join, resolve } from "node:path";
 import { EXPATRATE_URL } from "@/lib/salary";
 
 const locales = ["en", "hi", "ar", "id"];
@@ -15,6 +15,18 @@ function shape(value: unknown): string {
     .sort()
     .map((key) => `${key}:${shape((value as Record<string, unknown>)[key])}`)
     .join("|");
+}
+
+function flatten(obj: Record<string, unknown>, prefix = ""): Array<[string, unknown]> {
+  const entries: Array<[string, unknown]> = [];
+  for (const [key, value] of Object.entries(obj)) {
+    if (typeof value === "object" && value !== null) {
+      entries.push(...flatten(value as Record<string, unknown>, `${prefix}${key}.`));
+    } else {
+      entries.push([`${prefix}${key}`, value]);
+    }
+  }
+  return entries;
 }
 
 describe("message catalogs", () => {
@@ -63,18 +75,68 @@ describe("placeholder parity", () => {
     return out.sort();
   };
 
-  const flatten = (obj: Record<string, unknown>, prefix = ""): Array<[string, unknown]> =>
-    Object.entries(obj).flatMap(([k, v]) =>
-      typeof v === "object" && v !== null ? flatten(v as Record<string, unknown>, `${prefix}${k}.`) : [[`${prefix}${k}`, v]]
-    );
-
-  it("every locale uses the same placeholder names and ICU forms per key", () => {
+  it("every locale fills every en key with a non-empty value and the same placeholder names and ICU forms", () => {
     const en = flatten(load("en") as Record<string, unknown>);
     for (const locale of locales) {
       if (locale === "en") continue;
       const other = Object.fromEntries(flatten(load(locale) as Record<string, unknown>));
       for (const [key, value] of en) {
-          expect(placeholders(other[key]), `${locale} ${key}`).toEqual(placeholders(value));
+        // a missing or blank value holds no placeholder, so the parity check alone would let it through
+        expect(String(other[key] ?? "").trim().length, `${locale} ${key} is empty`).toBeGreaterThan(0);
+        expect(placeholders(other[key]), `${locale} ${key}`).toEqual(placeholders(value));
+      }
+    }
+  });
+});
+
+describe("ExpatRate mentions", () => {
+  it("every mention in the four catalogs sits inside exactly one link tag", () => {
+    for (const locale of locales) {
+      let mentions = 0;
+      let linked = 0;
+      for (const [key, value] of flatten(load(locale))) {
+        if (typeof value !== "string") continue;
+        // a simple tag is <link>text</link>. Once every simple tag is removed, a mention left over sat
+        // outside a tag, and a tag left over nests in another or never closes
+        expect(value.replace(/<link>[^<>]*<\/link>/g, ""), `${locale} ${key}`).not.toMatch(/ExpatRate|link>/);
+        mentions += value.split("ExpatRate").length - 1;
+        linked += (value.match(/<link>[^<>]*<\/link>/g) ?? []).join(" ").split("ExpatRate").length - 1;
+      }
+      expect(mentions, `${locale} names ExpatRate`).toBeGreaterThan(0);
+      expect(linked, `${locale} links ExpatRate`).toBe(mentions);
+    }
+  });
+});
+
+describe("keys that hold a tag", () => {
+  // a plain t() call on a key that holds a tag throws when the page renders, and no test or build renders every page
+  const leaf = (key: string) => key.slice(key.lastIndexOf(".") + 1);
+  const readTree = (dir: string): Array<[string, string]> => {
+    const files: Array<[string, string]> = [];
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const path = join(dir, entry.name);
+      if (entry.isDirectory()) files.push(...readTree(path));
+      else if (/\.(ts|tsx)$/.test(entry.name)) files.push([path, readFileSync(path, "utf8")]);
+    }
+    return files;
+  };
+  const sources = ["app", "components"].flatMap((dir) => readTree(resolve(__dirname, "..", dir)));
+
+  it("are rendered through rich text and never through a plain t() call", () => {
+    const entries = flatten(load("en"));
+    const tagKeys = entries.filter(([, value]) => typeof value === "string" && /<\w+>/.test(value)).map(([key]) => key);
+    const plainNames = new Set(entries.filter(([key]) => !tagKeys.includes(key)).map(([key]) => leaf(key)));
+    expect(tagKeys.length).toBeGreaterThan(0);
+
+    for (const key of tagKeys) {
+      const richCall = new RegExp(`\\.rich\\("${leaf(key)}"`);
+      const plainCall = new RegExp(`\\bt\\w*\\("${leaf(key)}"`);
+      const renderers = sources.filter(([, text]) => richCall.test(text));
+      expect(renderers.map(([path]) => path), `${key} holds a tag and is not rendered with t.rich`).not.toEqual([]);
+      // a plain key may share the name, as Job.salary does with Footer.salary, so only a file that renders
+      // the tag key is then held to the plain calls of that name
+      for (const [path, text] of plainNames.has(leaf(key)) ? renderers : sources) {
+        expect(text, `${path} calls ${key} with a plain t() call`).not.toMatch(plainCall);
       }
     }
   });
@@ -83,34 +145,32 @@ describe("placeholder parity", () => {
 describe("ExpatRate copy", () => {
   // the linked keys go through t.rich: the formatter calls a handler only for a tag, not for a bare {link} argument
   const linkTag = "<link>ExpatRate</link>";
-  const linkedKeys = ["Footer.salary", "Job.salaryAttribution", "Job.estimateNote", "About.salaryBody"];
+  // every key that names the project, each with one link tag
   const agreedCopy: Record<string, string> = {
     "Footer.salary": "Salary benchmarks by <link>ExpatRate</link> (CC BY 4.0).",
     "Job.salaryAttribution": "Salary estimates from the <link>ExpatRate</link> benchmark dataset (CC BY 4.0).",
-    "Job.estimateNote":
-      "Estimated from <link>ExpatRate</link>, an open set of salary benchmarks by country and role family. The band runs from the 25th to the 75th percentile of annual gross pay, in local currency. Treat it as orientation.",
+    "Job.estimateBandNote":
+      "Estimated from <link>ExpatRate</link>, an open set of salary benchmarks by country and role family. The band lies between the 25th and the 75th percentile of annual gross pay, in local currency, and narrows where the benchmark holds fewer figures. Treat it as orientation.",
+    "Job.estimateSingleNote":
+      "Estimated from <link>ExpatRate</link>, an open set of salary benchmarks by country and role family. The figure is the median annual gross pay, in local currency. Treat it as orientation.",
     "About.salaryBody":
-      "When a posting states a range, it is shown as stated. Otherwise an estimated band is computed from the country benchmarks of <link>ExpatRate</link>, a free and open salary benchmark project, for senior technology roles, always in the local currency of the job's country, and always labeled as an estimate.",
+      "When a posting states a range, it is shown as stated. A stated band that cannot be pay, such as a revenue range, is replaced by an estimate. When a posting hides the number, an estimated band is computed from the country benchmarks of <link>ExpatRate</link>, a free and open salary benchmark project, for leadership roles in technology, always in the local currency of the job's country, and always labeled as an estimate.",
     "Home.featurePayBody":
-      "Stated salaries are shown as posted. When a posting hides the number, an estimated band from the ExpatRate country benchmarks fills the gap, always labeled as an estimate.",
+      "Stated salaries are shown as posted. A stated figure that cannot be pay, such as a revenue range, is replaced by an estimate. When a posting hides the number, an estimated band from the <link>ExpatRate</link> country benchmarks fills the gap. Every estimate is labeled as an estimate.",
   };
 
   const read = (catalog: Record<string, unknown>, path: string): unknown =>
     path.split(".").reduce<unknown>((node, key) => (node as Record<string, unknown> | undefined)?.[key], catalog);
 
-  it("every locale has the five keys, four of them with one ExpatRate link tag", () => {
+  it("every locale has the six keys, each with one ExpatRate link tag", () => {
     for (const locale of locales) {
       const catalog = load(locale);
       for (const key of Object.keys(agreedCopy)) {
         const value = read(catalog, key);
         expect(typeof value, `${locale} ${key}`).toBe("string");
         const text = String(value);
-        if (linkedKeys.includes(key)) {
-          expect(text.split(linkTag).length - 1, `${locale} ${key} link tags`).toBe(1);
-          expect(text, `${locale} ${key}`).not.toContain("{link}");
-        } else {
-          expect(text, `${locale} ${key}`).toContain("ExpatRate");
-        }
+        expect(text.split(linkTag).length - 1, `${locale} ${key} link tags`).toBe(1);
+        expect(text, `${locale} ${key}`).not.toContain("{link}");
       }
     }
   });

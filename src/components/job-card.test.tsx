@@ -273,3 +273,22 @@ describe("job page Adzuna mark", () => {
     expect(screen.queryByRole("link", { name: "Adzuna" })).toBeNull();
   });
 });
+
+describe("job page pay note", () => {
+  const estimated = (min: number, max: number) =>
+    makeJob({ salary: { min, max, currency: "AED", period: "annual", source: "estimated" } });
+
+  it("shows the band note under a band of two values", async () => {
+    dataset.jobs = [estimated(660000, 1080000)];
+    await renderPage("j1");
+    expect(screen.getByText(/The band lies between the 25th and the 75th percentile/)).toBeInTheDocument();
+    expect(screen.queryByText(/The figure is the median annual gross pay/)).toBeNull();
+  });
+
+  it("shows the single figure note under a band whose minimum equals its maximum", async () => {
+    dataset.jobs = [estimated(675000, 675000)];
+    await renderPage("j1");
+    expect(screen.getByText(/The figure is the median annual gross pay/)).toBeInTheDocument();
+    expect(screen.queryByText(/The band lies between the 25th and the 75th percentile/)).toBeNull();
+  });
+});

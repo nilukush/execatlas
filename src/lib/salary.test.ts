@@ -1,10 +1,12 @@
 import { describe, expect, it } from "vitest";
+import benchmarksJson from "@/data/salary/benchmarks.json";
 import {
   parseStatedSalary,
   estimateSalary,
   formatSalaryBand,
   monthsPerYear,
   isPlausibleBand,
+  type BenchmarkRow,
 } from "./salary";
 import type { SalaryBand } from "./types";
 
@@ -173,5 +175,19 @@ describe("formatSalaryBand", () => {
     expect(
       formatSalaryBand({ min: 30312, max: 30312, currency: "EUR", period: "annual", source: "estimated" }, "en")
     ).toBe("€30,312");
+  });
+});
+
+describe("the band note and the single figure note", () => {
+  it("hold for every vendored benchmark row", () => {
+    const rows = (benchmarksJson as { rows: BenchmarkRow[] }).rows;
+    expect(rows.length).toBeGreaterThan(0);
+    for (const { c, f, l, p25, p50, p75 } of rows) {
+      const row = `${c} ${f} ${l}`;
+      expect(p50, `${row} median`).toBeGreaterThan(0);
+      // an absent percentile is stored as zero, and the band then falls back to the median
+      if (p25 > 0) expect(p25, `${row} 25th percentile`).toBeLessThanOrEqual(p50);
+      if (p75 > 0) expect(p75, `${row} 75th percentile`).toBeGreaterThanOrEqual(p50);
+    }
   });
 });

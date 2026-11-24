@@ -7,17 +7,19 @@ import { EXPATRATE_URL } from "@/lib/salary";
 import en from "../messages/en.json";
 
 // getTranslations reads the Next request scope, which does not exist under vitest.
+// Like the real function, the mock takes a namespace or { locale, namespace }.
 vi.mock("next-intl/server", () => ({
-  getTranslations: async (namespace: "Footer") => {
+  getTranslations: async (target: "Footer" | { locale: string; namespace: "Footer" }) => {
     const { createTranslator } = await import("next-intl");
+    const namespace = typeof target === "string" ? target : target.namespace;
     return createTranslator({ locale: "en", messages: en, namespace });
   },
 }));
 
-// SiteHeader and SiteFooter are async server components in app code; for
-// testing we render the markup contract through the same catalogs the
-// server uses, so label drift (a nav key renamed without updating copy)
-// fails here instead of shipping silently.
+// SiteHeader and SiteFooter are async server components in app code. The header
+// is tested through a hand built shell that reads the same catalogs the server
+// uses, so label drift (a nav key renamed without updating copy) fails here
+// instead of shipping silently. The footer is rendered as it is.
 function HeaderShell() {
   return (
     <NextIntlClientProvider locale="en" messages={en} timeZone="UTC">
