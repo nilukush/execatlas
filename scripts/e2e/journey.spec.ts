@@ -50,19 +50,27 @@ test("stats page renders the nightly scorecard", async ({ page }) => {
 });
 
 test("detail page shows the visa signal card when a signal exists", async ({ page }) => {
-  await page.goto("/en/jobs");
-  await expect(page.locator("article").first()).toBeVisible({ timeout: 15_000 });
-  // walk listings until a role with a visa chip opens; the chip text is
-  // the same label the detail card uses
-  const cards = page.locator("article");
-  const count = await cards.count();
-  for (let i = 0; i < count; i += 1) {
-    const chip = cards.nth(i).locator(".chip", { hasText: /visa/i }).first();
-    if (await chip.isVisible().catch(() => false)) {
-      await cards.nth(i).locator("a[href*='/jobs/']").first().click();
-      await expect(page.getByText(/signal read from the posting/i)).toBeVisible();
-      return;
+  // the chips read "Sponsors" and "No sponsorship", so a listing filtered on the
+  // signal is the sure way to a role that carries one
+  const firstCard = page.locator("article").first();
+  const emptyListing = page.getByText("No roles match these filters");
+
+  await page.goto("/en/jobs?visa=yes");
+  // cards arrive only after the runtime fetch, and a filtered listing may end empty
+  await expect(firstCard.or(emptyListing).first()).toBeVisible({ timeout: 15_000 });
+
+  if (await emptyListing.isVisible()) {
+    await page.goto("/en/jobs?visa=no");
+    await expect(firstCard.or(emptyListing).first()).toBeVisible({ timeout: 15_000 });
+    if (await emptyListing.isVisible()) {
+      throw new Error(
+        "No role carries a visa signal in this dataset, neither a sponsorship nor a refusal, so the detail journey cannot run"
+      );
     }
   }
-  test.skip(true, "no visa-signalled role on page 1 of the listing today");
+
+  // the title link is the first link of a card that leads to a role
+  await page.locator("article a[href*='/jobs/']").first().click();
+  await expect(page).toHaveURL(/\/jobs\/[^/]+$/);
+  await expect(page.getByRole("heading", { name: "Visa signal" })).toBeVisible();
 });
