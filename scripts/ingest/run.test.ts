@@ -1,5 +1,8 @@
 import { beforeAll, describe, expect, it, vi } from "vitest";
-import type { Job } from "../../src/lib/types";
+import { normalizeJob, stableIdForRaw } from "./normalize";
+import { dedupeJobs } from "./dedupe";
+import { carryOver } from "./carry";
+import type { Job, RawJob, SourceId } from "../../src/lib/types";
 
 // These stay installed for the whole file. If an import ever runs main()
 // again, the rejecting fetch takes every request and main() parks on its
@@ -169,6 +172,127 @@ describe("scripts/ingest/run entry point", () => {
       expect(ids(["greenhouse", "adzuna"])).toEqual(["j1", "j3"]);
       // a full run fetches every source and judges every record
       expect(ids(["greenhouse", "himalayas", "adzuna"])).toEqual(["j1", "j2", "j3"]);
+    });
+  });
+
+  describe("the stored record a raw job continues tonight", () => {
+    const NIGHT_ONE = "2026-11-20T03:17:00.000Z";
+    const NOW = "2026-11-24T03:17:00.000Z";
+
+    // the same role on two sources: one company, one title and one place
+    const raw = (source: SourceId, externalId: string, over: Partial<RawJob> = {}): RawJob => ({
+      source,
+      externalId,
+      title: "Director of Engineering",
+      company: "Acme Payments",
+      applyUrl: `https://${source}.example/${externalId}`,
+      sourceUrl: `https://${source}.example/${externalId}`,
+      descriptionHtml: "<p>Lead four teams.</p>",
+      locationRaw: "Dubai, UAE",
+      postedAt: "2026-11-10T08:00:00.000Z",
+      ...over,
+    });
+    const onGreenhouse = raw("greenhouse", "gh-100");
+    const onArbeitnow = raw("arbeitnow", "ab-1");
+    // night one found the role on both sources: the merged record is stored under the id of the elder
+    const merged = dedupeJobs([normalizeJob(onGreenhouse, NIGHT_ONE)!, normalizeJob(onArbeitnow, NIGHT_ONE)!])[0];
+
+    it("is the merged record stored under the id of the elder source, for a twin that has no id of its own", () => {
+      expect(merged.sources).toEqual(["greenhouse", "arbeitnow"]);
+      expect(merged.id).toBe(stableIdForRaw(onGreenhouse));
+      expect(entry.previousOfRaw(onArbeitnow, NOW, entry.indexPrevious([merged]))).toBe(merged);
+    });
+
+    it("is none for a raw job whose key no stored record has", () => {
+      const elsewhere = raw("arbeitnow", "ab-2", { company: "Globex" });
+      expect(entry.previousOfRaw(elsewhere, NOW, entry.indexPrevious([merged]))).toBeUndefined();
+    });
+
+    it("is the record under the id of the raw job before one that only shares its key", () => {
+      const own = normalizeJob(onGreenhouse, NIGHT_ONE)!;
+      // stored after it, so the key alone would answer with the other one
+      const sameKey = { ...own, id: "another-id" };
+      expect(entry.previousOfRaw(onGreenhouse, NOW, entry.indexPrevious([own, sameKey]))).toBe(own);
+    });
+
+    it("lets a twin take the address and the first night of the stored role, and keep its source tag", () => {
+      const tagged: Job = { ...merged, visa: "yes", visaBasis: "source", visaDeclaredAt: NIGHT_ONE };
+      // the step of a run: the record found here is the stored one of the normalization
+      const prior = entry.previousOfRaw(onArbeitnow, NOW, entry.indexPrevious([tagged]));
+      const fresh = normalizeJob(onArbeitnow, NOW, prior, { rememberSourceVisa: true })!;
+      expect(fresh).toMatchObject({
+        id: tagged.id,
+        firstSeen: NIGHT_ONE,
+        visa: "yes",
+        visaBasis: "source",
+        visaDeclaredAt: NIGHT_ONE,
+        carriedNights: 1,
+      });
+    });
+  });
+
+  describe("the lines about the roles kept from the previous refresh", () => {
+    const grace = "[grace] 25 roles kept for two nights after leaving their feed";
+
+    it("count the carried roles and the grace roles each on their own", () => {
+      expect(entry.carryLines({ carriedBySource: { greenhouse: 6, himalayas: 4 }, graceCount: 25 }, 3)).toEqual([
+        "[carry] 10 roles kept from the previous refresh after 3 failed feeds",
+        grace,
+      ]);
+    });
+
+    it("print the grace line only while a role is in grace, and the carry line on a night a feed failed", () => {
+      // two feeds failed and nothing was carried: the line says so
+      expect(entry.carryLines({ carriedBySource: {}, graceCount: 25 }, 2)).toEqual([
+        "[carry] 0 roles kept from the previous refresh after 2 failed feeds",
+        grace,
+      ]);
+      // no role in grace
+      expect(entry.carryLines({ carriedBySource: { greenhouse: 6 }, graceCount: 0 }, 2)).toEqual([
+        "[carry] 6 roles kept from the previous refresh after 2 failed feeds",
+      ]);
+      // a quiet night prints neither
+      expect(entry.carryLines({ carriedBySource: {}, graceCount: 0 }, 0)).toEqual([]);
+    });
+
+    it("hand the sanity gate the carried roles alone, the sum of carriedBySource", () => {
+      expect(entry.carriedCount({ greenhouse: 6, himalayas: 4 })).toBe(10);
+      expect(entry.carriedCount({})).toBe(0);
+    });
+  });
+
+  describe("a source that answered with no roles", () => {
+    const NOW = "2026-11-24T03:17:00.000Z";
+    // one role of greenhouse, tagged with its feed, and one of himalayas
+    const lastNight: Job[] = [
+      { ...job, feedUnit: "stripe" },
+      { ...job, id: "j2", source: "himalayas", sources: ["himalayas"] },
+    ];
+    const answered = {
+      source: "greenhouse",
+      unit: "source",
+      transient: true,
+      message: "the source answered with no roles",
+    };
+
+    it("is reported when it fetched no raw job tonight and held a role last night", () => {
+      expect(entry.emptyAnswers([{ id: "greenhouse", fetched: 0 }], lastNight)).toEqual([answered]);
+    });
+
+    it("is not reported when it fetched a raw job tonight", () => {
+      expect(entry.emptyAnswers([{ id: "greenhouse", fetched: 1 }], lastNight)).toEqual([]);
+    });
+
+    it("is not reported when it held no role last night", () => {
+      expect(entry.emptyAnswers([{ id: "adzuna", fetched: 0 }], lastNight)).toEqual([]);
+      // a source the run did not fetch is not judged
+      expect(entry.emptyAnswers([{ id: "greenhouse", fetched: 4 }], lastNight)).toEqual([]);
+    });
+
+    it("writes a report that carries every role of that source", () => {
+      const report = entry.emptyAnswers([{ id: "greenhouse", fetched: 0 }], lastNight);
+      const { carriedBySource } = carryOver({ previous: lastNight, fresh: [], failures: report, now: NOW });
+      expect(carriedBySource).toEqual({ greenhouse: 1 });
     });
   });
 

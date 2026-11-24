@@ -27,15 +27,15 @@ import { ashbyConnector } from "./connectors/ashby";
 import { himalayasConnector } from "./connectors/himalayas";
 import { adzunaConnector } from "./connectors/adzuna";
 import { normalizeJob, stableIdForRaw, stableJob } from "./normalize";
-import { dedupeJobs } from "./dedupe";
-import { carryOver } from "./carry";
+import { dedupeJobs, dedupeKey } from "./dedupe";
+import { SOURCE_UNIT, carryOver } from "./carry";
 import { datasetProblems, shouldRunSanityGate } from "./sanity";
 import { writeJsonAtomic } from "./write";
 import { buildQueryMatrix } from "../../src/lib/roles";
 import { DATASET_VERSION } from "../../src/lib/types";
 import { SOURCE_IDS } from "../../src/lib/types";
 import type { SourceQuality } from "../../src/lib/types";
-import type { DatasetStats, IndexEntry, Job, JobsFile, SourceId } from "../../src/lib/types";
+import type { DatasetStats, IndexEntry, Job, JobsFile, RawJob, SourceId } from "../../src/lib/types";
 
 const GENERATED_DIR = path.join(process.cwd(), "data", "generated");
 
@@ -66,9 +66,10 @@ function loadPrevStats(): DatasetStats | null {
 
 /**
  * Where every failed feed lands, and the only way into the failure list. A
- * message loses the query string of every http and https URL it holds before
- * it is stored, so no key a request sent can reach stats.json, the console
- * or the tracking issue.
+ * message loses every shape of a credential it holds before it is stored
+ * (ruling R60), so no key a request sent can reach the stored report in
+ * stats.json, or the tracking issue through it. The console is no part of
+ * it: a connector prints what it prints.
  */
 export function failureCollector(): { failures: FeedFailure[]; reportFailure: (failure: FeedFailure) => void } {
   const failures: FeedFailure[] = [];
@@ -136,6 +137,73 @@ export function selectConnectors<T extends { id: string }>(all: T[], only: strin
 export function previousOfSources(previous: Job[], fetchedSources: string[]): Job[] {
   const fetched = new Set(fetchedSources);
   return previous.filter((job) => fetched.has(job.source));
+}
+
+/** The previous dataset by the two handles a raw job finds its stored record with: the id and the dedupe key. */
+export interface PreviousIndex {
+  byId: Map<string, Job>;
+  byKey: Map<string, Job>;
+}
+
+export function indexPrevious(previous: Job[]): PreviousIndex {
+  return {
+    byId: new Map<string, Job>(previous.map((stored) => [stored.id, stored])),
+    byKey: new Map<string, Job>(previous.map((stored) => [dedupeKey(stored), stored])),
+  };
+}
+
+/**
+ * The stored record a raw job continues tonight (ruling R61): the one under
+ * its own id, else the one that shares the dedupe key of its normalization.
+ * A merged record is stored under the id of its elder source, so its twin of
+ * another source finds it by the key alone: the fresh role then takes the
+ * stored id and first night, and a stored source tag is remembered for it.
+ */
+export function previousOfRaw(raw: RawJob, now: string, previous: PreviousIndex): Job | undefined {
+  const own = previous.byId.get(stableIdForRaw(raw));
+  if (own) return own;
+  const normalized = normalizeJob(raw, now);
+  return normalized ? previous.byKey.get(dedupeKey(normalized)) : undefined;
+}
+
+/** Carried roles alone, the sum of carriedBySource: grace roles are no carried roles (ruling R62). */
+export function carriedCount(carriedBySource: Record<string, number>): number {
+  return Object.values(carriedBySource).reduce((sum, count) => sum + count, 0);
+}
+
+/**
+ * The lines a run prints about the roles it kept from the previous refresh
+ * (ruling R62). Each counts its own kind: carried roles after failed feeds,
+ * grace roles after a feed that no longer lists them.
+ */
+export function carryLines(
+  carried: { carriedBySource: Record<string, number>; graceCount: number },
+  failedFeeds: number
+): string[] {
+  const lines: string[] = [];
+  if (failedFeeds > 0) {
+    lines.push(
+      `[carry] ${carriedCount(carried.carriedBySource)} roles kept from the previous refresh after ${failedFeeds} failed feeds`
+    );
+  }
+  if (carried.graceCount > 0) {
+    lines.push(`[grace] ${carried.graceCount} roles kept for two nights after leaving their feed`);
+  }
+  return lines;
+}
+
+/**
+ * A source that fetched no raw job tonight while the previous dataset holds
+ * a role of it answered with no roles (ruling R59). The report is a
+ * transient failure of the whole source, so carryOver keeps its roles as it
+ * keeps those of a failed feed. A source the run did not fetch has no entry
+ * in `runs` and is not judged.
+ */
+export function emptyAnswers(runs: Array<{ id: SourceId; fetched: number }>, previous: Job[]): FeedFailure[] {
+  const held = new Set(previous.map((job) => job.source));
+  return runs
+    .filter((run) => run.fetched === 0 && held.has(run.id))
+    .map((run) => ({ source: run.id, unit: SOURCE_UNIT, transient: true, message: "the source answered with no roles" }));
 }
 
 /**
@@ -207,7 +275,7 @@ export function computeStats(
       medianPostedAgeDays: ages.length > 0 ? ages[Math.floor(ages.length / 2)] : 0,
     };
   }
-  const carriedTotal = Object.values(carry?.carriedBySource ?? {}).reduce((sum, count) => sum + count, 0);
+  const carriedTotal = carriedCount(carry?.carriedBySource ?? {});
   return {
     bySourceQuality,
     generatedAt,
@@ -263,8 +331,9 @@ async function main() {
   );
 
   const prevEnvelope = loadPrevEnvelope();
-  const existing = new Map<string, Job>((prevEnvelope?.jobs ?? []).map((job) => [job.id, job]));
+  const previous = indexPrevious(prevEnvelope?.jobs ?? []);
   const allJobs: Job[] = [];
+  const runs: Array<{ id: SourceId; fetched: number }> = [];
   let dropped = 0;
 
   for (const connector of connectors) {
@@ -274,7 +343,7 @@ async function main() {
     const rememberSourceVisa = visaFeedFailed(failures);
     let kept = 0;
     for (const raw of rawJobs) {
-      const priorJob = existing.get(stableIdForRaw(raw));
+      const priorJob = previousOfRaw(raw, now, previous);
       const job = normalizeJob(raw, now, priorJob, rememberSourceVisa ? { rememberSourceVisa: true } : undefined);
       if (!job) {
         dropped += 1;
@@ -283,42 +352,36 @@ async function main() {
       allJobs.push(job);
       kept += 1;
     }
+    runs.push({ id: connector.id, fetched: rawJobs.length });
     console.log(`[${connector.id}] ${rawJobs.length} fetched, ${kept} in scope`);
   }
 
   // the first night of a source tag is carried from the stored merged record
   // before the stamp comparison, so an unchanged role stays byte-identical
-  const fresh = dedupeJobs(allJobs).map((job) => stableJob(job, existing));
-  const fetchedSources = connectors.map((connector) => connector.id);
+  const fresh = dedupeJobs(allJobs).map((job) => stableJob(job, previous.byId));
+  const judged = previousOfSources(prevEnvelope?.jobs ?? [], connectors.map((connector) => connector.id));
+  for (const failure of emptyAnswers(runs, judged)) reportFailure(failure);
   const carried = carryOver({
-    // only the sources fetched tonight are judged: a run with --only never speaks for the rest
-    previous: previousOfSources(prevEnvelope?.jobs ?? [], fetchedSources),
+    previous: judged,
     previousGeneratedAt: prevEnvelope?.generatedAt,
     fresh,
     failures,
     now,
   });
   const failedFeeds = new Set(failures.map((failure) => `${failure.source}/${failure.unit}`)).size;
-  if (failedFeeds > 0) {
-    console.log(`[carry] ${carried.jobs.length} roles kept from the previous refresh after ${failedFeeds} failed feeds`);
-  }
-  if (carried.graceCount > 0) {
-    console.log(`[grace] ${carried.graceCount} roles kept for two nights after leaving their feed`);
-  }
+  for (const line of carryLines(carried, failedFeeds)) console.log(line);
   // a carried or grace record is stored as it was, so it joins after the dedupe
   const finalJobs = [...fresh, ...carried.jobs];
   finalJobs.sort((a, b) => (a.postedAt === b.postedAt ? a.id.localeCompare(b.id) : a.postedAt < b.postedAt ? 1 : -1));
 
   if (shouldRunSanityGate({ smoke, only: Boolean(only), force: args.includes("--force") })) {
-    const problems = datasetProblems(finalJobs, loadPrevStats(), carried.jobs.length);
+    const problems = datasetProblems(finalJobs, loadPrevStats(), carriedCount(carried.carriedBySource));
     if (problems.length > 0) {
       for (const problem of problems) console.error(`[sanity] ${problem.rule}: ${problem.detail}`);
       throw new Error("Dataset sanity check failed; refusing to write. Re-run with --force to override.");
     }
   }
 
-  // a quiet run whose content is byte-identical, lastSeenAt aside, keeps the
-  // previous stamp and records, so the workflow's no-change check can fire
   const { jobs, generatedAt: stamp } = settleNight(finalJobs, prevEnvelope, now);
 
   if (smoke) {
