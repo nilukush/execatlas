@@ -92,4 +92,20 @@ describe("scripts/ingest/run entry point", () => {
     const stored = JSON.parse(JSON.stringify(entry.toIndexEntry(job)));
     expect(stored).not.toHaveProperty("sourceHome");
   });
+
+  describe("selectConnectors", () => {
+    const all = [{ id: "greenhouse" }, { id: "himalayas" }];
+
+    it("keeps every connector when no source is named", () => {
+      expect(entry.selectConnectors(all, null)).toEqual(all);
+    });
+
+    it("keeps only the connector that a --only id names", () => {
+      expect(entry.selectConnectors(all, "himalayas")).toEqual([{ id: "himalayas" }]);
+    });
+
+    it("refuses an id that matches no connector, naming it, instead of running nothing", () => {
+      expect(() => entry.selectConnectors(all, "linkedin")).toThrow(/linkedin/);
+    });
+  });
 });

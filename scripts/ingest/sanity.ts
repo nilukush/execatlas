@@ -1,12 +1,15 @@
 import type { DatasetStats } from "../../src/lib/types";
 
 export interface SanityProblem {
-  rule: "empty" | "total-floor" | "source-floor" | "minimum";
+  rule: "empty" | "total-floor" | "source-floor" | "minimum" | "carried-share";
   detail: string;
 }
 
 /** Sources at or above this previous count are floor-checked; smaller ones swing and drought naturally. */
 const LARGE_SOURCE = 20;
+
+/** Carried roles may fill at most this share of the final dataset. */
+const MAX_CARRIED_SHARE_PERCENT = 40;
 
 function countBySource(jobs: Array<{ source?: string }>): Record<string, number> {
   const bySource: Record<string, number> = {};
@@ -19,14 +22,25 @@ function countBySource(jobs: Array<{ source?: string }>): Record<string, number>
 /**
  * Guards the nightly publish: a collapsed dataset (blocked source IPs, changed
  * API shapes, rate limits) must abort the run instead of shipping to the site.
+ * The floors read the final counts, carried roles included; a dataset that
+ * leans on carried roles for more than 40 percent is a collapse in slow
+ * motion and aborts as well.
  */
 export function datasetProblems(
   jobs: Array<{ source?: string }> | null | undefined,
-  prev?: DatasetStats | null
+  prev?: DatasetStats | null,
+  carriedCount = 0
 ): SanityProblem[] {
   const problems: SanityProblem[] = [];
   if (!jobs || jobs.length === 0) {
     return [{ rule: "empty", detail: "dataset is empty" }];
+  }
+  // whole numbers on both sides, so exactly the allowed share passes
+  if (carriedCount * 100 > jobs.length * MAX_CARRIED_SHARE_PERCENT) {
+    problems.push({
+      rule: "carried-share",
+      detail: `${carriedCount} of ${jobs.length} jobs are carried from the previous refresh, above ${MAX_CARRIED_SHARE_PERCENT} percent`,
+    });
   }
   if (prev) {
     const floor = Math.ceil(prev.total / 2);

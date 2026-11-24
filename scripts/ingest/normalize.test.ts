@@ -1,6 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { dedupeJobs } from "./dedupe";
-import { normalizeJob, stableUpdatedAt, stableVisaDeclaredAt } from "./normalize";
+import {
+  normalizeJob,
+  stableId,
+  stableIdForRaw,
+  stableJob,
+  stableUpdatedAt,
+  stableVisaDeclaredAt,
+} from "./normalize";
 import type { Job, RawJob } from "../../src/lib/types";
 
 const NOW = "2026-09-06T10:00:00.000Z";
@@ -357,5 +364,94 @@ describe("feed and source home carried from the raw job", () => {
     const stored = JSON.parse(JSON.stringify(normalizeJob(makeRaw(), NOW)));
     expect(stored).not.toHaveProperty("sourceHome");
     expect(stored).not.toHaveProperty("feedUnit");
+  });
+});
+
+describe("rememberSourceVisa: the visa feed failed tonight", () => {
+  const NIGHT_ONE = "2026-09-06T10:00:00.000Z";
+  const NIGHT_TWO = "2026-09-13T10:00:00.000Z";
+  const QUIET = "<p>Lead the org.</p>";
+
+  function storedTag(): Job {
+    return normalizeJob(makeRaw({ descriptionHtml: QUIET, visaHint: true }), NIGHT_ONE)!;
+  }
+
+  it("keeps the stored source tag when the raw job carries none and the posting says nothing", () => {
+    const remembered = normalizeJob(makeRaw({ descriptionHtml: QUIET }), NIGHT_TWO, storedTag(), {
+      rememberSourceVisa: true,
+    })!;
+    expect(remembered.visa).toBe("yes");
+    expect(remembered.visaBasis).toBe("source");
+    expect(remembered.visaEvidence).toBeNull();
+    expect(remembered.visaDeclaredAt).toBe(NIGHT_ONE);
+    // the record is byte-identical to the stored one, so a quiet ingest can skip the commit
+    expect(remembered.updatedAt).toBe(NIGHT_ONE);
+  });
+
+  it("reads an unknown signal again without the option", () => {
+    const forgotten = normalizeJob(makeRaw({ descriptionHtml: QUIET }), NIGHT_TWO, storedTag())!;
+    expect(forgotten.visa).toBe("unknown");
+    expect(forgotten.visaBasis).toBeUndefined();
+    expect(forgotten.visaDeclaredAt).toBeUndefined();
+  });
+
+  it("remembers nothing from a stored record that does not stand on a source tag", () => {
+    const plain = normalizeJob(makeRaw({ descriptionHtml: QUIET }), NIGHT_ONE)!;
+    const job = normalizeJob(makeRaw({ descriptionHtml: QUIET }), NIGHT_TWO, plain, { rememberSourceVisa: true })!;
+    expect(job.visa).toBe("unknown");
+    expect(job.visaBasis).toBeUndefined();
+  });
+
+  it("dates a remembered tag with the run time when the stored record has no date", () => {
+    const undated: Job = { ...storedTag(), visaDeclaredAt: undefined };
+    const job = normalizeJob(makeRaw({ descriptionHtml: QUIET }), NIGHT_TWO, undated, { rememberSourceVisa: true })!;
+    expect(job.visaDeclaredAt).toBe(NIGHT_TWO);
+  });
+
+  it("lets a refusal in the posting beat the remembered tag", () => {
+    const REFUSAL = "We do not sponsor visas.";
+    const job = normalizeJob(makeRaw({ descriptionHtml: `<p>${REFUSAL}</p>` }), NIGHT_TWO, storedTag(), {
+      rememberSourceVisa: true,
+    })!;
+    expect(job.visa).toBe("no");
+    expect(job.visaBasis).toBe("posting");
+    expect(job.visaEvidence).toBe(REFUSAL);
+    expect(job.visaDeclaredAt).toBeUndefined();
+  });
+
+  it("lets an affirmation in the posting beat the remembered tag", () => {
+    const job = normalizeJob(makeRaw(), NIGHT_TWO, storedTag(), { rememberSourceVisa: true })!;
+    expect(job.visa).toBe("yes");
+    expect(job.visaBasis).toBe("posting");
+    expect(job.visaEvidence).toBe("Visa sponsorship available for exceptional candidates.");
+    expect(job.visaDeclaredAt).toBeUndefined();
+  });
+});
+
+describe("stableIdForRaw", () => {
+  it("builds the lookup key of a raw job from the decoded company and title, as the stored id is built", () => {
+    const raw = makeRaw({ title: "VP of Engineering &amp; Product", company: "Acme &amp; Co" });
+    expect(stableIdForRaw(raw)).toBe(normalizeJob(raw, NOW)?.id);
+    // the undecoded form is another key: it would miss the previous record every night
+    expect(stableIdForRaw(raw)).not.toBe(stableId(raw.company, raw.title, raw.source, raw.externalId));
+  });
+});
+
+describe("stableJob", () => {
+  it("restores the kept tag date before the content comparison, so an unchanged merged record keeps its stamp", () => {
+    const nightOne = "2026-09-06T10:00:00.000Z";
+    const nightTwo = "2026-09-13T10:00:00.000Z";
+    const richer = makeRaw({
+      descriptionHtml:
+        "<h3>Requirements</h3><ul><li>10+ years in engineering leadership</li><li>Scale experience</li></ul><p>Lead the org.</p>",
+    });
+    const tagged = makeRaw({ source: "arbeitnow", externalId: "ab-1", descriptionHtml: "<p>Lead the org.</p>", visaHint: true });
+    const first = dedupeJobs([normalizeJob(richer, nightOne)!, normalizeJob(tagged, nightOne)!])[0];
+    const stored = new Map([[first.id, first]]);
+    const again = dedupeJobs([normalizeJob(richer, nightTwo, first)!, normalizeJob(tagged, nightTwo)!])[0];
+
+    // swapped, the comparison reads tonight's date as a change and keeps tonight's stamp
+    expect(stableVisaDeclaredAt(stableUpdatedAt(again, stored), stored).updatedAt).toBe(nightTwo);
+    expect(stableJob(again, stored)).toEqual(first);
   });
 });

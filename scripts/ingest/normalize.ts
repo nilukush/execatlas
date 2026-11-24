@@ -67,35 +67,48 @@ function tagDate(previous: Job | undefined, tonight: string | undefined): string
  * The visa signal with the facts behind it. A refusal or an affirmation in
  * the posting beats a source tag (Arbeitnow visa filter); a tag stands on
  * its own only when the posting has no visa words, and is dated with the
- * first night the tag was seen.
+ * first night the tag was seen. When the tagged feed failed tonight the
+ * raw job carries no tag: the stored tag then stands in for it.
  */
 function visaSignal(
   text: string,
   tagged: boolean,
   now: string,
-  previous?: Job
+  previous: Job | undefined,
+  rememberSourceVisa: boolean
 ): Pick<Job, "visa" | "visaBasis" | "visaEvidence" | "visaDeclaredAt"> {
   const visa = detectVisa(text);
   if (visa !== "unknown") {
     return { visa, visaBasis: "posting", visaEvidence: visaEvidence(text), visaDeclaredAt: undefined };
   }
-  if (tagged) {
+  const remembered = rememberSourceVisa && previous?.visaBasis === "source" && previous.visa === "yes";
+  if (tagged || remembered) {
     return { visa: "yes", visaBasis: "source", visaEvidence: null, visaDeclaredAt: tagDate(previous, now) };
   }
   return { visa, visaBasis: undefined, visaEvidence: null, visaDeclaredAt: undefined };
+}
+
+/** The company and title as every later step reads them: decoded, then trimmed. */
+function decodedNames(raw: RawJob): { company: string; title: string } {
+  return { company: decodeEntities(raw.company).trim(), title: decodeEntities(raw.title).trim() };
 }
 
 /**
  * Turns a connector's raw job into a canonical, enriched Job record.
  * Returns null when the job falls outside the product scope: leadership
  * titles only, locations within the six supported regions (or remote),
- * and a plain web apply URL.
+ * and a plain web apply URL. `rememberSourceVisa` keeps a stored source
+ * tag on a night the tagged feed failed.
  */
-export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | null {
+export function normalizeJob(
+  raw: RawJob,
+  now: string,
+  existing?: Job,
+  options: { rememberSourceVisa?: boolean } = {}
+): Job | null {
   // decode before anything downstream reads the title or company: the
   // classifier, ids and dedupe keys must all see clean text
-  const title = decodeEntities(raw.title).trim();
-  const company = decodeEntities(raw.company).trim();
+  const { company, title } = decodedNames(raw);
   const classification = classifyTitle(title);
   if (!classification) return null;
   if (!isWebUrl(raw.applyUrl)) return null;
@@ -148,7 +161,7 @@ export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | nu
     },
     seniority: classification.seniority,
     domain: classification.domain,
-    ...visaSignal(parsed.text, raw.visaHint === true, now, existing),
+    ...visaSignal(parsed.text, raw.visaHint === true, now, existing, options.rememberSourceVisa === true),
     relocation,
     relocationEvidence: relocationEvidence(parsed.text),
     workMode: work.mode,
@@ -198,6 +211,25 @@ export function stableVisaDeclaredAt(job: Job, prevById: Map<string, Job>): Job 
   if (job.visaBasis !== "source") return job;
   const visaDeclaredAt = tagDate(prevById.get(job.id), job.visaDeclaredAt);
   return visaDeclaredAt === job.visaDeclaredAt ? job : { ...job, visaDeclaredAt };
+}
+
+/**
+ * The key that finds a raw job's previous record (ruling R34). It is built
+ * from the decoded company and title, exactly as the stored id is, so a
+ * title with an entity finds its record and keeps its first night.
+ */
+export function stableIdForRaw(raw: RawJob): string {
+  const { company, title } = decodedNames(raw);
+  return stableId(company, title, raw.source, raw.externalId);
+}
+
+/**
+ * The post-dedupe stability step in its one correct order (ruling R34): the
+ * kept tag date must be in place before the content comparison, or a merged
+ * record whose date is only restored afterwards reads as changed.
+ */
+export function stableJob(job: Job, prevById: Map<string, Job>): Job {
+  return stableUpdatedAt(stableVisaDeclaredAt(job, prevById), prevById);
 }
 
 function contentSignature(job: Job): string {

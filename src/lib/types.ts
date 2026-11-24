@@ -124,6 +124,10 @@ export interface Job {
   posterUrl?: string;
   feedUnit?: string;
   sourceHome?: string;
+  /** Nights in a row this record was kept from the previous refresh after its feed failed. Absent while its feed lists it. */
+  carriedNights?: number;
+  /** The stamp of the last dataset whose feed listed the role. Set the first night the record is carried. */
+  lastSeenAt?: string;
 }
 
 /** Compact card/search index entry derived from a Job. */
@@ -192,4 +196,8 @@ export interface DatasetStats {
   byVisa: Record<string, number>;
   countries: number;
   bySourceQuality?: Record<string, SourceQuality>;
+  /** Roles kept from the previous refresh because their feed failed, counted per source. */
+  carried?: { total: number; bySource: Record<string, number> };
+  /** Every feed that failed in the run, transient or not. */
+  failedFeeds?: Array<{ source: string; unit: string; status?: number; transient: boolean; message: string }>;
 }

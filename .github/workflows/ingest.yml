@@ -31,6 +31,60 @@ jobs:
       - run: corepack enable
       - run: pnpm install --frozen-lockfile
       - run: pnpm ingest
+      # A failed feed keeps its previous roles for up to three nights (issues 46, 47, 59).
+      # Each night that stands on carried roles or lost a feed is recorded in the
+      # tracking issue. The step only reports, so it must never fail the run.
+      - name: Report carried roles and failed feeds in the tracking issue
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          RUN_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          BODY=$(node -e '
+            const stats = require("./data/generated/stats.json");
+            const carried = stats.carried ?? { total: 0, bySource: {} };
+            const failedFeeds = stats.failedFeeds ?? [];
+            if (carried.total < 1 && failedFeeds.length === 0) process.exit(0);
+            const headline =
+              carried.total > 0
+                ? "Ingest kept " + carried.total + " roles from the previous refresh after " + failedFeeds.length + " failed feeds."
+                : "Ingest lost " + failedFeeds.length + " feeds and carried no roles.";
+            const bySource = Object.entries(carried.bySource).map(([source, count]) => source + " " + count).join(", ");
+            const feeds = failedFeeds.map(
+              (feed) =>
+                "- " +
+                feed.source +
+                " " +
+                feed.unit +
+                ": " +
+                (feed.transient ? "transient" : "not transient") +
+                (feed.status ? " (HTTP " + feed.status + ")" : "") +
+                ": " +
+                feed.message
+            );
+            console.log(
+              [
+                headline + " (issues 46, 47, 59)",
+                "Dataset generated at " + stats.generatedAt + ".",
+                "Carried by source: " + (bySource || "none"),
+                "Failed feeds:",
+                ...feeds,
+                "Run: " + process.argv[1],
+              ].join("\n")
+            );
+          ' "$RUN_URL")
+          if [ -z "$BODY" ]; then
+            echo "No carried roles and no failed feeds; nothing to report."
+            exit 0
+          fi
+          TITLE="Ingest pipeline failure tracker"
+          # an absent issue must answer nothing: a bare .[0].number prints null
+          NUMBER=$(gh issue list --state open --search "in:title \"$TITLE\"" --json number --limit 1 --jq '.[0].number // empty')
+          if [ -z "$NUMBER" ]; then
+            echo "No open issue titled \"$TITLE\"; nothing commented."
+            exit 0
+          fi
+          gh issue comment "$NUMBER" --body "$BODY"
       - run: npx tsc --noEmit
       - run: pnpm test
       - run: pnpm build
