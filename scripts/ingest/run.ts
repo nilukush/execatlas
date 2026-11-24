@@ -25,7 +25,7 @@ import { leverConnector } from "./connectors/lever";
 import { ashbyConnector } from "./connectors/ashby";
 import { himalayasConnector } from "./connectors/himalayas";
 import { adzunaConnector } from "./connectors/adzuna";
-import { normalizeJob, stableId, stableUpdatedAt } from "./normalize";
+import { normalizeJob, stableId, stableUpdatedAt, stableVisaDeclaredAt } from "./normalize";
 import { dedupeJobs } from "./dedupe";
 import { datasetProblems, shouldRunSanityGate } from "./sanity";
 import { writeJsonAtomic } from "./write";
@@ -187,7 +187,9 @@ async function main() {
     console.log(`[${connector.id}] ${rawJobs.length} fetched, ${kept} in scope`);
   }
 
-  const deduped = dedupeJobs(allJobs).map((job) => stableUpdatedAt(job, existing));
+  // the first night of a source tag is carried from the stored merged record
+  // before the stamp comparison, so an unchanged role stays byte-identical
+  const deduped = dedupeJobs(allJobs).map((job) => stableUpdatedAt(stableVisaDeclaredAt(job, existing), existing));
   deduped.sort((a, b) => (a.postedAt === b.postedAt ? a.id.localeCompare(b.id) : a.postedAt < b.postedAt ? 1 : -1));
 
   if (shouldRunSanityGate({ smoke, only: Boolean(only), force: args.includes("--force") })) {

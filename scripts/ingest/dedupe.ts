@@ -42,6 +42,9 @@ function sourceRank(job: Job): number {
 
 const knows = (signal: VisaSignal | undefined): boolean => signal === "yes" || signal === "no";
 
+/** A refusal read from a posting. In a merge it beats a source tag and an affirmation on any record (ruling R18). */
+const refuses = (job: Job): boolean => job.visa === "no" && job.visaBasis === "posting";
+
 /** A signal travels with the facts behind it: all of them come from the one record that knows it. */
 function visaFacts(job: Job): Pick<Job, "visa" | "visaBasis" | "visaEvidence" | "visaDeclaredAt"> {
   return {
@@ -72,6 +75,9 @@ function mergeJobs(a: Job, b: Job): Job {
     secondary.location.countryIso2
       ? secondary.location
       : primary.location;
+  // a refusal in either posting wins the merge; otherwise the signal of the
+  // primary survives, and a signal the primary lacks comes from the twin
+  const refusal = refuses(primary) ? primary : refuses(secondary) ? secondary : undefined;
   return {
     ...primary,
     location,
@@ -79,7 +85,7 @@ function mergeJobs(a: Job, b: Job): Job {
     firstSeen: elder.firstSeen,
     sources,
     postedAt: primary.postedAt < secondary.postedAt ? primary.postedAt : secondary.postedAt,
-    ...visaFacts(knows(primary.visa) ? primary : secondary),
+    ...visaFacts(refusal ?? (knows(primary.visa) ? primary : secondary)),
     ...relocationFacts(knows(primary.relocation) ? primary : secondary),
     salary: primary.salary ?? secondary.salary,
     experienceMin: primary.experienceMin ?? secondary.experienceMin,
@@ -157,8 +163,10 @@ function collapseCluster(cluster: Job[]): Job {
       applyUrl: job.applyUrl,
     }))
     .sort((a, b) => (a.countryName ?? "").localeCompare(b.countryName ?? ""));
-  // the primary's signals survive; a signal the primary lacks comes from the
-  // first sibling that knows it, once the group keeps at least one variant
+  // a refusal in any posting of the group wins; otherwise the primary's
+  // signals survive, and a signal the primary lacks comes from the first
+  // sibling that knows it, once the group keeps at least one variant
+  const refusal = refuses(primary) ? primary : rest.find(refuses);
   const visaTwin = others.length > 0 ? rest.find((job) => knows(job.visa)) : undefined;
   const relocationTwin = others.length > 0 ? rest.find((job) => knows(job.relocation)) : undefined;
   // the group is one role seen across countries: earliest facts win, as in
@@ -167,7 +175,7 @@ function collapseCluster(cluster: Job[]): Job {
   const earliestPostedAt = cluster.reduce((a, b) => (a.postedAt <= b.postedAt ? a : b)).postedAt;
   return {
     ...primary,
-    ...visaFacts(knows(primary.visa) || !visaTwin ? primary : visaTwin),
+    ...visaFacts(refusal ?? (knows(primary.visa) || !visaTwin ? primary : visaTwin)),
     ...relocationFacts(knows(primary.relocation) || !relocationTwin ? primary : relocationTwin),
     salary: primary.salary ?? rest.find((job) => job.salary)?.salary ?? null,
     postedAt: earliestPostedAt,

@@ -55,20 +55,33 @@ function isValidCurrency(code: string | undefined): code is string {
 }
 
 /**
+ * The date of a source tag (ruling R16): the first night the tag was seen.
+ * The previous record's date is kept when that record already stood on the
+ * tag with a date, so a tagged role stays byte-identical on a quiet night.
+ */
+function tagDate(previous: Job | undefined, tonight: string | undefined): string | undefined {
+  return previous?.visaBasis === "source" && previous.visaDeclaredAt ? previous.visaDeclaredAt : tonight;
+}
+
+/**
  * The visa signal with the facts behind it. A refusal or an affirmation in
  * the posting beats a source tag (Arbeitnow visa filter); a tag stands on
- * its own only when the posting has no visa words, and is dated tonight.
+ * its own only when the posting has no visa words, and is dated with the
+ * first night the tag was seen.
  */
 function visaSignal(
   text: string,
   tagged: boolean,
-  now: string
+  now: string,
+  previous?: Job
 ): Pick<Job, "visa" | "visaBasis" | "visaEvidence" | "visaDeclaredAt"> {
   const visa = detectVisa(text);
   if (visa !== "unknown") {
     return { visa, visaBasis: "posting", visaEvidence: visaEvidence(text), visaDeclaredAt: undefined };
   }
-  if (tagged) return { visa: "yes", visaBasis: "source", visaEvidence: null, visaDeclaredAt: now };
+  if (tagged) {
+    return { visa: "yes", visaBasis: "source", visaEvidence: null, visaDeclaredAt: tagDate(previous, now) };
+  }
   return { visa, visaBasis: undefined, visaEvidence: null, visaDeclaredAt: undefined };
 }
 
@@ -135,7 +148,7 @@ export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | nu
     },
     seniority: classification.seniority,
     domain: classification.domain,
-    ...visaSignal(parsed.text, raw.visaHint === true, now),
+    ...visaSignal(parsed.text, raw.visaHint === true, now, existing),
     relocation,
     relocationEvidence: relocationEvidence(parsed.text),
     workMode: work.mode,
@@ -170,6 +183,19 @@ export function stableUpdatedAt(job: Job, prevById: Map<string, Job>): Job {
     return { ...job, updatedAt: prev.updatedAt };
   }
   return job;
+}
+
+/**
+ * Post-dedupe carry for merged records (ruling R16). run.ts looks a previous
+ * record up by the raw job's own id, while a merged record is stored under
+ * the elder id, so a tag on the other twin cannot keep its date inside
+ * normalizeJob. The merged id is known only here. It runs before
+ * stableUpdatedAt, whose comparison must see the kept date.
+ */
+export function stableVisaDeclaredAt(job: Job, prevById: Map<string, Job>): Job {
+  if (job.visaBasis !== "source") return job;
+  const visaDeclaredAt = tagDate(prevById.get(job.id), job.visaDeclaredAt);
+  return visaDeclaredAt === job.visaDeclaredAt ? job : { ...job, visaDeclaredAt };
 }
 
 function contentSignature(job: Job): string {

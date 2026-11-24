@@ -102,7 +102,7 @@ export interface Job {
   visaBasis?: "posting" | "source";
   /** The sentence behind the visa signal; null when the signal is unknown or stands on a source tag. */
   visaEvidence?: string | null;
-  /** The run time of the night a source tag made the visa signal. */
+  /** The run time of the first night a source tag made the visa signal. It does not move while the tag stays. */
   visaDeclaredAt?: string;
   relocation?: VisaSignal;
   /** The sentence behind the relocation signal; null when the signal is unknown. */

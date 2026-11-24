@@ -214,6 +214,29 @@ describe("signal facts in a merge", () => {
     expect(merged[0].visaDeclaredAt).toBeUndefined();
   });
 
+  it("lets a refusal in a twin beat the tag of the primary", () => {
+    const tagged = job({ source: "arbeitnow", externalId: "ab-1", visaHint: true, descriptionHtml: RICHER });
+    const refusing = job({ source: "workable", externalId: "wk-2", descriptionHtml: "<p>We do not sponsor visas.</p>" });
+    const merged = dedupeJobs([tagged, refusing].filter(notNull));
+    expect(merged).toHaveLength(1);
+    expect(merged[0].source).toBe("arbeitnow");
+    expect(merged[0].visa).toBe("no");
+    expect(merged[0].visaBasis).toBe("posting");
+    expect(merged[0].visaEvidence).toBe("We do not sponsor visas.");
+    expect(merged[0].visaDeclaredAt).toBeUndefined();
+  });
+
+  it("lets a refusal in a twin beat an affirmation in the primary", () => {
+    const affirming = job({ descriptionHtml: `<p>${SPONSORED}</p>${RICHER}` });
+    const refusing = job({ source: "workable", externalId: "wk-2", descriptionHtml: "<p>We do not sponsor visas.</p>" });
+    const merged = dedupeJobs([affirming, refusing].filter(notNull));
+    expect(merged).toHaveLength(1);
+    expect(merged[0].source).toBe("greenhouse");
+    expect(merged[0].visa).toBe("no");
+    expect(merged[0].visaBasis).toBe("posting");
+    expect(merged[0].visaEvidence).toBe("We do not sponsor visas.");
+  });
+
   it("takes the relocation signal and its evidence from the twin that knows them", () => {
     const primary = job({ externalId: "gh-1", descriptionHtml: RICHER });
     const offers = job({ source: "workable", externalId: "wk-2", descriptionHtml: `<p>${OFFER}</p>` });
@@ -284,5 +307,41 @@ describe("signal facts in a variant collapse", () => {
     expect(grouped[0].variants).toHaveLength(1);
     expect(grouped[0].relocation).toBe("yes");
     expect(grouped[0].relocationEvidence).toBe("Relocation support can be provided.");
+  });
+
+  it("lets a refusal in a sibling beat the tag of the primary", () => {
+    // a cluster shares one text, so a tagged member and a refusing member cannot both come from the detectors: the sibling is completed by hand
+    const primary = job({ ...poland, visaHint: true });
+    const refusing = {
+      ...job(spain)!,
+      visa: "no" as const,
+      visaBasis: "posting" as const,
+      visaEvidence: "We do not sponsor visas.",
+    };
+    const grouped = dedupeJobs([primary, refusing].filter(notNull));
+    expect(grouped).toHaveLength(1);
+    expect(grouped[0].applyUrl).toBe("https://acme.example/poland");
+    expect(grouped[0].variants).toHaveLength(1);
+    expect(grouped[0].visa).toBe("no");
+    expect(grouped[0].visaBasis).toBe("posting");
+    expect(grouped[0].visaEvidence).toBe("We do not sponsor visas.");
+  });
+
+  it("keeps the refusal of the primary over a tagged sibling", () => {
+    // the sibling is completed by hand for the same reason as above
+    const refusal = "<p>We do not sponsor visas.</p>";
+    const primary = job({ ...poland, descriptionHtml: refusal });
+    const tagged = {
+      ...job({ ...spain, descriptionHtml: refusal })!,
+      visa: "yes" as const,
+      visaBasis: "source" as const,
+      visaEvidence: null,
+    };
+    const grouped = dedupeJobs([primary, tagged].filter(notNull));
+    expect(grouped).toHaveLength(1);
+    expect(grouped[0].applyUrl).toBe("https://acme.example/poland");
+    expect(grouped[0].visa).toBe("no");
+    expect(grouped[0].visaBasis).toBe("posting");
+    expect(grouped[0].visaEvidence).toBe("We do not sponsor visas.");
   });
 });

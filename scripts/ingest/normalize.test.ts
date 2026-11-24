@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { dedupeJobs } from "./dedupe";
-import { normalizeJob, stableUpdatedAt } from "./normalize";
+import { normalizeJob, stableUpdatedAt, stableVisaDeclaredAt } from "./normalize";
 import type { Job, RawJob } from "../../src/lib/types";
 
 const NOW = "2026-09-06T10:00:00.000Z";
@@ -72,6 +72,26 @@ describe("visa basis and evidence", () => {
     expect(job?.visaBasis).toBe("source");
     expect(job?.visaEvidence).toBeNull();
     expect(job?.visaDeclaredAt).toBe(NOW);
+  });
+
+  it("keeps the first night of a source tag while the tag stays", () => {
+    const tagged = makeRaw({ descriptionHtml: "<p>Lead the org.</p>", visaHint: true });
+    const first = normalizeJob(tagged, "2026-09-06T10:00:00.000Z")!;
+    const nextNight = normalizeJob(tagged, "2026-09-13T10:00:00.000Z", first)!;
+    expect(nextNight.visaDeclaredAt).toBe("2026-09-06T10:00:00.000Z");
+    // the record is byte-identical, so a quiet ingest can skip the commit
+    expect(nextNight.updatedAt).toBe(first.updatedAt);
+  });
+
+  it("dates a source tag with the run time when the previous record did not stand on the tag", () => {
+    const before = normalizeJob(makeRaw({ descriptionHtml: "<p>Lead the org.</p>" }), "2026-09-06T10:00:00.000Z")!;
+    expect(before.visaBasis).toBeUndefined();
+    const tagged = normalizeJob(
+      makeRaw({ descriptionHtml: "<p>Lead the org.</p>", visaHint: true }),
+      "2026-09-13T10:00:00.000Z",
+      before
+    )!;
+    expect(tagged.visaDeclaredAt).toBe("2026-09-13T10:00:00.000Z");
   });
 
   it("lets a refusal in the posting beat the source tag", () => {
@@ -207,6 +227,32 @@ describe("normalizeJob", () => {
     // the post-dedupe guard restores the stored merged record's stamp
     const stabilized = stableUpdatedAt(remerged[0], new Map([[stored.id, stored]]));
     expect(stabilized.updatedAt).toBe(stored.updatedAt);
+  });
+
+  it("keeps the first night of a source tag on a merged record stored under the elder id", () => {
+    const nightOne = "2026-09-06T10:00:00.000Z";
+    const nightTwo = "2026-09-13T10:00:00.000Z";
+    const richer = makeRaw({
+      descriptionHtml:
+        "<h3>Requirements</h3><ul><li>10+ years in engineering leadership</li><li>Scale experience</li></ul><p>Lead the org.</p>",
+    });
+    const tagged = makeRaw({ source: "arbeitnow", externalId: "ab-1", descriptionHtml: "<p>Lead the org.</p>", visaHint: true });
+    // night one: the greenhouse twin is the elder, so the merged record is stored under its id
+    const first = dedupeJobs([normalizeJob(richer, nightOne)!, normalizeJob(tagged, nightOne)!])[0];
+    expect(first.source).toBe("greenhouse");
+    expect(first.visaBasis).toBe("source");
+    expect(first.visaDeclaredAt).toBe(nightOne);
+    const stored = new Map([[first.id, first]]);
+    // night two: the tagged raw finds no previous record under its own id, so its date is tonight
+    const elder = normalizeJob(richer, nightTwo, stored.get(first.id))!;
+    const junior = normalizeJob(tagged, nightTwo)!;
+    expect(junior.id).not.toBe(first.id);
+    const again = dedupeJobs([elder, junior])[0];
+    expect(again.id).toBe(first.id);
+    expect(again.visaDeclaredAt).toBe(nightTwo);
+    const carried = stableVisaDeclaredAt(again, stored);
+    expect(carried.visaDeclaredAt).toBe(nightOne);
+    expect(stableUpdatedAt(carried, stored).updatedAt).toBe(first.updatedAt);
   });
 
   it("drops titles outside the leadership scope", () => {
