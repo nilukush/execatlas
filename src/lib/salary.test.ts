@@ -44,6 +44,12 @@ describe("isPlausibleBand", () => {
     ["rejects a negative maximum in a currency with no exchange rate", stated(5, -100, "XXX", "annual"), false],
     ["rejects NaN as the minimum in a currency with no exchange rate", stated(NaN, 150000, "XXX", "annual"), false],
     ["rejects NaN as the maximum in a currency with no exchange rate", stated(150000, NaN, "XXX", "annual"), false],
+    ["rejects Infinity as the minimum", stated(Infinity, 150000, "USD", "annual"), false],
+    ["rejects Infinity as the maximum", stated(150000, Infinity, "USD", "annual"), false],
+    ["rejects Infinity as the minimum in a currency with no exchange rate", stated(Infinity, 150000, "XXX", "annual"), false],
+    ["rejects Infinity as the maximum in a currency with no exchange rate", stated(150000, Infinity, "XXX", "annual"), false],
+    ["rejects USD 150,000 to 100,000, a maximum below the minimum", stated(150000, 100000, "USD", "annual"), false],
+    ["rejects 5 to 0 in a currency with no exchange rate, a maximum below the minimum", stated(5, 0, "XXX", "annual"), false],
   ];
 
   it.each(cases)("%s", (_label, band, expected) => {
@@ -64,6 +70,10 @@ describe("parseStatedSalary", () => {
     ["SGD 18,000 - 25,000 monthly", { min: 18000, max: 25000, currency: "SGD", period: "monthly" }],
     ["€90,000/year", { min: 90000, max: 90000, currency: "EUR", period: "annual" }],
     ["Compensation range: €100,000 – €140,000", { min: 100000, max: 140000, currency: "EUR", period: "annual" }],
+    // an em dash between two figures separates a range as a hyphen or an en dash does
+    ["Compensation range: $200,000 \u2014 $250,000 per year", { min: 200000, max: 250000, currency: "USD", period: "annual" }],
+    ["Compensation ₹50 \u2014 ₹70 LPA", { min: 5000000, max: 7000000, currency: "INR", period: "annual" }],
+    ["Salary $0 \u2014 $150,000 per year", null],
     ["₹ 80,00,000 - 1,20,00,000 P.A.", { min: 8000000, max: 12000000, currency: "INR", period: "annual" }],
     ["₹80 LPA to ₹120 LPA", { min: 8000000, max: 12000000, currency: "INR", period: "annual" }],
     ["Competitive salary", null],

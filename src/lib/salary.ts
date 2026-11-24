@@ -138,7 +138,7 @@ const MONTHLY_RE = /\bper\s+month\b|\bmonthly\b|\/\s*(?:mo|month)\b|\bpm\b/i;
 // a suffix must stand alone so "monthly" never reads as the m multiplier
 const SUFFIX = "([kKmM](?![a-zA-Z0-9]))";
 const RANGE_RE = new RegExp(
-  `(\\d[\\d,.]*)\\s*${SUFFIX}?\\s*(?:-|–|—|\\bto\\b)\\s*(?:[$£€₹]|\\b[A-Z]{3}\\b)?\\s*(\\d[\\d,.]*)\\s*${SUFFIX}?`,
+  `(\\d[\\d,.]*)\\s*${SUFFIX}?\\s*(?:-|–|\u2014|\\bto\\b)\\s*(?:[$£€₹]|\\b[A-Z]{3}\\b)?\\s*(\\d[\\d,.]*)\\s*${SUFFIX}?`,
   "g"
 );
 const SINGLE_RE = new RegExp(
@@ -185,7 +185,7 @@ function parseLakhRange(text: string): StatedSalary | null {
   // suffix itself carries the INR currency. Bare "l" stays out of this branch
   // so "20 to 30 L&D" style text can never read as a lakh range.
   const rangeM = text.match(
-    /(?:₹|\bINR\b)?\s*([\d]+(?:\.\d+)?)\s*(?:-|–|—|\bto\b)\s*(?:₹|\bINR\b)?\s*([\d]+(?:\.\d+)?)\s*(?:LPA|lakhs?)\b/i
+    /(?:₹|\bINR\b)?\s*([\d]+(?:\.\d+)?)\s*(?:-|–|\u2014|\bto\b)\s*(?:₹|\bINR\b)?\s*([\d]+(?:\.\d+)?)\s*(?:LPA|lakhs?)\b/i
   );
   if (rangeM) {
     return {
@@ -247,7 +247,7 @@ export function parseStatedSalary(text: string): StatedSalary | null {
     // a figure that is the upper tail of a rejected range (for example the
     // $150,000 in "$0 - $150,000") is not an independent stated salary
     const preceded = text.slice(Math.max(0, (m.index ?? 0) - 24), m.index ?? 0);
-    if (/\d[\d,.]*\s*[kKmM]?\s*(?:-|–|—|\bto\b)\s*$/i.test(preceded)) continue;
+    if (/\d[\d,.]*\s*[kKmM]?\s*(?:-|–|\u2014|\bto\b)\s*$/i.test(preceded)) continue;
     const amount = toNumber(m[2], m[3]);
     if (!Number.isFinite(amount)) continue;
     // a zero amount is benefits boilerplate, not a stated salary
@@ -275,7 +275,7 @@ function currencyInside(match: string): string | null {
 // Plausibility of a stated band
 // ---------------------------------------------------------------------------
 
-const FX_RATES = (fxData as { rates: Record<string, number> }).rates;
+export const FX_RATES = (fxData as { rates: Record<string, number> }).rates;
 
 /** Annual band ceiling in US dollars; above it the figure is revenue or funding. */
 const MAX_ANNUAL_USD = 2_000_000;
@@ -286,13 +286,13 @@ const MAX_SPREAD = 10;
 
 /**
  * False when a stated band cannot be a salary. A minimum of zero or less, a
- * negative maximum or a value that is not a finite number gives false. Else
- * the annual maximum in US dollars must lie from MIN_ANNUAL_USD up to
- * MAX_ANNUAL_USD, and the maximum may be at most MAX_SPREAD times the minimum.
- * A currency without a vendored rate cannot be judged, so it passes.
+ * maximum below the minimum or a value that is not a finite number gives
+ * false. Else the annual maximum in US dollars must lie from MIN_ANNUAL_USD up
+ * to MAX_ANNUAL_USD, and the maximum may be at most MAX_SPREAD times the
+ * minimum. A currency without a vendored rate cannot be judged, so it passes.
  */
 export function isPlausibleBand(band: SalaryBand): boolean {
-  if (!Number.isFinite(band.min) || !Number.isFinite(band.max) || band.min <= 0 || band.max < 0) {
+  if (!Number.isFinite(band.min) || !Number.isFinite(band.max) || band.min <= 0 || band.max < band.min) {
     return false;
   }
   const rate = FX_RATES[band.currency];
