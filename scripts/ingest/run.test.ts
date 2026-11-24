@@ -93,6 +93,45 @@ describe("scripts/ingest/run entry point", () => {
     expect(stored).not.toHaveProperty("sourceHome");
   });
 
+  describe("collected failures", () => {
+    it("stores a reported failure with the query string of its URL removed, and so with no key", () => {
+      const { failures, reportFailure } = entry.failureCollector();
+      reportFailure({
+        source: "adzuna",
+        unit: "gb/engineering director",
+        status: 429,
+        transient: true,
+        message: "https://api.example.test/search?app_id=abc123&app_key=SECRETVALUE&what=x",
+      });
+      expect(failures).toHaveLength(1);
+      expect(failures[0].message).toBe("https://api.example.test/search");
+      expect(failures[0]).toMatchObject({
+        source: "adzuna",
+        unit: "gb/engineering director",
+        status: 429,
+        transient: true,
+      });
+      expect(JSON.stringify(failures)).not.toContain("SECRETVALUE");
+      expect(JSON.stringify(failures)).not.toContain("app_key");
+    });
+
+    it("keeps a message that holds no query string as it was, and collects every report in order", () => {
+      const { failures, reportFailure } = entry.failureCollector();
+      reportFailure({
+        source: "greenhouse",
+        unit: "stripe",
+        status: 404,
+        transient: false,
+        message: "HTTP 404 for https://boards-api.greenhouse.io/v1/boards/stripe/jobs",
+      });
+      reportFailure({ source: "arbeitnow", unit: "page-1", transient: true, message: "boom" });
+      expect(failures.map((failure) => failure.message)).toEqual([
+        "HTTP 404 for https://boards-api.greenhouse.io/v1/boards/stripe/jobs",
+        "boom",
+      ]);
+    });
+  });
+
   describe("selectConnectors", () => {
     const all = [{ id: "greenhouse" }, { id: "himalayas" }];
 

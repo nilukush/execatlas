@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { cachedFetchJson } from "./http";
+import { cachedFetchJson, withoutQueryString } from "./http";
 import type { FeedFailure, FetchDeps } from "./http";
 import {
   GREENHOUSE_TOKENS,
@@ -62,6 +62,22 @@ function loadPrevStats(): DatasetStats | null {
   } catch {
     return null;
   }
+}
+
+/**
+ * Where every failed feed lands, and the only way into the failure list. A
+ * message loses the query string of every http and https URL it holds before
+ * it is stored, so no key a request sent can reach stats.json, the console
+ * or the tracking issue.
+ */
+export function failureCollector(): { failures: FeedFailure[]; reportFailure: (failure: FeedFailure) => void } {
+  const failures: FeedFailure[] = [];
+  return {
+    failures,
+    reportFailure: (failure) => {
+      failures.push({ ...failure, message: withoutQueryString(failure.message) });
+    },
+  };
 }
 
 export function toIndexEntry(job: Job): IndexEntry {
@@ -177,13 +193,8 @@ async function main() {
   console.log(`Ingest started at ${now}${smoke ? " (smoke mode)" : ""}`);
 
   // every failed feed lands here: what it holds decides what is carried tonight
-  const failures: FeedFailure[] = [];
-  const deps: FetchDeps = {
-    fetchJson: cachedFetchJson,
-    reportFailure: (failure) => {
-      failures.push(failure);
-    },
-  };
+  const { failures, reportFailure } = failureCollector();
+  const deps: FetchDeps = { fetchJson: cachedFetchJson, reportFailure };
   const connectors = selectConnectors(
     [
       greenhouseConnector(deps, { tokens: smoke ? ["stripe"] : GREENHOUSE_TOKENS }),

@@ -2,7 +2,7 @@ import { describe, expect, it, vi, beforeEach, afterEach } from "vitest";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { cacheFilePath, cachedFetchJson } from "./http";
+import { cacheFilePath, cachedFetchJson, withoutQueryString } from "./http";
 import type { FetchError } from "./http";
 
 // tests get their own cache root so a crash can never litter the live cache
@@ -212,6 +212,46 @@ describe("cachedFetchJson retries", () => {
     expect(waits).toHaveLength(1);
     expect(error.status).toBeUndefined();
     expect(error.transient).toBe(true);
+  });
+});
+
+describe("a failure message names no query string", () => {
+  const key = "SECRETVALUE";
+
+  it("holds neither the query string of a failed request nor any of its parameter values", async () => {
+    const { get } = request([{ status: 429 }]);
+    const error = await failure(get(`https://retry.unit-test.example/always-429?app_id=abc123&app_key=${key}&what=x`));
+    expect(error.status).toBe(429);
+    expect(error.message).toBe("HTTP 429 for https://retry.unit-test.example/always-429");
+    expect(error.message).not.toContain("?");
+    expect(error.message).not.toContain(key);
+    expect(error.message).not.toContain("abc123");
+  });
+
+  it("keeps the detail that follows the URL in a network error", async () => {
+    const { get } = request(["reject"]);
+    const error = await failure(get(`https://retry.unit-test.example/network?app_key=${key}`));
+    expect(error.message).toBe("network error for https://retry.unit-test.example/network: fetch failed");
+  });
+});
+
+describe("withoutQueryString", () => {
+  it("removes the query string of every http and https URL in a text", () => {
+    expect(withoutQueryString("https://api.example.test/search?app_id=abc123&app_key=SECRETVALUE&what=x")).toBe(
+      "https://api.example.test/search"
+    );
+    const text =
+      "HTTP 429 for http://api.example.test/a?k=1 and https://api.example.test/b?k=2, then https://api.example.test/c";
+    expect(withoutQueryString(text)).toBe(
+      "HTTP 429 for http://api.example.test/a and https://api.example.test/b, then https://api.example.test/c"
+    );
+  });
+
+  it("is safe to run twice", () => {
+    const text = "network error for https://api.example.test/search?app_id=abc123&app_key=SECRETVALUE&what=x: failed";
+    const once = withoutQueryString(text);
+    expect(once).toBe("network error for https://api.example.test/search: failed");
+    expect(withoutQueryString(once)).toBe(once);
   });
 });
 
