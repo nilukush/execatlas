@@ -1,11 +1,4 @@
 import fs from "node:fs";
-
-// local runs read .env.local when present; real environment variables win
-try {
-  process.loadEnvFile(".env.local");
-} catch {
-  // no .env.local (CI, fresh clones): nothing to load
-}
 import path from "node:path";
 import { cachedFetchJson } from "./http";
 import {
@@ -133,6 +126,13 @@ export function computeStats(jobs: Job[], generatedAt: string): DatasetStats {
 }
 
 async function main() {
+  // local runs read .env.local when present; real environment variables win
+  try {
+    process.loadEnvFile(".env.local");
+  } catch {
+    // no .env.local (CI, fresh clones): nothing to load
+  }
+
   const args = process.argv.slice(2);
   const smoke = args.includes("--smoke");
   const onlyArg = args.find((a) => a.startsWith("--only="));
@@ -231,7 +231,10 @@ async function main() {
   console.log("By visa:", stats.byVisa);
 }
 
-main().catch((error) => {
-  console.error("Ingest failed:", error);
-  process.exit(1);
-});
+// importing this module (the test suite does) must never start a pipeline
+if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(import.meta.filename ?? "")) {
+  main().catch((error) => {
+    console.error("Ingest failed:", error);
+    process.exit(1);
+  });
+}
