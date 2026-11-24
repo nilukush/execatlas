@@ -13,13 +13,13 @@ const DATASET_URL = /\/data\/index-[^/]+\.json$/;
  * Opens a listing filtered on a visa signal and returns once the dataset is in. The page
  * passes through three states: the static HTML holds the first roles unfiltered, the
  * hydrated page filters those, and only then does the full dataset arrive. So the listener
- * stands before the navigation, the navigation ends with the network quiet, and the asset
- * is read to its end.
+ * stands before the navigation, and the asset is read to its end. The navigation waits for
+ * the document only: cards load logos from other hosts, so a quiet network is not promised.
  */
 async function openSignalListing(page: Page, visa: "yes" | "no"): Promise<void> {
   const [dataset] = await Promise.all([
     page.waitForResponse((response) => DATASET_URL.test(response.url()), { timeout: 15_000 }),
-    page.goto(`/en/jobs?visa=${visa}`, { waitUntil: "networkidle" }),
+    page.goto(`/en/jobs?visa=${visa}`, { waitUntil: "domcontentloaded" }),
   ]);
   expect(dataset.ok(), `the listing dataset answered ${dataset.status()}`).toBe(true);
   expect(await dataset.finished(), "the listing dataset arrived in full").toBeNull();
@@ -74,24 +74,22 @@ test("detail page shows the visa signal card when a signal exists", async ({ pag
   const firstCard = page.locator("article").first();
   const emptyListing = page.getByText("No roles match these filters");
   // every card of a listing filtered on the signal carries one chip that names the signal
-  const signalChip = firstCard.locator(".chip", { hasText: /^(Sponsors|No sponsorship)/ });
+  const signalChips = firstCard.locator(".chip", { hasText: /^(Sponsors|No sponsorship)/ });
 
   await openSignalListing(page, "yes");
-  // the dataset is in, so a listing that reads empty now is empty
-  await expect(firstCard.or(emptyListing).first()).toBeVisible({ timeout: 15_000 });
-
-  if (await emptyListing.isVisible()) {
+  // both waits retry, so a listing that still renders the full dataset cannot decide the branch
+  const sponsored = await signalChips.first().waitFor({ state: "visible", timeout: 15_000 }).then(
+    () => true,
+    () => false
+  );
+  if (!sponsored) {
+    await expect(emptyListing, "a listing with no sponsoring role must say so").toBeVisible({ timeout: 15_000 });
     await openSignalListing(page, "no");
-    await expect(firstCard.or(emptyListing).first()).toBeVisible({ timeout: 15_000 });
-    if (await emptyListing.isVisible()) {
-      throw new Error(
-        "No role carries a visa signal in this dataset, neither a sponsorship nor a refusal, so the detail journey cannot run"
-      );
-    }
+    await signalChips.first().waitFor({ state: "visible", timeout: 15_000 });
   }
 
   // a card that carries the signal chip leads to a role that shows the signal
-  await expect(signalChip).toHaveCount(1);
+  await expect(signalChips).toHaveCount(1);
   // the title link is the first link of a card that leads to a role
   await page.locator("article a[href*='/jobs/']").first().click();
   await expect(page).toHaveURL(/\/jobs\/[^/]+$/);
