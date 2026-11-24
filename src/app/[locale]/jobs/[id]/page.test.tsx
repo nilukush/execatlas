@@ -188,6 +188,14 @@ describe("job page place label", () => {
     expect(screen.queryByText(/Anywhere in EMEA/)).toBeNull();
   });
 
+  it("prints the region once in the location card of a remote role with no country", async () => {
+    dataset.jobs = [makeJob({ location: { raw: "Anywhere in EMEA", region: "europe", remote: true } })];
+    await renderPage("j1");
+    const card = screen.getByRole("heading", { name: "Location" }).parentElement;
+    // the place line already names the region, so the line under it would repeat it
+    expect(card?.textContent?.match(/Europe/g) ?? []).toHaveLength(1);
+  });
+
   it('says "Remote" for a remote role restricted by a list of countries, with no country or region of its own', async () => {
     dataset.jobs = [
       makeJob({

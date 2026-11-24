@@ -230,7 +230,10 @@ export default async function JobDetailPage({
           <section className="card-ui p-5 text-sm">
             <h2 className="text-sm font-bold uppercase tracking-wide text-muted">{t("location")}</h2>
             <p className="mt-2">{place}</p>
-            {job.location.region && <p className="text-muted">{regionLabel(job.location.region)}</p>}
+            {/* the place line already names the region of a remote role with no country */}
+            {job.location.region && place !== region && (
+              <p className="text-muted">{regionLabel(job.location.region)}</p>
+            )}
             {job.workMode === "hybrid" && job.officeDays && (
               <p className="mt-2 text-muted">{t("hybridDays", { days: job.officeDays })}</p>
             )}
