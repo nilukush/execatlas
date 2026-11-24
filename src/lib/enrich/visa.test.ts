@@ -91,8 +91,18 @@ describe("visaEvidence", () => {
     "If we make you an offer, we will make every reasonable effort to get you a visa.",
     "Visa sponsorship cannot be provided",
     "Sponsorship cannot be provided for this role.",
+    "Visa sponsorship: Unavailable.",
+    "Visa sponsorship unavailable.",
+    "This position is not eligible for employment visa sponsorship.",
   ])("returns the sentence itself as evidence: %s", (sentence) => {
     expect(visaEvidence(`We are hiring. ${sentence}\nYou will lead five teams.`)).toBe(sentence);
+  });
+
+  it("quotes the headline of a posting that goes on to hedge", () => {
+    const text =
+      "Visa sponsorship: We do sponsor visas! However, we aren't able to successfully sponsor visas for every role and every candidate. But if we make you an offer, we will make every reasonable effort to get you a visa, and we retain an immigration lawyer to help with this.";
+    expect(detectVisa(text)).toBe("yes");
+    expect(visaEvidence(text)).toBe("Visa sponsorship: We do sponsor visas!");
   });
 });
 
@@ -121,6 +131,7 @@ describe("relocationEvidence", () => {
     "We’ll help you relocate to the UK",
     "Relocation expense coverage to NYC or SF (if needed)",
     "Please note that this role would not provide relocation as a result.",
+    "Relocation assistance unavailable.",
   ])("returns the sentence itself as evidence: %s", (sentence) => {
     expect(relocationEvidence(`Join our team.\n${sentence}\nPerks follow.`)).toBe(sentence);
   });
@@ -164,6 +175,16 @@ describe("detectVisa and detectRelocation", () => {
     ["We can sponsor your visa", "yes", "unknown"],
     ["We do sponsor and take over sponsorship of employment visas for this role.", "yes", "unknown"],
     ["If we make you an offer, we will make every reasonable effort to get you a visa.", "yes", "unknown"],
+    // a negation cue that does not govern the verb leaves the line an affirmation
+    ["We do sponsor visas", "yes", "unknown"],
+    ["Not only do we offer visa sponsorship", "yes", "unknown"],
+    ["Not only do we sponsor visas", "yes", "unknown"],
+    ["We cannot offer relocation. We sponsor visas.", "yes", "unknown"],
+    [
+      "We are not able to confirm the start date before an offer is signed, and we sponsor visas.",
+      "yes",
+      "unknown",
+    ],
     // sponsorship refused
     ["Applicants must have existing right to work in the UAE.", "no", "unknown"],
     ["Candidates must have valid work authorization in the Kingdom.", "no", "unknown"],
@@ -193,6 +214,9 @@ describe("detectVisa and detectRelocation", () => {
     ["Visa sponsorship cannot be provided", "no", "unknown"],
     ["Sponsorship cannot be provided for this role.", "no", "unknown"],
     ["Visa sponsorship can't be provided.", "no", "unknown"],
+    ["Visa sponsorship: Unavailable.", "no", "unknown"],
+    ["Visa sponsorship unavailable.", "no", "unknown"],
+    ["This position is not eligible for employment visa sponsorship.", "no", "unknown"],
     // right to work required before applying
     ["Applicants must be authorized to work in the United States.", "no", "unknown"],
     ["Must be located and authorized to work in the US", "no", "unknown"],
@@ -257,6 +281,7 @@ describe("detectVisa and detectRelocation", () => {
     ["Relocation: Assistance not available", "unknown", "no"],
     ["Relocation expense coverage is not available for this role.", "unknown", "no"],
     ["Relocation support can't be provided for this role.", "unknown", "no"],
+    ["Relocation assistance unavailable.", "unknown", "no"],
     // sounds like a visa refusal but is not one
     ["We're unable to offer individual feedback during the interview process.", "unknown", "unknown"],
     ["We participate in E-Verify and confirm work authorization with Form I-9 data.", "unknown", "unknown"],
@@ -287,6 +312,11 @@ describe("detectVisa and detectRelocation", () => {
       "unknown",
     ],
     // ruled to stay unknown
+    [
+      "However, we aren't able to successfully sponsor visas for every role and every candidate.",
+      "unknown",
+      "unknown",
+    ],
     ["Sponsorship for this role is not guaranteed.", "unknown", "unknown"],
     [
       "This is a fully remote position based in the US East Coast, UK, Germany, France, or Spain, subject to local employment eligibility.",
@@ -320,5 +350,15 @@ describe("detectVisa and detectRelocation", () => {
     const mixed =
       "We sponsor visas for some positions. For this one, candidates must already have the right to work in the UK.";
     expect(detectVisa(mixed)).toBe("no");
+  });
+
+  it("counts a negation cue only within 40 characters before the verb", () => {
+    const near = `We never ${"ab ".repeat(13)}sponsor visas for this role.`;
+    const far = `We never ${"ab ".repeat(12)}abc sponsor visas for this role.`;
+    const distance = (text: string): number => text.indexOf("sponsor") - (text.indexOf("never") + 5);
+    expect(distance(near)).toBe(40);
+    expect(distance(far)).toBe(41);
+    expect(detectVisa(near)).toBe("unknown");
+    expect(detectVisa(far)).toBe("yes");
   });
 });

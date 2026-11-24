@@ -1,16 +1,24 @@
 import type { VisaSignal } from "../types";
 
+const NEGATION_CUE = "\\b(?:not(?!\\s+only\\b)|cannot|unable|never|no\\s+longer)\\b|['\u2019]t\\b";
+
+/** Up to 40 characters between a negation cue and a verb, inside one sentence. The period of an abbreviation such as U.S. is not a sentence end. */
+const TO_VERB = "(?:(?<=\\b[A-Za-z])\\.|\\.(?=\\S)|[^.!?\\n]){0,40}";
+
+/** A negated verb is not an affirmation: a cue in the 40 characters before the phrase disqualifies the match. "Not only" does not negate the verb. */
+const verb = (phrase: string): RegExp => new RegExp(`(?<!\\b(?:${NEGATION_CUE})${TO_VERB})${phrase}`, "i");
+
 const POSITIVE: RegExp[] = [
   /\bvisa sponsor(ship|ed|ing)?\b/i,
-  /\bsponsor(?:ing)?\s+(?:work\s+|your\s+)?visas?\b/i,
-  /\bwe sponsor\b/i,
+  verb("\\bsponsor(?:ing)?\\s+(?:work\\s+|your\\s+)?visas?\\b"),
+  verb("\\bwe sponsor\\b"),
   /\bsponsorship\s+(?:is\s+|are\s+|will\s+be\s+)?(?:available|offered|provided)\b/i,
   /\bwork\s+permit\s+sponsor(ship)?\b/i,
-  /\bwill\s+(?:be\s+)?sponsor(?:ed)?\b/i,
+  verb("\\bwill\\s+(?:be\\s+)?sponsor(?:ed)?\\b"),
   /\bemployment\s+visas?\b/i,
   /\bassist(?:ance)?\s+with\s+(?:visa|work\s+permits?)\b/i,
-  /\bprovides?\s+visa\b/i,
-  /\b(?:will|would)\s+make\s+every\s+reasonable\s+efforts?\s+to\s+get\s+you\s+an?\s+visa\b/i,
+  verb("\\bprovides?\\s+visa\\b"),
+  verb("\\b(?:will|would)\\s+make\\s+every\\s+reasonable\\s+efforts?\\s+to\\s+get\\s+you\\s+an?\\s+visa\\b"),
 ];
 
 const SPONSORSHIP = "(?:visas?|sponsor(?:ship|ing)?|work\\s+permits?)";
@@ -28,7 +36,7 @@ const refuses = (negator: string, adverbs = 0): RegExp =>
 
 const NEGATIVE: RegExp[] = [
   /\bno\s+(?:visa\s+|immigration\s+)?sponsor(?:ship)?\b/i,
-  /\b(?:visa\s+)?sponsor(?:ship)?\b(?:\s*,\s*[^,.]{1,30},)?(?:\s*:\s*|\s+(?:is|are|was|were)\s+|\s+)?(?:not|never)\s+(?:currently\s+)?(?:available|offered|provided)\b/i,
+  /\b(?:visa\s+)?sponsor(?:ship)?\b(?:\s*,\s*[^,.]{1,30},)?(?:\s*:\s*|\s+(?:is|are|was|were)\s+|\s+)?(?:unavailable\b|(?:not|never)\s+(?:currently\s+)?(?:available|offered|provided)\b)/i,
   /\b(?:visa\s+)?sponsor(?:ship)?\b\s+(?:cannot\s+be|can['\u2019]t\s+be)\s+(?:available|offered|provided)\b/i,
   refuses("(?:do|does|did|will|would|can|could|may|might)\\s+not", 1),
   refuses("(?:don|doesn|didn|won|wouldn|can|couldn)['\u2019]t", 1),
@@ -43,7 +51,7 @@ const NEGATIVE: RegExp[] = [
   /\bmust\s+(?:already\s+)?(?:have|hold|possess|meet)\b[^.]{0,50}?\b(?:right\s+to\s+work|work\s+authorization|authorization\s+to\s+work|(?:own\s+)?work\s+permits?)\b/i,
   /\b(?:right\s+to\s+work|work\s+(?:permit|authorization|authorisation))\s+(?:is\s+|are\s+)?(?:already\s+)?(?:required|a\s+condition)\b/i,
   /\bwithout\s+sponsorship\b/i,
-  /\bnot\s+eligible\s+for\s+(?:visa\s+|immigration\s+)?sponsor(?:ship)?\b/i,
+  new RegExp(`\\bnot\\s+eligible\\s+for\\s+${words(3)}sponsor(?:ship)?\\b`, "i"),
   /\b(?:hold|holds|holding)\s+(?:their\s+)?own\s+(?:right\s+to\s+work|work\s+permit)\b/i,
   /\bmust\b[^.!?\n]{0,60}?\b(?:be\s+)?(?:\w+\s+)?(?:authori[sz]ed|eligible)\s+to\s+work\b/i,
   // the modal is required: "you need to have existing right to work" stands in a posting that does sponsor
@@ -74,7 +82,7 @@ const RELOCATION_POSITIVE: RegExp[] = [
 const RELOCATION_NEGATIVE: RegExp[] = [
   /\bnot\s+eligible\s+for\s+relocation\b/i,
   new RegExp(
-    `\\brelocation\\s*:?\\s*${RELOCATION_SUPPORT}\\b[^.!?\\n]{0,20}?\\b(?:(?:not|never)\\s+(?:be\\s+)?|cannot\\s+be\\s+|can['\u2019]t\\s+be\\s+)(?:currently\\s+)?(?:available|offered|provided)\\b`,
+    `\\brelocation\\s*:?\\s*${RELOCATION_SUPPORT}\\b[^.!?\\n]{0,20}?\\b(?:unavailable\\b|(?:(?:not|never)\\s+(?:be\\s+)?|cannot\\s+be\\s+|can['\u2019]t\\s+be\\s+)(?:currently\\s+)?(?:available|offered|provided)\\b)`,
     "i"
   ),
   new RegExp(`\\bno\\s+relocation\\s+(?:${RELOCATION_SUPPORT}|available|provided|offered)\\b`, "i"),
