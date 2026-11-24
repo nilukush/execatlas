@@ -181,7 +181,7 @@
   "Footer": {
     "tagline": "Senior leadership roles across engineering, product, design and data, in six regions, with visa signals and local pay context.",
     "data": "Greenhouse, Lever, Ashby, Himalayas, Adzuna, Workable, Arbeitnow and Jobicy",
-    "salary": "Salary benchmarks by <link>ExpatRate</link> (CC BY 4.0).",
+    "salaryBenchmarks": "Salary benchmarks by <link>ExpatRate</link> (CC BY 4.0).",
     "method": "Sources and method",
     "license": "Code under MIT."
   },

@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { createTranslator } from "next-intl";
 import { readFileSync, readdirSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { EXPATRATE_URL } from "@/lib/salary";
@@ -120,25 +121,54 @@ describe("keys that hold a tag", () => {
     }
     return files;
   };
-  const sources = ["app", "components"].flatMap((dir) => readTree(resolve(__dirname, "..", dir)));
+  const isTestFile = (path: string) => /\.test\.tsx?$/.test(path);
+  // a test file may hold a rich call of its own, so it proves nothing about a page
+  const sources = ["app", "components"]
+    .flatMap((dir) => readTree(resolve(__dirname, "..", dir)))
+    .filter(([path]) => !isTestFile(path));
+  const tagKeys = () =>
+    flatten(load("en"))
+      .filter(([, value]) => typeof value === "string" && /<\w+>/.test(value))
+      .map(([key]) => key);
+  /** A call that renders the tags of a key. */
+  const richCall = (name: string) => new RegExp(`\\.rich\\("${name}"`);
+  /** The calls that hand the tags of a key back unrendered, with t.markup the old name of t.rich. */
+  const plainCall = (name: string) => new RegExp(`\\bt\\w*(?:\\.(?:raw|markup))?\\("${name}"`);
 
   it("are rendered through rich text and never through a plain t() call", () => {
-    const entries = flatten(load("en"));
-    const tagKeys = entries.filter(([, value]) => typeof value === "string" && /<\w+>/.test(value)).map(([key]) => key);
-    const plainNames = new Set(entries.filter(([key]) => !tagKeys.includes(key)).map(([key]) => leaf(key)));
-    expect(tagKeys.length).toBeGreaterThan(0);
+    const keys = tagKeys();
+    expect(keys.length).toBeGreaterThan(0);
 
-    for (const key of tagKeys) {
-      const richCall = new RegExp(`\\.rich\\("${leaf(key)}"`);
-      const plainCall = new RegExp(`\\bt\\w*\\("${leaf(key)}"`);
-      const renderers = sources.filter(([, text]) => richCall.test(text));
+    for (const key of keys) {
+      const renderers = sources.filter(([, text]) => richCall(leaf(key)).test(text));
       expect(renderers.map(([path]) => path), `${key} holds a tag and is not rendered with t.rich`).not.toEqual([]);
-      // a plain key may share the name, as Job.salary does with Footer.salary, so only a file that renders
-      // the tag key is then held to the plain calls of that name
-      for (const [path, text] of plainNames.has(leaf(key)) ? renderers : sources) {
-        expect(text, `${path} calls ${key} with a plain t() call`).not.toMatch(plainCall);
+      for (const [path, text] of sources) {
+        expect(text, `${path} calls ${key} with a plain t() call`).not.toMatch(plainCall(leaf(key)));
       }
     }
+  });
+
+  it("share no leaf name with a plain key, so the guard holds for every source file", () => {
+    const tagged = new Set(tagKeys());
+    const plainLeaves = new Set(
+      flatten(load("en"))
+        .filter(([key]) => !tagged.has(key))
+        .map(([key]) => leaf(key))
+    );
+    expect(tagKeys().filter((key) => plainLeaves.has(leaf(key)))).toEqual([]);
+  });
+
+  it("take no test file for a source, because a rich call in a test proves nothing about a page", () => {
+    expect(sources.map(([path]) => path).filter(isTestFile)).toEqual([]);
+  });
+
+  it("count a raw call and a markup call as plain, because both hand the tag back unrendered", () => {
+    const call = plainCall("estimateBandNote");
+    expect(call.test('t("estimateBandNote")')).toBe(true);
+    expect(call.test('tJobs("estimateBandNote")')).toBe(true);
+    expect(call.test('t.raw("estimateBandNote")')).toBe(true);
+    expect(call.test('t.markup("estimateBandNote")')).toBe(true);
+    expect(call.test('t.rich("estimateBandNote", { link: expatrateLink })')).toBe(false);
   });
 });
 
@@ -147,7 +177,7 @@ describe("ExpatRate copy", () => {
   const linkTag = "<link>ExpatRate</link>";
   // every key that names the project, each with one link tag
   const agreedCopy: Record<string, string> = {
-    "Footer.salary": "Salary benchmarks by <link>ExpatRate</link> (CC BY 4.0).",
+    "Footer.salaryBenchmarks": "Salary benchmarks by <link>ExpatRate</link> (CC BY 4.0).",
     "Job.salaryAttribution": "Salary estimates from the <link>ExpatRate</link> benchmark dataset (CC BY 4.0).",
     "Job.estimateBandNote":
       "Estimated from <link>ExpatRate</link>, an open set of salary benchmarks by country and role family. The band lies between the 25th and the 75th percentile of annual gross pay, in local currency, and narrows where the benchmark holds fewer figures. Treat it as orientation.",
@@ -242,6 +272,28 @@ describe("apply and listing copy", () => {
       expect(About.liveRoles.toLowerCase(), locale).not.toContain(oldLiveRoles[locale].toLowerCase());
       expect(Stats.roles, locale).not.toBe(oldLiveRoles[locale]);
       expect(Stats.liveRoles, locale).toBe(Stats.roles);
+    }
+  });
+});
+
+describe("Arabic counts", () => {
+  type Catalog = { Jobs: Record<string, string>; About: Record<string, string> };
+  // Arabic plurals have six forms. A count that gives two picks the wrong word for most numbers
+  const forms = ["zero", "one", "two", "few", "many", "other"];
+
+  it("give all six forms, in the listing and on the About page", () => {
+    const { Jobs, About } = load("ar") as Catalog;
+    for (const value of [Jobs.count, About.liveRoles]) {
+      for (const form of forms) {
+        expect(value, `${form} is missing`).toMatch(new RegExp(`\\b${form}\\s*\\{`));
+      }
+    }
+  });
+
+  it("render a count of every form through next-intl", () => {
+    const t = createTranslator({ locale: "ar", messages: load("ar") as Catalog });
+    for (const count of [0, 1, 2, 5, 12, 100]) {
+      expect(t("About.liveRoles", { count }), `count ${count}`).toMatch(/مدرج/);
     }
   });
 });

@@ -63,7 +63,7 @@ describe("site footer contract", () => {
       expect(String(value).length, `Footer.${key} is empty`).toBeGreaterThan(0);
     }
     // the salary attribution must name the benchmark project
-    expect(en.Footer.salary).toMatch(/ExpatRate/i);
+    expect(en.Footer.salaryBenchmarks).toMatch(/ExpatRate/i);
     // the data line must list all eight sources
     for (const source of [
       "Greenhouse",

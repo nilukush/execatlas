@@ -181,7 +181,7 @@
   "Footer": {
     "tagline": "Peran kepemimpinan senior di engineering, produk, desain, dan data, di enam wilayah, dengan sinyal visa dan konteks gaji lokal.",
     "data": "Greenhouse, Lever, Ashby, Himalayas, Adzuna, Workable, Arbeitnow, dan Jobicy",
-    "salary": "Data tolok ukur gaji oleh <link>ExpatRate</link> (CC BY 4.0).",
+    "salaryBenchmarks": "Data tolok ukur gaji oleh <link>ExpatRate</link> (CC BY 4.0).",
     "method": "Sumber dan metode",
     "license": "Kode di bawah MIT."
   },

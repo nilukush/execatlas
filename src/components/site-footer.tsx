@@ -15,7 +15,7 @@ export async function SiteFooter() {
         </div>
         <div className="space-y-2">
           <p>{t("data")}</p>
-          <p>{t.rich("salary", { link: expatrateLink })}</p>
+          <p>{t.rich("salaryBenchmarks", { link: expatrateLink })}</p>
         </div>
         <div className="space-y-2 sm:text-end">
           <Link href="/about" className="block font-medium text-ink hover:underline">
