@@ -1,4 +1,5 @@
 import type { RawJob } from "../../../src/lib/types";
+import { reportFeedFailure } from "../http";
 import type { FetchDeps } from "../http";
 
 interface GreenhouseBoardJob {
@@ -46,9 +47,8 @@ export function greenhouseConnector(
             });
           }
         } catch (error) {
-          const failure = error as { status?: number; transient?: boolean; message: string };
+          const failure = reportFeedFailure(deps, error, "greenhouse", token);
           console.warn(`[greenhouse] board "${token}" failed: ${failure.message}`);
-          deps.reportFailure?.({ source: "greenhouse", unit: token, status: failure.status, transient: failure.transient ?? true, message: failure.message });
         }
       }
       return out;

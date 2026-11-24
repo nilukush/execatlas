@@ -1,4 +1,5 @@
 import type { RawJob } from "../../../src/lib/types";
+import { reportFeedFailure } from "../http";
 import type { FetchDeps } from "../http";
 
 interface HimalayasJob {
@@ -107,9 +108,8 @@ export function himalayasConnector(
               });
             }
           } catch (error) {
-            const failure = error as { status?: number; transient?: boolean; message: string };
+            const failure = reportFeedFailure(deps, error, "himalayas", `${query}/${seniority}`);
             console.warn(`[himalayas] ${query}/${seniority} page ${page} failed: ${failure.message}`);
-            deps.reportFailure?.({ source: "himalayas", unit: `${query}/${seniority}`, status: failure.status, transient: failure.transient ?? true, message: failure.message });
             break;
           }
         }

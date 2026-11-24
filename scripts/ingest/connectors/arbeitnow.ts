@@ -1,4 +1,5 @@
 import type { RawJob } from "../../../src/lib/types";
+import { reportFeedFailure } from "../http";
 import type { FetchDeps } from "../http";
 
 interface ArbeitnowJob {
@@ -50,9 +51,8 @@ export function arbeitnowConnector(
             });
           }
         } catch (error) {
-          const failure = error as { status?: number; transient?: boolean; message: string };
+          const failure = reportFeedFailure(deps, error, "arbeitnow", `page-${page}`);
           console.warn(`[arbeitnow] page ${page} failed: ${failure.message}`);
-          deps.reportFailure?.({ source: "arbeitnow", unit: `page-${page}`, status: failure.status, transient: failure.transient ?? true, message: failure.message });
         }
       }
       // cross-reference the visa_sponsorship=true feed: their platform-declared
@@ -76,9 +76,8 @@ export function arbeitnowConnector(
           }
         }
       } catch (error) {
-        const failure = error as { status?: number; transient?: boolean; message: string };
+        const failure = reportFeedFailure(deps, error, "arbeitnow", `visa-feed-${visaPage}`);
         console.warn(`[arbeitnow] visa feed page ${visaPage} failed: ${failure.message}`);
-        deps.reportFailure?.({ source: "arbeitnow", unit: `visa-feed-${visaPage}`, status: failure.status, transient: failure.transient ?? true, message: failure.message });
       }
       return out;
     },

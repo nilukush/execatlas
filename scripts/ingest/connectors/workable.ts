@@ -1,4 +1,5 @@
 import type { RawJob } from "../../../src/lib/types";
+import { reportFeedFailure } from "../http";
 import type { FetchDeps } from "../http";
 
 interface WorkableJob {
@@ -54,11 +55,10 @@ export function workableConnector(
               });
             }
           } catch (error) {
-            const failure = error as { status?: number; transient?: boolean; message: string };
+            const failure = reportFeedFailure(deps, error, "workable", `${query}/${location}`);
             console.warn(
               `[workable] query "${query}" / "${location}" failed: ${failure.message}`
             );
-            deps.reportFailure?.({ source: "workable", unit: `${query}/${location}`, status: failure.status, transient: failure.transient ?? true, message: failure.message });
           }
         }
       }

@@ -1,4 +1,5 @@
 import type { RawJob } from "../../../src/lib/types";
+import { reportFeedFailure } from "../http";
 import type { FetchDeps } from "../http";
 
 interface LeverPosting {
@@ -58,9 +59,8 @@ export function leverConnector(
             });
           }
         } catch (error) {
-          const failure = error as { status?: number; transient?: boolean; message: string };
+          const failure = reportFeedFailure(deps, error, "lever", token);
           console.warn(`[lever] board "${token}" failed: ${failure.message}`);
-          deps.reportFailure?.({ source: "lever", unit: token, status: failure.status, transient: failure.transient ?? true, message: failure.message });
         }
       }
       return out;

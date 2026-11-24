@@ -1,4 +1,6 @@
+import { adzunaHomeUrl } from "../../../src/lib/apply";
 import type { RawJob } from "../../../src/lib/types";
+import { reportFeedFailure } from "../http";
 import type { FetchDeps } from "../http";
 
 interface AdzunaJob {
@@ -26,7 +28,6 @@ const ADZUNA_COUNTRY_NAMES: Record<string, string> = {
   pl: "Poland",
   in: "India",
   sg: "Singapore",
-  br: "Brazil",
   mx: "Mexico",
   us: "United States",
   ca: "Canada",
@@ -36,16 +37,6 @@ const CONTRACT_TIME: Record<string, string> = {
   full_time: "Full-time",
   part_time: "Part-time",
 };
-
-/** The site an Adzuna redirect link leads back to; undefined when the link does not parse. */
-function sourceHomeOf(redirectUrl: string): string | undefined {
-  try {
-    const host = new URL(redirectUrl).host;
-    return host ? `https://${host}` : undefined;
-  } catch {
-    return undefined;
-  }
-}
 
 /**
  * Adzuna search API with the free Trial Access key. One page per country and
@@ -102,7 +93,8 @@ export function adzunaConnector(
                   company: job.company?.display_name?.trim() || "Unknown company",
                   applyUrl: job.redirect_url,
                   sourceUrl: job.redirect_url,
-                  sourceHome: sourceHomeOf(job.redirect_url),
+                  // the same home rule as the attribution mark on the site: the Adzuna host family, without a port
+                  sourceHome: adzunaHomeUrl(job.redirect_url) ?? undefined,
                   descriptionHtml: job.description ?? "",
                   locationRaw: area ? `${countryName}, ${area}` : countryName,
                   remoteHint: /remote|anywhere/i.test(job.location?.display_name ?? "") || /remote/i.test(job.title),
@@ -115,9 +107,8 @@ export function adzunaConnector(
                 });
               }
             } catch (error) {
-              const failure = error as { status?: number; transient?: boolean; message: string };
+              const failure = reportFeedFailure(deps, error, "adzuna", `${country}/${query}`);
               console.warn(`[adzuna] ${country}/${query} page ${page} failed: ${failure.message}`);
-              deps.reportFailure?.({ source: "adzuna", unit: `${country}/${query}`, status: failure.status, transient: failure.transient ?? true, message: failure.message });
               break;
             }
           }

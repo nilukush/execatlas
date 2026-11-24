@@ -2,8 +2,8 @@ import { describe, expect, it, vi, beforeEach, afterEach } from "vitest";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { cacheFilePath, cachedFetchJson, withoutQueryString } from "./http";
-import type { FetchError } from "./http";
+import { cacheFilePath, cachedFetchJson, reportFeedFailure, withoutQueryString } from "./http";
+import type { FeedFailure, FetchError } from "./http";
 
 // tests get their own cache root so a crash can never litter the live cache
 let testCacheRoot: string;
@@ -18,8 +18,9 @@ afterEach(() => {
   delete process.env.EXECATLAS_CACHE_DIR;
 });
 
+// every stub answers with headers, as a real Response does
 const stubFetch = vi.fn(async () =>
-  ({ ok: true, status: 200, json: async () => ({ fresh: true }) }) as unknown as Response
+  ({ ok: true, status: 200, headers: { get: () => null }, json: async () => ({ fresh: true }) }) as unknown as Response
 );
 
 describe("cachedFetchJson disk cache", () => {
@@ -54,24 +55,25 @@ describe("cachedFetchJson disk cache", () => {
   });
 });
 
-type Step = { status: number; retryAfter?: string } | "reject";
+type Step = { status: number; retryAfter?: string; notJson?: boolean } | "reject";
 
 // the last step answers every later call, so one step stands for "on every call";
-// a step without Retry-After sends no headers at all, like a bare stub
+// a step without Retry-After names none, as a response without the header does
 function scriptedFetch(steps: Step[]) {
   const calls: string[] = [];
   const fetchImpl = async (url: string): Promise<unknown> => {
     calls.push(url);
     const step = steps[Math.min(calls.length, steps.length) - 1];
     if (step === "reject") throw new TypeError("fetch failed");
-    const retryAfter = step.retryAfter;
+    const retryAfter = step.retryAfter ?? null;
     return {
       ok: step.status >= 200 && step.status < 300,
       status: step.status,
-      ...(retryAfter === undefined
-        ? {}
-        : { headers: { get: (name: string) => (name === "retry-after" ? retryAfter : null) } }),
-      json: async () => ({ fresh: true }),
+      headers: { get: (name: string) => (name === "retry-after" ? retryAfter : null) },
+      json: async () => {
+        if (step.notJson) throw new SyntaxError("Unexpected token < in JSON at position 0");
+        return { fresh: true };
+      },
     };
   };
   return { calls, fetchImpl: fetchImpl as unknown as typeof fetch };
@@ -209,7 +211,10 @@ describe("cachedFetchJson retries", () => {
 
     const error = await failure(get(url("network")));
     expect(calls).toHaveLength(2);
+    // the one wait before the retry is the first backoff
     expect(waits).toHaveLength(1);
+    expect(waits[0]).toBeGreaterThanOrEqual(2000);
+    expect(waits[0]).toBeLessThanOrEqual(3000);
     expect(error.status).toBeUndefined();
     expect(error.transient).toBe(true);
   });
@@ -335,6 +340,71 @@ describe("withoutQueryString", () => {
   });
 });
 
+describe("reportFeedFailure", () => {
+  // a plain array: vitest clears mock call history before each test
+  function recorder() {
+    const reported: FeedFailure[] = [];
+    return {
+      reported,
+      reportFailure: (failure: FeedFailure) => {
+        reported.push(failure);
+      },
+    };
+  }
+
+  it("reports a feed that threw under its source and unit, with the status, the flag and the message of the error", () => {
+    const { reported, reportFailure } = recorder();
+    const thrown = Object.assign(new Error("HTTP 429"), { status: 429, transient: true });
+
+    const failure = reportFeedFailure({ reportFailure }, thrown, "greenhouse", "deadboard");
+    expect(reported).toEqual([{ source: "greenhouse", unit: "deadboard", status: 429, transient: true, message: "HTTP 429" }]);
+    // the same failure comes back, for the line the connector prints
+    expect(failure).toBe(reported[0]);
+  });
+
+  it("counts an error that carries no flag as transient, and keeps a flag that says false", () => {
+    const { reported, reportFailure } = recorder();
+
+    reportFeedFailure({ reportFailure }, new Error("boom"), "greenhouse", "deadboard");
+    reportFeedFailure({ reportFailure }, Object.assign(new Error("HTTP 404"), { status: 404, transient: false }), "greenhouse", "gone");
+    expect(reported).toEqual([
+      { source: "greenhouse", unit: "deadboard", status: undefined, transient: true, message: "boom" },
+      { source: "greenhouse", unit: "gone", status: 404, transient: false, message: "HTTP 404" },
+    ]);
+  });
+
+  it("gives a thrown value that is not an Error its text as the message", () => {
+    const { reported, reportFailure } = recorder();
+
+    reportFeedFailure({ reportFailure }, "quota exceeded", "greenhouse", "deadboard");
+    expect(reported).toEqual([
+      { source: "greenhouse", unit: "deadboard", status: undefined, transient: true, message: "quota exceeded" },
+    ]);
+  });
+
+  it("answers the failure when there is no reporter", () => {
+    expect(reportFeedFailure({}, new Error("boom"), "greenhouse", "deadboard")).toEqual({
+      source: "greenhouse",
+      unit: "deadboard",
+      status: undefined,
+      transient: true,
+      message: "boom",
+    });
+  });
+
+  it("holds a reporter that throws, and still answers the failure", () => {
+    const breaking = () => {
+      throw new Error("the reporter broke");
+    };
+
+    let answered: FeedFailure | undefined;
+    expect(() => {
+      answered = reportFeedFailure({ reportFailure: breaking }, new Error("boom"), "greenhouse", "deadboard");
+    }).not.toThrow();
+    expect(answered).toMatchObject({ source: "greenhouse", unit: "deadboard", transient: true, message: "boom" });
+  });
+});
+
 describe("cachedFetchJson per host pacing", () => {
   const page = (host: string, n: number): string => `https://${host}/jobs/api/search?page=${n}`;
 
@@ -354,6 +424,16 @@ describe("cachedFetchJson per host pacing", () => {
     advance(2000);
     await get(page("himalayas.app", 2));
     expect(waits).toEqual([1500]);
+  });
+
+  it("waits no longer than the host interval when the clock steps back between two requests", async () => {
+    const { waits, get, advance } = request([{ status: 200 }]);
+
+    await get(page("himalayas.app", 1));
+    // the clock steps back an hour: the step must not become an hour of waiting
+    advance(-3_600_000);
+    await get(page("himalayas.app", 2));
+    expect(waits).toEqual([3500]);
   });
 
   it("keeps 1100 ms between two requests to api.adzuna.com", async () => {
@@ -433,7 +513,7 @@ describe("cachedFetchJson public target guard", () => {
     { range: "192.0.2.0/24", refused: ["192.0.2.1", "192.0.2.255"], allowed: ["192.0.1.255", "192.0.3.0"] },
     {
       range: "192.168.0.0/16",
-      refused: ["192.168.1.1", "192.168.255.255"],
+      refused: ["192.168.0.1", "192.168.255.255"],
       allowed: ["192.167.255.255", "192.169.0.0"],
     },
     {
@@ -529,26 +609,15 @@ describe("cachedFetchJson public target guard", () => {
 });
 
 describe("cachedFetchJson on a 2xx whose body is not JSON", () => {
-  it("rejects with a transient FetchError that carries status 200 and names the body", async () => {
-    const url = "https://unit-test.example/not-json";
-    const notJson = async (): Promise<unknown> => ({
-      ok: true,
-      status: 200,
-      json: async () => {
-        throw new SyntaxError("Unexpected token < in JSON at position 0");
-      },
-    });
-    const error: FetchError = await cachedFetchJson(url, {
-      ttlMs: 60_000,
-      fetchImpl: notJson as unknown as typeof fetch,
-      sleep: async () => {},
-    }).then(
-      () => {
-        throw new Error("a body that is not JSON must not resolve");
-      },
-      (reason: FetchError) => reason
-    );
+  it("fails on the first call, with no wait, a transient FetchError that carries status 200 and names the body", async () => {
+    const target = "https://unit-test.example/not-json";
+    const { calls, waits, get } = request([{ status: 200, notJson: true }]);
+
+    const error = await failure(get(target));
     expect(error).toMatchObject({ status: 200, transient: true });
     expect(error.message).toMatch(/is not JSON/);
+    // a body that is not JSON is not asked for again
+    expect(calls).toEqual([target]);
+    expect(waits).toEqual([]);
   });
 });

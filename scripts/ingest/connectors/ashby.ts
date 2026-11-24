@@ -1,4 +1,5 @@
 import type { RawJob } from "../../../src/lib/types";
+import { reportFeedFailure } from "../http";
 import type { FetchDeps } from "../http";
 
 interface AshbyJob {
@@ -69,9 +70,8 @@ export function ashbyConnector(
             });
           }
         } catch (error) {
-          const failure = error as { status?: number; transient?: boolean; message: string };
+          const failure = reportFeedFailure(deps, error, "ashby", token);
           console.warn(`[ashby] board "${token}" failed: ${failure.message}`);
-          deps.reportFailure?.({ source: "ashby", unit: token, status: failure.status, transient: failure.transient ?? true, message: failure.message });
         }
       }
       return out;

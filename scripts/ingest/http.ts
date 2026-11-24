@@ -38,7 +38,7 @@ export interface FetchOptions {
 /** The only error shape this module throws. `status` is undefined when no response arrived. */
 export interface FetchError extends Error {
   status: number | undefined;
-  // true when the same request can succeed later: 429, 5xx or a network error
+  // true when the same request can succeed later: 429, 5xx, a network error or a 2xx whose body is not JSON
   transient: boolean;
 }
 
@@ -54,7 +54,9 @@ const MAX_ATTEMPTS = 3;
 const BASE_BACKOFF_MS = 2000;
 const MAX_WAIT_MS = 30_000;
 
-// IANA special purpose ranges: no address inside them reaches a public host
+// IANA special purpose ranges, and the multicast and the reserved block: no address inside
+// them reaches a public host, apart from 192.0.0.9 and 192.0.0.10, which the 192.0.0.0/24
+// entry refuses too
 const NOT_GLOBAL_IPV4: ReadonlyArray<readonly [string, number]> = [
   ["0.0.0.0", 8],
   ["10.0.0.0", 8],
@@ -99,6 +101,36 @@ export function withoutQueryString(text: string): string {
     })
     .replace(URL_USER_INFO, "$1")
     .replace(CREDENTIAL_PARAMETER, "$1=***");
+}
+
+/**
+ * The report every connector's catch makes for a feed that threw: the error
+ * as a FeedFailure under its source and unit. An error that carries no
+ * transient flag counts as transient, and a thrown value that is not an Error
+ * gives its text as the message. A reporter that throws must not stop a
+ * connector over a feed that already failed. The failure comes back for the
+ * line the connector prints.
+ */
+export function reportFeedFailure(
+  deps: Pick<FetchDeps, "reportFailure">,
+  error: unknown,
+  source: SourceId,
+  unit: string
+): FeedFailure {
+  const thrown = (error ?? {}) as { status?: number; transient?: boolean };
+  const failure: FeedFailure = {
+    source,
+    unit,
+    status: thrown.status,
+    transient: thrown.transient ?? true,
+    message: error instanceof Error ? error.message : String(error),
+  };
+  try {
+    deps.reportFailure?.(failure);
+  } catch {
+    // a broken reporter is no reason to lose the feeds that follow
+  }
+  return failure;
 }
 
 function fetchError(message: string, status: number | undefined, transient: boolean): FetchError {
@@ -167,8 +199,10 @@ function intervalMs(host: string): number {
 }
 
 async function pace(host: string, sleep: (ms: number) => Promise<void>, now: () => number): Promise<void> {
+  const interval = intervalMs(host);
   const last = lastHitPerHost.get(host);
-  const idleMs = last === undefined ? 0 : last + intervalMs(host) - now();
+  // a clock that steps back must not turn the step into a wait: no wait outgrows the interval
+  const idleMs = last === undefined ? 0 : Math.min(last + interval - now(), interval);
   if (idleMs > 0) await sleep(idleMs);
   lastHitPerHost.set(host, now());
 }
@@ -233,8 +267,7 @@ async function politeFetch(
     if (!transient || attempt === MAX_ATTEMPTS) {
       throw fetchError(`HTTP ${res.status} for ${url}`, res.status, transient);
     }
-    // test stubs answer with bare objects, so the headers are read defensively
-    await deps.sleep(retryDelayMs(res.headers?.get?.("retry-after"), attempt, deps.now()));
+    await deps.sleep(retryDelayMs(res.headers.get("retry-after"), attempt, deps.now()));
   }
 }
 

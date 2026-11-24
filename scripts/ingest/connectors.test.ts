@@ -1,18 +1,22 @@
 import { describe, expect, it, vi } from "vitest";
-import greenhouseFixture from "./__fixtures__/greenhouse.json";
-import workableFixture from "./__fixtures__/workable.json";
+import adzunaFixture from "./__fixtures__/adzuna.json";
 import arbeitnowFixture from "./__fixtures__/arbeitnow.json";
 import ashbyFixture from "./__fixtures__/ashby.json";
+import greenhouseFixture from "./__fixtures__/greenhouse.json";
 import himalayasFixture from "./__fixtures__/himalayas.json";
-import adzunaFixture from "./__fixtures__/adzuna.json";
-import { ashbyConnector } from "./connectors/ashby";
-import { himalayasConnector } from "./connectors/himalayas";
-import { adzunaConnector } from "./connectors/adzuna";
 import jobicyFixture from "./__fixtures__/jobicy.json";
-import { greenhouseConnector } from "./connectors/greenhouse";
-import { workableConnector } from "./connectors/workable";
+import leverFixture from "./__fixtures__/lever.json";
+import workableFixture from "./__fixtures__/workable.json";
+import { adzunaConnector } from "./connectors/adzuna";
 import { arbeitnowConnector } from "./connectors/arbeitnow";
+import { ashbyConnector } from "./connectors/ashby";
+import { greenhouseConnector } from "./connectors/greenhouse";
+import { himalayasConnector } from "./connectors/himalayas";
 import { jobicyConnector } from "./connectors/jobicy";
+import { leverConnector } from "./connectors/lever";
+import { workableConnector } from "./connectors/workable";
+import { ADZUNA_COUNTRIES } from "./config";
+import type { FeedFailure, FetchDeps } from "./http";
 
 function stubFetch(payloadByHost: Record<string, unknown>) {
   return async (url: string) => {
@@ -25,6 +29,25 @@ function stubFetch(payloadByHost: Record<string, unknown>) {
 
 // the night after the Himalayas fixture was published: the run time an expiry is judged against
 const HIMALAYAS_RUN = new Date((himalayasFixture[0].pubDate + 24 * 60 * 60) * 1000).toISOString();
+
+// a plain array: vitest clears mock call history before each test
+function recorder() {
+  const reported: FeedFailure[] = [];
+  return {
+    reported,
+    reportFailure: (failure: FeedFailure) => {
+      reported.push(failure);
+    },
+  };
+}
+
+// a failure as cachedFetchJson throws it: the status and the transient flag ride on the error
+const rateLimited = () => Object.assign(new Error("HTTP 429"), { status: 429, transient: true });
+const goneForGood = () => Object.assign(new Error("HTTP 404"), { status: 404, transient: false });
+
+function expectOneFailure(reported: FeedFailure[], source: FeedFailure["source"], unit: string) {
+  expect(reported).toEqual([{ source, unit, status: 429, transient: true, message: "HTTP 429" }]);
+}
 
 describe("greenhouse connector", () => {
   it("maps board jobs to raw jobs", async () => {
@@ -59,9 +82,6 @@ describe("greenhouse connector", () => {
     expect(jobs.length).toBe(5);
   });
 });
-
-import leverFixture from "./__fixtures__/lever.json";
-import { leverConnector } from "./connectors/lever";
 
 describe("lever connector", () => {
   it("maps postings to raw jobs with a prettified company name", async () => {
@@ -470,9 +490,6 @@ describe("jobicy connector", () => {
   });
 });
 
-import { ADZUNA_COUNTRIES } from "./config";
-import type { FeedFailure } from "./http";
-
 describe("adzuna query window", () => {
   it("caps the age of every request at the source", async () => {
     const urls: string[] = [];
@@ -510,14 +527,17 @@ describe("adzuna query window", () => {
 });
 
 describe("adzuna attribution home", () => {
-  it("stores the host of each apply link and nothing for a link that does not parse", async () => {
+  it("stores the Adzuna site of each apply link without its port, and nothing off Adzuna or for a link that does not parse", async () => {
     const [first] = adzunaFixture;
+    const link = (id: string, redirect_url: string) => ({ ...first, id, redirect_url });
     const connector = adzunaConnector(
       {
         fetchJson: async () => ({
           results: [
-            { ...first, id: "home-1", redirect_url: "https://www.adzuna.com/landing-page/ads/1" },
-            { ...first, id: "home-2", redirect_url: "not a url" },
+            link("home-1", "https://www.adzuna.com/landing-page/ads/1"),
+            link("home-2", "not a url"),
+            link("home-3", "https://www.adzuna.de:8443/landing-page/ads/3"),
+            link("home-4", "https://employer.example/jobs/4"),
           ],
         }),
       },
@@ -527,28 +547,33 @@ describe("adzuna attribution home", () => {
     expect(jobs.map((j) => [j.externalId, j.sourceHome])).toEqual([
       ["ad-home-1", "https://www.adzuna.com"],
       ["ad-home-2", undefined],
+      ["ad-home-3", "https://www.adzuna.de"],
+      ["ad-home-4", undefined],
     ]);
   });
 });
 
-describe("failed feed reporting and feed tags", () => {
-  // a plain array: vitest clears mock call history before each test
-  function recorder() {
-    const reported: FeedFailure[] = [];
-    return {
-      reported,
-      reportFailure: (failure: FeedFailure) => {
-        reported.push(failure);
+describe("adzuna failed feed", () => {
+  it("reports a failed country and query and tags each job with them", async () => {
+    const { reported, reportFailure } = recorder();
+    const connector = adzunaConnector(
+      {
+        fetchJson: async (url: string) => {
+          if (url.includes("/jobs/de/")) throw rateLimited();
+          return { results: adzunaFixture };
+        },
+        reportFailure,
       },
-    };
-  }
+      { appId: "id", appKey: "key", countries: ["de", "gb"], queries: ["engineering director"], pages: 1 }
+    );
+    const jobs = await connector.run();
+    expectOneFailure(reported, "adzuna", "de/engineering director");
+    expect(jobs.length).toBe(2);
+    expect(jobs.every((j) => j.feedUnit === "gb/engineering director")).toBe(true);
+  });
+});
 
-  const rateLimited = () => Object.assign(new Error("HTTP 429"), { status: 429, transient: true });
-
-  function expectOneFailure(reported: FeedFailure[], source: FeedFailure["source"], unit: string) {
-    expect(reported).toEqual([{ source, unit, status: 429, transient: true, message: "HTTP 429" }]);
-  }
-
+describe("failed feed reporting and feed tags", () => {
   it("greenhouse reports a failed board and tags each job with its board", async () => {
     const { reported, reportFailure } = recorder();
     const connector = greenhouseConnector(
@@ -707,24 +732,6 @@ describe("failed feed reporting and feed tags", () => {
     expect(jobs.every((j) => j.feedUnit === "engineering/Director")).toBe(true);
   });
 
-  it("adzuna reports a failed country and query and tags each job with them", async () => {
-    const { reported, reportFailure } = recorder();
-    const connector = adzunaConnector(
-      {
-        fetchJson: async (url: string) => {
-          if (url.includes("/jobs/de/")) throw rateLimited();
-          return { results: adzunaFixture };
-        },
-        reportFailure,
-      },
-      { appId: "id", appKey: "key", countries: ["de", "gb"], queries: ["engineering director"], pages: 1 }
-    );
-    const jobs = await connector.run();
-    expectOneFailure(reported, "adzuna", "de/engineering director");
-    expect(jobs.length).toBe(2);
-    expect(jobs.every((j) => j.feedUnit === "gb/engineering director")).toBe(true);
-  });
-
   it("reports an error without a transient flag as transient", async () => {
     const { reported, reportFailure } = recorder();
     const connector = greenhouseConnector(
@@ -739,5 +746,68 @@ describe("failed feed reporting and feed tags", () => {
     );
     await connector.run();
     expect(reported).toEqual([{ source: "greenhouse", unit: "deadboard", status: undefined, transient: true, message: "boom" }]);
+  });
+
+  // one row per connector: how it is built for one feed, and the unit of the first feed it asks
+  const notTransient: ReadonlyArray<[string, (deps: FetchDeps) => { run: () => Promise<unknown> }, string]> = [
+    ["greenhouse", (deps) => greenhouseConnector(deps, { tokens: ["deadboard"] }), "deadboard"],
+    ["lever", (deps) => leverConnector(deps, { tokens: ["deadboard"] }), "deadboard"],
+    ["ashby", (deps) => ashbyConnector(deps, { tokens: ["deadboard"], names: {} }), "deadboard"],
+    ["workable", (deps) => workableConnector(deps, { queries: ["CTO"], locations: ["Qatar"] }), "CTO/Qatar"],
+    ["jobicy", (deps) => jobicyConnector(deps, { count: 5 }), "plain"],
+    ["arbeitnow", (deps) => arbeitnowConnector(deps, { pages: 1 }), "page-1"],
+    [
+      "himalayas",
+      (deps) => himalayasConnector(deps, { pages: 1, queries: ["engineering"], now: HIMALAYAS_RUN }),
+      "engineering/Director",
+    ],
+    [
+      "adzuna",
+      (deps) =>
+        adzunaConnector(deps, { appId: "id", appKey: "key", countries: ["gb"], queries: ["engineering director"], pages: 1 }),
+      "gb/engineering director",
+    ],
+  ];
+
+  it.each(notTransient)("passes a failure that is not transient through as not transient: %s", async (source, connector, unit) => {
+    const { reported, reportFailure } = recorder();
+
+    await connector({ fetchJson: async () => { throw goneForGood(); }, reportFailure }).run();
+    // a connector may report a second feed of its own: none of the reports may read as transient
+    expect(reported[0]).toEqual({ source, unit, status: 404, transient: false, message: "HTTP 404" });
+    expect(reported.every((failure) => failure.transient === false)).toBe(true);
+  });
+
+  it("reports a thrown value that is not an Error by its text", async () => {
+    const { reported, reportFailure } = recorder();
+    const connector = greenhouseConnector(
+      {
+        fetchJson: async () => {
+          throw "quota exceeded";
+        },
+        reportFailure,
+      },
+      { tokens: ["deadboard"] }
+    );
+    await connector.run();
+    expect(reported).toEqual([
+      { source: "greenhouse", unit: "deadboard", status: undefined, transient: true, message: "quota exceeded" },
+    ]);
+  });
+
+  it("goes on to the next feed when the reporter itself throws", async () => {
+    const connector = greenhouseConnector(
+      {
+        fetchJson: async (url: string) => {
+          if (url.includes("deadboard")) throw rateLimited();
+          return greenhouseFixture;
+        },
+        reportFailure: () => {
+          throw new Error("the reporter broke");
+        },
+      },
+      { tokens: ["deadboard", "stripe"] }
+    );
+    expect(await connector.run()).toHaveLength(5);
   });
 });

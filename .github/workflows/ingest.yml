@@ -76,9 +76,11 @@ jobs:
             const stats = require("./data/generated/stats.json");
             const carried = stats.carried ?? { total: 0, bySource: {} };
             const failedFeeds = stats.failedFeeds ?? [];
-            if (carried.total < 1 && failedFeeds.length === 0) process.exit(0);
+            // one feed is a source and unit pair, as run.ts counts them: a feed can report more than once
+            const failedFeedCount = new Set(failedFeeds.map((feed) => feed.source + "/" + feed.unit)).size;
+            if (carried.total < 1 && failedFeedCount === 0) process.exit(0);
             const headline =
-              "Latest run: " + failedFeeds.length + " feeds failed, " + carried.total + " roles kept from the previous refresh.";
+              "Latest run: " + failedFeedCount + " feeds failed, " + carried.total + " roles kept from the previous refresh.";
             const bySource = Object.entries(carried.bySource).map(([source, count]) => source + " " + count).join(", ");
             const feeds = failedFeeds.map(
               (feed) =>
