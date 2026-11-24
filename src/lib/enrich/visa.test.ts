@@ -14,24 +14,74 @@ const REFUSALS = [
 const LEGO_LINE =
   "Job Description Director, Cost Engineering The LEGO Group , Singapore or Billund Relocation support can be provided An exceptional opportunity to join the team!";
 
+// Negated noun phrases that read "Sponsors" before the fix round. Each must read "no", with its own sentence as the quote.
+const NEGATED_NOUNS = [
+  // found by the task review
+  "Visa sponsorship isn't available for this role.",
+  "Visa sponsorship isn't offered for this role.",
+  "Visa sponsorship will not be available for this role.",
+  "Visa sponsorship could not be provided.",
+  "Visa sponsorship can not be provided.",
+  "We are unable to consider candidates who require visa sponsorship.",
+  "We cannot consider candidates requiring visa sponsorship.",
+  "Applicants must not require visa sponsorship.",
+  "Visa sponsorship is not possible for this role.",
+  "This role does not include visa sponsorship.",
+  "Visa sponsorship is not an option for this role.",
+  // found by the probe of the last round
+  "No employment visa sponsorship available.",
+  "No work permit sponsorship is available.",
+  "Visa sponsorship: No.",
+  "Sponsorship of employment visas is not available.",
+  // the unavailable forms keep working when words follow, and behind a verb the cue list did not know
+  "Visa sponsorship: Unavailable for this role.",
+  "Visa sponsorship is unavailable for this role.",
+  "Sponsorship unavailable for this role.",
+  "Visa sponsorship remains unavailable for this role.",
+  "Visa sponsorship is currently unavailable.",
+  "Visa sponsorship will remain unavailable for the rest of the year.",
+  "Employment visas are not sponsored by the company.",
+  "Candidates who require visa sponsorship are not eligible for this position.",
+  "This position does not qualify for visa sponsorship.",
+  "This position is not open to candidates requiring visa sponsorship.",
+  "Relocation is provided, but visa sponsorship is not.",
+  "Visa sponsorship is not something we offer.",
+];
+
+// Relocation refusals that read as support before the fix round. Each must read "no", with its own sentence as the quote.
+const NEGATED_RELOCATION = [
+  "Relocation assistance isn't available for this position.",
+  "Relocation support won't be provided.",
+  "Relocation support is not covered by us.",
+  "We do not pay for relocation support.",
+  "This role does not come with relocation assistance.",
+  "Relocation package is not included.",
+];
+
 describe("visaEvidence", () => {
   it("returns the sentence that carries the positive signal", () => {
     const text =
       "About us. We are a fintech. Visa sponsorship is available for exceptional candidates. Apply now.";
+    expect(detectVisa(text)).toBe("yes");
     expect(visaEvidence(text)).toBe("Visa sponsorship is available for exceptional candidates.");
   });
 
   it("returns the refusing sentence for a negative signal", () => {
     const text = "Join our team. We are unable to offer sponsorship for this role. Perks follow.";
+    expect(detectVisa(text)).toBe("no");
     expect(visaEvidence(text)).toBe("We are unable to offer sponsorship for this role.");
   });
 
   it("returns null when the signal is unknown", () => {
-    expect(visaEvidence("A plain posting with no visa language at all.")).toBeNull();
+    const text = "A plain posting with no visa language at all.";
+    expect(detectVisa(text)).toBe("unknown");
+    expect(visaEvidence(text)).toBeNull();
   });
 
   it.each(REFUSALS)("returns the exact refusal sentence inside a posting: %s", (refusal) => {
-    expect(visaEvidence(`We are hiring. ${refusal}\nYou will lead five teams.`)).toBe(refusal);
+    const text = `We are hiring. ${refusal}\nYou will lead five teams.`;
+    expect(detectVisa(text)).toBe("no");
+    expect(visaEvidence(text)).toBe(refusal);
   });
 
   it("quotes the refusal when the posting affirms sponsorship elsewhere", () => {
@@ -86,16 +136,18 @@ describe("visaEvidence", () => {
   });
 
   it.each([
-    "We can sponsor your visa",
-    "We do sponsor and take over sponsorship of employment visas for this role.",
-    "If we make you an offer, we will make every reasonable effort to get you a visa.",
-    "Visa sponsorship cannot be provided",
-    "Sponsorship cannot be provided for this role.",
-    "Visa sponsorship: Unavailable.",
-    "Visa sponsorship unavailable.",
-    "This position is not eligible for employment visa sponsorship.",
-  ])("returns the sentence itself as evidence: %s", (sentence) => {
-    expect(visaEvidence(`We are hiring. ${sentence}\nYou will lead five teams.`)).toBe(sentence);
+    ["We can sponsor your visa", "yes"],
+    ["We do sponsor and take over sponsorship of employment visas for this role.", "yes"],
+    ["If we make you an offer, we will make every reasonable effort to get you a visa.", "yes"],
+    ["Visa sponsorship cannot be provided", "no"],
+    ["Sponsorship cannot be provided for this role.", "no"],
+    ["Visa sponsorship: Unavailable.", "no"],
+    ["Visa sponsorship unavailable.", "no"],
+    ["This position is not eligible for employment visa sponsorship.", "no"],
+  ] as const)("returns the sentence itself as evidence, visa %s: %s", (sentence, verdict) => {
+    const text = `We are hiring. ${sentence}\nYou will lead five teams.`;
+    expect(detectVisa(text)).toBe(verdict);
+    expect(visaEvidence(text)).toBe(sentence);
   });
 
   it("quotes the headline of a posting that goes on to hedge", () => {
@@ -113,11 +165,14 @@ describe("relocationEvidence", () => {
 
   it("returns the refusing sentence for a negative signal", () => {
     const text = "Join our team. This position is not eligible for relocation assistance. Perks follow.";
+    expect(detectRelocation(text)).toBe("no");
     expect(relocationEvidence(text)).toBe("This position is not eligible for relocation assistance.");
   });
 
   it("returns null when the signal is unknown", () => {
-    expect(relocationEvidence("We offer visa sponsorship for the right candidate.")).toBeNull();
+    const text = "We offer visa sponsorship for the right candidate.";
+    expect(detectRelocation(text)).toBe("unknown");
+    expect(relocationEvidence(text)).toBeNull();
   });
 
   it("quotes the refusal when support is offered elsewhere", () => {
@@ -127,13 +182,15 @@ describe("relocationEvidence", () => {
   });
 
   it.each([
-    "We can help you relocate to the UK",
-    "We’ll help you relocate to the UK",
-    "Relocation expense coverage to NYC or SF (if needed)",
-    "Please note that this role would not provide relocation as a result.",
-    "Relocation assistance unavailable.",
-  ])("returns the sentence itself as evidence: %s", (sentence) => {
-    expect(relocationEvidence(`Join our team.\n${sentence}\nPerks follow.`)).toBe(sentence);
+    ["We can help you relocate to the UK", "yes"],
+    ["We’ll help you relocate to the UK", "yes"],
+    ["Relocation expense coverage to NYC or SF (if needed)", "yes"],
+    ["Please note that this role would not provide relocation as a result.", "no"],
+    ["Relocation assistance unavailable.", "no"],
+  ] as const)("returns the sentence itself as evidence, relocation %s: %s", (sentence, verdict) => {
+    const text = `Join our team.\n${sentence}\nPerks follow.`;
+    expect(detectRelocation(text)).toBe(verdict);
+    expect(relocationEvidence(text)).toBe(sentence);
   });
 
   it("returns the line that offers visa sponsorship and relocation", () => {
@@ -148,6 +205,89 @@ describe("relocationEvidence", () => {
       "Vice President of Engineering \u2013 Advanced Energy & Hardware Systems Location: Seattle, WA Employment Type: Full-Time | Executive Leadership Work Arrangement: Onsite Relocation: Assistance Available \u2013 Nationwide Candidates Welcome Lead Engineering Innovation from Research to Real-World Deployment Talent Solutions Group is conducting a confidential executive search for an accomplished Vice President of Engineering to join a growing, research-driven technology organization developing next-generatio\u2026";
     expect(line.length).toBe(500);
     expect(relocationEvidence(line)).toBe("Onsite Relocation: Assistance Available");
+  });
+});
+
+describe("a refusal that negates a noun", () => {
+  it.each(NEGATED_NOUNS)('reads visa "no" and is quoted: %s', (sentence) => {
+    const text = `We are hiring. ${sentence}\nYou will lead five teams.`;
+    expect(detectVisa(text)).toBe("no");
+    expect(visaEvidence(text)).toBe(sentence);
+  });
+
+  it.each(NEGATED_RELOCATION)('reads relocation "no" and is quoted: %s', (sentence) => {
+    const text = `Join our team.\n${sentence}\nPerks follow.`;
+    expect(detectRelocation(text)).toBe("no");
+    expect(detectVisa(text)).toBe("unknown");
+    expect(relocationEvidence(text)).toBe(sentence);
+  });
+});
+
+describe("a relocation refusal never reads as a visa refusal", () => {
+  it.each([
+    ["We cannot offer relocation, and we sponsor visas.", "unknown"],
+    ["We do not offer relocation; visa sponsorship is available for all roles.", "yes"],
+    ["We do not offer relocation assistance.” Visa sponsorship is available for all roles.", "yes"],
+    ["We will not only sponsor visas, but also pay the legal fees.", "yes"],
+    ["We do not offer relocation assistance.” We sponsor visas.", "yes"],
+    ["We are unable to consider remote applications.” Candidates who require visa sponsorship are welcome.", "yes"],
+  ] as const)("visa %s: %s", (sentence, visa) => {
+    expect(detectVisa(sentence)).toBe(visa);
+  });
+
+  it.each([
+    "We cannot offer relocation, and we sponsor visas.",
+    "We do not offer relocation; visa sponsorship is available for all roles.",
+    "We do not offer relocation assistance.” Visa sponsorship is available for all roles.",
+  ])("still refuses relocation: %s", (sentence) => {
+    expect(detectRelocation(sentence)).toBe("no");
+  });
+});
+
+describe("the noun guard", () => {
+  it.each([
+    ["Relocation assistance is not available for this position; visa sponsorship is available for the right candidate.", "no"],
+    ["We do not offer relocation assistance, but visa sponsorship is available for the right candidate.", "no"],
+    ["Relocation assistance is not available. Visa sponsorship is available for the right candidate.", "no"],
+  ] as const)("keeps an affirmation visible after a refusal: %s", (sentence, relocation) => {
+    expect(detectVisa(sentence)).toBe("yes");
+    expect(detectRelocation(sentence)).toBe(relocation);
+  });
+
+  it.each([
+    "Visa sponsorship is not on offer for this role.",
+    "No form of visa sponsorship is available.",
+    "We do not assist with visa applications.",
+    "We cannot assist with work permits.",
+  ])("reads unknown for a negated noun phrase it does not list: %s", (sentence) => {
+    expect(detectVisa(sentence)).toBe("unknown");
+  });
+
+  it.each(["Relocation assistance is not an option for this position.", "We never pay for relocation support."])(
+    "reads unknown for a negated relocation phrase it does not list: %s",
+    (sentence) => {
+      expect(detectRelocation(sentence)).toBe("unknown");
+    }
+  );
+
+  it("counts a cue before a noun only within 40 characters", () => {
+    const near = `We never ${"ab ".repeat(13)}visa sponsorship for this role.`;
+    const far = `We never ${"ab ".repeat(12)}abc visa sponsorship for this role.`;
+    const distance = (text: string): number => text.indexOf("visa sponsorship") - (text.indexOf("never") + 5);
+    expect(distance(near)).toBe(40);
+    expect(distance(far)).toBe(41);
+    expect(detectVisa(near)).toBe("unknown");
+    expect(detectVisa(far)).toBe("yes");
+  });
+
+  it("counts a cue after a noun only within 40 characters", () => {
+    const near = `Visa sponsorship${" ab".repeat(13)} not offered for this role.`;
+    const far = `Visa sponsorship${" ab".repeat(13)}  not offered for this role.`;
+    const distance = (text: string): number => text.indexOf("not offered") - (text.indexOf("Visa sponsorship") + 16);
+    expect(distance(near)).toBe(40);
+    expect(distance(far)).toBe(41);
+    expect(detectVisa(near)).toBe("unknown");
+    expect(detectVisa(far)).toBe("yes");
   });
 });
 
