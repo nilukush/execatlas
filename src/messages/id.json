@@ -34,7 +34,7 @@
     "latest": "Peran terbaru",
     "viewAll": "Lihat semua peran",
     "featureVisaTitle": "Info visa di setiap peran",
-    "featureVisaBody": "Setiap lowongan dibaca untuk menemukan bahasa sponsorship, jadi Anda bisa langsung menyaring peran yang mensponsori visa kerja dan melewati yang menolak.",
+    "featureVisaBody": "Setiap lowongan dibaca untuk menemukan bahasa sponsorship dan penolakan, jadi Anda bisa langsung menyaring peran yang mensponsori visa kerja dan melewati yang menolak. Peran yang diberi tag oleh situs lowongan sumber menyebutkan hal itu.",
     "featurePayTitle": "Gaji dalam mata uang lokal",
     "featurePayBody": "Gaji yang tercantum ditampilkan apa adanya. Jika lowongan menyembunyikan angkanya, kisaran perkiraan dari data tolok ukur tiap negara mengisi celahnya, selalu berlabel perkiraan.",
     "featureApplyTitle": "Tautan lamaran asli",
@@ -57,6 +57,7 @@
     "visa": "Sponsorship visa",
     "visaAny": "Semua",
     "visaYes": "Mensponsori",
+    "visaYesBySource": "Mensponsori (menurut {source})",
     "visaNo": "Tanpa sponsorship",
     "visaUnknown": "Tidak disebut",
     "workMode": "Mode kerja",
@@ -105,6 +106,7 @@
     "estimateNote": "* menandakan gaji estimasi dari tolok ukur lokal, bukan yang dinyatakan pemberi kerja.",
     "locationRestricted": "Lokasi terbatas",
     "worldwideRemote": "Remote di seluruh dunia",
+    "relocationYes": "Dukungan relokasi",
     "loadFailed": "Daftar peran gagal dimuat. Muat ulang untuk mencoba lagi."
   },
   "Roles": {
@@ -149,6 +151,11 @@
     "alsoHiring": "Juga merekrut di",
     "visaSignal": "Sinyal visa",
     "visaEvidencePrefix": "Sinyal dibaca dari lowongan:",
+    "visaMethod": "Perangkat lunak mencocokkan frasa di lowongan. Pemberi kerja belum mengonfirmasi sinyal ini.",
+    "visaSourceDeclaration": "{source} mencantumkan peran ini sebagai peran yang mensponsori visa, pertama kali terlihat pada {date}.",
+    "relocation": "Relokasi",
+    "relocationEvidencePrefix": "Dibaca dari lowongan:",
+    "locationRestrictions": "Terbuka untuk kandidat di {countries}",
     "briefListing": "Lowongan ini singkat. Detail peran lengkap dan pendaftaran ada di tautan lamaran."
   },
   "About": {
@@ -159,7 +166,7 @@
     "blockedTitle": "Mengapa tidak ada lowongan LinkedIn, Indeed, atau Naukri?",
     "blockedBody": "Situs-situs itu tidak menyediakan API lowongan publik dan ketentuan mereka melarang pengumpulan otomatis. Mengambil data dengan cara krap bukan pendekatan proyek ini. Jika salah satunya membuka jalur resmi, slot konektor sudah siap. Banyak perusahaan memasang peran yang sama di papan Greenhouse atau Workable milik mereka, dan itu tercakup di sini.",
     "visaTitle": "Bagaimana sponsorship visa dideteksi",
-    "visaBody": "Teks setiap lowongan dipindai untuk frasa seperti sponsorship visa, izin kerja, atau dukungan relokasi, dan untuk penolakan tegas seperti wajib punya hak kerja sebelumnya. Lowongan yang diam ditandai Tidak disebut, bukan ditebak.",
+    "visaBody": "Perangkat lunak ExecAtlas membaca setiap lowongan untuk menemukan bahasa sponsorship seperti sponsorship visa atau izin kerja, dan penolakan tegas seperti tidak tersedia atau wajib sudah memiliki hak kerja. Tawaran relokasi saja ditampilkan sebagai dukungan relokasi. Arbeitnow juga memberi tag pada beberapa peran sebagai peran yang mensponsori visa. Halaman tersebut menyebutkan hal itu dan menampilkan tanggal pengecekan. Lowongan yang tidak mengatakan apa pun ditandai Tidak disebut.",
     "salaryTitle": "Bagaimana gaji diperkirakan",
     "salaryBody": "Bila lowongan mencantumkan kisaran, ditampilkan apa adanya. Bila tidak, kisaran perkiraan dihitung dari data tolok ukur ExpatRate untuk peran teknologi senior, selalu dalam mata uang lokal negara lowongan, dan selalu berlabel perkiraan.",
     "limitsTitle": "Keterbatasan yang diketahui",

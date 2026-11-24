@@ -6,7 +6,7 @@ import { getAllJobIds, getJobById } from "@/lib/data";
 import { CompanyLogo } from "@/components/company-logo";
 import { SOURCE_LABELS, type JdBlock } from "@/lib/types";
 import { formatSalaryBand, SALARY_ATTRIBUTION } from "@/lib/salary";
-import { visaEvidence } from "@/lib/enrich/visa";
+import { remoteScope, signalView } from "@/lib/signals";
 import { countryByIso2, regionLabel } from "@/lib/locations";
 import { buildAlternates, formatDate, jobOgDescription, SITE_URL } from "@/lib/seo";
 
@@ -58,7 +58,22 @@ export default async function JobDetailPage({
   const t = await getTranslations("Job");
   const tJobs = await getTranslations("Jobs");
   const country = job.location.countryIso2 ? countryByIso2(job.location.countryIso2) : null;
-  const place = country?.name ?? (job.location.remote ? tJobs("remoteWorldwide") : (job.location.region ? regionLabel(job.location.region) : job.location.raw));
+  const scope = remoteScope({
+    remote: job.location.remote,
+    countryIso2: job.location.countryIso2,
+    region: job.location.region,
+    locationRestrictions: job.location.restrictions,
+  });
+  // a restricted remote role must not claim worldwide: it carries the location line of its source
+  const place = country?.name
+    ?? (job.location.remote
+      ? (scope === "worldwide" ? tJobs("remoteWorldwide") : job.location.raw)
+      : (job.location.region ? regionLabel(job.location.region) : job.location.raw));
+  const restrictions = job.location.restrictions ?? [];
+  const visa = signalView(job);
+  const source = SOURCE_LABELS[job.source] ?? job.source;
+  // an old dataset dates no tag, so the headline names the source instead
+  const undatedTag = visa.basis === "source" && !job.visaDeclaredAt;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -165,16 +180,39 @@ export default async function JobDetailPage({
             <section className="card-ui p-5 text-sm">
               <h2 className="text-sm font-bold uppercase tracking-wide text-muted">{t("visaSignal")}</h2>
               <p className={job.visa === "yes" ? "mt-2 font-semibold text-visa-fg" : "mt-2 font-semibold text-novisa-fg"}>
-                {job.visa === "yes" ? tJobs("visaYes") : tJobs("visaNo")}
+                {job.visa === "yes"
+                  ? undatedTag
+                    ? tJobs("visaYesBySource", { source })
+                    : tJobs("visaYes")
+                  : tJobs("visaNo")}
               </p>
-              {(() => {
-                const evidence = visaEvidence(job.text);
-                return evidence ? (
-                  <p className="mt-2 text-xs leading-relaxed text-muted">
-                    {t("visaEvidencePrefix")} &ldquo;{evidence}&rdquo;
-                  </p>
-                ) : null;
-              })()}
+              {visa.basis === "posting" && (
+                <>
+                  {visa.evidence && (
+                    <p className="mt-2 text-xs leading-relaxed text-muted">
+                      {t("visaEvidencePrefix")} &ldquo;{visa.evidence}&rdquo;
+                    </p>
+                  )}
+                  <p className="mt-2 text-xs leading-relaxed text-muted">{t("visaMethod")}</p>
+                </>
+              )}
+              {visa.basis === "source" && job.visaDeclaredAt && (
+                <p className="mt-2 text-xs leading-relaxed text-muted">
+                  {t("visaSourceDeclaration", { source, date: formatDate(job.visaDeclaredAt, locale) })}
+                </p>
+              )}
+            </section>
+          )}
+
+          {job.relocation === "yes" && (
+            <section className="card-ui p-5 text-sm">
+              <h2 className="text-sm font-bold uppercase tracking-wide text-muted">{t("relocation")}</h2>
+              <p className="mt-2 font-semibold text-ink">{tJobs("relocationYes")}</p>
+              {job.relocationEvidence && (
+                <p className="mt-2 text-xs leading-relaxed text-muted">
+                  {t("relocationEvidencePrefix")} &ldquo;{job.relocationEvidence}&rdquo;
+                </p>
+              )}
             </section>
           )}
 
@@ -219,8 +257,11 @@ export default async function JobDetailPage({
             {job.workMode === "hybrid" && job.officeDays && (
               <p className="mt-2 text-muted">{t("hybridDays", { days: job.officeDays })}</p>
             )}
-            {job.location.remote && job.location.countryIso2 && (
+            {scope === "restricted" && (
               <p className="mt-2 font-semibold text-ink">{tJobs("locationRestricted")}</p>
+            )}
+            {restrictions.length > 0 && (
+              <p className="mt-2 text-muted">{t("locationRestrictions", { countries: restrictions.join(", ") })}</p>
             )}
             {country?.expatFriendly && <p className="mt-2 text-visa-fg">✓ {t("expatFriendlyYes")}</p>}
           </section>

@@ -34,7 +34,7 @@
     "latest": "Latest roles",
     "viewAll": "View all roles",
     "featureVisaTitle": "Visa signal on every role",
-    "featureVisaBody": "Each posting is read for sponsorship language, so you can filter straight to roles that sponsor work visas and skip the ones that say no.",
+    "featureVisaBody": "Each posting is read for sponsorship language and refusals, so you can filter straight to roles that sponsor work visas and skip the ones that say no. Roles tagged by a source board say so.",
     "featurePayTitle": "Pay in local currency",
     "featurePayBody": "Stated salaries are shown as posted. When a posting hides the number, an estimated band from curated country benchmarks fills the gap, always labeled as an estimate.",
     "featureApplyTitle": "Real apply links",
@@ -57,6 +57,7 @@
     "visa": "Visa sponsorship",
     "visaAny": "Any",
     "visaYes": "Sponsors",
+    "visaYesBySource": "Sponsors (per {source})",
     "visaNo": "No sponsorship",
     "visaUnknown": "Unspecified",
     "workMode": "Work mode",
@@ -105,6 +106,7 @@
     "estimateNote": "* marks pay estimated from local benchmarks, not stated by the employer.",
     "locationRestricted": "Location restricted",
     "worldwideRemote": "Worldwide remote",
+    "relocationYes": "Relocation support",
     "loadFailed": "The role list failed to load. Refresh to try again."
   },
   "Roles": {
@@ -149,6 +151,11 @@
     "alsoHiring": "Also hiring in",
     "visaSignal": "Visa signal",
     "visaEvidencePrefix": "Signal read from the posting:",
+    "visaMethod": "Software matched phrases in the posting. The employer has not confirmed this signal.",
+    "visaSourceDeclaration": "{source} lists this role as visa sponsoring, first seen on {date}.",
+    "relocation": "Relocation",
+    "relocationEvidencePrefix": "Read from the posting:",
+    "locationRestrictions": "Open to candidates in {countries}",
     "briefListing": "This posting is short. Full role details and the application live at the apply link."
   },
   "About": {
@@ -159,7 +166,7 @@
     "blockedTitle": "Why no LinkedIn, Indeed or Naukri jobs?",
     "blockedBody": "Those sites do not offer public job APIs and their terms do not allow automated collection. Scraping them is not something this project does. If any of them opens an official access path, a connector slot is ready. Many employers post the same roles on their own Greenhouse or Workable boards, which this site does cover.",
     "visaTitle": "How visa sponsorship is detected",
-    "visaBody": "Every posting text is scanned for sponsorship language such as visa sponsorship, work permit or relocation support, and for explicit refusals such as must have existing right to work. Postings that say nothing are marked Unspecified rather than guessed.",
+    "visaBody": "ExecAtlas software reads every posting for sponsorship language such as visa sponsorship or work permit, and for explicit refusals such as not available or must already hold the right to work. A relocation offer on its own is shown as relocation support. Arbeitnow also tags some roles as visa sponsoring. Those pages say so and show the date of the check. Postings that say nothing are marked Unspecified.",
     "salaryTitle": "How salaries are estimated",
     "salaryBody": "When a posting states a range, it is shown as stated. Otherwise an estimated band is computed from ExpatRate's curated country benchmarks for senior technology roles, always in the local currency of the job's country, and always labeled as an estimate.",
     "limitsTitle": "Known limits",
