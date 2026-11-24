@@ -52,6 +52,8 @@ export interface JobLocation {
   region: RegionId | null;
   remote: boolean;
   raw: string;
+  /** Countries a remote role is open to, named by its source. Absent when the source names none. */
+  restrictions?: string[];
 }
 
 export type JdBlock =
@@ -70,6 +72,7 @@ export interface RawJob {
   sourceUrl: string;
   descriptionHtml?: string;
   locationRaw: string;
+  locationRestrictions?: string[];
   remoteHint?: boolean;
   employmentHint?: string | null;
   visaHint?: boolean;
@@ -95,6 +98,15 @@ export interface Job {
   seniority: Seniority;
   domain: Domain;
   visa: VisaSignal;
+  /** "posting" when the signal was read from the text, "source" when a source tagged the role. Absent when visa is unknown. */
+  visaBasis?: "posting" | "source";
+  /** The sentence behind the visa signal; null when the signal is unknown or stands on a source tag. */
+  visaEvidence?: string | null;
+  /** The run time of the night a source tag made the visa signal. */
+  visaDeclaredAt?: string;
+  relocation?: VisaSignal;
+  /** The sentence behind the relocation signal; null when the signal is unknown. */
+  relocationEvidence?: string | null;
   workMode: WorkMode;
   officeDays?: number;
   roleType: RoleType | null;
@@ -122,6 +134,10 @@ export interface IndexEntry {
   region: RegionId | null;
   remote: boolean;
   visa: VisaSignal;
+  visaBasis?: "posting" | "source";
+  relocation?: VisaSignal;
+  /** Present only for a remote role whose source names countries. */
+  locationRestrictions?: string[];
   workMode: WorkMode;
   officeDays?: number;
   roleType: RoleType | null;

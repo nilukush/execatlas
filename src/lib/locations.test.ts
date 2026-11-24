@@ -123,6 +123,33 @@ describe("resolveLocation", () => {
     expect(resolveLocation("Anywhere (Remote)")?.remote).toBe(true);
   });
 
+  it("resolves the dotted U.S. abbreviation and a US state to the United States", () => {
+    expect(resolveLocation("Remote U.S.")?.country?.iso2).toBe("US");
+    expect(resolveLocation("Remote U.S.")?.remote).toBe(true);
+    expect(resolveLocation("Lehi, Utah, Open to Remote")?.country?.iso2).toBe("US");
+    expect(resolveLocation("Lehi, Utah, Open to Remote")?.remote).toBe(true);
+  });
+
+  it("maps a standalone AMER token to the North America region", () => {
+    expect(resolveLocation("AMER - Remote")).toEqual({
+      country: null,
+      region: "north-america",
+      remote: true,
+      raw: "AMER - Remote",
+    });
+    // AMER is a whole token: a longer word that starts with amer is not AMER
+    expect(resolveLocation("Remote, Latin America")?.region).toBeNull();
+  });
+
+  it("keeps a remote role remote when its only countries are out of scope", () => {
+    expect(resolveLocation("Remote, Colombia")).toEqual({
+      country: null,
+      region: null,
+      remote: true,
+      raw: "Remote, Colombia",
+    });
+  });
+
   it("returns null for out-of-scope and ambiguous inputs", () => {
     expect(resolveLocation("Brazil")).toBeNull();
     expect(resolveLocation("Australia")).toBeNull();

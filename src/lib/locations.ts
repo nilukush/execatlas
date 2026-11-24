@@ -133,7 +133,7 @@ export const COUNTRIES: Country[] = [
 
   // North America
   { iso2: "CA", iso3: "CAN", name: "Canada", region: "north-america", currency: "CAD", expatFriendly: T, aliases: ["canada", "toronto", "vancouver", "montreal", "ottawa", "calgary"] },
-  { iso2: "US", iso3: "USA", name: "United States", region: "north-america", currency: "USD", expatFriendly: T, aliases: ["united states", "united states of america", "usa", "us", "america", "new york", "san francisco", "bay area", "seattle", "austin", "chicago", "boston", "los angeles", "denver", "atlanta", "washington dc"] },
+  { iso2: "US", iso3: "USA", name: "United States", region: "north-america", currency: "USD", expatFriendly: T, aliases: ["united states", "united states of america", "usa", "us", "america", "utah", "new york", "san francisco", "bay area", "seattle", "austin", "chicago", "boston", "los angeles", "denver", "atlanta", "washington dc"] },
   { iso2: "MX", iso3: "MEX", name: "Mexico", region: "north-america", currency: "MXN", expatFriendly: T, aliases: ["mexico", "mexico city", "cdmx", "guadalajara", "monterrey"] },
 ];
 
@@ -161,6 +161,8 @@ export const REGION_ALIASES: Array<{ alias: string; region: LandRegion }> = [
   { alias: "north-africa", region: "north-africa" },
   { alias: "europe", region: "europe" },
   { alias: "north america", region: "north-america" },
+  // the AMER region code of multinational boards; a whole token, so "america" never matches it
+  { alias: "amer", region: "north-america" },
   { alias: "india", region: "india" },
 ];
 
@@ -174,6 +176,8 @@ export interface ResolvedLocation {
 function normalize(raw: string): string {
   return raw
     .toLowerCase()
+    // the dotted abbreviation must close up before the dots turn into spaces, or the short alias "us" is never a whole token
+    .replace(/\bu\.s\./g, "us")
     .replace(/[.,;()\[\]]/g, " ")
     .replace(/\s+/g, " ")
     .trim();

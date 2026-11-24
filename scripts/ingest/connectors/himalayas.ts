@@ -82,6 +82,7 @@ export function himalayasConnector(
                 sourceUrl: job.applicationLink,
                 descriptionHtml: job.description ?? "",
                 locationRaw: restrictions.length > 0 ? `Remote, ${restrictions.join(", ")}` : "Remote",
+                locationRestrictions: restrictions,
                 remoteHint: true,
                 employmentHint: job.employmentType ?? null,
                 salaryHint:

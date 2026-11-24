@@ -62,7 +62,7 @@ function loadPrevStats(): DatasetStats | null {
   }
 }
 
-function toIndexEntry(job: Job): IndexEntry {
+export function toIndexEntry(job: Job): IndexEntry {
   return {
     id: job.id,
     title: job.title,
@@ -75,6 +75,10 @@ function toIndexEntry(job: Job): IndexEntry {
     region: job.location.region,
     remote: job.location.remote,
     visa: job.visa,
+    visaBasis: job.visaBasis,
+    relocation: job.relocation,
+    // absent, never an empty list: only its presence marks a restricted role
+    locationRestrictions: job.location.restrictions,
     workMode: job.workMode,
     officeDays: job.officeDays,
     roleType: job.roleType,

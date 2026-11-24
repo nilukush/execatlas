@@ -240,6 +240,28 @@ describe("himalayas connector", () => {
     expect(jobs[0].externalId).not.toContain("https");
   });
 
+  it("passes the location restrictions of a remote role", async () => {
+    const first = himalayasFixture[0];
+    const restricted = {
+      ...first,
+      guid: `${first.guid}-lead`,
+      applicationLink: `${first.applicationLink}-lead`,
+      locationRestrictions: ["Colombia", "Jamaica"],
+    };
+    const unrestricted = { ...himalayasFixture[1], locationRestrictions: undefined };
+    const connector = himalayasConnector(
+      { fetchJson: async () => ({ jobs: [restricted, unrestricted] }) },
+      { pages: 1, queries: ["engineering"] }
+    );
+    const jobs = await connector.run();
+    expect(jobs).toHaveLength(2);
+    expect(jobs[0]).toMatchObject({
+      locationRestrictions: ["Colombia", "Jamaica"],
+      locationRaw: "Remote, Colombia, Jamaica",
+    });
+    expect(jobs[1]).toMatchObject({ locationRestrictions: [], locationRaw: "Remote" });
+  });
+
   it("queries keyword and seniority search feeds, not the firehose", async () => {
     const urls: string[] = [];
     const connector = himalayasConnector(

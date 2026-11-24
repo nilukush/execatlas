@@ -2,7 +2,7 @@ import crypto from "node:crypto";
 import { classifyTitle } from "../../src/lib/roles";
 import { resolveLocation } from "../../src/lib/locations";
 import { parsePostingHtml } from "../../src/lib/jd";
-import { detectVisa } from "../../src/lib/enrich/visa";
+import { detectRelocation, detectVisa, relocationEvidence, visaEvidence } from "../../src/lib/enrich/visa";
 import { detectWorkMode } from "../../src/lib/enrich/workmode";
 import { detectRoleType } from "../../src/lib/enrich/role-type";
 import { extractExperience } from "../../src/lib/enrich/experience";
@@ -55,6 +55,24 @@ function isValidCurrency(code: string | undefined): code is string {
 }
 
 /**
+ * The visa signal with the facts behind it. A refusal or an affirmation in
+ * the posting beats a source tag (Arbeitnow visa filter); a tag stands on
+ * its own only when the posting has no visa words, and is dated tonight.
+ */
+function visaSignal(
+  text: string,
+  tagged: boolean,
+  now: string
+): Pick<Job, "visa" | "visaBasis" | "visaEvidence" | "visaDeclaredAt"> {
+  const visa = detectVisa(text);
+  if (visa !== "unknown") {
+    return { visa, visaBasis: "posting", visaEvidence: visaEvidence(text), visaDeclaredAt: undefined };
+  }
+  if (tagged) return { visa: "yes", visaBasis: "source", visaEvidence: null, visaDeclaredAt: now };
+  return { visa, visaBasis: undefined, visaEvidence: null, visaDeclaredAt: undefined };
+}
+
+/**
  * Turns a connector's raw job into a canonical, enriched Job record.
  * Returns null when the job falls outside the product scope: leadership
  * titles only, locations within the six supported regions (or remote),
@@ -77,8 +95,7 @@ export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | nu
   if (!location || (!location.country && !location.region && !location.remote)) return null;
 
   const parsed = parsePostingHtml(raw.descriptionHtml ?? "");
-  // a source-declared sponsorship flag (Arbeitnow visa filter) beats text detection
-  const visa = raw.visaHint === true ? "yes" : detectVisa(parsed.text);
+  const relocation = detectRelocation(parsed.text);
   const work = detectWorkMode(parsed.text, raw.remoteHint === true);
   const roleType = detectRoleType(parsed.text, raw.employmentHint);
   const experience = extractExperience(parsed.text, parsed.requirements.join("\n"));
@@ -113,10 +130,14 @@ export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | nu
       region: location.country ? location.country.region : (location.region as Job["location"]["region"]),
       remote: location.remote,
       raw: raw.locationRaw,
+      // an empty list must stay absent: its presence marks a restricted role
+      ...(raw.locationRestrictions?.length ? { restrictions: raw.locationRestrictions } : {}),
     },
     seniority: classification.seniority,
     domain: classification.domain,
-    visa,
+    ...visaSignal(parsed.text, raw.visaHint === true, now),
+    relocation,
+    relocationEvidence: relocationEvidence(parsed.text),
     workMode: work.mode,
     officeDays: work.officeDays,
     roleType,

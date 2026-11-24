@@ -1,5 +1,5 @@
 import { SOURCE_IDS } from "../../src/lib/types";
-import type { Job, JobVariant } from "../../src/lib/types";
+import type { Job, JobVariant, VisaSignal } from "../../src/lib/types";
 
 /** Postings this far apart in time are separate hires, not a country batch. */
 const VARIANT_WINDOW_MS = 24 * 60 * 60 * 1000;
@@ -40,6 +40,22 @@ function sourceRank(job: Job): number {
   return index === -1 ? 99 : index;
 }
 
+const knows = (signal: VisaSignal | undefined): boolean => signal === "yes" || signal === "no";
+
+/** A signal travels with the facts behind it: all of them come from the one record that knows it. */
+function visaFacts(job: Job): Pick<Job, "visa" | "visaBasis" | "visaEvidence" | "visaDeclaredAt"> {
+  return {
+    visa: job.visa,
+    visaBasis: job.visaBasis,
+    visaEvidence: job.visaEvidence,
+    visaDeclaredAt: job.visaDeclaredAt,
+  };
+}
+
+function relocationFacts(job: Job): Pick<Job, "relocation" | "relocationEvidence"> {
+  return { relocation: job.relocation, relocationEvidence: job.relocationEvidence };
+}
+
 function mergeJobs(a: Job, b: Job): Job {
   const primary = richness(a) !== richness(b) ? (richness(a) > richness(b) ? a : b) : sourceRank(a) <= sourceRank(b) ? a : b;
   const secondary = primary === a ? b : a;
@@ -63,7 +79,8 @@ function mergeJobs(a: Job, b: Job): Job {
     firstSeen: elder.firstSeen,
     sources,
     postedAt: primary.postedAt < secondary.postedAt ? primary.postedAt : secondary.postedAt,
-    visa: primary.visa !== "unknown" ? primary.visa : secondary.visa,
+    ...visaFacts(knows(primary.visa) ? primary : secondary),
+    ...relocationFacts(knows(primary.relocation) ? primary : secondary),
     salary: primary.salary ?? secondary.salary,
     experienceMin: primary.experienceMin ?? secondary.experienceMin,
     experienceMax: primary.experienceMax ?? secondary.experienceMax,
@@ -74,7 +91,8 @@ function mergeJobs(a: Job, b: Job): Job {
 /**
  * Merges the same real-world role found on multiple sources, keyed on
  * company, normalized title and place. The richer record wins; source list,
- * earliest dates and visa signal merge across duplicates.
+ * earliest dates and the visa and relocation signals (with the facts behind
+ * them) merge across duplicates.
  */
 export function dedupeJobs(jobs: Job[]): Job[] {
   const byKey = new Map<string, Job>();
@@ -139,18 +157,18 @@ function collapseCluster(cluster: Job[]): Job {
       applyUrl: job.applyUrl,
     }))
     .sort((a, b) => (a.countryName ?? "").localeCompare(b.countryName ?? ""));
-  const visa = primary.visa !== "unknown"
-    ? primary.visa
-    : others.length > 0 && rest.some((job) => job.visa !== "unknown")
-      ? (rest.find((job) => job.visa !== "unknown")!.visa)
-      : "unknown";
+  // the primary's signals survive; a signal the primary lacks comes from the
+  // first sibling that knows it, once the group keeps at least one variant
+  const visaTwin = others.length > 0 ? rest.find((job) => knows(job.visa)) : undefined;
+  const relocationTwin = others.length > 0 ? rest.find((job) => knows(job.relocation)) : undefined;
   // the group is one role seen across countries: earliest facts win, as in
   // mergeJobs, so primary churn cannot reset freshness or first-seen
   const elder = cluster.reduce((a, b) => (a.firstSeen <= b.firstSeen ? a : b));
   const earliestPostedAt = cluster.reduce((a, b) => (a.postedAt <= b.postedAt ? a : b)).postedAt;
   return {
     ...primary,
-    visa,
+    ...visaFacts(knows(primary.visa) || !visaTwin ? primary : visaTwin),
+    ...relocationFacts(knows(primary.relocation) || !relocationTwin ? primary : relocationTwin),
     salary: primary.salary ?? rest.find((job) => job.salary)?.salary ?? null,
     postedAt: earliestPostedAt,
     firstSeen: elder.firstSeen,

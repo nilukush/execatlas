@@ -63,4 +63,25 @@ describe("scripts/ingest/run entry point", () => {
     const stats = entry.computeStats([job], "2026-11-24T00:00:00.000Z");
     expect(stats.total).toBe(1);
   });
+
+  it("copies relocation, visaBasis and locationRestrictions into the index", () => {
+    const indexed = entry.toIndexEntry({
+      ...job,
+      visa: "yes",
+      visaBasis: "source",
+      relocation: "yes",
+      location: { ...job.location, remote: true, restrictions: ["Colombia", "Jamaica"] },
+    });
+    expect(indexed.visa).toBe("yes");
+    expect(indexed.visaBasis).toBe("source");
+    expect(indexed.relocation).toBe("yes");
+    expect(indexed.locationRestrictions).toEqual(["Colombia", "Jamaica"]);
+  });
+
+  it("adds no signal field to the index entry of an old dataset record", () => {
+    const stored = JSON.parse(JSON.stringify(entry.toIndexEntry(job)));
+    expect(stored).not.toHaveProperty("relocation");
+    expect(stored).not.toHaveProperty("visaBasis");
+    expect(stored).not.toHaveProperty("locationRestrictions");
+  });
 });

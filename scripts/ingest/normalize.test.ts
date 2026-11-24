@@ -46,6 +46,93 @@ describe("visaHint from source metadata", () => {
   });
 });
 
+describe("visa basis and evidence", () => {
+  const SPONSORED = "Visa sponsorship available for exceptional candidates.";
+  const REFUSAL = "We do not sponsor visas.";
+
+  it("stores the sentence of the posting as the evidence of its visa signal", () => {
+    const job = normalizeJob(makeRaw(), NOW);
+    expect(job?.visa).toBe("yes");
+    expect(job?.visaBasis).toBe("posting");
+    expect(job?.visaEvidence).toBe(SPONSORED);
+    expect(job?.visaDeclaredAt).toBeUndefined();
+  });
+
+  it("stores no basis and a null evidence when the posting says nothing about a visa", () => {
+    const job = normalizeJob(makeRaw({ descriptionHtml: "<p>Lead the org.</p>" }), NOW);
+    expect(job?.visa).toBe("unknown");
+    expect(job?.visaBasis).toBeUndefined();
+    expect(job?.visaEvidence).toBeNull();
+    expect(job?.visaDeclaredAt).toBeUndefined();
+  });
+
+  it("stands on the source tag when the posting has no visa words", () => {
+    const job = normalizeJob(makeRaw({ descriptionHtml: "<p>Lead the org.</p>", visaHint: true }), NOW);
+    expect(job?.visa).toBe("yes");
+    expect(job?.visaBasis).toBe("source");
+    expect(job?.visaEvidence).toBeNull();
+    expect(job?.visaDeclaredAt).toBe(NOW);
+  });
+
+  it("lets a refusal in the posting beat the source tag", () => {
+    const job = normalizeJob(makeRaw({ descriptionHtml: `<p>${REFUSAL}</p>`, visaHint: true }), NOW);
+    expect(job?.visa).toBe("no");
+    expect(job?.visaBasis).toBe("posting");
+    expect(job?.visaEvidence).toBe(REFUSAL);
+    expect(job?.visaDeclaredAt).toBeUndefined();
+  });
+
+  it("reads the posting before the tag when both affirm sponsorship", () => {
+    const job = normalizeJob(makeRaw({ visaHint: true }), NOW);
+    expect(job?.visa).toBe("yes");
+    expect(job?.visaBasis).toBe("posting");
+    expect(job?.visaEvidence).toBe(SPONSORED);
+    expect(job?.visaDeclaredAt).toBeUndefined();
+  });
+});
+
+describe("relocation signal", () => {
+  const OFFER = "Relocation support can be provided.";
+  const REFUSAL = "Relocation assistance is not available for this position.";
+
+  it("stores the relocation signal with its sentence, apart from the visa signal", () => {
+    const job = normalizeJob(makeRaw({ descriptionHtml: `<p>${OFFER}</p>` }), NOW);
+    expect(job?.relocation).toBe("yes");
+    expect(job?.relocationEvidence).toBe(OFFER);
+    expect(job?.visa).toBe("unknown");
+    expect(job?.visaEvidence).toBeNull();
+  });
+
+  it("stores a relocation refusal with its sentence", () => {
+    const job = normalizeJob(makeRaw({ descriptionHtml: `<p>${REFUSAL}</p>` }), NOW);
+    expect(job?.relocation).toBe("no");
+    expect(job?.relocationEvidence).toBe(REFUSAL);
+  });
+
+  it("stores a null evidence when the posting says nothing about relocation", () => {
+    const job = normalizeJob(makeRaw({ descriptionHtml: "<p>Lead the org.</p>" }), NOW);
+    expect(job?.relocation).toBe("unknown");
+    expect(job?.relocationEvidence).toBeNull();
+  });
+});
+
+describe("location restrictions", () => {
+  it("stores the restriction list the raw job carries", () => {
+    const job = normalizeJob(
+      makeRaw({ locationRaw: "Remote, Colombia, Jamaica", locationRestrictions: ["Colombia", "Jamaica"] }),
+      NOW
+    );
+    expect(job?.location.restrictions).toEqual(["Colombia", "Jamaica"]);
+  });
+
+  it("stores no restriction list for a raw job that names no country", () => {
+    expect(normalizeJob(makeRaw({ locationRaw: "Remote" }), NOW)?.location.restrictions).toBeUndefined();
+    expect(
+      normalizeJob(makeRaw({ locationRaw: "Remote", locationRestrictions: [] }), NOW)?.location.restrictions
+    ).toBeUndefined();
+  });
+});
+
 describe("title and company entity decoding", () => {
   it("decodes basic HTML entities in raw titles and company names", () => {
     const job = normalizeJob(makeRaw({ title: "VP of Engineering &amp; Product", company: "Foo &amp; Bar Ltd" }), NOW);
