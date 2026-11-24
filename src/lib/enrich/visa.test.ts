@@ -179,7 +179,7 @@ describe("detectVisa and detectRelocation", () => {
     ["We do sponsor visas", "yes", "unknown"],
     ["Not only do we offer visa sponsorship", "yes", "unknown"],
     ["Not only do we sponsor visas", "yes", "unknown"],
-    ["We cannot offer relocation. We sponsor visas.", "yes", "unknown"],
+    ["We cannot offer relocation. We sponsor visas.", "yes", "no"],
     [
       "We are not able to confirm the start date before an offer is signed, and we sponsor visas.",
       "yes",
@@ -282,6 +282,22 @@ describe("detectVisa and detectRelocation", () => {
     ["Relocation expense coverage is not available for this role.", "unknown", "no"],
     ["Relocation support can't be provided for this role.", "unknown", "no"],
     ["Relocation assistance unavailable.", "unknown", "no"],
+    ["We do not offer relocation assistance.", "unknown", "no"],
+    ["Unfortunately, we are unable to offer relocation assistance.", "unknown", "no"],
+    ["We cannot offer relocation support.", "unknown", "no"],
+    ["This role does not include relocation support.", "unknown", "no"],
+    ["We do not assist with relocation.", "unknown", "no"],
+    // saying that relocation is not needed is not refusing it
+    ["This role does not require relocation.", "unknown", "unknown"],
+    // a refusal of one thing does not refuse what a contrasting clause offers
+    [
+      "We do not offer relocation assistance, but visa sponsorship is available for the right candidate.",
+      "yes",
+      "no",
+    ],
+    ["We do not provide relocation, however we sponsor work visas.", "unknown", "no"],
+    ["We do not offer relocation or visa sponsorship.", "no", "no"],
+    ["We do not offer relocation and visa sponsorship.", "no", "no"],
     // sounds like a visa refusal but is not one
     ["We're unable to offer individual feedback during the interview process.", "unknown", "unknown"],
     ["We participate in E-Verify and confirm work authorization with Form I-9 data.", "unknown", "unknown"],

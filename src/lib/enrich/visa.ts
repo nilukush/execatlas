@@ -24,8 +24,9 @@ const POSITIVE: RegExp[] = [
 const SPONSORSHIP = "(?:visas?|sponsor(?:ship|ing)?|work\\s+permits?)";
 const REFUSAL_VERB = "(?:offer|provide|sponsor|support|facilitate)";
 
-/** Up to `max` words, none of which ends a sentence. */
-const words = (max: number): string => `(?:(?!\\S*[.!?]\\s)\\S+\\s+){0,${max}}?`;
+/** Up to `max` words, none of which ends a sentence or opens a contrasting clause. */
+const words = (max: number): string =>
+  `(?:(?!\\S*[.!?]\\s)(?!(?:but|yet|however|while|whereas|although|though)\\b)\\S+\\s+){0,${max}}?`;
 
 /** Up to 160 characters inside one sentence. The period of an abbreviation such as U.S. is not a sentence end; letter case cannot tell them apart under the i flag. */
 const GAP = "(?:(?<=\\b[A-Za-z])[.!?]|[.!?](?=\\S)|[^.!?]){0,160}?";
@@ -87,7 +88,7 @@ const RELOCATION_NEGATIVE: RegExp[] = [
   ),
   new RegExp(`\\bno\\s+relocation\\s+(?:${RELOCATION_SUPPORT}|available|provided|offered)\\b`, "i"),
   new RegExp(
-    `\\b(?:(?:do|does|did|will|would|can|could|may|might)\\s+not|(?:don|doesn|didn|won|wouldn|can|couldn)['\u2019]t|cannot|unable\\s+to)\\s+${words(1)}(?:provide|help)\\s+${words(3)}relocat(?:e|ion)\\b`,
+    `\\b(?:(?:do|does|did|will|would|can|could|may|might)\\s+not|(?:don|doesn|didn|won|wouldn|can|couldn)['\u2019]t|cannot|unable\\s+to)\\s+${words(1)}(?:offer|provide|include|assist|help)\\s+${words(3)}relocat(?:e|ion)\\b`,
     "i"
   ),
   new RegExp(`\\b(?:not|never)\\s+${MOVES_CANDIDATE}\\b`, "i"),
