@@ -581,6 +581,34 @@ describe("adzuna failed feed", () => {
     expect(jobs.length).toBe(2);
     expect(jobs.every((j) => j.feedUnit === "gb/engineering director")).toBe(true);
   });
+
+  it("reports a night without credentials as a transient failure of the whole source, and asks nothing", async () => {
+    const { reported, reportFailure } = recorder();
+    const asked: string[] = [];
+    const connector = adzunaConnector(
+      {
+        fetchJson: async (url: string) => {
+          asked.push(url);
+          return { results: adzunaFixture };
+        },
+        reportFailure,
+      },
+      // the id alone is set: a missing key is no credential
+      { appId: "id", appKey: "", countries: ["gb"], queries: ["engineering director"], pages: 1 }
+    );
+
+    expect(await connector.run()).toEqual([]);
+    expect(asked).toEqual([]);
+    expect(reported).toEqual([
+      {
+        source: "adzuna",
+        unit: "source",
+        status: undefined,
+        transient: true,
+        message: "no Adzuna credentials, the source was not asked",
+      },
+    ]);
+  });
 });
 
 describe("failed feed reporting and feed tags", () => {

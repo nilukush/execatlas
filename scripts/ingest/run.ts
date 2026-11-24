@@ -201,12 +201,21 @@ export function carryLines(
  * a role of it answered with no roles (ruling R59). The report is a
  * transient failure of the whole source, so carryOver keeps its roles as it
  * keeps those of a failed feed. A source the run did not fetch has no entry
- * in `runs` and is not judged.
+ * in `runs` and is not judged. A source that already reported itself as a
+ * whole tonight has said why it answered with no roles, so it is not
+ * reported again.
  */
-export function emptyAnswers(runs: Array<{ id: SourceId; fetched: number }>, previous: Job[]): FeedFailure[] {
+export function emptyAnswers(
+  runs: Array<{ id: SourceId; fetched: number }>,
+  previous: Job[],
+  failures: FeedFailure[]
+): FeedFailure[] {
   const held = new Set(previous.map((job) => job.source));
+  const reportedWhole = new Set(
+    failures.filter((failure) => failure.unit === SOURCE_UNIT).map((failure) => failure.source)
+  );
   return runs
-    .filter((run) => run.fetched === 0 && held.has(run.id))
+    .filter((run) => run.fetched === 0 && held.has(run.id) && !reportedWhole.has(run.id))
     .map((run) => ({ source: run.id, unit: SOURCE_UNIT, transient: true, message: "the source answered with no roles" }));
 }
 
@@ -218,6 +227,49 @@ export function visaFeedFailed(failures: FeedFailure[]): boolean {
   return failures.some(
     (failure) => failure.transient && failure.source === "arbeitnow" && failure.unit.startsWith("visa-feed-")
   );
+}
+
+/**
+ * The night after the connector loop. The fresh records are deduped and
+ * settled against the stored ones, a source that answered with no roles is
+ * reported, and carryOver judges every stored record of the fetched sources
+ * that no fresh record holds tonight. A kept record is stored as it was, so
+ * it joins after the dedupe. The answer holds the failures, with the empty
+ * answers in them, the carried result, the final list and the number of
+ * feeds that failed.
+ */
+export function closeNight(input: {
+  allJobs: Job[];
+  previous: JobsFile | null;
+  // the stored records by id, as the connector loop already indexed them
+  previousById: PreviousIndex["byId"];
+  fetchedSources: string[];
+  runs: Array<{ id: SourceId; fetched: number }>;
+  failures: FeedFailure[];
+  reportFailure: (failure: FeedFailure) => void;
+  now: string;
+}): {
+  failures: FeedFailure[];
+  carried: ReturnType<typeof carryOver>;
+  finalJobs: Job[];
+  failedFeeds: number;
+} {
+  const fresh = dedupeJobs(input.allJobs).map((job) => stableJob(job, input.previousById));
+  const judged = previousOfSources(input.previous?.jobs ?? [], input.fetchedSources);
+  for (const failure of emptyAnswers(input.runs, judged, input.failures)) input.reportFailure(failure);
+  const carried = carryOver({
+    previous: judged,
+    previousGeneratedAt: input.previous?.generatedAt,
+    fresh,
+    failures: input.failures,
+    now: input.now,
+  });
+  // one feed is a source and unit pair: a feed can report more than once
+  const failedFeeds = new Set(input.failures.map((failure) => `${failure.source}/${failure.unit}`)).size;
+  for (const line of carryLines(carried, failedFeeds)) console.log(line);
+  const finalJobs = [...fresh, ...carried.jobs];
+  finalJobs.sort((a, b) => (a.postedAt === b.postedAt ? a.id.localeCompare(b.id) : a.postedAt < b.postedAt ? 1 : -1));
+  return { failures: input.failures, carried, finalJobs, failedFeeds };
 }
 
 /**
@@ -342,8 +394,6 @@ async function main() {
 
   for (const connector of connectors) {
     const rawJobs = await connector.run();
-    // the Arbeitnow visa tag lives in a feed of its own: when that feed
-    // failed, its raw jobs come back untagged and the stored tag stands in
     const rememberSourceVisa = visaFeedFailed(failures);
     let kept = 0;
     for (const raw of rawJobs) {
@@ -360,33 +410,26 @@ async function main() {
     console.log(`[${connector.id}] ${rawJobs.length} fetched, ${kept} in scope`);
   }
 
-  // the first night of a source tag is carried from the stored merged record
-  // before the stamp comparison, so an unchanged role stays byte-identical
-  const fresh = dedupeJobs(allJobs).map((job) => stableJob(job, previous.byId));
-  const judged = previousOfSources(prevEnvelope?.jobs ?? [], connectors.map((connector) => connector.id));
-  for (const failure of emptyAnswers(runs, judged)) reportFailure(failure);
-  const carried = carryOver({
-    previous: judged,
-    previousGeneratedAt: prevEnvelope?.generatedAt,
-    fresh,
+  const night = closeNight({
+    allJobs,
+    previous: prevEnvelope,
+    previousById: previous.byId,
+    fetchedSources: connectors.map((connector) => connector.id),
+    runs,
     failures,
+    reportFailure,
     now,
   });
-  const failedFeeds = new Set(failures.map((failure) => `${failure.source}/${failure.unit}`)).size;
-  for (const line of carryLines(carried, failedFeeds)) console.log(line);
-  // a carried or grace record is stored as it was, so it joins after the dedupe
-  const finalJobs = [...fresh, ...carried.jobs];
-  finalJobs.sort((a, b) => (a.postedAt === b.postedAt ? a.id.localeCompare(b.id) : a.postedAt < b.postedAt ? 1 : -1));
 
   if (shouldRunSanityGate({ smoke, only: Boolean(only), force: args.includes("--force") })) {
-    const problems = datasetProblems(finalJobs, loadPrevStats(), carriedCount(carried.carriedBySource));
+    const problems = datasetProblems(night.finalJobs, loadPrevStats(), carriedCount(night.carried.carriedBySource));
     if (problems.length > 0) {
       for (const problem of problems) console.error(`[sanity] ${problem.rule}: ${problem.detail}`);
       throw new Error("Dataset sanity check failed; refusing to write. Re-run with --force to override.");
     }
   }
 
-  const { jobs, generatedAt: stamp } = settleNight(finalJobs, prevEnvelope, now);
+  const { jobs, generatedAt: stamp } = settleNight(night.finalJobs, prevEnvelope, now);
 
   if (smoke) {
     console.log("Smoke mode: fetched and normalized only, nothing written.");
@@ -404,7 +447,10 @@ async function main() {
     generatedAt: stamp,
     jobs: jobs.map(toIndexEntry),
   });
-  const stats = computeStats(jobs, stamp, { carriedBySource: carried.carriedBySource, failedFeeds: failures });
+  const stats = computeStats(jobs, stamp, {
+    carriedBySource: night.carried.carriedBySource,
+    failedFeeds: night.failures,
+  });
   writeJsonAtomic(path.join(GENERATED_DIR, "stats.json"), stats);
   writeJsonAtomic(path.join(GENERATED_DIR, "queries.json"), {
     generatedAt: stamp,

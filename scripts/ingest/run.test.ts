@@ -276,23 +276,131 @@ describe("scripts/ingest/run entry point", () => {
     };
 
     it("is reported when it fetched no raw job tonight and held a role last night", () => {
-      expect(entry.emptyAnswers([{ id: "greenhouse", fetched: 0 }], lastNight)).toEqual([answered]);
+      expect(entry.emptyAnswers([{ id: "greenhouse", fetched: 0 }], lastNight, [])).toEqual([answered]);
     });
 
     it("is not reported when it fetched a raw job tonight", () => {
-      expect(entry.emptyAnswers([{ id: "greenhouse", fetched: 1 }], lastNight)).toEqual([]);
+      expect(entry.emptyAnswers([{ id: "greenhouse", fetched: 1 }], lastNight, [])).toEqual([]);
     });
 
     it("is not reported when it held no role last night", () => {
-      expect(entry.emptyAnswers([{ id: "adzuna", fetched: 0 }], lastNight)).toEqual([]);
+      expect(entry.emptyAnswers([{ id: "adzuna", fetched: 0 }], lastNight, [])).toEqual([]);
       // a source the run did not fetch is not judged
-      expect(entry.emptyAnswers([{ id: "greenhouse", fetched: 4 }], lastNight)).toEqual([]);
+      expect(entry.emptyAnswers([], lastNight, [])).toEqual([]);
+    });
+
+    it("is not reported for a source that already reported itself as a whole tonight", () => {
+      const own = {
+        source: "greenhouse" as const,
+        unit: "source",
+        transient: true,
+        message: "no credentials, the source was not asked",
+      };
+      expect(entry.emptyAnswers([{ id: "greenhouse", fetched: 0 }], lastNight, [own])).toEqual([]);
+      // a report of one of its feeds is no report of the whole source, nor is one of another source
+      expect(entry.emptyAnswers([{ id: "greenhouse", fetched: 0 }], lastNight, [{ ...own, unit: "stripe" }])).toEqual([
+        answered,
+      ]);
+      expect(entry.emptyAnswers([{ id: "greenhouse", fetched: 0 }], lastNight, [{ ...own, source: "adzuna" }])).toEqual([
+        answered,
+      ]);
     });
 
     it("writes a report that carries every role of that source", () => {
-      const report = entry.emptyAnswers([{ id: "greenhouse", fetched: 0 }], lastNight);
+      const report = entry.emptyAnswers([{ id: "greenhouse", fetched: 0 }], lastNight, []);
       const { carriedBySource } = carryOver({ previous: lastNight, fresh: [], failures: report, now: NOW });
       expect(carriedBySource).toEqual({ greenhouse: 1 });
+    });
+  });
+
+  describe("the night after the connector loop", () => {
+    const LAST_NIGHT = "2026-11-23T03:17:00.000Z";
+    const NOW = "2026-11-24T03:17:00.000Z";
+    const envelope = (jobs: Job[]) => ({ version: 2, generatedAt: LAST_NIGHT, jobs });
+    // a role stored last night under its feed
+    const stored = (id: string, feedUnit: string): Job => ({ ...job, id, feedUnit });
+
+    it("keeps one carried role and one grace role apart from the fresh list, and hands the gate one carried role", () => {
+      // tonight's one raw job, of a third feed of the same source
+      const raw: RawJob = {
+        source: "greenhouse",
+        externalId: "gh-100",
+        title: "Director of Engineering",
+        company: "Acme Payments",
+        applyUrl: "https://greenhouse.example/gh-100",
+        sourceUrl: "https://greenhouse.example/gh-100",
+        descriptionHtml: "<p>Lead four teams.</p>",
+        locationRaw: "Dubai, UAE",
+        postedAt: "2026-11-10T08:00:00.000Z",
+        feedUnit: "board-z",
+      };
+      const previous = envelope([stored("carried", "stripe"), stored("grace", "board-y")]);
+      const { failures, reportFailure } = entry.failureCollector();
+      reportFailure({ source: "greenhouse", unit: "stripe", status: 429, transient: true, message: "HTTP 429" });
+      const before = logged.length;
+
+      const night = entry.closeNight({
+        allJobs: [normalizeJob(raw, NOW)!],
+        previous,
+        previousById: entry.indexPrevious(previous.jobs).byId,
+        fetchedSources: ["greenhouse"],
+        runs: [{ id: "greenhouse", fetched: 1 }],
+        failures,
+        reportFailure,
+        now: NOW,
+      });
+
+      // the role of the failed feed is carried, the role its answering feed no longer lists is kept in grace
+      expect(night.carried).toEqual({
+        jobs: [
+          { ...stored("carried", "stripe"), carriedNights: 1, lastSeenAt: LAST_NIGHT },
+          { ...stored("grace", "board-y"), absentNights: 1, lastSeenAt: LAST_NIGHT },
+        ],
+        carriedBySource: { greenhouse: 1 },
+        graceCount: 1,
+      });
+      // the gate count is the carried roles alone
+      expect(entry.carriedCount(night.carried.carriedBySource)).toBe(1);
+      expect(night.failedFeeds).toBe(1);
+      // the kept records join the fresh list after it
+      expect(night.finalJobs.map((kept) => kept.id)).toEqual([stableIdForRaw(raw), "carried", "grace"]);
+      expect(night.failures).toEqual(failures);
+      expect(logged.slice(before)).toEqual([
+        ["[carry] 1 roles kept from the previous refresh after 1 failed feeds"],
+        ["[grace] 1 roles kept for two nights after leaving their feed"],
+      ]);
+    });
+
+    it("adds no empty answer for a source that already reported itself as a whole, and carries its roles", () => {
+      const previous = envelope([{ ...job, id: "kept", source: "adzuna", sources: ["adzuna"] }]);
+      const skip = {
+        source: "adzuna" as const,
+        unit: "source",
+        transient: true,
+        message: "no Adzuna credentials, the source was not asked",
+      };
+      const { failures, reportFailure } = entry.failureCollector();
+      reportFailure(skip);
+
+      const night = entry.closeNight({
+        allJobs: [],
+        previous,
+        previousById: entry.indexPrevious(previous.jobs).byId,
+        fetchedSources: ["adzuna"],
+        runs: [{ id: "adzuna", fetched: 0 }],
+        failures,
+        reportFailure,
+        now: NOW,
+      });
+
+      expect(night.failures).toEqual([skip]);
+      expect(night.carried).toEqual({
+        jobs: [{ ...previous.jobs[0], carriedNights: 1, lastSeenAt: LAST_NIGHT }],
+        carriedBySource: { adzuna: 1 },
+        graceCount: 0,
+      });
+      expect(night.finalJobs.map((kept) => kept.id)).toEqual(["kept"]);
+      expect(night.failedFeeds).toBe(1);
     });
   });
 

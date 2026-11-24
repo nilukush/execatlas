@@ -1,5 +1,6 @@
 import { adzunaHomeUrl } from "../../../src/lib/apply";
 import type { RawJob } from "../../../src/lib/types";
+import { SOURCE_UNIT } from "../carry";
 import { reportFeedFailure } from "../http";
 import type { FetchDeps } from "../http";
 
@@ -55,6 +56,14 @@ export function adzunaConnector(
     async run() {
       if (!options.appId || !options.appKey) {
         console.warn("[adzuna] no credentials (ADZUNA_APP_ID / ADZUNA_APP_KEY); skipping source");
+        // the source was never asked, so it did not answer with no roles: a whole source report says so
+        // and keeps its roles carried, where the empty answer report of the run would say what is false
+        deps.reportFailure?.({
+          source: "adzuna",
+          unit: SOURCE_UNIT,
+          transient: true,
+          message: "no Adzuna credentials, the source was not asked",
+        });
         return [];
       }
       const out: RawJob[] = [];
