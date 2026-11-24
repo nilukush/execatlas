@@ -194,7 +194,8 @@ export default async function JobDetailPage({
               <>
                 <p className="mt-2 font-serif text-lg font-bold">
                   {formatSalaryBand(job.salary, locale)}{" "}
-                  <span className="text-sm font-normal text-muted">
+                  {/* the period stays on one line, so a narrow card never breaks "/ a year" */}
+                  <span className="whitespace-nowrap text-sm font-normal text-muted">
                     / {job.salary.period === "monthly" ? tJobs("perMonth") : tJobs("perYear")}
                   </span>
                 </p>
