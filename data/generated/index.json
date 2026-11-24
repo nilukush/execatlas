@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-24T19:28:46.633Z",
+  "generatedAt": "2026-11-24T20:30:36.915Z",
   "jobs": [
     {
       "id": "citi-assistant-vp-site-reliability-engineerin-32e6b6",
@@ -13374,11 +13374,11 @@
       "visa": "unknown",
       "workMode": "unspecified",
       "roleType": "full-time",
-      "salaryMin": 200000,
-      "salaryMax": 260000000,
+      "salaryMin": 138060,
+      "salaryMax": 220730,
       "salaryCurrency": "USD",
       "salaryPeriod": "annual",
-      "salarySource": "stated",
+      "salarySource": "estimated",
       "postedAt": "2026-11-17T06:49:28+00:00",
       "source": "jobicy",
       "sources": [

@@ -25,7 +25,7 @@
       "kept": 23,
       "exclusive": 23,
       "visaKnown": 5,
-      "salaryStated": 15,
+      "salaryStated": 14,
       "medianPostedAgeDays": 6
     },
     "lever": {
@@ -57,7 +57,7 @@
       "medianPostedAgeDays": 31
     }
   },
-  "generatedAt": "2026-11-24T19:28:46.633Z",
+  "generatedAt": "2026-11-24T20:30:36.915Z",
   "total": 1289,
   "bySource": {
     "greenhouse": 230,
