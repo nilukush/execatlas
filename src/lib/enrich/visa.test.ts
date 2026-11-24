@@ -118,7 +118,7 @@ describe("detectVisa and detectRelocation", () => {
     ["Assistance with visa applications is available.", "yes", "unknown"],
     // affirmations on the site that the refusal forms must not hide
     [
-      "Visa sponsorship: We do sponsor visas! However, we aren’t able to successfully sponsor visas for every role and every candidate. But if we make you an offer, we will make every reasonable effort to get you a visa, and we retain an immigration lawyer to help with this.",
+      "Visa sponsorship: We do sponsor visas! However, we aren't able to successfully sponsor visas for every role and every candidate. But if we make you an offer, we will make every reasonable effort to get you a visa, and we retain an immigration lawyer to help with this.",
       "yes",
       "unknown",
     ],
