@@ -81,17 +81,24 @@ const realSleep = (ms: number): Promise<void> => new Promise((resolve) => setTim
 // a query string can carry a key, so a failure message names an http or https URL up to its path only,
 // whatever the case of its scheme
 const URL_WITH_QUERY = /\bhttps?:\/\/[^\s"'`<>?]*\?[^\s"'`<>]*/gi;
-// the user and the password before the host are a credential too
-const URL_USER_INFO = /(\bhttps?:\/\/)[^\s/?#"'`<>]*@/gi;
-// a key can also sit in a text that is no URL, as the value of a parameter under the name of a credential
-const CREDENTIAL_PARAMETER = /(app_key|app_id|api_key|apikey|key|token|secret|password|pwd)=[^\s"'`<>&]+/gi;
+// the user and the password before the host are a credential too, whatever the scheme of the URL
+const URL_USER_INFO = /(\b[a-z][a-z0-9+.-]*:\/\/)[^\s/?#"'`<>]*@/gi;
+// the names a credential takes in the messages the pipeline writes
+const CREDENTIAL_NAMES = "app_key|app_id|api_key|apikey|key|token|secret|password|pwd";
+// a key can also sit in a text that is no URL, as the value of a parameter under the name of a credential;
+// white space may stand around the equals sign, a line break included
+const CREDENTIAL_PARAMETER = new RegExp(`(${CREDENTIAL_NAMES})(\\s*=\\s*)[^\\s"'\`<>&]+`, "gi");
+// a JSON body states the same parameter as a quoted name and a quoted value
+const CREDENTIAL_JSON_FIELD = new RegExp(`("(?:${CREDENTIAL_NAMES})"\\s*:\\s*)"[^"]*"`, "gi");
 const CLOSING_PUNCTUATION = /[)\]},;:.]+$/;
 
 /**
- * Strips every shape of a credential out of a failure message (ruling R60):
- * the query string, and the user and the password, of every http and https
- * URL, and the value of a parameter named like a credential wherever it sits.
- * Running it a second time changes nothing.
+ * Masks the credentials a failure message of this pipeline can hold (ruling
+ * R60): the query string of an http or https URL, the user and the password
+ * of a URL of any scheme, the value of a parameter named like a credential,
+ * and the value of such a name in a JSON body. A header line such as
+ * "Authorization: Bearer ..." is not masked: no connector sends one. Running
+ * it a second time changes nothing.
  */
 export function withoutQueryString(text: string): string {
   return text
@@ -100,7 +107,8 @@ export function withoutQueryString(text: string): string {
       return url.slice(0, url.indexOf("?")) + (url.match(CLOSING_PUNCTUATION)?.[0] ?? "");
     })
     .replace(URL_USER_INFO, "$1")
-    .replace(CREDENTIAL_PARAMETER, "$1=***");
+    .replace(CREDENTIAL_JSON_FIELD, '$1"***"')
+    .replace(CREDENTIAL_PARAMETER, "$1$2***");
 }
 
 /**

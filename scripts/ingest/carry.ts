@@ -1,4 +1,6 @@
 import { dedupeKey } from "./dedupe";
+import { countryByIso2 } from "../../src/lib/locations";
+import { estimateSalary, isPlausibleBand } from "../../src/lib/salary";
 import type { FeedFailure } from "./http";
 import type { Job } from "../../src/lib/types";
 
@@ -8,29 +10,47 @@ export const MAX_CARRIED_NIGHTS = 3;
 const MAX_ABSENT_NIGHTS = 2;
 // a role posted this many whole days ago is the oldest the site keeps (issue 62)
 const MAX_POSTED_AGE_DAYS = 365;
-// the unit of a transient failure that concerns a whole source, not one of its feeds (ruling R59)
+// the unit of a transient failure that concerns a whole source, not one of its feeds (ruling R59);
+// it is a sentinel inside the namespace of the feed units: no configured unit may be named "source"
 export const SOURCE_UNIT = "source";
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 /**
- * True when a role was posted more than 365 whole days before `now`.
- * normalizeJob drops a raw role on it, and carryOver a stored one.
+ * True when a role was posted more than 365 whole days before `nowMs`, the
+ * run time in milliseconds. normalizeJob drops a raw role on it, and
+ * carryOver a stored one.
  */
-export function postedTooLongAgo(postedAt: string, now: string): boolean {
-  return Math.floor((Date.parse(now) - Date.parse(postedAt)) / DAY_MS) > MAX_POSTED_AGE_DAYS;
+export function postedTooLongAgo(postedAt: string, nowMs: number): boolean {
+  return Math.floor((nowMs - Date.parse(postedAt)) / DAY_MS) > MAX_POSTED_AGE_DAYS;
 }
 
 /**
- * The record as it was, with the given night counter set and the last-seen
- * stamp kept: its own value, else the stamp of the previous dataset.
+ * A kept record passes the pay check a fresh one passes (ruling R63). A
+ * stated band that cannot be pay gives way to the estimate for its country
+ * and domain, or to no band where no benchmark covers the country. A
+ * plausible stated band and an estimate stay as they were stored.
+ */
+function checkedPay(previous: Job): Job {
+  const salary = previous.salary;
+  if (!salary || salary.source !== "stated" || isPlausibleBand(salary)) return previous;
+  const iso2 = previous.location.countryIso2;
+  const iso3 = iso2 === undefined ? undefined : countryByIso2(iso2)?.iso3;
+  return { ...previous, salary: iso3 === undefined ? null : estimateSalary(iso3, previous.domain) };
+}
+
+/**
+ * The record as it was, with the given night counter set, the last-seen
+ * stamp kept (its own value, else the stamp of the previous dataset) and its
+ * stated band judged by the pay check.
  */
 function keep(
   previous: Job,
   nights: Partial<Pick<Job, "carriedNights" | "absentNights">>,
   previousGeneratedAt?: string
 ): Job {
+  const kept = checkedPay(previous);
   const lastSeenAt = previous.lastSeenAt ?? previousGeneratedAt;
-  return lastSeenAt === undefined ? { ...previous, ...nights } : { ...previous, ...nights, lastSeenAt };
+  return lastSeenAt === undefined ? { ...kept, ...nights } : { ...kept, ...nights, lastSeenAt };
 }
 
 /**
@@ -38,8 +58,9 @@ function keep(
  * six rules: present tonight, posted more than a year ago, expired before
  * tonight, its feed failed tonight, its feed is gone for good, or its feed
  * answered without it. The result holds the kept records only, each as it
- * was: a carried one when its feed failed, a grace one when its feed
- * answered and no longer lists it.
+ * was apart from the night counter, the last-seen stamp and the pay check: a
+ * carried one when its feed failed, a grace one when its feed answered and
+ * no longer lists it.
  */
 export function carryOver(input: {
   previous: Job[];
@@ -56,6 +77,8 @@ export function carryOver(input: {
     if (reported) reported.push(failure);
     else failuresBySource.set(failure.source, [failure]);
   }
+  // the run time is parsed once: every rule below reads times, never the spelling of a stamp
+  const now = Date.parse(input.now);
 
   const jobs: Job[] = [];
   const carriedBySource: Record<string, number> = {};
@@ -64,9 +87,9 @@ export function carryOver(input: {
     // 1. present tonight, by id or by company, title and place: the fresh record wins
     if (freshIds.has(previous.id) || freshKeys.has(dedupeKey(previous))) continue;
     // 2. posted more than a year ago
-    if (postedTooLongAgo(previous.postedAt, input.now)) continue;
+    if (postedTooLongAgo(previous.postedAt, now)) continue;
     // 3. expired before tonight: neither carried nor kept in grace (ruling R58)
-    if (previous.expiresAt !== undefined && Date.parse(previous.expiresAt) < Date.parse(input.now)) continue;
+    if (previous.expiresAt !== undefined && Date.parse(previous.expiresAt) < now) continue;
     // a record from before feeds were tagged has no feed of its own
     const untagged = previous.feedUnit === undefined;
     const reported = failuresBySource.get(previous.source) ?? [];

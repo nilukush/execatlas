@@ -380,15 +380,25 @@ describe("himalayas connector", () => {
   });
 
   it("keeps a job the API dates with no expiry", async () => {
+    const first = himalayasFixture[0];
+    // dated one hour after it was published, so the night after is past its expiry
+    const expired = {
+      ...first,
+      guid: `${first.guid}-expired`,
+      applicationLink: `${first.applicationLink}-expired`,
+      expiryDate: first.pubDate + 60 * 60,
+    };
     // a null stamp and an absent one both date no expiry
     for (const expiryDate of [null, undefined]) {
-      const undated = { ...himalayasFixture[0], expiryDate };
+      const undated = { ...first, expiryDate };
       const connector = himalayasConnector(
-        { fetchJson: async () => ({ jobs: [undated] }) },
+        { fetchJson: async () => ({ jobs: [undated, expired] }) },
         { pages: 1, queries: ["engineering"], now: HIMALAYAS_RUN }
       );
       const jobs = await connector.run();
+      // only the undated job is left: the expired one beside it is dropped
       expect(jobs).toHaveLength(1);
+      expect(jobs[0].externalId).toBe(`hml-${first.guid.split("/").pop()}`);
       expect(jobs[0]).not.toHaveProperty("expiresAt");
     }
   });

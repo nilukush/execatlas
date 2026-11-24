@@ -130,7 +130,7 @@ export function normalizeJob(
   if (!isWebUrl(raw.applyUrl)) return null;
   // a role posted more than a year ago is out of scope, whatever its feed still lists
   const postedAt = raw.postedAt ?? existing?.postedAt ?? now;
-  if (postedTooLongAgo(postedAt, now)) return null;
+  if (postedTooLongAgo(postedAt, Date.parse(now))) return null;
   if (!isWebUrl(raw.sourceUrl)) raw = { ...raw, sourceUrl: raw.applyUrl };
   if (!isWebUrl(raw.companyLogoUrl)) raw = { ...raw, companyLogoUrl: undefined };
   const salaryHint =

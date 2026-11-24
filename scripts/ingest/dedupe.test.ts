@@ -190,6 +190,31 @@ describe("signal facts in a merge", () => {
     expect(merged[0].visaDeclaredAt).toBe(NOW);
   });
 
+  it("carries the night count of a remembered tag with the facts of the record that knows it", () => {
+    // the raw job of a tagged feed that failed tonight: it comes back without its tag
+    const raw: RawJob = {
+      source: "arbeitnow",
+      externalId: "ab-1",
+      title: "VP of Engineering",
+      company: "Acme",
+      applyUrl: "https://acme.example/1",
+      sourceUrl: "https://acme.example/1",
+      descriptionHtml: "<p>Lead the org.</p>",
+      locationRaw: "Dubai, UAE",
+      postedAt: "2026-09-02T00:00:00.000Z",
+    };
+    // the second night of the stored tag: it is remembered and counts its night
+    const stored: Job = { ...normalizeJob(raw, NOW)!, visa: "yes", visaBasis: "source", carriedNights: 1 };
+    const remembered = normalizeJob(raw, NOW, stored, { rememberSourceVisa: true })!;
+    expect(remembered).toMatchObject({ visa: "yes", visaBasis: "source", carriedNights: 2 });
+
+    const primary = job({ externalId: "gh-1", descriptionHtml: RICHER });
+    const merged = dedupeJobs([primary, remembered].filter(notNull));
+    expect(merged).toHaveLength(1);
+    // the count is not lost in the merge, so the tag cannot be remembered past three nights
+    expect(merged[0]).toMatchObject({ source: "greenhouse", visa: "yes", visaBasis: "source", carriedNights: 2 });
+  });
+
   it("carries the evidence of the posting with the visa value it supports", () => {
     const primary = job({ externalId: "gh-1", descriptionHtml: RICHER });
     const sponsored = job({ source: "workable", externalId: "wk-2", descriptionHtml: `<p>${SPONSORED}</p>` });

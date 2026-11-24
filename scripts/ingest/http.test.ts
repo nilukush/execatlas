@@ -338,6 +338,39 @@ describe("withoutQueryString", () => {
   it.each(kept)("keeps the output of %s", (_case, text, output) => {
     expect(withoutQueryString(text)).toBe(output);
   });
+
+  // three shapes the rule left through until the fix round; every value is invented
+  const widened: ReadonlyArray<[string, string, string]> = [
+    ["spaces around the equals sign", "request failed, app_key = FAKE rejected", "request failed, app_key = *** rejected"],
+    ["a line break around the equals sign", "app_key\n=FAKE", "app_key\n=***"],
+    [
+      "a JSON body",
+      'body of https://a.test/p is not JSON: {"app_key":"FAKE","x":1}',
+      'body of https://a.test/p is not JSON: {"app_key":"***","x":1}',
+    ],
+    ["the user and the password of a URL of another scheme", "postgres://user:FAKE@host:5432/db", "postgres://host:5432/db"],
+  ];
+
+  it.each(widened)("masks the credential in %s", (_case, text, output) => {
+    expect(withoutQueryString(text)).toBe(output);
+    expect(withoutQueryString(output)).toBe(output);
+  });
+
+  // rows the rule for a URL of any scheme must answer as it did for http and https
+  const userInfo: ReadonlyArray<[string, string, string]> = [
+    [
+      "an upper case scheme, a port and a fragment",
+      "HTTP 401 for HTTPS://User.P:FAKE@API.Adzuna.Com:8443/v1/api/jobs/sg/search/1?app_id=abc&app_key=FAKE#frag",
+      "HTTP 401 for HTTPS://API.Adzuna.Com:8443/v1/api/jobs/sg/search/1",
+    ],
+    ["a user alone", "HTTP 401 for HTTPS://FAKE@api.example.test/a?x=1", "HTTP 401 for HTTPS://api.example.test/a"],
+    // an at sign in a path is no user info
+    ["an at sign in a path", "see https://a.test/contact@team for help", "see https://a.test/contact@team for help"],
+  ];
+
+  it.each(userInfo)("answers %s as before", (_case, text, output) => {
+    expect(withoutQueryString(text)).toBe(output);
+  });
 });
 
 describe("reportFeedFailure", () => {

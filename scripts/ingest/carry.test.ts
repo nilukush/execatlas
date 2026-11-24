@@ -1,7 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { carryOver } from "./carry";
+import { estimateSalary, isPlausibleBand } from "../../src/lib/salary";
 import type { FeedFailure } from "./http";
-import type { Job, SourceId } from "../../src/lib/types";
+import type { Job, SalaryBand, SourceId } from "../../src/lib/types";
 
 // the stamp of the previous dataset: the last refresh that stored the records
 const PREVIOUS = "2026-11-23T03:17:00.000Z";
@@ -162,6 +163,27 @@ describe("carryOver", () => {
     expect(carry([job("edge", { expiresAt: NOW })], [], []).graceCount).toBe(1);
   });
 
+  it("judges an expiry by the parsed times, not by the spelling of the two stamps", () => {
+    // a run time spelled with an offset (10:00 UTC), an expiry two hours before it and one two and a
+    // half hours after it, each spelled with another offset: as text the expired one sorts after the
+    // run time and the live one before it
+    const now = "2026-11-24T06:00:00-04:00";
+    const goneAt = "2026-11-24T09:00:00+01:00";
+    const liveAt = "2026-11-24T05:30:00-07:00";
+    expect(goneAt > now).toBe(true);
+    expect(liveAt < now).toBe(true);
+    const night = (previous: Job[], failures: FeedFailure[]) => carryOver({ previous, fresh: [], failures, now });
+    const gone = job("gone", { expiresAt: goneAt });
+    const live = job("live", { expiresAt: liveAt });
+    expect(night([gone, live], [])).toMatchObject({
+      jobs: [{ id: "live", absentNights: 1 }],
+      carriedBySource: {},
+      graceCount: 1,
+    });
+    // its feed failed tonight: it is not carried either
+    expect(night([{ ...gone, carriedNights: 1 }], rateLimited)).toEqual(nothing);
+  });
+
   it("keeps a record from before feeds were tagged when any feed of its source failed", () => {
     const { jobs, carriedBySource } = carry([job("a", { feedUnit: undefined })], [], [failure("greenhouse", "board-q")]);
     expect(jobs).toMatchObject([{ id: "a", carriedNights: 1, lastSeenAt: PREVIOUS }]);
@@ -198,12 +220,53 @@ describe("carryOver", () => {
     expect(carry([job("a", { feedUnit: undefined })], [], goneForGood).graceCount).toBe(1);
   });
 
+  it("keeps a record in grace, and carries none of it, for a whole source failure of another source", () => {
+    const otherSource = carry([job("a", { feedUnit: "board-x" })], [], [failure("workable", "source")]);
+    expect(otherSource.jobs).toMatchObject([{ id: "a", absentNights: 1 }]);
+    expect(otherSource.carriedBySource).toEqual({});
+    expect(otherSource.graceCount).toBe(1);
+  });
+
   it("stores the carried record as it was, apart from the night count and the last-seen stamp", () => {
     const previous = job("a");
     const { jobs } = carry([previous]);
     expect(jobs).toEqual([{ ...previous, carriedNights: 1, lastSeenAt: PREVIOUS }]);
     expect(previous).not.toHaveProperty("carriedNights");
     expect(previous).not.toHaveProperty("lastSeenAt");
+  });
+
+  // the band the first live run kept on a carried record: revenue, not pay
+  const revenue: SalaryBand = { min: 200_000, max: 260_000_000, currency: "USD", period: "annual", source: "stated" };
+  const pay: SalaryBand = { min: 200_000, max: 260_000, currency: "USD", period: "annual", source: "stated" };
+  const inUs = (id: string, salary: SalaryBand): Job =>
+    job(id, {
+      salary,
+      location: { countryIso2: "US", countryName: "United States", region: "north-america", remote: false, raw: "New York, USA" },
+    });
+
+  it("passes a kept record through the pay check: a stated band that cannot be pay gives way to the estimate", () => {
+    expect(isPlausibleBand(revenue)).toBe(false);
+    const estimate = estimateSalary("USA", "engineering");
+    // carried after a failed feed, and kept in grace after an answering feed
+    expect(carry([inUs("a", revenue)]).jobs[0].salary).toEqual(estimate);
+    expect(carry([inUs("a", revenue)], [], []).jobs[0].salary).toEqual(estimate);
+  });
+
+  it("leaves a kept record whose implausible band has no estimate to fall to with no band", () => {
+    // Qatar is in scope and has no benchmark row; a remote role with a region only has no country
+    expect(estimateSalary("QAT", "engineering")).toBeNull();
+    const inQatar = job("q", {
+      salary: revenue,
+      location: { countryIso2: "QA", countryName: "Qatar", region: "middle-east", remote: false, raw: "Doha, Qatar" },
+    });
+    expect(carry([inQatar]).jobs[0].salary).toBeNull();
+    expect(carry([job("r", { salary: revenue })], [], []).jobs[0].salary).toBeNull();
+  });
+
+  it("stores a kept record with a plausible stated band, or with an estimate, as it was", () => {
+    expect(carry([inUs("a", pay)]).jobs[0].salary).toBe(pay);
+    const estimate = estimateSalary("USA", "engineering")!;
+    expect(carry([inUs("a", estimate)], [], []).jobs[0].salary).toBe(estimate);
   });
 
   it("counts each further failed night and keeps the last-seen stamp of the first one", () => {

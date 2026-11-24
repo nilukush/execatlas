@@ -45,13 +45,18 @@ const knows = (signal: VisaSignal | undefined): boolean => signal === "yes" || s
 /** A refusal read from a posting. In a merge it beats a source tag and an affirmation on any record (ruling R18). */
 const refuses = (job: Job): boolean => job.visa === "no" && job.visaBasis === "posting";
 
-/** A signal travels with the facts behind it: all of them come from the one record that knows it. */
-function visaFacts(job: Job): Pick<Job, "visa" | "visaBasis" | "visaEvidence" | "visaDeclaredAt"> {
+/**
+ * A signal travels with the facts behind it, and a remembered tag with the
+ * nights it was counted: all of them come from the one record that knows the
+ * signal, or a merged record remembers its tag past three nights.
+ */
+function visaFacts(job: Job): Pick<Job, "visa" | "visaBasis" | "visaEvidence" | "visaDeclaredAt" | "carriedNights"> {
   return {
     visa: job.visa,
     visaBasis: job.visaBasis,
     visaEvidence: job.visaEvidence,
     visaDeclaredAt: job.visaDeclaredAt,
+    carriedNights: job.carriedNights,
   };
 }
 

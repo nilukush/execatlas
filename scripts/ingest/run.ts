@@ -66,10 +66,14 @@ function loadPrevStats(): DatasetStats | null {
 
 /**
  * Where every failed feed lands, and the only way into the failure list. A
- * message loses every shape of a credential it holds before it is stored
- * (ruling R60), so no key a request sent can reach the stored report in
- * stats.json, or the tracking issue through it. The console is no part of
- * it: a connector prints what it prints.
+ * message passes withoutQueryString before it is stored (ruling R60): it
+ * loses the query string of an http or https URL, the user and the password
+ * of a URL of any scheme, and the value of a parameter named like a
+ * credential. So no key a request sent in one of those shapes can reach the
+ * stored report in stats.json, or the tracking issue through it. A header
+ * line such as "Authorization: Bearer ..." is not masked, because no
+ * connector sends one. The console is no part of it: a connector prints what
+ * it prints.
  */
 export function failureCollector(): { failures: FeedFailure[]; reportFailure: (failure: FeedFailure) => void } {
   const failures: FeedFailure[] = [];
