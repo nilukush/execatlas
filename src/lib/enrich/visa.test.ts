@@ -377,4 +377,12 @@ describe("detectVisa and detectRelocation", () => {
     expect(detectVisa(near)).toBe("unknown");
     expect(detectVisa(far)).toBe("yes");
   });
+
+  it.each([
+    "We cannot confirm timing in writing, and we sponsor visas.",
+    "We are unable to reply to everyone, but we sponsor visas.",
+    "We no longer sponsor visas.",
+  ])("does not count a verb that sits behind the cue in: %s", (text) => {
+    expect(detectVisa(text)).toBe("unknown");
+  });
 });
