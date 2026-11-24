@@ -1,3 +1,6 @@
+import type { Job } from "./types";
+import { countryByIso2 } from "./locations";
+
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ??
   (process.env.VERCEL_ENV === "production"
@@ -53,4 +56,52 @@ export function formatDate(iso: string, locale: string): string {
     year: "numeric",
     timeZone: "UTC",
   }).format(date);
+}
+
+/**
+ * JobPosting structured data for a job page. It states only facts: baseSalary
+ * is the employer's own figure, so it appears only for a stated band, and
+ * directApply is never claimed because the application happens on another site.
+ */
+export function jobPostingJsonLd(job: Job, locale: string): Record<string, unknown> {
+  const country = job.location.countryIso2 ? countryByIso2(job.location.countryIso2) : null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: job.title,
+    description: job.text.slice(0, 4000),
+    datePosted: job.postedAt,
+    employmentType: job.roleType?.toUpperCase().replace("-", "_"),
+    hiringOrganization: {
+      "@type": "Organization",
+      name: job.company,
+      ...(job.companyLogoUrl ? { logo: job.companyLogoUrl } : {}),
+    },
+    ...(job.location.remote
+      ? { jobLocationType: "TELECOMMUTE" }
+      : {}),
+    ...(country
+      ? {
+          jobLocation: {
+            "@type": "Place",
+            address: { "@type": "PostalAddress", addressCountry: country.iso2, addressRegion: country.name },
+          },
+        }
+      : {}),
+    url: `${SITE_URL}/${locale}/jobs/${job.id}`,
+    ...(job.salary?.source === "stated"
+      ? {
+          baseSalary: {
+            "@type": "MonetaryAmount",
+            currency: job.salary.currency,
+            value: {
+              "@type": "QuantitativeValue",
+              minValue: job.salary.min,
+              maxValue: job.salary.max,
+              unitText: job.salary.period === "monthly" ? "MONTH" : "YEAR",
+            },
+          },
+        }
+      : {}),
+  };
 }

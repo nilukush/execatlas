@@ -9,7 +9,7 @@ import { SOURCE_LABELS, type JdBlock } from "@/lib/types";
 import { formatSalaryBand, EXPATRATE_URL } from "@/lib/salary";
 import { remoteScope, signalView } from "@/lib/signals";
 import { countryByIso2, regionLabel } from "@/lib/locations";
-import { buildAlternates, formatDate, jobOgDescription, SITE_URL } from "@/lib/seo";
+import { buildAlternates, formatDate, jobOgDescription, jobPostingJsonLd, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getAllJobIds().map((id) => ({ id }));
@@ -76,47 +76,6 @@ export default async function JobDetailPage({
   // an old dataset dates no tag, so the headline names the source instead
   const undatedTag = visa.basis === "source" && !job.visaDeclaredAt;
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "JobPosting",
-    title: job.title,
-    description: job.text.slice(0, 4000),
-    datePosted: job.postedAt,
-    employmentType: job.roleType?.toUpperCase().replace("-", "_"),
-    hiringOrganization: {
-      "@type": "Organization",
-      name: job.company,
-      ...(job.companyLogoUrl ? { logo: job.companyLogoUrl } : {}),
-    },
-    ...(job.location.remote
-      ? { jobLocationType: "TELECOMMUTE" }
-      : {}),
-    ...(country
-      ? {
-          jobLocation: {
-            "@type": "Place",
-            address: { "@type": "PostalAddress", addressCountry: country.iso2, addressRegion: country.name },
-          },
-        }
-      : {}),
-    url: `${SITE_URL}/${locale}/jobs/${job.id}`,
-    ...(job.salary
-      ? {
-          baseSalary: {
-            "@type": "MonetaryAmount",
-            currency: job.salary.currency,
-            value: {
-              "@type": "QuantitativeValue",
-              minValue: job.salary.min,
-              maxValue: job.salary.max,
-              unitText: job.salary.period === "monthly" ? "MONTH" : "YEAR",
-            },
-          },
-        }
-      : {}),
-    directApply: true,
-  };
-
   return (
     <article className="container-page py-10">
       {/*
@@ -125,7 +84,7 @@ export default async function JobDetailPage({
       */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingJsonLd(job, locale)).replace(/</g, "\\u003c") }}
       />
 
       <Link href="/jobs" className="text-sm font-semibold text-brand-500 hover:underline">
