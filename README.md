@@ -4,12 +4,14 @@ Senior leadership jobs across engineering, product, design and data, worldwide. 
 
 - Visa sponsorship signal, read from each posting (sponsors / does not sponsor / unspecified), with the evidence sentence or the source board named on the job page
 - A real apply link for every role, to the employer's own posting or to the board that carries it, named on the button
+- The Adzuna attribution mark on every card and job page of a role that Adzuna lists, a link to the Adzuna site as its terms require
 - Requirements extracted from the description and shown first
 - Years of experience when the posting states it, as a tag and on the job page
 - Commute type (remote, hybrid with office days, on-site), role type (permanent, contract, freelance, temporary, part-time, full-time, interim), and explicit markers for country-restricted versus worldwide remote roles
 - Per-country postings of one role grouped into a single card, every location still individually applyable
 - A public Stats page with the nightly source scorecard (volume, exclusivity, signal richness, freshness)
-- Salary: the stated range when the posting includes one, otherwise an estimated P25 to P75 band in the local currency of the job's country, built on the ExpatRate benchmark dataset (https://expatrate.pages.dev)
+- Roles kept from the previous refresh for three nights at most when their source fails to answer, counted on the Stats page
+- Salary: the stated range when the posting includes one and it can be pay, otherwise an estimated P25 to P75 band in the local currency of the job's country, built on the ExpatRate benchmark dataset (https://expatrate.pages.dev). A stated range that cannot be pay, such as a revenue range, is replaced by that estimate
 - Filters (region, country, seniority, visa, work mode, role type, source), sorting and pagination; on phones the filters fold behind one button with an active count
 - One search box for questions and keywords alike: ask "is there a VP Engineering role in Dubai with visa sponsorship?" and get a yes or no with counts, the filters it understood, and when nothing matches, the closest relaxation that does
 - Saved searches on your device with a count of new roles since you last looked; no account needed
@@ -59,7 +61,7 @@ Ingestion etiquette: identified User-Agent, roughly one request per second per h
 
 ## Salary estimates
 
-Stated ranges always win. When a posting hides the number, the estimator looks up the ExpatRate benchmark band for the country and role family, normalizes monthly to annual (13 months for the Philippines and Indonesia per local convention), and labels the result as an estimate with its data quality. Countries without benchmark coverage show no estimate rather than an invented number. Benchmark dataset: CC BY 4.0. Code: MIT.
+A stated range is shown as stated when it can be pay. The check asks for two finite figures, a minimum above zero, a maximum that is not below the minimum, a yearly maximum from 12,000 to 2,000,000 US dollars, and a maximum at most ten times the minimum. A band that fails is replaced by an estimate. A currency without a vendored exchange rate cannot be judged and passes. When a posting hides the number, the estimator looks up the ExpatRate benchmark band for the country and role family, normalizes monthly to annual (13 months for the Philippines and Indonesia per local convention), and labels the result as an estimate with its data quality. Countries without benchmark coverage show no estimate rather than an invented number. Benchmark dataset: CC BY 4.0. Code: MIT.
 
 ## Project structure
 
@@ -74,9 +76,9 @@ src/
   data/salary/         vendored ExpatRate benchmark subset (CC BY 4.0)
   messages/            translation catalogs
 scripts/
-  ingest/              connectors (greenhouse, workable, arbeitnow, jobicy),
-                       normalizer, dedupe, polite cached HTTP client, dataset
-                       sanity gates, atomic writes, pipeline CLI
+  ingest/              connectors (greenhouse, workable, arbeitnow, jobicy, lever, ashby,
+                       himalayas, adzuna), normalizer, dedupe, polite cached HTTP client,
+                       dataset sanity gates, atomic writes, pipeline CLI
   fix-locale-attrs.ts  post-build: bakes lang/dir into every locale page
   verify-build.ts      post-build: asserts the artifact contract or fails
 data/generated/        committed build-time dataset (jobs, index, stats, queries)
@@ -84,7 +86,7 @@ data/generated/        committed build-time dataset (jobs, index, stats, queries
 
 ## Refreshing data
 
-Run `pnpm ingest` and commit the updated `data/generated/` files. A scheduled GitHub Actions workflow does exactly that every night: it ingests, aborts if the dataset collapses below half its previous size (a blocked source or a changed API shape, with a manual override flag), then runs the type check, the test suite and a full build before the bot commits, so a bad night cannot ship. Nights with no data changes skip the commit entirely. CI runs the same checks on every push and pull request, and every build (local, CI, Vercel) ends by verifying its own output: sitemap counts against the dataset, locale attributes, redirect shell, structured data, the works.
+Run `pnpm ingest` and commit the updated `data/generated/` files. A scheduled GitHub Actions workflow does exactly that every night: it ingests, aborts if the dataset collapses below half its previous size (a blocked source or a changed API shape, with a manual override flag), then runs the type check, the test suite and a full build before the bot commits, so a bad night cannot ship. The night also aborts when a source that held 20 roles or more returns less than a quarter of them, or when roles carried from the previous refresh fill more than 40 percent of the dataset. A source that fails to answer keeps its roles for three nights at most, and a role that an answering source no longer lists is kept for two nights. Every night that stands on carried roles or lost a feed is recorded in the tracking issue named Ingest pipeline failure tracker, and a failed run is recorded there too. Nights with no data changes skip the commit entirely. CI runs the same checks on every push and pull request, and every build (local, CI, Vercel) ends by verifying its own output: sitemap counts against the dataset, locale attributes, redirect shell, structured data, the works.
 
 ## Roadmap
 
