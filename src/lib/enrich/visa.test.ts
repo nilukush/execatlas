@@ -84,6 +84,16 @@ describe("visaEvidence", () => {
     ].join("\n");
     expect(visaEvidence(text)).toBe("✅ We can sponsor visas");
   });
+
+  it.each([
+    "We can sponsor your visa",
+    "We do sponsor and take over sponsorship of employment visas for this role.",
+    "If we make you an offer, we will make every reasonable effort to get you a visa.",
+    "Visa sponsorship cannot be provided",
+    "Sponsorship cannot be provided for this role.",
+  ])("returns the sentence itself as evidence: %s", (sentence) => {
+    expect(visaEvidence(`We are hiring. ${sentence}\nYou will lead five teams.`)).toBe(sentence);
+  });
 });
 
 describe("relocationEvidence", () => {
@@ -104,6 +114,29 @@ describe("relocationEvidence", () => {
     const text = "Relocation support can be provided. No relocation assistance can be offered at this time.";
     expect(detectRelocation(text)).toBe("no");
     expect(relocationEvidence(text)).toBe("No relocation assistance can be offered at this time.");
+  });
+
+  it.each([
+    "We can help you relocate to the UK",
+    "We’ll help you relocate to the UK",
+    "Relocation expense coverage to NYC or SF (if needed)",
+    "Please note that this role would not provide relocation as a result.",
+  ])("returns the sentence itself as evidence: %s", (sentence) => {
+    expect(relocationEvidence(`Join our team.\n${sentence}\nPerks follow.`)).toBe(sentence);
+  });
+
+  it("returns the line that offers visa sponsorship and relocation", () => {
+    const line =
+      "📍 London, Barcelona, or UK Remote | 💰 £150,900 to £204,100 + stock options & benefits | ✅ Visa sponsorship & relocation available";
+    expect(relocationEvidence(line)).toBe(line);
+    expect(visaEvidence(line)).toBe(line);
+  });
+
+  it("returns the clause that carries the signal in a run-on line that uses colons", () => {
+    const line =
+      "Vice President of Engineering \u2013 Advanced Energy & Hardware Systems Location: Seattle, WA Employment Type: Full-Time | Executive Leadership Work Arrangement: Onsite Relocation: Assistance Available \u2013 Nationwide Candidates Welcome Lead Engineering Innovation from Research to Real-World Deployment Talent Solutions Group is conducting a confidential executive search for an accomplished Vice President of Engineering to join a growing, research-driven technology organization developing next-generatio\u2026";
+    expect(line.length).toBe(500);
+    expect(relocationEvidence(line)).toBe("Onsite Relocation: Assistance Available");
   });
 });
 
@@ -127,6 +160,10 @@ describe("detectVisa and detectRelocation", () => {
       "yes",
       "unknown",
     ],
+    // sponsorship the site offers that the matcher missed
+    ["We can sponsor your visa", "yes", "unknown"],
+    ["We do sponsor and take over sponsorship of employment visas for this role.", "yes", "unknown"],
+    ["If we make you an offer, we will make every reasonable effort to get you a visa.", "yes", "unknown"],
     // sponsorship refused
     ["Applicants must have existing right to work in the UAE.", "no", "unknown"],
     ["Candidates must have valid work authorization in the Kingdom.", "no", "unknown"],
@@ -149,6 +186,13 @@ describe("detectVisa and detectRelocation", () => {
       "no",
       "unknown",
     ],
+    // refusals of the sponsorship forms above, so that none of them reads a refusal as sponsorship
+    ["We cannot sponsor your visa.", "no", "unknown"],
+    ["We do not sponsor employment visas for this role.", "no", "unknown"],
+    // refusal forms that are not on the site yet
+    ["Visa sponsorship cannot be provided", "no", "unknown"],
+    ["Sponsorship cannot be provided for this role.", "no", "unknown"],
+    ["Visa sponsorship can't be provided.", "no", "unknown"],
     // right to work required before applying
     ["Applicants must be authorized to work in the United States.", "no", "unknown"],
     ["Must be located and authorized to work in the US", "no", "unknown"],
@@ -198,13 +242,28 @@ describe("detectVisa and detectRelocation", () => {
     ["Berlin relocation support", "unknown", "yes"],
     ["Relocation assistance provided.", "unknown", "yes"],
     ["Assistance with relocation is available.", "unknown", "yes"],
-    // sounds like a refusal but is not one
+    // relocation forms the site carries, outside the brief
+    ["We can help you relocate to the UK", "unknown", "yes"],
+    ["We’ll help you relocate to the UK", "unknown", "yes"],
+    ["Visa sponsorship & relocation available", "yes", "yes"],
+    ["Relocation: Assistance Available", "unknown", "yes"],
+    ["Relocation expense coverage to NYC or SF (if needed)", "unknown", "yes"],
+    ["Please note that this role would not provide relocation as a result.", "unknown", "no"],
+    // refusals of those forms, so that none of them reads a refusal as support
+    ["We cannot help you relocate to the UK.", "unknown", "no"],
+    ["We are not willing to relocate the right candidate.", "unknown", "no"],
+    ["Candidates not willing to relocate to Munich need not apply.", "unknown", "unknown"],
+    ["No relocation available.", "unknown", "no"],
+    ["Relocation: Assistance not available", "unknown", "no"],
+    ["Relocation expense coverage is not available for this role.", "unknown", "no"],
+    ["Relocation support can't be provided for this role.", "unknown", "no"],
+    // sounds like a visa refusal but is not one
     ["We're unable to offer individual feedback during the interview process.", "unknown", "unknown"],
     ["We participate in E-Verify and confirm work authorization with Form I-9 data.", "unknown", "unknown"],
     [
       "We are unable to consider candidates unwilling to be in Geneva, but we are willing to relocate the right candidate.",
       "unknown",
-      "unknown",
+      "yes",
     ],
     [
       "Hatch participates in E-Verify and will provide the federal government with your Form I-9 information to confirm that you are authorized to work in the U.S.",
@@ -224,6 +283,13 @@ describe("detectVisa and detectRelocation", () => {
     ["View the Right to Work Poster in English and Español.", "unknown", "unknown"],
     [
       "All offers of employment are contingent upon an individual’s ability to secure and maintain the legal right to work at the company and in the specified work location, if applicable.",
+      "unknown",
+      "unknown",
+    ],
+    // ruled to stay unknown
+    ["Sponsorship for this role is not guaranteed.", "unknown", "unknown"],
+    [
+      "This is a fully remote position based in the US East Coast, UK, Germany, France, or Spain, subject to local employment eligibility.",
       "unknown",
       "unknown",
     ],

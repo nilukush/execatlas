@@ -2,14 +2,15 @@ import type { VisaSignal } from "../types";
 
 const POSITIVE: RegExp[] = [
   /\bvisa sponsor(ship|ed|ing)?\b/i,
-  /\bsponsor(?:ing)?\s+(?:work\s+)?visas?\b/i,
+  /\bsponsor(?:ing)?\s+(?:work\s+|your\s+)?visas?\b/i,
   /\bwe sponsor\b/i,
   /\bsponsorship\s+(?:is\s+|are\s+|will\s+be\s+)?(?:available|offered|provided)\b/i,
   /\bwork\s+permit\s+sponsor(ship)?\b/i,
   /\bwill\s+(?:be\s+)?sponsor(?:ed)?\b/i,
-  /\bemployment\s+visa\b/i,
+  /\bemployment\s+visas?\b/i,
   /\bassist(?:ance)?\s+with\s+(?:visa|work\s+permits?)\b/i,
   /\bprovides?\s+visa\b/i,
+  /\b(?:will|would)\s+make\s+every\s+reasonable\s+efforts?\s+to\s+get\s+you\s+an?\s+visa\b/i,
 ];
 
 const SPONSORSHIP = "(?:visas?|sponsor(?:ship|ing)?|work\\s+permits?)";
@@ -28,6 +29,7 @@ const refuses = (negator: string, adverbs = 0): RegExp =>
 const NEGATIVE: RegExp[] = [
   /\bno\s+(?:visa\s+|immigration\s+)?sponsor(?:ship)?\b/i,
   /\b(?:visa\s+)?sponsor(?:ship)?\b(?:\s*,\s*[^,.]{1,30},)?(?:\s*:\s*|\s+(?:is|are|was|were)\s+|\s+)?(?:not|never)\s+(?:currently\s+)?(?:available|offered|provided)\b/i,
+  /\b(?:visa\s+)?sponsor(?:ship)?\b\s+(?:cannot\s+be|can['\u2019]t\s+be)\s+(?:available|offered|provided)\b/i,
   refuses("(?:do|does|did|will|would|can|could|may|might)\\s+not", 1),
   refuses("(?:don|doesn|didn|won|wouldn|can|couldn)['\u2019]t", 1),
   /\bcannot\s+sponsor\b/i,
@@ -55,16 +57,32 @@ const NEGATIVE: RegExp[] = [
   /\bonly\s+with\s+(?:an?\s+)?(?:valid\s+|existing\s+|current\s+)?right\s+to\s+work\b/i,
 ];
 
+const RELOCATION_SUPPORT = "(?:support|assistance|package|benefits?|expense\\s+coverage)";
+
+/** The one wording on record for moving a candidate; the refusal mirrors it exactly, so it cannot catch a candidate who is "not willing to relocate to Munich". */
+const MOVES_CANDIDATE = "willing\\s+to\\s+relocate\\s+the\\s+right\\s+candidates?";
+
 const RELOCATION_POSITIVE: RegExp[] = [
-  /\brelocation\s+(?:support|assistance|package|benefits?)\b/i,
-  /\brelocation\s+(?:support|assistance)\s+(?:can\s+be|will\s+be|is|are)\s+(?:provided|offered|available)\b/i,
+  new RegExp(`\\brelocation\\s*:?\\s*${RELOCATION_SUPPORT}\\b`, "i"),
+  /\brelocation\s*:?\s*(?:support|assistance)\s+(?:(?:can|will)\s+be\s+|is\s+|are\s+)?(?:provided|offered|available)\b/i,
+  /\brelocation\s+available\b/i,
   /\bassist(?:ance)?\s+with\s+relocation\b/i,
+  /\bhelp\s+you\s+relocate\b/i,
+  new RegExp(`\\b${MOVES_CANDIDATE}\\b`, "i"),
 ];
 
 const RELOCATION_NEGATIVE: RegExp[] = [
   /\bnot\s+eligible\s+for\s+relocation\b/i,
-  /\brelocation\s+(?:support|assistance|package|benefits?)\b[^.!?\n]{0,20}?\b(?:(?:not|never)\s+(?:be\s+)?|cannot\s+be\s+|can['\u2019]t\s+be\s+)(?:currently\s+)?(?:available|offered|provided)\b/i,
-  /\bno\s+relocation\s+(?:support|assistance|package|benefits?)\b/i,
+  new RegExp(
+    `\\brelocation\\s*:?\\s*${RELOCATION_SUPPORT}\\b[^.!?\\n]{0,20}?\\b(?:(?:not|never)\\s+(?:be\\s+)?|cannot\\s+be\\s+|can['\u2019]t\\s+be\\s+)(?:currently\\s+)?(?:available|offered|provided)\\b`,
+    "i"
+  ),
+  new RegExp(`\\bno\\s+relocation\\s+(?:${RELOCATION_SUPPORT}|available|provided|offered)\\b`, "i"),
+  new RegExp(
+    `\\b(?:(?:do|does|did|will|would|can|could|may|might)\\s+not|(?:don|doesn|didn|won|wouldn|can|couldn)['\u2019]t|cannot|unable\\s+to)\\s+${words(1)}(?:provide|help)\\s+${words(3)}relocat(?:e|ion)\\b`,
+    "i"
+  ),
+  new RegExp(`\\b(?:not|never)\\s+${MOVES_CANDIDATE}\\b`, "i"),
 ];
 
 type Span = [number, number];
