@@ -81,8 +81,10 @@ const realSleep = (ms: number): Promise<void> => new Promise((resolve) => setTim
 // a query string can carry a key, so a failure message names an http or https URL up to its path only,
 // whatever the case of its scheme
 const URL_WITH_QUERY = /\bhttps?:\/\/[^\s"'`<>?]*\?[^\s"'`<>]*/gi;
-// the user and the password before the host are a credential too, whatever the scheme of the URL
-const URL_USER_INFO = /(\b[a-z][a-z0-9+.-]*:\/\/)[^\s/?#"'`<>]*@/gi;
+// the user and the password before the host are a credential too, whatever the scheme of the URL;
+// the scheme name is bounded at 20 characters, or every letter of a long run of glued letters
+// costs a walk to the end of the run
+const URL_USER_INFO = /(\b[a-z][a-z0-9+.-]{0,19}:\/\/)[^\s/?#"'`<>]*@/gi;
 // the names a credential takes in the messages the pipeline writes
 const CREDENTIAL_NAMES = "app_key|app_id|api_key|apikey|key|token|secret|password|pwd";
 // a key can also sit in a text that is no URL, as the value of a parameter under the name of a credential;
@@ -114,8 +116,9 @@ export function withoutQueryString(text: string): string {
 /**
  * The report every connector's catch makes for a feed that threw: the error
  * as a FeedFailure under its source and unit. An error that carries no
- * transient flag counts as transient, and a thrown value that is not an Error
- * gives its text as the message. A reporter that throws must not stop a
+ * transient flag counts as transient. A thrown value that is not an Error
+ * gives its message when that is a string, as a plain object thrown by a
+ * library does, and else its text. A reporter that throws must not stop a
  * connector over a feed that already failed. The failure comes back for the
  * line the connector prints.
  */
@@ -125,13 +128,13 @@ export function reportFeedFailure(
   source: SourceId,
   unit: string
 ): FeedFailure {
-  const thrown = (error ?? {}) as { status?: number; transient?: boolean };
+  const thrown = (error ?? {}) as { status?: number; transient?: boolean; message?: unknown };
   const failure: FeedFailure = {
     source,
     unit,
     status: thrown.status,
     transient: thrown.transient ?? true,
-    message: error instanceof Error ? error.message : String(error),
+    message: typeof thrown.message === "string" ? thrown.message : String(error),
   };
   try {
     deps.reportFailure?.(failure);

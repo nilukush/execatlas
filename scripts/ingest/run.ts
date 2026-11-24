@@ -68,12 +68,12 @@ function loadPrevStats(): DatasetStats | null {
  * Where every failed feed lands, and the only way into the failure list. A
  * message passes withoutQueryString before it is stored (ruling R60): it
  * loses the query string of an http or https URL, the user and the password
- * of a URL of any scheme, and the value of a parameter named like a
- * credential. So no key a request sent in one of those shapes can reach the
- * stored report in stats.json, or the tracking issue through it. A header
- * line such as "Authorization: Bearer ..." is not masked, because no
- * connector sends one. The console is no part of it: a connector prints what
- * it prints.
+ * of a URL of any scheme, the value of a parameter named like a
+ * credential, and the value of such a name in a JSON body. So no key a
+ * request sent in one of those shapes can reach the stored report in
+ * stats.json, or the tracking issue through it. A header line such as
+ * "Authorization: Bearer ..." is not masked, because no connector sends
+ * one. The console is no part of it: a connector prints what it prints.
  */
 export function failureCollector(): { failures: FeedFailure[]; reportFailure: (failure: FeedFailure) => void } {
   const failures: FeedFailure[] = [];
@@ -233,10 +233,13 @@ export function visaFeedFailed(failures: FeedFailure[]): boolean {
  * The night after the connector loop. The fresh records are deduped and
  * settled against the stored ones, a source that answered with no roles is
  * reported, and carryOver judges every stored record of the fetched sources
- * that no fresh record holds tonight. A kept record is stored as it was, so
- * it joins after the dedupe. The answer holds the failures, with the empty
- * answers in them, the carried result, the final list and the number of
- * feeds that failed.
+ * that no fresh record holds tonight. A kept record is stored as it was
+ * apart from the night counter, the last-seen stamp and the pay check: a
+ * stated band that cannot be pay gives way to the estimate for its country
+ * and domain, or to no band where no benchmark covers the country. Either
+ * way it joins after the dedupe. The answer holds the failures, with the
+ * empty answers in them, the carried result, the final list and the number
+ * of feeds that failed.
  */
 export function closeNight(input: {
   allJobs: Job[];

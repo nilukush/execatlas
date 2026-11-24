@@ -231,7 +231,7 @@ export default async function JobDetailPage({
           <section className="card-ui p-5 text-sm">
             <h2 className="text-sm font-bold uppercase tracking-wide text-muted">{t("location")}</h2>
             <p className="mt-2">{place}</p>
-            {/* the place line already names the region of a remote role with no country */}
+            {/* the place line already names the region of a role with no country, remote or on site */}
             {job.location.region && place !== region && (
               <p className="text-muted">{regionLabel(job.location.region)}</p>
             )}

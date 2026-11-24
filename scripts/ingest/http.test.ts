@@ -371,6 +371,18 @@ describe("withoutQueryString", () => {
   it.each(userInfo)("answers %s as before", (_case, text, output) => {
     expect(withoutQueryString(text)).toBe(output);
   });
+
+  it("masks the user information after 100,000 glued characters, in milliseconds", () => {
+    // every letter of the run can start a scheme: a rule that walks to the end of the run from each takes seconds
+    const glued = "a.".repeat(50_000);
+    expect(glued).toHaveLength(100_000);
+
+    const started = performance.now();
+    const once = withoutQueryString(`${glued} https://x@host`);
+    expect(once).toBe(`${glued} https://host`);
+    // more than a hundred times what the bounded rule takes here
+    expect(performance.now() - started).toBeLessThan(1_000);
+  });
 });
 
 describe("reportFeedFailure", () => {
@@ -412,6 +424,19 @@ describe("reportFeedFailure", () => {
     reportFeedFailure({ reportFailure }, "quota exceeded", "greenhouse", "deadboard");
     expect(reported).toEqual([
       { source: "greenhouse", unit: "deadboard", status: undefined, transient: true, message: "quota exceeded" },
+    ]);
+  });
+
+  it("reports the message of a thrown plain object, and keeps the text of a thrown value with no message string", () => {
+    const { reported, reportFailure } = recorder();
+
+    reportFeedFailure({ reportFailure }, { message: "quota exceeded" }, "greenhouse", "deadboard");
+    reportFeedFailure({ reportFailure }, { code: "ECONNRESET" }, "greenhouse", "flaky");
+    reportFeedFailure({ reportFailure }, { message: 42 }, "greenhouse", "counted");
+    expect(reported).toEqual([
+      { source: "greenhouse", unit: "deadboard", status: undefined, transient: true, message: "quota exceeded" },
+      { source: "greenhouse", unit: "flaky", status: undefined, transient: true, message: "[object Object]" },
+      { source: "greenhouse", unit: "counted", status: undefined, transient: true, message: "[object Object]" },
     ]);
   });
 
