@@ -1,7 +1,247 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-24T20:30:36.915Z",
+  "generatedAt": "2026-11-25T11:12:21.032Z",
   "jobs": [
+    {
+      "id": "third-plateau-associate-director-of-technology-edb412",
+      "title": "Associate Director of Technology",
+      "company": "Third Plateau",
+      "seniority": "director",
+      "domain": "technology",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": true,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "United States"
+      ],
+      "workMode": "remote",
+      "roleType": "full-time",
+      "experienceMin": 7,
+      "experienceMax": 9,
+      "salaryMin": 101000,
+      "salaryMax": 119000,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "stated",
+      "postedAt": "2026-11-25T10:27:37.000Z",
+      "source": "himalayas",
+      "sources": [
+        "himalayas"
+      ]
+    },
+    {
+      "id": "urrly-chief-technology-officer-cto-healthcare--5e23a2",
+      "title": "Chief Technology Officer (CTO), Healthcare AI Platform",
+      "company": "Urrly",
+      "companyLogoUrl": "https://cdn-images.himalayas.app/wvp6jlqid2fsb1u37o4d67zgrgaq",
+      "seniority": "cto",
+      "domain": "technology",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": true,
+      "visa": "no",
+      "visaBasis": "posting",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "United States"
+      ],
+      "workMode": "remote",
+      "roleType": "full-time",
+      "experienceMin": 12,
+      "salaryMin": 275000,
+      "salaryMax": 350000,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "stated",
+      "postedAt": "2026-11-25T08:27:59.000Z",
+      "source": "himalayas",
+      "sources": [
+        "himalayas"
+      ]
+    },
+    {
+      "id": "healthequity-director-product-management-product-pric-798963",
+      "title": "Director Product Management – Product Pricing and Packaging Strategy",
+      "company": "HealthEquity",
+      "companyLogoUrl": "https://cdn-images.himalayas.app/nsixpccoyt97tat8696tzp6kgte3",
+      "seniority": "director",
+      "domain": "product",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": true,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "United States"
+      ],
+      "workMode": "onsite",
+      "roleType": "full-time",
+      "experienceMin": 12,
+      "salaryMin": 151000,
+      "salaryMax": 200500,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "stated",
+      "postedAt": "2026-11-25T08:21:18.000Z",
+      "source": "himalayas",
+      "sources": [
+        "himalayas"
+      ]
+    },
+    {
+      "id": "9fin-director-of-engineering-customer-workflo-43a4b9",
+      "title": "Director of Engineering - Customer Workflows",
+      "company": "9Fin",
+      "seniority": "director",
+      "domain": "engineering",
+      "countryIso2": "GB",
+      "countryName": "United Kingdom",
+      "region": "europe",
+      "remote": false,
+      "visa": "yes",
+      "visaBasis": "source",
+      "relocation": "unknown",
+      "workMode": "hybrid",
+      "roleType": "full-time",
+      "salaryMin": 69515,
+      "salaryMax": 119408,
+      "salaryCurrency": "GBP",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-25T06:40:12.000Z",
+      "source": "arbeitnow",
+      "sources": [
+        "arbeitnow"
+      ]
+    },
+    {
+      "id": "almedia-director-of-product-design-62be64",
+      "title": "Director of Product & Design",
+      "company": "Almedia",
+      "seniority": "director",
+      "domain": "design",
+      "countryIso2": "DE",
+      "countryName": "Germany",
+      "region": "europe",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "hybrid",
+      "officeDays": 5,
+      "roleType": "full-time",
+      "salaryMin": 130000,
+      "salaryMax": 180000,
+      "salaryCurrency": "EUR",
+      "salaryPeriod": "annual",
+      "salarySource": "stated",
+      "postedAt": "2026-11-25T03:43:13.000Z",
+      "source": "arbeitnow",
+      "sources": [
+        "arbeitnow"
+      ]
+    },
+    {
+      "id": "juniper-square-director-pmo-engineering-9f79b3",
+      "title": "Director, PMO (Engineering)",
+      "company": "Juniper Square",
+      "seniority": "director",
+      "domain": "engineering",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "remote",
+      "roleType": "full-time",
+      "experienceMin": 12,
+      "salaryMin": 200000,
+      "salaryMax": 250000,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "stated",
+      "postedAt": "2026-11-25T03:20:14+00:00",
+      "source": "jobicy",
+      "sources": [
+        "jobicy"
+      ]
+    },
+    {
+      "id": "canonical-software-engineering-director-702688",
+      "title": "Software Engineering Director",
+      "company": "Canonical",
+      "seniority": "director",
+      "domain": "engineering",
+      "region": null,
+      "remote": true,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "remote",
+      "roleType": "full-time",
+      "postedAt": "2026-11-25T03:10:48+00:00",
+      "source": "jobicy",
+      "sources": [
+        "jobicy"
+      ]
+    },
+    {
+      "id": "ascend-recruiting-partners-vp-of-engineering-ced8ad",
+      "title": "VP of Engineering",
+      "company": "Ascend Recruiting Partners",
+      "seniority": "vp",
+      "domain": "engineering",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": false,
+      "visa": "no",
+      "visaBasis": "posting",
+      "relocation": "unknown",
+      "workMode": "onsite",
+      "roleType": null,
+      "salaryMin": 200000,
+      "salaryMax": 265000,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "stated",
+      "postedAt": "2026-11-25T00:32:42.000Z",
+      "source": "adzuna",
+      "sources": [
+        "adzuna"
+      ],
+      "sourceHome": "https://www.adzuna.com"
+    },
+    {
+      "id": "citi-vp-of-fix-engineering-citi-2c2b51",
+      "title": "VP of FIX Engineering - Citi",
+      "company": "Citi",
+      "seniority": "vp",
+      "domain": "engineering",
+      "countryIso2": "SG",
+      "countryName": "Singapore",
+      "region": "southeast-asia",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "unspecified",
+      "roleType": "full-time",
+      "salaryMin": 200000,
+      "salaryMax": 350000,
+      "salaryCurrency": "SGD",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-24T23:12:39.000Z",
+      "source": "adzuna",
+      "sources": [
+        "adzuna"
+      ],
+      "sourceHome": "https://www.adzuna.sg"
+    },
     {
       "id": "citi-assistant-vp-site-reliability-engineerin-32e6b6",
       "title": "Assistant VP (Site Reliability Engineering) - Citi",
@@ -31,32 +271,6 @@
     {
       "id": "citi-vp-of-engineering-citi-847339",
       "title": "VP of Engineering - Citi",
-      "company": "Citi",
-      "seniority": "vp",
-      "domain": "engineering",
-      "countryIso2": "SG",
-      "countryName": "Singapore",
-      "region": "southeast-asia",
-      "remote": false,
-      "visa": "unknown",
-      "relocation": "unknown",
-      "workMode": "unspecified",
-      "roleType": "full-time",
-      "salaryMin": 200000,
-      "salaryMax": 350000,
-      "salaryCurrency": "SGD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-24T23:12:36.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ],
-      "sourceHome": "https://www.adzuna.sg"
-    },
-    {
-      "id": "citi-vp-of-java-engineering-citi-475482",
-      "title": "VP of Java Engineering - Citi",
       "company": "Citi",
       "seniority": "vp",
       "domain": "engineering",
@@ -133,6 +347,32 @@
       "sourceHome": "https://www.adzuna.sg"
     },
     {
+      "id": "citi-vp-of-java-engineering-citi-475482",
+      "title": "VP of Java Engineering - Citi",
+      "company": "Citi",
+      "seniority": "vp",
+      "domain": "engineering",
+      "countryIso2": "SG",
+      "countryName": "Singapore",
+      "region": "southeast-asia",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "unspecified",
+      "roleType": "full-time",
+      "salaryMin": 200000,
+      "salaryMax": 350000,
+      "salaryCurrency": "SGD",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-24T23:12:29.000Z",
+      "source": "adzuna",
+      "sources": [
+        "adzuna"
+      ],
+      "sourceHome": "https://www.adzuna.sg"
+    },
+    {
       "id": "barclays-software-engineer-vp-5fdd26",
       "title": "Software Engineer-VP",
       "company": "Barclays",
@@ -157,6 +397,136 @@
         "adzuna"
       ],
       "sourceHome": "https://www.adzuna.in"
+    },
+    {
+      "id": "pearl-remote-head-of-product-afa5c6",
+      "title": "Remote Head of Product",
+      "company": "Pearl",
+      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/626361/logo",
+      "seniority": "head",
+      "domain": "product",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "remote",
+      "roleType": "full-time",
+      "salaryMin": 138060,
+      "salaryMax": 220730,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-24T22:04:06.496Z",
+      "source": "workable",
+      "sources": [
+        "workable"
+      ]
+    },
+    {
+      "id": "valsoft-corporation-directeur-rice-des-produits-et-de-l-inge-0af60b",
+      "title": "Directeur·rice des produits et de l'ingénierie | Head of Product and Engineering",
+      "company": "Valsoft Corporation",
+      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/640274/logo",
+      "seniority": "head",
+      "domain": "engineering-product",
+      "countryIso2": "CA",
+      "countryName": "Canada",
+      "region": "north-america",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "remote",
+      "roleType": "full-time",
+      "salaryMin": 141500,
+      "salaryMax": 275000,
+      "salaryCurrency": "CAD",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-24T21:13:02.723Z",
+      "source": "workable",
+      "sources": [
+        "workable"
+      ]
+    },
+    {
+      "id": "millennium-director-of-engineering-688d95",
+      "title": "Director of Engineering",
+      "company": "Millennium-",
+      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/580133/logo",
+      "seniority": "director",
+      "domain": "engineering",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "unspecified",
+      "roleType": "full-time",
+      "experienceMin": 10,
+      "salaryMin": 138060,
+      "salaryMax": 220730,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-24T20:35:10.238Z",
+      "source": "workable",
+      "sources": [
+        "workable"
+      ]
+    },
+    {
+      "id": "pinterest-director-engineering-agentic-ads-busines-13ef84",
+      "title": "Director, Engineering-Agentic Ads Business Platform",
+      "company": "Pinterest",
+      "seniority": "director",
+      "domain": "engineering",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "no",
+      "workMode": "onsite",
+      "roleType": null,
+      "salaryMin": 285452,
+      "salaryMax": 499541,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "stated",
+      "postedAt": "2026-11-24T20:34:05-05:00",
+      "source": "greenhouse",
+      "sources": [
+        "greenhouse"
+      ]
+    },
+    {
+      "id": "ableforce-vp-of-engineering-52e941",
+      "title": "VP of Engineering",
+      "company": "AbleForce",
+      "seniority": "vp",
+      "domain": "engineering",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "unspecified",
+      "roleType": null,
+      "salaryMin": 138060,
+      "salaryMax": 220730,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-24T20:20:23.000Z",
+      "source": "adzuna",
+      "sources": [
+        "adzuna"
+      ],
+      "sourceHome": "https://www.adzuna.com"
     },
     {
       "id": "jobgether-director-of-engineering-b3d122",
@@ -397,6 +767,36 @@
       "sourceHome": "https://www.adzuna.co.uk"
     },
     {
+      "id": "citizens-principal-software-engineer-vice-preside-cad0bb",
+      "title": "Principal Software Engineer, Vice President",
+      "company": "Citizens",
+      "companyLogoUrl": "https://cdn-images.himalayas.app/gpkqy8uw69v5n5w0hr06auvmvqpo",
+      "seniority": "vp",
+      "domain": "engineering",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": true,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "United States"
+      ],
+      "workMode": "remote",
+      "roleType": "full-time",
+      "experienceMin": 7,
+      "salaryMin": 210184,
+      "salaryMax": 210184,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "stated",
+      "postedAt": "2026-11-24T16:28:21.000Z",
+      "source": "himalayas",
+      "sources": [
+        "himalayas"
+      ]
+    },
+    {
       "id": "openai-global-head-of-applied-ai-engineering-sm-fad242",
       "title": "Global Head of Applied AI Engineering, SMB / Mid-Market",
       "company": "OpenAI",
@@ -493,6 +893,32 @@
       "sources": [
         "greenhouse"
       ]
+    },
+    {
+      "id": "pfizer-director-team-lead-regional-engineering--4aa3d8",
+      "title": "Director, Team Lead, Regional Engineering Group Lead",
+      "company": "Pfizer",
+      "seniority": "director",
+      "domain": "engineering",
+      "countryIso2": "IN",
+      "countryName": "India",
+      "region": "india",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "unspecified",
+      "roleType": "full-time",
+      "salaryMin": 5000000,
+      "salaryMax": 15000000,
+      "salaryCurrency": "INR",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-24T12:53:31.000Z",
+      "source": "adzuna",
+      "sources": [
+        "adzuna"
+      ],
+      "sourceHome": "https://www.adzuna.in"
     },
     {
       "id": "msd-director-cybersecurity-engineering-730355",
@@ -1195,30 +1621,6 @@
       ]
     },
     {
-      "id": "sphera-director-engineering-20d47a",
-      "title": "Director, Engineering",
-      "company": "Sphera",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "GB",
-      "countryName": "United Kingdom",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": "full-time",
-      "salaryMin": 69515,
-      "salaryMax": 119408,
-      "salaryCurrency": "GBP",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-22T10:01:15.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ]
-    },
-    {
       "id": "wolters-kluwer-associate-director-technology-product-ma-88756e",
       "title": "Associate Director, Technology Product Management- Medi-Span",
       "company": "Wolters Kluwer",
@@ -1355,31 +1757,6 @@
       "source": "himalayas",
       "sources": [
         "himalayas"
-      ]
-    },
-    {
-      "id": "lightspeed-commerce-senior-director-agentic-engineering-ab0400",
-      "title": "Senior Director, Agentic Engineering",
-      "company": "Lightspeed Commerce",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "experienceMin": 15,
-      "salaryMin": 300000,
-      "salaryMax": 360000,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "stated",
-      "postedAt": "2026-11-22T04:00:54+00:00",
-      "source": "jobicy",
-      "sources": [
-        "jobicy"
       ]
     },
     {
@@ -1961,56 +2338,6 @@
       "sourceHome": "https://www.adzuna.co.uk"
     },
     {
-      "id": "designed-conveyor-systems-director-mhe-systems-engineering-7eb06c",
-      "title": "Director, MHE Systems Engineering",
-      "company": "Designed Conveyor Systems",
-      "companyLogoUrl": "https://cdn-images.himalayas.app/sw8obg01tz9kelbao0974bjbgyc2",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": true,
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "experienceMin": 10,
-      "salaryMin": 138060,
-      "salaryMax": 220730,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-21T14:31:17.000Z",
-      "source": "himalayas",
-      "sources": [
-        "himalayas"
-      ]
-    },
-    {
-      "id": "hapeko-deutschland-gmbh-director-engineering-m-w-d-maschinenbau-137ca9",
-      "title": "Director Engineering (m/w/d) Maschinenbau",
-      "company": "HAPEKO Deutschland GmbH",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "DE",
-      "countryName": "Germany",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": null,
-      "salaryMin": 63500,
-      "salaryMax": 84700,
-      "salaryCurrency": "EUR",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-21T10:49:41.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ]
-    },
-    {
       "id": "motion-applied-engineering-director-b31631",
       "title": "Engineering Director",
       "company": "Motion Applied",
@@ -2030,6 +2357,32 @@
       "salaryPeriod": "annual",
       "salarySource": "estimated",
       "postedAt": "2026-11-21T10:06:50.000Z",
+      "source": "adzuna",
+      "sources": [
+        "adzuna"
+      ],
+      "sourceHome": "https://www.adzuna.co.uk"
+    },
+    {
+      "id": "spellman-director-of-engineering-5432f1",
+      "title": "Director of Engineering",
+      "company": "Spellman",
+      "seniority": "director",
+      "domain": "engineering",
+      "countryIso2": "GB",
+      "countryName": "United Kingdom",
+      "region": "europe",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "unspecified",
+      "roleType": "full-time",
+      "salaryMin": 69515,
+      "salaryMax": 119408,
+      "salaryCurrency": "GBP",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-21T10:06:43.000Z",
       "source": "adzuna",
       "sources": [
         "adzuna"
@@ -2303,30 +2656,6 @@
       ]
     },
     {
-      "id": "dune-head-of-product-a5acc3",
-      "title": "Head of Product",
-      "company": "Dune",
-      "seniority": "head",
-      "domain": "product",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salaryMin": 138060,
-      "salaryMax": 220730,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-21T03:10:15+00:00",
-      "source": "jobicy",
-      "sources": [
-        "jobicy"
-      ]
-    },
-    {
       "id": "supplier-io-director-of-data-architecture-eaf928",
       "title": "Director of Data Architecture",
       "company": "Supplier.io",
@@ -2538,30 +2867,6 @@
       ]
     },
     {
-      "id": "n8n-head-of-product-design-59e292",
-      "title": "Head of Product Design",
-      "company": "N8N",
-      "seniority": "head",
-      "domain": "design",
-      "countryIso2": "DE",
-      "countryName": "Germany",
-      "region": "europe",
-      "remote": false,
-      "visa": "yes",
-      "workMode": "hybrid",
-      "roleType": "full-time",
-      "salaryMin": 125000,
-      "salaryMax": 271900,
-      "salaryCurrency": "EUR",
-      "salaryPeriod": "annual",
-      "salarySource": "stated",
-      "postedAt": "2026-11-20T21:40:13.000Z",
-      "source": "arbeitnow",
-      "sources": [
-        "arbeitnow"
-      ]
-    },
-    {
       "id": "arise-app-chief-technology-officer-mobile-app-m-f--b6fb1d",
       "title": "Chief Technology Officer (Mobile app, M/F/D)",
       "company": "Arise App",
@@ -2615,30 +2920,6 @@
       "source": "greenhouse",
       "sources": [
         "greenhouse"
-      ]
-    },
-    {
-      "id": "autonomous-teaming-director-of-engineering-software-hardwar-8180bd",
-      "title": "Director of Engineering - Software, Hardware, Robotics (m/f/d)",
-      "company": "autonomous-teaming",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "DE",
-      "countryName": "Germany",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": "permanent",
-      "salaryMin": 63500,
-      "salaryMax": 84700,
-      "salaryCurrency": "EUR",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-20T19:10:09.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
       ]
     },
     {
@@ -2875,30 +3156,6 @@
       "sourceHome": "https://www.adzuna.co.uk"
     },
     {
-      "id": "tiger-analytics-inc-senior-manager-associate-director-produc-848d9a",
-      "title": "Senior Manager / Associate Director - Product Manager",
-      "company": "Tiger Analytics Inc.",
-      "seniority": "director",
-      "domain": "product",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": null,
-      "salaryMin": 138060,
-      "salaryMax": 220730,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-20T16:23:24.378Z",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ]
-    },
-    {
       "id": "veracross-vp-of-product-platform-architecture-21c58e",
       "title": "VP of Product, Platform Architecture",
       "company": "Veracross",
@@ -2985,30 +3242,6 @@
       ]
     },
     {
-      "id": "zyngacareers-director-of-engineering-71008e",
-      "title": "Director of Engineering",
-      "company": "zyngacareers",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "ES",
-      "countryName": "Spain",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": null,
-      "salaryMin": 41575,
-      "salaryMax": 41575,
-      "salaryCurrency": "EUR",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-20T12:52:35.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ]
-    },
-    {
       "id": "sedgwick-vp-data-analytics-046ab9",
       "title": "VP Data Analytics",
       "company": "Sedgwick",
@@ -3056,49 +3289,6 @@
       ]
     },
     {
-      "id": "weekday-ai-director-technology-13da17",
-      "title": "Director - Technology",
-      "company": "Weekday AI",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/691818/logo",
-      "seniority": "director",
-      "domain": "technology",
-      "countryIso2": "GB",
-      "countryName": "United Kingdom",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "experienceMin": 18,
-      "experienceMax": 26,
-      "variantCountries": [
-        {
-          "countryIso2": "IN",
-          "countryName": "India",
-          "region": "india",
-          "remote": false,
-          "applyUrl": "https://jobs.workable.com/view/oy6z5pfvZ6WPAmQRHtJoZa/remote-director---technology-in-india-at-weekday-ai"
-        },
-        {
-          "countryIso2": "US",
-          "countryName": "United States",
-          "region": "north-america",
-          "remote": false,
-          "applyUrl": "https://jobs.workable.com/view/4vZCubjEBYVToe84xaciyh/remote-director---technology-in-united-states-at-weekday-ai"
-        }
-      ],
-      "salaryMin": 3000000,
-      "salaryMax": 20000000,
-      "salaryCurrency": "INR",
-      "salaryPeriod": "annual",
-      "salarySource": "stated",
-      "postedAt": "2026-11-20T09:24:47.517Z",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ]
-    },
-    {
       "id": "guidehouse-data-governance-and-modernization-lead-a-750092",
       "title": "Data Governance and Modernization Lead - Associate Director",
       "company": "Guidehouse",
@@ -3126,32 +3316,6 @@
       "source": "himalayas",
       "sources": [
         "himalayas"
-      ]
-    },
-    {
-      "id": "weekday-ai-head-of-forward-deployed-engineering-0af064",
-      "title": "Head of Forward Deployed Engineering",
-      "company": "Weekday AI",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/691818/logo",
-      "seniority": "head",
-      "domain": "engineering",
-      "countryIso2": "IN",
-      "countryName": "India",
-      "region": "india",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": "full-time",
-      "experienceMin": 7,
-      "salaryMin": 8000000,
-      "salaryMax": 10000000,
-      "salaryCurrency": "INR",
-      "salaryPeriod": "annual",
-      "salarySource": "stated",
-      "postedAt": "2026-11-20T06:45:26.266Z",
-      "source": "workable",
-      "sources": [
-        "workable"
       ]
     },
     {
@@ -3439,6 +3603,37 @@
       ]
     },
     {
+      "id": "m-kopa-head-of-workplace-engineering-e31651",
+      "title": "Head of Workplace Engineering",
+      "company": "M-KOPA",
+      "companyLogoUrl": "https://cdn-images.himalayas.app/w620aulwzf4uwwoffzqvznoyi8d8",
+      "seniority": "head",
+      "domain": "engineering",
+      "countryIso2": "GB",
+      "countryName": "United Kingdom",
+      "region": "europe",
+      "remote": true,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "Ireland",
+        "Spain",
+        "United Kingdom"
+      ],
+      "workMode": "remote",
+      "roleType": "full-time",
+      "salaryMin": 69515,
+      "salaryMax": 119408,
+      "salaryCurrency": "GBP",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-20T03:02:18.000Z",
+      "source": "himalayas",
+      "sources": [
+        "himalayas"
+      ]
+    },
+    {
       "id": "q2impact-chief-technology-officer-cto-898ecd",
       "title": "Chief Technology Officer (CTO)",
       "company": "Q2Impact",
@@ -3545,30 +3740,6 @@
         "adzuna"
       ],
       "sourceHome": "https://www.adzuna.in"
-    },
-    {
-      "id": "ocbc-assistant-vp-system-engineering-ocbc-969686",
-      "title": "Assistant VP (System Engineering) - OCBC",
-      "company": "OCBC",
-      "seniority": "avp",
-      "domain": "engineering",
-      "countryIso2": "SG",
-      "countryName": "Singapore",
-      "region": "southeast-asia",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": "full-time",
-      "salaryMin": 200000,
-      "salaryMax": 350000,
-      "salaryCurrency": "SGD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-19T22:26:57.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ]
     },
     {
       "id": "united-overseas-bank-vp-of-engineering-united-overseas-bank-994bbb",
@@ -6122,6 +6293,37 @@
       ]
     },
     {
+      "id": "bluecat-networks-vp-engineering-network-observability-7f731f",
+      "title": "VP, Engineering, Network Observability",
+      "company": "BlueCat Networks",
+      "companyLogoUrl": "https://cdn-images.himalayas.app/nqly2x0d9mac1050i4vvjtku3czd",
+      "seniority": "vp",
+      "domain": "engineering",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": true,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "Canada",
+        "United States"
+      ],
+      "workMode": "remote",
+      "roleType": "full-time",
+      "experienceMin": 15,
+      "salaryMin": 138060,
+      "salaryMax": 220730,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-19T17:50:47.000Z",
+      "source": "himalayas",
+      "sources": [
+        "himalayas"
+      ]
+    },
+    {
       "id": "ethos-sr-director-product-management-consumer-aea3e8",
       "title": "Sr. Director, Product Management, Consumer",
       "company": "Ethos",
@@ -6157,6 +6359,34 @@
       "company": "Roadrunner Venture Studios",
       "seniority": "head",
       "domain": "engineering",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": true,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "United States"
+      ],
+      "workMode": "remote",
+      "roleType": "full-time",
+      "salaryMin": 138060,
+      "salaryMax": 220730,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-19T17:50:47.000Z",
+      "source": "himalayas",
+      "sources": [
+        "himalayas"
+      ]
+    },
+    {
+      "id": "swivel-transactions-llc-director-of-product-management-b8f537",
+      "title": "Director of Product Management",
+      "company": "Swivel Transactions LLC",
+      "seniority": "director",
+      "domain": "product",
       "countryIso2": "US",
       "countryName": "United States",
       "region": "north-america",
@@ -10295,6 +10525,36 @@
       ]
     },
     {
+      "id": "xplor-vp-of-product-5165c6",
+      "title": "VP of Product",
+      "company": "Xplor",
+      "seniority": "vp",
+      "domain": "product",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": true,
+      "visa": "no",
+      "visaBasis": "posting",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "United States"
+      ],
+      "workMode": "remote",
+      "roleType": "full-time",
+      "experienceMin": 12,
+      "salaryMin": 280000,
+      "salaryMax": 290000,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "stated",
+      "postedAt": "2026-11-19T16:53:10.000Z",
+      "source": "himalayas",
+      "sources": [
+        "himalayas"
+      ]
+    },
+    {
       "id": "newsweek-director-of-technology-ad-tech-8083ab",
       "title": "Director of Technology, Ad Tech",
       "company": "Newsweek",
@@ -10371,6 +10631,36 @@
       "salaryCurrency": "USD",
       "salaryPeriod": "annual",
       "salarySource": "stated",
+      "postedAt": "2026-11-19T16:52:33.000Z",
+      "source": "himalayas",
+      "sources": [
+        "himalayas"
+      ]
+    },
+    {
+      "id": "mashreq-assistant-vice-president-technology-data-7ed092",
+      "title": "Assistant Vice President Technology - Database.MGN Egypt -Technical Services.Tec",
+      "company": "Mashreq",
+      "companyLogoUrl": "https://cdn-images.himalayas.app/ojn0r57y5l9z11iqx1sjr7ge6ryz",
+      "seniority": "avp",
+      "domain": "technology",
+      "countryIso2": "EG",
+      "countryName": "Egypt",
+      "region": "north-africa",
+      "remote": true,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "Egypt"
+      ],
+      "workMode": "remote",
+      "roleType": "full-time",
+      "experienceMin": 10,
+      "salaryMin": 600000,
+      "salaryMax": 660000,
+      "salaryCurrency": "EGP",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
       "postedAt": "2026-11-19T16:52:33.000Z",
       "source": "himalayas",
       "sources": [
@@ -10764,6 +11054,35 @@
       ]
     },
     {
+      "id": "experian-vice-president-product-management-a636ec",
+      "title": "Vice President, Product Management",
+      "company": "Experian",
+      "companyLogoUrl": "https://cdn-images.himalayas.app/gzcba55xmgc1l3oa3ecn0puwq17y",
+      "seniority": "vp",
+      "domain": "product",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": true,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "United States"
+      ],
+      "workMode": "remote",
+      "roleType": "full-time",
+      "salaryMin": 250000,
+      "salaryMax": 350000,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "stated",
+      "postedAt": "2026-11-19T16:48:53.000Z",
+      "source": "himalayas",
+      "sources": [
+        "himalayas"
+      ]
+    },
+    {
       "id": "jungle-scout-head-of-product-b32cc7",
       "title": "Head of Product",
       "company": "Jungle Scout",
@@ -10914,32 +11233,6 @@
       ]
     },
     {
-      "id": "avantor-senior-director-digital-product-manageme-99fc6c",
-      "title": "Senior Director, Digital Product Management",
-      "company": "Avantor",
-      "companyLogoUrl": "https://cdn-images.himalayas.app/ug4ej63l26ezrf98gruu4lilppzd",
-      "seniority": "director",
-      "domain": "product",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": true,
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "experienceMin": 15,
-      "salaryMin": 138060,
-      "salaryMax": 220730,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-19T16:48:02.000Z",
-      "source": "himalayas",
-      "sources": [
-        "himalayas"
-      ]
-    },
-    {
       "id": "entegrata-director-of-solution-engineering-ba33be",
       "title": "Director of Solution Engineering",
       "company": "Entegrata",
@@ -11029,6 +11322,116 @@
       ]
     },
     {
+      "id": "polycam-head-of-product-b32cc7",
+      "title": "Head of Product",
+      "company": "Polycam",
+      "companyLogoUrl": "https://cdn-images.himalayas.app/uucp0wdrzqkzgwvhk6cgcb5qujze",
+      "seniority": "head",
+      "domain": "product",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": true,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "United States"
+      ],
+      "workMode": "remote",
+      "roleType": "full-time",
+      "experienceMin": 8,
+      "salaryMin": 230000,
+      "salaryMax": 265000,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "stated",
+      "postedAt": "2026-11-19T16:42:41.000Z",
+      "source": "himalayas",
+      "sources": [
+        "himalayas"
+      ]
+    },
+    {
+      "id": "circana-vp-of-product-management-market-measurem-e7ada2",
+      "title": "VP of Product Management - Market Measurement",
+      "company": "Circana",
+      "companyLogoUrl": "https://cdn-images.himalayas.app/8an5qhz2jrgqhl0415qvoiwdngd1",
+      "seniority": "vp",
+      "domain": "product",
+      "countryIso2": "BA",
+      "countryName": "Bosnia and Herzegovina",
+      "region": "europe",
+      "remote": true,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "Albania",
+        "Andorra",
+        "Austria",
+        "Belarus",
+        "Belgium",
+        "Bosnia and Herzegovina",
+        "Bulgaria",
+        "Croatia",
+        "Cyprus",
+        "Czechia",
+        "Denmark",
+        "Estonia",
+        "Faroe Islands",
+        "Finland",
+        "France",
+        "Germany",
+        "Gibraltar",
+        "Greece",
+        "Guernsey",
+        "Holy See (Vatican City State)",
+        "Hungary",
+        "Iceland",
+        "Ireland",
+        "Isle of Man",
+        "Italy",
+        "Jersey",
+        "Kosovo",
+        "Latvia",
+        "Liechtenstein",
+        "Lithuania",
+        "Luxembourg",
+        "Malta",
+        "Moldova",
+        "Monaco",
+        "Montenegro",
+        "Netherlands",
+        "North Macedonia",
+        "Norway",
+        "Poland",
+        "Portugal",
+        "Romania",
+        "San Marino",
+        "Serbia",
+        "Slovakia",
+        "Slovenia",
+        "Spain",
+        "Svalbard and Jan Mayen",
+        "Sweden",
+        "Switzerland",
+        "Ukraine",
+        "United Kingdom",
+        "Åland Islands"
+      ],
+      "workMode": "remote",
+      "roleType": "full-time",
+      "salaryMin": 39468,
+      "salaryMax": 39468,
+      "salaryCurrency": "BAM",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-19T16:42:34.000Z",
+      "source": "himalayas",
+      "sources": [
+        "himalayas"
+      ]
+    },
+    {
       "id": "ypo-senior-director-technology-operations-se-a95586",
       "title": "Senior Director, Technology Operations & Security",
       "company": "YPO",
@@ -11111,31 +11514,6 @@
       "salaryCurrency": "USD",
       "salaryPeriod": "annual",
       "salarySource": "estimated",
-      "postedAt": "2026-11-19T16:41:13.000Z",
-      "source": "himalayas",
-      "sources": [
-        "himalayas"
-      ]
-    },
-    {
-      "id": "the-hartford-avp-data-engineering-business-insurance--4a0cd1",
-      "title": "AVP Data Engineering – Business Insurance Ontology & Knowledge Graph",
-      "company": "The Hartford",
-      "companyLogoUrl": "https://cdn-images.himalayas.app/21kzkmess4p4nycvxerfcyhqsh7d",
-      "seniority": "avp",
-      "domain": "engineering",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": true,
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salaryMin": 182000,
-      "salaryMax": 273000,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "stated",
       "postedAt": "2026-11-19T16:41:13.000Z",
       "source": "himalayas",
       "sources": [
@@ -11503,6 +11881,10 @@
       "region": "north-america",
       "remote": true,
       "visa": "unknown",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "United States"
+      ],
       "workMode": "remote",
       "roleType": "full-time",
       "salaryMin": 138060,
@@ -12317,30 +12699,6 @@
       "sourceHome": "https://www.adzuna.sg"
     },
     {
-      "id": "jobgether-director-of-client-engineering-trading-p-af821a",
-      "title": "Director of Client Engineering - Trading Platform",
-      "company": "Jobgether",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "DE",
-      "countryName": "Germany",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": "full-time",
-      "salaryMin": 63500,
-      "salaryMax": 84700,
-      "salaryCurrency": "EUR",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-18T18:21:52.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ]
-    },
-    {
       "id": "docker-director-product-management-sandboxes-f93190",
       "title": "Director, Product Management, Sandboxes",
       "company": "Docker",
@@ -12446,30 +12804,6 @@
       "source": "workable",
       "sources": [
         "workable"
-      ]
-    },
-    {
-      "id": "fineoo-inhaber-eric-martin-director-of-engineering-and-technology-m-440638",
-      "title": "Director of Engineering and Technology (m/w/d)",
-      "company": "FINEOO Inhaber Eric Martin",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "DE",
-      "countryName": "Germany",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": "contract",
-      "salaryMin": 63500,
-      "salaryMax": 84700,
-      "salaryCurrency": "EUR",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-18T14:32:04.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
       ]
     },
     {
@@ -12601,31 +12935,6 @@
         "adzuna"
       ],
       "sourceHome": "https://www.adzuna.co.uk"
-    },
-    {
-      "id": "nacre-capital-head-of-product-e4208f",
-      "title": "Head of Product",
-      "company": "Nacre Capital",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/647369/logo",
-      "seniority": "head",
-      "domain": "product",
-      "countryIso2": "MX",
-      "countryName": "Mexico",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salaryMin": 864000,
-      "salaryMax": 864000,
-      "salaryCurrency": "MXN",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-18T08:52:46.879Z",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ]
     },
     {
       "id": "spotify-vp-head-of-engineering-advertising-d9f36a",
@@ -12881,6 +13190,41 @@
       "sourceHome": "https://www.adzuna.sg"
     },
     {
+      "id": "booksy-director-of-engineering-m-f-d-54642c",
+      "title": "Director of Engineering (m/f/d)",
+      "company": "Booksy",
+      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/169461/logo",
+      "seniority": "director",
+      "domain": "engineering",
+      "countryIso2": "ES",
+      "countryName": "Spain",
+      "region": "europe",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "remote",
+      "roleType": "full-time",
+      "variantCountries": [
+        {
+          "countryIso2": "GB",
+          "countryName": "United Kingdom",
+          "region": "europe",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/9FGWf5b79tMLg1EdFUTCaq/remote-director-of-engineering-(m%2Ff%2Fd)-in-united-kingdom-at-booksy"
+        }
+      ],
+      "salaryMin": 41575,
+      "salaryMax": 41575,
+      "salaryCurrency": "EUR",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-17T21:32:28.702Z",
+      "source": "workable",
+      "sources": [
+        "workable"
+      ]
+    },
+    {
       "id": "booksy-director-of-engineering-m-f-d-7715dd",
       "title": "Director of Engineering (m/f/d)",
       "company": "Booksy",
@@ -12983,54 +13327,6 @@
         "adzuna"
       ],
       "sourceHome": "https://www.adzuna.in"
-    },
-    {
-      "id": "jobgether-director-of-client-engineering-trading-p-23f336",
-      "title": "Director of Client Engineering - Trading Platform",
-      "company": "Jobgether",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "NL",
-      "countryName": "Netherlands",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": "full-time",
-      "salaryMin": 111400,
-      "salaryMax": 148100,
-      "salaryCurrency": "EUR",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-17T18:10:28.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ]
-    },
-    {
-      "id": "jobgether-director-of-client-engineering-trading-p-31ee88",
-      "title": "Director of Client Engineering - Trading Platform",
-      "company": "Jobgether",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "FR",
-      "countryName": "France",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": "full-time",
-      "salaryMin": 95000,
-      "salaryMax": 180000,
-      "salaryCurrency": "EUR",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-17T17:42:42.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ]
     },
     {
       "id": "pfizer-director-ai-applications-engineering-lea-36a863",
@@ -13162,128 +13458,6 @@
       "sourceHome": "https://www.adzuna.com"
     },
     {
-      "id": "natera-associate-director-director-of-product-m-001302",
-      "title": "Associate Director / Director of Product Management, Signatera Hematologic Oncology (Heme)",
-      "company": "Natera",
-      "seniority": "director",
-      "domain": "product",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "hybrid",
-      "roleType": "full-time",
-      "experienceMin": 5,
-      "salaryMin": 180300,
-      "salaryMax": 230900,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "stated",
-      "postedAt": "2026-11-17T13:38:45+00:00",
-      "source": "jobicy",
-      "sources": [
-        "jobicy"
-      ]
-    },
-    {
-      "id": "toast-director-of-product-onboarding-hardware--44643b",
-      "title": "Director Of Product, Onboarding, Hardware & Supply Chain",
-      "company": "Toast",
-      "seniority": "director",
-      "domain": "product",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "hybrid",
-      "roleType": "full-time",
-      "experienceMin": 10,
-      "salaryMin": 180000,
-      "salaryMax": 368000,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "stated",
-      "postedAt": "2026-11-17T13:33:28+00:00",
-      "source": "jobicy",
-      "sources": [
-        "jobicy"
-      ]
-    },
-    {
-      "id": "toast-director-global-people-analytics-3a8be1",
-      "title": "Director, Global People Analytics",
-      "company": "Toast",
-      "seniority": "director",
-      "domain": "data",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "hybrid",
-      "roleType": "full-time",
-      "salaryMin": 152000,
-      "salaryMax": 312000,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "stated",
-      "postedAt": "2026-11-17T13:33:26+00:00",
-      "source": "jobicy",
-      "sources": [
-        "jobicy"
-      ]
-    },
-    {
-      "id": "teamworks-director-product-1bdfff",
-      "title": "Director, Product",
-      "company": "Teamworks",
-      "seniority": "director",
-      "domain": "product",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": false,
-      "visa": "no",
-      "workMode": "hybrid",
-      "roleType": "full-time",
-      "salaryMin": 231000,
-      "salaryMax": 231000,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "stated",
-      "postedAt": "2026-11-17T13:32:03+00:00",
-      "source": "jobicy",
-      "sources": [
-        "jobicy"
-      ]
-    },
-    {
-      "id": "actcareers-head-of-strategy-and-product-ce638f",
-      "title": "Head of Strategy and Product",
-      "company": "Actcareers",
-      "seniority": "head",
-      "domain": "product",
-      "countryIso2": "CH",
-      "countryName": "Switzerland",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "onsite",
-      "roleType": "full-time",
-      "salaryMin": 100100,
-      "salaryMax": 100100,
-      "salaryCurrency": "CHF",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-17T12:40:16.000Z",
-      "source": "arbeitnow",
-      "sources": [
-        "arbeitnow"
-      ]
-    },
-    {
       "id": "asm-senior-director-process-engineering-meta-9da407",
       "title": "(Senior) Director, Process Engineering - Metal Deposition",
       "company": "ASM",
@@ -13362,30 +13536,6 @@
       ]
     },
     {
-      "id": "elation-health-head-of-design-f0b9e0",
-      "title": "Head of Design",
-      "company": "Elation Health",
-      "seniority": "head",
-      "domain": "design",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": "full-time",
-      "salaryMin": 138060,
-      "salaryMax": 220730,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-17T06:49:28+00:00",
-      "source": "jobicy",
-      "sources": [
-        "jobicy"
-      ]
-    },
-    {
       "id": "asm-director-global-product-management-1935a0",
       "title": "Director, Global Product Management",
       "company": "ASM",
@@ -13409,127 +13559,6 @@
       "source": "greenhouse",
       "sources": [
         "greenhouse"
-      ]
-    },
-    {
-      "id": "monzo-director-of-product-design-42f3d5",
-      "title": "Director of Product Design",
-      "company": "Monzo",
-      "seniority": "director",
-      "domain": "design",
-      "countryIso2": "GB",
-      "countryName": "United Kingdom",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salaryMin": 140000,
-      "salaryMax": 165000,
-      "salaryCurrency": "GBP",
-      "salaryPeriod": "annual",
-      "salarySource": "stated",
-      "postedAt": "2026-11-17T03:00:31+00:00",
-      "source": "jobicy",
-      "sources": [
-        "jobicy"
-      ]
-    },
-    {
-      "id": "monzo-data-director-eu-c636af",
-      "title": "Data Director, EU",
-      "company": "Monzo",
-      "seniority": "director",
-      "domain": "data",
-      "countryIso2": "ES",
-      "countryName": "Spain",
-      "region": "europe",
-      "remote": false,
-      "visa": "yes",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salaryMin": 150900,
-      "salaryMax": 204100,
-      "salaryCurrency": "GBP",
-      "salaryPeriod": "annual",
-      "salarySource": "stated",
-      "postedAt": "2026-11-17T03:00:29+00:00",
-      "source": "jobicy",
-      "sources": [
-        "jobicy"
-      ]
-    },
-    {
-      "id": "monzo-data-director-payments-0937d6",
-      "title": "Data Director, Payments",
-      "company": "Monzo",
-      "seniority": "director",
-      "domain": "data",
-      "countryIso2": "GB",
-      "countryName": "United Kingdom",
-      "region": "europe",
-      "remote": false,
-      "visa": "yes",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salaryMin": 150000,
-      "salaryMax": 200000,
-      "salaryCurrency": "GBP",
-      "salaryPeriod": "annual",
-      "salarySource": "stated",
-      "postedAt": "2026-11-17T02:55:24+00:00",
-      "source": "jobicy",
-      "sources": [
-        "jobicy"
-      ]
-    },
-    {
-      "id": "toptal-svp-product-8d2858",
-      "title": "SVP, Product",
-      "company": "Toptal",
-      "seniority": "vp",
-      "domain": "product",
-      "countryIso2": "CA",
-      "countryName": "Canada",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "experienceMin": 15,
-      "salaryMin": 141500,
-      "salaryMax": 275000,
-      "salaryCurrency": "CAD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-17T02:50:34+00:00",
-      "source": "jobicy",
-      "sources": [
-        "jobicy"
-      ]
-    },
-    {
-      "id": "toptal-chief-technology-officer-73a2ae",
-      "title": "Chief Technology Officer",
-      "company": "Toptal",
-      "seniority": "cto",
-      "domain": "technology",
-      "countryIso2": "CA",
-      "countryName": "Canada",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salaryMin": 141500,
-      "salaryMax": 275000,
-      "salaryCurrency": "CAD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-17T02:50:33+00:00",
-      "source": "jobicy",
-      "sources": [
-        "jobicy"
       ]
     },
     {
@@ -13664,31 +13693,6 @@
       "sourceHome": "https://www.adzuna.in"
     },
     {
-      "id": "dispel-director-of-engineering-platform-d723c6",
-      "title": "Director of Engineering, Platform",
-      "company": "Dispel",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/531239/logo",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "hybrid",
-      "roleType": "full-time",
-      "salaryMin": 138060,
-      "salaryMax": 220730,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-16T21:13:49.716Z",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ]
-    },
-    {
       "id": "aurecon-singapore-ltd-senior-building-engineering-director-f72fa1",
       "title": "Senior Building Engineering Director",
       "company": "AURECON SINGAPORE  LTD.",
@@ -13740,30 +13744,6 @@
         "adzuna"
       ],
       "sourceHome": "https://www.adzuna.co.uk"
-    },
-    {
-      "id": "neuralconcept-vp-of-engineering-5eca3f",
-      "title": "VP of Engineering",
-      "company": "Neuralconcept",
-      "seniority": "vp",
-      "domain": "engineering",
-      "countryIso2": "CH",
-      "countryName": "Switzerland",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "hybrid",
-      "roleType": "full-time",
-      "salaryMin": 100100,
-      "salaryMax": 100100,
-      "salaryCurrency": "CHF",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-16T18:40:11.000Z",
-      "source": "arbeitnow",
-      "sources": [
-        "arbeitnow"
-      ]
     },
     {
       "id": "msd-associate-director-process-engineering-16872d",
@@ -14276,6 +14256,36 @@
         "adzuna"
       ],
       "sourceHome": "https://www.adzuna.es"
+    },
+    {
+      "id": "tilt-head-of-product-design-502f40",
+      "title": "Head of Product Design",
+      "company": "Tilt",
+      "companyLogoUrl": "https://cdn-images.himalayas.app/dixsq6l0u6nb3nk6f4ukgdpahcx4",
+      "seniority": "head",
+      "domain": "design",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": true,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "Canada",
+        "United States"
+      ],
+      "workMode": "remote",
+      "roleType": "full-time",
+      "salaryMin": 138060,
+      "salaryMax": 220730,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-15T04:21:11.000Z",
+      "source": "himalayas",
+      "sources": [
+        "himalayas"
+      ]
     },
     {
       "id": "truveta-director-of-engineering-intelligence-pla-37aa59",
@@ -14907,60 +14917,6 @@
         "adzuna"
       ],
       "sourceHome": "https://www.adzuna.de"
-    },
-    {
-      "id": "power-factors-head-of-software-architecture-7abc30",
-      "title": "Head of Software Architecture",
-      "company": "Power Factors",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/690364/logo",
-      "seniority": "head",
-      "domain": "engineering",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "onsite",
-      "roleType": null,
-      "experienceMin": 15,
-      "experienceMax": 20,
-      "salaryMin": 138060,
-      "salaryMax": 220730,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-12T15:56:47.995Z",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ]
-    },
-    {
-      "id": "power-factors-directeur-trice-de-l-architecture-logici-e97877",
-      "title": "Directeur·trice de l'architecture logicielle | Head of Software Architecture",
-      "company": "Power Factors",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/690364/logo",
-      "seniority": "head",
-      "domain": "engineering",
-      "countryIso2": "CA",
-      "countryName": "Canada",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "onsite",
-      "roleType": null,
-      "experienceMin": 15,
-      "experienceMax": 20,
-      "salaryMin": 141500,
-      "salaryMax": 275000,
-      "salaryCurrency": "CAD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-12T15:48:21.760Z",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ]
     },
     {
       "id": "united-overseas-bank-vp-of-network-engineering-united-oversea-bc82db",
@@ -15783,9 +15739,10 @@
       ]
     },
     {
-      "id": "booksy-director-of-engineering-4f4b6b",
-      "title": "Director of Engineering",
+      "id": "booksy-director-of-engineering-m-f-d-95cc56",
+      "title": "Director of Engineering (m/f/d)",
       "company": "Booksy",
+      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/169461/logo",
       "seniority": "director",
       "domain": "engineering",
       "countryIso2": "PL",
@@ -15793,46 +15750,12 @@
       "region": "europe",
       "remote": false,
       "visa": "unknown",
-      "workMode": "unspecified",
+      "relocation": "unknown",
+      "workMode": "remote",
       "roleType": "full-time",
       "salaryMin": 240000,
       "salaryMax": 438000,
       "salaryCurrency": "PLN",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-10T20:20:43.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ]
-    },
-    {
-      "id": "booksy-director-of-engineering-m-f-d-54642c",
-      "title": "Director of Engineering (m/f/d)",
-      "company": "Booksy",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/169461/logo",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "ES",
-      "countryName": "Spain",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "relocation": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "variantCountries": [
-        {
-          "countryIso2": "PL",
-          "countryName": "Poland",
-          "region": "europe",
-          "remote": false,
-          "applyUrl": "https://jobs.workable.com/view/bbo3Rs3ZWA3C5hCZm6T3Ut/remote-director-of-engineering-(m%2Ff%2Fd)-in-poland-at-booksy"
-        }
-      ],
-      "salaryMin": 41575,
-      "salaryMax": 41575,
-      "salaryCurrency": "EUR",
       "salaryPeriod": "annual",
       "salarySource": "estimated",
       "postedAt": "2026-11-10T20:20:43.000Z",
@@ -16044,35 +15967,9 @@
       ]
     },
     {
-      "id": "sanderson-recruitment-director-of-engineering-67146f",
-      "title": "Director of Engineering",
-      "company": "Sanderson Recruitment",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "GB",
-      "countryName": "United Kingdom",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "relocation": "unknown",
-      "workMode": "unspecified",
-      "roleType": "contract",
-      "salaryMin": 69515,
-      "salaryMax": 119408,
-      "salaryCurrency": "GBP",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-10T13:39:24.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ],
-      "sourceHome": "https://www.adzuna.co.uk"
-    },
-    {
       "id": "station-f-head-of-director-engineering-b87022",
       "title": "Head of/Director Engineering",
-      "company": "Station F",
+      "company": "STATION F",
       "seniority": "director",
       "domain": "engineering",
       "countryIso2": "FR",
@@ -16173,30 +16070,6 @@
         "adzuna"
       ],
       "sourceHome": "https://www.adzuna.com"
-    },
-    {
-      "id": "redis-vp-engineering-operations-7ad04b",
-      "title": "VP, Engineering Operations",
-      "company": "Redis",
-      "seniority": "vp",
-      "domain": "engineering",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": "permanent",
-      "salaryMin": 138060,
-      "salaryMax": 220730,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-10T10:51:28.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ]
     },
     {
       "id": "careers-at-tide-head-of-engineering-cards-c6e159",
@@ -16301,6 +16174,32 @@
       "sources": [
         "ashby"
       ]
+    },
+    {
+      "id": "sanderson-recruitment-director-of-engineering-67146f",
+      "title": "Director of Engineering",
+      "company": "Sanderson Recruitment",
+      "seniority": "director",
+      "domain": "engineering",
+      "countryIso2": "GB",
+      "countryName": "United Kingdom",
+      "region": "europe",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "unspecified",
+      "roleType": "contract",
+      "salaryMin": 69515,
+      "salaryMax": 119408,
+      "salaryCurrency": "GBP",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-09T19:15:39.000Z",
+      "source": "adzuna",
+      "sources": [
+        "adzuna"
+      ],
+      "sourceHome": "https://www.adzuna.co.uk"
     },
     {
       "id": "leena-ai-vp-of-product-b7f58b",
@@ -16654,7 +16553,7 @@
       "visa": "unknown",
       "relocation": "unknown",
       "workMode": "unspecified",
-      "roleType": "contract",
+      "roleType": "full-time",
       "salaryMin": 69515,
       "salaryMax": 119408,
       "salaryCurrency": "GBP",
@@ -17361,7 +17260,7 @@
     {
       "id": "skello-head-of-product-inte-rim-cdd-ou-freelanc-0b19d1",
       "title": "Head of Product (intérim - CDD ou freelance)",
-      "company": "SKELLO",
+      "company": "Skello",
       "seniority": "head",
       "domain": "product",
       "countryIso2": "FR",
@@ -17409,31 +17308,6 @@
         "adzuna"
       ],
       "sourceHome": "https://www.adzuna.fr"
-    },
-    {
-      "id": "gitlab-director-data-science-249858",
-      "title": "Director, Data Science",
-      "company": "GitLab",
-      "seniority": "director",
-      "domain": "data",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": true,
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "experienceMin": 12,
-      "salaryMin": 209600,
-      "salaryMax": 314400,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "stated",
-      "postedAt": "2026-11-05T17:37:25-05:00",
-      "source": "greenhouse",
-      "sources": [
-        "greenhouse"
-      ]
     },
     {
       "id": "dropbox-director-data-science-engineering-financ-ff5b21",
@@ -18041,6 +17915,7 @@
       "region": "north-america",
       "remote": false,
       "visa": "unknown",
+      "relocation": "unknown",
       "workMode": "onsite",
       "roleType": "full-time",
       "salaryMin": 141500,
@@ -18052,7 +17927,8 @@
       "source": "adzuna",
       "sources": [
         "adzuna"
-      ]
+      ],
+      "sourceHome": "https://www.adzuna.ca"
     },
     {
       "id": "sumitomo-mitsui-banking-corporation-assistant-vp-network-engineering-sumitom-3da91f",
@@ -18504,30 +18380,6 @@
       "sourceHome": "https://www.adzuna.es"
     },
     {
-      "id": "astrazeneca-plc-engineering-director-ai-solutions-enabli-639abc",
-      "title": "Engineering Director - AI Solutions (Enabling Functions)",
-      "company": "AstraZeneca plc",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "ES",
-      "countryName": "Spain",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": null,
-      "salaryMin": 41575,
-      "salaryMax": 41575,
-      "salaryCurrency": "EUR",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-02T15:01:03.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ]
-    },
-    {
       "id": "asana-head-of-it-systems-engineering-0c9eb5",
       "title": "Head of IT Systems Engineering",
       "company": "Asana",
@@ -18922,6 +18774,35 @@
       "sourceHome": "https://www.adzuna.it"
     },
     {
+      "id": "kmc-solutions-inc-int-7f85660-chief-technology-officer-cto-29c7ba",
+      "title": "INT-7F85660 | CHIEF TECHNOLOGY OFFICER (CTO)",
+      "company": "KMC Solutions Inc",
+      "companyLogoUrl": "https://cdn-images.himalayas.app/epk9f2z2pz01vwqi07zh1zd3cyij",
+      "seniority": "cto",
+      "domain": "technology",
+      "countryIso2": "PH",
+      "countryName": "Philippines",
+      "region": "southeast-asia",
+      "remote": true,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "Philippines"
+      ],
+      "workMode": "remote",
+      "roleType": "full-time",
+      "salaryMin": 5958329,
+      "salaryMax": 11266671,
+      "salaryCurrency": "PHP",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-01T12:41:14.000Z",
+      "source": "himalayas",
+      "sources": [
+        "himalayas"
+      ]
+    },
+    {
       "id": "vetsource-sr-director-enterprise-data-analytics-036ebf",
       "title": "Sr. Director, Enterprise Data & Analytics",
       "company": "Vetsource",
@@ -19225,54 +19106,6 @@
         "adzuna"
       ],
       "sourceHome": "https://www.adzuna.ca"
-    },
-    {
-      "id": "docplanner-engineering-director-100-remote-within-s-c5ac76",
-      "title": "Engineering Director (100% Remote within Spain)",
-      "company": "Docplanner",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "ES",
-      "countryName": "Spain",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": null,
-      "salaryMin": 41575,
-      "salaryMax": 41575,
-      "salaryCurrency": "EUR",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-10-30T14:35:28.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ]
-    },
-    {
-      "id": "docplanner-engineering-director-ai-driven-healthcar-0948fb",
-      "title": "Engineering Director - AI-Driven Healthcare Platform",
-      "company": "Docplanner",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "ES",
-      "countryName": "Spain",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": null,
-      "salaryMin": 41575,
-      "salaryMax": 41575,
-      "salaryCurrency": "EUR",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-10-30T13:35:07.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ]
     },
     {
       "id": "hellofresh-associate-director-corporate-strategy-de-dc617c",
@@ -20356,8 +20189,8 @@
       "relocation": "unknown",
       "workMode": "remote",
       "roleType": "full-time",
-      "salaryMin": 206500,
-      "salaryMax": 295000,
+      "salaryMin": 280000,
+      "salaryMax": 315000,
       "salaryCurrency": "USD",
       "salaryPeriod": "annual",
       "salarySource": "stated",
@@ -20903,30 +20736,6 @@
       ]
     },
     {
-      "id": "photonic-inc-vp-software-engineering-1b01b7",
-      "title": "VP, Software Engineering",
-      "company": "Photonic Inc.",
-      "seniority": "vp",
-      "domain": "engineering",
-      "countryIso2": "CA",
-      "countryName": "Canada",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "hybrid",
-      "roleType": null,
-      "salaryMin": 238700,
-      "salaryMax": 238700,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "stated",
-      "postedAt": "2026-10-25T06:52:16.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ]
-    },
-    {
       "id": "astera-labs-physical-design-engineering-director-d7520b",
       "title": "Physical Design Engineering Director",
       "company": "Astera Labs",
@@ -21409,30 +21218,6 @@
       "sourceHome": "https://www.adzuna.in"
     },
     {
-      "id": "marriott-international-inc-director-of-engineering-0733ea",
-      "title": "Director of Engineering",
-      "company": "Marriott International, Inc",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": "full-time",
-      "salaryMin": 145000,
-      "salaryMax": 194000,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "stated",
-      "postedAt": "2026-10-22T20:42:21.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ]
-    },
-    {
       "id": "lifelancer-vice-president-global-product-team-leade-5758de",
       "title": "Vice President, Global Product Team Leader, Lung Cancer",
       "company": "Lifelancer",
@@ -21540,30 +21325,6 @@
       "source": "workable",
       "sources": [
         "workable",
-        "adzuna"
-      ]
-    },
-    {
-      "id": "gic-vp-network-engineer-technology-group-998b90",
-      "title": "VP, Network Engineer, Technology Group",
-      "company": "GIC",
-      "seniority": "vp",
-      "domain": "technology",
-      "countryIso2": "SG",
-      "countryName": "Singapore",
-      "region": "southeast-asia",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": null,
-      "salaryMin": 200000,
-      "salaryMax": 350000,
-      "salaryCurrency": "SGD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-10-22T16:46:40.000Z",
-      "source": "adzuna",
-      "sources": [
         "adzuna"
       ]
     },
@@ -22458,6 +22219,32 @@
       "sourceHome": "https://www.adzuna.in"
     },
     {
+      "id": "people-profilers-pte-ltd-director-quality-engineering-b22f09",
+      "title": "Director -Quality Engineering",
+      "company": "PEOPLE PROFILERS PTE. LTD.",
+      "seniority": "director",
+      "domain": "engineering",
+      "countryIso2": "SG",
+      "countryName": "Singapore",
+      "region": "southeast-asia",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "unspecified",
+      "roleType": null,
+      "salaryMin": 200000,
+      "salaryMax": 350000,
+      "salaryCurrency": "SGD",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-10-20T18:33:27.000Z",
+      "source": "adzuna",
+      "sources": [
+        "adzuna"
+      ],
+      "sourceHome": "https://www.adzuna.sg"
+    },
+    {
       "id": "valsoft-corporation-cto-chief-technology-officer-d5e6bd",
       "title": "CTO (Chief Technology Officer)",
       "company": "Valsoft Corporation",
@@ -22746,31 +22533,6 @@
       "sources": [
         "workable",
         "adzuna"
-      ]
-    },
-    {
-      "id": "relation-insurance-director-data-engineering-analytics-a8ede6",
-      "title": "Director, Data Engineering & Analytics",
-      "company": "Relation Insurance",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": true,
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "experienceMin": 10,
-      "salaryMin": 178000,
-      "salaryMax": 294000,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "stated",
-      "postedAt": "2026-10-18T19:58:21.000Z",
-      "source": "himalayas",
-      "sources": [
-        "himalayas"
       ]
     },
     {
@@ -23240,6 +23002,32 @@
       "sourceHome": "https://www.adzuna.co.uk"
     },
     {
+      "id": "dbs-bank-ltd-senior-vp-engineering-lead-core-banking--da280c",
+      "title": "Senior VP, Engineering Lead — Core Banking Transformation",
+      "company": "DBS Bank Ltd",
+      "seniority": "vp",
+      "domain": "engineering",
+      "countryIso2": "SG",
+      "countryName": "Singapore",
+      "region": "southeast-asia",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "unspecified",
+      "roleType": null,
+      "salaryMin": 200000,
+      "salaryMax": 350000,
+      "salaryCurrency": "SGD",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-10-16T17:41:28.000Z",
+      "source": "adzuna",
+      "sources": [
+        "adzuna"
+      ],
+      "sourceHome": "https://www.adzuna.sg"
+    },
+    {
       "id": "dbs-senior-vp-engineering-lead-core-banking--da280c",
       "title": "Senior VP, Engineering Lead — Core Banking Transformation",
       "company": "DBS",
@@ -23410,6 +23198,10 @@
       "region": "north-america",
       "remote": true,
       "visa": "unknown",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "United States"
+      ],
       "workMode": "remote",
       "roleType": "full-time",
       "experienceMin": 10,
@@ -24108,31 +23900,6 @@
       "sourceHome": "https://www.adzuna.com"
     },
     {
-      "id": "mp-solutions-ltd-head-of-engineering-ae5b4f",
-      "title": "Head of Engineering",
-      "company": "MP Solutions Ltd.",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/636213/logo",
-      "seniority": "head",
-      "domain": "engineering",
-      "countryIso2": "HU",
-      "countryName": "Hungary",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": null,
-      "salaryMin": 11060352,
-      "salaryMax": 11060352,
-      "salaryCurrency": "HUF",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-10-13T15:44:17.307Z",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ]
-    },
-    {
       "id": "upgrade-director-product-management-fraud-a8d7ca",
       "title": "Director, Product Management - Fraud",
       "company": "Upgrade",
@@ -24177,30 +23944,6 @@
       "source": "workable",
       "sources": [
         "workable"
-      ]
-    },
-    {
-      "id": "corecruitment-international-director-of-engineering-hotel-b75d65",
-      "title": "Director of Engineering - HOTEL",
-      "company": "COREcruitment International",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "GB",
-      "countryName": "United Kingdom",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": "contract",
-      "salaryMin": 70000,
-      "salaryMax": 80000,
-      "salaryCurrency": "GBP",
-      "salaryPeriod": "annual",
-      "salarySource": "stated",
-      "postedAt": "2026-10-13T10:56:55.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
       ]
     },
     {
@@ -24982,30 +24725,6 @@
       "sourceHome": "https://www.adzuna.sg"
     },
     {
-      "id": "doctolib-director-of-ai-developer-experience-plat-3f57ef",
-      "title": "Director of AI Developer Experience - Platform Engineering (x/f/m)",
-      "company": "Doctolib",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "FR",
-      "countryName": "France",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": "full-time",
-      "salaryMin": 95000,
-      "salaryMax": 180000,
-      "salaryCurrency": "EUR",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-10-08T18:17:36.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ]
-    },
-    {
       "id": "dbsync-inc-head-of-engineering-900fed",
       "title": "Head of Engineering",
       "company": "DBSync Inc",
@@ -25225,7 +24944,7 @@
     {
       "id": "tide-director-of-engineering-kyx-a2fec6",
       "title": "Director of Engineering, KYX",
-      "company": "Tide",
+      "company": "tide",
       "seniority": "director",
       "domain": "engineering",
       "countryIso2": "DE",
@@ -25234,7 +24953,7 @@
       "remote": false,
       "visa": "unknown",
       "relocation": "unknown",
-      "workMode": "unspecified",
+      "workMode": "remote",
       "roleType": null,
       "salaryMin": 63500,
       "salaryMax": 84700,
@@ -25242,11 +24961,11 @@
       "salaryPeriod": "annual",
       "salarySource": "estimated",
       "postedAt": "2026-10-07T18:05:43.000Z",
-      "source": "adzuna",
+      "source": "arbeitnow",
       "sources": [
+        "arbeitnow",
         "adzuna"
-      ],
-      "sourceHome": "https://www.adzuna.de"
+      ]
     },
     {
       "id": "digital-technology-institute-for-develop-unpaid-volunteer-chief-technology-office-7c20a1",
@@ -26297,27 +26016,34 @@
       ]
     },
     {
-      "id": "oneadvanced-vp-product-engineering-d5ba0a",
-      "title": "VP Product Engineering",
-      "company": "OneAdvanced",
-      "seniority": "vp",
-      "domain": "engineering-product",
-      "countryIso2": "GB",
-      "countryName": "United Kingdom",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": null,
-      "salaryMin": 69515,
-      "salaryMax": 119408,
-      "salaryCurrency": "GBP",
+      "id": "accenture-smart-mobility-hub-tolling-technology-pr-122f8a",
+      "title": "Smart Mobility Hub - Tolling Technology Principal Director",
+      "company": "Accenture",
+      "companyLogoUrl": "https://cdn-images.himalayas.app/2il7pw0pz79q3orcrnv84jhhhjw2",
+      "seniority": "director",
+      "domain": "technology",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": true,
+      "visa": "no",
+      "visaBasis": "posting",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "United States"
+      ],
+      "workMode": "remote",
+      "roleType": "full-time",
+      "experienceMin": 12,
+      "salaryMin": 150900,
+      "salaryMax": 413600,
+      "salaryCurrency": "USD",
       "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-10-02T17:50:18.000Z",
-      "source": "adzuna",
+      "salarySource": "stated",
+      "postedAt": "2026-10-02T19:28:51.000Z",
+      "source": "himalayas",
       "sources": [
-        "adzuna"
+        "himalayas"
       ]
     },
     {
@@ -26511,6 +26237,36 @@
       "salaryPeriod": "annual",
       "salarySource": "stated",
       "postedAt": "2026-10-02T07:29:03.000Z",
+      "source": "himalayas",
+      "sources": [
+        "himalayas"
+      ]
+    },
+    {
+      "id": "lifelancer-lead-director-artificial-intelligence-ma-830586",
+      "title": "Lead Director - Artificial Intelligence, Machine Learning and Data Engineering",
+      "company": "Lifelancer",
+      "companyLogoUrl": "https://cdn-images.himalayas.app/ztdsyzatuliky237a5zq922sir0k",
+      "seniority": "director",
+      "domain": "engineering",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": true,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "United States"
+      ],
+      "workMode": "remote",
+      "roleType": "full-time",
+      "experienceMin": 10,
+      "salaryMin": 144200,
+      "salaryMax": 288400,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "stated",
+      "postedAt": "2026-10-02T07:14:54.000Z",
       "source": "himalayas",
       "sources": [
         "himalayas"
@@ -28449,33 +28205,6 @@
       ]
     },
     {
-      "id": "millennium-director-of-engineering-688d95",
-      "title": "Director of Engineering",
-      "company": "Millennium-",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/580133/logo",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "relocation": "unknown",
-      "workMode": "unspecified",
-      "roleType": "full-time",
-      "experienceMin": 10,
-      "salaryMin": 138060,
-      "salaryMax": 220730,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-09-18T20:08:59.075Z",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ]
-    },
-    {
       "id": "databricks-director-field-engineering-emerging-ente-750d05",
       "title": "Director, Field Engineering Emerging Enterprises & Startups",
       "company": "Databricks",
@@ -28820,6 +28549,7 @@
       "region": "north-america",
       "remote": false,
       "visa": "unknown",
+      "relocation": "unknown",
       "workMode": "unspecified",
       "roleType": "permanent",
       "salaryMin": 141500,
@@ -28831,7 +28561,8 @@
       "source": "adzuna",
       "sources": [
         "adzuna"
-      ]
+      ],
+      "sourceHome": "https://www.adzuna.ca"
     },
     {
       "id": "subway-vp-engineering-d48dc9",
@@ -30506,30 +30237,6 @@
       "sourceHome": "https://www.adzuna.in"
     },
     {
-      "id": "blackstone-vp-senior-software-engineer-3c777a",
-      "title": "VP – Senior Software Engineer",
-      "company": "Blackstone",
-      "seniority": "vp",
-      "domain": "engineering",
-      "countryIso2": "SG",
-      "countryName": "Singapore",
-      "region": "southeast-asia",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": "full-time",
-      "salaryMin": 200000,
-      "salaryMax": 350000,
-      "salaryCurrency": "SGD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-08-27T23:54:20.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ]
-    },
-    {
       "id": "okx-head-of-u-s-derivatives-trading-technolo-fd873e",
       "title": "Head of U.S. Derivatives Trading Technology",
       "company": "OKX",
@@ -31124,30 +30831,6 @@
       "salaryPeriod": "annual",
       "salarySource": "estimated",
       "postedAt": "2026-08-20T09:58:18-04:00",
-      "source": "greenhouse",
-      "sources": [
-        "greenhouse"
-      ]
-    },
-    {
-      "id": "linkedin-job-wrapping-director-ai-agentic-engineering-239077",
-      "title": "Director, AI & Agentic Engineering",
-      "company": "LinkedIn Job Wrapping",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "hybrid",
-      "roleType": null,
-      "salaryMin": 138060,
-      "salaryMax": 220730,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-08-19T20:13:23-04:00",
       "source": "greenhouse",
       "sources": [
         "greenhouse"
@@ -32839,31 +32522,6 @@
       "sourceHome": "https://www.adzuna.es"
     },
     {
-      "id": "linkedin-job-wrapping-director-ai-data-science-dae3d1",
-      "title": "Director, AI & Data Science",
-      "company": "LinkedIn Job Wrapping",
-      "seniority": "director",
-      "domain": "data",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "hybrid",
-      "roleType": null,
-      "experienceMin": 8,
-      "salaryMin": 138060,
-      "salaryMax": 220730,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-07-13T05:19:50-04:00",
-      "source": "greenhouse",
-      "sources": [
-        "greenhouse"
-      ]
-    },
-    {
       "id": "fanduel-infrastructure-engineering-director-41b990",
       "title": "Infrastructure Engineering Director",
       "company": "FanDuel",
@@ -32888,26 +32546,6 @@
         "adzuna"
       ],
       "sourceHome": "https://www.adzuna.com"
-    },
-    {
-      "id": "qiddiya-investment-company-director-design-mas6-20003620-dd7ec6",
-      "title": "Director-Design (MAS6-20003620)",
-      "company": "Qiddiya Investment Company",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/663803/logo",
-      "seniority": "director",
-      "domain": "design",
-      "countryIso2": "SA",
-      "countryName": "Saudi Arabia",
-      "region": "middle-east",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": null,
-      "postedAt": "2026-07-09T10:16:00.920Z",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ]
     },
     {
       "id": "visium-sa-platform-engineering-director-fb8f00",
@@ -33305,30 +32943,6 @@
       "source": "workable",
       "sources": [
         "workable"
-      ]
-    },
-    {
-      "id": "cursor-regional-director-forward-deployed-engin-4d1fea",
-      "title": "Regional Director, Forward Deployed Engineering",
-      "company": "Cursor",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "onsite",
-      "roleType": "full-time",
-      "salaryMin": 350000,
-      "salaryMax": 400000,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "stated",
-      "postedAt": "2026-06-22T21:43:35.904Z",
-      "source": "ashby",
-      "sources": [
-        "ashby"
       ]
     },
     {
@@ -33871,30 +33485,6 @@
       ]
     },
     {
-      "id": "gojob-head-of-ai-solutions-engineering-h-f-f6d1c9",
-      "title": "Head of AI Solutions Engineering H/F",
-      "company": "Gojob",
-      "seniority": "head",
-      "domain": "engineering",
-      "countryIso2": "FR",
-      "countryName": "France",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": "full-time",
-      "salaryMin": 95000,
-      "salaryMax": 180000,
-      "salaryCurrency": "EUR",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-06-06T22:58:47.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ]
-    },
-    {
       "id": "swile-engineering-director-91803e",
       "title": "Engineering Director",
       "company": "Swile",
@@ -34050,30 +33640,6 @@
       "salaryMin": 138060,
       "salaryMax": 220730,
       "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-05-27T10:15:11.884Z",
-      "source": "workable",
-      "sources": [
-        "workable"
-      ]
-    },
-    {
-      "id": "tiger-analytics-inc-sr-manager-associate-director-commercial-c6ef03",
-      "title": "Sr. Manager / Associate Director - Commercial Data Product (Pharma/ Life science",
-      "company": "Tiger Analytics Inc.",
-      "seniority": "director",
-      "domain": "data",
-      "countryIso2": "CA",
-      "countryName": "Canada",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "remote",
-      "roleType": "full-time",
-      "salaryMin": 141500,
-      "salaryMax": 275000,
-      "salaryCurrency": "CAD",
       "salaryPeriod": "annual",
       "salarySource": "estimated",
       "postedAt": "2026-05-27T10:15:11.884Z",
@@ -35991,31 +35557,6 @@
       "salaryPeriod": "annual",
       "salarySource": "estimated",
       "postedAt": "2026-01-14T04:52:23-05:00",
-      "source": "greenhouse",
-      "sources": [
-        "greenhouse"
-      ]
-    },
-    {
-      "id": "okx-product-manager-director-fiat-be5c2e",
-      "title": "Product Manager / Director, Fiat",
-      "company": "OKX",
-      "seniority": "director",
-      "domain": "product",
-      "countryIso2": "SG",
-      "countryName": "Singapore",
-      "region": "southeast-asia",
-      "remote": false,
-      "visa": "unknown",
-      "workMode": "unspecified",
-      "roleType": null,
-      "experienceMin": 3,
-      "salaryMin": 200000,
-      "salaryMax": 350000,
-      "salaryCurrency": "SGD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2025-12-10T01:49:19-05:00",
       "source": "greenhouse",
       "sources": [
         "greenhouse"
