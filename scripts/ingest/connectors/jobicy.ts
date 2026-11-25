@@ -1,4 +1,5 @@
 import type { RawJob } from "../../../src/lib/types";
+import { reportFeedFailure } from "../http";
 import type { FetchDeps } from "../http";
 
 interface JobicyJob {
@@ -33,11 +34,14 @@ export function jobicyConnector(
       const seenIds = new Set<number>();
       // the plain feed first, then tag searches so seed queries reach roles
       // beyond the newest slice; ids dedupe across fetches
-      const urls = [`https://jobicy.com/api/v2/remote-jobs?count=${options.count}`];
+      // each feed is named by its tag, the unfiltered one by "plain"
+      const feeds: Array<[unit: string, url: string]> = [
+        ["plain", `https://jobicy.com/api/v2/remote-jobs?count=${options.count}`],
+      ];
       for (const tag of options.tags ?? []) {
-        urls.push(`https://jobicy.com/api/v2/remote-jobs?count=${options.count}&tag=${encodeURIComponent(tag)}`);
+        feeds.push([tag, `https://jobicy.com/api/v2/remote-jobs?count=${options.count}&tag=${encodeURIComponent(tag)}`]);
       }
-      for (const url of urls) {
+      for (const [unit, url] of feeds) {
       try {
         const payload = (await deps.fetchJson(url)) as { jobs?: JobicyJob[] };
         for (const job of payload.jobs ?? []) {
@@ -46,6 +50,7 @@ export function jobicyConnector(
           seenIds.add(job.id);
           out.push({
             source: "jobicy",
+            feedUnit: unit,
             externalId: `jc-${job.id}`,
             title: job.jobTitle,
             company: job.companyName?.trim() || "Unknown company",
@@ -68,7 +73,9 @@ export function jobicyConnector(
           });
         }
       } catch (error) {
-        console.warn(`[jobicy] fetch failed for ${url}: ${(error as Error).message}`);
+        const failure = reportFeedFailure(deps, error, "jobicy", unit);
+        // the feed is named by its unit: the URL would print its query string
+        console.warn(`[jobicy] fetch failed for ${unit}: ${failure.message}`);
       }
       }
       return out;

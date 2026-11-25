@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { createTranslator } from "next-intl";
+import { readFileSync, readdirSync } from "node:fs";
+import { join, resolve } from "node:path";
+import { EXPATRATE_URL } from "@/lib/salary";
 
 const locales = ["en", "hi", "ar", "id"];
 
@@ -14,6 +16,18 @@ function shape(value: unknown): string {
     .sort()
     .map((key) => `${key}:${shape((value as Record<string, unknown>)[key])}`)
     .join("|");
+}
+
+function flatten(obj: Record<string, unknown>, prefix = ""): Array<[string, unknown]> {
+  const entries: Array<[string, unknown]> = [];
+  for (const [key, value] of Object.entries(obj)) {
+    if (typeof value === "object" && value !== null) {
+      entries.push(...flatten(value as Record<string, unknown>, `${prefix}${key}.`));
+    } else {
+      entries.push([`${prefix}${key}`, value]);
+    }
+  }
+  return entries;
 }
 
 describe("message catalogs", () => {
@@ -62,19 +76,249 @@ describe("placeholder parity", () => {
     return out.sort();
   };
 
-  const flatten = (obj: Record<string, unknown>, prefix = ""): Array<[string, unknown]> =>
-    Object.entries(obj).flatMap(([k, v]) =>
-      typeof v === "object" && v !== null ? flatten(v as Record<string, unknown>, `${prefix}${k}.`) : [[`${prefix}${k}`, v]]
-    );
-
-  it("every locale uses the same placeholder names and ICU forms per key", () => {
+  it("every locale fills every en key with a non-empty value and the same placeholder names and ICU forms", () => {
     const en = flatten(load("en") as Record<string, unknown>);
     for (const locale of locales) {
       if (locale === "en") continue;
       const other = Object.fromEntries(flatten(load(locale) as Record<string, unknown>));
       for (const [key, value] of en) {
+        // a missing or blank value holds no placeholder, so the parity check alone would let it through
+        expect(String(other[key] ?? "").trim().length, `${locale} ${key} is empty`).toBeGreaterThan(0);
         expect(placeholders(other[key]), `${locale} ${key}`).toEqual(placeholders(value));
       }
+    }
+  });
+});
+
+describe("ExpatRate mentions", () => {
+  it("every mention in the four catalogs sits inside exactly one link tag", () => {
+    for (const locale of locales) {
+      let mentions = 0;
+      let linked = 0;
+      for (const [key, value] of flatten(load(locale))) {
+        if (typeof value !== "string") continue;
+        // a simple tag is <link>text</link>. Once every simple tag is removed, a mention left over sat
+        // outside a tag, and a tag left over nests in another or never closes
+        expect(value.replace(/<link>[^<>]*<\/link>/g, ""), `${locale} ${key}`).not.toMatch(/ExpatRate|link>/);
+        mentions += value.split("ExpatRate").length - 1;
+        linked += (value.match(/<link>[^<>]*<\/link>/g) ?? []).join(" ").split("ExpatRate").length - 1;
+      }
+      expect(mentions, `${locale} names ExpatRate`).toBeGreaterThan(0);
+      expect(linked, `${locale} links ExpatRate`).toBe(mentions);
+    }
+  });
+});
+
+describe("keys that hold a tag", () => {
+  // a plain t() call on a key that holds a tag throws when the page renders, and no test or build renders every page
+  const leaf = (key: string) => key.slice(key.lastIndexOf(".") + 1);
+  const readTree = (dir: string): Array<[string, string]> => {
+    const files: Array<[string, string]> = [];
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const path = join(dir, entry.name);
+      if (entry.isDirectory()) files.push(...readTree(path));
+      else if (/\.(ts|tsx)$/.test(entry.name)) files.push([path, readFileSync(path, "utf8")]);
+    }
+    return files;
+  };
+  const isTestFile = (path: string) => /\.test\.tsx?$/.test(path);
+  // a test file may hold a rich call of its own, so it proves nothing about a page
+  const sources = ["app", "components"]
+    .flatMap((dir) => readTree(resolve(__dirname, "..", dir)))
+    .filter(([path]) => !isTestFile(path));
+  const tagKeys = () =>
+    flatten(load("en"))
+      .filter(([, value]) => typeof value === "string" && /<\w+>/.test(value))
+      .map(([key]) => key);
+  /** A call that renders the tags of a key. */
+  const richCall = (name: string) => new RegExp(`\\.rich\\("${name}"`);
+  /** The calls that hand the tags of a key back unrendered, with t.markup the old name of t.rich. */
+  const plainCall = (name: string) => new RegExp(`\\bt\\w*(?:\\.(?:raw|markup))?\\("${name}"`);
+
+  it("are rendered through rich text and never through a plain t() call", () => {
+    const keys = tagKeys();
+    expect(keys.length).toBeGreaterThan(0);
+
+    for (const key of keys) {
+      const renderers = sources.filter(([, text]) => richCall(leaf(key)).test(text));
+      expect(renderers.map(([path]) => path), `${key} holds a tag and is not rendered with t.rich`).not.toEqual([]);
+      for (const [path, text] of sources) {
+        expect(text, `${path} calls ${key} with a plain t() call`).not.toMatch(plainCall(leaf(key)));
+      }
+    }
+  });
+
+  it("share no leaf name with a plain key, so the guard holds for every source file", () => {
+    const tagged = new Set(tagKeys());
+    const plainLeaves = new Set(
+      flatten(load("en"))
+        .filter(([key]) => !tagged.has(key))
+        .map(([key]) => leaf(key))
+    );
+    expect(tagKeys().filter((key) => plainLeaves.has(leaf(key)))).toEqual([]);
+  });
+
+  it("take no test file for a source, because a rich call in a test proves nothing about a page", () => {
+    expect(sources.map(([path]) => path).filter(isTestFile)).toEqual([]);
+  });
+
+  it("count a raw call and a markup call as plain, because both hand the tag back unrendered", () => {
+    const call = plainCall("estimateBandNote");
+    expect(call.test('t("estimateBandNote")')).toBe(true);
+    expect(call.test('tJobs("estimateBandNote")')).toBe(true);
+    expect(call.test('t.raw("estimateBandNote")')).toBe(true);
+    expect(call.test('t.markup("estimateBandNote")')).toBe(true);
+    expect(call.test('t.rich("estimateBandNote", { link: expatrateLink })')).toBe(false);
+  });
+});
+
+describe("ExpatRate copy", () => {
+  // the linked keys go through t.rich: the formatter calls a handler only for a tag, not for a bare {link} argument
+  const linkTag = "<link>ExpatRate</link>";
+  // every key that names the project, each with one link tag
+  const agreedCopy: Record<string, string> = {
+    "Footer.salaryBenchmarks": "Salary benchmarks by <link>ExpatRate</link> (CC BY 4.0).",
+    "Job.salaryAttribution": "Salary estimates from the <link>ExpatRate</link> benchmark dataset (CC BY 4.0).",
+    "Job.estimateBandNote":
+      "Estimated from <link>ExpatRate</link>, an open set of salary benchmarks by country and role family. The band lies between the 25th and the 75th percentile of annual gross pay, in local currency, and narrows where the benchmark holds fewer figures. Treat it as orientation.",
+    "Job.estimateSingleNote":
+      "Estimated from <link>ExpatRate</link>, an open set of salary benchmarks by country and role family. The figure is the median annual gross pay, in local currency. Treat it as orientation.",
+    "About.salaryBody":
+      "When a posting states a range, it is shown as stated. A stated band that cannot be pay, such as a revenue range, is replaced by an estimate. When a posting hides the number, an estimated band is computed from the country benchmarks of <link>ExpatRate</link>, a free and open salary benchmark project, for leadership roles in technology, always in the local currency of the job's country, and always labeled as an estimate.",
+    "Home.featurePayBody":
+      "Stated salaries are shown as posted. A stated figure that cannot be pay, such as a revenue range, is replaced by an estimate. When a posting hides the number, an estimated band from the <link>ExpatRate</link> country benchmarks fills the gap. Every estimate is labeled as an estimate.",
+  };
+
+  const read = (catalog: Record<string, unknown>, path: string): unknown =>
+    path.split(".").reduce<unknown>((node, key) => (node as Record<string, unknown> | undefined)?.[key], catalog);
+
+  it("every locale has the six keys, each with one ExpatRate link tag", () => {
+    for (const locale of locales) {
+      const catalog = load(locale);
+      for (const key of Object.keys(agreedCopy)) {
+        const value = read(catalog, key);
+        expect(typeof value, `${locale} ${key}`).toBe("string");
+        const text = String(value);
+        expect(text.split(linkTag).length - 1, `${locale} ${key} link tags`).toBe(1);
+        expect(text, `${locale} ${key}`).not.toContain("{link}");
+      }
+    }
+  });
+
+  it("en carries the agreed wording", () => {
+    const en = load("en");
+    for (const [key, copy] of Object.entries(agreedCopy)) {
+      expect(read(en, key), key).toBe(copy);
+    }
+  });
+
+  it("EXPATRATE_URL is the public project site", () => {
+    expect(EXPATRATE_URL).toBe("https://expatrate.pages.dev");
+  });
+});
+
+describe("apply and listing copy", () => {
+  type Catalog = {
+    Home: Record<string, string>;
+    Job: Record<string, string>;
+    About: Record<string, string>;
+    Stats: Record<string, string>;
+  };
+  const section = (locale: string) => load(locale) as Catalog;
+  // the wording each catalog leaves behind
+  const oldPromise: Record<string, string> = {
+    en: "employer's own posting",
+    hi: "नियोक्ता की अपनी पोस्टिंग",
+    ar: "صاحب العمل نفسه",
+    id: "milik perusahaan sendiri",
+  };
+  const oldOpenRoles: Record<string, string> = {
+    en: "open leadership roles",
+    hi: "खुली लीडरशिप भूमिकाएँ",
+    ar: "وظيفة قيادية مفتوحة",
+    id: "posisi kepemimpinan terbuka",
+  };
+  const oldLiveRoles: Record<string, string> = {
+    en: "Live roles",
+    hi: "लाइव भूमिकाएं",
+    ar: "وظائف مباشرة",
+    id: "Peran aktif",
+  };
+
+  it("en carries the agreed wording", () => {
+    const en = section("en");
+    expect(en.Job.applyVia).toBe("Apply via {source}");
+    expect(en.Job.apply).toBe("Apply on company site");
+    expect(en.Home.statRoles).toBe("leadership roles listed");
+    expect(en.Stats.roles).toBe("Roles listed");
+    expect(en.Stats.liveRoles).toBe("Roles listed");
+    expect(en.About.liveRoles).toBe("{count, plural, one {# role listed} other {# roles listed}}");
+    expect(en.Home.featureApplyBody).toBe(
+      "Every role links to where it was posted. Some lead to the employer's own careers site. The rest lead to the job board that carries the posting, and the button says which."
+    );
+  });
+
+  it("every locale names the board on the button", () => {
+    for (const locale of locales) {
+      expect(section(locale).Job.applyVia.split("{source}").length - 1, locale).toBe(1);
+    }
+  });
+
+  it("no locale keeps the promise that every link is the employer's own posting, or calls the roles open or live", () => {
+    for (const locale of locales) {
+      const { Home, About, Stats } = section(locale);
+      expect(Home.featureApplyBody, locale).not.toContain(oldPromise[locale]);
+      expect(Home.statRoles, locale).not.toBe(oldOpenRoles[locale]);
+      expect(About.liveRoles.toLowerCase(), locale).not.toContain(oldLiveRoles[locale].toLowerCase());
+      expect(Stats.roles, locale).not.toBe(oldLiveRoles[locale]);
+      expect(Stats.liveRoles, locale).toBe(Stats.roles);
+    }
+  });
+});
+
+describe("Arabic counts", () => {
+  type Catalog = { Jobs: Record<string, string>; About: Record<string, string> };
+  // Arabic plurals have six forms. A count that gives two picks the wrong word for most numbers
+  const forms = ["zero", "one", "two", "few", "many", "other"];
+
+  it("give all six forms, in the listing and on the About page", () => {
+    const { Jobs, About } = load("ar") as Catalog;
+    for (const value of [Jobs.count, About.liveRoles]) {
+      for (const form of forms) {
+        expect(value, `${form} is missing`).toMatch(new RegExp(`\\b${form}\\s*\\{`));
+      }
+    }
+  });
+
+  it("render a count of every form through next-intl", () => {
+    const t = createTranslator({ locale: "ar", messages: load("ar") as Catalog });
+    for (const count of [0, 1, 2, 5, 12, 100]) {
+      expect(t("About.liveRoles", { count }), `count ${count}`).toMatch(/مدرج/);
+    }
+  });
+});
+
+describe("About visa copy", () => {
+  type Catalog = { About: Record<string, string> };
+  // the date on a role page is the night a source tag was first seen. No check runs, so no page may call it one
+  const oldCheck: Record<string, string> = {
+    en: "date of the check",
+    hi: "जाँच की तारीख़",
+    ar: "تاريخ الفحص",
+    id: "tanggal pengecekan",
+  };
+  const firstSeen: Record<string, string> = {
+    en: "first seen",
+    hi: "पहली बार",
+    ar: "أول ظهور",
+    id: "pertama kali",
+  };
+
+  it("no locale calls that date a check, and every locale says the tag was first seen", () => {
+    for (const locale of locales) {
+      const body = (load(locale) as Catalog).About.visaBody;
+      expect(body, `${locale} calls the date a check`).not.toContain(oldCheck[locale]);
+      expect(body, `${locale} does not say the tag was first seen`).toContain(firstSeen[locale]);
     }
   });
 });

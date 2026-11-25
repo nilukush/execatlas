@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { getIndexEntries, getStats } from "@/lib/data";
 import { countPostedWithin, defaultOrder } from "@/lib/search";
 import { JobCard, type JobCardLabels } from "@/components/job-card";
+import { expatrateLink } from "@/components/expatrate-link";
 import { ROLE_TYPES, SOURCE_IDS, SOURCE_LABELS } from "@/lib/types";
 import { formatDate } from "@/lib/seo";
 
@@ -33,6 +34,7 @@ export default async function HomePage({
     salaryStated: tJobs("salaryStated"),
     salaryEstimated: tJobs("salaryEstimated"),
     visaYes: tJobs("visaYes"),
+    visaYesBySource: (source) => tJobs("visaYesBySource", { source }),
     visaNo: tJobs("visaNo"),
     visaUnknown: tJobs("visaUnknown"),
     perYear: tJobs("perYear"),
@@ -41,6 +43,7 @@ export default async function HomePage({
     plusPlaces: (n) => tJobs("plusPlaces", { n }),
     locationRestricted: tJobs("locationRestricted"),
     worldwideRemote: tJobs("worldwideRemote"),
+    relocationYes: tJobs("relocationYes"),
     roleTypeLabels: Object.fromEntries(ROLE_TYPES.map((type) => [type, tRoleType(type)])),
     posted: (date) => tJob("posted", { date: formatDate(date, locale) }),
     sourceLabels: Object.fromEntries(Object.entries(SOURCE_LABELS)),
@@ -104,7 +107,7 @@ export default async function HomePage({
           </div>
           <div className="card-ui p-6">
             <h2 className="font-serif text-lg font-bold">{t("featurePayTitle")}</h2>
-            <p className="mt-2 text-sm text-muted">{t("featurePayBody")}</p>
+            <p className="mt-2 text-sm text-muted">{t.rich("featurePayBody", { link: expatrateLink })}</p>
           </div>
           <div className="card-ui p-6">
             <h2 className="font-serif text-lg font-bold">{t("featureApplyTitle")}</h2>

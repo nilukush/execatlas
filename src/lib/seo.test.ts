@@ -1,5 +1,146 @@
 import { describe, expect, it } from "vitest";
-import { buildAlternates, formatDate, jobOgDescription, SITE_URL } from "./seo";
+import {
+  buildAlternates,
+  formatDate,
+  jobOgDescription,
+  jobPostingJsonLd,
+  SITE_URL,
+} from "./seo";
+import type { Job } from "./types";
+
+const NOW = "2026-11-24T00:00:00.000Z";
+const EXPIRES = "2026-12-24T00:00:00.000Z";
+
+function makeJob(over: Partial<Job> = {}): Job {
+  return {
+    id: "j1",
+    title: "Director of Engineering",
+    company: "Acme",
+    companyLogoUrl: "https://acme.example/logo.png",
+    applyUrl: "https://acme.example/jobs/1",
+    sourceUrl: "https://acme.example/jobs/1",
+    source: "greenhouse",
+    sources: ["greenhouse"],
+    text: "We are hiring a Director of Engineering.",
+    blocks: [],
+    requirements: [],
+    location: { countryIso2: "DE", countryName: "Germany", region: "europe", remote: false, raw: "Berlin" },
+    seniority: "director",
+    domain: "engineering",
+    visa: "unknown",
+    workMode: "onsite",
+    roleType: "permanent",
+    salary: null,
+    postedAt: NOW,
+    firstSeen: NOW,
+    updatedAt: NOW,
+    ...over,
+  };
+}
+
+describe("jobPostingJsonLd", () => {
+  const estimated = makeJob({
+    salary: { min: 660000, max: 1080000, currency: "AED", period: "annual", source: "estimated" },
+  });
+  const stated = makeJob({
+    salary: { min: 60000, max: 80000, currency: "AED", period: "monthly", source: "stated" },
+  });
+
+  it("leaves out baseSalary for an estimated band and for no band", () => {
+    expect(jobPostingJsonLd(estimated, "en")).not.toHaveProperty("baseSalary");
+    expect(jobPostingJsonLd(makeJob(), "en")).not.toHaveProperty("baseSalary");
+  });
+
+  it("states baseSalary for a stated band", () => {
+    expect(jobPostingJsonLd(stated, "en").baseSalary).toEqual({
+      "@type": "MonetaryAmount",
+      currency: "AED",
+      value: {
+        "@type": "QuantitativeValue",
+        minValue: 60000,
+        maxValue: 80000,
+        unitText: "MONTH",
+      },
+    });
+  });
+
+  it("states a stated yearly band in YEAR", () => {
+    const yearly = makeJob({
+      salary: { min: 150000, max: 250000, currency: "USD", period: "annual", source: "stated" },
+    });
+    expect(jobPostingJsonLd(yearly, "en").baseSalary).toEqual({
+      "@type": "MonetaryAmount",
+      currency: "USD",
+      value: {
+        "@type": "QuantitativeValue",
+        minValue: 150000,
+        maxValue: 250000,
+        unitText: "YEAR",
+      },
+    });
+  });
+
+  it("never claims directApply", () => {
+    expect(jobPostingJsonLd(estimated, "en")).not.toHaveProperty("directApply");
+    expect(jobPostingJsonLd(stated, "en")).not.toHaveProperty("directApply");
+  });
+
+  it("keeps title, datePosted, hiringOrganization and url as the page built them", () => {
+    expect(jobPostingJsonLd(stated, "hi")).toMatchObject({
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      title: "Director of Engineering",
+      datePosted: NOW,
+      hiringOrganization: {
+        "@type": "Organization",
+        name: "Acme",
+        logo: "https://acme.example/logo.png",
+      },
+      jobLocation: {
+        "@type": "Place",
+        address: { "@type": "PostalAddress", addressCountry: "DE", addressRegion: "Germany" },
+      },
+      url: `${SITE_URL}/hi/jobs/j1`,
+    });
+  });
+
+  it("pins the whole object, so no field changes in silence", () => {
+    expect(jobPostingJsonLd({ ...stated, expiresAt: EXPIRES }, "en")).toEqual({
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      title: "Director of Engineering",
+      description: "We are hiring a Director of Engineering.",
+      datePosted: NOW,
+      validThrough: EXPIRES,
+      employmentType: "PERMANENT",
+      hiringOrganization: {
+        "@type": "Organization",
+        name: "Acme",
+        logo: "https://acme.example/logo.png",
+      },
+      jobLocation: {
+        "@type": "Place",
+        address: { "@type": "PostalAddress", addressCountry: "DE", addressRegion: "Germany" },
+      },
+      url: `${SITE_URL}/en/jobs/j1`,
+      baseSalary: {
+        "@type": "MonetaryAmount",
+        currency: "AED",
+        value: {
+          "@type": "QuantitativeValue",
+          minValue: 60000,
+          maxValue: 80000,
+          unitText: "MONTH",
+        },
+      },
+    });
+  });
+
+  it("states validThrough only when the source dates an expiry", () => {
+    expect(jobPostingJsonLd(makeJob({ expiresAt: EXPIRES }), "en")).toHaveProperty("validThrough", EXPIRES);
+    expect(jobPostingJsonLd(makeJob(), "en")).not.toHaveProperty("validThrough");
+  });
+});
 
 describe("formatDate", () => {
   it("pins to the UTC calendar day so the static build and every browser agree", () => {

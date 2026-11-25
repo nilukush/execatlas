@@ -1,4 +1,5 @@
 import type { RawJob } from "../../../src/lib/types";
+import { reportFeedFailure } from "../http";
 import type { FetchDeps } from "../http";
 
 interface WorkableJob {
@@ -39,6 +40,7 @@ export function workableConnector(
               if (byId.has(`wk-${job.id}`)) continue;
               byId.set(`wk-${job.id}`, {
                 source: "workable",
+                feedUnit: `${query}/${location}`,
                 externalId: `wk-${job.id}`,
                 title: job.title,
                 company: job.company?.title?.trim() || "Unknown company",
@@ -53,8 +55,9 @@ export function workableConnector(
               });
             }
           } catch (error) {
+            const failure = reportFeedFailure(deps, error, "workable", `${query}/${location}`);
             console.warn(
-              `[workable] query "${query}" / "${location}" failed: ${(error as Error).message}`
+              `[workable] query "${query}" / "${location}" failed: ${failure.message}`
             );
           }
         }

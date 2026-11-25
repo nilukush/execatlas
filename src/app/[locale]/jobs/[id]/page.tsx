@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { adzunaMarkHref, applyDestination } from "@/lib/apply";
 import { getAllJobIds, getJobById } from "@/lib/data";
 import { CompanyLogo } from "@/components/company-logo";
-import { SOURCE_LABELS, type JdBlock } from "@/lib/types";
-import { formatSalaryBand, SALARY_ATTRIBUTION } from "@/lib/salary";
+import { AdzunaMark } from "@/components/job-card";
+import { SOURCE_LABELS, type Job, type JdBlock } from "@/lib/types";
+import { formatSalaryBand } from "@/lib/salary";
+import { expatrateLink } from "@/components/expatrate-link";
+import { remoteScope, signalView, type SignalView } from "@/lib/signals";
 import { visaEvidence } from "@/lib/enrich/visa";
 import { countryByIso2, regionLabel } from "@/lib/locations";
-import { buildAlternates, formatDate, jobOgDescription, SITE_URL } from "@/lib/seo";
+import { buildAlternates, formatDate, jobOgDescription, jobPostingJsonLd, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getAllJobIds().map((id) => ({ id }));
@@ -58,48 +63,25 @@ export default async function JobDetailPage({
   const t = await getTranslations("Job");
   const tJobs = await getTranslations("Jobs");
   const country = job.location.countryIso2 ? countryByIso2(job.location.countryIso2) : null;
-  const place = country?.name ?? (job.location.remote ? tJobs("remoteWorldwide") : (job.location.region ? regionLabel(job.location.region) : job.location.raw));
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "JobPosting",
-    title: job.title,
-    description: job.text.slice(0, 4000),
-    datePosted: job.postedAt,
-    employmentType: job.roleType?.toUpperCase().replace("-", "_"),
-    hiringOrganization: {
-      "@type": "Organization",
-      name: job.company,
-      ...(job.companyLogoUrl ? { logo: job.companyLogoUrl } : {}),
-    },
-    ...(job.location.remote
-      ? { jobLocationType: "TELECOMMUTE" }
-      : {}),
-    ...(country
-      ? {
-          jobLocation: {
-            "@type": "Place",
-            address: { "@type": "PostalAddress", addressCountry: country.iso2, addressRegion: country.name },
-          },
-        }
-      : {}),
-    url: `${SITE_URL}/${locale}/jobs/${job.id}`,
-    ...(job.salary
-      ? {
-          baseSalary: {
-            "@type": "MonetaryAmount",
-            currency: job.salary.currency,
-            value: {
-              "@type": "QuantitativeValue",
-              minValue: job.salary.min,
-              maxValue: job.salary.max,
-              unitText: job.salary.period === "monthly" ? "MONTH" : "YEAR",
-            },
-          },
-        }
-      : {}),
-    directApply: true,
-  };
+  const scope = remoteScope({
+    remote: job.location.remote,
+    countryIso2: job.location.countryIso2,
+    region: job.location.region,
+    locationRestrictions: job.location.restrictions,
+  });
+  const region = job.location.region ? regionLabel(job.location.region) : null;
+  // a restricted remote role must not claim worldwide, and never prints the line of its source
+  const place = country?.name
+    ?? (job.location.remote
+      ? (scope === "worldwide" ? tJobs("remoteWorldwide") : (region ?? tJobs("remote")))
+      : (region ?? job.location.raw));
+  const restrictions = job.location.restrictions ?? [];
+  const visa = jobSignal(job);
+  const source = SOURCE_LABELS[job.source] ?? job.source;
+  // the button follows the host of the apply link, not the source that listed the role
+  const destination = applyDestination(job.applyUrl);
+  // an old dataset dates no tag, so the headline names the source instead
+  const undatedTag = visa.basis === "source" && !job.visaDeclaredAt;
 
   return (
     <article className="container-page py-10">
@@ -109,7 +91,7 @@ export default async function JobDetailPage({
       */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingJsonLd(job, locale)).replace(/</g, "\\u003c") }}
       />
 
       <Link href="/jobs" className="text-sm font-semibold text-brand-500 hover:underline">
@@ -127,7 +109,9 @@ export default async function JobDetailPage({
           </div>
         </div>
         <a href={job.applyUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
-          {t("apply")}
+          {destination === "employer"
+            ? t("apply")
+            : t("applyVia", { source: SOURCE_LABELS[destination] })}
         </a>
       </header>
 
@@ -165,16 +149,42 @@ export default async function JobDetailPage({
             <section className="card-ui p-5 text-sm">
               <h2 className="text-sm font-bold uppercase tracking-wide text-muted">{t("visaSignal")}</h2>
               <p className={job.visa === "yes" ? "mt-2 font-semibold text-visa-fg" : "mt-2 font-semibold text-novisa-fg"}>
-                {job.visa === "yes" ? tJobs("visaYes") : tJobs("visaNo")}
+                {job.visa === "yes"
+                  ? undatedTag
+                    ? tJobs("visaYesBySource", { source })
+                    : tJobs("visaYes")
+                  : tJobs("visaNo")}
               </p>
-              {(() => {
-                const evidence = visaEvidence(job.text);
-                return evidence ? (
-                  <p className="mt-2 text-xs leading-relaxed text-muted">
-                    {t("visaEvidencePrefix")} &ldquo;{evidence}&rdquo;
-                  </p>
-                ) : null;
-              })()}
+              {visa.basis === "posting" && (
+                <>
+                  {visa.evidence && (
+                    <p className="mt-2 text-xs leading-relaxed text-muted">
+                      {t("visaEvidencePrefix")} &ldquo;{visa.evidence}&rdquo;
+                    </p>
+                  )}
+                  {/* the method line explains a match, so a refusal stands on its quote alone */}
+                  {job.visa === "yes" && (
+                    <p className="mt-2 text-xs leading-relaxed text-muted">{t("visaMethod")}</p>
+                  )}
+                </>
+              )}
+              {visa.basis === "source" && job.visaDeclaredAt && (
+                <p className="mt-2 text-xs leading-relaxed text-muted">
+                  {t("visaSourceDeclaration", { source, date: formatDate(job.visaDeclaredAt, locale) })}
+                </p>
+              )}
+            </section>
+          )}
+
+          {job.relocation === "yes" && (
+            <section className="card-ui p-5 text-sm">
+              <h2 className="text-sm font-bold uppercase tracking-wide text-muted">{t("relocation")}</h2>
+              <p className="mt-2 font-semibold text-ink">{tJobs("relocationYes")}</p>
+              {job.relocationEvidence && (
+                <p className="mt-2 text-xs leading-relaxed text-muted">
+                  {t("relocationEvidencePrefix")} &ldquo;{job.relocationEvidence}&rdquo;
+                </p>
+              )}
             </section>
           )}
 
@@ -184,7 +194,8 @@ export default async function JobDetailPage({
               <>
                 <p className="mt-2 font-serif text-lg font-bold">
                   {formatSalaryBand(job.salary, locale)}{" "}
-                  <span className="text-sm font-normal text-muted">
+                  {/* the period stays on one line, so a narrow card never breaks "/ a year" */}
+                  <span className="whitespace-nowrap text-sm font-normal text-muted">
                     / {job.salary.period === "monthly" ? tJobs("perMonth") : tJobs("perYear")}
                   </span>
                 </p>
@@ -193,7 +204,12 @@ export default async function JobDetailPage({
                   {job.salary.quality ? ` · ${job.salary.quality}` : ""}
                 </p>
                 {job.salary.source === "estimated" && (
-                  <p className="mt-3 text-xs leading-relaxed text-muted">{t("estimateNote")}</p>
+                  <p className="mt-3 text-xs leading-relaxed text-muted">
+                    {/* a benchmark that holds the median only gives one value, and the band note would be false on it */}
+                    {job.salary.min === job.salary.max
+                      ? t.rich("estimateSingleNote", { link: expatrateLink })
+                      : t.rich("estimateBandNote", { link: expatrateLink })}
+                  </p>
                 )}
               </>
             ) : (
@@ -215,12 +231,18 @@ export default async function JobDetailPage({
           <section className="card-ui p-5 text-sm">
             <h2 className="text-sm font-bold uppercase tracking-wide text-muted">{t("location")}</h2>
             <p className="mt-2">{place}</p>
-            {job.location.region && <p className="text-muted">{regionLabel(job.location.region)}</p>}
+            {/* the place line already names the region of a role with no country, remote or on site */}
+            {job.location.region && place !== region && (
+              <p className="text-muted">{regionLabel(job.location.region)}</p>
+            )}
             {job.workMode === "hybrid" && job.officeDays && (
               <p className="mt-2 text-muted">{t("hybridDays", { days: job.officeDays })}</p>
             )}
-            {job.location.remote && job.location.countryIso2 && (
+            {scope === "restricted" && (
               <p className="mt-2 font-semibold text-ink">{tJobs("locationRestricted")}</p>
+            )}
+            {restrictions.length > 0 && (
+              <p className="mt-2 text-muted">{t("locationRestrictions", { countries: restrictions.join(", ") })}</p>
             )}
             {country?.expatFriendly && <p className="mt-2 text-visa-fg">✓ {t("expatFriendlyYes")}</p>}
           </section>
@@ -237,7 +259,7 @@ export default async function JobDetailPage({
                       rel="noopener noreferrer"
                       className="font-semibold text-brand-500 hover:underline"
                     >
-                      {variant.remote ? tJobs("remoteWorldwide") : (variant.countryName ?? (variant.region ? regionLabel(variant.region) : ""))}{" "}
+                      {variant.countryName ?? (variant.remote ? tJobs("remote") : (variant.region ? regionLabel(variant.region) : ""))}{" "}
                       <span aria-hidden="true">{locale === "ar" ? "←" : "→"}</span>
                     </a>
                   </li>
@@ -249,8 +271,16 @@ export default async function JobDetailPage({
           <section className="card-ui p-5 text-sm">
             <h2 className="text-sm font-bold uppercase tracking-wide text-muted">{t("source")}</h2>
             <p className="mt-2">
-              {job.sources.map((s) => SOURCE_LABELS[s] ?? s).join(", ")}
+              {job.sources.map((s, index) => (
+                <Fragment key={s}>
+                  {index > 0 && ", "}
+                  {s === "adzuna" ? <AdzunaMark href={adzunaMarkHref(job)} align="start" /> : (SOURCE_LABELS[s] ?? s)}
+                </Fragment>
+              ))}
             </p>
+            {job.lastSeenAt && (
+              <p className="mt-2 text-xs text-muted">{t("lastSeen", { date: formatDate(job.lastSeenAt, locale) })}</p>
+            )}
             <a
               href={job.sourceUrl}
               target="_blank"
@@ -259,7 +289,9 @@ export default async function JobDetailPage({
             >
               {t("viewOriginal")}
             </a>
-            <p className="mt-3 text-xs leading-relaxed text-muted">{SALARY_ATTRIBUTION}</p>
+            <p className="mt-3 text-xs leading-relaxed text-muted">
+              {t.rich("salaryAttribution", { link: expatrateLink })}
+            </p>
           </section>
         </aside>
       </div>
@@ -281,4 +313,18 @@ function JdBlockView({ block }: { block: JdBlock }) {
     );
   }
   return <p className="text-sm leading-relaxed">{block.text}</p>;
+}
+
+/**
+ * The signal of a role page. A dataset that predates the stored basis is read again here, the one
+ * place that holds the posting text. The posting wins, as at ingest. Arbeitnow is the one source
+ * that tags, and a tag only ever says yes.
+ */
+function jobSignal(job: Job): SignalView {
+  const stored = signalView(job);
+  if (stored.basis !== undefined) return stored;
+  const evidence = visaEvidence(job.text);
+  if (evidence) return { basis: "posting", evidence };
+  if (job.source === "arbeitnow" && job.visa === "yes") return { basis: "source", evidence: null };
+  return stored;
 }

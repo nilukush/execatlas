@@ -1,4 +1,5 @@
 import type { RawJob } from "../../../src/lib/types";
+import { reportFeedFailure } from "../http";
 import type { FetchDeps } from "../http";
 
 interface GreenhouseBoardJob {
@@ -34,6 +35,7 @@ export function greenhouseConnector(
             if (!job.title || !job.absolute_url) continue;
             out.push({
               source: "greenhouse",
+              feedUnit: token,
               externalId: `gh-${job.id}`,
               title: job.title,
               company: job.company_name?.trim() || token,
@@ -45,7 +47,8 @@ export function greenhouseConnector(
             });
           }
         } catch (error) {
-          console.warn(`[greenhouse] board "${token}" failed: ${(error as Error).message}`);
+          const failure = reportFeedFailure(deps, error, "greenhouse", token);
+          console.warn(`[greenhouse] board "${token}" failed: ${failure.message}`);
         }
       }
       return out;

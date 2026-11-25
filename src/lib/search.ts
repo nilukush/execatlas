@@ -1,8 +1,7 @@
-import fxData from "@/data/salary/fx.json";
 import type { IndexEntry } from "./types";
 import type { RegionId } from "./locations";
 import { countryByIso2 } from "./locations";
-import { monthsPerYear } from "./salary";
+import { FX_RATES, monthsPerYear } from "./salary";
 
 export interface JobFilters {
   query: string;
@@ -27,8 +26,6 @@ export const DEFAULT_FILTERS: JobFilters = {
   source: "all",
   sort: "newest",
 };
-
-const FX_RATES = (fxData as { rates: Record<string, number> }).rates;
 
 /** Converts an amount to USD using the vendored FX snapshot; 0 when unknown. */
 export function toUsd(amount: number | undefined, currency: string | undefined): number {

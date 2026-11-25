@@ -1,4 +1,5 @@
 import type { RawJob } from "../../../src/lib/types";
+import { reportFeedFailure } from "../http";
 import type { FetchDeps } from "../http";
 
 interface ArbeitnowJob {
@@ -36,6 +37,7 @@ export function arbeitnowConnector(
             if (!job.slug || !job.title || !job.url) continue;
             out.push({
               source: "arbeitnow",
+              feedUnit: `page-${page}`,
               externalId: `an-${job.slug}`,
               title: job.title,
               company: job.company_name?.trim() || "Unknown company",
@@ -49,16 +51,19 @@ export function arbeitnowConnector(
             });
           }
         } catch (error) {
-          console.warn(`[arbeitnow] page ${page} failed: ${(error as Error).message}`);
+          const failure = reportFeedFailure(deps, error, "arbeitnow", `page-${page}`);
+          console.warn(`[arbeitnow] page ${page} failed: ${failure.message}`);
         }
       }
       // cross-reference the visa_sponsorship=true feed: their platform-declared
       // sponsorship flag is not in the per-job payload, only in this filter
+      // the page counter stays in scope so a failure names the page that failed
+      let visaPage = 1;
       try {
         const sponsoredSlugs = new Set<string>();
-        for (let page = 1; page <= options.pages; page += 1) {
+        for (visaPage = 1; visaPage <= options.pages; visaPage += 1) {
           const filtered = (await deps.fetchJson(
-            `https://www.arbeitnow.com/api/job-board-api?visa_sponsorship=true&page=${page}`
+            `https://www.arbeitnow.com/api/job-board-api?visa_sponsorship=true&page=${visaPage}`
           )) as { data?: ArbeitnowJob[] };
           const slugs = (filtered.data ?? []).map((job) => job.slug).filter(Boolean);
           if (slugs.length === 0) break;
@@ -71,7 +76,8 @@ export function arbeitnowConnector(
           }
         }
       } catch (error) {
-        console.warn(`[arbeitnow] visa feed failed: ${(error as Error).message}`);
+        const failure = reportFeedFailure(deps, error, "arbeitnow", `visa-feed-${visaPage}`);
+        console.warn(`[arbeitnow] visa feed page ${visaPage} failed: ${failure.message}`);
       }
       return out;
     },

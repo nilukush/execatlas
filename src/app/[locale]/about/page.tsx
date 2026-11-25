@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import { getQueryCount, getStats } from "@/lib/data";
+import { expatrateLink } from "@/components/expatrate-link";
 import { buildAlternates } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -87,7 +88,7 @@ export default async function AboutPage({
       <p className="mt-2 text-sm text-muted">{queryCount} role query variations are searched on every refresh.</p>
 
       <h2 className="mt-10 font-serif text-2xl font-bold">{t("salaryTitle")}</h2>
-      <p className="mt-3 leading-relaxed">{t("salaryBody")}</p>
+      <p className="mt-3 leading-relaxed">{t.rich("salaryBody", { link: expatrateLink })}</p>
 
       <h2 className="mt-10 font-serif text-2xl font-bold">{t("limitsTitle")}</h2>
       <p className="mt-3 leading-relaxed">{t("limitsBody")}</p>

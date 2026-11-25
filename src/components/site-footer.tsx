@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { CopyrightYear } from "./copyright-year";
+import { expatrateLink } from "./expatrate-link";
 
 export async function SiteFooter() {
   const t = await getTranslations("Footer");
@@ -14,7 +15,7 @@ export async function SiteFooter() {
         </div>
         <div className="space-y-2">
           <p>{t("data")}</p>
-          <p>{t("salary")}</p>
+          <p>{t.rich("salaryBenchmarks", { link: expatrateLink })}</p>
         </div>
         <div className="space-y-2 sm:text-end">
           <Link href="/about" className="block font-medium text-ink hover:underline">

@@ -1,4 +1,7 @@
+import { adzunaHomeUrl } from "../../../src/lib/apply";
 import type { RawJob } from "../../../src/lib/types";
+import { SOURCE_UNIT } from "../carry";
+import { reportFeedFailure } from "../http";
 import type { FetchDeps } from "../http";
 
 interface AdzunaJob {
@@ -26,7 +29,6 @@ const ADZUNA_COUNTRY_NAMES: Record<string, string> = {
   pl: "Poland",
   in: "India",
   sg: "Singapore",
-  br: "Brazil",
   mx: "Mexico",
   us: "United States",
   ca: "Canada",
@@ -54,6 +56,14 @@ export function adzunaConnector(
     async run() {
       if (!options.appId || !options.appKey) {
         console.warn("[adzuna] no credentials (ADZUNA_APP_ID / ADZUNA_APP_KEY); skipping source");
+        // the source was never asked, so it did not answer with no roles: a whole source report says so
+        // and keeps its roles carried, where the empty answer report of the run would say what is false
+        deps.reportFailure?.({
+          source: "adzuna",
+          unit: SOURCE_UNIT,
+          transient: true,
+          message: "no Adzuna credentials, the source was not asked",
+        });
         return [];
       }
       const out: RawJob[] = [];
@@ -69,6 +79,8 @@ export function adzunaConnector(
               url.searchParams.set("results_per_page", "50");
               url.searchParams.set("what", query);
               url.searchParams.set("content-type", "application/json");
+              // ads older than a year are left out by the source
+              url.searchParams.set("max_days_old", "365");
               const payload = (await deps.fetchJson(url.toString())) as { results?: AdzunaJob[] };
               const jobs = payload.results ?? [];
               if (jobs.length === 0) break;
@@ -84,11 +96,14 @@ export function adzunaConnector(
                 const created = job.created ? new Date(job.created) : null;
                 out.push({
                   source: "adzuna",
+                  feedUnit: `${country}/${query}`,
                   externalId: `ad-${job.id}`,
                   title: job.title,
                   company: job.company?.display_name?.trim() || "Unknown company",
                   applyUrl: job.redirect_url,
                   sourceUrl: job.redirect_url,
+                  // the same home rule as the attribution mark on the site: the Adzuna host family, without a port
+                  sourceHome: adzunaHomeUrl(job.redirect_url) ?? undefined,
                   descriptionHtml: job.description ?? "",
                   locationRaw: area ? `${countryName}, ${area}` : countryName,
                   remoteHint: /remote|anywhere/i.test(job.location?.display_name ?? "") || /remote/i.test(job.title),
@@ -101,7 +116,8 @@ export function adzunaConnector(
                 });
               }
             } catch (error) {
-              console.warn(`[adzuna] ${country}/${query} page ${page} failed: ${(error as Error).message}`);
+              const failure = reportFeedFailure(deps, error, "adzuna", `${country}/${query}`);
+              console.warn(`[adzuna] ${country}/${query} page ${page} failed: ${failure.message}`);
               break;
             }
           }

@@ -2,11 +2,12 @@ import crypto from "node:crypto";
 import { classifyTitle } from "../../src/lib/roles";
 import { resolveLocation } from "../../src/lib/locations";
 import { parsePostingHtml } from "../../src/lib/jd";
-import { detectVisa } from "../../src/lib/enrich/visa";
+import { detectRelocation, detectVisa, relocationEvidence, visaEvidence } from "../../src/lib/enrich/visa";
 import { detectWorkMode } from "../../src/lib/enrich/workmode";
 import { detectRoleType } from "../../src/lib/enrich/role-type";
 import { extractExperience } from "../../src/lib/enrich/experience";
-import { parseStatedSalary, estimateSalary } from "../../src/lib/salary";
+import { parseStatedSalary, estimateSalary, isPlausibleBand } from "../../src/lib/salary";
+import { MAX_CARRIED_NIGHTS, postedTooLongAgo } from "./carry";
 import type { Job, RawJob, SalaryBand } from "../../src/lib/types";
 
 function slugify(input: string): string {
@@ -55,19 +56,81 @@ function isValidCurrency(code: string | undefined): code is string {
 }
 
 /**
+ * The date of a source tag (ruling R16): the first night the tag was seen.
+ * The previous record's date is kept when that record already stood on the
+ * tag with a date, so a tagged role stays byte-identical on a quiet night.
+ */
+function tagDate(previous: Job | undefined, tonight: string | undefined): string | undefined {
+  return previous?.visaBasis === "source" && previous.visaDeclaredAt ? previous.visaDeclaredAt : tonight;
+}
+
+/**
+ * The visa signal with the facts behind it. A refusal or an affirmation in
+ * the posting beats a source tag (Arbeitnow visa filter); a tag stands on
+ * its own only when the posting has no visa words, and is dated with the
+ * first night the tag was seen. When the tagged feed failed tonight the
+ * raw job carries no tag: the stored tag then stands in for it and counts
+ * its nights on the carry counter, three at most (ruling R44).
+ */
+function visaSignal(
+  text: string,
+  tagged: boolean,
+  now: string,
+  previous: Job | undefined,
+  rememberSourceVisa: boolean
+): Pick<Job, "visa" | "visaBasis" | "visaEvidence" | "visaDeclaredAt" | "carriedNights"> {
+  const visa = detectVisa(text);
+  if (visa !== "unknown") {
+    return { visa, visaBasis: "posting", visaEvidence: visaEvidence(text), visaDeclaredAt: undefined };
+  }
+  const rememberedNights = previous?.carriedNights ?? 0;
+  // a tag the source has not confirmed for three nights is not remembered on the fourth
+  const remembered =
+    rememberSourceVisa &&
+    previous?.visaBasis === "source" &&
+    previous.visa === "yes" &&
+    rememberedNights < MAX_CARRIED_NIGHTS;
+  if (tagged || remembered) {
+    return {
+      visa: "yes",
+      visaBasis: "source",
+      visaEvidence: null,
+      visaDeclaredAt: tagDate(previous, now),
+      // a remembered tag counts its night on the carry counter; a tag the feed confirms counts none
+      ...(remembered && !tagged ? { carriedNights: rememberedNights + 1 } : {}),
+    };
+  }
+  return { visa, visaBasis: undefined, visaEvidence: null, visaDeclaredAt: undefined };
+}
+
+/** The company and title as every later step reads them: decoded, then trimmed. */
+function decodedNames(raw: RawJob): { company: string; title: string } {
+  return { company: decodeEntities(raw.company).trim(), title: decodeEntities(raw.title).trim() };
+}
+
+/**
  * Turns a connector's raw job into a canonical, enriched Job record.
  * Returns null when the job falls outside the product scope: leadership
  * titles only, locations within the six supported regions (or remote),
- * and a plain web apply URL.
+ * and a plain web apply URL, and a posting dated within the last 365 days.
+ * `rememberSourceVisa` keeps a stored source tag on a night the tagged feed
+ * failed.
  */
-export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | null {
+export function normalizeJob(
+  raw: RawJob,
+  now: string,
+  existing?: Job,
+  options: { rememberSourceVisa?: boolean } = {}
+): Job | null {
   // decode before anything downstream reads the title or company: the
   // classifier, ids and dedupe keys must all see clean text
-  const title = decodeEntities(raw.title).trim();
-  const company = decodeEntities(raw.company).trim();
+  const { company, title } = decodedNames(raw);
   const classification = classifyTitle(title);
   if (!classification) return null;
   if (!isWebUrl(raw.applyUrl)) return null;
+  // a role posted more than a year ago is out of scope, whatever its feed still lists
+  const postedAt = raw.postedAt ?? existing?.postedAt ?? now;
+  if (postedTooLongAgo(postedAt, Date.parse(now))) return null;
   if (!isWebUrl(raw.sourceUrl)) raw = { ...raw, sourceUrl: raw.applyUrl };
   if (!isWebUrl(raw.companyLogoUrl)) raw = { ...raw, companyLogoUrl: undefined };
   const salaryHint =
@@ -77,22 +140,22 @@ export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | nu
   if (!location || (!location.country && !location.region && !location.remote)) return null;
 
   const parsed = parsePostingHtml(raw.descriptionHtml ?? "");
-  // a source-declared sponsorship flag (Arbeitnow visa filter) beats text detection
-  const visa = raw.visaHint === true ? "yes" : detectVisa(parsed.text);
+  const relocation = detectRelocation(parsed.text);
   const work = detectWorkMode(parsed.text, raw.remoteHint === true);
   const roleType = detectRoleType(parsed.text, raw.employmentHint);
   const experience = extractExperience(parsed.text, parsed.requirements.join("\n"));
 
-  let salary: SalaryBand | null = null;
+  // a band that is not plausible pay falls through to the estimate, as if nothing was stated (ruling R39)
+  const estimated = (): SalaryBand | null =>
+    location.country ? estimateSalary(location.country.iso3, classification.domain) : null;
+  let salary: SalaryBand | null;
   if (salaryHint) {
-    salary = { ...salaryHint, source: "stated" };
+    const stated: SalaryBand = { ...salaryHint, source: "stated" };
+    salary = isPlausibleBand(stated) ? stated : estimated();
   } else {
-    const stated = parseStatedSalary(parsed.text);
-    if (stated) {
-      salary = { ...stated, source: "stated" };
-    } else if (location.country) {
-      salary = estimateSalary(location.country.iso3, classification.domain);
-    }
+    const fromText = parseStatedSalary(parsed.text);
+    const stated: SalaryBand | null = fromText ? { ...fromText, source: "stated" } : null;
+    salary = stated && isPlausibleBand(stated) ? stated : estimated();
   }
 
   const job: Job = {
@@ -113,21 +176,30 @@ export function normalizeJob(raw: RawJob, now: string, existing?: Job): Job | nu
       region: location.country ? location.country.region : (location.region as Job["location"]["region"]),
       remote: location.remote,
       raw: raw.locationRaw,
+      // an empty list must stay absent: its presence marks a restricted role
+      ...(raw.locationRestrictions?.length ? { restrictions: raw.locationRestrictions } : {}),
     },
     seniority: classification.seniority,
     domain: classification.domain,
-    visa,
+    ...visaSignal(parsed.text, raw.visaHint === true, now, existing, options.rememberSourceVisa === true),
+    relocation,
+    relocationEvidence: relocationEvidence(parsed.text),
     workMode: work.mode,
     officeDays: work.officeDays,
     roleType,
     experienceMin: experience?.min,
     experienceMax: experience?.max,
     salary,
-    postedAt: raw.postedAt ?? existing?.postedAt ?? now,
+    postedAt,
     firstSeen: existing?.firstSeen ?? now,
     updatedAt: now,
     posterName: raw.posterName ?? undefined,
     posterUrl: raw.posterUrl ?? undefined,
+    feedUnit: raw.feedUnit,
+    sourceHome: raw.sourceHome,
+    // the run time of every refresh whose feed listed the role
+    lastSeenAt: now,
+    ...(raw.expiresAt ? { expiresAt: raw.expiresAt } : {}),
   };
 
   // a job whose content did not change keeps its previous updatedAt so a
@@ -151,9 +223,41 @@ export function stableUpdatedAt(job: Job, prevById: Map<string, Job>): Job {
   return job;
 }
 
+/**
+ * Post-dedupe carry for merged records (ruling R16). run.ts looks a previous
+ * record up by the raw job's own id, while a merged record is stored under
+ * the elder id, so a tag on the other twin cannot keep its date inside
+ * normalizeJob. The merged id is known only here. It runs before
+ * stableUpdatedAt, whose comparison must see the kept date.
+ */
+export function stableVisaDeclaredAt(job: Job, prevById: Map<string, Job>): Job {
+  if (job.visaBasis !== "source") return job;
+  const visaDeclaredAt = tagDate(prevById.get(job.id), job.visaDeclaredAt);
+  return visaDeclaredAt === job.visaDeclaredAt ? job : { ...job, visaDeclaredAt };
+}
+
+/**
+ * The key that finds a raw job's previous record (ruling R34). It is built
+ * from the decoded company and title, exactly as the stored id is, so a
+ * title with an entity finds its record and keeps its first night.
+ */
+export function stableIdForRaw(raw: RawJob): string {
+  const { company, title } = decodedNames(raw);
+  return stableId(company, title, raw.source, raw.externalId);
+}
+
+/**
+ * The post-dedupe stability step in its one correct order (ruling R34): the
+ * kept tag date must be in place before the content comparison, or a merged
+ * record whose date is only restored afterwards reads as changed.
+ */
+export function stableJob(job: Job, prevById: Map<string, Job>): Job {
+  return stableUpdatedAt(stableVisaDeclaredAt(job, prevById), prevById);
+}
+
+// the feed, the last-seen stamp and the night counters say when a role was seen, not what it is
+const NOT_CONTENT = ["updatedAt", "firstSeen", "feedUnit", "lastSeenAt", "carriedNights", "absentNights"];
+
 function contentSignature(job: Job): string {
-  const keys = Object.keys(job)
-    .filter((k) => k !== "updatedAt" && k !== "firstSeen")
-    .sort();
-  return JSON.stringify(job, keys);
+  return JSON.stringify(job, Object.keys(job).filter((k) => !NOT_CONTENT.includes(k)).sort());
 }

@@ -1,7 +1,40 @@
 import { Link } from "@/i18n/navigation";
-import type { IndexEntry } from "@/lib/types";
+import { adzunaMarkHref } from "@/lib/apply";
+import { SOURCE_LABELS, type IndexEntry } from "@/lib/types";
+import { remoteScope, signalView } from "@/lib/signals";
+import { regionLabel } from "@/lib/locations";
 import { CompanyLogo } from "./company-logo";
 import { formatSalaryBand } from "@/lib/salary";
+
+// the Adzuna terms want a link of at least 116 by 23 pixels, and only a flex box honours a minimum size on an inline element
+const MARK_CLASSES =
+  "inline-flex min-w-29 min-h-6 items-center underline underline-offset-2 hover:text-brand-500";
+// a chip centres its word. In a line of names the word starts its box, so the minimum width
+// leaves its gap after the word and not after the comma before it
+const MARK_ALIGN = { center: "justify-center", start: "justify-start" } as const;
+
+/** The attribution mark the Adzuna terms require on every Adzuna advert. */
+export function AdzunaMark({
+  href,
+  className,
+  align = "center",
+}: {
+  href: string;
+  className?: string;
+  align?: keyof typeof MARK_ALIGN;
+}) {
+  const classes = `${MARK_CLASSES} ${MARK_ALIGN[align]}`;
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className ? `${classes} ${className}` : classes}
+    >
+      {SOURCE_LABELS.adzuna}
+    </a>
+  );
+}
 
 export interface JobCardLabels {
   remoteWorldwide: string;
@@ -10,6 +43,7 @@ export interface JobCardLabels {
   salaryStated: string;
   salaryEstimated: string;
   visaYes: string;
+  visaYesBySource: (source: string) => string;
   visaNo: string;
   visaUnknown: string;
   perYear: string;
@@ -18,6 +52,7 @@ export interface JobCardLabels {
   plusPlaces: (n: number) => string;
   locationRestricted: string;
   worldwideRemote: string;
+  relocationYes: string;
   posted: (date: string) => string;
   roleTypeLabels: Record<string, string>;
   sourceLabels: Record<string, string>;
@@ -34,7 +69,20 @@ export function JobCard({
   locale?: string;
   headingLevel?: "h2" | "h3";
 }) {
-  const place = job.countryName ?? (job.remote ? labels.remoteWorldwide : (job.region ?? ""));
+  const scope = remoteScope(job);
+  // a restricted remote role must not claim worldwide in its place line either, and a region id is no label
+  const place =
+    job.countryName ??
+    (scope === "worldwide" ? labels.remoteWorldwide : (job.region ? regionLabel(job.region) : labels.workModeLabels.remote));
+  const source = labels.sourceLabels[job.source] ?? job.source;
+  const visaChip =
+    job.visa === "unknown"
+      ? null
+      : job.visa === "no"
+        ? labels.visaNo
+        : signalView(job).basis === "source"
+          ? labels.visaYesBySource(source)
+          : labels.visaYes;
   const Heading = headingLevel;
 
   return (
@@ -58,7 +106,7 @@ export function JobCard({
       </div>
 
       <div className="flex flex-wrap gap-1.5">
-        {job.visa !== "unknown" && (
+        {visaChip !== null && (
           <span
             className={`chip ${
               job.visa === "yes"
@@ -66,15 +114,12 @@ export function JobCard({
                 : "!border-transparent !bg-novisa-bg !text-novisa-fg"
             }`}
           >
-            {job.visa === "yes" ? labels.visaYes : labels.visaNo}
+            {visaChip}
           </span>
         )}
-        {job.remote && job.countryIso2 && (
-          <span className="chip">{labels.locationRestricted}</span>
-        )}
-        {job.remote && !job.countryIso2 && (
-          <span className="chip">{labels.worldwideRemote}</span>
-        )}
+        {job.relocation === "yes" && <span className="chip">{labels.relocationYes}</span>}
+        {scope === "restricted" && <span className="chip">{labels.locationRestricted}</span>}
+        {scope === "worldwide" && <span className="chip">{labels.worldwideRemote}</span>}
         {job.workMode !== "unspecified" && (
           <span
             className={`chip ${job.workMode === "hybrid" ? "!border-transparent !bg-hybrid-bg !text-hybrid-fg" : ""}`}
@@ -111,7 +156,10 @@ export function JobCard({
             )}
           </span>
         )}
-        <span className="chip">{labels.sourceLabels[job.source] ?? job.source}</span>
+        {job.source !== "adzuna" && <span className="chip">{source}</span>}
+        {(job.source === "adzuna" || (job.sources?.includes("adzuna") ?? false)) && (
+          <AdzunaMark href={adzunaMarkHref(job)} className="chip" />
+        )}
       </div>
 
       <p className="mt-auto text-xs text-muted">{labels.posted(job.postedAt)}</p>

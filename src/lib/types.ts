@@ -52,6 +52,8 @@ export interface JobLocation {
   region: RegionId | null;
   remote: boolean;
   raw: string;
+  /** Countries a remote role is open to, named by its source. Absent when the source names none. */
+  restrictions?: string[];
 }
 
 export type JdBlock =
@@ -70,6 +72,7 @@ export interface RawJob {
   sourceUrl: string;
   descriptionHtml?: string;
   locationRaw: string;
+  locationRestrictions?: string[];
   remoteHint?: boolean;
   employmentHint?: string | null;
   visaHint?: boolean;
@@ -77,6 +80,11 @@ export interface RawJob {
   postedAt?: string | null;
   posterName?: string | null;
   posterUrl?: string | null;
+  /** The feed of the source that returned the job, so a failed feed can be told from a quiet one. */
+  feedUnit?: string;
+  sourceHome?: string;
+  /** When the source stops listing the role, as an ISO stamp. Absent when the source dates no expiry. */
+  expiresAt?: string;
 }
 
 export interface Job {
@@ -95,6 +103,15 @@ export interface Job {
   seniority: Seniority;
   domain: Domain;
   visa: VisaSignal;
+  /** "posting" when the signal was read from the text, "source" when a source tagged the role. Absent when visa is unknown. */
+  visaBasis?: "posting" | "source";
+  /** The sentence behind the visa signal; null when the signal is unknown or stands on a source tag. */
+  visaEvidence?: string | null;
+  /** The run time of the first night a source tag made the visa signal. It does not move while the tag stays. */
+  visaDeclaredAt?: string;
+  relocation?: VisaSignal;
+  /** The sentence behind the relocation signal; null when the signal is unknown. */
+  relocationEvidence?: string | null;
   workMode: WorkMode;
   officeDays?: number;
   roleType: RoleType | null;
@@ -107,6 +124,20 @@ export interface Job {
   updatedAt: string;
   posterName?: string;
   posterUrl?: string;
+  feedUnit?: string;
+  sourceHome?: string;
+  /** When the source stops listing the role, as an ISO stamp. Absent when the source dates no expiry. */
+  expiresAt?: string;
+  /**
+   * Nights in a row a failed feed was stood in for by the previous refresh: three at most, for this
+   * record after its feed failed, or for its source visa tag after the visa feed failed. Absent on a
+   * night no feed failed.
+   */
+  carriedNights?: number;
+  /** The run time of the last refresh whose feed listed the role. A carried record keeps the one it had. */
+  lastSeenAt?: string;
+  /** Nights in a row an answering feed no longer listed the role while the record was kept anyway: two at most. */
+  absentNights?: number;
 }
 
 /** Compact card/search index entry derived from a Job. */
@@ -122,6 +153,10 @@ export interface IndexEntry {
   region: RegionId | null;
   remote: boolean;
   visa: VisaSignal;
+  visaBasis?: "posting" | "source";
+  relocation?: VisaSignal;
+  /** Present only for a remote role whose source names countries. */
+  locationRestrictions?: string[];
   workMode: WorkMode;
   officeDays?: number;
   roleType: RoleType | null;
@@ -135,6 +170,10 @@ export interface IndexEntry {
   salarySource?: "stated" | "estimated";
   postedAt: string;
   source: SourceId;
+  /** Every source that lists the role. Absent in a dataset written before the list was kept. */
+  sources?: SourceId[];
+  /** The site a redirect-style apply link leads back to; absent when the source names none. */
+  sourceHome?: string;
 }
 
 export interface SourceQuality {
@@ -169,4 +208,8 @@ export interface DatasetStats {
   byVisa: Record<string, number>;
   countries: number;
   bySourceQuality?: Record<string, SourceQuality>;
+  /** Roles kept from the previous refresh because their feed failed, counted per source. */
+  carried?: { total: number; bySource: Record<string, number> };
+  /** Every feed that failed in the run, transient or not. */
+  failedFeeds?: Array<{ source: string; unit: string; status?: number; transient: boolean; message: string }>;
 }

@@ -1,13 +1,7 @@
 import fs from "node:fs";
-
-// local runs read .env.local when present; real environment variables win
-try {
-  process.loadEnvFile(".env.local");
-} catch {
-  // no .env.local (CI, fresh clones): nothing to load
-}
 import path from "node:path";
-import { cachedFetchJson } from "./http";
+import { cachedFetchJson, withoutQueryString } from "./http";
+import type { FeedFailure, FetchDeps } from "./http";
 import {
   GREENHOUSE_TOKENS,
   WORKABLE_LOCATIONS,
@@ -32,15 +26,16 @@ import { leverConnector } from "./connectors/lever";
 import { ashbyConnector } from "./connectors/ashby";
 import { himalayasConnector } from "./connectors/himalayas";
 import { adzunaConnector } from "./connectors/adzuna";
-import { normalizeJob, stableId, stableUpdatedAt } from "./normalize";
-import { dedupeJobs } from "./dedupe";
+import { normalizeJob, stableIdForRaw, stableJob } from "./normalize";
+import { dedupeJobs, dedupeKey } from "./dedupe";
+import { SOURCE_UNIT, carryOver } from "./carry";
 import { datasetProblems, shouldRunSanityGate } from "./sanity";
 import { writeJsonAtomic } from "./write";
 import { buildQueryMatrix } from "../../src/lib/roles";
 import { DATASET_VERSION } from "../../src/lib/types";
 import { SOURCE_IDS } from "../../src/lib/types";
 import type { SourceQuality } from "../../src/lib/types";
-import type { DatasetStats, IndexEntry, Job, JobsFile, SourceId } from "../../src/lib/types";
+import type { DatasetStats, IndexEntry, Job, JobsFile, RawJob, SourceId } from "../../src/lib/types";
 
 const GENERATED_DIR = path.join(process.cwd(), "data", "generated");
 
@@ -69,7 +64,28 @@ function loadPrevStats(): DatasetStats | null {
   }
 }
 
-function toIndexEntry(job: Job): IndexEntry {
+/**
+ * Where every failed feed lands, and the only way into the failure list. A
+ * message passes withoutQueryString before it is stored (ruling R60): it
+ * loses the query string of an http or https URL, the user and the password
+ * of a URL of any scheme, the value of a parameter named like a
+ * credential, and the value of such a name in a JSON body. So no key a
+ * request sent in one of those shapes can reach the stored report in
+ * stats.json, or the tracking issue through it. A header line such as
+ * "Authorization: Bearer ..." is not masked, because no connector sends
+ * one. The console is no part of it: a connector prints what it prints.
+ */
+export function failureCollector(): { failures: FeedFailure[]; reportFailure: (failure: FeedFailure) => void } {
+  const failures: FeedFailure[] = [];
+  return {
+    failures,
+    reportFailure: (failure) => {
+      failures.push({ ...failure, message: withoutQueryString(failure.message) });
+    },
+  };
+}
+
+export function toIndexEntry(job: Job): IndexEntry {
   return {
     id: job.id,
     title: job.title,
@@ -82,6 +98,10 @@ function toIndexEntry(job: Job): IndexEntry {
     region: job.location.region,
     remote: job.location.remote,
     visa: job.visa,
+    visaBasis: job.visaBasis,
+    relocation: job.relocation,
+    // absent, never an empty list: only its presence marks a restricted role
+    locationRestrictions: job.location.restrictions,
     workMode: job.workMode,
     officeDays: job.officeDays,
     roleType: job.roleType,
@@ -95,10 +115,195 @@ function toIndexEntry(job: Job): IndexEntry {
     salarySource: job.salary?.source,
     postedAt: job.postedAt,
     source: job.source,
+    sources: job.sources,
+    sourceHome: job.sourceHome,
   };
 }
 
-export function computeStats(jobs: Job[], generatedAt: string): DatasetStats {
+/**
+ * The connectors a run fetches: all of them, or the one a --only id names.
+ * A single-source run skips the sanity gate, so an id that matches nothing
+ * must stop the run before it writes a dataset without any source (ruling R5).
+ */
+export function selectConnectors<T extends { id: string }>(all: T[], only: string | null): T[] {
+  if (only === null) return all;
+  const selected = all.filter((connector) => connector.id === only);
+  if (selected.length === 0) {
+    throw new Error(`--only=${only} matches no connector (known: ${all.map((connector) => connector.id).join(", ")})`);
+  }
+  return selected;
+}
+
+/**
+ * The previous records a run may judge tonight: those of the sources it
+ * fetched. A run with --only=x never speaks for the records of another source.
+ */
+export function previousOfSources(previous: Job[], fetchedSources: string[]): Job[] {
+  const fetched = new Set(fetchedSources);
+  return previous.filter((job) => fetched.has(job.source));
+}
+
+/** The previous dataset by the two handles a raw job finds its stored record with: the id and the dedupe key. */
+export interface PreviousIndex {
+  byId: Map<string, Job>;
+  byKey: Map<string, Job>;
+}
+
+export function indexPrevious(previous: Job[]): PreviousIndex {
+  return {
+    byId: new Map<string, Job>(previous.map((stored) => [stored.id, stored])),
+    byKey: new Map<string, Job>(previous.map((stored) => [dedupeKey(stored), stored])),
+  };
+}
+
+/**
+ * The stored record a raw job continues tonight (ruling R61): the one under
+ * its own id, else the one that shares the dedupe key of its normalization.
+ * A merged record is stored under the id of its elder source, so its twin of
+ * another source finds it by the key alone: the fresh role then takes the
+ * stored id and first night, and a stored source tag is remembered for it.
+ */
+export function previousOfRaw(raw: RawJob, now: string, previous: PreviousIndex): Job | undefined {
+  const own = previous.byId.get(stableIdForRaw(raw));
+  if (own) return own;
+  const normalized = normalizeJob(raw, now);
+  return normalized ? previous.byKey.get(dedupeKey(normalized)) : undefined;
+}
+
+/** Carried roles alone, the sum of carriedBySource: grace roles are no carried roles (ruling R62). */
+export function carriedCount(carriedBySource: Record<string, number>): number {
+  return Object.values(carriedBySource).reduce((sum, count) => sum + count, 0);
+}
+
+/**
+ * The lines a run prints about the roles it kept from the previous refresh
+ * (ruling R62). Each counts its own kind: carried roles after failed feeds,
+ * grace roles after a feed that no longer lists them.
+ */
+export function carryLines(
+  carried: { carriedBySource: Record<string, number>; graceCount: number },
+  failedFeeds: number
+): string[] {
+  const lines: string[] = [];
+  if (failedFeeds > 0) {
+    lines.push(
+      `[carry] ${carriedCount(carried.carriedBySource)} roles kept from the previous refresh after ${failedFeeds} failed feeds`
+    );
+  }
+  if (carried.graceCount > 0) {
+    lines.push(`[grace] ${carried.graceCount} roles kept for two nights after leaving their feed`);
+  }
+  return lines;
+}
+
+/**
+ * A source that fetched no raw job tonight while the previous dataset holds
+ * a role of it answered with no roles (ruling R59). The report is a
+ * transient failure of the whole source, so carryOver keeps its roles as it
+ * keeps those of a failed feed. A source the run did not fetch has no entry
+ * in `runs` and is not judged. A source that already reported itself as a
+ * whole tonight has said why it answered with no roles, so it is not
+ * reported again.
+ */
+export function emptyAnswers(
+  runs: Array<{ id: SourceId; fetched: number }>,
+  previous: Job[],
+  failures: FeedFailure[]
+): FeedFailure[] {
+  const held = new Set(previous.map((job) => job.source));
+  const reportedWhole = new Set(
+    failures.filter((failure) => failure.unit === SOURCE_UNIT).map((failure) => failure.source)
+  );
+  return runs
+    .filter((run) => run.fetched === 0 && held.has(run.id) && !reportedWhole.has(run.id))
+    .map((run) => ({ source: run.id, unit: SOURCE_UNIT, transient: true, message: "the source answered with no roles" }));
+}
+
+/**
+ * Whether an Arbeitnow visa feed failed transiently tonight. Its raw jobs
+ * then come back untagged, and the stored source tag stands in for them.
+ */
+export function visaFeedFailed(failures: FeedFailure[]): boolean {
+  return failures.some(
+    (failure) => failure.transient && failure.source === "arbeitnow" && failure.unit.startsWith("visa-feed-")
+  );
+}
+
+/**
+ * The night after the connector loop. The fresh records are deduped and
+ * settled against the stored ones, a source that answered with no roles is
+ * reported, and carryOver judges every stored record of the fetched sources
+ * that no fresh record holds tonight. A kept record is stored as it was
+ * apart from the night counter, the last-seen stamp and the pay check: a
+ * stated band that cannot be pay gives way to the estimate for its country
+ * and domain, or to no band where no benchmark covers the country. Either
+ * way it joins after the dedupe. The answer holds the failures, with the
+ * empty answers in them, the carried result, the final list and the number
+ * of feeds that failed.
+ */
+export function closeNight(input: {
+  allJobs: Job[];
+  previous: JobsFile | null;
+  // the stored records by id, as the connector loop already indexed them
+  previousById: PreviousIndex["byId"];
+  fetchedSources: string[];
+  runs: Array<{ id: SourceId; fetched: number }>;
+  failures: FeedFailure[];
+  reportFailure: (failure: FeedFailure) => void;
+  now: string;
+}): {
+  failures: FeedFailure[];
+  carried: ReturnType<typeof carryOver>;
+  finalJobs: Job[];
+  failedFeeds: number;
+} {
+  const fresh = dedupeJobs(input.allJobs).map((job) => stableJob(job, input.previousById));
+  const judged = previousOfSources(input.previous?.jobs ?? [], input.fetchedSources);
+  for (const failure of emptyAnswers(input.runs, judged, input.failures)) input.reportFailure(failure);
+  const carried = carryOver({
+    previous: judged,
+    previousGeneratedAt: input.previous?.generatedAt,
+    fresh,
+    failures: input.failures,
+    now: input.now,
+  });
+  // one feed is a source and unit pair: a feed can report more than once
+  const failedFeeds = new Set(input.failures.map((failure) => `${failure.source}/${failure.unit}`)).size;
+  for (const line of carryLines(carried, failedFeeds)) console.log(line);
+  const finalJobs = [...fresh, ...carried.jobs];
+  finalJobs.sort((a, b) => (a.postedAt === b.postedAt ? a.id.localeCompare(b.id) : a.postedAt < b.postedAt ? 1 : -1));
+  return { failures: input.failures, carried, finalJobs, failedFeeds };
+}
+
+/**
+ * What a run writes. A quiet night, one whose final list equals the previous
+ * records with only lastSeenAt apart, keeps the previous stamp and records,
+ * so the workflow's no-change check can fire and skip the commit (ruling R46).
+ */
+export function settleNight(
+  finalJobs: Job[],
+  previous: JobsFile | null,
+  now: string
+): { jobs: Job[]; generatedAt: string } {
+  if (previous && JSON.stringify(apartFromLastSeen(finalJobs)) === JSON.stringify(apartFromLastSeen(previous.jobs))) {
+    return { jobs: previous.jobs, generatedAt: previous.generatedAt };
+  }
+  return { jobs: finalJobs, generatedAt: now };
+}
+
+function apartFromLastSeen(jobs: Job[]): Job[] {
+  return jobs.map((job) => {
+    const copy = { ...job };
+    delete copy.lastSeenAt;
+    return copy;
+  });
+}
+
+export function computeStats(
+  jobs: Job[],
+  generatedAt: string,
+  carry?: { carriedBySource: Record<string, number>; failedFeeds: NonNullable<DatasetStats["failedFeeds"]> }
+): DatasetStats {
   // every configured source appears, zeros included, so a dried-up pipeline
   // is visible in stats.json instead of silently disappearing
   const bySource: Record<string, number> = Object.fromEntries(SOURCE_IDS.map((id) => [id, 0]));
@@ -129,10 +334,27 @@ export function computeStats(jobs: Job[], generatedAt: string): DatasetStats {
       medianPostedAgeDays: ages.length > 0 ? ages[Math.floor(ages.length / 2)] : 0,
     };
   }
-  return { bySourceQuality, generatedAt, total: jobs.length, bySource, byRegion, byVisa, countries: countries.size };
+  const carriedTotal = carriedCount(carry?.carriedBySource ?? {});
+  return {
+    bySourceQuality,
+    generatedAt,
+    total: jobs.length,
+    bySource,
+    byRegion,
+    byVisa,
+    countries: countries.size,
+    ...(carry ? { carried: { total: carriedTotal, bySource: carry.carriedBySource }, failedFeeds: carry.failedFeeds } : {}),
+  };
 }
 
 async function main() {
+  // local runs read .env.local when present; real environment variables win
+  try {
+    process.loadEnvFile(".env.local");
+  } catch {
+    // no .env.local (CI, fresh clones): nothing to load
+  }
+
   const args = process.argv.slice(2);
   const smoke = args.includes("--smoke");
   const onlyArg = args.find((a) => a.startsWith("--only="));
@@ -141,38 +363,45 @@ async function main() {
   const now = new Date().toISOString();
   console.log(`Ingest started at ${now}${smoke ? " (smoke mode)" : ""}`);
 
-  const deps = { fetchJson: cachedFetchJson };
-  const connectors = [
-    greenhouseConnector(deps, { tokens: smoke ? ["stripe"] : GREENHOUSE_TOKENS }),
-    workableConnector(deps, {
-      queries: smoke ? ["CTO", "Director of Engineering"] : WORKABLE_QUERIES,
-      locations: smoke ? ["United Arab Emirates"] : WORKABLE_LOCATIONS,
-    }),
-    arbeitnowConnector(deps, { pages: smoke ? 1 : ARBEITNOW_PAGES }),
-    jobicyConnector(deps, { count: smoke ? 5 : JOBICY_COUNT, tags: smoke ? undefined : JOBICY_TAGS }),
-    leverConnector(deps, { tokens: smoke ? ["netomi"] : LEVER_TOKENS, names: LEVER_COMPANY_NAMES }),
-    ashbyConnector(deps, { tokens: smoke ? ["docker"] : ASHBY_TOKENS, names: ASHBY_COMPANY_NAMES }),
-    himalayasConnector(deps, { pages: smoke ? 1 : HIMALAYAS_PAGES, queries: HIMALAYAS_QUERIES }),
-    adzunaConnector(deps, {
-      appId: process.env.ADZUNA_APP_ID ?? "",
-      appKey: process.env.ADZUNA_APP_KEY ?? "",
-      countries: smoke ? ["gb"] : ADZUNA_COUNTRIES,
-      queries: smoke ? ["engineering director"] : ADZUNA_QUERIES,
-      pages: 1,
-    }),
-  ].filter((connector) => !only || connector.id === only);
+  // every failed feed lands here: what it holds decides what is carried tonight
+  const { failures, reportFailure } = failureCollector();
+  const deps: FetchDeps = { fetchJson: cachedFetchJson, reportFailure };
+  const connectors = selectConnectors(
+    [
+      greenhouseConnector(deps, { tokens: smoke ? ["stripe"] : GREENHOUSE_TOKENS }),
+      workableConnector(deps, {
+        queries: smoke ? ["CTO", "Director of Engineering"] : WORKABLE_QUERIES,
+        locations: smoke ? ["United Arab Emirates"] : WORKABLE_LOCATIONS,
+      }),
+      arbeitnowConnector(deps, { pages: smoke ? 1 : ARBEITNOW_PAGES }),
+      jobicyConnector(deps, { count: smoke ? 5 : JOBICY_COUNT, tags: smoke ? undefined : JOBICY_TAGS }),
+      leverConnector(deps, { tokens: smoke ? ["netomi"] : LEVER_TOKENS, names: LEVER_COMPANY_NAMES }),
+      ashbyConnector(deps, { tokens: smoke ? ["docker"] : ASHBY_TOKENS, names: ASHBY_COMPANY_NAMES }),
+      himalayasConnector(deps, { pages: smoke ? 1 : HIMALAYAS_PAGES, queries: HIMALAYAS_QUERIES, now }),
+      adzunaConnector(deps, {
+        appId: process.env.ADZUNA_APP_ID ?? "",
+        appKey: process.env.ADZUNA_APP_KEY ?? "",
+        countries: smoke ? ["gb"] : ADZUNA_COUNTRIES,
+        queries: smoke ? ["engineering director"] : ADZUNA_QUERIES,
+        pages: 1,
+      }),
+    ],
+    only
+  );
 
   const prevEnvelope = loadPrevEnvelope();
-  const existing = new Map<string, Job>((prevEnvelope?.jobs ?? []).map((job) => [job.id, job]));
+  const previous = indexPrevious(prevEnvelope?.jobs ?? []);
   const allJobs: Job[] = [];
+  const runs: Array<{ id: SourceId; fetched: number }> = [];
   let dropped = 0;
 
   for (const connector of connectors) {
     const rawJobs = await connector.run();
+    const rememberSourceVisa = visaFeedFailed(failures);
     let kept = 0;
     for (const raw of rawJobs) {
-      const priorJob = existing.get(stableId(raw.company, raw.title, raw.source, raw.externalId));
-      const job = normalizeJob(raw, now, priorJob);
+      const priorJob = previousOfRaw(raw, now, previous);
+      const job = normalizeJob(raw, now, priorJob, rememberSourceVisa ? { rememberSourceVisa: true } : undefined);
       if (!job) {
         dropped += 1;
         continue;
@@ -180,26 +409,30 @@ async function main() {
       allJobs.push(job);
       kept += 1;
     }
+    runs.push({ id: connector.id, fetched: rawJobs.length });
     console.log(`[${connector.id}] ${rawJobs.length} fetched, ${kept} in scope`);
   }
 
-  const deduped = dedupeJobs(allJobs).map((job) => stableUpdatedAt(job, existing));
-  deduped.sort((a, b) => (a.postedAt === b.postedAt ? a.id.localeCompare(b.id) : a.postedAt < b.postedAt ? 1 : -1));
+  const night = closeNight({
+    allJobs,
+    previous: prevEnvelope,
+    previousById: previous.byId,
+    fetchedSources: connectors.map((connector) => connector.id),
+    runs,
+    failures,
+    reportFailure,
+    now,
+  });
 
   if (shouldRunSanityGate({ smoke, only: Boolean(only), force: args.includes("--force") })) {
-    const problems = datasetProblems(deduped, loadPrevStats());
+    const problems = datasetProblems(night.finalJobs, loadPrevStats(), carriedCount(night.carried.carriedBySource));
     if (problems.length > 0) {
       for (const problem of problems) console.error(`[sanity] ${problem.rule}: ${problem.detail}`);
       throw new Error("Dataset sanity check failed; refusing to write. Re-run with --force to override.");
     }
   }
 
-  // a quiet run whose content is byte-identical keeps the previous stamp so
-  // the workflow's no-change check can actually fire and skip the commit
-  const stamp =
-    prevEnvelope && JSON.stringify(deduped) === JSON.stringify(prevEnvelope.jobs)
-      ? prevEnvelope.generatedAt
-      : now;
+  const { jobs, generatedAt: stamp } = settleNight(night.finalJobs, prevEnvelope, now);
 
   if (smoke) {
     console.log("Smoke mode: fetched and normalized only, nothing written.");
@@ -210,28 +443,34 @@ async function main() {
   writeJsonAtomic(path.join(GENERATED_DIR, "jobs.json"), {
     version: DATASET_VERSION,
     generatedAt: stamp,
-    jobs: deduped,
+    jobs,
   });
   writeJsonAtomic(path.join(GENERATED_DIR, "index.json"), {
     version: DATASET_VERSION,
     generatedAt: stamp,
-    jobs: deduped.map(toIndexEntry),
+    jobs: jobs.map(toIndexEntry),
   });
-  const stats = computeStats(deduped, stamp);
+  const stats = computeStats(jobs, stamp, {
+    carriedBySource: night.carried.carriedBySource,
+    failedFeeds: night.failures,
+  });
   writeJsonAtomic(path.join(GENERATED_DIR, "stats.json"), stats);
   writeJsonAtomic(path.join(GENERATED_DIR, "queries.json"), {
     generatedAt: stamp,
     queries: buildQueryMatrix().map((q) => q.phrase),
   });
 
-  console.log(`Done: ${deduped.length} jobs (${dropped} out of scope), ${stats.countries} countries`);
+  console.log(`Done: ${jobs.length} jobs (${dropped} out of scope), ${stats.countries} countries`);
   if (stamp !== now) console.log("Dataset unchanged; kept previous generatedAt");
   console.log("By source:", stats.bySource);
   console.log("By region:", stats.byRegion);
   console.log("By visa:", stats.byVisa);
 }
 
-main().catch((error) => {
-  console.error("Ingest failed:", error);
-  process.exit(1);
-});
+// importing this module (the test suite does) must never start a pipeline
+if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(import.meta.filename ?? "")) {
+  main().catch((error) => {
+    console.error("Ingest failed:", error);
+    process.exit(1);
+  });
+}

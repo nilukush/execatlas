@@ -1,10 +1,29 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 
 /**
  * The production journeys that component tests cannot prove: the dataset
  * asset fetch (issue 10) and the URL-carried listing state that must
  * survive opening a role and pressing back (issue 3).
  */
+
+/** The listing asset the browser fetches at runtime. Its name changes with every nightly refresh. */
+const DATASET_URL = /\/data\/index-[^/]+\.json$/;
+
+/**
+ * Opens a listing filtered on a visa signal and returns once the dataset is in. The page
+ * passes through three states: the static HTML holds the first roles unfiltered, the
+ * hydrated page filters those, and only then does the full dataset arrive. So the listener
+ * stands before the navigation, and the asset is read to its end. The navigation waits for
+ * the document only: cards load logos from other hosts, so a quiet network is not promised.
+ */
+async function openSignalListing(page: Page, visa: "yes" | "no"): Promise<void> {
+  const [dataset] = await Promise.all([
+    page.waitForResponse((response) => DATASET_URL.test(response.url()), { timeout: 15_000 }),
+    page.goto(`/en/jobs?visa=${visa}`, { waitUntil: "domcontentloaded" }),
+  ]);
+  expect(dataset.ok(), `the listing dataset answered ${dataset.status()}`).toBe(true);
+  expect(await dataset.finished(), "the listing dataset arrived in full").toBeNull();
+}
 
 test("listing loads the dataset asset and renders roles", async ({ page }) => {
   await page.goto("/en/jobs");
@@ -50,19 +69,29 @@ test("stats page renders the nightly scorecard", async ({ page }) => {
 });
 
 test("detail page shows the visa signal card when a signal exists", async ({ page }) => {
-  await page.goto("/en/jobs");
-  await expect(page.locator("article").first()).toBeVisible({ timeout: 15_000 });
-  // walk listings until a role with a visa chip opens; the chip text is
-  // the same label the detail card uses
-  const cards = page.locator("article");
-  const count = await cards.count();
-  for (let i = 0; i < count; i += 1) {
-    const chip = cards.nth(i).locator(".chip", { hasText: /visa/i }).first();
-    if (await chip.isVisible().catch(() => false)) {
-      await cards.nth(i).locator("a[href*='/jobs/']").first().click();
-      await expect(page.getByText(/signal read from the posting/i)).toBeVisible();
-      return;
-    }
+  // the chips read "Sponsors" and "No sponsorship", so a listing filtered on the
+  // signal is the sure way to a role that carries one
+  const firstCard = page.locator("article").first();
+  const emptyListing = page.getByText("No roles match these filters");
+  // every card of a listing filtered on the signal carries one chip that names the signal
+  const signalChips = firstCard.locator(".chip", { hasText: /^(Sponsors|No sponsorship)/ });
+
+  await openSignalListing(page, "yes");
+  // both waits retry, so a listing that still renders the full dataset cannot decide the branch
+  const sponsored = await signalChips.first().waitFor({ state: "visible", timeout: 15_000 }).then(
+    () => true,
+    () => false
+  );
+  if (!sponsored) {
+    await expect(emptyListing, "a listing with no sponsoring role must say so").toBeVisible({ timeout: 15_000 });
+    await openSignalListing(page, "no");
+    await signalChips.first().waitFor({ state: "visible", timeout: 15_000 });
   }
-  test.skip(true, "no visa-signalled role on page 1 of the listing today");
+
+  // a card that carries the signal chip leads to a role that shows the signal
+  await expect(signalChips).toHaveCount(1);
+  // the title link is the first link of a card that leads to a role
+  await page.locator("article a[href*='/jobs/']").first().click();
+  await expect(page).toHaveURL(/\/jobs\/[^/]+$/);
+  await expect(page.getByRole("heading", { name: "Visa signal" })).toBeVisible();
 });

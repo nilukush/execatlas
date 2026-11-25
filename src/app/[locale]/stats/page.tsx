@@ -35,6 +35,9 @@ export default async function StatsPage({
       <p className="mt-2 text-sm text-muted">
         {t("intro", { date: new Date(stats.generatedAt).toISOString().slice(0, 10) })}
       </p>
+      {stats.carried && stats.carried.total > 0 && (
+        <p className="mt-2 text-sm text-muted">{t("carriedNote", { count: stats.carried.total })}</p>
+      )}
 
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
         <div className="card-ui p-5">

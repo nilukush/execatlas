@@ -108,3 +108,26 @@ describe("shouldRunSanityGate", () => {
     expect(shouldRunSanityGate({ smoke: false, only: false, force: true })).toBe(false);
   });
 });
+
+describe("carried share", () => {
+  it("flags carried roles above 40 percent of the final list", () => {
+    const result = datasetProblems(jobs({ greenhouse: 30, workable: 30 }), null, 25);
+    expect(result.map((p) => p.rule)).toEqual(["carried-share"]);
+    expect(result[0].detail).toContain("25 of 60");
+  });
+
+  it("accepts carried roles at exactly 40 percent of the final list", () => {
+    expect(datasetProblems(jobs({ greenhouse: 30, workable: 30 }), null, 24)).toEqual([]);
+  });
+
+  it("counts the carried roles toward the floors, so a failed feed does not trip them", () => {
+    // workable stands at 143 only because 60 of its roles were carried
+    const list = [...jobs({ greenhouse: 95 }), ...jobs({ workable: 143 })];
+    expect(datasetProblems(list, prevStats(), 60)).toEqual([]);
+  });
+
+  it("raises no rule for a run that carried nothing", () => {
+    expect(datasetProblems(jobs({ greenhouse: 30, workable: 30 }), null)).toEqual([]);
+    expect(datasetProblems(jobs({ greenhouse: 30, workable: 30 }), null, 0)).toEqual([]);
+  });
+});

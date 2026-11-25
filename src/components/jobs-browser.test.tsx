@@ -199,7 +199,9 @@ describe("JobsBrowser ask and saved searches", () => {
 
   it("marks remote roles that are restricted to a country", () => {
     const worldwide = make({ id: "worldwide", remote: true });
-    worldwide.countryIso2 = undefined; // the builder defaults to AE
+    // the builder defaults to AE and the middle-east region
+    worldwide.countryIso2 = undefined;
+    worldwide.region = null;
     renderBrowser([
       make({ id: "restricted", remote: true, countryIso2: "JM", countryName: "Jamaica" }),
       worldwide,
