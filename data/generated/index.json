@@ -1,7 +1,132 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-25T11:12:21.032Z",
+  "generatedAt": "2026-11-25T13:02:53.681Z",
   "jobs": [
+    {
+      "id": "fairmoney-head-of-lending-product-a768b8",
+      "title": "Head of Lending Product",
+      "company": "FairMoney",
+      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/519744/logo",
+      "seniority": "head",
+      "domain": "product",
+      "countryIso2": "PL",
+      "countryName": "Poland",
+      "region": "europe",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "remote",
+      "roleType": "full-time",
+      "salaryMin": 240000,
+      "salaryMax": 438000,
+      "salaryCurrency": "PLN",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-25T11:57:34.782Z",
+      "source": "workable",
+      "sources": [
+        "workable"
+      ]
+    },
+    {
+      "id": "colibrix-one-head-of-engineering-4904b1",
+      "title": "Head of Engineering",
+      "company": "Colibrix One",
+      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/620198/logo",
+      "seniority": "head",
+      "domain": "engineering",
+      "countryIso2": "ES",
+      "countryName": "Spain",
+      "region": "europe",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "unspecified",
+      "roleType": null,
+      "experienceMin": 8,
+      "variantCountries": [
+        {
+          "countryIso2": "CY",
+          "countryName": "Cyprus",
+          "region": "europe",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/eBSr6BK7F9rpFjMuoA8RR7/hybrid-head-of-engineering-in-limassol-at-colibrix-one"
+        },
+        {
+          "countryIso2": "PL",
+          "countryName": "Poland",
+          "region": "europe",
+          "remote": false,
+          "applyUrl": "https://jobs.workable.com/view/wwyfLnYDPivjAzAPBT2Ln6/hybrid-head-of-engineering-in-warsaw-at-colibrix-one"
+        }
+      ],
+      "salaryMin": 41575,
+      "salaryMax": 41575,
+      "salaryCurrency": "EUR",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-25T11:57:10.853Z",
+      "source": "workable",
+      "sources": [
+        "workable"
+      ]
+    },
+    {
+      "id": "lanesra-technical-recruitment-limited-engineering-director-f01f8b",
+      "title": "Engineering Director",
+      "company": "Lanesra Technical Recruitment Limited",
+      "seniority": "director",
+      "domain": "engineering",
+      "countryIso2": "GB",
+      "countryName": "United Kingdom",
+      "region": "europe",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "unspecified",
+      "roleType": "contract",
+      "salaryMin": 69515,
+      "salaryMax": 119408,
+      "salaryCurrency": "GBP",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-25T11:47:10.000Z",
+      "source": "adzuna",
+      "sources": [
+        "adzuna"
+      ],
+      "sourceHome": "https://www.adzuna.co.uk"
+    },
+    {
+      "id": "orbis-operations-llc-vp-of-engineering-779108",
+      "title": "VP of Engineering",
+      "company": "Orbis Operations LLC",
+      "companyLogoUrl": "https://cdn-images.himalayas.app/nq4w2uhzx2n84xxzgdbyakvt1n6e",
+      "seniority": "vp",
+      "domain": "engineering",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": true,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "locationRestrictions": [
+        "United States"
+      ],
+      "workMode": "hybrid",
+      "roleType": "full-time",
+      "experienceMin": 12,
+      "salaryMin": 138060,
+      "salaryMax": 220730,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-25T11:27:21.000Z",
+      "source": "himalayas",
+      "sources": [
+        "himalayas"
+      ]
+    },
     {
       "id": "third-plateau-associate-director-of-technology-edb412",
       "title": "Associate Director of Technology",
@@ -15451,6 +15576,32 @@
       "sourceHome": "https://www.adzuna.co.uk"
     },
     {
+      "id": "trane-technologies-vp-engineering-and-technology-4d2c8f",
+      "title": "VP Engineering and Technology",
+      "company": "Trane Technologies",
+      "seniority": "vp",
+      "domain": "engineering",
+      "countryIso2": "US",
+      "countryName": "United States",
+      "region": "north-america",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "unspecified",
+      "roleType": null,
+      "salaryMin": 138060,
+      "salaryMax": 220730,
+      "salaryCurrency": "USD",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-11-11T08:52:44.000Z",
+      "source": "adzuna",
+      "sources": [
+        "adzuna"
+      ],
+      "sourceHome": "https://www.adzuna.com"
+    },
+    {
       "id": "marriott-director-of-engineering-c0c0e9",
       "title": "Director of Engineering",
       "company": "Marriott",
@@ -15635,32 +15786,6 @@
         "adzuna"
       ],
       "sourceHome": "https://www.adzuna.ca"
-    },
-    {
-      "id": "trane-technologies-vp-engineering-and-technology-4d2c8f",
-      "title": "VP Engineering and Technology",
-      "company": "Trane Technologies",
-      "seniority": "vp",
-      "domain": "engineering",
-      "countryIso2": "US",
-      "countryName": "United States",
-      "region": "north-america",
-      "remote": false,
-      "visa": "unknown",
-      "relocation": "unknown",
-      "workMode": "unspecified",
-      "roleType": null,
-      "salaryMin": 138060,
-      "salaryMax": 220730,
-      "salaryCurrency": "USD",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-11-11T02:25:01.000Z",
-      "source": "adzuna",
-      "sources": [
-        "adzuna"
-      ],
-      "sourceHome": "https://www.adzuna.com"
     },
     {
       "id": "vornado-realty-trust-vp-engineering-a2ff82",
@@ -15969,7 +16094,7 @@
     {
       "id": "station-f-head-of-director-engineering-b87022",
       "title": "Head of/Director Engineering",
-      "company": "STATION F",
+      "company": "Station F",
       "seniority": "director",
       "domain": "engineering",
       "countryIso2": "FR",
@@ -16553,7 +16678,7 @@
       "visa": "unknown",
       "relocation": "unknown",
       "workMode": "unspecified",
-      "roleType": "full-time",
+      "roleType": "contract",
       "salaryMin": 69515,
       "salaryMax": 119408,
       "salaryCurrency": "GBP",
@@ -34351,6 +34476,32 @@
       ]
     },
     {
+      "id": "flosum-director-of-software-engineering-netherl-124eaa",
+      "title": "Director of Software Engineering (Netherlands)",
+      "company": "Flosum",
+      "seniority": "director",
+      "domain": "engineering",
+      "countryIso2": "NL",
+      "countryName": "Netherlands",
+      "region": "europe",
+      "remote": false,
+      "visa": "unknown",
+      "relocation": "unknown",
+      "workMode": "unspecified",
+      "roleType": null,
+      "salaryMin": 111400,
+      "salaryMax": 148100,
+      "salaryCurrency": "EUR",
+      "salaryPeriod": "annual",
+      "salarySource": "estimated",
+      "postedAt": "2026-04-30T20:23:58.000Z",
+      "source": "adzuna",
+      "sources": [
+        "adzuna"
+      ],
+      "sourceHome": "https://www.adzuna.nl"
+    },
+    {
       "id": "flosum-director-of-software-engineering-canada-3f1462",
       "title": "Director of Software Engineering (Canada)",
       "company": "Flosum",
@@ -34496,33 +34647,6 @@
       "salaryPeriod": "annual",
       "salarySource": "estimated",
       "postedAt": "2026-04-30T16:01:35.438Z",
-      "source": "workable",
-      "sources": [
-        "workable",
-        "adzuna"
-      ]
-    },
-    {
-      "id": "flosum-director-of-software-engineering-netherl-124eaa",
-      "title": "Director of Software Engineering (Netherlands)",
-      "company": "Flosum",
-      "companyLogoUrl": "https://workablehr.s3.amazonaws.com/uploads/account/logo/697984/logo",
-      "seniority": "director",
-      "domain": "engineering",
-      "countryIso2": "NL",
-      "countryName": "Netherlands",
-      "region": "europe",
-      "remote": false,
-      "visa": "unknown",
-      "relocation": "unknown",
-      "workMode": "remote",
-      "roleType": null,
-      "salaryMin": 111400,
-      "salaryMax": 148100,
-      "salaryCurrency": "EUR",
-      "salaryPeriod": "annual",
-      "salarySource": "estimated",
-      "postedAt": "2026-04-30T15:59:48.976Z",
       "source": "workable",
       "sources": [
         "workable",
